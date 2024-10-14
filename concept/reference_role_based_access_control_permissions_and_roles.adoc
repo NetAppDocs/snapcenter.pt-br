@@ -1,0 +1,86 @@
+---
+permalink: concept/reference_role_based_access_control_permissions_and_roles.html 
+sidebar: sidebar 
+keywords: RBAC, roles, permissions 
+summary: 'O controle de acesso baseado em função (RBAC) do SnapCenter permite criar funções e adicionar permissões a essas funções e, em seguida, atribuir usuários ou grupos de usuários às funções. Isso permite que os administradores do SnapCenter criem um ambiente gerenciado centralmente, enquanto os administradores de aplicativos podem gerenciar tarefas de proteção de dados. O SnapCenter é fornecido com algumas funções e permissões predefinidas.' 
+---
+= Permissões e funções do RBAC
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+O controle de acesso baseado em função (RBAC) do SnapCenter permite criar funções e atribuir permissões a essas funções e, em seguida, atribuir usuários ou grupos de usuários às funções. Isso permite que os administradores do SnapCenter criem um ambiente gerenciado centralmente, enquanto os administradores de aplicativos podem gerenciar tarefas de proteção de dados. O SnapCenter é fornecido com algumas funções e permissões predefinidas.
+
+
+
+== Funções do SnapCenter
+
+O SnapCenter é fornecido com as seguintes funções predefinidas. Você pode atribuir usuários e grupos a essas funções ou criar novas funções.
+
+Quando você atribui uma função a um usuário, somente os trabalhos relevantes a esse usuário são visíveis na página trabalhos, a menos que você tenha atribuído a função Administrador do SnapCenter.
+
+* App Backup e Clone Admin
+* Visualizador de cópias de segurança e clones
+* Administrador de infraestrutura
+* SnapCenterAdmin
+
+
+
+
+== Plug-in do SnapCenter para funções do VMware vSphere
+
+Para gerenciar a proteção de dados consistente com VM de VMs, VMDKs e armazenamentos de dados, as funções a seguir são criadas no vCenter pelo plug-in do SnapCenter para VMware vSphere:
+
+* Administrador do SCV
+* Vista SCV
+* Backup da VCR
+* Restauração da VCR
+* Restauração do arquivo convidado SCV
+
+
+Para obter mais informações, consulte https://docs.netapp.com/us-en/sc-plugin-vmware-vsphere/scpivs44_types_of_rbac_for_snapcenter_users.html["Tipos de plug-in RBAC para SnapCenter para usuários do VMware vSphere"^]
+
+|===
+
+
+| *Prática recomendada:* a NetApp recomenda que você crie uma função do ONTAP para o plug-in do SnapCenter para operações do VMware vSphere e atribua a ele todos os Privileges necessários. 
+|===
+
+
+== Permissões do SnapCenter
+
+O SnapCenter fornece as seguintes permissões:
+
+* Grupo recursos
+* Política
+* Backup
+* Host
+* Ligação de armazenamento
+* Clone
+* Provisionamento (apenas para banco de dados Microsoft SQL)
+* Painel de instrumentos
+* Relatórios
+* Restaurar
++
+** Restauração completa de volume (somente para plug-ins personalizados)
+
+
+* Recurso
++
+Os plug-in Privileges são necessários do administrador para que não administradores realizem operações de descoberta de recursos.
+
+* Instalação ou desinstalação do plug-in
++
+
+NOTE: Quando você ativa permissões de instalação de plug-in, você também deve modificar a permissão de host para habilitar leituras e atualizações.
+
+* Migração
+* Montar (apenas para banco de dados Oracle)
+* Desmontar (apenas para banco de dados Oracle)
+* Monitor de trabalho
++
+A permissão Monitor de tarefas permite que membros de diferentes funções vejam as operações em todos os objetos aos quais são atribuídos.
+
+

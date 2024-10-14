@@ -1,0 +1,163 @@
+---
+permalink: protect-scsql/task_add_hosts_and_install_snapcenter_plug_ins_package_for_windows.html 
+sidebar: sidebar 
+keywords: credentials 
+summary: Você deve usar a página SnapCenterAdd Host para adicionar hosts e instalar os pacotes de plug-ins. Os plug-ins são instalados automaticamente nos hosts remotos. 
+---
+= Adicione hosts e instale o pacote de plug-ins do SnapCenter para Windows
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Você deve usar a página SnapCenter *Adicionar host* para adicionar hosts e instalar o pacote de plug-ins. Os plug-ins são instalados automaticamente nos hosts remotos.
+
+.Antes de começar
+* Se o sistema operacional do host do servidor SnapCenter for o Windows 2019 e o sistema operacional do host do plug-in for o Windows 2022, você deve executar o seguinte:
++
+** Atualize para o Windows Server 2019 (versão de SO 17763,5936) ou posterior
+** Atualize para o Windows Server 2022 (versão de SO 20348,2402) ou posterior
+
+
+* Você deve ser um usuário atribuído a uma função que tenha as permissões de instalação e desinstalação do plug-in, como a função Administrador do SnapCenter.
+* Ao instalar um plug-in em um host do Windows, se você especificar uma credencial que não esteja integrada, desative o UAC no host.
+* Você deve garantir que o serviço de enfileiramento de mensagens esteja no estado em execução.
+* Se você estiver usando a conta de serviço gerenciado de grupo (gMSA), você deve configurar o gMSA com Privileges administrativo.
++
+link:task_configure_gMSA_on_windows_server_2012_or_later.html["Configurar conta de serviço gerenciado de grupo no Windows Server 2016 ou posterior para SQL"^]
+
+
+
+.Sobre esta tarefa
+Não é possível adicionar um servidor SnapCenter como um host plug-in a outro servidor SnapCenter.
+
+Você pode adicionar um host e instalar os pacotes de plug-in para um host individual ou para um cluster. Se você estiver instalando os plug-ins em um cluster ou no WSFC (Windows Server failover Clustering), os plug-ins serão instalados em todos os nós do cluster.
+
+Para obter informações sobre como gerenciar hosts, link:../admin/concept_manage_hosts.html["Gerenciar hosts"^]consulte .
+
+.Passos
+. No painel de navegação esquerdo, selecione *hosts*.
+. Verifique se a guia *hosts gerenciados* está selecionada na parte superior.
+. Selecione *Adicionar*.
+. Na página hosts, faça o seguinte:
++
+|===
+| Para este campo... | Faça isso... 
+
+
+ a| 
+Tipo de host
+ a| 
+Selecione Windows como o tipo de host. O servidor SnapCenter adiciona o host e, em seguida, instala o plug-in para Windows se o plug-in ainda não estiver instalado no host.
+
+Se você selecionar a opção Microsoft SQL Server na página Plug-ins, o servidor SnapCenter instala o plug-in para SQL Server.
+
+
+
+ a| 
+Nome do host
+ a| 
+Insira o nome de domínio totalmente qualificado (FQDN) ou o endereço IP do host. O endereço IP é suportado para hosts de domínio não confiáveis somente se for resolvido para o FQDN.
+
+O SnapCenter depende da configuração adequada do DNS. Portanto, a melhor prática é entrar no FQDN.
+
+Você pode inserir os endereços IP ou FQDN de um dos seguintes:
+
+** Anfitrião independente
+** WSFC se você estiver adicionando um host usando o SnapCenter e o host fizer parte de um subdomínio, você deverá fornecer o FQDN.
+
+
+
+
+ a| 
+Credenciais
+ a| 
+Selecione o nome da credencial que você criou ou crie novas credenciais. A credencial deve ter direitos administrativos no host remoto. Para obter detalhes, consulte as informações sobre como criar credenciais.
+
+Você pode exibir detalhes sobre as credenciais posicionando o cursor sobre o nome da credencial que você especificou.
+
+
+NOTE: O modo de autenticação de credenciais é determinado pelo tipo de host especificado no assistente Adicionar host.
+
+|===
+. Na seção *Select Plug-ins to Install*, selecione os plug-ins a instalar.
+. Selecione *mais opções*.
++
+|===
+| Para este campo... | Faça isso... 
+
+
+ a| 
+Porta
+ a| 
+Guarde o número da porta padrão ou especifique o número da porta. O número da porta padrão é 8145. Se o servidor SnapCenter tiver sido instalado em uma porta personalizada, esse número de porta será exibido como a porta padrão.
+
+
+NOTE: Se você instalou manualmente os plug-ins e especificou uma porta personalizada, você deve especificar a mesma porta. Caso contrário, a operação falha.
+
+
+
+ a| 
+Caminho de instalação
+ a| 
+O caminho padrão é C: Arquivos de programas / NetApp / SnapCenter. Opcionalmente, você pode personalizar o caminho.
+
+
+
+ a| 
+Adicione todos os hosts no cluster
+ a| 
+Marque essa caixa de seleção para adicionar todos os nós de cluster em um WSFC ou um SQL Availability Group. Você deve adicionar todos os nós de cluster selecionando a caixa de seleção de cluster apropriada na GUI se quiser gerenciar e identificar vários grupos de disponibilidade SQL disponíveis em um cluster.
+
+
+
+ a| 
+Ignorar as verificações de pré-instalação
+ a| 
+Marque essa caixa de seleção se você já instalou os plug-ins manualmente e não quiser validar se o host atende aos requisitos para instalar o plug-in.
+
+
+
+ a| 
+Use a conta de serviço gerenciado de grupo (gMSA) para executar os serviços de plug-in
+ a| 
+Marque essa caixa de seleção se quiser usar a conta de serviço gerenciado de grupo (gMSA) para executar os serviços de plug-in.
+
+Forneça o nome do gMSA no seguinte formato:
+
+
+NOTE: Se o host for adicionado com gMSA e se o gMSA tiver login e sys admin Privileges, o gMSA será usado para se conetar à instância SQL.
+
+|===
+. Selecione *Enviar*.
+. Para o SQL Plug-in, selecione o host para configurar o diretório de log.
++
+.. Selecione *Configurar diretório de log* e, na página Configurar diretório de log do host, selecione *Procurar* e execute as seguintes etapas:
++
+Apenas os LUNs (unidades) NetApp são listados para seleção. O SnapCenter faz o backup e replica o diretório de log do host como parte da operação de backup.
+
++
+image::../media/host_managed_hosts_configureplugin.gif[Configure a página de plug-in]
+
++
+... Selecione a letra da unidade ou ponto de montagem no host onde o log do host será armazenado.
+... Escolha um subdiretório, se necessário.
+... Selecione *Guardar*.
+
+
+
+
+. Selecione *Enviar*.
++
+Se você não selecionou a caixa de seleção *Ignorar pré-verificações*, o host será validado para verificar se atende aos requisitos para a instalação do plug-in. O espaço em disco, a RAM, a versão do PowerShell, a versão .NET, a localização (para plug-ins do Windows) e a versão Java (para plug-ins do Linux) são validados de acordo com os requisitos mínimos. Se os requisitos mínimos não forem cumpridos, são apresentadas mensagens de erro ou de aviso adequadas.
+
++
+Se o erro estiver relacionado ao espaço em disco ou à RAM, você pode atualizar o arquivo web.config localizado no NetApp SnapCenter para modificar os valores padrão. Se o erro estiver relacionado a outros parâmetros, você deve corrigir o problema.
+
++
+
+NOTE: Em uma configuração de HA, se você estiver atualizando o arquivo web.config, será necessário atualizar o arquivo em ambos os nós.
+
+. Monitorize o progresso da instalação.
+

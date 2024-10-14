@@ -1,0 +1,50 @@
+---
+permalink: uninstall/task_uninstall_plug_ins_from_a_host_using_the_snapcenter_gui.html 
+sidebar: sidebar 
+keywords: uninstall, gui 
+summary: Quando você decidir que não precisa mais de um plug-in individual ou de um pacote de plug-in, você pode desinstalá-lo usando a interface SnapCenter. 
+---
+= Desinstale os plug-ins usando a GUI do SnapCenter
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Quando você decidir que não precisa mais de um plug-in individual ou de um pacote de plug-in, você pode desinstalá-lo usando a interface SnapCenter.
+
+.Antes de começar
+* Você deve ter removido os grupos de recursos para o pacote de plug-in que você está desinstalando.
+* Você deve ter desanexado as políticas associadas aos grupos de recursos para o pacote de plug-in que você está desinstalando.
+
+
+.Sobre esta tarefa
+Você pode desinstalar um plug-in individual. Por exemplo, talvez seja necessário desinstalar o plug-in do SnapCenter para o Microsoft SQL Server porque um host está ficando sem recursos e deseja mover esse plug-in para um host mais poderoso. Você também pode desinstalar todo um pacote de plug-in. Por exemplo, talvez seja necessário desinstalar o pacote de plug-ins do SnapCenter para Linux, que inclui o plug-in do SnapCenter para banco de dados Oracle e o plug-in do SnapCenter para UNIX.
+
+* A remoção de um host inclui a desinstalação de todos os plug-ins.
++
+Quando você remove um host do SnapCenter, o SnapCenter desinstala todos os pacotes de plug-in no host antes de remover o host.
+
+* A GUI do SnapCenter remove plug-ins de um host de cada vez.
++
+Quando você usa a GUI do SnapCenter, você pode desinstalar plug-ins em apenas um host de cada vez. No entanto, você pode ter várias operações de desinstalação em execução ao mesmo tempo.
+
++
+Você também pode desinstalar um plug-in de vários hosts usando o cmdlet _Uninstall-SmHostPackage_ e os parâmetros necessários. As informações sobre os parâmetros que podem ser usados com o cmdlet e suas descrições podem ser obtidas executando _get-Help command_name_. Em alternativa, pode também consultar o https://docs.netapp.com/us-en/snapcenter-cmdlets/index.html["Guia de referência de cmdlet do software SnapCenter"^].
+
+
+
+
+IMPORTANT: Desinstalar o pacote de plug-ins do SnapCenter de um host no qual o servidor SnapCenter está instalado danificará a instalação do servidor SnapCenter. Não desinstale o pacote de plug-ins do SnapCenter para Windows, a menos que você tenha certeza de que não precisa mais do servidor SnapCenter.
+
+.Passos
+. No painel de navegação esquerdo, clique em *hosts*.
+. Na página hosts, clique em *hosts gerenciados*.
+. Na página hosts gerenciados, selecione o host do qual você deseja desinstalar o pacote plug-in ou plug-in.
+. Adjacente ao plug-in que você deseja remover, clique em *Remover* > *Enviar*.
+
+
+.Depois de terminar
+Você deve esperar 5 minutos antes de reinstalar o plug-in nesse host. Esse período de tempo é suficiente para que a GUI do SnapCenter atualize o status do host gerenciado. A instalação falha se você reinstalar imediatamente o plug-in.
+
+Se você estiver desinstalando o pacote de plug-ins do SnapCenter para Linux, os arquivos de log específicos de desinstalação estão disponíveis em: _/custom_location/SnapCenter/log_.

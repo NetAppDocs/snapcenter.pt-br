@@ -1,0 +1,22 @@
+---
+permalink: protect-postgresql/snapcenter-plug-in-for-postgresql-overview.html 
+sidebar: sidebar 
+keywords: SnapCenter Plug-in for PostgreSQL 
+summary: O plug-in do SnapCenter para PostgreSQL é um componente do lado do host do software NetApp SnapCenter que permite o gerenciamento de clusters do PostgreSQL com reconhecimento de aplicativos. O cluster Plug-in para PostgreSQL automatiza o backup, a restauração e a clonagem de clusters PostgreSQL em seu ambiente SnapCenter. 
+---
+= Visão geral do plug-in do SnapCenter para PostgreSQL
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+O cluster do SnapCenter Plug-in para PostgreSQL é um componente do lado do host do software NetApp SnapCenter que permite o gerenciamento de clusters do PostgreSQL com reconhecimento de aplicativos. O cluster Plug-in para PostgreSQL automatiza o backup, a restauração e a clonagem de clusters PostgreSQL em seu ambiente SnapCenter.
+
+O SnapCenter suporta configurações de cluster único e multi cluster PostgreSQL. Você pode usar o Plug-in para clusters PostgreSQL em ambientes Linux e Windows. Em ambientes Windows, o PostgreSQL será suportado como recurso manual.
+
+Quando o cluster Plug-in para PostgreSQL é instalado, você pode usar o SnapCenter com a tecnologia NetApp SnapMirror para criar cópias espelhadas de conjuntos de backup em outro volume. Você também pode usar o plug-in com a tecnologia NetApp SnapVault para executar a replicação de backup disco a disco para conformidade com os padrões.
+
+O plug-in do SnapCenter para PostgreSQL é compatível com NFS e SAN em layouts de storage de arquivos do ONTAP e do Azure NetApp.
+
+O VMDK ou o layout de armazenamento virtual são suportados.

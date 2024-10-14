@@ -1,0 +1,221 @@
+---
+sidebar: sidebar 
+permalink: sc-automation/concept_input_variables_controlling_an_api_request.html 
+keywords: http methods, request headers, request body, filtering objects, size, pagination 
+summary: Você pode controlar como uma chamada de API é processada através de parâmetros e variáveis definidos na solicitação HTTP. 
+---
+= Variáveis de entrada que controlam uma solicitação de API
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+Você pode controlar como uma chamada de API é processada através de parâmetros e variáveis definidos na solicitação HTTP.
+
+
+
+== Métodos HTTP
+
+Os métodos HTTP suportados pela API REST do SnapCenter são mostrados na tabela a seguir.
+
+
+NOTE: Nem todos os métodos HTTP estão disponíveis em cada um dos pontos finais REST.
+
+|===
+| Método HTTP | Descrição 
+
+
+| OBTER | Recupera propriedades de objeto em uma instância ou coleção de recursos. 
+
+
+| POST | Cria uma nova instância de recurso com base na entrada fornecida. 
+
+
+| ELIMINAR | Exclui uma instância de recurso existente. 
+
+
+| COLOQUE | Modifica uma instância de recurso existente. 
+|===
+
+
+== Cabeçalhos de solicitação
+
+Você deve incluir vários cabeçalhos na solicitação HTTP.
+
+
+
+=== Tipo de conteúdo
+
+Se o corpo da solicitação incluir JSON, esse cabeçalho deve ser definido como _application/json_.
+
+
+
+=== Aceitar
+
+Esse cabeçalho deve ser definido como _application/json_.
+
+
+
+=== Autorização
+
+A autenticação básica deve ser definida com o nome de usuário e senha codificados como uma string base64.
+
+
+
+== Corpo do pedido
+
+O conteúdo do corpo da solicitação varia de acordo com a chamada específica. O corpo da solicitação HTTP consiste em um dos seguintes:
+
+* Objeto JSON com variáveis de entrada
+* Vazio
+
+
+
+
+== Filtrando objetos
+
+Ao emitir uma chamada de API que usa GET, você pode limitar ou filtrar os objetos retornados com base em qualquer atributo. Por exemplo, você pode especificar um valor exato para corresponder:
+
+`<field>=<query value>`
+
+Além de uma correspondência exata, outros operadores estão disponíveis para retornar um conjunto de objetos em uma faixa de valores. A API REST do SnapCenter suporta os operadores de filtragem mostrados na tabela abaixo.
+
+|===
+| Operador | Descrição 
+
+
+| . | Igual a. 
+
+
+| * | Menos de 
+
+
+| > | Superior a. 
+
+
+| O que é que eu tenho | Inferior ou igual a 
+
+
+| > | Maior ou igual a 
+
+
+| ATUALIZAÇÃO | Ou 
+
+
+| ! | Não é igual a 
+
+
+| * | Wildcard ganancioso 
+|===
+Você também pode retornar uma coleção de objetos com base se um campo específico está definido ou não usando a palavra-chave *null* ou sua negação *!null* como parte da consulta.
+
+
+NOTE: Todos os campos que não estão definidos são geralmente excluídos de consultas correspondentes.
+
+
+
+== Solicitando campos de objeto específicos
+
+Por padrão, a emissão de uma chamada de API usando O GET retorna apenas os atributos que identificam exclusivamente o objeto ou objetos. Este conjunto mínimo de campos atua como uma chave para cada objeto e varia de acordo com o tipo de objeto. Você pode selecionar propriedades de objeto adicionais usando o `fields` parâmetro de consulta das seguintes maneiras:
+
+
+
+=== Campos comuns ou padrão
+
+Especifique *campos** para recuperar os campos de objeto mais comumente usados. Esses campos são normalmente mantidos na memória do servidor local ou requerem pouco processamento para acessar. Estas são as mesmas propriedades retornadas para um objeto depois de usar GET com uma chave de caminho de URL (UUID).
+
+
+
+=== Todos os campos
+
+Especifique *campos *** para recuperar todos os campos de objeto, incluindo aqueles que exigem processamento adicional de servidor para acessar.
+
+
+
+=== Seleção de campo personalizada
+
+Use *fields <field_name>* para especificar o campo exato desejado. Ao solicitar vários campos, os valores devem ser separados usando vírgulas sem espaços.
+
+
+IMPORTANT: Como prática recomendada, você deve sempre identificar os campos específicos que deseja. Você só deve recuperar o conjunto de campos comuns ou todos os campos quando necessário. Quais campos são classificados como comuns e retornados usando _fields*_, são determinados pelo NetApp com base na análise interna de desempenho. A classificação de um campo pode mudar em versões futuras.
+
+
+
+== Ordenar objetos no conjunto de saída
+
+Os Registros em uma coleção de recursos são retornados na ordem padrão definida pelo objeto. Você pode alterar a ordem usando o `order_by` parâmetro de consulta com o nome do campo e a direção de classificação da seguinte forma:
+
+`order_by=<field name> asc|desc`
+
+Por exemplo, você pode classificar o campo tipo em ordem decrescente seguido de id em ordem crescente:
+
+`order_by=type desc, id asc`
+
+* Se você especificar um campo de classificação, mas não fornecer uma direção, os valores serão classificados em ordem crescente.
+* Ao incluir vários parâmetros, você deve separar os campos com uma vírgula.
+
+
+
+
+== Paginação ao recuperar objetos em uma coleção
+
+Ao emitir uma chamada de API usando GET para acessar uma coleção de objetos do mesmo tipo, o SnapCenter tenta retornar o maior número possível de objetos com base em duas restrições. Você pode controlar cada uma dessas restrições usando parâmetros de consulta adicionais na solicitação. A primeira restrição alcançada para uma SOLICITAÇÃO GET específica termina a solicitação e, portanto, limita o número de Registros retornados.
+
+
+NOTE: Se uma solicitação terminar antes de iterar todos os objetos, a resposta conterá o link necessário para recuperar o próximo lote de Registros.
+
+
+
+=== Limitando o número de objetos
+
+Por padrão, o SnapCenter retorna um máximo de 10.000 objetos para uma SOLICITAÇÃO GET. Você pode alterar esse limite usando o parâmetro de consulta _Max_Records_. Por exemplo:
+
+`max_records=20`
+
+O número de objetos realmente retornados pode ser menor do que o máximo em efeito, com base na restrição de tempo relacionada, bem como o número total de objetos no sistema.
+
+
+
+=== Limitar o tempo usado para recuperar os objetos
+
+Por padrão, o SnapCenter retorna o maior número possível de objetos dentro do tempo permitido para a solicitação GET. O tempo limite padrão é de 15 segundos. Você pode alterar esse limite usando o parâmetro de consulta _return_timeout_. Por exemplo:
+
+`return_timeout=5`
+
+O número de objetos realmente retornados pode ser menor que o máximo em efeito, com base na restrição relacionada ao número de objetos, bem como o número total de objetos no sistema.
+
+
+
+=== Estreitar o conjunto de resultados
+
+Se necessário, você pode combinar esses dois parâmetros com parâmetros de consulta adicionais para restringir o conjunto de resultados. Por exemplo, o seguinte retorna até 10 eventos EMS gerados após o tempo especificado:
+
+`time=> 2018-04-04T15:41:29.140265Z&max_records=10`
+
+Você pode emitir várias solicitações para percorrer os objetos. Cada chamada de API subsequente deve usar um novo valor de tempo com base no evento mais recente no último conjunto de resultados.
+
+
+
+== Propriedades de tamanho
+
+Os valores de entrada usados com algumas chamadas de API, bem como certos parâmetros de consulta são numéricos. Em vez de fornecer um inteiro em bytes, você pode opcionalmente usar um sufixo como mostrado na tabela a seguir.
+
+|===
+| Sufixo | Descrição 
+
+
+| KB | KB kilobytes (1024 bytes) ou kibibytes 
+
+
+| MB | MB megabytes (KB x 1024 bytes) ou megabytes 
+
+
+| GB | GB Gigabytes (MB x 1024 bytes) ou gibytes 
+
+
+| TB | TB Terabytes (GB x 1024 byes) ou tebibytes 
+
+
+| PB | PB petabytes (TB x 1024 byes) ou petabytes 
+|===

@@ -1,0 +1,27 @@
+---
+permalink: protect-db2/types-of-restore-strategies-supported-for-manually-added-ibm-db2.html 
+sidebar: sidebar 
+keywords: SnapCenter 
+summary: Você deve definir uma estratégia antes de executar operações de restauração com êxito usando o SnapCenter. Existem dois tipos de estratégias de restauração para recursos do IBM DB2 adicionados manualmente. Não é possível recuperar recursos do IBM DB2 adicionados manualmente. 
+---
+= Tipos de estratégias de restauração suportadas para recursos IBM DB2 adicionados manualmente
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Você deve definir uma estratégia antes de executar operações de restauração com êxito usando o SnapCenter. Existem dois tipos de estratégias de restauração para recursos do IBM DB2 adicionados manualmente.
+
+
+NOTE: Não é possível recuperar recursos do IBM DB2 adicionados manualmente.
+
+
+
+== Restauração completa de recursos
+
+* Restaura todos os volumes, qtrees e LUNs de um recurso
+
+
+
+NOTE: Se o recurso contiver volumes ou qtrees, os instantâneos obtidos após o snapshot selecionado para restauração em tais volumes ou qtrees serão excluídos e não poderão ser recuperados. Além disso, se qualquer outro recurso estiver hospedado nos mesmos volumes ou qtrees, esse recurso também será excluído.

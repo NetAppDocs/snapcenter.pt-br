@@ -1,0 +1,132 @@
+---
+permalink: protect-sce/task_define_a_backup_strategy_for_exchange_server_resources.html 
+sidebar: sidebar 
+keywords: SnapCenter plug-in for Exchange Server 
+summary: 'Definir uma estratégia de backup antes de criar seus trabalhos de backup ajuda a garantir que você tenha os backups necessários para restaurar seus bancos de dados com êxito. Seu Contrato de nível de Serviço (SLA), objetivo de tempo de recuperação (rto) e objetivo do ponto de recuperação (RPO) determinam em grande parte sua estratégia de backup.' 
+---
+= Defina uma estratégia de backup para recursos do Exchange Server
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Definir uma estratégia de backup antes de criar seus trabalhos de backup ajuda a garantir que você tenha os backups necessários para restaurar seus bancos de dados com êxito. Seu Contrato de nível de serviço (SLA), objetivo de tempo de recuperação (rto) e objetivo do ponto de restauração (RPO) determinam em grande parte a sua estratégia de backup.
+
+Um SLA define o nível de serviço esperado e aborda muitos problemas relacionados ao serviço, incluindo a disponibilidade e o desempenho do serviço. O rto é o momento em que um processo de negócios deve ser restaurado após uma interrupção no serviço. Um RPO define a estratégia para a era dos arquivos que precisam ser recuperados do storage de backup para que as operações regulares sejam retomadas após uma falha. O SLA, rto e RPO contribuem para a estratégia de backup.
+
+
+
+== Tipos de backups suportados para o banco de dados Exchange
+
+Fazer backup de caixas de correio do Exchange usando o SnapCenter requer que você escolha o tipo de recurso, como bancos de dados e grupos de disponibilidade de banco de dados (DAG). A tecnologia Snapshot é utilizada para criar cópias on-line e somente leitura dos volumes nos quais os recursos residem.
+
+|===
+| Tipo de cópia de segurança | Descrição 
+
+
+ a| 
+Backup completo e de log
+ a| 
+Faz backup dos bancos de dados e de todos os logs de transações, incluindo os logs truncados.
+
+Após a conclusão de um backup completo, o Exchange Server trunca os logs de transação que já estão comprometidos com o banco de dados.
+
+Normalmente, você deve escolher essa opção. No entanto, se o tempo de backup for curto, você pode optar por não executar um backup de log de transações com backup completo.
+
+
+
+ a| 
+Backup completo
+ a| 
+Faz backup de bancos de dados e logs de transações.
+
+Os logs de transação truncados não são backup.
+
+
+
+ a| 
+Registo de cópia de segurança
+ a| 
+Faz backup de todos os logs de transação.
+
+Os logs truncados que já estão comprometidos com o banco de dados não são copiados. Se você agendar backups frequentes de log de transações entre backups completos de bancos de dados, poderá escolher pontos de recuperação granular.
+
+|===
+
+
+== Agendas de backup para plug-ins de banco de dados
+
+A frequência de backup (tipo de agendamento) é especificada em políticas; uma programação de backup é especificada na configuração do grupo de recursos. O fator mais crítico na determinação de uma frequência ou programação de backup é a taxa de alteração do recurso e a importância dos dados. Você pode fazer backup de um recurso muito usado a cada hora, enquanto você pode fazer backup de um recurso raramente usado uma vez por dia. Outros fatores incluem a importância do recurso para a sua organização, seu Contrato de nível de Serviço (SLA) e seu objetivo de ponto de recuperação (RPO).
+
+Um SLA define o nível de serviço esperado e aborda muitos problemas relacionados ao serviço, incluindo a disponibilidade e o desempenho do serviço. Um RPO define a estratégia para a era dos arquivos que precisam ser recuperados do storage de backup para que as operações regulares sejam retomadas após uma falha. O SLA e o RPO contribuem para a estratégia de proteção de dados.
+
+Mesmo para um recurso muito usado, não é necessário executar um backup completo mais de uma ou duas vezes por dia. Por exemplo, backups regulares de log de transações podem ser suficientes para garantir que você tenha os backups necessários. Quanto mais você fizer backup de seus bancos de dados, menos Registros de transações que o SnapCenter precisa usar no momento da restauração, o que pode resultar em operações de restauração mais rápidas.
+
+Os programas de backup têm duas partes, como segue:
+
+* Frequência de backup
++
+A frequência de backup (com que frequência os backups devem ser executados), chamada _schedule type_ para alguns plug-ins, faz parte de uma configuração de política. Você pode selecionar a frequência de backup da política por hora, dia, semanal ou mensal. Se você não selecionar nenhuma dessas frequências, a política criada será uma política somente sob demanda. Você pode acessar políticas clicando em *Configurações* > *políticas*.
+
+* Fazer backup de programações
++
+As agendas de backup (exatamente quando os backups devem ser executados) fazem parte de uma configuração de grupo de recursos. Por exemplo, se você tiver um grupo de recursos que tenha uma política configurada para backups semanais, poderá configurar a programação para fazer backup todas as quintas-feiras às 10:00 horas. Você pode acessar programações de grupos de recursos clicando em *recursos* > *grupos de recursos*.
+
+
+
+
+
+== Número de trabalhos de backup necessários para bancos de dados
+
+Os fatores que determinam o número de tarefas de backup de que você precisa incluem o tamanho do recurso, o número de volumes usados, a taxa de alteração do recurso e seu Contrato de nível de Serviço (SLA).
+
+
+
+== Convenções de nomenclatura de backup
+
+Você pode usar a convenção padrão de nomenclatura Snapshot ou usar uma convenção de nomenclatura personalizada. A convenção de nomenclatura de backup padrão adiciona um carimbo de data/hora aos nomes de Snapshot que ajuda a identificar quando as cópias foram criadas.
+
+O Snapshot usa a seguinte convenção de nomenclatura padrão:
+
+`resourcegroupname_hostname_timestamp`
+
+Você deve nomear seus grupos de recursos de backup logicamente, como no exemplo a seguir:
+
+[listing]
+----
+dts1_mach1x88_03-12-2015_23.17.26
+----
+Neste exemplo, os elementos de sintaxe têm os seguintes significados:
+
+* _dts1_ é o nome do grupo de recursos.
+* _mach1x88_ é o nome do host.
+* _03-12-2015_23.17.26_ é a data e o carimbo de data/hora.
+
+
+Como alternativa, você pode especificar o formato do nome da captura Instantânea enquanto protege recursos ou grupos de recursos selecionando *usar formato de nome personalizado para cópia Instantânea*. Por exemplo, customtext_resourcegroup_policy_hostname ou resourcegroup_hostname. Por padrão, o sufixo do carimbo de hora é adicionado ao nome do instantâneo.
+
+
+
+== Opções de retenção de backup
+
+Você pode escolher o número de dias para os quais reter cópias de backup ou especificar o número de cópias de backup que deseja reter, até um máximo de ONTAP de 255 cópias. Por exemplo, sua organização pode exigir que você retenha 10 dias de cópias de backup ou 130 cópias de backup.
+
+Ao criar uma política, você pode especificar as opções de retenção para o tipo de backup e o tipo de agendamento.
+
+Se você configurar a replicação do SnapMirror, a política de retenção será espelhada no volume de destino.
+
+O SnapCenter exclui os backups retidos que têm rótulos de retenção que correspondem ao tipo de agendamento. Se o tipo de agendamento tiver sido alterado para o grupo de recursos ou recursos, os backups com o rótulo de tipo de agendamento antigo ainda poderão permanecer no sistema.
+
+
+NOTE: Para retenção de longo prazo de cópias de backup, você deve usar o backup SnapVault.
+
+
+
+== Quanto tempo para reter backups de log de transações no volume de armazenamento de origem para o Exchange Server
+
+O plug-in do SnapCenter para Microsoft Exchange Server precisa de backups de log de transações para executar operações de restauração atualizadas, que restauram seu banco de dados para um tempo entre dois backups completos.
+
+Por exemplo, se o Plug-in para Exchange fez um backup completo do log de transações mais às 8:00 da manhã e outro backup completo do log de transações mais às 5:00 da tarde, ele poderia usar o backup de log de transações mais recente para restaurar o banco de dados a qualquer momento entre as 8:00 da manhã e as 5:00 da tarde se os logs de transações não estiverem disponíveis, o Plug-in para Exchange pode executar apenas operações de restauração pontual, que restaura
+
+Normalmente, você precisa de operações de restauração mais atualizadas por apenas um dia ou dois. Por padrão, o SnapCenter mantém um mínimo de dois dias.

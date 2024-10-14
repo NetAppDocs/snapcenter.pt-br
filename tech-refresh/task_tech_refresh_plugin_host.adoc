@@ -1,0 +1,120 @@
+---
+permalink: tech-refresh/task_tech_refresh_plugin_host.html 
+sidebar: sidebar 
+keywords: tech refresh, plug-in host, supported plug-ins, prerequisites to refresh plug-in hosts, application hosts, limitations for tech refresh of plug-in hosts 
+summary: Mova os recursos do host antigo para o novo host para executar a atualização técnica dos hosts do plug-in. 
+---
+= Atualização técnica dos hosts de plug-in do SnapCenter
+:allow-uri-read: 
+
+
+[role="lead"]
+Quando os hosts do plug-in do SnapCenter precisarem ser atualizados, você deve mover os recursos do host antigo para o novo host. Quando o novo host for adicionado ao SnapCenter, ele descobrirá todos os recursos, mas será Tratado como novos recursos.
+
+.Sobre esta tarefa
+Você deve executar a API ou cmdlet, que levará o nome de host antigo e o novo nome de host como entrada, comparar os recursos por nome e revincular os objetos de recursos correspondentes do host antigo para o novo host. Os recursos correspondentes serão marcados como protegidos.
+
+* O parâmetro _IsDryRun_ é definido como true por padrão e isso identifica os recursos correspondentes do host antigo e novo.
++
+Depois de verificar os recursos correspondentes, você deve definir o parâmetro _IsDryRun_ como Falso para revincular os objetos dos recursos correspondentes do host antigo para o novo host.
+
+* O parâmetro _AutoMigrateManuallyAddedResources_ é definido como true por padrão e isso copia automaticamente os recursos adicionados manualmente do host antigo para o novo host.
++
+O parâmetro _AutoMigrateManuallyAddedResources_ é aplicável apenas para recursos Oracle e SAP HANA.
+
+* O parâmetro _SQLInstanceMapping_ deve ser usado se o nome da instância for diferente entre o host antigo e o novo host. Se for uma instância padrão, use _default_instance_ como nome da instância.
+
+
+A atualização técnica é suportada para os seguintes plug-ins do SnapCenter:
+
+* Plug-in do SnapCenter para Microsoft SQL Server
++
+** Se os bancos de dados SQL estiverem protegidos no nível da instância e como parte da atualização técnica do host, somente os recursos parciais serão movidos para o novo host, a proteção existente no nível da instância será convertida para a proteção do grupo de recursos e as instâncias de ambos os hosts serão adicionadas ao grupo de recursos.
+** Se um host SQL (por exemplo, host1) for usado como agendador ou servidor de verificação para recursos de outro host (por exemplo, host2), ao executar a atualização técnica no host1, o agendamento ou os detalhes de verificação não serão migrados e continuarão a ser executados no host1. Se você tiver que modificar, então você deve alterá-lo manualmente nos respetivos hosts.
+** Se você estiver usando a configuração FCI (instâncias de cluster de failover SQL), poderá realizar a atualização técnica adicionando o novo nó ao cluster FCI e atualizando o host de plug-in no SnapCenter.
+** Se você estiver usando a configuração do SQL Availability Group (AG), a atualização técnica não será necessária. Você pode adicionar o novo nó ao AG e atualizar o host no SnapCenter.
+
+
+* Plug-in do SnapCenter para Windows
+* Plug-in SnapCenter para banco de dados Oracle
++
+Se você estiver usando a configuração do RAC (Real Application Cluster), poderá realizar a atualização técnica adicionando o novo nó ao cluster RAC e atualizando o host do plug-in no SnapCenter.
+
+* Plug-in do SnapCenter para banco de dados SAP HANA
+
+
+Os casos de uso suportados são:
+
+* Migração de recursos de um host para outro host.
+* Migração de recursos de vários hosts para um ou menos hosts.
+* Migração de recursos de um host para vários hosts.
+
+
+Os cenários suportados são:
+
+* Novo anfitrião tem um nome diferente do antigo anfitrião
+* O host existente foi renomeado
+
+
+.Antes de começar
+Como este fluxo de trabalho modifica os dados no repositório SnapCenter, recomenda-se fazer backup do repositório SnapCenter. No caso de quaisquer problemas de dados, o repositório SnapCenter pode ser revertido para o estado antigo usando o backup.
+
+Para obter mais informações, https://docs.netapp.com/us-en/snapcenter/admin/concept_manage_the_snapcenter_server_repository.html#back-up-the-snapcenter-repository["Faça backup do repositório do SnapCenter"] consulte .
+
+.Passos
+. Implante o novo host e instale o aplicativo.
+. Suspenda os horários do antigo host.
+. Mova os recursos necessários do host antigo para o novo host.
++
+.. Abra os bancos de dados necessários no novo host a partir do mesmo storage.
++
+*** Certifique-se de que o armazenamento esteja mapeado para a mesma unidade ou mesmo caminho de montagem do host antigo. Se o armazenamento não estiver mapeado corretamente, os backups criados no host antigo não poderão ser usados para restauração.
++
+
+NOTE: Por padrão, o Windows atribui automaticamente a próxima unidade disponível.
+
+*** Se o DR de armazenamento estiver habilitado, o respetivo armazenamento deve ser montado no novo host.
+
+
+.. Verifique a compatibilidade se houver uma alteração na versão do aplicativo.
+.. Somente para o host de plug-in Oracle, certifique-se de que os UIDs e GIDs da Oracle e seus usuários de grupo sejam os mesmos do host antigo.
++
+Para obter informações, consulte:
+
++
+*** https://kb.netapp.com/mgmt/SnapCenter/How_to_perform_SQL_host_tech_refresh["Como migrar o banco de dados SQL do host antigo para o novo host"]
+*** https://kb.netapp.com/mgmt/SnapCenter/How_to_perform_Oracle_host_tech_refresh["Como migrar o banco de dados Oracle do host antigo para o novo host"]
+*** https://kb.netapp.com/mgmt/SnapCenter/How_to_perform_Hana_host_tech_refresh["Como criar um banco de dados SAP HANA para um novo host"]
+
+
+
+
+. Adicione o novo host ao SnapCenter.
+. Verifique se todos os recursos são descobertos.
+. Execute a API de atualização do host: `/<snapcenter_version>/techrefresh/host` Ou o cmdlet: _Invoke-SmTechRefreshHost_.
++
+
+NOTE: A execução a seco é ativada por padrão e os recursos correspondentes a serem vinculados são identificados. Você pode verificar os recursos executando a API: '/jobs/ jobid' ou o cmdlet _get-SmJobSummaryReport_.
+
++
+Se você migrou os recursos de vários hosts, execute a API ou o cmdlet para todos os hosts. Se o caminho de unidade ou montagem no novo host não for o mesmo que o antigo host, as seguintes operações de restauração falharão:
+
++
+** A restauração no local do SQL falhará. No entanto, o recurso RTAL pode ser aproveitado.
+** A restauração dos bancos de dados Oracle e SAP HANA falhará.
++
+Se você quiser migrar para vários hosts, execute todas as etapas da etapa 1 para todos os hosts.
+
++
+
+NOTE: Você pode executar a API ou o cmdlet no mesmo host várias vezes, ele será revinculado somente se houver um novo recurso identificado.
+
+
+
+. (Opcional) Remova o host antigo ou hosts do SnapCenter.
+
+
+.Informações relacionadas
+Para obter informações sobre as APIs , você precisa acessar a página Swagger. link:https://docs.netapp.com/us-en/snapcenter/sc-automation/task_how%20to_access_rest_apis_using_the_swagger_api_web_page.html["Como acessar APIs REST usando a página da Web da API Swagger"]Consulte .
+
+As informações sobre os parâmetros que podem ser usados com o cmdlet e suas descrições podem ser obtidas executando _get-Help command_name_. Alternativamente, você também pode consultar o https://docs.netapp.com/us-en/snapcenter-cmdlets/index.html["Guia de referência de cmdlet do software SnapCenter"^].

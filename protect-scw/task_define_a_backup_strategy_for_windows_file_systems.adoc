@@ -1,0 +1,82 @@
+---
+permalink: protect-scw/task_define_a_backup_strategy_for_windows_file_systems.html 
+sidebar: sidebar 
+keywords: backup strategy 
+summary: 'A definição de uma estratégia de backup antes de criar seus backups fornece os backups de que você precisa para restaurar ou clonar com sucesso seus sistemas de arquivos. Seu contrato de nível de serviço (SLA), objetivo de tempo de recuperação (rto) e objetivo do ponto de restauração (RPO) determinam em grande parte a sua estratégia de backup.' 
+---
+= Definir uma estratégia de backup para sistemas de arquivos do Windows
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+A definição de uma estratégia de backup antes de criar seus backups fornece os backups de que você precisa para restaurar ou clonar com sucesso seus sistemas de arquivos. Seu contrato de nível de serviço (SLA), objetivo de tempo de recuperação (rto) e objetivo do ponto de restauração (RPO) determinam em grande parte a sua estratégia de backup.
+
+Um SLA define o nível de serviço esperado e aborda muitos problemas relacionados ao serviço, incluindo a disponibilidade e o desempenho do serviço. Rto é o momento em que um processo de negócios deve ser restaurado após uma interrupção no serviço. O RPO define a estratégia para a era dos arquivos que precisam ser recuperados do armazenamento de backup para que as operações regulares sejam retomadas após uma falha. SLA, rto e RPO contribuem para a estratégia de proteção de dados.
+
+
+
+== Agendas de backup para sistemas de arquivos do Windows
+
+A frequência de backup é especificada em políticas; uma programação de backup é especificada na configuração do grupo de recursos. O fator mais crítico na determinação de uma frequência ou programação de backup é a taxa de alteração do recurso e a importância dos dados. Você pode fazer backup de um recurso muito usado a cada hora, enquanto você pode fazer backup de um recurso raramente usado uma vez por dia. Outros fatores incluem a importância do recurso para a sua organização, seu Contrato de nível de Serviço (SLA) e seu objetivo de ponto de recuperação (RPO).
+
+Um SLA define o nível de serviço esperado e aborda muitos problemas relacionados ao serviço, incluindo a disponibilidade e o desempenho do serviço. Um RPO define a estratégia para a era dos arquivos que precisam ser recuperados do storage de backup para que as operações regulares sejam retomadas após uma falha. O SLA e o RPO contribuem para a estratégia de proteção de dados.
+
+Mesmo para um recurso muito usado, não é necessário executar um backup completo mais de uma ou duas vezes por dia.
+
+Os programas de backup têm duas partes, como segue:
+
+* Frequência de backup
++
+A frequência de backup (com que frequência os backups devem ser executados), chamada _schedule type_ para alguns plug-ins, faz parte de uma configuração de política. Por exemplo, você pode configurar a frequência de backup como hora, dia, semanal ou mensal, ou pode especificar *nenhum*, o que torna a política uma política somente sob demanda. Você pode acessar políticas clicando em *Configurações* > *políticas*.
+
+* Fazer backup de programações
++
+As agendas de backup (exatamente quando os backups devem ser executados) fazem parte de uma configuração de grupo de recursos. Por exemplo, se você tiver um grupo de recursos que tenha uma política configurada para backups semanais, poderá configurar a programação para fazer backup todas as quintas-feiras às 10:00 horas. Você pode acessar programações de grupos de recursos clicando em *recursos* > *grupos de recursos*.
+
+
+
+
+
+== Número de backups necessários para sistemas de arquivos do Windows
+
+Os fatores que determinam o número de backups de que você precisa incluem o tamanho do sistema de arquivos do Windows, o número de volumes usados, a taxa de alteração do sistema de arquivos e seu Contrato de nível de Serviço (SLA).
+
+
+
+== Convenção de nomenclatura de backup para sistemas de arquivos do Windows
+
+Os backups do sistema de arquivos do Windows usam a convenção de nomenclatura Snapshot padrão. A convenção de nomenclatura de backup padrão adiciona um carimbo de data/hora aos nomes de Snapshot que ajuda a identificar quando as cópias foram criadas.
+
+O Snapshot usa a seguinte convenção de nomenclatura padrão: Resourcegroupname_hostname_timestamp
+
+Você deve nomear seus grupos de recursos de backup logicamente, como no exemplo a seguir:
+
+[listing]
+----
+dts1_mach1x88_03-12-2015_23.17.26
+----
+Neste exemplo, os elementos de sintaxe têm os seguintes significados:
+
+* `dts1` é o nome do grupo de recursos.
+* `mach1x88` é o nome do host.
+* `03-12-2016_23.17.26` é a data e o carimbo de data/hora.
+
+
+Ao criar um backup, você também pode adicionar uma tag descritiva para ajudar a identificar o backup. Em contraste, se você quiser usar uma convenção de nomenclatura de backup personalizada, você precisa renomear o backup após a conclusão da operação de backup.
+
+
+
+== Opções de retenção de backup
+
+Você pode escolher o número de dias para os quais reter cópias de backup ou especificar o número de cópias de backup que deseja reter, até um máximo de ONTAP de 255 cópias. Por exemplo, sua organização pode exigir que você retenha 10 dias de cópias de backup ou 130 cópias de backup.
+
+Ao criar uma política, você pode especificar as opções de retenção para o tipo de backup e o tipo de agendamento.
+
+Se você configurar a replicação do SnapMirror, a política de retenção será espelhada no volume de destino.
+
+O SnapCenter exclui os backups retidos que têm rótulos de retenção que correspondem ao tipo de agendamento. Se o tipo de agendamento tiver sido alterado para o grupo de recursos ou recursos, os backups com o rótulo de tipo de agendamento antigo ainda poderão permanecer no sistema.
+
+
+NOTE: Para retenção de longo prazo de cópias de backup, você deve usar o backup SnapVault.

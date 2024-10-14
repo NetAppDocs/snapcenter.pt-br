@@ -1,0 +1,83 @@
+---
+permalink: protect-scu/task_back_up_unix_file_systems.html 
+sidebar: sidebar 
+keywords: backup, Unix file system, policy, schedule, resources 
+summary: Se um recurso não fizer parte de qualquer grupo de recursos, você poderá fazer backup do recurso na página recursos. 
+---
+= Faça backup de sistemas de arquivos Unix
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Se um recurso não fizer parte de qualquer grupo de recursos, você poderá fazer backup do recurso na página recursos.
+
+.Passos
+. No painel de navegação esquerdo, selecione *Resources* e o plug-in apropriado na lista.
+. Na página recursos, selecione *caminho* na lista Exibir.
+. Clique image:../media/filter_icon.png["Ícone de filtro"]em e selecione o nome do host e os sistemas de arquivos Unix para filtrar os recursos.
+. Selecione o sistema de ficheiros que pretende efetuar uma cópia de segurança.
+. Na página recursos, você pode executar as seguintes etapas:
++
+.. Marque a caixa de seleção e insira um formato de nome personalizado que você deseja usar para o nome da captura Instantânea.
++
+Por exemplo, `customtext_policy_hostname` ou `resource_hostname`. Por padrão, um carimbo de data/hora é anexado ao nome do instantâneo.
+
+
+
+. Na página Configurações do aplicativo, execute o seguinte:
++
+** Selecione a seta Scripts e insira os comandos pre e POST para operações quiesce, Snapshot e unquiesce. Também pode introduzir os pré comandos a serem executados antes de sair em caso de falha.
+** Selecione uma das opções de consistência de backup:
++
+*** Selecione *File System consistent* se quiser garantir que os dados em cache dos sistemas de arquivos sejam limpos antes de criar o backup e nenhuma operação seja executada no sistema de arquivos enquanto cria o backup.
+*** Selecione *Crash consistente* se quiser garantir que os dados em cache dos sistemas de arquivos sejam limpos antes de criar o backup.
+
+
+
+
+. Na página políticas, execute as seguintes etapas:
++
+.. Selecione uma ou mais políticas na lista suspensa.
++
+
+NOTE: Você pode criar uma política clicando image:../media/add_policy_from_resourcegroup.gif["adicionar símbolo"]em .
+
++
+Na seção Configurar agendas para políticas selecionadas, as políticas selecionadas são listadas.
+
+.. Clique image:../media/add_policy_from_resourcegroup.gif["adicionar símbolo"] na coluna Configurar agendas para configurar uma agenda para a política desejada.
+.. Na janela Adicionar agendas para a política _policy_name_ , configure a programação e `OK` selecione .
++
+_policy_name_ é o nome da política selecionada.
+
++
+As programações configuradas são listadas na coluna agendas aplicadas.
+
+
+
+. Na página notificação, selecione os cenários em que você deseja enviar os e-mails da lista suspensa *preferência de e-mail*.
++
+Você deve especificar os endereços de e-mail do remetente e do destinatário e o assunto do e-mail. Se quiser anexar o relatório da operação de backup realizada no recurso, selecione *Anexar Relatório de trabalho*.
+
++
+
+NOTE: Para notificação por e-mail, você deve ter especificado os detalhes do servidor SMTP usando o comando GUI ou PowerShell `Set-SmSmtpServer` .
+
+. Revise o resumo e clique em *Finish*.
++
+A página de topologia é exibida.
+
+. Clique em *fazer backup agora*.
+. Na página Backup, execute as seguintes etapas:
++
+.. Se você tiver aplicado várias políticas ao recurso, na lista suspensa Política, selecione a política que deseja usar para backup.
++
+Se a política selecionada para o backup sob demanda estiver associada a um agendamento de backup, os backups sob demanda serão retidos com base nas configurações de retenção especificadas para o tipo de agendamento.
+
+.. Clique em *Backup*.
+
+
+. Monitorize o progresso da operação clicando em *Monitor* > *trabalhos*.
+

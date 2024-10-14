@@ -1,0 +1,23 @@
+---
+permalink: protect-hana/concept_what_you_can_do_using_the_snapcenter_plug_in_for_sap_hana_database.html 
+sidebar: sidebar 
+keywords: SnapCenter Plug-in for SAP HANA Database 
+summary: Ao instalar o plug-in para banco de dados SAP HANA em seu ambiente, você pode usar o SnapCenter para fazer backup, restaurar e clonar bancos de dados SAP HANA e seus recursos. Você também pode executar tarefas de suporte a essas operações. 
+---
+= O que você pode fazer usando o plug-in do SnapCenter para banco de dados SAP HANA
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Ao instalar o plug-in para banco de dados SAP HANA em seu ambiente, você pode usar o SnapCenter para fazer backup, restaurar e clonar bancos de dados SAP HANA e seus recursos. Você também pode executar tarefas de suporte a essas operações.
+
+* Adicionar bancos de dados.
+* Criar backups.
+* Restauração a partir de backups.
+* Backups de clones.
+* Agendar operações de backup.
+* Monitore operações de backup, restauração e clone.
+* Exibir relatórios para operações de backup, restauração e clone.
+

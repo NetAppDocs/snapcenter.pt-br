@@ -1,0 +1,258 @@
+---
+permalink: admin/concept_overview_of_dashboard.html 
+sidebar: sidebar 
+keywords: dashboard 
+summary: 'A partir do painel de navegação esquerdo do SnapCenter, o Painel dá uma primeira olhada na integridade do seu sistema, incluindo atividades recentes de trabalho, alertas, resumo de proteção, eficiência de armazenamento e uso, status de trabalhos do SnapCenter (backup, clonagem, restauração), status de configuração para hosts autônomos e de cluster do Windows, número de máquinas virtuais de armazenamento (SVMs) gerenciadas pelo SnapCenter e capacidade de licença.' 
+---
+= Visão geral do painel de instrumentos
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+No painel de navegação esquerdo do SnapCenter, o painel oferece uma primeira olhada na integridade do sistema, incluindo atividades recentes de trabalhos, alertas, resumo de proteção, eficiência e uso de armazenamento, status de trabalhos do SnapCenter (backup, clonagem, restauração), status de configuração para hosts autônomos e de cluster do Windows, número de máquinas virtuais de armazenamento (SVMs) gerenciadas pelo SnapCenter e capacidade de licença.
+
+As informações exibidas na exibição Painel de controle dependem da função atribuída ao usuário que está conetado no SnapCenter atualmente. Alguns conteúdos poderão não ser apresentados se o utilizador não tiver permissão para visualizar essas informações.
+
+Em muitos casos, você pode ver mais informações sobre um display passando o Mouse em *i*. Em alguns casos, as informações nos relatórios de dashboard estão vinculadas a informações de origem detalhadas em páginas de GUI do SnapCenter, como recursos, Monitor e relatórios.
+
+
+
+== Atividades de trabalho recentes
+
+O mosaico atividades de trabalho recentes exibe a atividade de trabalho mais recente de qualquer tarefa de backup, restauração e clonagem a que você tenha acesso. Os trabalhos neste visor têm um dos seguintes estados: Concluído, Aviso, Falha, execução, fila e cancelado.
+
+Passar o Mouse sobre um trabalho fornece mais informações. Pode visualizar informações adicionais do trabalho clicando num número de trabalho específico, que o redireciona para a página Monitor. A partir daí, você pode obter detalhes do trabalho ou informações de log e gerar um relatório específico para esse trabalho.
+
+Clique em *See All* (Ver tudo) para ver um histórico de todos os trabalhos do SnapCenter.
+
+
+
+== Alertas
+
+O bloco Alertas exibe os mais recentes alertas críticos e de aviso não resolvidos para os hosts e o servidor SnapCenter.
+
+A contagem total de alertas de categoria crítico e de aviso é apresentada na parte superior do visor. Clicar nos totais críticos ou de aviso redireciona-o para a página Alertas com o filtro específico aplicado na página Alertas.
+
+Clicar em um alerta específico redireciona você para a página Alertas para obter detalhes sobre esse alerta. Clicar em *Ver tudo* na parte inferior do ecrã redireciona-o para a página Alertas para obter uma lista de todos os alertas.
+
+
+
+== Resumo de proteção mais recente
+
+O último bloco Resumo de proteção fornece o status de proteção para todas as entidades às quais você tem acesso. Por padrão, o visor é definido para fornecer o status de todos os plug-ins. As informações de status são fornecidas para recursos com backup no storage primário como snapshots e para storage secundário usando as tecnologias SnapMirror e SnapVault. A disponibilidade das informações de status de proteção para storage secundário é baseada no tipo de plug-in selecionado.
+
+
+NOTE: Se você estiver usando uma política de proteção de cofre-espelho, os contadores do resumo de proteção serão exibidos no gráfico de resumo do SnapVault e não no gráfico SnapMirror.
+
+O status de proteção para plug-ins individuais está disponível selecionando um plug-in no menu suspenso. Um gráfico de rosca mostra a porcentagem de recursos protegidos para o plug-in selecionado. Clicar em uma fatia de rosca redireciona você para a página *relatórios* > *Plug-in*, que fornece um relatório detalhado de todas as atividades de armazenamento primário e secundário para o plug-in especificado.
+
+
+IMPORTANT: Os relatórios sobre storage secundário se aplicam somente ao SnapVault; os relatórios do SnapMirror não são compatíveis.
+
+
+NOTE: O SAP HANA fornece informações de status de proteção para storage primário e secundário para snapshots. Somente o status de proteção de storage primário está disponível para backups baseados em arquivos.
+
+|===
+| Estado de proteçãoão | Storage primário | Storage secundário 
+
+
+ a| 
+Falha
+ a| 
+Contagem de entidades que fazem parte de um Grupo de recursos, onde o Grupo de recursos executou um backup, mas o backup falhou.
+ a| 
+Contagem de entidades com backups que não conseguiram transferir para um destino secundário.
+
+
+
+ a| 
+Bem-sucedido
+ a| 
+Contagem de entidades em um grupo de recursos, onde o Grupo de recursos foi feito backup com sucesso.
+ a| 
+Contagem de entidades com backups que foram transferidos com sucesso para um destino secundário.
+
+
+
+ a| 
+Não configurado
+ a| 
+Contagem de entidades que não fazem parte de nenhum Grupo de recursos e que não foram feitas cópias de segurança.
+ a| 
+Contagem de entidades que fazem parte de um ou mais grupos de recursos que não estão configurados para que os backups sejam transferidos para um destino secundário.
+
+
+
+ a| 
+Não iniciado
+ a| 
+Contagem de entidades que fazem parte de um Grupo de recursos, mas nenhum backup foi executado.
+ a| 
+Não aplicável.
+
+|===
+
+NOTE: Se você estiver usando o servidor SnapCenter 4,2 e uma versão anterior do plug-in (anterior a 4,2) para criar backups, o bloco *Resumo de proteção mais recente* não exibirá o status de proteção SnapMirror desses backups.
+
+
+
+== Trabalhos
+
+O bloco tarefas fornece um resumo das tarefas de backup, restauração e clone às quais você tem acesso. Você pode personalizar o período de tempo para qualquer relatório usando o menu suspenso. As opções de período de tempo são fixadas nas últimas 24 horas, nos últimos 7 dias e nos últimos 30 dias. O relatório padrão mostra os trabalhos de proteção de dados executados durante os últimos 7 dias.
+
+As informações de tarefa de backup, restauração e clone são exibidas nos gráficos donut. Clicar em uma fatia de rosca redireciona você para a página Monitor com filtros de tarefa pré-aplicados à seleção.
+
+|===
+| Estado do trabalho | Descrição 
+
+
+ a| 
+Falha
+ a| 
+Contagem de trabalhos que falharam.
+
+
+
+ a| 
+Aviso
+ a| 
+Contagem de trabalhos que sofreram um erro.
+
+
+
+ a| 
+Bem-sucedido
+ a| 
+Contagem de trabalhos que foram concluídos com sucesso.
+
+
+
+ a| 
+Em execução
+ a| 
+Contagem de trabalhos que estão em execução no momento.
+
+|===
+
+
+== Armazenamento
+
+O bloco armazenamento exibe o armazenamento primário e secundário consumido por tarefas de proteção durante um período de 90 dias, mostra graficamente as tendências de consumo e calcula as economias de armazenamento primário. As informações de armazenamento são atualizadas uma vez a cada 24 horas às 12 da manhã
+
+O total de consumo do dia, que compreende o número total de backups disponíveis no SnapCenter e o tamanho ocupado por esses backups, será exibido na parte superior do visor. Um backup pode ter vários snapshots associados a ele e a contagem refletirá o mesmo. Isso é aplicável a instantâneos primários e secundários. Por exemplo, você criou backups 10, dos quais 2 são excluídos devido à retenção de backup baseada em política e o backup 1 é explicitamente excluído por você. Assim, uma contagem de 7 backups será exibida juntamente com o tamanho ocupado por esses 7 backups.
+
+O fator de economia de storage para storage primário é a taxa de capacidade lógica (economia de clones e snapshots, além de storage consumido) para a capacidade física do storage primário. Um gráfico de barras ilustra a economia de armazenamento.
+
+O gráfico de linha traça separadamente o consumo de storage primário e secundário diariamente durante um período contínuo de 90 dias. Passar o Mouse sobre os gráficos fornece resultados detalhados dia a dia.
+
+
+NOTE: Se você usar o servidor SnapCenter 4,2 e uma versão anterior do plug-in (anterior a 4,2) para criar backups, o bloco *armazenamento* não exibirá o número de backups, o armazenamento consumido por esses backups, a economia de instantâneos, a economia de clones e o tamanho do instantâneo.
+
+
+
+== Configuração
+
+O bloco Configuração fornece informações de status consolidadas para todos os hosts de cluster autônomos ativos e do Windows que o SnapCenter está gerenciando e aos quais você tem acesso. Isso inclui as informações de status do plug-in associadas a esses hosts.
+
+Clicar no número adjacente aos hosts redireciona você para a seção hosts gerenciados na página hosts. A partir daí, você pode obter informações detalhadas para um host selecionado.
+
+Além disso, este visor mostra a soma de SVMs ONTAP independentes e SVMs ONTAP de cluster que o SnapCenter está gerenciando e a que você tem acesso. Clicar no número adjacente ao SVM redireciona você para a página sistemas de storage. A partir daí, você pode obter informações detalhadas sobre um SVM selecionado.
+
+O estado de configuração do host é apresentado como vermelho (crítico), amarelo (aviso) e verde (ativo), juntamente com o número de hosts em cada estado. As mensagens de status são fornecidas para cada estado.
+
+|===
+| Estado da configuração | Descrição 
+
+
+ a| 
+Atualização obrigatória
+ a| 
+Contagem de hosts que estão executando plug-ins não suportados e que precisam de uma atualização. Um plug-in não suportado não é compatível com esta versão do SnapCenter.
+
+
+
+ a| 
+Migração obrigatória
+ a| 
+Contagem de hosts que estão executando plug-ins não suportados e precisam de migração. Um plug-in não suportado não é compatível com esta versão do SnapCenter.
+
+
+
+ a| 
+Nenhum plug-ins instalado
+ a| 
+Contagem de hosts que são adicionados com êxito, mas os plug-ins precisam ser instalados ou a instalação dos plug-ins falhou.
+
+
+
+ a| 
+Suspenso
+ a| 
+Contagem de hosts cujas programações estão suspensas e estão em manutenção.
+
+
+
+ a| 
+Parado
+ a| 
+Contagem de hosts que estão ativos, mas os serviços de plug-in não estão em execução.
+
+
+
+ a| 
+Host para baixo
+ a| 
+Contagem de hosts que estão inativos ou não alcançáveis.
+
+
+
+ a| 
+Upgrade disponível (opcional)
+ a| 
+Contagem de hosts onde uma versão mais recente do pacote de plug-in está disponível para atualização.
+
+
+
+ a| 
+Migração disponível (opcional)
+ a| 
+Contagem de hosts onde uma versão mais recente do plug-in está disponível para migração.
+
+
+
+ a| 
+Configure o diretório de log
+ a| 
+Contagem de hosts onde o diretório de log tem que ser configurado para SCSQL fazer backup de log de transações.
+
+
+
+ a| 
+Configurar plug-ins VMware
+ a| 
+Contagem de hosts nos quais o plug-in do SnapCenter para VMware vSphere precisa ser adicionado.
+
+
+
+ a| 
+Desconhecido
+ a| 
+Contagem de hosts que foram registrados, mas a instalação ainda não foi acionada.
+
+
+
+ a| 
+Em execução
+ a| 
+Contagem de hosts que estão ativos e plug-ins estão em execução. E no caso de plug-ins SCSQL, o diretório de log e o hipervisor são configurados.
+
+
+
+ a| 
+Instalando/Desinstalando plug-ins
+ a| 
+Contagem de hosts em que a instalação do plug-in ou a desinstalação estão em andamento.
+
+|===

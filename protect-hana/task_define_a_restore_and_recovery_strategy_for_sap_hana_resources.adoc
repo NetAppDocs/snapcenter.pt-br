@@ -1,0 +1,20 @@
+---
+permalink: protect-hana/task_define_a_restore_and_recovery_strategy_for_sap_hana_resources.html 
+sidebar: sidebar 
+keywords: restore and recovery strategy, SAP HANA resources, snapcenter 
+summary: Você deve definir uma estratégia antes de restaurar e recuperar seu banco de dados para que você possa executar operações de restauração e recuperação com sucesso. 
+---
+= Definir uma estratégia de restauração e recuperação para recursos do SAP HANA
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Você deve definir uma estratégia antes de restaurar e recuperar seu banco de dados para que você possa executar operações de restauração e recuperação com sucesso.
+
+.Passos
+. Determine as estratégias de restauração com suporte para recursos do SAP HANA adicionados manualmente
+. Determinar as estratégias de restauração com suporte para bancos de dados SAP HANA descobertos automaticamente
+. Decida o tipo de operações de recuperação que você deseja executar.
+

@@ -1,0 +1,41 @@
+---
+permalink: protect-azure/add-hosts-install-plugin-for-sap-hana.html 
+sidebar: sidebar 
+keywords: add host, install, install plug-in, SAP HANA 
+summary: Adicione hosts e, em seguida, instale os pacotes plug-ins. 
+---
+= Adicione hosts e instale o plug-in do SnapCenter para banco de dados SAP HANA
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Você deve usar a página Adicionar host do SnapCenter para adicionar hosts e, em seguida, instalar os pacotes de plug-ins. Os plug-ins são instalados automaticamente nos hosts remotos.
+
+.Antes de começar
+* Você deve ser um usuário atribuído a uma função que tenha as permissões de instalação e desinstalação do plug-in, como a função Administrador do SnapCenter.
+* Ao instalar um plug-in em um host do Windows, se você especificar uma credencial que não está integrada ou se o usuário pertence a um usuário local do grupo de trabalho, será necessário desativar o UAC no host.
+* Se você estiver instalando no host centralizado, verifique se o software cliente SAP HANA está instalado nesse host e abra as portas necessárias no host de banco de dados SAP HANA para executar as consultas SQL do HDB remotamente.
+
+
+.Passos
+. No painel de navegação esquerdo, clique em *hosts*.
+. Verifique se a guia *hosts gerenciados* está selecionada.
+. Clique em *Add*.
+. Na página hosts, execute as seguintes ações:
++
+.. No campo Host Type (tipo de host), selecione o tipo de host.
+.. No campo Nome do host, insira o nome de domínio totalmente qualificado (FQDN) ou o endereço IP do host.
+.. No campo credenciais, insira a credencial que você criou.
+
+
+. Na seção Selecionar plug-ins para instalar, selecione os plug-ins a instalar.
+. (Opcional) clique em *mais Opções* e especifique os detalhes.
+. Clique em *Enviar*.
+. Se o tipo de host for Linux, verifique a impressão digital e clique em *Confirm and Submit*.
++
+Em uma configuração de cluster, você deve verificar a impressão digital de cada um dos nós no cluster.
+
+. Monitorize o progresso da instalação.
+

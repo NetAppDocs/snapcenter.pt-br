@@ -1,0 +1,36 @@
+---
+permalink: protect-db2/clone-ibm-db2-resource-backups.html 
+sidebar: sidebar 
+keywords: SnapCenter Plug-in for IBM Db2 
+summary: O fluxo de trabalho do clone inclui a execução da operação de clone e o monitoramento da operação. 
+---
+= Fluxo de trabalho clone
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+O fluxo de trabalho do clone inclui a execução da operação de clone e o monitoramento da operação.
+
+.Sobre esta tarefa
+* Você pode clonar no servidor IBM DB2 de origem.
+* Você pode clonar backups de recursos pelos seguintes motivos:
++
+** Para testar a funcionalidade que deve ser implementada usando a estrutura e o conteúdo atuais dos recursos durante os ciclos de desenvolvimento de aplicativos
+** Para ferramentas de extração e manipulação de dados ao preencher data warehouses
+** Para recuperar dados que foram excluídos ou alterados por engano
+
+
+
+
+O fluxo de trabalho a seguir mostra a sequência na qual você deve executar a operação clone:
+
+image::../media/sco_scc_wfs_clone_workflow.png[Fluxo de trabalho clone]
+
+Você também pode usar cmdlets do PowerShell manualmente ou em scripts para executar operações de backup, restauração e clone. A ajuda do cmdlet SnapCenter e as informações de referência do cmdlet contêm informações detalhadas sobre cmdlets do PowerShell.
+
+.Depois de terminar
+Após clonar os recursos DB2 automaticamente descobertos, o recurso clonado é marcado como recurso manual. Clique em *Refresh Resources* (Atualizar recursos*) para recuperar o recurso clonado DB2. Quando você exclui o clone, o armazenamento e o host também são limpos.
+
+Se você não atualizar os recursos após a operação de clone e tentar excluir o clone, o armazenamento e o host não serão limpos. Você deve excluir as entradas manualmente no fstab.

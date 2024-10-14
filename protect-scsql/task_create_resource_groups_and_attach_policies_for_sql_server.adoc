@@ -1,0 +1,152 @@
+---
+permalink: protect-scsql/task_create_resource_groups_and_attach_policies_for_sql_server.html 
+sidebar: sidebar 
+keywords: run as 
+summary: Um grupo de recursos é um contentor ao qual você adiciona recursos que deseja fazer backup e proteger juntos. Um grupo de recursos permite fazer backup de todos os dados associados a um determinado aplicativo simultaneamente. Um grupo de recursos é necessário para qualquer trabalho de proteção de dados. Você também deve anexar uma ou mais políticas ao grupo de recursos para definir o tipo de tarefa de proteção de dados que deseja executar. 
+---
+= Crie grupos de recursos e anexe políticas para o SQL Server
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Um grupo de recursos é um contentor ao qual você adiciona recursos que deseja fazer backup e proteger juntos. Um grupo de recursos permite fazer backup de todos os dados associados a um determinado aplicativo simultaneamente. Um grupo de recursos é necessário para qualquer trabalho de proteção de dados. Você também deve anexar uma ou mais políticas ao grupo de recursos para definir o tipo de tarefa de proteção de dados que deseja executar.
+
+Você pode proteger recursos individualmente sem criar um novo grupo de recursos. Você pode fazer backups no recurso protegido.
+
+.Sobre esta tarefa
+* Para a versão ONTAP 9.12,1 e inferior, os clones criados a partir dos instantâneos do Vault do SnapLock como parte da restauração herdarão o tempo de expiração do SnapLock Vault. O administrador do storage deve limpar manualmente os clones após o tempo de expiração do SnapLock.
+* A adição de novos bancos de dados sem a sincronização ativa do SnapMirror a um grupo de recursos existente que contenha recursos com a sincronização ativa do SnapMirror não é suportada.
+* A adição de novos bancos de dados a um grupo de recursos existente no modo failover da sincronização ativa do SnapMirror não é suportada. Você pode adicionar recursos ao grupo de recursos apenas no estado regular ou de failback.
+
+
+.Passos
+. No painel de navegação esquerdo, clique em *Resources* e selecione o plug-in apropriado na lista.
+. Na página recursos, selecione *Banco de dados* na lista *Exibir*.
++
+
+NOTE: Se você recentemente adicionou um recurso ao SnapCenter, clique em *Atualizar recursos* para exibir o recurso recém-adicionado.
+
+. Clique em *novo grupo de recursos*.
+. Na página Nome, execute as seguintes ações:
++
+|===
+| Para este campo... | Faça isso... 
+
+
+ a| 
+Nome
+ a| 
+Introduza o nome do grupo de recursos.
+
+
+NOTE: O nome do grupo de recursos não deve exceder 250 carateres.
+
+
+
+ a| 
+Tags
+ a| 
+Insira um ou mais rótulos que o ajudarão a pesquisar posteriormente o grupo de recursos. Por exemplo, se você adicionar HR como uma tag a vários grupos de recursos, poderá encontrar mais tarde todos os grupos de recursos associados à tag HR.
+
+
+
+ a| 
+Use o formato de nome personalizado para cópia Snapshot
+ a| 
+Opcional: Insira um nome e formato personalizados do instantâneo. Por exemplo, customtext_resourcegroup_policy_hostname ou resourcegroup_hostname. Por padrão, um carimbo de data/hora é anexado ao nome do instantâneo.
+
+|===
+. Na página recursos, execute as seguintes etapas:
++
+.. Selecione o nome do host, o tipo de recurso e a instância do SQL Server nas listas suspensas para filtrar a lista de recursos.
++
+
+NOTE: Se você tiver adicionado recursos recentemente, eles aparecerão na lista de recursos disponíveis somente depois de atualizar sua lista de recursos.
+
+.. Para mover recursos da seção *recursos disponíveis* para a seção recursos selecionados, execute uma das seguintes etapas:
++
+*** Selecione *seleção automática de todos os recursos no mesmo volume de armazenamento* para mover todos os recursos no mesmo volume para a seção recursos selecionados.
+*** Selecione os recursos na seção *recursos disponíveis* e clique na seta para a direita para movê-los para a seção *recursos selecionados*.
+
+
+
+
+. Na página políticas, execute as seguintes etapas:
++
+.. Selecione uma ou mais políticas na lista suspensa.
++
+
+NOTE: Você também pode criar uma política clicando em *image:../media/add_policy_from_resourcegroup.gif[""]*.
+
++
+Na seção Configurar agendas para políticas selecionadas, as políticas selecionadas são listadas.
+
+.. Na seção Configurar agendas para políticas selecionadas, clique em *image:../media/add_policy_from_resourcegroup.gif[""]* na coluna Configurar agendas para a política para a qual você deseja configurar o agendamento.
+.. Na caixa de diálogo Adicionar agendas para política _policy_name_, configure a programação especificando a data de início, data de expiração e frequência e clique em *OK*.
++
+Você deve fazer isso para cada frequência listada na política. As programações configuradas são listadas na coluna agendas aplicadas na seção *Configurar programações para políticas selecionadas*.
+
+.. Selecione o agendador do Microsoft SQL Server.
++
+Você também deve selecionar uma instância do agendador para associar à política de agendamento.
+
++
+Se você não selecionar o agendador do Microsoft SQL Server, o padrão é o agendador do Microsoft Windows.
+
+
+
++
+As agendas de backup de terceiros não são suportadas quando sobrepõem-se às agendas de backup do SnapCenter. Você não deve modificar as programações e renomear a tarefa de backup criada no Windows Scheduler ou no SQL Server Agent.
+
+. Na página Verificação, execute as seguintes etapas:
++
+.. Selecione o servidor de verificação na lista suspensa *servidor de verificação*.
++
+A lista inclui todos os servidores SQL adicionados no SnapCenter. Você pode selecionar vários servidores de verificação (host local ou host remoto).
+
++
+
+NOTE: A versão do servidor de verificação deve corresponder à versão e edição do servidor SQL que está hospedando o banco de dados principal.
+
+.. Clique em *Load Locators* para carregar os volumes SnapMirror e SnapVault para executar a verificação no armazenamento secundário.
+.. Selecione a política para a qual pretende configurar o seu agendamento de verificação e, em seguida, clique em * *image:../media/add_policy_from_resourcegroup.gif[""].
+.. Na caixa de diálogo Adicionar agendamentos de verificação policy_name , execute as seguintes ações:
++
+|===
+| Se você quiser... | Faça isso... 
+
+
+ a| 
+Execute a verificação após a cópia de segurança
+ a| 
+Selecione *Executar verificação após backup*.
+
+
+
+ a| 
+Marque uma verificação
+ a| 
+Selecione *Executar verificação agendada*.
+
+|===
+.. Clique em *OK*.
++
+As programações configuradas são listadas na coluna agendas aplicadas. Pode rever e editar clicando em *image:../media/edit_icon.gif["ícone para editar programações configuradas"]* * ou eliminar clicando em * *image:../media/delete_icon_for_configuringschedule.gif["eliminar ícone"]*.
+
+
+
+. Na página notificação, na lista suspensa *preferência de e-mail*, selecione os cenários nos quais você deseja enviar os e-mails.
++
+Você também deve especificar os endereços de e-mail do remetente e do destinatário e o assunto do e-mail. Se quiser anexar o relatório da operação realizada no grupo de recursos, selecione *Anexar Relatório de trabalho*.
+
++
+
+NOTE: Para notificação por e-mail, você deve ter especificado os detalhes do servidor SMTP usando a GUI ou o comando PowerShell SET-SmtpServer.
+
+. Revise o resumo e clique em *Finish*.
+
+
+.Informações relacionadas
+link:task_create_backup_policies_for_sql_server_databases.html["Criar políticas de backup para bancos de dados do SQL Server"]

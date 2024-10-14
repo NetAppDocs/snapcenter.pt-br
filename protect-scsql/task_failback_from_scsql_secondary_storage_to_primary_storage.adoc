@@ -1,0 +1,41 @@
+---
+permalink: protect-scsql/task_failback_from_scsql_secondary_storage_to_primary_storage.html 
+sidebar: sidebar 
+keywords: failback, snapcenter 
+summary: Depois que o plug-in do SnapCenter para o armazenamento primário do SQL Server estiver novamente on-line, você deve fazer o failback para o storage primário. 
+---
+= Failback do plug-in do SnapCenter para storage secundário do SQL Server para storage primário
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Depois que o plug-in do SnapCenter para o armazenamento primário do SQL Server estiver novamente on-line, você deve fazer o failback para o storage primário.
+
+.Antes de começar
+* Coloque o plug-in do SnapCenter para SQL Server no modo *Manutenção* na página hosts gerenciados.
+* Desconete o storage secundário do host e conete-se ao storage primário.
+* Para fazer o failback para o storage primário, verifique se a direção da relação permanece a mesma antes do failover executando a operação de ressincronização reversa.
++
+Para manter as funções de armazenamento primário e secundário após a operação de ressincronização reversa, execute novamente a operação de ressincronização reversa.
+
++
+Para obter mais informações, consulte link:https://docs.netapp.com/us-en/ontap-sm-classic/online-help-96-97/task_reverse_resynchronizing_snapmirror_relationships.html["Reverter a ressincronização das relações de espelho"]
+
+* Reinicie o serviço de servidor MSSQL.
+* Certifique-se de que os recursos SQL estão novamente online.
+
+
+
+NOTE: Durante o failover ou failback do plug-in, o status geral do plug-in não é atualizado imediatamente. O status geral do host e do plug-in é atualizado durante a operação de atualização subsequente do host.
+
+.Passos
+. Na página Configurações, navegue até *Configurações* > *Configurações globais* > *recuperação de desastres*.
+. Desmarque *Ativar recuperação de desastres*.
+. Clique em *aplicar*.
+. Verifique se a tarefa DR está ativada ou não clicando em *Monitor* > *jobs*.
+
+
+.Depois de terminar
+Você pode excluir o plug-in do SnapCenter para backups do SQL Server criados durante o failover usando a IU ou o cmdlet a seguir: `Remove-SmDRFailoverBackups`

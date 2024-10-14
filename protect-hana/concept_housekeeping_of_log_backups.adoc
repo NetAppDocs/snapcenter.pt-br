@@ -1,0 +1,16 @@
+---
+permalink: protect-hana/concept_housekeeping_of_log_backups.html 
+sidebar: sidebar 
+keywords: SnapCenter Plug-in for SAP HANA Database 
+summary: O SnapCenter gerencia o serviço de limpeza dos backups de log e dados nos níveis do sistema de storage e do sistema de arquivos e no catálogo de backup do SAP HANA. 
+---
+= Como o SnapCenter gerencia o gerenciamento de backups de log e dados
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+O SnapCenter gerencia o serviço de limpeza dos backups de log e dados nos níveis do sistema de storage e do sistema de arquivos e no catálogo de backup do SAP HANA.
+
+Os snapshots no storage primário ou secundário e suas entradas correspondentes no catálogo do SAP HANA são excluídos com base nas configurações de retenção. As entradas do catálogo do SAP HANA também são excluídas durante a exclusão do grupo de recursos e backup.

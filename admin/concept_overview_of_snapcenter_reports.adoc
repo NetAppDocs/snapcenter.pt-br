@@ -1,0 +1,142 @@
+---
+permalink: admin/concept_overview_of_snapcenter_reports.html 
+sidebar: sidebar 
+keywords: SnapCenter reports 
+summary: O SnapCenter fornece uma variedade de opções de relatórios que permitem monitorar e gerenciar a integridade do sistema e o sucesso da operação. 
+---
+= Visão geral dos recursos de relatórios do SnapCenter
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+O SnapCenter fornece uma variedade de opções de relatórios que permitem monitorar e gerenciar a integridade do sistema e o sucesso da operação.
+
+|===
+| Tipo de relatório | Descrição 
+
+
+ a| 
+Relatório de cópia de segurança
+ a| 
+O Relatório de backup fornece dados gerais sobre as tendências de backup para o seu ambiente SnapCenter, a taxa de sucesso do backup e algumas informações sobre cada backup realizado durante o tempo especificado. Se um backup for excluído, o relatório não exibirá nenhuma informação de status para o backup excluído. O Relatório de Detalhes da cópia de Segurança fornece informações detalhadas sobre uma tarefa de cópia de segurança especificada e lista os recursos com êxito e os que falharam.
+
+
+
+ a| 
+Relatório clone
+ a| 
+O Relatório de clones fornece dados gerais sobre tendências de clones para o seu ambiente SnapCenter, a taxa de sucesso de clones e algumas informações sobre cada tarefa de clone executada durante o tempo especificado. Se um clone for excluído, o relatório não exibirá nenhuma informação de status para o clone excluído. O Relatório de Detalhes do clone fornece detalhes sobre o clone especificado, o host clone e o status da tarefa de tarefa de clone. Se uma tarefa falhar, o Clone Detail Report exibe informações sobre a falha.
+
+
+
+ a| 
+Restaurar relatório
+ a| 
+O Relatório de restauração fornece informações gerais sobre os trabalhos de restauração. O Relatório de detalhes de restauração fornece detalhes sobre uma tarefa de restauração especificada, incluindo nome do host, nome do backup, início e duração da tarefa e o status de tarefas individuais. Se uma tarefa falhar, o Relatório de detalhes de restauração exibe informações sobre a falha.
+
+
+
+ a| 
+Relatório de proteção
+ a| 
+Esses relatórios fornecem detalhes de proteção para recursos gerenciados por todas as instâncias de plug-in do SnapCenter. Este relatório fornece detalhes de proteção para recursos gerenciados por todas as instâncias de plug-in. Você pode ver uma visão geral, detalhes de recursos não protegidos, recursos que não foram copiados quando o relatório foi gerado, recursos de um grupo de recursos para o qual as operações de backup falharam e status do SnapVault.
+
+
+
+ a| 
+Relatório programado
+ a| 
+Esses relatórios são programados para serem executados periodicamente, como diariamente, semanalmente ou mensalmente. Os relatórios são gerados automaticamente na data e hora especificadas e o relatório é enviado para as respetivas pessoas por e-mail Pode ativar, desativar, modificar ou eliminar as agendas. A programação ativada pode ser executada sob demanda clicando no botão *Executar agora*. O administrador pode executar qualquer programação, mas o relatório gerado conterá dados com base na permissão fornecida pelo usuário que criou a programação.
+
+Qualquer outro usuário que não o Administrador poderá ver ou modificar a programação com base em sua permissão. Se todos os membros desta função puderem ver a opção objetos de outros membros estiver selecionada na página Adicionar função, outros membros da função poderão ver e modificar.
+
+|===
+
+
+== Acesse relatórios
+
+Você pode usar o Painel do SnapCenter para obter uma visão geral rápida da integridade do seu sistema. No Dashboard, você pode detalhar mais detalhes. Alternativamente, você pode acessar os relatórios detalhados diretamente.
+
+Você pode acessar relatórios por um dos seguintes métodos:
+
+* No painel de navegação esquerdo, clique em *Painel* e, em seguida, clique em *último Resumo de proteção* gráfico de pizza para ver mais detalhes na página relatórios.
+* No painel de navegação esquerdo, clique em *relatórios*.
+
+
+
+
+== Filtre seu relatório
+
+Você pode querer filtrar os dados do relatório de acordo com uma variedade de parâmetros, dependendo do nível de detalhes e do período de tempo das informações necessárias.
+
+*Passos*
+
+. No painel de navegação esquerdo, clique em *relatórios*.
+. Se a exibição de parâmetros não for exibida, clique no ícone *alternar Área de parâmetros* na barra de ferramentas do relatório.
+. Especifique o intervalo de tempo para o qual deseja executar o relatório. Se você omitir a data de fim, você recupera todas as informações disponíveis.
+. Filtre as informações do relatório com base em qualquer um dos seguintes critérios:
++
+** Grupo de recursos
+** Host
+** Política
+** Recurso
+** Estado
+** Nome do plug-in
+
+
+. Clique em *aplicar*.
+
+
+
+
+== Exportar ou imprimir relatórios
+
+Exportar relatórios do SnapCenter permite que você visualize o relatório em uma variedade de formatos alternativos. Também pode imprimir relatórios.
+
+*Passos*
+
+. No painel de navegação esquerdo, clique em *relatórios*.
+. Na barra de ferramentas relatórios, execute um dos seguintes procedimentos:
++
+** Clique no ícone *alternar visualização de impressão* para visualizar um relatório imprimível.
+** Selecione um formato na lista suspensa ícone *Exportar* para exportar um relatório para um formato alternativo.
+
+
+. Para imprimir um relatório, clique no ícone *Imprimir*.
+. Para ver um resumo específico do relatório, desloque-se para a secção adequada do relatório.
+
+
+
+
+== Defina o servidor SMTP para notificações por e-mail
+
+Você pode especificar o servidor SMTP a ser usado para enviar relatórios de tarefas de proteção de dados para você ou para outras pessoas. Você também pode enviar um e-mail de teste para verificar a configuração. As configurações são aplicadas globalmente para qualquer trabalho do SnapCenter para o qual você configure a notificação por e-mail.
+
+Esta opção configura o servidor SMTP para enviar todos os relatórios de tarefas de proteção de dados. No entanto, se você quiser que atualizações regulares de tarefas de proteção de dados do SnapCenter para um determinado recurso sejam enviadas para você ou para outras pessoas para que você possa monitorar o status dessas atualizações, você pode configurar a opção para enviar por e-mail os relatórios do SnapCenter quando estiver criando um grupo de recursos.
+
+*Passos*
+
+. No painel de navegação esquerdo, clique em *Configurações*.
+. Na página Configurações, clique em *Configurações globais*.
+. Digite o servidor SMTP e clique em *Salvar*.
+. Para enviar um e-mail de teste, insira o endereço de e para o qual você enviará o e-mail, insira o assunto e clique em *Enviar*.
+
+
+
+
+== Configure a opção para enviar relatórios por e-mail
+
+Se você quiser que atualizações regulares de tarefas de proteção de dados do SnapCenter sejam enviadas para você ou para outras pessoas para que você possa monitorar o status dessas atualizações, você pode configurar a opção para enviar por e-mail os relatórios do SnapCenter quando estiver criando um grupo de recursos.
+
+.Antes de começar
+Você deve ter configurado seu servidor SMTP na página Configurações globais em Configurações.
+
+*Passos*
+
+. No painel de navegação esquerdo, clique em *Resources* e selecione o plug-in apropriado na lista.
+. Selecione o tipo de recurso que deseja exibir e clique em *novo Grupo de recursos* ou selecione um grupo de recursos existente e clique em *Modificar* para configurar relatórios de e-mail para um grupo de recursos existente.
+. No painel notificação do assistente novo grupo de recursos, selecione no menu suspenso se deseja receber relatórios sempre, em caso de falha ou em caso de falha ou aviso.
+. Digite o endereço de onde o e-mail é enviado, o endereço para o qual o e-mail é enviado e o assunto do e-mail.
+

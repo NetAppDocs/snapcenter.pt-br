@@ -1,0 +1,52 @@
+---
+permalink: protect-azure/clone-sap-hana-database-backups.html 
+sidebar: sidebar 
+keywords: SnapCenter Plug-in for SAP HANA Database, clone, database, backups 
+summary: Você pode usar o SnapCenter para clonar um backup. 
+---
+= Clone o backup do banco de dados SAP HANA
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Você pode usar o SnapCenter para clonar um backup.
+
+.Passos
+. No painel de navegação esquerdo, clique em *Resources* e selecione o plug-in apropriado na lista.
+. Na página recursos, filtre recursos da lista suspensa *Exibir* com base no tipo de recurso.
+. Selecione o grupo de recursos ou recursos.
+. Na exibição Gerenciar cópias, selecione *backups* no sistema de armazenamento primário.
+. Selecione o backup de dados na tabela e clique image:../media/clone_icon.gif["ícone de clone"]em .
+. Na página localização, execute as seguintes ações:
++
+.. Selecione o host que tem o plug-in SAP HANA instalado para gerenciar o sistema HANA clonado.
++
+Ele pode ser um host plug-in centralizado ou um host de sistema HANA.
+
+.. Insira o SID do SAP HANA para clonar dos backups existentes.
+.. Insira endereços IP ou os nomes de host nos quais os volumes clonados serão exportados.
+.. Se os volumes de ANF do banco de dados SAP HANA estiverem configurados em um pool de CAPACIDADE DE QOS manual, especifique a QOS para os volumes clonados.
++
+Se A QOS para os volumes clonados não for especificada, a QOS do volume de origem será usada. Se o pool de capacidade DE QOS automático for usado, o valor DE QOS especificado será ignorado.
+
+
+
+. Na página Scripts, execute as seguintes etapas:
++
+.. Digite os comandos para pré-clone ou pós-clone que devem ser executados antes ou depois da operação clone, respetivamente.
+.. Digite o comando mount para montar um sistema de arquivos em um host.
++
+Se o SISTEMA HANA de origem for descoberto automaticamente e o plug-in de host de destino clone for instalado no host SAP HANA, o SnapCenter removerá automaticamente os volumes de DADOS HANA existentes no host clone de destino e montará os volumes de DADOS HANA recém clonados.
+
+
+
+. Na página notificação, na lista suspensa *preferência de e-mail*, selecione os cenários nos quais você deseja enviar os e-mails.
+. Revise o resumo e clique em *Finish*.
+. Monitorize o progresso da operação clicando em *Monitor* > *trabalhos*.
++
+
+NOTE: O clone Split está desativado para clones do ANF porque o clone do ANF já é um volume independente criado a partir do Snapshot selecionado.
+
+

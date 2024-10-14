@@ -1,0 +1,76 @@
+---
+permalink: protect-mysql/restore-and-recover-an-auto-discovered-database-backup.html 
+sidebar: sidebar 
+keywords: SnapCenter Plug-in for mysql 
+summary: Você pode usar o SnapCenter para restaurar e recuperar dados de um ou mais backups. 
+---
+= Restaure e recupere um backup de banco de dados descoberto automaticamente
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Você pode usar o SnapCenter para restaurar e recuperar dados de um ou mais backups.
+
+.Antes de começar
+* Você deve ter feito backup dos grupos de recursos ou recursos.
+* Você deve ter cancelado qualquer operação de backup que esteja atualmente em andamento para o recurso ou grupo de recursos que deseja restaurar.
+* Para comandos pré-restauração, pós restauração, montagem e desmontagem, você deve verificar se os comandos existem na lista de comandos disponível no host do plug-in a partir dos seguintes caminhos:
++
+Para Linux: _/var/opt/SnapCenter/scc/allowed_commands.config_
+
++
+
+NOTE: Se os comandos não existirem na lista de comandos, a operação falhará.
+
+
+
+.Sobre esta tarefa
+* Para recursos descoberta automática, a restauração é suportada com SFSR.
+* Recuperação automática pontual e atualizada não é suportada.
+* Para a versão ONTAP 9.12,1 e inferior, os clones criados a partir dos snapshots do SnapLock Vault como parte da restauração herdarão o tempo de expiração do SnapLock Vault. O administrador do storage deve limpar manualmente os clones após o tempo de expiração do SnapLock.
+
+
+.Passos
+. No painel de navegação esquerdo, clique em *Resources* e selecione o plug-in apropriado na lista.
+. Na página recursos, filtre recursos da lista suspensa *Exibir* com base no tipo de recurso.
++
+Os recursos são exibidos juntamente com o tipo, host, grupos de recursos e políticas associados e status.
+
++
+
+NOTE: Embora um backup possa ser para um grupo de recursos, ao restaurar, você deve selecionar os recursos individuais que deseja restaurar.
+
++
+Se o recurso não estiver protegido, ""não protegido"" é exibido na coluna Estado geral. Isso pode significar que o recurso não está protegido ou que o recurso foi protegido por um usuário diferente.
+
+. Selecione o recurso ou selecione um grupo de recursos e, em seguida, selecione um recurso nesse grupo.
++
+A página de topologia do recurso é exibida.
+
+. Na exibição Gerenciar cópias, selecione *backups* nos sistemas de armazenamento primário ou secundário (espelhado ou abobadado).
+. Na tabela de backup principal, selecione o backup do qual você deseja restaurar e clique em * *image:../media/restore_icon.gif["ícone de restauro"].
++
+image::../media/restoring_resource.gif[restaurar recursos]
+
+. Na página Restaurar escopo, selecione *recurso completo* para restaurar os volumes de dados configurados do banco de dados MySQL.
+. Na página operações anteriores, insira pré-restauração e desmonte comandos para serem executados antes de executar um trabalho de restauração.
++
+Os comandos de desmontagem não estão disponíveis para recursos descobertos automaticamente.
+
+. Na página Post OPS, insira os comandos mount e POST Restore para serem executados após a execução de um trabalho de restauração.
++
+Os comandos de montagem não estão disponíveis para recursos descobertos automaticamente.
+
++
+
+NOTE: Para os comandos pre e POST para operações quiesce, snapshot e unquiesce, você deve verificar se os comandos existem na lista de comandos disponível no host plug-in do caminho _/opt/SnapCenter/snapenter/scc/allowed_Commands.config_ para Linux.
+
+. Na página notificação, na lista suspensa *preferência de e-mail*, selecione os cenários nos quais você deseja enviar os e-mails.
++
+Você também deve especificar os endereços de e-mail do remetente e do destinatário e o assunto do e-mail. O SMTP também deve ser configurado na página *Configurações* > *Configurações globais*.
+
+. Revise o resumo e clique em *Finish*.
+. Monitorize o progresso da operação clicando em *Monitor* > *trabalhos*.
+

@@ -1,0 +1,95 @@
+---
+permalink: protect-postgresql/add-resources-manually-to-the-plug-in-host.html 
+sidebar: sidebar 
+keywords: SnapCenter Plug-in for Postgresql 
+summary: A descoberta automática não é suportada para determinadas instâncias do PostgreSQL. Você deve adicionar esses recursos manualmente. 
+---
+= Adicione recursos manualmente ao host do plug-in
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+A deteção automática não é suportada no host Windows. Você deve adicionar recursos de cluster PostgreSQL manualmente.
+
+.Antes de começar
+* Você deve ter concluído tarefas como instalar o servidor SnapCenter, adicionar hosts e configurar conexões do sistema de armazenamento.
+
+
+.Sobre esta tarefa
+A deteção automática não é suportada para as seguintes configurações:
+
+* Layouts RDM e VMDK
+
+
+.Passos
+. No painel de navegação à esquerda, selecione o plug-in do SnapCenter para PostgreSQL na lista suspensa e clique em *recursos*.
+. Na página recursos, clique em *Adicionar recursos PostgreSQL*.
+. Na página fornecer detalhes do recurso, execute as seguintes ações:
++
+|===
+| Para este campo... | Faça isso... 
+
+
+ a| 
+Nome
+ a| 
+Especifique o nome do cluster.
+
+
+
+ a| 
+Nome do host
+ a| 
+Insira o nome do host.
+
+
+
+ a| 
+Tipo
+ a| 
+Selecione cluster.
+
+
+
+ a| 
+Instância
+ a| 
+Especifique o nome da instância, que é o pai do cluster.
+
+
+
+ a| 
+Credenciais
+ a| 
+Selecione as credenciais ou adicione informações para a credencial.
+
+Isso é opcional.
+
+|===
+. Na página fornecer espaço físico de armazenamento, selecione um tipo de armazenamento e escolha um ou mais volumes, LUNs e qtrees e clique em *Salvar*.
++
+Opcional: Você pode clicar noimage:../media/add_policy_from_resourcegroup.gif[""] ícone * para adicionar mais volumes, LUNs e qtrees de outros sistemas de armazenamento.
+
+. Opcional: Na página Configurações de recursos, para recursos no host do Windows, insira pares de valor de chave personalizados para o plug-in PostgreSQL
+. Revise o resumo e clique em *Finish*.
++
+Os clusters são exibidos juntamente com informações como o nome do host, grupos e políticas de recursos associados e status geral
+
+
+
+Se você quiser fornecer aos usuários acesso a recursos, você deve atribuir os recursos aos usuários. Isso permite que os usuários executem as ações para as quais eles têm permissões nos ativos que são atribuídos a eles.
+
+link:https://docs.netapp.com/us-en/snapcenter/install/task_add_a_user_or_group_and_assign_role_and_assets.html["Adicione um usuário ou grupo e atribua funções e ativos"]
+
+.Depois de terminar
+* Depois de adicionar os clusters, você pode modificar os detalhes do cluster PostgreSQL.
+* Os recursos migrados (tablespace e clusters) do SnapCenter 5,0 serão marcados como tipo de cluster PostgreSQL no SnapCenter 6,0.
+* Quando você modifica os recursos adicionados manualmente que são migrados do SnapCenter 5,0 ou abaixo, faça o seguinte na página *Configurações de recurso* para pares de valores de chave personalizados:
++
+** Especifique o termo "PORT" no campo *Name*.
+** Especifique o número da porta no campo *valor*.
+
+
+

@@ -1,0 +1,47 @@
+---
+permalink: protect-sco/supported_backup_configs.html 
+sidebar: sidebar 
+keywords: backup type, preferred nodes, catalog backups, schedules, backup name format, retention, verification 
+summary: O SnapCenter suporta backup de diferentes configurações de banco de dados Oracle. 
+---
+= Configurações de banco de dados Oracle compatíveis para backups
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+O SnapCenter suporta backup de diferentes configurações de banco de dados Oracle.
+
+* Oracle Standalone
+* Oracle Real Application clusters (RAC)
+* Oracle Standalone Legacy
+* Oracle Standalone Container Database (CDB)
+* Espera do Oracle Data Guard
++
+Você só pode criar backups de montagem offline de bancos de dados em espera do Data Guard. Backup off-line-shutdown, backup somente de log de arquivamento e backup completo não são suportados.
+
+* Espera do Oracle ative Data Guard
++
+Você só pode criar backups online de bancos de dados em espera do ative Data Guard. O backup e o backup completo somente de log de arquivamento não são suportados.
+
++
+Antes de criar um backup do banco de dados de espera do Data Guard ou do ative Data Guard, o processo de recuperação gerenciado (MRP) é interrompido e, uma vez que o backup é criado, o MRP é iniciado.
+
+* Gerenciamento automático de storage (ASM)
++
+** ASM autônomo e ASM RAC no Virtual Machine Disk (VMDK)
++
+Entre todos os métodos de restauração suportados para bancos de dados Oracle, você pode executar apenas a restauração de conexão e cópia de bancos de dados ASM RAC no VMDK.
+
+** ASM autônomo e ASM RAC em mapeamento de dispositivo bruto (RDM), você pode executar operações de backup, restauração e clone em bancos de dados Oracle no ASM, com ou sem ASMLib.
+** Controlador de filtro Oracle ASM (ASMFD)
++
+As operações de migração PDB e clonagem PDB não são suportadas.
+
+** Oracle Flex ASM
+
+
+
+
+Para obter as informações mais recentes sobre versões Oracle suportadas, consulte o https://imt.netapp.com/matrix/imt.jsp?components=121071;&solution=1259&isHWU&src=IMT["Ferramenta de Matriz de interoperabilidade do NetApp"^].

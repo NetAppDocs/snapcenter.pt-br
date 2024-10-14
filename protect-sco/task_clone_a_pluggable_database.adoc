@@ -1,0 +1,211 @@
+---
+permalink: protect-sco/task_clone_a_pluggable_database.html 
+sidebar: sidebar 
+keywords: clone, pluggable database, PDB 
+summary: 'Você pode clonar um banco de dados plugável (PDB) para um CDB diferente ou mesmo destino no mesmo host ou host alternativo. Você também pode recuperar o PDB clonado para uma SCN ou data e hora desejadas.' 
+---
+= Clone um banco de dados conetável
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Você pode clonar um banco de dados conetável (PDB) para um CDB diferente ou mesmo destino no mesmo host ou host alternativo. Você também pode recuperar o PDB clonado para uma SCN ou data e hora desejadas.
+
+*Antes de começar*
+
+Se tiver instalado o plug-in como um utilizador não root, deve atribuir manualmente as permissões de execução aos diretórios prescritor e postscript.
+
+*Passos*
+
+. No painel de navegação esquerdo, clique em *Resources* e selecione o plug-in apropriado na lista.
+. Na página recursos, selecione *Banco de dados* ou *Grupo de recursos* na lista *Exibir*.
+. Selecione o banco de dados do tipo instância única (multitenant) na exibição de detalhes do banco de dados ou na exibição de detalhes do grupo de recursos.
++
+A página de topologia do banco de dados é exibida.
+
+. Na exibição Gerenciar cópias, selecione os backups de cópias locais (primárias), cópias espelhadas (secundárias) ou cópias do Vault (secundárias).
+. Selecione a cópia de segurança na tabela e, em seguida, clique em * *image:../media/clone_icon.gif["ícone de clone"]*.
+. Na página Nome, execute as seguintes ações:
++
+.. Selecione *Clonar PDB*.
+.. Especifique o PDB que você deseja clonar.
++
+
+NOTE: Você pode clonar apenas um PDB de cada vez.
+
+.. Especifique o nome do clone PDB.
+
+
+. Na página locais, execute as seguintes ações:
++
+|===
+
+
+| Para este campo... | Faça isso... 
+
+
+ a| 
+Clone de host
+ a| 
+Por padrão, o host do banco de dados de origem é preenchido.
+
+Se você quiser criar o clone em um host alternativo, selecione o host com a mesma versão do Oracle e do SO que o host do banco de dados de origem.
+
+
+
+ a| 
+CDB alvo
+ a| 
+Selecione o CDB onde deseja incluir o PDB clonado.
+
+Você deve garantir que o CDB alvo esteja em execução.
+
+
+
+ a| 
+Estado da base de dados
+ a| 
+Marque a caixa de seleção *abrir o PDB clonado no modo DE LEITURA-GRAVAÇÃO* se quiser abrir o PDB no modo DE LEITURA-GRAVAÇÃO.
+
+
+
+ a| 
+Localizações de ficheiros de dados
+ a| 
+Por padrão, a localização do arquivo de dados é preenchida.
+
+A convenção de nomenclatura padrão do SnapCenter para sistemas de arquivos SAN ou NFS é FileSystemNameofsourcedatabase_SCJOBID.
+
+A convenção de nomenclatura padrão do SnapCenter para grupos de discos ASM é SC_HASHCODEofDISKGROUP_SCJOBID. O HASHCODEofDISKGROUP é um número gerado automaticamente (2 a 10 dígitos) que é exclusivo para cada grupo de discos ASM.
+
+
+NOTE: Se você estiver personalizando o nome do grupo de discos ASM, certifique-se de que o comprimento do nome adere ao comprimento máximo suportado pela Oracle.
+
+Se você quiser especificar um caminho diferente, insira os pontos de montagem do arquivo de dados ou nomes de grupo de discos ASM para o banco de dados clone.
+
+|===
++
+A casa, o nome de usuário e os detalhes do grupo do Oracle são preenchidos automaticamente a partir do banco de dados de origem. Você pode alterar os valores com base no ambiente Oracle do host onde o clone será criado.
+
+. Na página PreOps, execute as seguintes etapas:
++
+.. Insira o caminho e os argumentos do prescritor que você deseja executar antes da operação clone.
++
+Você deve armazenar o prescritor em /var/opt/SnapCenter/spl/scripts ou em qualquer pasta dentro deste caminho. Por padrão, o caminho /var/opt/SnapCenter/spl/scripts é preenchido. Se você colocou o script em qualquer pasta dentro deste caminho, você precisa fornecer o caminho completo até a pasta onde o script é colocado.
+
++
+O SnapCenter permite-lhe utilizar as variáveis de ambiente predefinidas quando executa o prescritor e o postscript. link:../protect-sco/predefined-environment-variables-prescript-postscript-clone.html["Saiba mais"^]
+
+.. Na seção Configurações de parâmetros do banco de dados clone CDB auxiliar , modifique os valores dos parâmetros do banco de dados pré-preenchidos que são usados para inicializar o banco de dados.
+
+
+. Clique em *Reset* para obter as configurações padrão de parâmetros do banco de dados.
+. Na página PostOps, *Until Cancel* é selecionado por padrão para executar a recuperação do banco de dados clonado.
++
+A opção *Until Cancel* (até Cancelar) não é selecionada se o SnapCenter não conseguir encontrar os backups de log apropriados. Você pode fornecer o local de log de arquivamento externo se o backup de log não estiver disponível em *especificar locais de log de arquivamento externo*. Pode especificar vários locais de registo.
+
++
+
+NOTE: Se você quiser clonar um banco de dados de origem configurado para suportar a área de recuperação flash (FRA) e os arquivos gerenciados Oracle (OMF), o destino do log para recuperação também deve aderir à estrutura de diretórios OMF.
+
++
+|===
+| Nome do campo | Descrição 
+
+
+ a| 
+Até Cancelar
+ a| 
+O SnapCenter executa a recuperação montando o backup de log mais recente com a sequência ininterrupta de logs de arquivamento após esse backup de dados que foi selecionado para clonagem.
+
+O backup de log e dados deve estar no storage primário para executar o clone no storage primário e o backup de dados deve estar no storage secundário para executar o clone no storage secundário. O banco de dados clonado é recuperado até o arquivo de log ausente ou corrompido.
+
+
+
+ a| 
+Data e hora
+ a| 
+O SnapCenter recupera o banco de dados até uma data e hora especificadas.
+
+
+NOTE: A hora pode ser especificada no formato de 24 horas.
+
+
+
+ a| 
+Até SCN (número de mudança do sistema)
+ a| 
+O SnapCenter recupera o banco de dados até um número de mudança de sistema especificado (SCN).
+
+
+
+ a| 
+Especifique locais de registo de arquivo externo
+ a| 
+Especifique a localização do log de arquivamento externo.
+
+
+
+ a| 
+Crie um novo DBID
+ a| 
+Por padrão *a caixa de seleção criar novo DBID* não está selecionada para o banco de dados de clones auxiliares.
+
+Marque a caixa de seleção se desejar gerar um número único (DBID) para o banco de dados clonado auxiliar diferenciando-o do banco de dados de origem.
+
+
+
+ a| 
+Crie o tempfile para o espaço de tabela temporário
+ a| 
+Marque a caixa de seleção se quiser criar um arquivo tempfile para o espaço de tabela temporário padrão do banco de dados clonado.
+
+Se a caixa de seleção não estiver selecionada, o clone do banco de dados será criado sem o tempfile.
+
+
+
+ a| 
+Insira entradas sql para aplicar quando o clone for criado
+ a| 
+Adicione as entradas sql que você deseja aplicar quando o clone for criado.
+
+
+
+ a| 
+Insira scripts para serem executados após a operação clone
+ a| 
+Especifique o caminho e os argumentos do postscript que você deseja executar após a operação clone.
+
+Você deve armazenar o postscript em _/var/opt/SnapCenter/spl/scripts_ ou em qualquer pasta dentro deste caminho.
+
+Por padrão, o caminho _/var/opt/SnapCenter/spl/scripts_ é preenchido. Se você colocou o script em qualquer pasta dentro deste caminho, você precisa fornecer o caminho completo até a pasta onde o script é colocado.
+
+
+NOTE: Se a operação de clone falhar, os postscripts não serão executados e as atividades de limpeza serão acionadas diretamente.
+
+|===
+. Na página notificação, na lista suspensa *preferência de e-mail*, selecione os cenários nos quais você deseja enviar os e-mails.
++
+Você também deve especificar os endereços de e-mail do remetente e do destinatário e o assunto do e-mail. Se quiser anexar o relatório da operação clone executada, selecione *Anexar Relatório de trabalho*.
+
++
+
+NOTE: Para notificação por e-mail, você deve ter especificado os detalhes do servidor SMTP usando a GUI ou o comando PowerShell SET-SmtpServer.
+
+. Revise o resumo e clique em *Finish*.
+. Monitorize o progresso da operação clicando em *Monitor* > *trabalhos*.
+
+
+*Depois de terminar*
+
+Se você quiser criar um backup do PDB clonado, você deve fazer o backup do CDB de destino onde o PDB é clonado porque não é possível fazer backup apenas do PDB clonado. Você deve criar um relacionamento secundário para o CDB de destino se quiser criar o backup com relação secundária.
+
+Em uma configuração RAC, o armazenamento para PDB clonado é anexado apenas ao nó onde o clone PDB foi executado. As PDBs nos outros nós do RAC estão no estado DE MONTAGEM. Se você quiser que o PDB clonado seja acessível a partir dos outros nós, anexe manualmente o storage aos outros nós.
+
+*Encontre mais informações*
+
+* https://kb.netapp.com/Advice_and_Troubleshooting/Data_Protection_and_Security/SnapCenter/ORA-00308%3A_cannot_open_archived_log_ORA_LOG_arch1_123_456789012.arc["Falha na restauração ou clonagem com a mensagem de erro ORA-00308"^]
+* https://kb.netapp.com/Advice_and_Troubleshooting/Data_Protection_and_Security/SnapCenter/What_are_the_customizable_parameters_for_backup_restore_and_clone_operations_on_AIX_systems["Parâmetros personalizáveis para operações de backup, restauração e clone em sistemas AIX"^]
+

@@ -1,0 +1,87 @@
+---
+permalink: protect-mysql/create-backup-policies-for-mysql.html 
+sidebar: sidebar 
+keywords: SnapCenter Plug-in for MySQL 
+summary: Antes de usar o SnapCenter para fazer backup dos recursos do banco de dados MySQL, você deve criar uma política de backup para o grupo de recursos ou recursos que deseja fazer backup. Uma política de backup é um conjunto de regras que regem como você gerencia, agenda e retém backups. 
+---
+= Criar políticas de backup para MySQL
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Antes de usar o SnapCenter para fazer backup de recursos MySQL, você deve criar uma política de backup para o grupo de recursos ou recursos que deseja fazer backup. Uma política de backup é um conjunto de regras que regem como você gerencia, agenda e retém backups.
+
+.Antes de começar
+* Você precisa ter definido sua estratégia de backup.
++
+Para obter detalhes, consulte as informações sobre como definir uma estratégia de proteção de dados para bancos de dados MySQL.
+
+* Você precisa se preparar para a proteção de dados concluindo tarefas como instalar o SnapCenter, adicionar hosts, configurar conexões do sistema de storage e adicionar recursos.
+* O administrador do SnapCenter deve ter atribuído os SVMs para os volumes de origem e destino a você se estiver replicando snapshots em um espelho ou cofre.
++
+Além disso, você pode especificar as configurações de replicação, script e aplicativo na política. Essas opções economizam tempo quando você deseja reutilizar a política para outro grupo de recursos.
+
+
+
+.Sobre esta tarefa
+* SnapLock
++
+** Se a opção 'reter as cópias de backup para um número específico de dias' estiver selecionada, o período de retenção do SnapLock deve ser menor ou igual aos dias de retenção mencionados.
+** Especificar um período de bloqueio de instantâneos impede a exclusão dos instantâneos até que o período de retenção expire. Isso pode levar a reter um número maior de instantâneos do que a contagem especificada na política.
+** Para a versão ONTAP 9.12,1 e inferior, os clones criados a partir dos snapshots do SnapLock Vault como parte da restauração herdarão o tempo de expiração do SnapLock Vault. O administrador do storage deve limpar manualmente os clones após o tempo de expiração do SnapLock.
+
+
+
+
+
+NOTE: As configurações do SnapLock primário são gerenciadas na política de backup do SnapCenter e as configurações do SnapLock secundário são gerenciadas pelo ONTAP.
+
+.Passos
+. No painel de navegação esquerdo, clique em *Configurações*.
+. Na página Configurações, clique em *políticas*.
+. Clique em *novo*.
+. Na página Nome, insira o nome e a descrição da política.
+. Na página tipo de política, execute o seguinte:
++
+.. Selecione o tipo de armazenamento.
+.. Na seção *Configurações personalizadas de backup*, forneça quaisquer configurações específicas de backup que tenham que ser passadas para o formato de valor de chave do plug-in.
++
+Você pode fornecer vários valores-chave a serem passados para o plug-in.
+
+
+
+. Na página Snapshot, especifique o tipo de agendamento selecionando *On Demand*, *Hourly*, *Daily*, *Weekly* ou *Monthly*.
++
+
+NOTE: Você pode especificar a programação (data de início, data de término e frequência) para a operação de backup enquanto cria um grupo de recursos. Isso permite que você crie grupos de recursos que compartilham a mesma política e frequência de backup, mas também permite que você atribua diferentes programações de backup a cada política.
+
++
+image::../media/backup_settings.gif[definições de cópia de segurança]
+
++
+
+NOTE: Se você tiver agendado para as 2:00 da manhã, o horário não será acionado durante o horário de verão (DST).
+
+. Na seção Configurações de instantâneos, especifique o número de instantâneos que você deseja manter.
+. Na página retenção, especifique as configurações de retenção para o tipo de backup e o tipo de agendamento selecionado na página tipo de backup:
++
+|===
+| Se você quiser... | Então... 
+
+
+ a| 
+Mantenha um certo número de instantâneos
+ a| 
+Selecione *Copies to keep* e especifique o número de instantâneos que deseja manter.
+
+Se o número de instantâneos exceder o número especificado, os instantâneos serão excluídos com as cópias mais antigas excluídas primeiro.
+
+|===
++
+
+IMPORTANT: Para backups baseados em cópias Snapshot, defina a contagem de retenção para 2 ou superior, se quiser habilitar a replicação do SnapVault. Se você definir a contagem de retenção como 1, a operação de retenção pode falhar porque o primeiro snapshot é o snapshot de referência para a relação SnapVault até que um snapshot mais recente seja replicado para o destino.
+
+. Revise o resumo e clique em *Finish*.
+

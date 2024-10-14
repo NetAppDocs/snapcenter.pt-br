@@ -1,0 +1,175 @@
+---
+permalink: protect-scw/task_add_hosts_and_install_snapcenter_plug_in_for_microsoft_windows.html 
+sidebar: sidebar 
+keywords: installing 
+summary: Você pode usar a página Adicionar host do SnapCenter para adicionar hosts do Windows. O plug-in do SnapCenter para Microsoft Windows é instalado automaticamente no host especificado. Este é o método recomendado para instalar plug-ins. Você pode adicionar um host e instalar um plug-in para um host individual ou para um cluster. 
+---
+= Adicione hosts e instale o plug-in do SnapCenter para Microsoft Windows
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Você pode usar a página Adicionar host do SnapCenter para adicionar hosts do Windows. O plug-in do SnapCenter para Microsoft Windows é instalado automaticamente no host especificado. Este é o método recomendado para instalar plug-ins. Você pode adicionar um host e instalar um plug-in para um host individual ou para um cluster.
+
+.Antes de começar
+* Se o sistema operacional do host do servidor SnapCenter for o Windows 2019 e o sistema operacional do host do plug-in for o Windows 2022, você deve executar o seguinte:
++
+** Atualize para o Windows Server 2019 (versão de SO 17763,5936) ou posterior
+** Atualize para o Windows Server 2022 (versão de SO 20348,2402) ou posterior
+
+
+* Você deve ser um usuário atribuído a uma função que tenha as permissões de instalação e desinstalação do plug-in, como a função Administrador do SnapCenter.
+* Ao instalar um plug-in em um host do Windows, se você especificar uma credencial que não está integrada ou se o usuário pertence a um usuário local do grupo de trabalho, será necessário desativar o UAC no host.
+* O usuário do SnapCenter deve ser adicionado à função "Iniciar sessão como um serviço" do Windows Server.
+* Você deve garantir que o serviço de enfileiramento de mensagens esteja no estado em execução.
+* Se você estiver usando a conta de serviço gerenciado de grupo (gMSA), você deve configurar o gMSA com Privileges administrativo.
++
+link:task_configure_gMSA_on_windows_server_2012_or_later.html["Configure a conta de serviço gerenciado de grupo no Windows Server 2016 ou posterior para o sistema de arquivos do Windows"]
+
+
+
+.Sobre esta tarefa
+* Não é possível adicionar um servidor SnapCenter como um host plug-in a outro servidor SnapCenter.
+* Plug-ins do Windows
++
+** Microsoft Windows
+** Microsoft Exchange Server
+** Microsoft SQL Server
+** SAP HANA
+** Plug-ins personalizados
+
+
+* Instalar plug-ins em um cluster
++
+Se você instalar plug-ins em um cluster (WSFC, Oracle RAC ou Exchange DAG), eles serão instalados em todos os nós do cluster.
+
+* Armazenamento e-Series
++
+Não é possível instalar o plug-in para Windows em um host do Windows conetado ao armazenamento do e-Series.
+
+
+
+
+NOTE: O SnapCenter não suporta a adição do mesmo host (host plug-in) ao SnapCenter se o host já faz parte de um grupo de trabalho e foi alterado para outro domínio ou vice-versa. Se você quiser adicionar o mesmo host, remova o host do SnapCenter e adicione-o novamente.
+
+.Passos
+. No painel de navegação esquerdo, clique em *hosts*.
+. Certifique-se de que *hosts gerenciados* esteja selecionado na parte superior.
+. Clique em *Add*.
+. Na página hosts, faça o seguinte:
++
+|===
+| Para este campo... | Faça isso... 
+
+
+ a| 
+Tipo de host
+ a| 
+Selecione o tipo de host *Windows*.
+
+O servidor SnapCenter adiciona o host e, em seguida, instala o plug-in para Windows se ele ainda não estiver instalado no host.
+
+
+
+ a| 
+Nome do host
+ a| 
+Insira o nome de domínio totalmente qualificado (FQDN) ou o endereço IP do host.
+
+O SnapCenter depende da configuração adequada do DNS. Portanto, a melhor prática é inserir o nome de domínio totalmente qualificado (FQDN).
+
+Você pode inserir os endereços IP ou FQDN de um dos seguintes:
+
+** Anfitrião independente
+** Cluster de failover do Windows Server (WSFC)
++
+Se você estiver adicionando um host usando o SnapCenter e fizer parte de um subdomínio, você deverá fornecer o FQDN.
+
+
+
+
+
+ a| 
+Credenciais
+ a| 
+Selecione o nome da credencial que você criou ou crie as novas credenciais.
+
+A credencial deve ter direitos administrativos no host remoto. Para obter detalhes, consulte informações sobre como criar uma credencial.
+
+Os detalhes sobre as credenciais, incluindo o nome de usuário, domínio e tipo de host, são exibidos colocando o cursor sobre o nome da credencial fornecida.
+
+
+NOTE: O modo de autenticação é determinado pelo tipo de host especificado no assistente Adicionar host.
+
+|===
+. Na seção Selecionar plug-ins para instalar, selecione os plug-ins a instalar.
++
+Para novas implantações, nenhum pacote de plug-in está listado.
+
+. (Opcional) clique em *mais opções*.
++
+|===
+| Para este campo... | Faça isso... 
+
+
+ a| 
+Porta
+ a| 
+Guarde o número da porta padrão ou especifique o número da porta.
+
+O número da porta padrão é 8145. Se o servidor SnapCenter tiver sido instalado em uma porta personalizada, esse número de porta será exibido como a porta padrão.
+
+
+NOTE: Se você instalou manualmente os plug-ins e especificou uma porta personalizada, você deve especificar a mesma porta. Caso contrário, a operação falha.
+
+
+
+ a| 
+Caminho de instalação
+ a| 
+O caminho padrão é C: Arquivos de programas / NetApp / SnapCenter.
+
+Opcionalmente, você pode personalizar o caminho. Para o pacote de plug-ins do SnapCenter para Windows, o caminho padrão é C: Arquivos de programas/NetApp/SnapCenter. No entanto, se quiser, você pode personalizar o caminho padrão.
+
+
+
+ a| 
+Adicione todos os hosts no cluster
+ a| 
+Marque essa caixa de seleção para adicionar todos os nós de cluster em um WSFC.
+
+
+
+ a| 
+Ignorar as verificações de pré-instalação
+ a| 
+Marque essa caixa de seleção se você já instalou os plug-ins manualmente e não quiser validar se o host atende aos requisitos para instalar o plug-in.
+
+
+
+ a| 
+Use a conta de serviço gerenciado de grupo (gMSA) para executar os serviços de plug-in
+ a| 
+Marque essa caixa de seleção se quiser usar a conta de serviço gerenciado de grupo (gMSA) para executar os serviços de plug-in.
+
+Forneça o nome gMSA no seguinte formato: _Domainname
+
+
+NOTE: O gMSA será usado como uma conta de serviço de logon apenas para o serviço SnapCenter Plug-in para Windows.
+
+|===
+. Clique em *Enviar*.
++
+Se você não selecionou a caixa de seleção *Ignorar pré-verificações*, o host será validado para verificar se atende aos requisitos para instalar o plug-in. O espaço em disco, a RAM, a versão do PowerShell, a versão do .NET e o local são validados de acordo com os requisitos mínimos. Se os requisitos mínimos não forem cumpridos, são apresentadas mensagens de erro ou de aviso adequadas.
+
++
+Se o erro estiver relacionado ao espaço em disco ou à RAM, você poderá atualizar o arquivo web.config localizado no `C:\Program Files\NetApp\SnapCenter` WebApp para modificar os valores padrão. Se o erro estiver relacionado a outros parâmetros, você deve corrigir o problema.
+
++
+
+NOTE: Em uma configuração de HA, se você estiver atualizando o arquivo web.config, será necessário atualizar o arquivo em ambos os nós.
+
+. Monitorize o progresso da instalação.
+

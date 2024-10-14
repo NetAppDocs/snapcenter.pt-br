@@ -1,0 +1,167 @@
+---
+permalink: install/task_configure_two_way_ssl.html 
+sidebar: sidebar 
+keywords: security,two-way ssl,configure two-way ssl, windows host 
+summary: Você deve configurar a comunicação SSL bidirecional para proteger a comunicação mútua entre o servidor SnapCenter no host Windows e os plug-ins. 
+---
+= Configurar comunicação SSL bidirecional no host Windows
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Você deve configurar a comunicação SSL bidirecional para proteger a comunicação mútua entre o servidor SnapCenter no host Windows e os plug-ins.
+
+.Antes de começar
+* Você deve ter gerado o arquivo CSR do certificado CA com o comprimento mínimo de chave suportado de 3072.
+* O certificado CA deve suportar autenticação de servidor e autenticação de cliente.
+* Você deve ter um certificado CA com chave privada e detalhes de impressão digital.
+* Você deve ter habilitado a configuração SSL unidirecional.
++
+Para obter mais detalhes, consulte https://docs.netapp.com/us-en/snapcenter/install/reference_generate_CA_certificate_CSR_file.html["Configurar a seção certificado CA."]
+
+* Você deve ter habilitado a comunicação SSL bidirecional em todos os hosts de plug-in e no servidor SnapCenter.
++
+O ambiente com alguns hosts ou servidor não habilitado para comunicação SSL bidirecional não é suportado.
+
+
+
+.Passos
+. Para vincular a porta, execute as etapas a seguir no host do servidor SnapCenter para a porta 8146 do servidor Web do SnapCenter IIS (padrão) e novamente para a porta 8145 do SMCore (padrão) usando comandos do PowerShell.
++
+.. Remova a vinculação de porta de certificado auto-assinada do SnapCenter existente usando o seguinte comando PowerShell.
++
+`> netsh http delete sslcert ipport=0.0.0.0:<SMCore port/IIS port>`
+
++
+Por exemplo,
+
++
+`> netsh http delete sslcert ipport=0.0.0.0:8145`
+
++
+`> netsh http delete sslcert ipport=0.0.0.0:8146`
+
+.. Vincule o certificado CA recém-adquirido com o servidor SnapCenter e a porta SMCore.
++
+`> $cert = “<CA_certificate thumbprint>”`
+
++
+`> $guid = [guid]::NewGuid().ToString("B")`
+
++
+`> netsh http add sslcert ipport=0.0.0.0: <SMCore Port/IIS port> certhash=$cert appid="$guid"` `clientcertnegotiation=enable verifyclientcertrevocation=disable`
+
++
+`> netsh http show sslcert ipport=0.0.0.0:<SMCore Port/IIS port>`
+
++
+Por exemplo,
+
++
+`> $cert = “abc123abc123abc123abc123”`
+
++
+`> $guid = [guid]::NewGuid().ToString("B")`
+
++
+`> netsh http add sslcert ipport=0.0.0.0:8146 certhash=$cert appid="$guid"` `clientcertnegotiation=enable verifyclientcertrevocation=disable`
+
++
+`> $guid = [guid]::NewGuid().ToString("B")`
+
++
+`> netsh http add sslcert ipport=0.0.0.0:8145 certhash=$cert appid="$guid"` `clientcertnegotiation=enable verifyclientcertrevocation=disable`
+
++
+`> netsh http show sslcert ipport=0.0.0.0:8146`
+
++
+`> netsh http show sslcert ipport=0.0.0.0:8145`
+
+
+
+. Para acessar a permissão ao certificado da CA, adicione o usuário padrão do servidor Web IIS "*SnapCenter*" do SnapCenter na lista de permissões do certificado executando as etapas a seguir para acessar o certificado da CA recém-adquirida.
++
+.. Vá para o console de gerenciamento da Microsoft (MMC) e clique em *File* > *Add/Remove SnapIn*.
+.. Na janela Adicionar ou remover snap-ins, selecione *certificados* e clique em *Adicionar*.
+.. Na janela de snap-in certificados, selecione a opção *conta de computador* e clique em *concluir*.
+.. Clique em *raiz da consola* > *certificados – computador local* > *Pessoal* > *certificados*.
+.. Selecione o certificado SnapCenter.
+.. Para iniciar o assistente adicionar usuário/permissão, clique com o botão direito do Mouse no certificado da CA e selecione *todas as tarefas* > *Gerenciar chaves privadas*.
+.. Clique em *Add*, no assistente Select Users and Groups (Selecionar usuários e grupos) altere o local para o nome do computador local (mais importante na hierarquia)
+.. Adicione o usuário do AppPool/SnapCenter do IIS, dê permissões de controle total.
+
+
+. Para *permissão IIS de certificado CA*, adicione a nova entrada de chaves de Registro DWORD no servidor SnapCenter a partir do seguinte caminho:
++
+No editor de Registro do Windows, percorra para o caminho abaixo mencionado,
+
++
+`HKey_Local_Machine\SYSTEM\CurrentControlSet\Control\SecurityProv
+ ders\SCHANNEL`
+
+. Crie uma nova entrada de chave de Registro DWORD no contexto da configuração DO REGISTRO SCHANNEL.
++
+`SendTrustedIssuerList = 0`
+
++
+`ClientAuthTrustMode = 2`
+
+
+
+
+
+== Configure o plug-in do SnapCenter para comunicação SSL bidirecional
+
+Você deve configurar o plug-in do SnapCenter para comunicação SSL bidirecional usando comandos do PowerShell.
+
+.Antes de começar
+Verifique se a impressão digital do certificado CA está disponível.
+
+.Passos
+. Para vincular a porta, execute as seguintes ações no host de plug-in do Windows para a porta SMCore 8145 (padrão).
++
+.. Remova a vinculação de porta de certificado auto-assinada do SnapCenter existente usando o seguinte comando PowerShell.
++
+`> netsh http delete sslcert ipport=0.0.0.0:<SMCore port>`
+
++
+Por exemplo,
+
++
+`> netsh http delete sslcert ipport=0.0.0.0:8145`
+
+.. Vincule o certificado CA recém-adquirido com a porta SMCore.
++
+`> $cert = “<CA_certificate thumbprint>”`
+
++
+`> $guid = [guid]::NewGuid().ToString("B")`
+
++
+`> netsh http add sslcert ipport=0.0.0.0: <SMCore Port> certhash=$cert appid="$guid"`
+`clientcertnegotiation=enable verifyclientcertrevocation=disable`
+
++
+`> netsh http show sslcert ipport=0.0.0.0:<SMCore Port>`
+
++
+Por exemplo,
+
++
+`> $cert = “abc123abc123abc123abc123”`
+
++
+`> $guid = [guid]::NewGuid().ToString("B")`
+
++
+`> netsh http add sslcert ipport=0.0.0.0:8145 certhash=$cert appid="$guid"` `clientcertnegotiation=enable verifyclientcertrevocation=disable`
+
++
+`> netsh http show sslcert ipport=0.0.0.0:8145`
+
+
+
+

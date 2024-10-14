@@ -1,0 +1,283 @@
+---
+permalink: protect-scw/task_clone_from_a_windows_file_system_backup.html 
+sidebar: sidebar 
+keywords: clone 
+summary: Você pode usar o SnapCenter para clonar um backup do sistema de arquivos do Windows. Se você quiser uma cópia de um único arquivo que foi excluído ou alterado por engano, então você pode clonar um backup e acessar esse arquivo no clone. 
+---
+= Clone de um backup do sistema de arquivos do Windows
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Você pode usar o SnapCenter para clonar um backup do sistema de arquivos do Windows. Se você quiser uma cópia de um único arquivo que foi excluído ou alterado por engano, então você pode clonar um backup e acessar esse arquivo no clone.
+
+.Antes de começar
+* Você deve se preparar para a proteção de dados concluindo tarefas como adicionar hosts, identificar recursos e criar conexões de máquina virtual de storage (SVM).
+* Você deve ter um backup do sistema de arquivos.
+* Você deve garantir que os agregados que hospedam os volumes estejam na lista de agregados atribuídos da máquina virtual de storage (SVM).
+* Não é possível clonar um grupo de recursos. Você só pode clonar backups individuais do sistema de arquivos.
+* Se um backup residir em uma máquina virtual com um disco VMDK, o SnapCenter não poderá clonar o backup em um servidor físico.
+* Se clonar um cluster do Windows (por exemplo, um LUN compartilhado ou um LUN de volume compartilhado de cluster (CSV)), o clone será armazenado como um LUN dedicado no host que você especificar.
+* Para uma operação de clonagem, o diretório raiz do ponto de montagem do volume não pode ser um diretório compartilhado.
+* Não é possível criar um clone em um nó que não seja o nó inicial para o agregado.
+* Não é possível agendar operações de clone recorrente (ciclo de vida do clone) para sistemas de arquivos do Windows; só é possível clonar um backup sob demanda.
+* Se você mover um LUN que contém um clone para um novo volume, o SnapCenter não poderá mais dar suporte ao clone. Por exemplo, você não pode usar o SnapCenter para excluir esse clone.
+* Não é possível clonar entre ambientes. Por exemplo, clonagem de um disco físico para um disco virtual ou vice-versa.
+
+
+.Sobre esta tarefa
+* O SCRIPT_PATH é definido usando a chave PredefinedWindowsScriptsDirectory localizada no arquivo SMCoreServiceHost.exe.Config do host do plug-in.
++
+Se necessário, você pode alterar esse caminho e reiniciar o serviço SMcore. É recomendável usar o caminho padrão para segurança.
+
++
+O valor da chave pode ser exibido do swagger através da API: API /4,7/configsettings
+
++
+Você pode usar a API GET para exibir o valor da chave. A API SET não é suportada.
+
+* Para a versão ONTAP 9.12,1 e inferior, os clones criados a partir dos instantâneos do Vault do SnapLock como parte da restauração herdarão o tempo de expiração do SnapLock Vault. O administrador do storage deve limpar manualmente os clones após o tempo de expiração do SnapLock.
+
+
+[role="tabbed-block"]
+====
+.IU do SnapCenter
+--
+.Passos
+. No painel de navegação esquerdo, clique em *Resources* e selecione o plug-in apropriado na lista.
+. Na página recursos, selecione *sistemas de arquivos* na lista.
+. Selecione o host.
++
+A visualização de topologia é automaticamente exibida se o recurso estiver protegido.
+
+. Na lista recursos, selecione o backup que deseja clonar e clique no ícone clone.
+. Na página Opções, faça o seguinte:
++
+|===
+| Para este campo... | Faça isso... 
+
+
+ a| 
+Servidor clone
+ a| 
+Escolha o host no qual o clone deve ser criado.
+
+
+
+ a| 
+"'Auto Assign mount point'" ou "'Auto Assign volume mount point under path'"
+ a| 
+Escolha se deseja atribuir automaticamente um ponto de montagem ou um ponto de montagem de volume sob um caminho.
+
+Atribuir automaticamente ponto de montagem de volume sob caminho: O ponto de montagem sob um caminho permite fornecer um diretório específico no qual os pontos de montagem serão criados. Antes de escolher essa opção, você deve verificar se o diretório está vazio. Se houver uma cópia de segurança no diretório, a cópia de segurança estará num estado inválido após a operação de montagem.
+
+
+
+ a| 
+Localização do arquivo
+ a| 
+Escolha um local de arquivamento se você estiver clonando um backup secundário.
+
+|===
+. Na página Script, especifique quaisquer prescripts ou postscripts que você deseja executar.
++
+
+NOTE: O caminho de prescripts ou postscripts não deve incluir unidades ou compartilhamentos. O caminho deve ser relativo ao SCRIPT_path.
+
+. Revise o resumo e clique em *Finish*.
+. Monitorize o progresso da operação clicando em *Monitor* > *trabalhos*.
+
+
+--
+.Cmdlets do PowerShell
+--
+.Passos
+. Inicie uma sessão de conexão com o servidor SnapCenter para um usuário especificado usando o cmdlet Open-SmConnection.
++
+[listing]
+----
+Open-SmConnection  -SMSbaseurl  https://snapctr.demo.netapp.com:8146
+----
+. Liste os backups que podem ser clonados usando o cmdlet Get-SmBackup ou Get-SmResourceGroup.
++
+Este exemplo exibe informações sobre todos os backups disponíveis:
+
++
+[listing]
+----
+C:\PS>PS C:\> Get-SmBackup
+
+BackupId   BackupName                     BackupTime   BackupType
+--------   ----------                     ----------   ----------
+1          Payroll Dataset_vise-f6_08...  8/4/2015     Full Backup
+                                          11:02:32 AM
+
+2          Payroll Dataset_vise-f6_08...  8/4/2015
+                                          11:23:17 AM
+----
++
+Este exemplo exibe informações sobre um grupo de recursos especificado, seus recursos e políticas associadas:
+
++
+[listing]
+----
+PS C:\> Get-SmResourceGroup -ListResources –ListPolicies
+
+Description :
+CreationTime : 8/4/2015 3:44:05 PM
+ModificationTime : 8/4/2015 3:44:05 PM
+EnableEmail : False
+EmailSMTPServer :
+EmailFrom :
+EmailTo :
+EmailSubject :
+EnableSysLog : False
+ProtectionGroupType : Backup
+EnableAsupOnFailure : False
+Policies : {FinancePolicy}
+HostResourceMaping : {}
+Configuration : SMCoreContracts.SmCloneConfiguration
+LastBackupStatus :
+VerificationServer :
+EmailBody :
+EmailNotificationPreference : Never
+VerificationServerInfo : SMCoreContracts.SmVerificationServerInfo
+SchedulerSQLInstance :
+CustomText :
+CustomSnapshotFormat :
+SearchResources : False
+ByPassCredential : False
+IsCustomSnapshot :
+MaintenanceStatus : Production
+PluginProtectionGroupTypes : {SMSQL}
+Name : Payrolldataset
+Type : Group
+Id : 1
+Host :
+UserName :
+Passphrase :
+Deleted : False
+Auth : SMCoreContracts.SmAuth
+IsClone : False
+CloneLevel : 0
+ApplySnapvaultUpdate : False
+ApplyRetention : False
+RetentionCount : 0
+RetentionDays : 0
+ApplySnapMirrorUpdate : False
+SnapVaultLabel :
+MirrorVaultUpdateRetryCount : 7
+AppPolicies : {}
+Description : FinancePolicy
+PreScriptPath :
+PreScriptArguments :
+PostScriptPath :
+PostScriptArguments :
+ScriptTimeOut : 60000
+DateModified : 8/4/2015 3:43:30 PM
+DateCreated : 8/4/2015 3:43:30 PM
+Schedule : SMCoreContracts.SmSchedule
+PolicyType : Backup
+PluginPolicyType : SMSQL
+Name : FinancePolicy
+Type :
+Id : 1
+Host :
+UserName :
+Passphrase :
+Deleted : False
+Auth : SMCoreContracts.SmAuth
+IsClone : False
+CloneLevel : 0
+clab-a13-13.sddev.lab.netapp.com
+DatabaseGUID :
+SQLInstance : clab-a13-13
+DbStatus : AutoClosed
+DbAccess : eUndefined
+IsSystemDb : False
+IsSimpleRecoveryMode : False
+IsSelectable : True
+SqlDbFileGroups : {}
+SqlDbLogFiles : {}
+AppFileStorageGroups : {}
+LogDirectory :
+AgName :
+Version :
+VolumeGroupIndex : -1
+IsSecondary : False
+Name : TEST
+Type : SQL Database
+Id : clab-a13-13\TEST
+Host : clab-a13-13.sddev.mycompany.com
+UserName :
+Passphrase :
+Deleted : False
+Auth : SMCoreContracts.SmAuth
+IsClone : False
+----
+. Inicie uma operação de clone a partir de um backup existente usando o cmdlet New-SmClone.
++
+Este exemplo cria um clone a partir de um backup especificado com todos os logs:
+
++
+[listing]
+----
+PS C:\> New-SmClone
+-BackupName payroll_dataset_vise-f3_08-05-2015_15.28.28.9774
+-Resources @{"Host"="vise-f3.sddev.mycompany.com";
+"Type"="SQL Database";"Names"="vise-f3\SQLExpress\payroll"}
+-CloneToInstance vise-f3\sqlexpress -AutoAssignMountPoint
+-Suffix _clonefrombackup
+-LogRestoreType All -Policy clonefromprimary_ondemand
+
+PS C:> New-SmBackup -ResourceGroupName PayrollDataset -Policy FinancePolicy
+----
++
+Este exemplo cria um clone para uma instância especificada do Microsoft SQL Server:
+
++
+[listing]
+----
+PS C:\> New-SmClone
+-BackupName "BackupDS1_NY-VM-SC-SQL_12-08-2015_09.00.24.8367"
+-Resources @{"host"="ny-vm-sc-sql";"Type"="SQL Database";
+"Names"="ny-vm-sc-sql\AdventureWorks2012_data"}
+-AppPluginCode SMSQL -CloneToInstance "ny-vm-sc-sql"
+-Suffix _CLPOSH -AssignMountPointUnderPath "C:\SCMounts"
+----
+. Exiba o status da tarefa clone usando o cmdlet Get-SmCloneReport.
++
+Este exemplo exibe um relatório de clone para a ID de tarefa especificada:
+
++
+[listing]
+----
+PS C:\> Get-SmCloneReport -JobId 186
+
+SmCloneId : 1
+SmJobId : 186
+StartDateTime : 8/3/2015 2:43:02 PM
+EndDateTime : 8/3/2015 2:44:08 PM
+Duration : 00:01:06.6760000
+Status : Completed
+ProtectionGroupName : Draper
+SmProtectionGroupId : 4
+PolicyName : OnDemand_Clone
+SmPolicyId : 4
+BackupPolicyName : OnDemand_Full_Log
+SmBackupPolicyId : 1
+CloneHostName : SCSPR0054212005.mycompany.com
+CloneHostId : 4
+CloneName : Draper__clone__08-03-2015_14.43.53
+SourceResources : {Don, Betty, Bobby, Sally}
+ClonedResources : {Don_DRAPER, Betty_DRAPER, Bobby_DRAPER,
+                   Sally_DRAPER}
+----
+
+
+As informações sobre os parâmetros que podem ser usados com o cmdlet e suas descrições podem ser obtidas executando _get-Help command_name_. Em alternativa, pode também consultar o https://docs.netapp.com/us-en/snapcenter-cmdlets/index.html["Guia de referência de cmdlet do software SnapCenter"^].
+
+--
+====

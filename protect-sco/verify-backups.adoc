@@ -1,0 +1,18 @@
+---
+permalink: protect-sco/verify-backups.html 
+sidebar: sidebar 
+keywords: oracle databases backup 
+summary: Verifique a cópia de backup usando o volume de storage primário ou secundário. 
+---
+= Onde verificar cópia de segurança
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+É possível verificar cópias de backup no volume de storage primário ou no volume de storage secundário SnapMirror ou SnapVault. A verificação usando um volume de storage secundário reduz a carga no volume de storage primário.
+
+Quando você verifica um backup que está no volume de storage primário ou secundário, todos os snapshots primário e secundário são marcados como verificados.
+
+A licença SnapRestore é necessária para verificar cópias de backup no volume de storage secundário SnapMirror e SnapVault.

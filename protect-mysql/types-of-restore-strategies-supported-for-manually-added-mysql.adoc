@@ -1,0 +1,27 @@
+---
+permalink: protect-mysql/types-of-restore-strategies-supported-for-manually-added-mysql.html 
+sidebar: sidebar 
+keywords: SnapCenter 
+summary: Você deve definir uma estratégia antes de executar operações de restauração com êxito usando o SnapCenter. Existem dois tipos de estratégias de restauração para recursos MySQL adicionados manualmente. Você não pode recuperar recursos MySQL adicionados manualmente. 
+---
+= Tipos de estratégias de restauração suportadas para recursos MySQL adicionados manualmente
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Você deve definir uma estratégia antes de executar operações de restauração com êxito usando o SnapCenter. Existem dois tipos de estratégias de restauração para recursos MySQL adicionados manualmente.
+
+
+NOTE: Você não pode recuperar recursos MySQL adicionados manualmente.
+
+
+
+== Restauração completa de recursos
+
+* Restaura todos os volumes, qtrees e LUNs de um recurso
+
+
+
+NOTE: Se o recurso contiver volumes ou qtrees, os instantâneos obtidos após o snapshot selecionado para restauração em tais volumes ou qtrees serão excluídos e não poderão ser recuperados. Além disso, se qualquer outro recurso estiver hospedado nos mesmos volumes ou qtrees, esse recurso também será excluído.

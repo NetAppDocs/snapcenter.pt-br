@@ -1,0 +1,47 @@
+---
+permalink: protect-sce/task_back_up_exchange_resources_groups.html 
+sidebar: sidebar 
+keywords: SnapCenter plug-in for Exchange Server 
+summary: Um grupo de recursos é uma coleção de recursos em um host ou Exchange DAG, e o grupo de recursos pode incluir um DAG inteiro ou bancos de dados individuais. Você pode fazer backup dos grupos de recursos na página recursos. 
+---
+= Faça backup dos grupos de recursos do Exchange
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Um grupo de recursos é uma coleção de recursos em um host ou Exchange DAG, e o grupo de recursos pode incluir um DAG inteiro ou bancos de dados individuais. Você pode fazer backup dos grupos de recursos na página recursos.
+
+.Antes de começar
+* Você deve ter criado um grupo de recursos com uma política anexada.
+* Você deve ter atribuído o agregado que está sendo usado pela operação de backup à máquina virtual de storage (SVM) usada pelo banco de dados.
+* Se você quiser fazer backup de um recurso que tenha uma relação SnapMirror com um armazenamento secundário, a função atribuída ao usuário de armazenamento deve incluir o privilégio "'SnapMirror All'". No entanto, se você estiver usando a função "vsadmin", o privilégio "SnapMirror all" não será necessário.
+* Se um grupo de recursos tiver vários bancos de dados de hosts diferentes, a operação de backup em alguns dos hosts pode começar tarde devido a problemas de rede. Você deve configurar o valor de `MaxRetryForUninitializedHosts` in `web.config` usando o `Set-SmConfigSettings` cmdlet PowerShell.
+* Em um grupo de recursos, se você incluir um banco de dados ou um grupo de disponibilidade de banco de dados que tenha cópia de banco de dados ativo/passivo em um armazenamento NetApp e não NetApp e tiver selecionado *fazer backup de cópias ativas* ou *fazer backup de cópias em servidores a serem selecionadas durante o tempo de criação da tarefa de backup* na política, os trabalhos de backup entrarão no estado de aviso.
++
+O backup será bem-sucedido para cópia de banco de dados ativo/passivo no armazenamento NetApp e o backup falhará para cópia de banco de dados ativo/passivo em armazenamento não NetApp.
+
+
+
+.Sobre esta tarefa
+Você pode fazer backup de um grupo de recursos sob demanda na página recursos. Se um grupo de recursos tiver uma política anexada e uma programação configurada, os backups ocorrerão automaticamente de acordo com a programação.
+
+.Passos
+. No painel de navegação à esquerda, clique em *recursos* e selecione o *plug-in do Microsoft Exchange Server* na lista.
+. Na página recursos, selecione *Grupo de recursos* na lista *Exibir*.
++
+Você pode pesquisar o grupo de recursos inserindo o nome do grupo de recursos na caixa de pesquisa ou clicando em *image:../media/filter_icon.png[""]* e, em seguida, selecionando a tag. Em seguida, pode clicar emimage:../media/filter_icon.png[""]* * para fechar o painel do filtro.
+
+. Na página grupos de recursos, selecione o grupo de recursos que deseja fazer backup e clique em *fazer backup agora*.
+. Na página Backup, execute as seguintes etapas:
++
+.. Se você associou várias políticas ao grupo de recursos, na lista suspensa *Política*, selecione a política que deseja usar para backup.
++
+Se a política selecionada para o backup sob demanda estiver associada a um agendamento de backup, os backups sob demanda serão retidos com base nas configurações de retenção especificadas para o tipo de agendamento.
+
+.. Clique em *Backup*.
+
+
+. Monitore o progresso do backup clicando duas vezes no trabalho no painel atividade na parte inferior da página para exibir a página Detalhes do trabalho.
+

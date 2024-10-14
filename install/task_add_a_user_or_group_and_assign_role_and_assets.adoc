@@ -1,0 +1,167 @@
+---
+permalink: install/task_add_a_user_or_group_and_assign_role_and_assets.html 
+sidebar: sidebar 
+keywords: RBAC, add user, add group, assign role, assign assets 
+summary: Para configurar o controle de acesso baseado em função para usuários do SnapCenter, você pode adicionar usuários ou grupos e atribuir função. A função determina as opções que os usuários do SnapCenter podem acessar. 
+---
+= Adicione um usuário ou grupo e atribua funções e ativos
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Para configurar o controle de acesso baseado em função para usuários do SnapCenter, você pode adicionar usuários ou grupos e atribuir função. A função determina as opções que os usuários do SnapCenter podem acessar.
+
+.Antes de começar
+* Você deve ter feito login como a função "SnapCenterAdmin".
+* Você deve ter criado as contas de usuário ou grupo no ative Directory no sistema operacional ou banco de dados. Você não pode usar o SnapCenter para criar essas contas.
++
+
+NOTE: No SnapCenter 4,5, você pode incluir apenas os seguintes carateres especiais em nomes de usuário e nomes de grupo: Espaço ( ), hífen (-), sublinhado (_) e dois pontos (:). Se você quiser usar uma função que você criou em uma versão anterior do SnapCenter com esses carateres especiais, você pode desativar a validação do nome da função alterando o valor do parâmetro 'DisableSQLInjectionValidation' para true no arquivo web.config localizado onde o SnapCenter está instalado. Depois de modificar o valor, não é necessário reiniciar o serviço.
+
+* O SnapCenter inclui várias funções predefinidas.
++
+Você pode atribuir essas funções ao usuário ou criar novas funções.
+
+* Os usuários DE ANÚNCIOS e grupos de AD adicionados ao RBAC do SnapCenter devem ter a permissão DE LEITURA no contentor usuários e no contentor computadores no ative Directory.
+* Depois de atribuir uma função a um usuário ou grupo que contenha as permissões apropriadas, você deve atribuir o acesso do usuário aos ativos do SnapCenter, como hosts e conexões de armazenamento.
++
+Isso permite que os usuários executem as ações para as quais eles têm permissões nos ativos que são atribuídos a eles.
+
+* Você deve atribuir uma função ao usuário ou grupo em algum momento para aproveitar as permissões e eficiências do RBAC.
+* Você pode atribuir ativos como host, grupos de recursos, política, conexão de armazenamento, plug-in e credencial ao usuário ao criar o usuário ou grupo.
+* Os ativos mínimos que você deve atribuir a um usuário para executar determinadas operações são os seguintes:
++
+|===
+| Operação | Atribuição de ativos 
+
+
+ a| 
+Proteger recursos
+ a| 
+host, política
+
+
+
+ a| 
+Backup
+ a| 
+host, grupo de recursos, política
+
+
+
+ a| 
+Restaurar
+ a| 
+host, grupo de recursos
+
+
+
+ a| 
+Clone
+ a| 
+host, grupo de recursos, política
+
+
+
+ a| 
+Ciclo de vida do clone
+ a| 
+host
+
+
+
+ a| 
+Crie um Grupo de recursos
+ a| 
+host
+
+|===
+* Quando um novo nó é adicionado a um cluster do Windows ou a um ativo DAG (Exchange Server Database Availability Group) e se esse novo nó for atribuído a um usuário, você deve reatribuir o ativo ao usuário ou grupo para incluir o novo nó ao usuário ou grupo.
++
+Você deve reatribuir o usuário ou grupo RBAC ao cluster ou DAG para incluir o novo nó ao usuário ou grupo RBAC. Por exemplo, você tem um cluster de dois nós e atribuiu um usuário ou grupo RBAC ao cluster. Ao adicionar outro nó ao cluster, você deve reatribuir o usuário ou grupo RBAC ao cluster para incluir o novo nó para o usuário ou grupo RBAC.
+
+* Se você estiver planejando replicar snapshots, atribua a conexão de armazenamento para o volume de origem e destino ao usuário que executa a operação.
++
+Você deve adicionar ativos antes de atribuir acesso aos usuários.
+
+
+
+
+IMPORTANT: Se você estiver usando o plug-in do SnapCenter para funções do VMware vSphere para proteger VMs, VMDKs ou datastores, use a GUI do VMware vSphere para adicionar um usuário do vCenter a uma função do SnapCenter Plug-in para VMware vSphere. Para obter informações sobre as funções do VMware vSphere, https://docs.netapp.com/us-en/sc-plugin-vmware-vsphere/scpivs44_predefined_roles_packaged_with_snapcenter.html["Funções predefinidas empacotadas com o plug-in SnapCenter para VMware vSphere"^] consulte .
+
+*Passos*
+
+. No painel de navegação esquerdo, clique em *Configurações*.
+. Na página Configurações, clique em *usuários e acesse* >image:../media/add_icon_configure_database.gif["adicionar ícone no ecrã de configuração da base de dados"] * *.
+. Na página Adicionar usuários/grupos do ative Directory ou grupo de trabalho:
++
+|===
+| Para este campo... | Faça isso... 
+
+
+ a| 
+Tipo de acesso
+ a| 
+Selecione domínio ou grupo de trabalho
+
+Para o tipo de autenticação de domínio, você deve especificar o nome de domínio do usuário ou grupo ao qual deseja adicionar o usuário a uma função.
+
+Por padrão, ele é pré-preenchido com o nome de domínio conetado.
+
+
+NOTE: Tem de registar o domínio não fidedigno na na página *Definições* > *Definições globais* > *Definições de domínio*.
+
+
+
+ a| 
+Tipo
+ a| 
+Selecione Usuário ou Grupo
+
+
+NOTE: O SnapCenter suporta apenas o grupo de segurança e não o grupo de distribuição.
+
+
+
+ a| 
+Nome de utilizador
+ a| 
+.. Digite o nome de usuário parcial e clique em *Add*.
++
+
+NOTE: O nome de usuário diferencia maiúsculas de minúsculas.
+
+.. Selecione o nome de utilizador na lista de pesquisa.
+
+
+
+NOTE: Quando você adiciona usuários de um domínio diferente ou de um domínio não confiável, você deve digitar o nome de usuário totalmente porque não há lista de pesquisa para usuários de vários domínios.
+
+Repita esta etapa para adicionar usuários ou grupos adicionais à função selecionada.
+
+
+
+ a| 
+Funções
+ a| 
+Selecione a função à qual deseja adicionar o usuário.
+
+|===
+. Clique em *Assign* e, em seguida, na página Assign Assets (atribuir ativos):
++
+.. Selecione o tipo de ativo na lista suspensa *Ativo*.
+.. Na tabela Ativo, selecione o ativo.
++
+Os ativos são listados somente se o usuário tiver adicionado os ativos ao SnapCenter.
+
+.. Repita este procedimento para todos os ativos necessários.
+.. Clique em *Salvar*.
+
+
+. Clique em *Enviar*.
++
+Depois de adicionar usuários ou grupos e atribuir funções, atualize a lista recursos.
+
+

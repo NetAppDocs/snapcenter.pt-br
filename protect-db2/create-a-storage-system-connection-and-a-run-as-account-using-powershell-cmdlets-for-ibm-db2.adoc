@@ -1,0 +1,95 @@
+---
+permalink: protect-db2/create-a-storage-system-connection-and-a-run-as-account-using-powershell-cmdlets-for-ibm-db2.html 
+sidebar: sidebar 
+keywords: SnapCenter Plug-in for IBM Db2 
+summary: 'Você deve criar uma conexão de máquina virtual de armazenamento (SVM) e uma credencial antes de usar cmdlets do PowerShell para fazer backup, restaurar ou clonar bancos de dados IBM DB2.' 
+---
+= Crie uma conexão de sistema de armazenamento e uma credencial usando cmdlets do PowerShell para IBM DB2
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Você deve criar uma conexão de máquina virtual de armazenamento (SVM) e uma credencial antes de usar cmdlets do PowerShell para fazer backup, restaurar ou clonar bancos de dados IBM DB2.
+
+.Antes de começar
+* Você deve ter preparado o ambiente do PowerShell para executar os cmdlets do PowerShell.
+* Você deve ter as permissões necessárias na função Administrador da infraestrutura para criar conexões de armazenamento.
+* Você deve garantir que as instalações do plug-in não estão em andamento.
++
+As instalações de plug-in do host não devem estar em andamento ao adicionar uma conexão de sistema de armazenamento, pois o cache do host pode não ser atualizado e o status dos bancos de dados pode ser exibido na GUI do SnapCenter como "'não disponível para backup'" ou "'não no armazenamento NetApp'".
+
+* Os nomes do sistema de armazenamento devem ser exclusivos.
++
+O SnapCenter não é compatível com vários sistemas de storage com o mesmo nome em clusters diferentes. Cada sistema de storage com suporte do SnapCenter deve ter um nome exclusivo e um endereço IP de LIF de dados exclusivo.
+
+
+
+.Passos
+. Clique em *SnapCenterPS* para iniciar o PowerShell Core.
+. Crie uma nova conexão com o sistema de armazenamento usando o cmdlet Add-SmStorageConnection.
++
+[listing]
+----
+PS C:\> Add-SmStorageConnection -StorageType DataOntap -Type DataOntap -OntapStorage ‘scsnfssvm’ -Protocol Https -Timeout 60
+----
+. Crie uma nova credencial usando o cmdlet Add-SmCredential.
++
+Este exemplo mostra como criar uma nova credencial chamada FinanceAdmin com credenciais do Windows:
+
++
+[listing]
+----
+PS C:\> Add-SmCredential -Name 'FinanceAdmin' -Type Linux -AuthenticationType PasswordBased -Credential db2hostuser -EnableSudoPrevileges:$true
+----
+. Adicione o host de comunicação IBM DB2 ao servidor SnapCenter.
++
+Para Linux:
+
++
+[listing]
+----
+PS C:\> Add-SmHost -HostType Linux -HostName '10.232.204.61' -CredentialName 'defaultcreds'
+----
++
+Para Windows:
+
++
+[listing]
+----
+PS C:\> Add-SmHost -HostType Windows -HostName '10.232.204.61' -CredentialName 'defaultcreds'
+----
+. Instale o pacote e o plug-in do SnapCenter para IBM DB2 no host.
++
+Para Linux:
+
++
+[listing]
+----
+PS C:\> Install-SmHostPackage -HostNames '10.232.204.61' -PluginCodes DB2
+----
++
+Para Windows:
+
++
+[listing]
+----
+PS C:\> Install-SmHostPackage -HostNames '10.232.204.61' -PluginCodes DB2,SCW
+----
+. Defina o caminho para o SQLLIB.
++
+Para o Windows, o plug-in DB2 usará o caminho padrão para a pasta SQLLIB:
+
++
+Se você quiser substituir o caminho padrão, use o seguinte comando.
+
++
+[listing]
+----
+PS C:\> Set-SmConfigSettings -Plugin -HostName '10.232.204.61' -PluginCode DB2 -configSettings @{"DB2_SQLLIB_CMD"="<custom_path>\IBM\SQLLIB\BIN"}
+
+----
+
+
+As informações sobre os parâmetros que podem ser usados com o cmdlet e suas descrições podem ser obtidas executando _get-Help command_name_. Em alternativa, pode também consultar o https://docs.netapp.com/us-en/snapcenter-cmdlets/index.html["Guia de referência de cmdlet do software SnapCenter"^].

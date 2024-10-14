@@ -1,0 +1,26 @@
+---
+permalink: protect-hana/reference_considerations_for_determining_backup_schedules_for_sap_hana_database.html 
+sidebar: sidebar 
+keywords: SnapCenter Plug-in for SAP HANA Database 
+summary: 'O fator mais crítico na determinação de um agendamento de backup é a taxa de alteração do recurso. Você pode fazer backup de um recurso muito usado a cada hora, enquanto você pode fazer backup de um recurso raramente usado uma vez por dia. Outros fatores incluem a importância do recurso para sua organização, seu contrato de nível de serviço (SLA) e seu objetivo de ponto de recuperação (RPO).' 
+---
+= Considerações para determinar programações de backup para banco de dados SAP HANA
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+O fator mais crítico na determinação de um agendamento de backup é a taxa de alteração do recurso. Você pode fazer backup de um recurso muito usado a cada hora, enquanto você pode fazer backup de um recurso raramente usado uma vez por dia. Outros fatores incluem a importância do recurso para a sua organização, seu contrato de nível de serviço (SLA) e seu objetivo do ponto de restauração (RPO).
+
+Os programas de backup têm duas partes, como segue:
+
+* Frequência de backup (com que frequência os backups devem ser executados)
++
+A frequência de backup, também chamada de tipo de programação para alguns plug-ins, faz parte de uma configuração de política. Por exemplo, você pode configurar a frequência de backup como hora, dia, semanal ou mensal.
+
+* Programações de backup (exatamente quando os backups devem ser executados
++
+As agendas de backup fazem parte de uma configuração de recurso ou grupo de recursos. Por exemplo, se você tiver um grupo de recursos que tenha uma política configurada para backups semanais, poderá configurar a programação para fazer backup todas as quintas-feiras às 10:00 horas
+
+

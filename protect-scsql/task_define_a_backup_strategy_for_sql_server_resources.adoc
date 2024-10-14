@@ -1,0 +1,16 @@
+---
+permalink: protect-scsql/task_define_a_backup_strategy_for_sql_server_resources.html 
+sidebar: sidebar 
+keywords: backup strategy 
+summary: 'Definir uma estratégia de backup antes de criar seus trabalhos de backup ajuda a garantir que você tenha os backups necessários para restaurar ou clonar seus bancos de dados com êxito. Seu Contrato de nível de Serviço (SLA), objetivo de tempo de recuperação (rto) e objetivo de ponto de recuperação (RPO) determinam em grande parte sua estratégia de backup.' 
+---
+= Defina uma estratégia de backup para recursos do SQL Server
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Definir uma estratégia de backup antes de criar seus trabalhos de backup ajuda a garantir que você tenha os backups necessários para restaurar ou clonar seus bancos de dados com êxito. Seu Contrato de nível de serviço (SLA), objetivo de tempo de recuperação (rto) e objetivo do ponto de restauração (RPO) determinam em grande parte a sua estratégia de backup.
+
+Um SLA define o nível de serviço esperado e aborda muitos problemas relacionados ao serviço, incluindo a disponibilidade e o desempenho do serviço. O rto é o momento em que um processo de negócios deve ser restaurado após uma interrupção no serviço. Um RPO define a estratégia para a era dos arquivos que precisam ser recuperados do storage de backup para que as operações regulares sejam retomadas após uma falha. O SLA, rto e RPO contribuem para a estratégia de backup.

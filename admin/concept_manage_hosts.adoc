@@ -1,0 +1,359 @@
+---
+permalink: admin/concept_manage_hosts.html 
+sidebar: sidebar 
+keywords: Manage hosts 
+summary: Você pode adicionar hosts e instalar pacotes de plug-in do SnapCenter, adicionar um servidor de verificação, remover hosts, migrar tarefas de backup e atualizar o host para atualizar pacotes de plug-in ou adicionar novos pacotes de plug-in. Dependendo do plug-in que você estiver usando, você também pode provisionar discos, gerenciar compartilhamentos SMB, gerenciar grupos de iniciadores, gerenciar sessões iSCSI e migrar dados. 
+---
+= Gerenciar hosts
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Você pode adicionar hosts e instalar pacotes de plug-in do SnapCenter, adicionar um servidor de verificação, remover hosts, migrar tarefas de backup e atualizar o host para atualizar pacotes de plug-in ou adicionar novos pacotes de plug-in. Dependendo do plug-in que você estiver usando, você também pode provisionar discos, gerenciar compartilhamentos SMB, gerenciar grupos de iniciadores (grupos de iniciadores), gerenciar sessões iSCSI e migrar dados.
+
+|===
+| Você pode executar essas tarefas... | Para Microsoft Exchange Server | Para Microsoft SQL Server | Para Microsoft Windows | Para o banco de dados Oracle | Para banco de dados SAP HANA | Para plug-ins compatíveis com NetApp | Para DB2 | Para PostgreSQL | Para MySQL 
+
+
+ a| 
+Adicione hosts e instale o pacote plug-in
+ a| 
+Sim
+ a| 
+Sim
+ a| 
+Sim
+ a| 
+Sim
+ a| 
+Sim
+ a| 
+Sim
+ a| 
+Sim
+ a| 
+Sim
+ a| 
+Sim
+
+
+
+ a| 
+Atualize as informações do ESXi para um host
+ a| 
+Não
+ a| 
+Sim
+ a| 
+Não
+ a| 
+Não
+ a| 
+Não
+ a| 
+Não
+ a| 
+Não
+ a| 
+Não
+ a| 
+Não
+
+
+
+ a| 
+Suspenda programações e coloque hosts no modo de manutenção
+ a| 
+Sim
+ a| 
+Sim
+ a| 
+Sim
+ a| 
+Sim
+ a| 
+Sim
+ a| 
+Sim
+ a| 
+Sim
+ a| 
+Sim
+ a| 
+Sim
+
+
+
+ a| 
+Modifique hosts adicionando, atualizando ou removendo plug-ins
+ a| 
+Sim
+ a| 
+Sim
+ a| 
+Sim
+ a| 
+Sim
+ a| 
+Sim
+ a| 
+Sim
+ a| 
+Sim
+ a| 
+Sim
+ a| 
+Sim
+
+
+
+ a| 
+Remova os hosts do SnapCenter
+ a| 
+Sim
+ a| 
+Sim
+ a| 
+Sim
+ a| 
+Sim
+ a| 
+Sim
+ a| 
+Sim
+ a| 
+Sim
+ a| 
+Sim
+ a| 
+Sim
+
+
+
+ a| 
+Inicie os serviços de plug-in
+ a| 
+Sim
+ a| 
+Sim
+ a| 
+Sim
+ a| 
+Sim
+ a| 
+Sim
+ a| 
+Sim
+ a| 
+Sim
+ a| 
+Sim
+ a| 
+Sim
+
+
+
+ a| 
+Provisionar discos
+ a| 
+Não
+ a| 
+Não
+ a| 
+Sim
+ a| 
+Não
+ a| 
+Não
+ a| 
+Não
+ a| 
+Não
+ a| 
+Não
+ a| 
+Não
+
+
+
+ a| 
+Gerenciar compartilhamentos SMB
+ a| 
+Não
+ a| 
+Não
+ a| 
+Sim
+ a| 
+Não
+ a| 
+Não
+ a| 
+Não
+ a| 
+Não
+ a| 
+Não
+ a| 
+Não
+
+
+
+ a| 
+Gerir iGroups
+ a| 
+Não
+ a| 
+Não
+ a| 
+Sim
+ a| 
+Não
+ a| 
+Não
+ a| 
+Não
+ a| 
+Não
+ a| 
+Não
+ a| 
+Não
+
+
+
+ a| 
+Gerir sessões iSCSI
+ a| 
+Não
+ a| 
+Não
+ a| 
+Sim
+ a| 
+Não
+ a| 
+Não
+ a| 
+Não
+ a| 
+Não
+ a| 
+Não
+ a| 
+Não
+
+|===
+
+
+== Atualize as informações da máquina virtual
+
+Você deve atualizar as informações da máquina virtual quando as credenciais do VMware vCenter forem alteradas ou o banco de dados ou o host do sistema de arquivos forem reiniciados. A atualização das informações da máquina virtual no SnapCenter inicia a comunicação com o VMware vSphere vCenter e obtém credenciais do vCenter.
+
+
+NOTE: Os discos baseados em RDM são gerenciados pelo plug-in SnapCenter para Microsoft Windows, que é instalado no host do banco de dados. Para gerenciar RDMs, o plug-in do SnapCenter para Microsoft Windows se comunica com o servidor vCenter que gerencia o host do banco de dados.
+
+*Passos*
+
+. No painel de navegação esquerdo do SnapCenter, clique em *hosts*.
+. Na página hosts, clique em *hosts gerenciados*.
+. Na página hosts gerenciados, selecione o host que deseja atualizar.
+. Clique em *Atualizar VM*.
+
+
+
+
+== Modificar hosts de plug-in
+
+Depois de instalar um plug-in, você pode modificar os detalhes do host do plug-in, se necessário. Você pode modificar credenciais, caminho de instalação, plug-ins, detalhes do diretório de log para o plug-in do SnapCenter para Microsoft SQL Server, conta de serviço gerenciado de grupo (gMSA) e porta do plug-in.
+
+
+NOTE: Certifique-se de que a versão do plug-in é a mesma da versão do servidor SnapCenter.
+
+*Sobre esta tarefa*
+
+* Você pode modificar uma porta de plug-in somente depois que o plug-in for instalado.
++
+Não é possível modificar a porta do plug-in enquanto as operações de atualização estão em andamento.
+
+* Ao modificar uma porta de plug-in, você deve estar ciente dos seguintes cenários de reversão de porta:
++
+** Em uma configuração autônoma, se o SnapCenter não alterar a porta de um dos componentes, a operação falha e a porta antiga é mantida para todos os componentes.
++
+Se a porta foi alterada para todos os componentes, mas um dos componentes não consegue iniciar com a nova porta, então a porta antiga é mantida para todos os componentes. Por exemplo, se você quiser alterar a porta de dois plug-ins no host autônomo e o SnapCenter não conseguir aplicar a nova porta a um dos plug-ins, a operação falha (com uma mensagem de erro apropriada) e a porta antiga é mantida para ambos os plug-ins.
+
+** Em uma configuração em cluster, se o SnapCenter não alterar a porta do plug-in que é instalado em um dos nós, a operação falha e a porta antiga é mantida para todos os nós.
++
+Por exemplo, se o plug-in estiver instalado em quatro nós em uma configuração em cluster e se a porta não for alterada para um dos nós, a porta antiga será mantida para todos os nós.
+
+
+
+
+
+Quando os plug-ins são instalados com gMSA, você pode modificar nas janelas *mais Opções*. Quando os plug-ins são instalados sem gMSA, você pode especificar a conta gMSA para usá-la como a conta de serviço do plug-in.
+
+*Passos*
+
+. No painel de navegação esquerdo, clique em *hosts*.
+. Verifique se *hosts gerenciados* está selecionado na parte superior.
+. Selecione o host para o qual você deseja modificar e modificar qualquer um dos campos.
++
+Apenas um campo pode ser modificado de cada vez.
+
+. Clique em *Enviar*.
+
+
+*Resultado*
+
+O host é validado e adicionado ao servidor SnapCenter.
+
+
+
+== Inicie ou reinicie os serviços de plug-in
+
+A inicialização dos serviços de plug-in do SnapCenter permite que você inicie os serviços se eles não estiverem sendo executados ou reiniciá-los se estiverem em execução. Poderá querer reiniciar os serviços após a manutenção ter sido efetuada.
+
+Certifique-se de que não estão a ser executados trabalhos ao reiniciar os serviços.
+
+*Passos*
+
+. No painel de navegação esquerdo, clique em *hosts*.
+. Na página hosts, clique em *hosts gerenciados*.
+. Na página hosts gerenciados, selecione o host que deseja iniciar.
+. Clique image:../media/more_icon.gif[""] no ícone e clique em *Start Service* (Iniciar serviço) ou *Restart Service* (Reiniciar serviço).
++
+Você pode iniciar ou reiniciar o serviço de vários hosts simultaneamente.
+
+
+
+
+
+== Suspender programações para manutenção do host
+
+Quando você quiser impedir que o host execute qualquer tarefa agendada do SnapCenter, você pode colocar seu host no modo de manutenção. Você deve fazer isso antes de atualizar os plug-ins ou se estiver executando tarefas de manutenção em hosts.
+
+
+NOTE: Não é possível suspender as programações em um host que está inativo porque o SnapCenter não pode se comunicar com esse host.
+
+*Passos*
+
+. No painel de navegação esquerdo, clique em *hosts*.
+. Na página hosts, clique em *hosts gerenciados*.
+. Na página hosts gerenciados, selecione o host que você deseja suspender.
+. Clique no image:../media/more_icon.gif[""] ícone e, em seguida, clique em *Suspend Schedule* para colocar o host para este plug-in no modo de manutenção.
++
+Você pode suspender a programação de vários hosts simultaneamente.
+
++
+
+NOTE: Você não precisa parar o serviço de plug-in primeiro. O serviço de plug-in pode estar em um estado em execução ou parado.
+
+
+
+*Resultado*
+
+Depois de suspender as programações no host, a página hosts gerenciados mostra *suspenso* no campo de status geral do host.
+
+Depois de concluir a manutenção do host, você pode tirar o host do modo de manutenção clicando em *Ativar agendamento*. Você pode ativar a programação de vários hosts simultaneamente.

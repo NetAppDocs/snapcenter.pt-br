@@ -1,0 +1,34 @@
+---
+permalink: protect-sce/task_restore_an_exchange_server_database_from_secondary_storage.html 
+sidebar: sidebar 
+keywords: SnapCenter plug-in for Exchange Server 
+summary: 'Você pode restaurar um banco de dados do Exchange Server de backup do armazenamento secundário (espelho ou cofre).' 
+---
+= Restaure um banco de dados do Exchange Server a partir do armazenamento secundário
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Você pode restaurar um banco de dados do Exchange Server de backup do armazenamento secundário (espelho ou cofre).
+
+Você precisa ter replicado os snapshots do storage primário para um storage secundário.
+
+.Sobre esta tarefa
+* Para a versão ONTAP 9.12,1 e inferior, os clones criados a partir dos instantâneos do Vault do SnapLock como parte da restauração herdarão o tempo de expiração do SnapLock Vault. O administrador do storage deve limpar manualmente os clones após o tempo de expiração do SnapLock.
+* Para a operação de restauração de sincronização ativa do SnapMirror, você deve selecionar o backup no local principal.
+
+
+.Passos
+. No painel de navegação à esquerda, clique em *recursos* e selecione *plug-in do Microsoft Exchange Server* na lista.
+. Na página recursos, selecione *Banco de dados* ou *Grupo de recursos* na lista suspensa *Exibir*.
+. Selecione o banco de dados ou o grupo de recursos.
++
+A página de topologia do banco de dados ou do grupo de recursos é exibida.
+
+. Na seção Gerenciar cópias, selecione *backups* no sistema de armazenamento secundário (espelho ou cofre).
+. Selecione a cópia de segurança na lista e clique image:../media/restore_icon.gif["ícone de restauro"]em .
+. Na página localização, escolha o volume de destino para restaurar o recurso selecionado.
+. Conclua o assistente de restauração, revise o resumo e clique em *Finish*.
+

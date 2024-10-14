@@ -1,0 +1,38 @@
+---
+permalink: protect-hana/reference_types_of_restore_strategies_supported_for_auto_discovered_sap_hana_databases.html 
+sidebar: sidebar 
+keywords: SnapCenter Plug-in for SAP HANA Databases 
+summary: Você deve definir uma estratégia antes de executar operações de restauração com êxito usando o SnapCenter. Existem dois tipos de estratégias de restauração para bancos de dados SAP HANA descobertos automaticamente. 
+---
+= Tipos de estratégias de restauração compatíveis com bancos de dados SAP HANA descobertos automaticamente
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Você deve definir uma estratégia antes de executar operações de restauração com êxito usando o SnapCenter. Existem dois tipos de estratégias de restauração para bancos de dados SAP HANA descobertos automaticamente.
+
+
+
+== Restauração completa de recursos
+
+* Restaura todos os volumes, qtrees e LUNs de um recurso
++
+** A opção *Reverter volume* deve ser selecionada para restaurar todo o volume.
++
+
+NOTE: Se o recurso contiver volumes ou qtrees, os instantâneos obtidos após o instantâneo selecionado para restauração nesses volumes ou qtrees serão excluídos e não poderão ser recuperados. Além disso, se qualquer outro recurso estiver hospedado nos mesmos volumes ou qtrees, esse recurso também será excluído.
+
+
+
+
+
+
+
+== Banco de dados de inquilinos
+
+* Restaura o banco de dados do locatário
+
+
+Se a opção *Banco de dados do locatário* estiver selecionada, os scripts de recuperação HANA ou HANA externos ao SnapCenter devem ser usados para executar a operação de recuperação.

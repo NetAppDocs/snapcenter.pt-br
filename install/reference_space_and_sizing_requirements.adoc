@@ -1,0 +1,101 @@
+---
+permalink: install/reference_space_and_sizing_requirements.html 
+sidebar: sidebar 
+keywords: SnapCenter 
+summary: Antes de instalar o servidor SnapCenter, você deve estar familiarizado com os requisitos de espaço e dimensionamento. Você também deve aplicar as atualizações de sistema e segurança disponíveis. 
+---
+= Requisitos de espaço e dimensionamento
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Antes de instalar o servidor SnapCenter, você deve estar familiarizado com os requisitos de espaço e dimensionamento. Você também deve aplicar as atualizações de sistema e segurança disponíveis.
+
+|===
+| Item | Requisitos de host do Windows | Requisitos de host do Linux 
+
+
+ a| 
+Sistemas operacionais
+ a| 
+Microsoft Windows
+
+Apenas as versões em inglês, alemão, japonês e chinês simplificado dos sistemas operacionais são suportadas.
+
+Para obter as informações mais recentes sobre versões suportadas, https://imt.netapp.com/matrix/imt.jsp?components=121033;&solution=1258&isHWU&src=IMT["Ferramenta de Matriz de interoperabilidade do NetApp"^]consulte .
+ a| 
+* Red Hat Enterprise Linux (RHEL) 8 e 9
+* SUSE Linux Enterprise Server (SLES) 15
+
+
+Para obter as informações mais recentes sobre versões suportadas, https://imt.netapp.com/matrix/imt.jsp?components=121032;&solution=1258&isHWU&src=IMT["Ferramenta de Matriz de interoperabilidade do NetApp"^]consulte .
+
+
+
+ a| 
+Contagem mínima de CPU
+ a| 
+4 núcleos
+ a| 
+4 núcleos
+
+
+
+ a| 
+RAM mínima
+ a| 
+8 GB
+
+
+NOTE: O pool de buffers do MySQL Server usa 20% do total de RAM.
+ a| 
+8 GB
+
+
+
+ a| 
+Espaço mínimo no disco rígido para o software e logs do servidor SnapCenter
+ a| 
+7 GB
+
+
+NOTE: Se você tiver o repositório SnapCenter na mesma unidade em que o servidor SnapCenter está instalado, então é recomendável ter 15 GB.
+ a| 
+15 GB
+
+
+
+ a| 
+Espaço mínimo no disco rígido para o repositório SnapCenter
+ a| 
+8 GB
+
+
+NOTE: OBSERVAÇÃO: Se você tiver o servidor SnapCenter na mesma unidade em que o repositório SnapCenter está instalado, então é recomendável ter 15 GB.
+ a| 
+Não aplicável
+
+
+
+ a| 
+Pacotes de software necessários
+ a| 
+* Microsoft .NET Framework 4.7.2 ou posterior
+* Pacote de Hospedagem ASP.NET Core (8.0.5 ou posterior)
+* PowerShell 7.4.2 ou posterior
+
+
+Para obter informações específicas de solução de problemas .NET, https://kb.netapp.com/Advice_and_Troubleshooting/Data_Protection_and_Security/SnapCenter/SnapCenter_upgrade_or_install_fails_with_%22This_KB_is_not_related_to_the_OS%22["A atualização ou instalação do SnapCenter falha para sistemas legados que não têm conetividade com a Internet"^] consulte .
+ a| 
+* ASP.NET Core Runtime 8.0.5 ou posterior
+* PowerShell 7.4.2 ou posterior
+* O nginx é um servidor web que pode ser usado como proxy reverso
+* PAM-devel
++
+PAM (Pluggable Authentication Modules) é uma ferramenta de segurança do sistema que permite que os administradores de sistema definam a política de autenticação sem ter que recompilar programas que fazem a autenticação.
+
+
+
+|===

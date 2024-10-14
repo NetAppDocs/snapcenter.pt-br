@@ -1,0 +1,335 @@
+---
+permalink: protect-sce/task_create_backup_policies_for_exchange_server_databases.html 
+sidebar: sidebar 
+keywords: SnapCenter plug-in for Exchange Server 
+summary: Você pode criar uma política de backup para os recursos do Exchange ou para os grupos de recursos antes de usar o SnapCenter para fazer backup dos recursos do Microsoft Exchange Server ou criar uma política de backup no momento em que criar um grupo de recursos ou fazer backup de um único recurso. 
+---
+= Criar políticas de backup para bancos de dados do Exchange Server
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Você pode criar uma política de backup para os recursos do Exchange ou para os grupos de recursos antes de usar o SnapCenter para fazer backup dos recursos do Microsoft Exchange Server ou criar uma política de backup no momento em que criar um grupo de recursos ou fazer backup de um único recurso.
+
+.Antes de começar
+* Você precisa ter definido sua estratégia de proteção de dados.
++
+Para obter detalhes, consulte as informações sobre como definir uma estratégia de proteção de dados para bancos de dados do Exchange.
+
+* Você precisa se preparar para a proteção de dados concluindo tarefas como instalar o SnapCenter, adicionar hosts, identificar recursos e criar conexões do sistema de storage.
+* Você deve ter atualizado (descoberto) os recursos do Exchange Server.
+* Se você estiver replicando snapshots em um espelhamento ou cofre, o administrador do SnapCenter deverá ter atribuído as máquinas virtuais de storage (SVMs) para os volumes de origem e de destino a você.
+* Se você quiser executar os scripts do PowerShell em prescripts e postscripts, defina o valor do `usePowershellProcessforScripts` parâmetro como true no `web.config` arquivo.
++
+O valor padrão é false.
+
+* Reveja os pré-requisitos e limitações específicos da sincronização ativa do SnapMirror. Para obter informações, https://docs.netapp.com/us-en/ontap/smbc/considerations-limits.html#volumes["Limites de objetos para sincronização ativa do SnapMirror"] consulte .
+
+
+.Sobre esta tarefa
+* Uma política de backup é um conjunto de regras que regem como você gerencia e retém backups e com que frequência o backup do recurso ou do grupo de recursos é feito. Além disso, você pode especificar configurações de script. Especificar opções em uma política economiza tempo quando você deseja reutilizar a política para outro grupo de recursos.
+* A retenção total de backup é específica de uma determinada política. Um banco de dados ou recurso que usa a política A com uma retenção total de backup de 4 retém 4 backups completos e não tem efeito na política B para o mesmo banco de dados ou recurso, que pode ter uma retenção de 3 para reter 3 backups completos.
+* A retenção de backup de log é eficaz em todas as políticas e aplica-se a todos os backups de log de um banco de dados ou recurso. Portanto, quando um backup completo é executado usando a política B, a configuração de retenção de log afeta os backups de log criados pela política A no mesmo banco de dados ou recurso. Da mesma forma, a configuração de retenção de log para a política A afeta os backups de log criados pela política B no mesmo banco de dados.
+* O SCRIPT_PATH é definido usando a chave PredefinedWindowsScriptsDirectory localizada no arquivo SMCoreServiceHost.exe.Config do host do plug-in.
++
+Se necessário, você pode alterar esse caminho e reiniciar o serviço SMcore. É recomendável usar o caminho padrão para segurança.
+
++
+O valor da chave pode ser exibido do swagger através da API: API /4,7/configsettings
+
++
+Você pode usar a API GET para exibir o valor da chave. A API SET não é suportada.
+
++
+|===
+
+
+| *Prática recomendada:* é melhor configurar a política de retenção secundária com base no número de backups completos e de log, no geral, que você deseja manter. Ao configurar políticas de retenção secundárias, lembre-se de que quando bancos de dados e logs que estão em volumes diferentes, cada backup pode ter três snapshots e, quando bancos de dados e logs estão no mesmo volume, cada backup pode ter dois snapshots. 
+|===
+* SnapLock
++
+** Se a opção 'reter as cópias de backup para um número específico de dias' estiver selecionada, o período de retenção do SnapLock deve ser menor ou igual aos dias de retenção mencionados.
++
+Especificar um período de bloqueio instantâneo impede a exclusão dos instantâneos até que o período de retenção expire. Isso pode levar a reter um número maior de instantâneos do que a contagem especificada na política.
+
++
+Para as versões ONTAP 9.12,1 e inferiores, os clones criados a partir dos snapshots de cofre do SnapLock herdarão o tempo de expiração do SnapLock Vault. O administrador do storage deve limpar manualmente os clones após o tempo de expiração do SnapLock.
+
++
+
+NOTE: As configurações do SnapLock primário são gerenciadas na política de backup do SnapCenter e as configurações do SnapLock secundário são gerenciadas pelo ONTAP.
+
+
+
+
+
+.Passos
+. No painel de navegação esquerdo, clique em *Configurações*.
+. Na página Configurações, clique em *políticas*.
+. Clique em *novo*.
+. Na página Nome, insira o nome e a descrição da política.
+. Na página tipo de backup, execute as seguintes etapas:
++
+.. Escolha o tipo de cópia de segurança:
++
+|===
+| Se você quiser... | Faça isso... 
+
+
+ a| 
+Faça backup dos arquivos do banco de dados e dos logs de transação necessários
+ a| 
+Selecione *cópia de segurança completa e cópia de segurança de registo*.
+
+Os bancos de dados são copiados com truncamento de log e todos os logs são copiados, incluindo os logs truncados.
+
+
+NOTE: Este é o tipo de backup recomendado.
+
+
+
+ a| 
+Faça backup dos arquivos do banco de dados e dos logs de transação não confirmados
+ a| 
+Selecione *cópia de segurança completa*.
+
+Os bancos de dados são copiados com truncamento de log e os logs truncados não são copiados.
+
+
+
+ a| 
+Faça backup de todos os logs de transação
+ a| 
+Selecione *Log backup*.
+
+Todos os logs de transação no sistema de arquivos ativo são copiados e não há truncamento de log.
+
+Um diretório _scebackupinfo_ é criado no mesmo disco do log ao vivo. Este diretório contém o ponteiro para as alterações incrementais para o banco de dados do Exchange e não é equivalente aos arquivos de log completos.
+
+
+
+ a| 
+Faça backup de todos os arquivos de banco de dados e logs de transações sem truncar os arquivos de log de transações
+ a| 
+Selecione *cópia de segurança*.
+
+Todos os bancos de dados e todos os logs são copiados, e não há truncamento de log. Você normalmente usa esse tipo de backup para uma réplica de nova propagação ou para testar ou diagnosticar um problema.
+
+|===
++
+
+NOTE: Você deve definir o espaço necessário para backups de log com base na retenção completa do backup e não com base na retenção de até o minuto (UTM).
+
++
+
+NOTE: Crie políticas de Vault separadas para logs e bancos de dados ao lidar com LUNs (volumes do Exchange) e defina manter (retenção) para a política de log como o dobro do número de cada rótulo da política de banco de dados, usando os mesmos rótulos. Para obter mais informações, consulte, https://kb.netapp.com/Advice_and_Troubleshooting/Data_Protection_and_Security/SnapCenter/SnapCenter_for_Exchange_Backups_only_keep_half_the_Snapshots_on_the_Vault_destination_log_volume["Os backups do SnapCenter para Exchange mantêm apenas metade dos snapshots no volume de log de destino do Vault"^]
+
+.. Na seção Configurações do grupo de disponibilidade de banco de dados, selecione uma ação:
++
+|===
+| Para este campo... | Faça isso... 
+
+
+ a| 
+Fazer backup de cópias ativas
+ a| 
+Selecione esta opção para fazer backup apenas das cópias ativas do banco de dados selecionado.
+
+Para grupos de disponibilidade de banco de dados (DAGs), essa opção faz backup apenas de cópias ativas de todos os bancos de dados no DAG.
+
+Cópias passivas não são backup.
+
+
+
+ a| 
+Faça backup de cópias em servidores a serem selecionados no momento da criação do trabalho de backup
+ a| 
+Selecione esta opção para fazer backup de quaisquer cópias dos bancos de dados nos servidores selecionados, tanto ativos quanto passivos.
+
+Para DAGs, essa opção faz backup de cópias ativas e passivas de todos os bancos de dados nos servidores selecionados.
+
+|===
++
+
+NOTE: Nas configurações de cluster, os backups são retidos em cada nó do cluster de acordo com as configurações de retenção definidas na política. Se o nó proprietário do cluster mudar, os backups do nó proprietário anterior serão mantidos. A retenção é aplicável apenas no nível do nó.
+
+.. Na seção frequência de programação, selecione um ou mais tipos de frequência: *Sob demanda*, *hora*, *diária*, *semanal* e *mensal*.
++
+
+NOTE: Você pode especificar a programação (data de início, data de término) para operações de backup ao criar um grupo de recursos. Isso permite que você crie grupos de recursos que compartilham a mesma política e frequência de backup, mas permite atribuir diferentes programações de backup a cada política.
+
++
+
+NOTE: Se você tiver agendado para as 2:00 da manhã, o horário não será acionado durante o horário de verão (DST).
+
+
+
+. Na página retenção, configure as definições de retenção.
++
+As opções apresentadas dependem do tipo de cópia de segurança e do tipo de frequência que selecionou anteriormente.
+
++
+
+NOTE: O valor máximo de retenção é 1018 para recursos no ONTAP 9.4 ou posterior e 254 para recursos no ONTAP 9.3 ou anterior. Os backups falharão se a retenção for definida para um valor maior do que o que a versão subjacente do ONTAP suporta.
+
++
+
+IMPORTANT: Você deve definir a contagem de retenção como 2 ou superior, se quiser habilitar a replicação do SnapVault. Se você definir a contagem de retenção como 1, a operação de retenção poderá falhar porque o primeiro snapshot é o snapshot de referência para a relação SnapVault até que um snapshot mais recente seja replicado para o destino.
+
++
+.. Na seção Configurações de retenção de backups de log, selecione uma das seguintes opções:
++
+|===
+| Se você quiser... | Faça isso... 
+
+
+ a| 
+Guarde apenas um número específico de backups de log
+ a| 
+Selecione *número de backups completos para os quais os logs são retidos* e especifique o número de backups completos para os quais você deseja restaurações atualizadas.
+
+A retenção atualizada (UTM) aplica-se ao backup de log criado por meio de backup completo ou de log. Por exemplo, se as configurações de retenção UTM estiverem configuradas para reter backups de log dos últimos 5 backups completos, os backups de log dos últimos 5 backups completos serão retidos.
+
+As pastas de log criadas como parte dos backups completos e de log são automaticamente excluídas como parte do UTM. Não é possível eliminar manualmente as pastas de registo. Por exemplo, se a configuração de retenção de backup completo ou completo e de log for definida para 1 mês e retenção UTM for definida para 10 dias, a pasta de log criada como parte desses backups será excluída conforme UTM. Como resultado, apenas 10 dias de pastas de log estarão lá e todos os outros backups serão marcados para restauração pontual.
+
+Você pode definir o valor de retenção UTM como 0, se não quiser executar a restauração mais atualizada. Isso permitirá a operação de restauração pontual.
+
+*Prática recomendada:* é melhor que a configuração seja igual à configuração de totais instantâneos (backups completos) na seção Configurações de retenção de backup completo. Isso garante que os arquivos de log sejam mantidos para cada backup completo.
+
+
+
+ a| 
+Guarde as cópias de backup por um número específico de dias
+ a| 
+Selecione a opção *manter backups de log para a última* e especifique o número de dias para manter as cópias de backup de log.
+
+Os backups de log até o número de dias de backups completos são mantidos.
+
+
+
+ a| 
+Período de bloqueio instantâneo
+ a| 
+Selecione *período de bloqueio de cópias instantâneas* e selecione dias, meses ou anos.
+
+O período de retenção do SnapLock deve ser inferior a 100 anos.
+
+|===
++
+Se você selecionou *Backup de log* como o tipo de backup, os backups de log serão mantidos como parte das configurações de retenção atualizadas para backups completos.
+
+.. Na seção Configurações completas de retenção de backup, selecione uma das opções a seguir para backups sob demanda e, em seguida, selecione uma para backups completos:
++
+|===
+| Para este campo... | Faça isso... 
+
+
+ a| 
+Guarde apenas um número específico de instantâneos
+ a| 
+Se você quiser especificar o número de backups completos a serem mantidos, selecione a opção *Total de cópias snapshot a serem mantidas* e especifique o número de snapshots (backups completos) a serem mantidos.
+
+Se o número de backups completos exceder o número especificado, os backups completos que excedem o número especificado serão excluídos, com as cópias mais antigas excluídas primeiro.
+
+
+
+ a| 
+Guarde backups completos por um número específico de dias
+ a| 
+Selecione a opção *manter cópias Snapshot para* e especifique o número de dias para manter as capturas instantâneas (backups completos).
+
+
+
+ a| 
+Período de bloqueio instantâneo
+ a| 
+Selecione *período de bloqueio de cópias instantâneas* e selecione dias, meses ou anos.
+
+O período de retenção do SnapLock deve ser inferior a 100 anos.
+
+|===
++
+Se você tiver um banco de dados com somente backups de log e nenhum backup completo em um host em uma configuração DAG, os backups de log serão mantidos das seguintes maneiras:
+
++
+*** Por padrão, o SnapCenter encontra o backup completo mais antigo para esse banco de dados em todos os outros hosts no DAG e exclui todos os backups de log neste host que foram feitos antes do backup completo.
+*** Você pode substituir o comportamento de retenção padrão acima para um banco de dados em um host em um DAG com somente backups de log adicionando a chave *MaxLogBackupOnlyCountWithoutFullBackup* no arquivo _C: Arquivos de programas/NetApp/SnapCenter WebApp/web.config_.
++
+ <add key="MaxLogBackupOnlyCountWithoutFullBackup" value="10">
++
+No exemplo, o valor 10 significa que você mantém até 10 backups de log no host.
+
+
+
+
+
+. Na página replicação, selecione uma ou ambas as seguintes opções de replicação secundária:
++
+|===
+| Para este campo... | Faça isso... 
+
+
+ a| 
+Atualize o SnapMirror depois de criar um instantâneo local
+ a| 
+Selecione esta opção para manter cópias espelhadas de conjuntos de backup em outro volume (SnapMirror).
+
+Durante a replicação secundária, o tempo de expiração do SnapLock carrega o tempo de expiração do SnapLock primário.
+
+Esta opção deve estar ativada para a sincronização ativa do SnapMirror.
+
+
+IMPORTANT: A política somente primária não pode ser usada se a sincronização ativa do SnapMirror estiver configurada para volumes do Exchange ONTAP. O SnapCenter não permite isso. Você deve ativar a opção "espelho".
+
+Clicar no botão *Atualizar* na página topologia atualiza o tempo de expiração do SnapLock secundário e primário que são recuperados do ONTAP.
+
+link:..protect-sce/task_view_exchange_backups_in_the_topology_page.html["Veja backups do Exchange na página topologia"]Consulte .
+
+
+
+ a| 
+Atualize o SnapVault depois de criar um instantâneo local
+ a| 
+Selecione esta opção para executar a replicação de backup de disco para disco.
+
+
+
+ a| 
+Etiqueta de política secundária
+ a| 
+Selecione uma etiqueta Snapshot.
+
+Dependendo do rótulo de captura instantânea selecionado, o ONTAP aplica a política de retenção de snapshot secundária que corresponde ao rótulo.
+
+
+NOTE: Se você selecionou *Atualizar SnapMirror depois de criar uma cópia Snapshot local*, você pode especificar opcionalmente o rótulo de política secundária. No entanto, se você selecionou *Atualizar SnapVault depois de criar uma cópia Snapshot local*, especifique o rótulo de política secundária.
+
+
+
+ a| 
+Contagem de tentativas de erro
+ a| 
+Insira o número de tentativas de replicação que devem ocorrer antes que o processo pare.
+
+|===
++
+
+NOTE: Você deve configurar a política de retenção do SnapMirror no ONTAP para o storage secundário para evitar atingir o limite máximo de snapshots no storage secundário.
+
+. Na página Script, insira o caminho e os argumentos do prescritor ou postscript que devem ser executados antes ou depois da operação de backup, respetivamente.
++
+** Os argumentos de backup do Prescript incluem ""base de dados"" e ""ServerInstance"".
+** Os argumentos de backup PostScript incluem ""base de dados"", ""ServerInstance""", ""BackupName"", ""LogDirectory"" e ""LogSnapshot""".
++
+Você pode executar um script para atualizar traps SNMP, automatizar alertas, enviar logs e assim por diante.
+
++
+
+NOTE: O caminho de prescripts ou postscripts não deve incluir unidades ou compartilhamentos. O caminho deve ser relativo ao SCRIPT_path.
+
+
+
+. Revise o resumo e clique em *Finish*.
+

@@ -1,0 +1,223 @@
+---
+permalink: protect-sce/task_back_up_exchange_databases.html 
+sidebar: sidebar 
+keywords: SnapCenter plug-in for Exchange Server 
+summary: Se um banco de dados não fizer parte de qualquer grupo de recursos, você poderá fazer backup do banco de dados ou do grupo de disponibilidade do banco de dados na página recursos. 
+---
+= Faça backup de bancos de dados do Exchange
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Se um banco de dados não fizer parte de qualquer grupo de recursos, você poderá fazer backup do banco de dados ou do grupo de disponibilidade do banco de dados na página recursos.
+
+.Antes de começar
+* Você deve ter criado uma política de backup.
+* Você precisa ter atribuído o agregado que está sendo usado pela operação de backup ao SVM usado pelo banco de dados.
+* Se você quiser fazer backup de um recurso que tenha uma relação SnapMirror com um armazenamento secundário, a função atribuída ao usuário de armazenamento deve incluir o privilégio "'SnapMirror All'". No entanto, se você estiver usando a função "vsadmin", o privilégio "SnapMirror all" não será necessário.
+* Se pretender efetuar uma cópia de segurança de uma base de dados ou de um grupo de disponibilidade de bases de dados ativo/passivo num armazenamento NetApp e não NetApp, e tiver selecionado *cópia de segurança de cópias ativas* ou *cópia de segurança de cópias de segurança em servidores a selecionar durante o tempo de criação da tarefa de cópia de segurança* na política, os trabalhos de cópia de segurança entrarão no estado de aviso. O backup será bem-sucedido para cópia de banco de dados ativo/passivo no armazenamento NetApp e o backup falhará para cópia de banco de dados ativo/passivo em armazenamento não NetApp.
++
+|===
+
+
+| *Prática recomendada:* não execute backups de bancos de dados ativos e passivos ao mesmo tempo. Uma condição de corrida pode ocorrer e um dos backups pode falhar. 
+|===
+
+
+[role="tabbed-block"]
+====
+.IU do SnapCenter
+--
+.Passos
+. No painel de navegação à esquerda, clique em *recursos* e selecione o *plug-in do Microsoft Exchange Server* na lista.
+. Na página recursos, selecione *Banco de dados* ou *Grupo de disponibilidade de banco de dados* na lista *Exibir*.
++
+Na página recursos, o image:../media/not_supported_icon.png[""] ícone indica que o banco de dados está em armazenamento não NetApp.
+
++
+
+NOTE: Em um DAG, se uma cópia de banco de dados ativo estiver em um armazenamento não NetApp e pelo menos uma cópia de banco de dados passivo residir em um armazenamento NetApp, você poderá proteger o banco de dados.
+
++
+Clique em *image:../media/filter_icon.png[""]* e selecione o nome do host e o tipo de banco de dados para filtrar os recursos. Em seguida, pode clicar emimage:../media/filter_icon.png[""]* * para fechar o painel do filtro.
+
++
+** Se você quiser fazer backup de um banco de dados, clique no nome do banco de dados.
++
+... Se a vista topologia for apresentada, clique em *Protect*.
+... Se for apresentado o assistente Database - Protect Resource (base de dados - proteger recurso), avance para o passo 3.
+
+
+** Se você quiser fazer backup de um grupo de disponibilidade de banco de dados, clique no nome do grupo de disponibilidade de banco de dados.
+
+
+. Se você quiser especificar um nome de instantâneo personalizado, na página recursos, marque a caixa de seleção *usar formato de nome personalizado para cópia Snapshot* e insira um formato de nome personalizado que você deseja usar para o nome da captura Instantânea.
++
+Por exemplo, _customtext_policy_hostname_ ou _resource_hostname_. Por padrão, um carimbo de data/hora é anexado ao nome do instantâneo.
+
+. Na página políticas, execute as seguintes etapas:
++
+.. Selecione uma ou mais políticas na lista suspensa.
++
+
+NOTE: Você também pode criar uma política clicando em *image:../media/add_policy_from_resourcegroup.gif[""]*.
+
++
+
+NOTE: Se uma política contiver a opção *Backup de cópias em servidores a serem selecionados na hora de criação da tarefa de backup*, uma opção de seleção de servidor será exibida para selecionar um ou mais servidores. A opção de seleção de servidor listará apenas o servidor onde o banco de dados selecionado está em um armazenamento NetApp.
+
+
+
++
+Na seção Configurar agendas para políticas selecionadas, as políticas selecionadas são listadas.
+
++
+.. Clique emimage:../media/add_policy_from_resourcegroup.gif[""]* * na coluna Configurar agendas para a política para a qual você deseja configurar um agendamento.
+.. Na janela Adicionar programações para a política _policy_name_, configure a programação e clique em *OK*.
++
+Onde, _policy_name_ é o nome da política selecionada.
+
++
+As programações configuradas são listadas na coluna agendas aplicadas.
+
+
+
+. Na página notificação, na lista suspensa *preferência de e-mail*, selecione os cenários nos quais você deseja enviar os e-mails.
++
+Você também deve especificar os endereços de e-mail do remetente e do destinatário e o assunto do e-mail. Se quiser anexar o relatório da operação de backup realizada no recurso, selecione *Anexar Relatório de trabalho*.
+
++
+
+NOTE: Para notificação por e-mail, você deve ter especificado os detalhes do servidor SMTP usando a GUI ou o comando PowerShell SET-SmtpServer.
+
+. Revise o resumo e clique em *Finish*.
++
+A página de topologia do banco de dados é exibida.
+
+. Clique em *fazer backup agora*.
+. Na página Backup, execute as seguintes etapas:
++
+.. Se você tiver aplicado várias políticas ao recurso, na lista suspensa *Política*, selecione a política que deseja usar para backup.
++
+Se a política selecionada para o backup sob demanda estiver associada a um agendamento de backup, os backups sob demanda serão retidos com base nas configurações de retenção especificadas para o tipo de agendamento.
+
+.. Clique em *Backup*.
+
+
+. Monitore o progresso do backup clicando duas vezes no trabalho no painel atividade na parte inferior da página para exibir a página Detalhes do trabalho.
++
+** Nas configurações do MetroCluster, o SnapCenter pode não ser capaz de detetar uma relação de proteção após um failover.
++
+Para obter informações, consulte: https://kb.netapp.com/Advice_and_Troubleshooting/Data_Protection_and_Security/SnapCenter/Unable_to_detect_SnapMirror_or_SnapVault_relationship_after_MetroCluster_failover["Não é possível detetar a relação SnapMirror ou SnapVault após o failover do MetroCluster"^]
+
+** Se você estiver fazendo backup de dados de aplicativos em VMDKs e o tamanho de heap Java para o plug-in SnapCenter para VMware vSphere não for grande o suficiente, o backup pode falhar.
++
+Para aumentar o tamanho do heap Java, localize o arquivo de script _/opt/NetApp/init_scripts/scvservice_. Nesse script, o comando _do_start Method_ inicia o serviço de plug-in SnapCenter VMware. Atualize esse comando para o seguinte: _Java -jar -Xmx8192M -Xms4096M_
+
+
+
+
+
+--
+.Cmdlets do PowerShell
+--
+.Passos
+. Inicie uma sessão de conexão com o servidor SnapCenter para um usuário especificado usando o cmdlet Open-SmConnection.
++
+[listing]
+----
+Open-smconnection  -SMSbaseurl  https://snapctr.demo.netapp.com:8146/
+----
++
+É apresentado o aviso de nome de utilizador e palavra-passe.
+
+. Crie uma política de backup usando o cmdlet Add-SmPolicy.
++
+Este exemplo cria uma nova política de backup com um backup completo e um backup de log tipo de backup do Exchange:
+
++
+[listing]
+----
+C:\PS> Add-SmPolicy -PolicyName SCE_w2k12_Full_Log_bkp_Policy -PolicyType Backup -PluginPolicytype SCE -SceBackupType FullBackupAndLogBackup -BackupActiveCopies
+----
++
+Este exemplo cria uma nova política de backup com um backup completo por hora e um backup de log tipo de backup do Exchange:
+
++
+[listing]
+----
+C:\PS> Add-SmPolicy -PolicyName SCE_w2k12_Hourly_Full_Log_bkp_Policy -PolicyType Backup -PluginPolicytype SCE -SceBackupType FullBackupAndLogBackup -BackupActiveCopies -ScheduleType Hourly -RetentionSettings @{'BackupType'='DATA';'ScheduleType'='Hourly';'RetentionCount'='10'}
+----
++
+Este exemplo cria uma nova política de backup para fazer backup apenas de logs do Exchange:
+
++
+[listing]
+----
+Add-SmPolicy -PolicyName SCE_w2k12_Log_bkp_Policy -PolicyType Backup -PluginPolicytype SCE -SceBackupType LogBackup -BackupActiveCopies
+----
+. Descubra os recursos do host usando o cmdlet Get-SmResources.
++
+Este exemplo descobre os recursos do plug-in do Microsoft Exchange Server no host especificado:
+
++
+[listing]
+----
+C:\PS> Get-SmResources -HostName vise-f6.sddev.mycompany.com -PluginCode SCE
+----
+. Adicione um novo grupo de recursos ao SnapCenter usando o cmdlet Add-SmResourceGroup.
++
+Este exemplo cria um novo grupo de recursos de backup de banco de dados do Exchange Server com a política e os recursos especificados:
+
++
+[listing]
+----
+C:\PS> Add-SmResourceGroup -ResourceGroupName SCE_w2k12_bkp_RG -Description 'Backup ResourceGroup with Full and Log backup policy' -PluginCode SCE -Policies SCE_w2k12_Full_bkp_Policy,SCE_w2k12_Full_Log_bkp_Policy,SCE_w2k12_Log_bkp_Policy -Resources @{'Host'='sce-w2k12-exch';'Type'='Exchange Database';'Names'='sce-w2k12-exch.sceqa.com\sce-w2k12-exch_DB_1,sce-w2k12-exch.sceqa.com\sce-w2k12-exch_DB_2'}
+----
++
+Este exemplo cria um novo grupo de recursos de backup DAG (Exchange Database Availability Group) com a política e os recursos especificados:
+
++
+[listing]
+----
+Add-SmResourceGroup -ResourceGroupName SCE_w2k12_bkp_RG -Description 'Backup ResourceGroup with Full and Log backup policy' -PluginCode SCE -Policies SCE_w2k12_Full_bkp_Policy,SCE_w2k12_Full_Log_bkp_Policy,SCE_w2k12_Log_bkp_Policy -Resources @{"Host"="DAGSCE0102";"Type"="Database Availability Group";"Names"="DAGSCE0102"}
+----
+. Inicie uma nova tarefa de backup usando o cmdlet New-SmBackup.
++
+[listing]
+----
+C:\PS> New-SmBackup -ResourceGroupName SCE_w2k12_bkp_RG -Policy SCE_w2k12_Full_Log_bkp_Policy
+----
++
+Este exemplo cria um novo backup no storage secundário:
+
++
+[listing]
+----
+New-SMBackup -DatasetName ResourceGroup1 -Policy Secondary_Backup_Policy4
+----
+. Exiba o status da tarefa de backup usando o cmdlet Get-SmBackupReport.
++
+Este exemplo exibe um relatório de resumo de todos os trabalhos executados na data especificada:
+
++
+[listing]
+----
+C:\PS> Get-SmJobSummaryReport -Date ?1/27/2018?
+----
++
+Este exemplo apresenta um relatório de resumo de trabalhos para uma ID de trabalho específica:
+
++
+[listing]
+----
+C:\PS> Get-SmJobSummaryReport -JobId 168
+----
+
+
+As informações sobre os parâmetros que podem ser usados com o cmdlet e suas descrições podem ser obtidas executando _get-Help command_name_. Em alternativa, consulte https://docs.netapp.com/us-en/snapcenter-cmdlets/index.htmlnapCenter[] o Guia de Referência do cmdlet de Software].
+
+--
+====

@@ -1,0 +1,358 @@
+---
+permalink: protect-sco/task_clone_an_oracle_database_backup.html 
+sidebar: sidebar 
+keywords: Credentials, alternate host, clone, FRA, OMF 
+summary: Você pode usar o SnapCenter para clonar um banco de dados Oracle usando o backup do banco de dados. 
+---
+= Clonar um backup de banco de dados Oracle
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Você pode usar o SnapCenter para clonar um banco de dados Oracle usando o backup do banco de dados.
+
+*Antes de começar*
+
+Se tiver instalado o plug-in como um utilizador não root, deve atribuir manualmente as permissões de execução aos diretórios prescritor e postscript.
+
+*Sobre esta tarefa*
+
+* A operação de clonagem cria uma cópia dos arquivos de dados do banco de dados e cria novos arquivos de log refazer on-line e arquivos de controle. O banco de dados pode ser recuperado opcionalmente para um tempo especificado, com base nas opções de recuperação especificadas.
++
+
+NOTE: A clonagem falhará se você tentar clonar um backup criado em um host Linux para um host AIX ou vice-versa.
+
++
+O SnapCenter cria um banco de dados autônomo quando clonado a partir de um backup de banco de dados do Oracle RAC. O SnapCenter suporta a criação de clone a partir do backup de bancos de dados em espera do Data Guard e do ative Data Guard.
+
++
+Durante a clonagem, o SnapCenter monta o número ideal de backups de log com base em SCN ou dat e tempo para operações de recuperação. Após a recuperação, o backup de log é desmontado. Todos esses clones são montados em _/var/opt/SnapCenter/scu/clones/_. Se você estiver usando ASM em NFS, você deve adicionar _/var/opt/SnapCenter/scu/clones/*/*_ ao caminho existente definido no parâmetro ASM_diskstring.
+
++
+Ao clonar um backup de um banco de dados ASM em um ambiente SAN, as regras do udev para os dispositivos host clonados são criadas em _/etc/udev/rules.d/999-scu-NetApp.rules_. Essas regras do udev associadas aos dispositivos host clonados são excluídas quando você exclui o clone.
+
++
+
+NOTE: Em uma configuração do Flex ASM, você não pode executar a operação clone em Leaf Nodes se a cardinalidade for menor que os nós numéricos no cluster RAC.
+
+* Para políticas habilitadas para o SnapLock, para ONTAP 9.12,1 e versões abaixo, se você especificar um período de bloqueio do Snapshot, os clones criados a partir dos snapshots à prova de violação como parte da restauração herdarão o tempo de expiração do SnapLock. O administrador do storage deve limpar manualmente os clones após o tempo de expiração do SnapLock.
+
+
+*Passos*
+
+. No painel de navegação esquerdo, clique em *Resources* e selecione o plug-in apropriado na lista.
+. Na página recursos, selecione *Banco de dados* ou *Grupo de recursos* na lista *Exibir*.
+. Selecione o banco de dados na exibição de detalhes do banco de dados ou na exibição de detalhes do grupo de recursos.
++
+A página de topologia do banco de dados é exibida.
+
+. Na exibição Gerenciar cópias, selecione os backups de cópias locais (primárias), cópias espelhadas (secundárias) ou cópias do Vault (secundárias).
+. Selecione a cópia de segurança de dados na tabela e, em seguida, clique em * *image:../media/clone_icon.gif["ícone de clone"]*.
+. Na página Nome, execute uma das seguintes ações:
++
+|===
+| Se você quiser... | Passos... 
+
+
+ a| 
+Clonar um banco de dados (CDB ou não CDB)
+ a| 
+.. Especifique o SID do clone.
++
+O SID clone não está disponível por padrão e o tamanho máximo do SID é de 8 carateres.
+
++
+
+NOTE: Você deve garantir que nenhum banco de dados com o mesmo SID exista no host onde o clone será criado.
+
+
+
+
+
+ a| 
+Clonar um banco de dados conetável (PDB)
+ a| 
+.. Selecione *Clonar PDB*.
+.. Especifique o PDB que você deseja clonar.
+.. Especifique o nome do PDB clonado. Para obter as etapas detalhadas para clonar um PDB, link:../protect-sco/task_clone_a_pluggable_database.html["Clone um banco de dados conetável"^]consulte .
+
+
+|===
++
+Quando você seleciona um dado espelhado ou de cofre:
+
++
+** se não houver backup de log no mirror ou vault, nada será selecionado e os localizadores estarão vazios.
+** se existirem cópias de segurança de registo no mirror ou no vault, a cópia de segurança de registo mais recente é selecionada e o localizador correspondente é apresentado.
++
+
+NOTE: Se a cópia de segurança de registo selecionada existir na localização do espelho e do cofre, ambos os localizadores são apresentados.
+
+
+
+. Na página locais, execute as seguintes ações:
++
+|===
+| Para este campo... | Faça isso... 
+
+
+ a| 
+Clone de host
+ a| 
+Por padrão, o host do banco de dados de origem é preenchido.
+
+Se você quiser criar o clone em um host alternativo, selecione o host com a mesma versão do Oracle e do SO que o host do banco de dados de origem.
+
+
+
+ a| 
+Localizações de ficheiros de dados
+ a| 
+Por padrão, a localização do arquivo de dados é preenchida.
+
+A convenção de nomenclatura padrão do SnapCenter para sistemas de arquivos SAN ou NFS é FileSystemNameofsourcedatabase_CLONESID.
+
+A convenção de nomenclatura padrão do SnapCenter para grupos de discos ASM é SC_HASHCODEofDISKGROUP_CLONESID. O HASHCODEofDISKGROUP é um número gerado automaticamente (2 a 10 dígitos) que é exclusivo para cada grupo de discos ASM.
+
+
+NOTE: Se você estiver personalizando o nome do grupo de discos ASM, certifique-se de que o comprimento do nome adere ao comprimento máximo suportado pela Oracle.
+
+Se você quiser especificar um caminho diferente, insira os pontos de montagem do arquivo de dados ou nomes de grupo de discos ASM para o banco de dados clone. Ao personalizar o caminho do arquivo de dados, você também deve alterar o arquivo de controle e refazer os nomes de grupo de discos ASM do arquivo de log ou sistema de arquivos para o mesmo nome usado para arquivos de dados ou para um grupo de discos ASM existente ou sistema de arquivos.
+
+
+
+ a| 
+Controlar ficheiros
+ a| 
+Por padrão, o caminho do arquivo de controle é preenchido.
+
+Os arquivos de controle são colocados no mesmo grupo de discos ASM ou sistema de arquivos que os arquivos de dados. Se você quiser substituir o caminho do arquivo de controle, você pode fornecer um caminho de arquivo de controle diferente.
+
+
+NOTE: O sistema de arquivos ou o grupo de discos ASM deve existir no host.
+
+Por padrão, o número de arquivos de controle será o mesmo do banco de dados de origem. Você pode modificar o número de arquivos de controle, mas um mínimo de um arquivo de controle é necessário para clonar o banco de dados.
+
+Você pode personalizar o caminho do arquivo de controle para um sistema de arquivos diferente (existente) do banco de dados de origem.
+
+
+
+ a| 
+Refazer registos
+ a| 
+Por padrão, o grupo de arquivos de log refazer, o caminho e seus tamanhos são preenchidos.
+
+Os logs de refazer são colocados no mesmo grupo de discos ASM ou sistema de arquivos que os arquivos de dados do banco de dados clonado. Se você quiser substituir o caminho do arquivo de log de refazer, você pode personalizar o caminho do arquivo de log de refazer para um sistema de arquivos diferente do banco de dados de origem.
+
+
+NOTE: O novo sistema de arquivos ou o grupo de discos ASM deve existir no host.
+
+Por padrão, o número de grupos de log refazer, refazer arquivos de log e seus tamanhos serão os mesmos do banco de dados de origem. Você pode modificar os seguintes parâmetros:
+
+** Número de grupos de registo refazer
+
+
+
+NOTE: É necessário um mínimo de dois grupos de log de refazer para clonar o banco de dados.
+
+** Refaça os arquivos de log em cada grupo e seu caminho
++
+Você pode personalizar o caminho do arquivo de log de refazer para um sistema de arquivos diferente (existente) do banco de dados de origem.
+
+
+
+
+NOTE: Um mínimo de um arquivo de log de refazer é necessário no grupo de log de refazer para clonar o banco de dados.
+
+** Tamanhos do ficheiro de registo de refazer
+
+
+|===
+. Na página credenciais, execute as seguintes ações:
++
+|===
+| Para este campo... | Faça isso... 
+
+
+ a| 
+Nome da credencial para o usuário do sistema
+ a| 
+Selecione a credencial a ser usada para definir a senha do usuário do sistema do banco de dados clone.
+
+Se SQLNET.AUTHENTICATION_SERVICES estiver definido como NONE no arquivo sqlnet.ora no host de destino, você não deve selecionar *None* como credencial na GUI do SnapCenter.
+
+
+
+ a| 
+Nome da credencial da instância ASM
+ a| 
+Selecione *nenhum* se a autenticação do sistema operacional estiver ativada para conexão com a instância ASM no host clone.
+
+Caso contrário, selecione a credencial Oracle ASM configurada com o usuário "s" ou um usuário com privilégio "sysasm" aplicável ao host clone.
+
+|===
++
+A casa, o nome de usuário e os detalhes do grupo do Oracle são preenchidos automaticamente a partir do banco de dados de origem. Você pode alterar os valores com base no ambiente Oracle do host onde o clone será criado.
+
+. Na página PreOps, execute as seguintes etapas:
++
+.. Insira o caminho e os argumentos do prescritor que você deseja executar antes da operação clone.
++
+Você deve armazenar o prescritor em _/var/opt/SnapCenter/spl/scripts_ ou em qualquer pasta dentro deste caminho. Por padrão, o caminho _/var/opt/SnapCenter/spl/scripts_ é preenchido. Se você colocou o script em qualquer pasta dentro deste caminho, você precisa fornecer o caminho completo até a pasta onde o script é colocado.
+
++
+O SnapCenter permite-lhe utilizar as variáveis de ambiente predefinidas quando executa o prescritor e o postscript. link:../protect-sco/predefined-environment-variables-prescript-postscript-clone.html["Saiba mais"^]
+
+.. Na seção Configurações de parâmetros do banco de dados, modifique os valores dos parâmetros do banco de dados pré-preenchidos que são usados para inicializar o banco de dados.
++
+Pode adicionar parâmetros adicionais clicando em *image:../media/add_policy_from_resourcegroup.gif[""]*.
+
++
+Se você estiver usando o Oracle Standard Edition e o banco de dados estiver sendo executado no modo de log de arquivamento ou se desejar restaurar um banco de dados do log de reprocessamento de arquivo, adicione os parâmetros e especifique o caminho.
+
++
+*** LOG_ARCHIVE_DEST
+*** LOG_ARCHIVE_DUPLEX_DEST
++
+
+NOTE: A área de recuperação rápida (FRA) não está definida nos parâmetros do banco de dados pré-preenchidos. Você pode configurar FRA adicionando os parâmetros relacionados.
+
++
+
+NOTE: O valor padrão de log_archive_dest_1 é ORACLE_Home/clone_sid e os logs de arquivo do banco de dados clonados serão criados nesse local. Se você tiver excluído o parâmetro log_archive_dest_1, o local do log do arquivo será determinado pela Oracle. Você pode definir um novo local para o log de arquivo editando log_archive_dest_1, mas certifique-se de que o sistema de arquivos ou o grupo de discos deve estar existente e disponibilizado no host.
+
+
+
+.. Clique em *Reset* para obter as configurações padrão de parâmetros do banco de dados.
+
+
+. Na página PostOps, *Recover database* e *Until Cancel* são selecionados por padrão para executar a recuperação do banco de dados clonado.
++
+O SnapCenter executa a recuperação montando o backup de log mais recente que tem a sequência ininterrupta de logs de arquivamento após o backup de dados que foi selecionado para clonagem. O backup de log e dados deve estar no storage primário para executar o clone no storage primário e o backup de dados deve estar no storage secundário para executar o clone no storage secundário.
+
++
+As opções *Recover database* e *Until Cancel* não são selecionadas se o SnapCenter não conseguir encontrar os backups de log apropriados. Você pode fornecer o local de log de arquivamento externo se o backup de log não estiver disponível em *especificar locais de log de arquivamento externo*. Pode especificar vários locais de registo.
+
++
+
+NOTE: Se você quiser clonar um banco de dados de origem configurado para suportar a área de recuperação flash (FRA) e os arquivos gerenciados Oracle (OMF), o destino do log para recuperação também deve aderir à estrutura de diretórios OMF.
+
++
+A página PostOps não será exibida se o banco de dados de origem for um banco de dados de espera do Data Guard ou um banco de dados de espera do ative Data Guard. Para o modo de espera do Data Guard ou um banco de dados em espera do ative Data Guard, o SnapCenter não fornece uma opção para selecionar o tipo de recuperação na GUI do SnapCenter, mas o banco de dados é recuperado usando até Cancelar o tipo de recuperação sem aplicar nenhum log.
+
++
+|===
+| Nome do campo | Descrição 
+
+
+ a| 
+Até Cancelar
+ a| 
+O SnapCenter executa a recuperação montando o backup de log mais recente com a sequência ininterrupta de logs de arquivamento após esse backup de dados que foi selecionado para clonagem. O banco de dados clonado é recuperado até o arquivo de log ausente ou corrompido.
+
+
+
+ a| 
+Data e hora
+ a| 
+O SnapCenter recupera o banco de dados até uma data e hora especificadas. O formato aceite é mm/dd/aaaa hh:mm:ss.
+
+
+NOTE: A hora pode ser especificada no formato de 24 horas.
+
+
+
+ a| 
+Até SCN (número de mudança do sistema)
+ a| 
+O SnapCenter recupera o banco de dados até um número de mudança de sistema especificado (SCN).
+
+
+
+ a| 
+Especifique locais de registo de arquivo externo
+ a| 
+Se o banco de dados estiver sendo executado no modo ARCHIVELOG, o SnapCenter identifica e monta o número ideal de backups de log com base no SCN especificado ou na data e hora selecionadas.
+
+Também pode especificar a localização do registo de arquivo externo.
+
+
+NOTE: O SnapCenter não identificará e montará automaticamente os backups de log se você tiver selecionado até Cancelar.
+
+
+
+ a| 
+Crie um novo DBID
+ a| 
+Por padrão *Create new DBID* caixa de seleção está selecionada para gerar um número único (DBID) para o banco de dados clonado diferenciando-o do banco de dados de origem.
+
+Desmarque a caixa de seleção se quiser atribuir o DBID do banco de dados de origem ao banco de dados clonado. Nesse cenário, se você quiser Registrar o banco de dados clonado com o catálogo RMAN externo onde o banco de dados de origem já está registrado, a operação falha.
+
+
+
+ a| 
+Crie o tempfile para o espaço de tabela temporário
+ a| 
+Marque a caixa de seleção se quiser criar um arquivo tempfile para o espaço de tabela temporário padrão do banco de dados clonado.
+
+Se a caixa de seleção não estiver selecionada, o clone do banco de dados será criado sem o tempfile.
+
+
+
+ a| 
+Insira entradas sql para aplicar quando o clone for criado
+ a| 
+Adicione as entradas sql que você deseja aplicar quando o clone for criado.
+
+
+
+ a| 
+Insira scripts para serem executados após a operação clone
+ a| 
+Especifique o caminho e os argumentos do postscript que você deseja executar após a operação clone.
+
+Você deve armazenar o postscript em _/var/opt/SnapCenter/spl/scripts_ ou em qualquer pasta dentro deste caminho. Por padrão, o caminho _/var/opt/SnapCenter/spl/scripts_ é preenchido.
+
+Se você colocou o script em qualquer pasta dentro deste caminho, você precisa fornecer o caminho completo até a pasta onde o script é colocado.
+
+
+NOTE: Se a operação de clone falhar, os postscripts não serão executados e as atividades de limpeza serão acionadas diretamente.
+
+|===
+. Na página notificação, na lista suspensa *preferência de e-mail*, selecione os cenários nos quais você deseja enviar os e-mails.
++
+Você também deve especificar os endereços de e-mail do remetente e do destinatário e o assunto do e-mail. Se quiser anexar o relatório da operação clone executada, selecione *Anexar Relatório de trabalho*.
+
++
+
+NOTE: Para notificação por e-mail, você deve ter especificado os detalhes do servidor SMTP usando a GUI ou o comando PowerShell SET-SmtpServer.
+
+. Revise o resumo e clique em *Finish*.
++
+
+NOTE: Ao executar a recuperação como parte da operação de criação de clone, mesmo que a recuperação falhe, o clone é criado com um aviso. Você pode executar a recuperação manual neste clone para colocar o banco de dados clone no estado consistente.
+
+. Monitorize o progresso da operação clicando em *Monitor* > *trabalhos*.
+
+
+*Resultado*
+
+Após a clonagem do banco de dados, você pode atualizar a página recursos para listar o banco de dados clonado como um dos recursos disponíveis para backup. O banco de dados clonado pode ser protegido como qualquer outro banco de dados usando o fluxo de trabalho de backup padrão ou pode ser incluído em um grupo de recursos (recém-criado ou existente). O banco de dados clonado pode ser clonado ainda mais (clone de clones).
+
+Após a clonagem, você nunca deve renomear o banco de dados clonado.
+
+
+NOTE: Se você não tiver executado a recuperação durante a clonagem, o backup do banco de dados clonado pode falhar devido a uma recuperação inadequada, e talvez seja necessário executar a recuperação manual. O backup de log também pode falhar se o local padrão que foi preenchido para logs de arquivamento estiver em um armazenamento não NetApp ou se o sistema de armazenamento não estiver configurado com SnapCenter.
+
+Na configuração AIX, você pode usar o comando lkdev para bloquear e o comando rendev para renomear os discos nos quais o banco de dados clonado residia.
+
+O bloqueio ou a renomeação de dispositivos não afetará a operação de exclusão do clone. Para layouts de LVM AIX criados em dispositivos SAN, a renomeação de dispositivos não será suportada para os dispositivos SAN clonados.
+
+*Encontre mais informações*
+
+* https://kb.netapp.com/Advice_and_Troubleshooting/Data_Protection_and_Security/SnapCenter/ORA-00308%3A_cannot_open_archived_log_ORA_LOG_arch1_123_456789012.arc["Falha na restauração ou clonagem com a mensagem de erro ORA-00308"^]
+* https://kb.netapp.com/Advice_and_Troubleshooting/Data_Protection_and_Security/SnapCenter/Failed_to_recover_a_cloned_database["Falha ao recuperar um banco de dados clonado"^]
+* https://kb.netapp.com/Advice_and_Troubleshooting/Data_Protection_and_Security/SnapCenter/What_are_the_customizable_parameters_for_backup_restore_and_clone_operations_on_AIX_systems["Parâmetros personalizáveis para operações de backup, restauração e clone em sistemas AIX"^]
+

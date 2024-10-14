@@ -1,0 +1,217 @@
+---
+permalink: protect-sce/task_add_hosts_and_install_plug_in_for_exchange.html 
+sidebar: sidebar 
+keywords: SnapCenter Plug-in for Microsoft Exchange Server, NET TCP 
+summary: Você pode usar a página SnapCenterAdd Host para adicionar hosts do Windows. O plug-in para Exchange é instalado automaticamente no host especificado. Este é o método recomendado para instalar plug-ins. Você pode adicionar um host e instalar um plug-in para um host individual ou para um cluster. 
+---
+= Adicione hosts e instale o Plug-in para o Exchange
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Você pode usar a página Adicionar host do SnapCenter para adicionar hosts do Windows. O plug-in para Exchange é instalado automaticamente no host especificado. Este é o método recomendado para instalar plug-ins. Você pode adicionar um host e instalar um plug-in para um host individual ou para um cluster.
+
+.Antes de começar
+* Se o sistema operacional do host do servidor SnapCenter for o Windows 2019 e o sistema operacional do host do plug-in for o Windows 2022, você deve executar o seguinte:
++
+** Atualize para o Windows Server 2019 (versão de SO 17763,5936) ou posterior
+** Atualize para o Windows Server 2022 (versão de SO 20348,2402) ou posterior
+
+
+* Você deve ser um usuário atribuído a uma função que tenha as permissões de instalação e desinstalação do plug-in, como o administrador do SnapCenter
+* Ao instalar um plug-in em um host do Windows, se você especificar uma credencial que não está integrada ou se o usuário pertence a um usuário local do grupo de trabalho, será necessário desativar o UAC no host.
+* O serviço de enfileiramento de mensagens deve estar em execução.
+* Se você estiver usando a conta de serviço gerenciado de grupo (gMSA), você deve configurar o gMSA com Privileges administrativo. Para obter informações, link:task_configure_gMSA_on_windows_server_2012_or_later.html["Configure a conta de serviço gerenciado de grupo no Windows Server 2016 ou posterior para o Microsoft Exchange Server"^]consulte .
+
+
+.Sobre esta tarefa
+* Não é possível adicionar um servidor SnapCenter como um host plug-in a outro servidor SnapCenter.
+* Você pode adicionar um host e instalar pacotes de plug-in para um host individual ou um cluster.
+* Se um nó de troca fizer parte de um DAG, você não poderá adicionar apenas um nó ao servidor SnapCenter.
+* Se você estiver instalando plug-ins em um cluster (Exchange DAG), eles serão instalados em todos os nós do cluster, mesmo que alguns dos nós não tenham bancos de dados em LUNs NetApp.
+
+
+A partir do SnapCenter 4,6, o SCE é compatível com a alocação a vários clientes e você pode adicionar um host usando os seguintes métodos:
+
+|===
+| Adicionar operação de host | 4,5 e anteriores | 4,6 e mais tarde 
+
+
+| Adicione DAG sem IP em domínio cruzado ou diferente | Não suportado | Suportado 
+
+
+| Adicione vários DAGs IP com nomes exclusivos, residindo no mesmo domínio ou entre domínios | Suportado | Suportado 
+
+
+| Adicione vários DAGs IP ou sem IP que tenham os mesmos nomes de host e/ou nome de banco de dados no domínio cruzado | Não suportado | Suportado 
+
+
+| Adicione vários DAGs sem IP/IP com o mesmo nome e domínio cruzado | Não suportado | Suportado 
+
+
+| Adicione vários hosts autônomos com o mesmo nome e domínio cruzado | Não suportado | Suportado 
+|===
+O plug-in para Exchange depende do pacote de plug-ins do SnapCenter para Windows e as versões devem ser as mesmas. Durante a instalação do plug-in para Exchange, o pacote de plug-ins do SnapCenter para Windows é selecionado por padrão e é instalado junto com o provedor de hardware VSS.
+
+Se o SnapManager para Microsoft Exchange Server e o SnapDrive para Windows já estiverem instalados e você quiser instalar o plug-in para Exchange no mesmo Exchange Server, você deve cancelar o Registro do provedor de hardware VSS usado pelo SnapDrive para Windows porque é incompatível com o provedor de hardware VSS instalado com o pacote plug-in para Exchange e plug-ins do SnapCenter para Windows. Para obter mais informações, https://kb.netapp.com/Advice_and_Troubleshooting/Data_Protection_and_Security/SnapCenter/How_to_manually_register_the_Data_ONTAP_VSS_Hardware_Provider["Como Registrar manualmente o Fornecedor de hardware VSS do Data ONTAP"]consulte .
+
+.Passos
+. No painel de navegação esquerdo, clique em *hosts*.
+. Verifique se *hosts gerenciados* está selecionado na parte superior.
+. Clique em *Add*.
+. Na página hosts, faça o seguinte:
++
+|===
+| Para este campo... | Faça isso... 
+
+
+ a| 
+Tipo de host
+ a| 
+Selecione *Windows* como o tipo de host.
+
+O servidor SnapCenter adiciona o host e, em seguida, instala no host o plug-in para Windows e o plug-in para Exchange se eles ainda não estiverem instalados.
+
+O plug-in para Windows e o Plug-in para Exchange devem ser da mesma versão. Se uma versão diferente do plug-in para Windows foi instalada anteriormente, o SnapCenter atualiza a versão como parte da instalação.
+
+
+
+ a| 
+Nome do host
+ a| 
+Insira o nome de domínio totalmente qualificado (FQDN) ou o endereço IP do host.
+
+O SnapCenter depende da configuração adequada do DNS. Portanto, a melhor prática é inserir o nome de domínio totalmente qualificado (FQDN).
+
+Um endereço IP é suportado para hosts de domínio não confiáveis somente se for resolvido para o FQDN.
+
+Se você estiver adicionando um host usando o SnapCenter e fizer parte de um subdomínio, você deverá fornecer o FQDN.
+
+Você pode inserir endereços IP ou o FQDN de uma das seguintes opções:
+
+** Anfitrião independente
+** Trocar DAG
++
+Para um DAG do Exchange, você pode:
+
++
+*** Adicione um DAG fornecendo o nome do DAG, o endereço IP do DAG, o nome do nó ou o endereço IP do nó.
+*** Adicione o cluster IP less DAG fornecendo o endereço IP ou o FQDN de um dos nós do cluster DAG.
+*** Adicione IP menos DAG que resida no mesmo domínio ou domínio diferente. Você também pode adicionar vários DAGs IP/IP menos com o mesmo nome, mas domínios diferentes.
+
+
+
+
+
+NOTE: Para um host autônomo ou um DAG do Exchange (entre domínios ou mesmo domínio), é recomendável fornecer FQDN ou o endereço IP do host ou do DAG.
+
+
+
+ a| 
+Credenciais
+ a| 
+Selecione o nome da credencial que você criou ou crie as novas credenciais.
+
+A credencial deve ter direitos administrativos no host remoto. Para obter detalhes, consulte informações sobre como criar uma credencial.
+
+Você pode exibir detalhes sobre as credenciais posicionando o cursor sobre o nome da credencial que você especificou.
+
+
+NOTE: O modo de autenticação de credenciais é determinado pelo tipo de host especificado no assistente Adicionar host.
+
+|===
+. Na seção Selecionar plug-ins para instalar, selecione os plug-ins a instalar.
++
+Quando você seleciona Plug-in para Exchange, o plug-in do SnapCenter para Microsoft SQL Server é desmarcado automaticamente. A Microsoft recomenda que o SQL Server e o Exchange Server não sejam instalados no mesmo sistema devido à quantidade de memória usada e a outro uso de recursos exigido pelo Exchange.
+
+. (Opcional) clique em *mais opções*.
++
+|===
+| Para este campo... | Faça isso... 
+
+
+ a| 
+Porta
+ a| 
+Guarde o número da porta padrão ou especifique o número da porta.
+
+O número da porta padrão é 8145. Se o servidor SnapCenter tiver sido instalado em uma porta personalizada, esse número de porta será exibido como a porta padrão.
+
+
+NOTE: Se você instalou manualmente os plug-ins e especificou uma porta personalizada, você deve especificar a mesma porta. Caso contrário, a operação falha.
+
+
+
+ a| 
+Caminho de instalação
+ a| 
+O caminho padrão é `C:\Program Files\NetApp\SnapCenter`.
+
+Opcionalmente, você pode personalizar o caminho.
+
+
+
+ a| 
+Adicione todos os hosts no DAG
+ a| 
+Marque essa caixa de seleção quando adicionar um DAG.
+
+
+
+ a| 
+Ignorar as verificações de pré-instalação
+ a| 
+Marque essa caixa de seleção se você já instalou os plug-ins manualmente e não quiser validar se o host atende aos requisitos para instalar o plug-in.
+
+
+
+ a| 
+Use a conta de serviço gerenciado de grupo (gMSA) para executar os serviços de plug-in
+ a| 
+Marque essa caixa de seleção se quiser usar a conta de serviço gerenciado de grupo (gMSA) para executar os serviços de plug-in.
+
+Forneça o nome gMSA no seguinte formato: _Domainname
+
+
+NOTE: O gMSA será usado como uma conta de serviço de logon apenas para o serviço SnapCenter Plug-in para Windows.
+
+|===
+. Clique em *Enviar*.
++
+Se você não tiver selecionado a caixa de seleção Ignorar pré-verificações, o host será validado para determinar se atende aos requisitos para instalar o plug-in. Se os requisitos mínimos não forem atendidos, as mensagens de erro ou aviso apropriadas serão exibidas.
+
++
+Se o erro estiver relacionado ao espaço em disco ou à RAM, você poderá atualizar o arquivo web.config localizado no `C:\Program Files\NetApp\SnapCenter` WebApp para modificar os valores padrão. Se o erro estiver relacionado a outros parâmetros, você deve corrigir o problema.
+
++
+
+NOTE: Em uma configuração de HA, se você estiver atualizando o arquivo web.config, será necessário atualizar o arquivo em ambos os nós.
+
+. Monitorize o progresso da instalação.
+
+
+
+
+== Configure a porta personalizada para comunicação NET TCP
+
+Por padrão, a partir da versão do SnapCenter 6,0, o plug-in do SnapCenter para Windows usa a porta 909 para comunicação DE REDE TCP. Se a porta 909 estiver em uso, você poderá configurar outra porta para comunicação TCP de REDE.
+
+.Passos
+. Modifique o valor da chave _NetTCPPort_ localizada em _C:/Program Files/NetApp/SnapCenter/SnapCenter Plug-in para o número de porta necessário.
+`<add key="NetTCPPort" value="new_port_number" />`
+. Modifique o valor da chave _NetTCPPort_ localizada em _C:/arquivos de programas/NetApp/SnapCenter/SnapCenter Plug-in para o número de porta necessário.
+`<add key="NetTCPPort" value="new_port_number" />`
+. Desmarque o serviço _Data ONTAP VSS hardware Provider_ executando o comando abaixo:
+`"C:\Program Files\NetApp\SnapCenter\SnapCenter Plug-in for Microsoft Windows\navssprv.exe" -r service -u`
++
+Verifique se o serviço não é exibido na lista de serviços em _services.msc_.
+
+. Registre o serviço _Data ONTAP VSS hardware Provider_ executando o comando abaixo:
+`"C:\Program Files\NetApp\SnapCenter\SnapCenter Plug-in for Microsoft Windows\vssproviders\navssprv.exe" -r service -a ".\LocalSystem"``
++
+Verifique se o serviço está agora exibido na lista de serviços em _services.msc_.
+
+. Reinicie o serviço _Plug-in para Windows_.
+

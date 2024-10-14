@@ -1,0 +1,45 @@
+---
+permalink: protect-azure/backup-oracle-databases.html 
+sidebar: sidebar 
+keywords: SnapCenter Plug-in for Oracle Database, back up, databases, Azure NetApp Files 
+summary: Faça backup do recurso da página recursos. 
+---
+= Faça backup de bancos de dados Oracle em execução no Azure NetApp Files
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Se um recurso ainda não fizer parte de qualquer grupo de recursos, você poderá fazer backup do recurso na página recursos.
+
+.Passos
+. No painel de navegação esquerdo, selecione *Resources* e, em seguida, selecione o plug-in apropriado na lista.
+. Na página recurso, selecione *Banco de dados* na lista suspensa Exibir.
+. Na página recurso, selecione *Use o formato de nome personalizado para cópia Snapshot* e insira um formato de nome personalizado que você deseja usar para o nome da captura Instantânea.
+. Na página políticas, execute as seguintes etapas:
++
+.. Selecione uma ou mais políticas na lista suspensa.
+.. Selecioneimage:../media/add_policy_from_resourcegroup.gif[""] * * na coluna Configurar agendas para a política para a qual você deseja configurar um agendamento.
+.. Na caixa de diálogo Adicionar agendas para política _policy_name_, configure a programação e selecione *OK*.
+
+
+. Na página Verificação, execute as seguintes etapas:
++
+.. Selecione o servidor de verificação.
+.. Selecione a política para a qual pretende configurar o seu agendamento de verificação e, em seguida, clique em * *image:../media/add_policy_from_resourcegroup.gif[""].
+.. Selecione *Executar verificação após cópia de segurança* ou *Executar verificação agendada*.
+.. Clique em OK.
+
+
+. Na página notificação, na lista suspensa *preferência de e-mail*, selecione os cenários nos quais você deseja enviar os e-mails.
+. Revise o resumo e clique em *Finish*.
+. Selecione *fazer uma cópia de segurança agora*.
+. Na página Backup, execute as seguintes etapas:
++
+.. Se várias políticas estiverem associadas ao recurso, na lista suspensa *Política*, selecione a política que deseja usar para backup.
+.. Clique em *Backup*.
+
+
+. Monitorize o progresso da operação clicando em *Monitor* > *trabalhos*.
+

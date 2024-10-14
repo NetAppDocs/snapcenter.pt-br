@@ -1,0 +1,124 @@
+---
+permalink: protect-nsp/prerequisites_to_adding_hosts_and_installing_netapp_supported_plugins.html 
+sidebar: sidebar 
+keywords: credentials 
+summary: Antes de adicionar um host e instalar os pacotes de plug-ins, você deve completar todos os requisitos. Os plug-ins compatíveis com NetApp podem ser usados em ambientes Windows e Linux. 
+---
+= Pré-requisitos para adicionar hosts e instalar plug-ins compatíveis com NetApp
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Antes de adicionar um host e instalar os pacotes de plug-ins, você deve completar todos os requisitos. Os plug-ins compatíveis com NetApp podem ser usados em ambientes Windows e Linux.
+
+* Você deve ter criado um plug-in personalizado. Para obter detalhes, consulte as informações do desenvolvedor.
++
+link:develop_a_plug_in_for_your_application.html["Desenvolva um plug-in para sua aplicação"]
+
+* Você deve ter instalado o Java 11 em seu host Linux ou Windows.
+* Ao instalar um plug-in em um host do Windows, se você especificar uma credencial que não está integrada ou se o usuário pertence a um usuário local do grupo de trabalho, será necessário desativar o UAC no host.
+* Os plug-ins compatíveis com NetApp devem estar disponíveis no host cliente a partir do qual a operação de adição de host é executada.
+
+
+
+
+== Geral
+
+Se estiver a utilizar iSCSI, o serviço iSCSI deverá estar em execução.
+
+
+
+== Hash SHA512
+
+* Para plug-ins compatíveis com NetApp, você deve garantir que você adicionou o hash SHA512 do arquivo de plug-in compatível com NetApp ao arquivo _custom_plugin_checksum_list_.
++
+** Para o host Linux, o hash SHA512 está localizado em _/var/opt/SnapCenter/scc/custom_plugin_checksum_list.txt_
+** Para o host do Windows, o hash SHA512 está localizado em _C:/arquivos de programas/NetApp/SnapCenter Plug-in Creator/custom_plugin_checksum_list.txt_
++
+Para o caminho de instalação personalizado, o hash SHA512 está localizado em _<custom path>/NetApp/SnapCenter/SnapCenter Plug-in Creator/custom_plugin_checksum_list.txt_
+
+
+
++
+O custom_plugin_checksum_list faz parte da instalação de plug-in suportada pelo NetApp no host pelo SnapCenter.
+
+* Para plug-ins compatíveis com NetApp criados para o seu aplicativo, você deve ter executado as seguintes etapas:
++
+.. Gerou o hash SHA512 do arquivo zip do plug-in.
++
+Você pode usar ferramentas on-line como https://emn178.github.io/online-tools/sha512_file_hash.html["Hash SHA512"^].
+
+.. Adicionado o hash SHA512 gerado ao arquivo custom_plugin_checksum_list em uma nova linha.
++
+Os comentários começam com o símbolo nº para identificar o plug-in ao qual o hash pertence.
+
++
+A seguir está um exemplo de uma entrada de hash SHA512 no arquivo de checksum:
+
++
+....
+#ORASCPM
+03721f567a1e4a1cb5569066b9a58af619ee12b1f8713108f81b696cfbdb81c25232fa63d6e6777a2b2a1ec068bb0a93a59a8ade71587182f8bccbe81f7e0ba6
+....
+
+
+
+
+
+
+== Hosts do Windows
+
+* Você deve ter um usuário de domínio com Privileges de administrador local com permissões de login local no host remoto.
+* Se você gerenciar nós de cluster no SnapCenter, precisará ter um usuário com Privileges administrativo para todos os nós do cluster.
+
+
+
+
+== Hosts Linux
+
+* Você deve ter habilitado a conexão SSH baseada em senha para o usuário root ou não root.
+* Você deve ter instalado o Java 11 em seu host Linux.
++
+Se você estiver usando o Windows Server 2019 ou o Windows Server 2016 para o host do servidor SnapCenter, você deve instalar o Java 11. A ferramenta de Matriz de interoperabilidade (IMT) contém as informações mais recentes sobre os requisitos.
+
++
+http://www.java.com/en/download/manual.jsp["Downloads Java para todos os sistemas operacionais"]
+
++
+https://imt.netapp.com/matrix/imt.jsp?components=117018;&solution=1259&isHWU&src=IMT["Ferramenta de Matriz de interoperabilidade do NetApp"]
+
+* Você deve configurar o sudo Privileges para que o usuário não-root forneça acesso a vários caminhos. Adicione as seguintes linhas ao arquivo /etc/sudoers usando o utilitário visudo Linux.
++
+
+NOTE: Certifique-se de que está a utilizar o sudo versão 1.8.7 ou posterior.
+
++
+[listing, subs="+quotes"]
+----
+Cmnd_Alias HPPLCMD = sha224:checksum_value== /home/_LINUX_USER_/.sc_netapp/snapcenter_linux_host_plugin.bin, /opt/NetApp/snapcenter/spl/installation/plugins/uninstall, /opt/NetApp/snapcenter/spl/bin/spl, /opt/NetApp/snapcenter/scc/bin/scc
+Cmnd_Alias PRECHECKCMD = sha224:checksum_value== /home/_LINUX_USER_/.sc_netapp/Linux_Prechecks.sh
+Cmnd_Alias CONFIGCHECKCMD = sha224:checksum_value== /opt/NetApp/snapcenter/spl/plugins/scu/scucore/configurationcheck/Config_Check.sh
+Cmnd_Alias SCCMD = sha224:checksum_value== /opt/NetApp/snapcenter/spl/bin/sc_command_executor
+Cmnd_Alias SCCCMDEXECUTOR =checksum_value== /opt/NetApp/snapcenter/scc/bin/sccCommandExecutor
+_LINUX_USER_ ALL=(ALL) NOPASSWD:SETENV: HPPLCMD, PRECHECKCMD, CONFIGCHECKCMD, SCCCMDEXECUTOR, SCCMD
+Defaults: _LINUX_USER_ !visiblepw
+Defaults: _LINUX_USER_ !requiretty
+----
++
+_LINUX_USER_ é o nome do usuário não-root que você criou.
+
++
+Você pode obter o _checksum_value_ do arquivo *SC_unix_plugins_checksum.txt*, que está localizado em:
+
++
+** Se o servidor SnapCenter estiver instalado no host do Windows, o SnapCenter NetApp não será instalado no sistema operacional Windows.
+** _/opt/NetApp/SnapCenter/SnapManagerWeb/Repository/SC_UNIX_plugins_checksum.txt_ se o servidor SnapCenter estiver instalado no host Linux.
++
+
+IMPORTANT: O exemplo deve ser usado apenas como referência para criar seus próprios dados.
+
+
+
+

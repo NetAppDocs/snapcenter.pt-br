@@ -1,0 +1,96 @@
+---
+permalink: protect-sco/backup-application-volume.html 
+sidebar: sidebar 
+keywords: application volume, back up 
+summary: Você pode fazer backup do volume do aplicativo a partir da página recursos se o volume do aplicativo não fizer parte de nenhum grupo de recursos. 
+---
+= Fazer backup do volume do aplicativo
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Se o volume do aplicativo não fizer parte de qualquer grupo de recursos, você poderá fazer backup do volume do aplicativo na página recursos.
+
+*Sobre esta tarefa*
+
+Por padrão, backups do grupo de consistência (CG) são criados. Se você quiser criar backups baseados em volume, defina o valor de *EnableOracleNdvVolumeBasedBackup* como verdadeiro no arquivo _web.config_.
+
+*Passos*
+
+. No painel de navegação esquerdo, clique em *Resources* e selecione o plug-in Oracle Database na lista.
+. Na página recursos, selecione *volume do aplicativo* na lista *Exibir*.
+. Clique em *image:../media/filter_icon.png[""]* e selecione o nome do host e o tipo de banco de dados para filtrar os recursos.
++
+Em seguida, pode clicar emimage:../media/filter_icon.png[""]* * para fechar o painel do filtro.
+
+. Selecione o volume da aplicação que pretende efetuar uma cópia de segurança.
++
+É apresentada a página de proteção do volume da aplicação.
+
+. Na página recurso, execute as seguintes ações:
++
+|===
+| Para este campo... | Faça isso... 
+
+
+ a| 
+Use o formato de nome personalizado para cópia Snapshot
+ a| 
+Marque essa caixa de seleção e insira um formato de nome personalizado que você deseja usar para o nome da captura Instantânea.
+
+Por exemplo, customtext__policy_hostname ou resource_hostname. Por padrão, um carimbo de data/hora é anexado ao nome do instantâneo.
+
+
+
+ a| 
+Excluir destinos de log de arquivamento do backup
+ a| 
+Especifique os destinos dos ficheiros de registo de arquivo que não pretende efetuar uma cópia de segurança.
+
+|===
+. Na página políticas, execute as seguintes etapas:
++
+.. Selecione uma ou mais políticas na lista suspensa.
++
+
+NOTE: Você também pode criar uma política clicando em *image:../media/add_policy_from_resourcegroup.gif[""]*.
+
+
+
++
+Na seção Configurar agendas para políticas selecionadas, as políticas selecionadas são listadas.
+
++
+.. Clique image:../media/add_policy_from_resourcegroup.gif[""] na coluna Configurar agendas para a política para a qual você deseja configurar um agendamento.
+.. Na janela Adicionar programações para a política _policy_name_, configure a programação e clique em *OK*.
++
+_policy_name_ é o nome da política selecionada.
+
++
+As programações configuradas são listadas na coluna agendas aplicadas.
+
+
+
+. Na página notificação, na lista suspensa *preferência de e-mail*, selecione os cenários nos quais você deseja enviar os e-mails.
++
+Você também deve especificar os endereços de e-mail do remetente e do destinatário e o assunto do e-mail. Se você quiser anexar o relatório da operação de backup realizada no recurso e selecione *Anexar Relatório de trabalho*.
+
++
+
+NOTE: Para notificação por e-mail, você deve ter especificado os detalhes do servidor SMTP usando a GUI ou o comando PowerShell SET-SmtpServer.
+
+. Revise o resumo e clique em *Finish*.
++
+É apresentada a página topologia do volume da aplicação.
+
+. Clique em *fazer backup agora*.
+. Na página Backup, execute as seguintes etapas:
++
+.. Se você tiver aplicado várias políticas ao recurso, na lista suspensa *Política*, selecione a política que deseja usar para backup.
+.. Clique em *Backup*.
+
+
+. Monitorize o progresso da operação clicando em *Monitor* > *trabalhos*.
+

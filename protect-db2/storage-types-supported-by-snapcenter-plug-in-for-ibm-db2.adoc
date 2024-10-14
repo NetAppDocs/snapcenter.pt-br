@@ -1,0 +1,39 @@
+---
+permalink: protect-db2/storage-types-supported-by-snapcenter-plug-in-for-ibm-db2.html 
+sidebar: sidebar 
+keywords: storage types, 
+summary: 'O SnapCenter oferece suporte a uma ampla variedade de tipos de armazenamento em máquinas físicas e máquinas virtuais (VMs). Você deve verificar o suporte para seu tipo de storage antes de instalar o plug-in SnapCenter para IBM DB2.' 
+---
+= Tipos de storage compatíveis com o plug-in SnapCenter para IBM DB2
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+O SnapCenter oferece suporte a uma ampla variedade de tipos de armazenamento em máquinas físicas e máquinas virtuais (VMs). Você deve verificar o suporte para seu tipo de storage antes de instalar o plug-in SnapCenter para IBM DB2.
+
+|===
+| Máquina | Tipo de armazenamento 
+
+
+ a| 
+Servidores físicos e virtuais
+ a| 
+LUNs conectados a FC
+
+
+
+ a| 
+Servidor físico
+ a| 
+LUNs ligados ao iSCSI
+
+
+
+ a| 
+Servidores físicos e virtuais
+ a| 
+Volumes conectados a NFS
+
+|===

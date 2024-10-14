@@ -1,0 +1,105 @@
+---
+permalink: protect-scw/task_install_the_snapcenter_plug_in_for_windows_silently_from_the_command_line.html 
+sidebar: sidebar 
+keywords: install, snapcenter 
+summary: Você pode instalar o plug-in do SnapCenter para Microsoft Windows localmente em um host do Windows se não conseguir instalar o plug-in remotamente a partir da GUI do SnapCenter. Você pode executar o plug-in do SnapCenter para o programa de instalação do Microsoft Windows sem supervisão, no modo silencioso, a partir da linha de comando do Windows. 
+---
+= Instale o plug-in do SnapCenter para Microsoft Windows silenciosamente a partir da linha de comando
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Você pode instalar o plug-in do SnapCenter para Microsoft Windows localmente em um host do Windows se não conseguir instalar o plug-in remotamente a partir da GUI do SnapCenter. Você pode executar o plug-in do SnapCenter para o programa de instalação do Microsoft Windows sem supervisão, no modo silencioso, a partir da linha de comando do Windows.
+
+.Antes de começar
+* Você deve ter instalado o Microsoft .Net 4.7.2 ou posterior.
+* Você deve ter instalado o PowerShell 7.4.2 ou posterior.
+* Você deve ter ativado o enfileiramento de mensagens do Windows.
+* Você deve ser um administrador local no host.
+
+
+.Passos
+. Baixe o plug-in do SnapCenter para Microsoft Windows a partir do local de instalação.
++
+Por exemplo, o caminho de instalação padrão é C:/ProgramData/NetApp/SnapCenter/Repositório de pacotes.
+
++
+Este caminho é acessível a partir do host onde o servidor SnapCenter está instalado.
+
+. Copie o arquivo de instalação para o host no qual você deseja instalar o plug-in.
+. No prompt de comando, navegue até o diretório onde você baixou o arquivo de instalação.
+. Digite o seguinte comando, substituindo variáveis por seus dados:
++
+`"snapcenter_windows_host_plugin.exe"/silent / debuglog"" /log"" BI_SNAPCENTER_PORT= SUITE_INSTALLDIR="" BI_SERVICEACCOUNT= BI_SERVICEPWD= ISFeatureInstall=SCW`
+
++
+Por exemplo:
+
++
+ `"C:\ProgramData\NetApp\SnapCenter\Package Repository \snapcenter_windows_host_plugin.exe"/silent /debuglog"C: \HPPW_SCW_Install.log" /log"C:\" BI_SNAPCENTER_PORT=8145 SUITE_INSTALLDIR="C: \Program Files\NetApp\SnapCenter" BI_SERVICEACCOUNT=domain\administrator BI_SERVICEPWD=password ISFeatureInstall=SCW`
++
+
+NOTE: Todos os parâmetros passados durante a instalação do Plug-in para Windows são sensíveis a maiúsculas e minúsculas.
+
++
+Insira os valores para as seguintes variáveis:
+
++
+|===
+| Variável | Valor 
+
+
+ a| 
+_/debuglog"<Debug_Log_Path>_
+ a| 
+Especifique o nome e o local do arquivo de log do instalador do pacote, como no exemplo a seguir: setup.exe /debuglog"C:
+
+
+
+ a| 
+PORTA_BI_SnapCenter
+ a| 
+Especifique a porta na qual o SnapCenter se comunica com o SMCore.
+
+
+
+ a| 
+SUITE_INSTALLDIR
+ a| 
+Especifique o diretório de instalação do pacote de plug-in do host.
+
+
+
+ a| 
+BI_SERVICEACCOUNT
+ a| 
+Especifique o plug-in do SnapCenter para a conta de serviço da Web do Microsoft Windows.
+
+
+
+ a| 
+BI_SERVICEPWD
+ a| 
+Especifique a senha do plug-in do SnapCenter para a conta do serviço da Web do Microsoft Windows.
+
+
+
+ a| 
+ISFeatureInstall
+ a| 
+Especifique a solução a ser implantada pelo SnapCenter em host remoto.
+
+|===
++
+O parâmetro _debuglog_ inclui o caminho do arquivo de log para o SnapCenter. Gravar neste arquivo de log é o método preferido de obter informações de solução de problemas, porque o arquivo contém os resultados das verificações que a instalação executa para pré-requisitos do plug-in.
+
++
+Se necessário, você pode encontrar informações adicionais de solução de problemas no arquivo de log do pacote SnapCenter para Windows. Os arquivos de log para o pacote são listados (mais antigos primeiro) na pasta _%Temp%_, por exemplo, _C:
+
++
+
+NOTE: A instalação do plug-in para Windows Registra o plug-in no host e não no servidor SnapCenter. Você pode Registrar o plug-in no servidor SnapCenter adicionando o host usando a GUI do SnapCenter ou cmdlet do PowerShell. Depois que o host é adicionado, o plug-in é descoberto automaticamente.
+
+

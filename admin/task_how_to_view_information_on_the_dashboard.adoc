@@ -1,0 +1,23 @@
+---
+permalink: admin/task_how_to_view_information_on_the_dashboard.html 
+sidebar: sidebar 
+keywords: dashboard 
+summary: 'No painel de navegação esquerdo do SnapCenter, você pode exibir vários painéis ou telas do Painel, juntamente com os detalhes do sistema associados. O número de visores disponíveis no Painel de instrumentos é fixo e não pode ser alterado. O conteúdo fornecido em cada exibição depende do controle de acesso baseado em função (RBAC).' 
+---
+= Como visualizar informações no painel de instrumentos
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+No painel de navegação esquerdo do SnapCenter, você pode exibir vários painéis ou telas do Painel, juntamente com os detalhes do sistema associados. O número de visores disponíveis no Painel de instrumentos é fixo e não pode ser alterado. O conteúdo fornecido em cada exibição depende do controle de acesso baseado em função (RBAC).
+
+*Passos*
+
+. No painel de navegação esquerdo, clique em *Dashboard*.
+. Clique nas áreas ativas em cada visor para obter informações adicionais.
++
+Por exemplo, clicar em um gráfico de rosca em *jobs*, redireciona você para a página Monitor para obter mais informações sobre sua seleção. Clicar em um gráfico de rosca em *Resumo de proteção*, redireciona você para a página relatórios, que pode fornecer mais informações sobre sua seleção.
+
+

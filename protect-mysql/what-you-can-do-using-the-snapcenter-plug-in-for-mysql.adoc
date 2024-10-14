@@ -1,0 +1,23 @@
+---
+permalink: protect-mysql/what-you-can-do-using-the-snapcenter-plug-in-for-mysql.html 
+sidebar: sidebar 
+keywords: SnapCenter Plug-in for mysql 
+summary: Ao instalar o plug-in para MySQL em seu ambiente, você pode usar o SnapCenter para fazer backup, restaurar e clonar o MySQL e seus recursos. Você também pode executar tarefas de suporte a essas operações. 
+---
+= O que você pode fazer usando o plug-in SnapCenter para MySQL
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Ao instalar o plug-in para banco de dados MySQL em seu ambiente, você pode usar o SnapCenter para fazer backup, restaurar e clonar instâncias do MySQL. Você também pode executar tarefas de suporte a essas operações.
+
+* Adicionar instâncias.
+* Criar backups.
+* Restauração a partir de backups.
+* Backups de clones.
+* Agendar operações de backup.
+* Monitore operações de backup, restauração e clone.
+* Exibir relatórios para operações de backup, restauração e clone.
+

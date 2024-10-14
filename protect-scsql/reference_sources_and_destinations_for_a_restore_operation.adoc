@@ -1,0 +1,53 @@
+---
+permalink: protect-scsql/reference_sources_and_destinations_for_a_restore_operation.html 
+sidebar: sidebar 
+keywords: restore operation 
+summary: É possível restaurar um banco de dados SQL Server a partir de uma cópia de backup em um storage primário ou secundário. Você também pode restaurar o banco de dados para diferentes destinos, além de sua localização original, permitindo que você escolha o destino que atende aos seus requisitos. 
+---
+= Fontes e destinos para uma operação de restauração
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+É possível restaurar um banco de dados SQL Server a partir de uma cópia de backup em um storage primário ou secundário. Você também pode restaurar o banco de dados para diferentes destinos, além de sua localização original, permitindo que você escolha o destino que atende aos seus requisitos.
+
+
+
+== Fontes para uma operação de restauração
+
+É possível restaurar bancos de dados do storage primário ou secundário.
+
+
+
+== Destinos para uma operação de restauração
+
+Você pode restaurar bancos de dados para vários destinos:
+
+|===
+| Destino | Descrição 
+
+
+ a| 
+A localização original
+ a| 
+Por padrão, o SnapCenter restaura o banco de dados para o mesmo local na mesma instância do SQL Server.
+
+
+
+ a| 
+Um local diferente
+ a| 
+Você pode restaurar o banco de dados para um local diferente em qualquer instância do SQL Server dentro do mesmo host.
+
+
+
+ a| 
+Local original ou diferente usando nomes de banco de dados diferentes
+ a| 
+Você pode restaurar o banco de dados com um nome diferente para qualquer instância do SQL Server no mesmo host onde o backup foi criado.
+
+|===
+
+NOTE: A restauração para host alternativo em servidores ESX para bancos de dados SQL em VMDKs (datastores NFS e VMFS) não é suportada.

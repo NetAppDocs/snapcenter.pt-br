@@ -1,0 +1,30 @@
+---
+permalink: protect-mysql/delete-or-split-mysql-clones-after-upgrading-snapcenter.html 
+sidebar: sidebar 
+keywords: SnapCenter Plug-in for MySQL Database 
+summary: Após a atualização para o SnapCenter 4,3, você não verá mais os clones. Você pode excluir o clone ou dividir os clones da página topologia do recurso a partir do qual os clones foram criados. 
+---
+= Excluir ou dividir clones do banco de dados MySQL após a atualização do SnapCenter
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Após a atualização para o SnapCenter 4,3, você não verá mais os clones. Você pode excluir o clone ou dividir os clones da página topologia do recurso a partir do qual os clones foram criados.
+
+.Sobre esta tarefa
+Se você quiser localizar o espaço físico de armazenamento dos clones ocultos, execute o seguinte comando: `Get-SmClone -ListStorageFootprint`
+
+.Passos
+. Exclua os backups dos recursos clonados usando o cmdlet remove-smbackup.
+. Exclua o grupo de recursos dos recursos clonados usando o cmdlet remove-smresourcegroup.
+. Remova a proteção do recurso clonado usando o cmdlet remove-sprotectresource.
+. Selecione o recurso pai na página recursos.
++
+A página de topologia do recurso é exibida.
+
+. Na visualização Gerenciar cópias, selecione os clones nos sistemas de storage primário ou secundário (espelhado ou replicado).
+. Selecione os clones e clique image:../media/delete_icon.gif[""] para excluir clones ou clique para image:../media/split_cone.gif[""]dividir os clones.
+. Clique em *OK*.
+

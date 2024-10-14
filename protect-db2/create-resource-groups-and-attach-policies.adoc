@@ -1,0 +1,207 @@
+---
+permalink: protect-db2/create-resource-groups-and-attach-policies.html 
+sidebar: sidebar 
+keywords: resource groups, attach policies, snapcenter 
+summary: Um grupo de recursos é o contentor ao qual você deve adicionar recursos que deseja fazer backup e proteger. Um grupo de recursos permite fazer backup de todos os dados associados a um determinado aplicativo simultaneamente. Um grupo de recursos é necessário para qualquer trabalho de proteção de dados. Você também deve anexar uma ou mais políticas ao grupo de recursos para definir o tipo de tarefa de proteção de dados que deseja executar. 
+---
+= Crie grupos de recursos e anexe políticas
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Um grupo de recursos é o contentor ao qual você deve adicionar recursos que deseja fazer backup e proteger. Um grupo de recursos permite fazer backup de todos os dados associados a um determinado aplicativo simultaneamente. Um grupo de recursos é necessário para qualquer trabalho de proteção de dados. Você também deve anexar uma ou mais políticas ao grupo de recursos para definir o tipo de tarefa de proteção de dados que deseja executar.
+
+.Sobre esta tarefa
+* Para a versão ONTAP 9.12,1 e inferior, os clones criados a partir dos snapshots do SnapLock Vault como parte da restauração herdarão o tempo de expiração do SnapLock Vault. O administrador do storage deve limpar manualmente os clones após o tempo de expiração do SnapLock.
+
+
+.Passos
+. No painel de navegação esquerdo, clique em *Resources* e selecione o plug-in apropriado na lista.
+. Na página recursos, clique em *novo Grupo de recursos*.
+. Na página Nome, execute as seguintes ações:
++
+|===
+| Para este campo... | Faça isso... 
+
+
+ a| 
+Nome
+ a| 
+Introduza um nome para o grupo de recursos.
+
+
+NOTE: O nome do grupo de recursos não deve exceder 250 carateres.
+
+
+
+ a| 
+Tags
+ a| 
+Insira um ou mais rótulos que o ajudarão a pesquisar posteriormente o grupo de recursos.
+
+Por exemplo, se você adicionar HR como uma tag a vários grupos de recursos, poderá encontrar mais tarde todos os grupos de recursos associados à tag HR.
+
+
+
+ a| 
+Use o formato de nome personalizado para cópia instantânea
+ a| 
+Marque essa caixa de seleção e insira um formato de nome personalizado que você deseja usar para o nome do snapshot.
+
+Por exemplo, customtext_resource group_policy_hostname ou resource group_hostname. Por padrão, um carimbo de data/hora é anexado ao nome do instantâneo.
+
+|===
+. Na página recursos, selecione um nome de host na lista suspensa *Host* e o tipo de recurso na lista suspensa *Resource Type*.
++
+Isso ajuda a filtrar informações na tela.
+
+. Selecione os recursos na seção *recursos disponíveis* e clique na seta para a direita para movê-los para a seção *recursos selecionados*.
+. Na página Configurações do aplicativo, faça o seguinte:
++
+.. Clique na seta *backups* para definir opções adicionais de backup:
++
+Ative o backup do grupo de consistência e execute as seguintes tarefas:
+
++
+|===
+| Para este campo... | Faça isso... 
+
+
+ a| 
+Tenha tempo para esperar que a operação de snapshot do Grupo de consistência seja concluída
+ a| 
+Selecione *urgente*, *Médio* ou *relaxado* para especificar o tempo de espera para que a operação de snapshot seja concluída.
+
+Urgente: 5 segundos, Médio: 7 segundos e relaxado: 20 segundos.
+
+
+
+ a| 
+Desativar a sincronização WAFL
+ a| 
+Selecione esta opção para evitar forçar um ponto de consistência WAFL.
+
+|===
++
+image:../media/application_settings.gif[""]
+
+.. Clique na seta *Scripts* e insira os comandos pre e POST para operações quiesce, snapshot e unquiesce. Também pode introduzir os pré comandos a serem executados antes de sair em caso de falha.
+.. Clique na seta *Custom Configurations* (Configurações personalizadas) e insira os pares de valor de chave personalizados necessários para todas as operações de proteção de dados usando esse recurso.
++
+|===
+| Parâmetro | Definição | Descrição 
+
+
+ a| 
+ARCHIVE_LOG_ENABLE
+ a| 
+(Y/N)
+ a| 
+Permite que a gestão do registo de arquivo elimine os registos de arquivo.
+
+
+
+ a| 
+ARCHIVE_LOG_RETENÇÃO
+ a| 
+number_of_days
+ a| 
+Especifica o número de dias em que os logs de arquivo são mantidos.
+
+Esta definição tem de ser igual ou superior a NTAP_SNAPSHOT_ RETENÇÕES.
+
+
+
+ a| 
+ARCHIVE_LOG_DIR
+ a| 
+change_info_directory/logs
+ a| 
+Especifica o caminho para o diretório que contém os logs do arquivo.
+
+
+
+ a| 
+ARCHIVE_LOG_EXT
+ a| 
+extensão_ficheiro
+ a| 
+Especifica o comprimento da extensão do arquivo de log do arquivo.
+
+Por exemplo, se o log de arquivo for log_backup_0_0_0_0,161518551942 9 e se o valor file_extension for 5, a extensão do log manterá 5 dígitos, que é 16151.
+
+
+
+ a| 
+ARCH ARCHIVE_LOG_RECURSIVE_SE
+ a| 
+(Y/N)
+ a| 
+Permite o gerenciamento de logs de arquivo dentro de subdiretórios.
+
+Você deve usar este parâmetro se os logs do arquivo estiverem localizados em subdiretórios.
+
+|===
++
+
+NOTE: Os pares de chave-valor personalizados são suportados para sistemas de plug-in IBM DB2 Linux e não são suportados para banco de dados IBM DB2 registrado como um plug-in centralizado do Windows.
+
+.. Clique na seta *Snapshot Copy Tool* para selecionar a ferramenta para criar instantâneos:
++
+|===
+| Se você quiser... | Então... 
+
+
+ a| 
+SnapCenter para usar o plug-in para Windows e colocar o sistema de arquivos em um estado consistente antes de criar um snapshot. Para recursos do Linux, essa opção não é aplicável.
+ a| 
+Selecione *SnapCenter com consistência do sistema de arquivos*.
+
+
+
+ a| 
+SnapCenter para criar um instantâneo de nível de storage
+ a| 
+Selecione *SnapCenter sem consistência do sistema de arquivos*.
+
+
+
+ a| 
+Para inserir o comando a ser executado no host para criar cópias snapshot.
+ a| 
+Selecione *Other* e, em seguida, digite o comando a ser executado no host para criar um snapshot.
+
+|===
+
+
+. Na página políticas, execute as seguintes etapas:
++
+.. Selecione uma ou mais políticas na lista suspensa.
++
+
+NOTE: Você também pode criar uma política clicando em *image:../media/add_policy_from_resourcegroup.gif[""]*.
+
++
+As políticas são listadas na seção Configurar programações para políticas selecionadas.
+
+.. Na coluna Configurar agendas, clique em *image:../media/add_policy_from_resourcegroup.gif[""]* para a política que deseja configurar.
+.. Na caixa de diálogo Adicionar agendas para política _policy_name_, configure a programação e clique em *OK*.
++
+Onde, policy_name é o nome da política selecionada.
+
++
+As programações configuradas são listadas na coluna *programações aplicadas*.
+
++
+As agendas de backup de terceiros não são suportadas quando sobrepõem-se às agendas de backup do SnapCenter.
+
+
+
+. Na página notificação, na lista suspensa *preferência de e-mail*, selecione os cenários nos quais você deseja enviar os e-mails.
++
+Você também deve especificar os endereços de e-mail do remetente e do destinatário e o assunto do e-mail. O servidor SMTP deve ser configurado em *Configurações* > *Configurações globais*.
+
+. Revise o resumo e clique em *Finish*.
+

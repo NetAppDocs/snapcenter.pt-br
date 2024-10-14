@@ -1,0 +1,112 @@
+---
+permalink: protect-hana/task_add_resources_manually_to_the_plug_in_host.html 
+sidebar: sidebar 
+keywords: SnapCenter Plug-in for SAP HANA Database 
+summary: A deteção automática não é compatível com determinadas instâncias HANA. Você deve adicionar esses recursos manualmente. 
+---
+= Adicione recursos manualmente ao host do plug-in
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+A deteção automática não é compatível com determinadas instâncias HANA. Você deve adicionar esses recursos manualmente.
+
+.Antes de começar
+* Você deve ter concluído tarefas, como instalar o servidor SnapCenter, adicionar hosts, configurar conexões do sistema de armazenamento e adicionar a chave de armazenamento de usuários HDB.
+* Para a replicação do sistema SAP HANA, recomenda-se adicionar todos os recursos desse sistema HANA a um grupo de recursos e fazer um backup em grupo de recursos. Isso garante um backup contínuo durante o modo de recuperação de falhas.
+
+
+link:task_create_resource_groups_and_attach_policies.html["Crie grupos de recursos e anexe políticas"].
+
+.Sobre esta tarefa
+A deteção automática não é suportada para as seguintes configurações:
+
+* Layouts RDM e VMDK
++
+
+NOTE: Caso os recursos acima sejam descobertos, as operações de proteção de dados não são suportadas por esses recursos.
+
+* Configuração de vários host HANA
+* Várias instâncias no mesmo host
+* Replicação do SISTEMA HANA com escalabilidade horizontal de várias camadas
+* Ambiente de replicação em cascata no modo de replicação do sistema
+
+
+.Passos
+. No painel de navegação à esquerda, selecione o plug-in do SnapCenter para banco de dados SAP HANA na lista suspensa e clique em *recursos*.
+. Na página recursos, clique em *Adicionar banco de dados SAP HANA*.
+. Na página fornecer detalhes do recurso, execute as seguintes ações:
++
+|===
+| Para este campo... | Faça isso... 
+
+
+ a| 
+Tipo recurso
+ a| 
+Introduza o tipo de recurso. Os tipos de recursos são recipiente único, recipiente de banco de dados multitenant (MDC) e volume não-dados.
+
+
+
+ a| 
+Nome do sistema HANA
+ a| 
+Introduza o nome descritivo do sistema SAP HANA. Esta opção está disponível apenas se você selecionou tipos de recurso Single Container ou MDC.
+
+
+
+ a| 
+SID
+ a| 
+Introduza a ID do sistema (SID). O sistema SAP HANA instalado é identificado por um único SID.
+
+
+
+ a| 
+Host de plug-in
+ a| 
+Selecione o host do plug-in.
+
+
+
+ a| 
+Chaves de armazenamento de usuário seguro HDB
+ a| 
+Digite a chave para se conetar ao sistema SAP HANA.
+
+A chave contém as informações de login para se conetar ao banco de dados.
+
+Para a replicação do sistema SAP HANA, a chave de usuário secundária não é validada. Isso será usado durante a aquisição.
+
+
+
+ a| 
+Usuário HDBSQL os
+ a| 
+Introduza o nome de utilizador para o qual a chave de armazenamento de utilizador seguro HDB está configurada. Para o Windows, é obrigatório que o usuário do sistema HDBSQL os seja o usuário DO SISTEMA. Portanto, você deve configurar a chave de armazenamento de usuário seguro HDB para o usuário DO SISTEMA.
+
+|===
+. Na página fornecer espaço físico de armazenamento, selecione um sistema de armazenamento e escolha um ou mais volumes, LUNs e qtrees e clique em *Salvar*.
++
+Opcional: Você pode clicar noimage:../media/add_policy_from_resourcegroup.gif[""] ícone * para adicionar mais volumes, LUNs e qtrees de outros sistemas de armazenamento.
+
+. Revise o resumo e clique em *Finish*.
++
+Os bancos de dados são exibidos juntamente com informações como SID, host de plug-in, grupos e políticas de recursos associados e status geral
+
+
+
+Se você quiser fornecer aos usuários acesso a recursos, você deve atribuir os recursos aos usuários. Isso permite que os usuários executem as ações para as quais eles têm permissões nos ativos que são atribuídos a eles.
+
+link:https://docs.netapp.com/us-en/snapcenter/install/task_add_a_user_or_group_and_assign_role_and_assets.html["Adicione um usuário ou grupo e atribua funções e ativos"]
+
+Depois de adicionar os bancos de dados, você pode modificar os detalhes do banco de dados do SAP HANA.
+
+Não é possível modificar o seguinte se houver backups associados ao recurso SAP HANA:
+
+* Contentores de banco de dados multitenant (MDC): SID, ou HDBSQL Client (plug-in) Host
+* Contentor único: SID ou HDBSQL Client (plug-in) Host
+* Volume não-dados: Nome do recurso, SID associado ou anfitrião Plug-in
+

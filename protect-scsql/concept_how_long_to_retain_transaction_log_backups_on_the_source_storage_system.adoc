@@ -1,0 +1,18 @@
+---
+permalink: protect-scsql/concept_how_long_to_retain_transaction_log_backups_on_the_source_storage_system.html 
+sidebar: sidebar 
+keywords: retain transaction log backups 
+summary: O plug-in do SnapCenter para Microsoft SQL Server precisa de backups de log de transações para executar operações de restauração atualizadas, que restauram seu banco de dados para um tempo entre dois backups completos. 
+---
+= Quanto tempo para reter backups de log de transações no sistema de armazenamento de origem
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+O plug-in do SnapCenter para Microsoft SQL Server precisa de backups de log de transações para executar operações de restauração atualizadas, que restauram seu banco de dados para um tempo entre dois backups completos.
+
+Por exemplo, se o Plug-in para SQL Server fez um backup completo às 8:00 da manhã e outro backup completo às 5:00 da tarde, ele poderia usar o backup de log de transações mais recente para restaurar o banco de dados a qualquer momento entre as 8:00 da manhã e as 5:00 da tarde se os logs de transação não estiverem disponíveis, o Plug-in para SQL Server pode executar operações de restauração pontual apenas, que restauram um banco de dados para o momento em que o backup completo.
+
+Normalmente, você precisa de operações de restauração mais atualizadas por apenas um dia ou dois. Por padrão, o SnapCenter mantém um mínimo de dois dias.

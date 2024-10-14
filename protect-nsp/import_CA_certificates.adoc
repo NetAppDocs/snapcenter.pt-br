@@ -1,0 +1,60 @@
+---
+permalink: protect-nsp/import_CA_certificates.html 
+sidebar: sidebar 
+keywords: SnapCenter, CA certificate 
+summary: Importe os certificados de CA do servidor SnapCenter e os plug-ins de host do Windows 
+---
+= Importar certificados CA
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Você deve importar os certificados de CA para o servidor SnapCenter e os plug-ins de host do Windows usando o MMC (console de gerenciamento da Microsoft).
+
+.Passos
+. Vá para o console de gerenciamento da Microsoft (MMC) e clique em *File* > *Add/Remove Snapin*.
+. Na janela Adicionar ou remover snap-ins, selecione *certificados* e clique em *Adicionar*.
+. Na janela de snap-in certificados, selecione a opção *conta de computador* e clique em *concluir*.
+. Clique em *raiz da consola* > *certificados – computador local* > *autoridades de Certificação raiz fidedignas* > *certificados*.
+. Clique com o botão direito do rato na pasta "autoridades de Certificação de raiz fidedigna" e selecione *todas as tarefas* > *Importar* para iniciar o assistente de importação.
+. Conclua o assistente da seguinte forma:
++
+|===
+| Nesta janela do assistente... | Faça o seguinte... 
+
+
+ a| 
+Importar chave privada
+ a| 
+Selecione a opção *Yes*, importe a chave privada e clique em *Next*.
+
+
+
+ a| 
+Importar formato de ficheiro
+ a| 
+Não faça alterações; clique em *seguinte*.
+
+
+
+ a| 
+Segurança
+ a| 
+Especifique a nova senha a ser usada para o certificado exportado e clique em *Avançar*.
+
+
+
+ a| 
+Concluir o Assistente de importação de certificados
+ a| 
+Revise o resumo e clique em *Finish* para iniciar a importação.
+
+|===
++
+
+NOTE: O certificado de importação deve ser empacotado com a chave privada (os formatos suportados são: *.pfx, *.p12 e *.p7b).
+
+. Repita o passo 5 para a pasta "Pessoal".
+

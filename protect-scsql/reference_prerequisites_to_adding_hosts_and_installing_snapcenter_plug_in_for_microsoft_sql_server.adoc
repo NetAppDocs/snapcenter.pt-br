@@ -1,0 +1,35 @@
+---
+permalink: protect-scsql/reference_prerequisites_to_adding_hosts_and_installing_snapcenter_plug_in_for_microsoft_sql_server.html 
+sidebar: sidebar 
+keywords: credentials 
+summary: Antes de adicionar um host e instalar os pacotes de plug-ins, você deve completar todos os requisitos. 
+---
+= Pré-requisitos para adicionar hosts e instalar o plug-in do SnapCenter para Microsoft SQL Server
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Antes de adicionar um host e instalar os pacotes de plug-ins, você deve completar todos os requisitos.
+
+* Se estiver a utilizar iSCSI, o serviço iSCSI tem de estar em execução.
+* Você deve ter um usuário com Privileges de administrador local com permissões de login local no host remoto.
+* Se você gerenciar nós de cluster no SnapCenter, precisará ter um usuário com Privileges administrativo para todos os nós do cluster.
+* Você deve ter um usuário com permissões sysadmin no SQL Server.
++
+O plug-in do SnapCenter para Microsoft SQL Server usa o Microsoft VDI Framework, que requer acesso sysadmin.
+
++
+http://support.microsoft.com/kb/2926557/["Artigo 2926557: As operações de backup e restauração do SQL Server VDI exigem o sysadmin Privileges"]
+
+* Ao instalar um plug-in em um host do Windows, se você especificar uma credencial que não está integrada ou se o usuário pertence a um usuário local do grupo de trabalho, será necessário desativar o UAC no host.
+* Se o SnapManager for instalado, você deve ter parado ou desativado o serviço e as programações.
++
+Se você planeja importar tarefas de backup ou clone para o SnapCenter, não desinstale o SnapManager para o Microsoft SQL Server.
+
+* O host deve ser resolvido para o nome de domínio totalmente qualificado (FQDN) do servidor.
++
+Se o arquivo hosts for modificado para torná-lo resoluvel e se o nome curto e o FQDN forem especificados no arquivo hosts, crie uma entrada no arquivo SnapCenter hosts no seguinte formato: <ip_address> <host_fqdn> <host_name>
+
+

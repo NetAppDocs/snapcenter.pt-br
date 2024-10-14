@@ -1,0 +1,172 @@
+---
+permalink: protect-hana/task_restore_and_recover_an_auto_discovered_database_backup.html 
+sidebar: sidebar 
+keywords: SnapCenter Plug-in for SAP HANA Database 
+summary: Você pode usar o SnapCenter para restaurar e recuperar dados de um ou mais backups. 
+---
+= Restaure e recupere um backup de banco de dados descoberto automaticamente
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Você pode usar o SnapCenter para restaurar e recuperar dados de um ou mais backups.
+
+.Antes de começar
+* Você deve ter feito backup dos grupos de recursos ou recursos.
+* Você deve ter cancelado qualquer operação de backup que esteja atualmente em andamento para o recurso ou grupo de recursos que deseja restaurar.
+* Para comandos pré-restauração, pós restauração, montagem e desmontagem, você deve verificar se os comandos existem na lista de comandos disponível no host do plug-in a partir dos seguintes caminhos:
++
+Para o Windows: _C: Arquivos de programas/NetApp/SnapCenter/SnapCenter Plug-in Creator/etc/allowed_commands_list.txt_
+
++
+Para Linux: _/var/opt/SnapCenter/scc/allowed_commands_list.txt_
+
++
+
+NOTE: Se os comandos não existirem na lista de comandos, a operação falhará.
+
+
+
+.Sobre esta tarefa
+* As cópias de backup baseadas em arquivo não podem ser restauradas a partir do SnapCenter.
+* Após a atualização para o SnapCenter 4,3, os backups feitos no SnapCenter 4,2 podem ser restaurados, mas não podem ser recuperados. Você precisa usar scripts de recuperação HANA ou estúdio externos ao SnapCenter para recuperar os backups feitos no SnapCenter 4,2.
+* Para a versão ONTAP 9.12,1 e inferior, os clones criados a partir dos instantâneos do Vault do SnapLock como parte da restauração herdarão o tempo de expiração do SnapLock Vault. O administrador do storage deve limpar manualmente os clones após o tempo de expiração do SnapLock.
+* Para a operação de restauração de sincronização ativa do SnapMirror, você deve selecionar o backup no local principal.
+
+
+.Passos
+. No painel de navegação esquerdo, clique em *Resources* e selecione o plug-in apropriado na lista.
+. Na página recursos, filtre recursos da lista suspensa *Exibir* com base no tipo de recurso.
++
+Os recursos são exibidos juntamente com o tipo, host, grupos de recursos e políticas associados e status.
+
++
+
+NOTE: Embora um backup possa ser para um grupo de recursos, ao restaurar, você deve selecionar os recursos individuais que deseja restaurar.
+
++
+Se o recurso não estiver protegido, ""não protegido"" é exibido na coluna Estado geral. Isso pode significar que o recurso não está protegido ou que o recurso foi protegido por um usuário diferente.
+
+. Selecione o recurso ou selecione um grupo de recursos e, em seguida, selecione um recurso nesse grupo.
++
+A página de topologia do recurso é exibida.
+
+. Na exibição Gerenciar cópias, selecione *backups* nos sistemas de armazenamento primário ou secundário (espelhado ou abobadado).
+. Na tabela de backup principal, selecione o backup do qual você deseja restaurar e clique em * *image:../media/restore_icon.gif["ícone de restauro"].
++
+image::../media/restoring_resource.gif[restaurar recursos]
+
+. Na página Restaurar escopo, selecione *recurso completo* para restaurar os volumes de dados configurados do banco de dados SAP HANA.
++
+
+NOTE: Você pode selecionar *Complete Resource* (com ou sem *volume Revert*) ou *Tenant Database*.
+
++
+A operação de recuperação não é suportada pelo servidor SnapCenter para vários locatários quando o usuário seleciona a opção *Banco de dados do locatário* ou *Restauração completa*. Você deve usar O HANA Studio ou o script HANA Python para executar a operação de recuperação.
+
++
+.. Selecione *Reverter volume* se quiser restaurar todo o volume.
++
+Essa opção está disponível para backups feitos no SnapCenter 4,3 em ambientes NFS.
+
++
+Se o recurso contiver volumes ou qtrees, os instantâneos obtidos após o instantâneo selecionado para restauração nesses volumes ou qtrees serão excluídos e não poderão ser recuperados. Além disso, se qualquer outro recurso estiver hospedado nos mesmos volumes ou qtrees, esse recurso também será excluído. Isso é aplicável quando a opção *Complete Resource* com *volume Revert* estiver selecionada para restauração.
+
+.. Selecione *Banco de dados do locatário*.
++
+Esta opção está disponível apenas para recursos MDC.
+
++
+Certifique-se de parar o banco de dados do locatário antes de executar a operação de restauração.
+
++
+Se você selecionar a opção *Banco de dados do locatário*, use O estúdio HANA ou use scripts de recuperação HANA externos ao SnapCenter para executar a operação de recuperação.
+
+
+
+. Na página âmbito de recuperação, selecione uma das seguintes opções:
++
+|===
+| Se você... | Faça isso... 
+
+
+ a| 
+Deseja recuperar o mais próximo possível da hora atual
+ a| 
+Selecione *Recover to most recent State* (recuperar para o estado mais recente). Para recursos de contentor único, especifique um ou mais locais de backup de log e catálogo.
+
+Para recursos de contentor de banco de dados multitenant (MDC), especifique um ou mais locais de backup de log e o local do catálogo de backup.
+
+Para recursos MDC, o caminho deve conter Registros de banco de dados de sistema e banco de dados de locatário.
+
+
+
+ a| 
+Deseja recuperar para o ponto especificado no tempo
+ a| 
+Selecione *Recover to point in time*.
+
+.. Selecione o fuso horário.
++
+O fuso horário do navegador é preenchido por padrão.
+
++
+O fuso horário selecionado juntamente com a hora de entrada é convertido para GMT absoluto.
+
+.. Introduza a data e a hora. Por exemplo, o host HANA Linux está localizado em Sunnyvale, CA e o usuário em Raleigh, NC está recuperando os logs no SnapCenter.
++
+A diferença de horário entre ambos os locais é de 3 horas, e como o usuário fez login em Raleigh, NC, o fuso horário padrão do navegador que será selecionado na GUI é GMT-04:00.
+
++
+Se o usuário quiser executar uma recuperação para 5 a.m .Sunnyvale, CA, então o usuário deve definir o fuso horário do navegador para o fuso horário do host DO HANA Linux, que é GMT-07:00 e especificar a data e a hora como 5:00 a.m.
+
++
+Para recursos de contentor único, especifique um ou mais locais de backup de log e catálogo.
+
++
+Para recursos do MDC, especifique um ou mais locais de backup de log e o local do catálogo de backup.
+
++
+Para recursos MDC, o caminho deve conter Registros de banco de dados de sistema e banco de dados de locatário.
+
+
+
+
+
+ a| 
+Deseja recuperar para um backup de dados específico
+ a| 
+Selecione *Recover to specified data backup*.
+
+
+
+ a| 
+Não quero recuperar
+ a| 
+Selecione *sem recuperação*. Você deve executar a operação de recuperação manualmente a partir do estúdio HANA.
+
+|===
++
+Você pode recuperar apenas os backups que são feitos após a atualização para o SnapCenter 4,3, desde que o host e o plug-in sejam atualizados para o SnapCenter 4,3, e os backups selecionados para restauração sejam feitos após a conversão ou descoberta do recurso como recurso descoberta automática.
+
+. Na página operações anteriores, insira pré-restauração e desmonte comandos para serem executados antes de executar um trabalho de restauração.
++
+Os comandos de desmontagem não estão disponíveis para recursos descobertos automaticamente.
+
+. Na página Post OPS, insira os comandos mount e POST Restore para serem executados após a execução de um trabalho de restauração.
++
+Os comandos de montagem não estão disponíveis para recursos descobertos automaticamente.
+
++
+
+NOTE: Para os comandos pre e POST para operações quiesce, Snapshot e unquiesce, você deve verificar se os comandos existem na lista de comandos disponível no host plug-in a partir do caminho _/opt/SnapCenter/snapenter/scc/allowed_commands.config_ para Linux e _C: Arquivos de programas/NetApp/SnapCenter/SnapCenter Plug-in Creator/allowed_Commands_list.txt.
+
+. Na página notificação, na lista suspensa *preferência de e-mail*, selecione os cenários nos quais você deseja enviar os e-mails.
++
+Você também deve especificar os endereços de e-mail do remetente e do destinatário e o assunto do e-mail. O SMTP também deve ser configurado na página *Configurações* > *Configurações globais*.
+
+. Revise o resumo e clique em *Finish*.
+. Monitorize o progresso da operação clicando em *Monitor* > *trabalhos*.
+

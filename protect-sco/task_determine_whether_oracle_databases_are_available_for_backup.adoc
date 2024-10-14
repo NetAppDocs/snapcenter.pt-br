@@ -1,0 +1,105 @@
+---
+permalink: protect-sco/task_determine_whether_oracle_databases_are_available_for_backup.html 
+sidebar: sidebar 
+keywords: credentials,SnapCenter Plug-in for Oracle Databases, non-database entries, oratab 
+summary: Os recursos são bancos de dados Oracle no host que são gerenciados pelo SnapCenter. Você pode adicionar esses bancos de dados a grupos de recursos para executar operações de proteção de dados depois de descobrir os bancos de dados disponíveis. 
+---
+= Descubra os bancos de dados Oracle disponíveis para backup
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Os recursos são bancos de dados Oracle no host que são gerenciados pelo SnapCenter. Você pode adicionar esses bancos de dados a grupos de recursos para executar operações de proteção de dados depois de descobrir os bancos de dados disponíveis.
+
+.Antes de começar
+* Você deve ter concluído tarefas como instalar o servidor SnapCenter, adicionar hosts, criar conexões do sistema de storage e adicionar credenciais.
+* Se os bancos de dados residirem em um disco de máquina virtual (VMDK) ou mapeamento de dispositivo bruto (RDM), você deverá implantar o plug-in do SnapCenter para VMware vSphere e Registrar o plug-in com o SnapCenter.
++
+Para obter mais informações, https://docs.netapp.com/us-en/sc-plugin-vmware-vsphere/scpivs44_deploy_snapcenter_plug-in_for_vmware_vsphere.html["Implante o plug-in do SnapCenter para VMware vSphere"^]consulte .
+
+* Se os bancos de dados residirem em um sistema de arquivos VMDK, você deve ter feito login no vCenter e navegado para *opções de VM* > *Avançado* > *Editar configuração* para definir o valor de _disk.enableUUID_ como verdadeiro para a VM.
+* Você deve ter revisado o processo que o SnapCenter segue para descobrir diferentes tipos e versões de bancos de dados Oracle.
+
+
+
+
+== Passo 1: Impedir que o SnapCenter descubra entradas que não sejam do banco de dados
+
+Você pode impedir que o SnapCenter descubra entradas não-banco de dados adicionadas no arquivo oratab.
+
+.Passos
+. Depois de instalar o plug-in para Oracle, o usuário root deve criar o arquivo *SC_oratab.config* sob o diretório _/var/opt/SnapCenter/SCO/etc/_.
++
+Conceda a permissão de gravação ao proprietário e grupo binários Oracle para que o arquivo possa ser mantido no futuro.
+
+. O administrador do banco de dados deve adicionar as entradas não-banco de dados no arquivo *SC_oratab.config*.
++
+Recomenda-se manter o mesmo formato definido para as entradas não-banco de dados no arquivo _/etc/oratab_ ou o usuário pode simplesmente adicionar a string de entidade não-banco de dados.
+
++
+
+NOTE: A cadeia é sensível a maiúsculas e minúsculas. Qualquer texto com número no início é Tratado como um comentário. O comentário pode ser anexado após o nome não-banco de dados.
+
++
+....
+For example:
+--------------------------------------------
+# Sample entries
+# Each line can have only one non-database name
+# These are non-database name
+oratar  # Added by the admin group -1
+#Added by the script team
+NEWSPT
+DBAGNT:/ora01/app/oracle/product/agent:N
+-----------------------------------------------
+....
+. Descubra os recursos.
++
+As entradas não-banco de dados adicionadas no *SC_oratab.config* não serão listadas na página recursos.
+
+
+
+
+IMPORTANT: É sempre recomendável fazer um backup do arquivo SC_oratab.config antes de atualizar o plug-in SnapCenter.
+
+
+
+== Passo 2: Descubra recursos
+
+Depois de instalar o plug-in, todos os bancos de dados nesse host são automaticamente descobertos e exibidos na página recursos.
+
+Os bancos de dados devem estar pelo menos no estado montado ou acima para que a descoberta dos bancos de dados seja bem-sucedida. Em um ambiente do Oracle Real Application clusters (RAC), a instância do banco de dados RAC no host onde a descoberta é executada deve estar pelo menos no estado montado ou acima para que a descoberta da instância do banco de dados seja bem-sucedida. Somente os bancos de dados que são descobertos com êxito podem ser adicionados aos grupos de recursos.
+
+Se você tiver excluído um banco de dados Oracle no host, o servidor SnapCenter não estará ciente e listará o banco de dados excluído. Você deve atualizar manualmente os recursos para atualizar a lista de recursos do SnapCenter.
+
+.Passos
+. No painel de navegação esquerdo, clique em *Resources* e selecione o plug-in apropriado na lista.
+. Na página recursos, selecione *Banco de dados* na lista *Exibir*.
++
+Clique image:../media/filter_icon.png[""]em e selecione o nome do host e o tipo de banco de dados para filtrar os recursos. Em seguida, clique no image:../media/filter_icon.png[""] ícone para fechar o painel de filtro.
+
+. Clique em *Atualizar recursos*.
++
+Em um cenário RAC One Node, o banco de dados é descoberto como o banco de dados RAC no nó onde está hospedado atualmente.
+
+
+
+*Resultados*
+
+Os bancos de dados são exibidos juntamente com informações como tipo de banco de dados, nome de host ou cluster, grupos e políticas de recursos associados e status.
+
+
+IMPORTANT: Você deve atualizar os recursos se os bancos de dados forem renomeados fora do SnapCenter.
+
+* Se o banco de dados estiver em um sistema de armazenamento que não seja NetApp, a interface do usuário exibirá uma mensagem não disponível para backup na coluna Status geral.
++
+Você não pode executar operações de proteção de dados no banco de dados que está em um sistema de storage que não é NetApp.
+
+* Se o banco de dados estiver em um sistema de armazenamento NetApp e não estiver protegido, a interface do usuário exibirá uma mensagem não protegida na coluna Estado geral.
+* Se o banco de dados estiver em um sistema de armazenamento NetApp e protegido, a interface do usuário exibirá uma mensagem disponível para backup na coluna Status geral.
+
+
+
+NOTE: Se você tiver habilitado uma autenticação de banco de dados Oracle, um ícone de cadeado vermelho será exibido na exibição recursos. Você deve configurar credenciais de banco de dados para poder proteger o banco de dados ou adicioná-lo ao grupo de recursos para executar operações de proteção de dados.

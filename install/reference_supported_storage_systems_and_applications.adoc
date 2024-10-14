@@ -1,0 +1,35 @@
+---
+permalink: install/reference_supported_storage_systems_and_applications.html 
+sidebar: sidebar 
+keywords: storage system, ONTAP version 
+summary: Você deve conhecer o sistema de storage suportado, as aplicações e os bancos de dados. 
+---
+= Sistemas e aplicações de storage compatíveis
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Você deve conhecer o sistema de storage compatível, as aplicações e os bancos de dados.
+
+* O SnapCenter oferece suporte ao ONTAP 9.12.1 e posterior para proteger seus dados.
+* O SnapCenter oferece suporte ao Amazon FSX for NetApp ONTAP para proteger seus dados da versão de patch do software SnapCenter 4,5 P1.
++
+Se você estiver usando o Amazon FSX for NetApp ONTAP, verifique se os plug-ins de host do servidor SnapCenter são atualizados para 4,5 P1 ou posterior para executar operações de proteção de dados.
+
++
+É compatível com NVMe (non-volátil Memory Express) em Transport Control Protocol (TCP).
+
++
+Para obter informações sobre o Amazon FSX for NetApp ONTAP, https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/what-is-fsx-ontap.html["Documentação do Amazon FSX para NetApp ONTAP"^] consulte .
+
+* O SnapCenter oferece suporte à proteção de diferentes aplicativos e bancos de dados.
++
+Para obter informações detalhadas sobre os aplicativos e bancos de dados suportados, https://imt.netapp.com/matrix/imt.jsp?components=121074;&solution=1257&isHWU&src=IMT["Ferramenta de Matriz de interoperabilidade do NetApp"^] consulte .
+
+* O SnapCenter 4,9 P1 e posterior oferece suporte à proteção de workloads Oracle e Microsoft SQL em ambientes de data center definido por software (SDDC) da Amazon Web Services (AWS).
++
+Para obter mais informações, https://community.netapp.com/t5/Tech-ONTAP-Blogs/Protect-Oracle-MS-SQL-workloads-using-NetApp-SnapCenter-in-VMware-Cloud-on-AWS/ba-p/449168["Proteja workloads Oracle e MS SQL usando o NetApp SnapCenter em ambientes AWS SDDC"]consulte .
+
+

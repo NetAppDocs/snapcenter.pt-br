@@ -1,0 +1,156 @@
+---
+permalink: protect-scu/task_add_hosts_and_install_the_snapcenter_plug_ins_package_for_linux.html 
+sidebar: sidebar 
+keywords: credentials, install plug-in, Linux, GUI, add host, monitor 
+summary: Você pode usar a página Adicionar host do SnapCenter para adicionar hosts e, em seguida, instalar o pacote de plug-ins do SnapCenter para Linux. Os plug-ins são instalados automaticamente nos hosts remotos. 
+---
+= Adicione hosts e instale o pacote Plug-ins para Linux usando GUI
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Você pode usar a página Adicionar host para adicionar hosts e, em seguida, instalar o pacote de plug-ins do SnapCenter para Linux. Os plug-ins são instalados automaticamente nos hosts remotos.
+
+*Passos*
+
+. No painel de navegação esquerdo, clique em *hosts*.
+. Verifique se a guia *hosts gerenciados* está selecionada na parte superior.
+. Clique em *Add*.
+. Na página hosts, execute as seguintes ações:
++
+|===
+| Para este campo... | Faça isso... 
+
+
+ a| 
+Tipo de host
+ a| 
+Selecione *Linux* como o tipo de host.
+
+
+
+ a| 
+Nome do host
+ a| 
+Insira o nome de domínio totalmente qualificado (FQDN) ou o endereço IP do host.
+
+O SnapCenter depende da configuração adequada do DNS. Portanto, a melhor prática é entrar no FQDN.
+
+Se você estiver adicionando um host usando o SnapCenter e o host fizer parte de um subdomínio, você deverá fornecer o FQDN.
+
+
+
+ a| 
+Credenciais
+ a| 
+Selecione o nome da credencial que você criou ou crie novas credenciais.
+
+A credencial deve ter direitos administrativos no host remoto. Para obter detalhes, consulte as informações sobre como criar credenciais.
+
+Você pode exibir detalhes sobre as credenciais posicionando o cursor sobre o nome da credencial que você especificou.
+
+
+NOTE: O modo de autenticação de credenciais é determinado pelo tipo de host especificado no assistente Adicionar host.
+
+|===
+. Na seção Selecionar plug-ins para instalar, selecione *sistemas de arquivos Unix*.
+. (Opcional) clique em *mais opções*.
++
+|===
+| Para este campo... | Faça isso... 
+
+
+ a| 
+Porta
+ a| 
+Guarde o número da porta padrão ou especifique o número da porta.
+
+O número da porta padrão é 8145. Se o servidor SnapCenter tiver sido instalado em uma porta personalizada, esse número de porta será exibido como a porta padrão.
+
+
+NOTE: Se você instalou manualmente os plug-ins e especificou uma porta personalizada, você deve especificar a mesma porta. Caso contrário, a operação falha.
+
+
+
+ a| 
+Caminho de instalação
+ a| 
+O caminho padrão é _/opt/NetApp/SnapCenter_.
+
+Opcionalmente, você pode personalizar o caminho. Se você usar o caminho personalizado, verifique se o conteúdo padrão dos sudoers é atualizado com o caminho personalizado.
+
+
+
+ a| 
+Ignorar verificações de pré-instalação opcionais
+ a| 
+Marque essa caixa de seleção se você já instalou os plug-ins manualmente e não deseja validar se o host atende aos requisitos para instalar o plug-in.
+
+|===
+. Clique em *Enviar*.
++
+Se você não tiver selecionado a caixa de seleção Ignorar pré-verificações, o host será validado para verificar se o host atende aos requisitos para instalar o plug-in.
+
++
+
+NOTE: O script de pré-verificação não valida o status do firewall da porta do plug-in se for especificado nas regras de rejeição do firewall.
+
++
+Mensagens de erro ou aviso apropriadas são exibidas se os requisitos mínimos não forem atendidos. Se o erro estiver relacionado ao espaço em disco ou à RAM, você pode atualizar o arquivo web.config localizado em _C: SnapCenter NetApp para modificar os valores padrão. Se o erro estiver relacionado a outros parâmetros, você deve corrigir o problema.
+
++
+
+NOTE: Em uma configuração de HA, se você estiver atualizando o arquivo web.config, será necessário atualizar o arquivo em ambos os nós.
+
+. Verifique a impressão digital e clique em *Confirm and Submit*.
++
+
+NOTE: O SnapCenter não suporta o algoritmo ECDSA.
+
++
+
+NOTE: A verificação de impressões digitais é obrigatória mesmo que o mesmo host tenha sido adicionado anteriormente ao SnapCenter e a impressão digital tenha sido confirmada.
+
+. Monitorize o progresso da instalação.
++
+Os arquivos de log específicos da instalação estão localizados em _/custom_location/SnapCenter/logs_.
+
+
+
+*Resultado*
+
+Todos os sistemas de arquivos montados no host são automaticamente descobertos e exibidos na Página de recursos. Se nada for exibido, clique em *Atualizar recursos*.
+
+
+
+== Monitorar o status da instalação
+
+Pode monitorizar o progresso da instalação do pacote de plug-ins do SnapCenter utilizando a página trabalhos. Você pode querer verificar o andamento da instalação para determinar quando ela está concluída ou se há um problema.
+
+.Sobre esta tarefa
+Os seguintes ícones são apresentados na página trabalhos e indicam o estado da operação:
+
+* image:../media/progress_icon.gif["Ícone em andamento"] Em curso
+* image:../media/success_icon.gif["Ícone Concluído"] Concluído com êxito
+* image:../media/failed_icon.gif["Ícone com falha"] Falha
+* image:../media/warning_icon.gif["Preenchido com ícone de avisos"] Preenchido com avisos ou não foi possível iniciar devido a avisos
+* image:../media/verification_job_in_queue.gif["O trabalho de verificação está na fila"] Em fila de espera
+
+
+.Passos
+. No painel de navegação esquerdo, clique em *Monitor*.
+. Na página *Monitor*, clique em *empregos*.
+. Na página *trabalhos*, para filtrar a lista de modo a que apenas as operações de instalação de plug-in sejam listadas, faça o seguinte:
++
+.. Clique em *filtro*.
+.. Opcional: Especifique a data de início e fim.
+.. No menu suspenso tipo, selecione *Instalação Plug-in*.
+.. No menu suspenso Status, selecione o status da instalação.
+.. Clique em *aplicar*.
+
+
+. Selecione o trabalho de instalação e clique em *Detalhes* para visualizar os detalhes do trabalho.
+. Na página *Detalhes do trabalho*, clique em *Visualizar logs*.
+

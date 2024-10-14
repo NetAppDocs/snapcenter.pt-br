@@ -1,0 +1,95 @@
+---
+permalink: admin/concept_manage_backups.html 
+sidebar: sidebar 
+keywords: Manage backups 
+summary: Você pode renomear e excluir backups. Você também pode excluir vários backups simultaneamente. 
+---
+= Gerenciar backups
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Você pode renomear e excluir backups. Você também pode excluir vários backups simultaneamente.
+
+
+
+== Renomear backups
+
+Você pode renomear backups se quiser fornecer um nome melhor para melhorar a capacidade de pesquisa.
+
+*Passos*
+
+. No painel de navegação esquerdo, clique em *Resources* e selecione o plug-in apropriado na lista.
+. Na página recursos, selecione o grupo de recursos ou recursos na lista suspensa *Exibir*.
+. Selecione o recurso ou grupo de recursos na lista.
++
+A página de topologia do grupo de recursos ou recursos é exibida. Se o grupo de recursos ou recursos não estiver configurado para proteção de dados, o assistente de proteção será exibido em vez da página de topologia.
+
+. Na exibição Gerenciar cópias, selecione *backups* nos sistemas de armazenamento primário.
++
+Não é possível renomear os backups que estão no sistema de armazenamento secundário.
+
++
+Se você catalogou os backups de bancos de dados Oracle usando o Oracle Recovery Manager (RMAN), não será possível renomear esses backups catalogados.
+
+. Selecione a cópia de segurança e, em seguida, clique image:../media/rename_icon.gif["ícone de renomeação"]em .
+. No campo *Renomear backup como*, insira um novo nome e clique em *OK*.
+
+
+
+
+== Eliminar cópias de segurança
+
+Você pode excluir backups se não precisar mais do backup para outras operações de proteção de dados.
+
+.Antes de começar
+Você deve ter excluído os clones associados antes de excluir um backup.
+
+
+NOTE: Se um backup estiver associado a um recurso clonado, não será possível excluir o backup.
+
+*Passos*
+
+. No painel de navegação esquerdo, clique em *Resources* e selecione o plug-in apropriado na lista.
+. Na página recursos, selecione o grupo de recursos ou recursos na lista suspensa *Exibir*.
+. Selecione o recurso ou grupo de recursos na lista.
++
+A página de topologia do grupo de recursos ou recursos é exibida.
+
+. Na exibição Gerenciar cópias, selecione *backups* nos sistemas de armazenamento primário.
++
+Não é possível excluir os backups que estão no sistema de storage secundário.
+
+. Selecione a cópia de segurança e, em seguida, clique image:../media/delete_icon.gif[""]em .
++
+Se você estiver excluindo um backup de banco de dados SAP HANA, os catálogos associados do SAP HANA do backup também serão excluídos.
+
++
+
+NOTE: Se o último backup restante for excluído, as entradas de CATÁLOGO HANA associadas não poderão ser excluídas.
+
+. Clique em *OK*.
++
+
+NOTE: Se você tiver alguns backups de banco de dados obsoletos no SnapCenter que não têm backups correspondentes no sistema de armazenamento, use o comando remove-smbackup para limpar essas entradas de backup obsoletas. Se os backups obsoletos foram catalogados, eles serão descatalogados do banco de dados do catálogo de recuperação.
+
+
+
+
+
+== Remova a proteção
+
+Remover proteção exclui todos os backups e descompacta todas as políticas. Antes de remover a proteção, você deve garantir que os backups não estejam montados e que nenhum clone esteja associado ao backup.
+
+*Passos*
+
+. No painel de navegação esquerdo, clique em *Resources* e selecione o plug-in apropriado na lista.
+. Na página recursos, selecione o grupo de recursos ou recursos na lista suspensa *Exibir*.
+. Selecione o recurso ou grupo de recursos na lista.
++
+A página de topologia do grupo de recursos ou recursos é exibida.
+
+. Selecione o backup e clique em *Remover proteção*.
+

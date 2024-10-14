@@ -1,0 +1,109 @@
+---
+permalink: protect-scu/task_create_resource_groups_and_attach_policies_for_unix_file_systems.html 
+sidebar: sidebar 
+keywords: unix file systems, resource group, policy 
+summary: Um grupo de recursos é um contentor onde você adiciona recursos que deseja fazer backup e proteger. 
+---
+= Crie grupos de recursos e anexe políticas para sistemas de arquivos Unix
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Um grupo de recursos é um contentor onde você adiciona recursos que deseja fazer backup e proteger. Um grupo de recursos permite fazer backup de todos os dados associados aos sistemas de arquivos.
+
+.Sobre esta tarefa
+* Um banco de dados com arquivos em grupos de discos ASM deve estar no estado "MOUNT" ou "OPEN" para verificar seus backups usando o utilitário Oracle DBVERIFY.
++
+Anexe uma ou mais políticas ao grupo de recursos para definir o tipo de tarefa de proteção de dados que deseja executar.
+
++
+A imagem a seguir ilustra a relação entre recursos, grupos de recursos e políticas para bancos de dados:
+
++
+image::../media/sco_resourcegroup_policy.gif[política do sco resourcegroup]
+
+* Para políticas habilitadas para o SnapLock, para ONTAP 9.12,1 e versões abaixo, se você especificar um período de bloqueio do Snapshot, os clones criados a partir dos snapshots à prova de violação como parte da restauração herdarão o tempo de expiração do SnapLock. O administrador do storage deve limpar manualmente os clones após o tempo de expiração do SnapLock.
+* A adição de novos sistemas de arquivos sem a sincronização ativa do SnapMirror a um grupo de recursos existente que contenha recursos com a sincronização ativa do SnapMirror não é suportada.
+* A adição de novos sistemas de arquivos a um grupo de recursos existente no modo failover da sincronização ativa do SnapMirror não é suportada. Você pode adicionar recursos ao grupo de recursos apenas no estado regular ou de failback.
+
+
+.Passos
+. No painel de navegação esquerdo, selecione *Resources* e o plug-in apropriado na lista.
+. Na página recursos, clique em *novo Grupo de recursos*.
+. Na página Nome, execute as seguintes ações:
++
+.. Introduza um nome para o grupo de recursos no campo Nome.
++
+
+NOTE: O nome do grupo de recursos não deve exceder 250 carateres.
+
+.. Insira um ou mais rótulos no campo Tag para ajudá-lo a pesquisar o grupo de recursos mais tarde.
++
+Por exemplo, se você adicionar HR como uma tag a vários grupos de recursos, poderá encontrar mais tarde todos os grupos de recursos associados à tag HR.
+
+.. Marque a caixa de seleção e insira um formato de nome personalizado que você deseja usar para o nome da captura Instantânea.
++
+Por exemplo, customtext_resource group_policy_hostname ou resource group_hostname. Por padrão, um carimbo de data/hora é anexado ao nome do instantâneo.
+
+
+
+. Na página recursos, selecione um nome de host de sistemas de arquivos Unix na lista suspensa *Host*.
++
+
+NOTE: Os recursos são listados na seção recursos disponíveis somente se o recurso for descoberto com êxito. Se você tiver adicionado recursos recentemente, eles aparecerão na lista de recursos disponíveis somente depois de atualizar sua lista de recursos.
+
+. Selecione os recursos na seção recursos disponíveis e mova-os para a seção recursos selecionados.
+. Na página Configurações do aplicativo, execute o seguinte:
++
+** Selecione a seta Scripts e insira os comandos pre e POST para operações quiesce, Snapshot e unquiesce. Também pode introduzir os pré comandos a serem executados antes de sair em caso de falha.
+** Selecione uma das opções de consistência de backup:
++
+*** Selecione *sistema de arquivos consistente* se você quiser garantir que os dados em cache dos sistemas de arquivos sejam limpos antes de criar o backup e nenhuma operação de entrada ou saída seja permitida no sistema de arquivos durante a criação do backup.
++
+
+NOTE: Para o sistema de arquivos consistente, instantâneos de grupo de consistência serão feitos para LUNs envolvidos no grupo volume.
+
+*** Selecione *Crash consistente* se quiser garantir que os dados em cache dos sistemas de arquivos sejam limpos antes de criar o backup.
++
+
+NOTE: Se você adicionou diferentes sistemas de arquivos no grupo de recursos, todos os volumes de diferentes sistemas de arquivos no grupo de recursos serão colocados em um grupo de consistência.
+
+
+
+
+
+. Na página políticas, execute as seguintes etapas:
++
+.. Selecione uma ou mais políticas na lista suspensa.
++
+
+NOTE: Você também pode criar uma política clicando image:../media/add_policy_from_resourcegroup.gif["adicionar símbolo"]em .
+
++
+Na seção Configurar agendas para políticas selecionadas, as políticas selecionadas são listadas.
+
+.. Clique image:../media/add_policy_from_resourcegroup.gif["adicionar símbolo"] na coluna Configurar agendas para a política para a qual você deseja configurar um agendamento.
+.. Na janela Adicionar programações para a política _policy_name_, configure a programação e clique em *OK*.
++
+Onde, _policy_name_ é o nome da política selecionada.
+
++
+As programações configuradas são listadas na coluna agendas aplicadas.
+
+
+
++
+As agendas de backup de terceiros não são suportadas quando sobrepõem-se às agendas de backup do SnapCenter.
+
+. Na página notificação, na lista suspensa *preferência de e-mail*, selecione os cenários nos quais você deseja enviar os e-mails.
++
+Você também deve especificar os endereços de e-mail do remetente e do destinatário e o assunto do e-mail. Se quiser anexar o relatório da operação realizada no grupo de recursos, selecione *Anexar Relatório de trabalho*.
+
++
+
+NOTE: Para notificação por e-mail, você deve ter especificado os detalhes do servidor SMTP usando a GUI ou o comando PowerShell SET-SmtpServer.
+
+. Revise o resumo e clique em *Finish*.
+

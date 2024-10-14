@@ -1,0 +1,85 @@
+---
+permalink: install/task_install_the_snapcenter_server_using_the_install_wizard.html 
+sidebar: sidebar 
+keywords: install, snapcenter software, install wizard 
+summary: Você pode executar o executável do instalador do servidor SnapCenter para instalar o servidor SnapCenter. 
+---
+= Instale o servidor SnapCenter no host Windows
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Você pode executar o executável do instalador do servidor SnapCenter para instalar o servidor SnapCenter.
+
+Opcionalmente, você pode executar vários procedimentos de instalação e configuração usando cmdlets do PowerShell.
+
+
+NOTE: A instalação silenciosa do servidor SnapCenter a partir da linha de comando não é suportada.
+
+.Antes de começar
+* O host do servidor SnapCenter deve estar atualizado com as atualizações do Windows sem reiniciar o sistema pendente.
+* Você deve ter assegurado que o servidor MySQL não está instalado no host onde você pretende instalar o servidor SnapCenter.
+* Você deve ter habilitado a depuração do instalador do Windows.
++
+Consulte o site da Microsoft para obter informações sobre como ativar https://support.microsoft.com/kb/223300["Registo do instalador do Windows"^]o .
+
++
+
+NOTE: Você não deve instalar o servidor SnapCenter em um host que tenha servidores Microsoft Exchange, ative Directory ou nomes de domínio.
+
+
+
+*Passos*
+
+. Baixe o pacote de instalação do servidor SnapCenter em https://mysupport.netapp.com/site/products/all/details/snapcenter/downloads-tab["Site de suporte da NetApp"^].
+. Inicie a instalação do servidor SnapCenter clicando duas vezes no arquivo .exe baixado.
++
+Depois de iniciar a instalação, todas as pré-verificações são executadas e, se os requisitos mínimos não forem atendidos, as mensagens de erro ou aviso apropriadas serão exibidas.
+
++
+Você pode ignorar as mensagens de aviso e prosseguir com a instalação; no entanto, os erros devem ser corrigidos.
+
+. Reveja os valores pré-preenchidos necessários para a instalação do servidor SnapCenter e modifique, se necessário.
++
+Você não precisa especificar a senha para o banco de dados do repositório do MySQL Server. Durante a instalação do servidor SnapCenter, a senha é gerada automaticamente.
+
++
+
+NOTE: O caráter especial "'%`" is not supported in the custom path for the repository database. If you include "`%" no caminho, falha na instalação.
+
+. Clique em *Instalar agora*.
++
+Se você tiver especificado quaisquer valores inválidos, as mensagens de erro apropriadas serão exibidas. Você deve reinserir os valores e, em seguida, iniciar a instalação.
+
++
+
+NOTE: Se você clicar no botão *Cancelar*, a etapa que está sendo executada será concluída e, em seguida, iniciar a operação de reversão. O servidor SnapCenter será completamente removido do host.
+
++
+No entanto, se você clicar em *Cancelar* quando as operações "SnapCenter Server site Restart" ou "Waiting for SnapCenter Server to start" estiverem sendo executadas, a instalação continuará sem cancelar a operação.
+
++
+Os ficheiros de registo estão sempre listados (o mais antigo primeiro) na pasta %temp% do utilizador admin. Se você quiser redirecionar os locais de log, inicie a instalação do servidor SnapCenter a partir do prompt de comando executando:``C:\installer_location\installer_name.exe /log"C:\"``
+
+
+
+
+
+== Registre o produto para habilitar o suporte
+
+Se você é novo nos produtos NetApp e não tem uma conta NetApp existente, deve Registrar o produto para habilitar o suporte.
+
+.Passos
+. Depois de instalar o SnapCenter, navegue até *Ajuda > sobre*.
+. Na caixa de diálogo _sobre o SnapCenter_, anote a instância do SnapCenter, um número de 20 dígitos que começa com 971.
+. Clique https://register.netapp.com[]em .
+. Clique em *Eu não sou um Cliente NetApp registrado*.
+. Especifique os seus dados para se registar.
+. Deixe o campo NetApp Reference SN em branco.
+. Selecione *SnapCenter* na lista suspensa linha de produtos.
+. Selecione o fornecedor de faturação.
+. Insira o ID da instância do SnapCenter de 20 dígitos.
+. Clique em *Enviar*.
+

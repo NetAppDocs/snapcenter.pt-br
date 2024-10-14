@@ -1,0 +1,43 @@
+---
+permalink: protect-sco/backup_types.html 
+sidebar: sidebar 
+keywords: backup type, preferred nodes, catalog backups, schedules, backup name format, retention, verification 
+summary: Tipos de backup suportados para bancos de dados Oracle. 
+---
+= Tipos de backup suportados para bancos de dados Oracle
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Tipo de backup especifica o tipo de backup que você deseja criar. O SnapCenter suporta tipos de backup on-line e off-line para bancos de dados Oracle.
+
+
+
+== Backup on-line
+
+Um backup que é criado quando o banco de dados está no estado on-line é chamado de backup on-line. Também chamado de hot backup, um backup on-line permite que você crie um backup do banco de dados sem desligá-lo.
+
+Como parte do backup on-line, você pode criar um backup dos seguintes arquivos:
+
+* Arquivos de dados e arquivos de controle somente
+* Arquivar apenas ficheiros de registo (a base de dados não é colocada no modo de cópia de segurança neste cenário)
+* Banco de dados completo que inclui arquivos de dados, arquivos de controle e arquivos de log de arquivamento
+
+
+
+
+== Cópia de segurança offline
+
+Um backup criado quando o banco de dados está em um estado montado ou desligado é chamado de backup off-line. Um backup off-line também é chamado de backup frio. Você pode incluir somente arquivos de dados e arquivos de controle em backups offline. Você pode criar um backup de montagem off-line ou de desligamento off-line.
+
+* Ao criar um backup de montagem off-line, você deve garantir que o banco de dados esteja em um estado montado.
++
+Se o banco de dados estiver em qualquer outro estado, a operação de backup falhará.
+
+* Ao criar um backup de desligamento off-line, o banco de dados pode estar em qualquer estado.
++
+O estado da base de dados é alterado para o estado necessário para criar uma cópia de segurança. Depois de criar a cópia de segurança, o estado da base de dados é revertido para o estado original.
+
+

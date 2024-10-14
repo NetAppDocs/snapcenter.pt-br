@@ -1,0 +1,28 @@
+---
+permalink: protect-scsql/reference_restore_sql_server_resources.html 
+sidebar: sidebar 
+keywords: Restore workflow 
+summary: Você pode usar o SnapCenter para restaurar bancos de dados SQL Server restaurando os dados de um ou mais backups para o seu sistema de arquivos ativo e, em seguida, recuperando o banco de dados. Você também pode restaurar bancos de dados que estão em grupos de disponibilidade e, em seguida, adicionar os bancos de dados restaurados ao Grupo de disponibilidade. Antes de restaurar um banco de dados do SQL Server, você deve executar várias tarefas preparatórias. 
+---
+= Restaure o fluxo de trabalho
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Você pode usar o SnapCenter para restaurar bancos de dados SQL Server restaurando os dados de um ou mais backups para o seu sistema de arquivos ativo e, em seguida, recuperando o banco de dados. Você também pode restaurar bancos de dados que estão em grupos de disponibilidade e, em seguida, adicionar os bancos de dados restaurados ao Grupo de disponibilidade. Antes de restaurar um banco de dados do SQL Server, você deve executar várias tarefas preparatórias.
+
+O fluxo de trabalho a seguir mostra a sequência na qual você deve executar as operações de restauração de banco de dados:
+
+image::../media/all_plug_ins_restore_workflow.png[all_plug-ins_restore_workflow]
+
+Você também pode usar cmdlets do PowerShell manualmente ou em scripts para executar operações de backup, restauração, recuperação, verificação e clone. Para obter informações detalhadas sobre cmdlets do PowerShell, use a ajuda do cmdlet SnapCenter ou consulte o. https://docs.netapp.com/us-en/snapcenter-cmdlets/index.html["Guia de referência de cmdlet do software SnapCenter"]
+
+*Encontre mais informações*
+
+link:task_restore_a_sql_server_database_from_secondary_storage.html["Restaure um banco de dados SQL Server a partir do armazenamento secundário"]
+
+link:task_restore_and_recover_resources_using_powershell_cmdlets_for_sql.html["Restaure e recupere recursos usando cmdlets do PowerShell"]
+
+link:https://kb.netapp.com/Advice_and_Troubleshooting/Data_Protection_and_Security/SnapCenter/Restore_operation_might_fail_on_Windows_2008_R2["A operação de restauração pode falhar no Windows 2008 R2"]

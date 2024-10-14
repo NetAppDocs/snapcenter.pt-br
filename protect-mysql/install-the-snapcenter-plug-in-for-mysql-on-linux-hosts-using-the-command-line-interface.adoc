@@ -1,0 +1,53 @@
+---
+permalink: protect-mysql/install-the-snapcenter-plug-in-for-mysql-on-linux-hosts-using-the-command-line-interface.html 
+sidebar: sidebar 
+keywords: install, SnapCenter Plug-in for MySQL 
+summary: 'Você deve instalar o plug-in do SnapCenter para banco de dados MySQL usando a interface de usuário do SnapCenter (UI). Se o seu ambiente não permitir a instalação remota do plug-in a partir da IU do SnapCenter, você pode instalar o plug-in para banco de dados MySQL no modo console ou no modo silencioso usando a interface de linha de comando (CLI1).' 
+---
+= Instale o plug-in SnapCenter para MySQL em hosts Linux usando a interface de linha de comando
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Você deve instalar o plug-in do SnapCenter para banco de dados MySQL usando a interface de usuário do SnapCenter (UI). Se o seu ambiente não permitir a instalação remota do plug-in a partir da IU do SnapCenter, você pode instalar o plug-in para banco de dados MySQL no modo console ou no modo silencioso usando a interface de linha de comando (CLI).
+
+.Antes de começar
+* Você deve instalar o Plug-in para MySQL Database em cada um dos hosts Linux onde a instância MySQL deve ser protegida.
+* O host Linux no qual você está instalando o plug-in SnapCenter para banco de dados MySQL deve atender aos requisitos de software, banco de dados e sistema operacional dependentes.
++
+A ferramenta de Matriz de interoperabilidade (IMT) contém as informações mais recentes sobre as configurações suportadas.
+
++
+https://imt.netapp.com/matrix/imt.jsp?components=121070;&solution=1259&isHWU&src=IMT["Ferramenta de Matriz de interoperabilidade do NetApp"]
+
+* O plug-in do SnapCenter para banco de dados MySQL faz parte do pacote de plug-ins do SnapCenter para Linux. Antes de instalar o pacote de plug-ins do SnapCenter para Linux, você já deve ter instalado o SnapCenter em um host do Windows.
+
+
+.Passos
+. Copie o pacote de plug-ins do SnapCenter para o arquivo de instalação do Linux (SnapCenter_linux_host_plugin.bin) de C:/NetApp/SnapCenter para o host onde você deseja instalar o plug-in para o MySQL.
++
+Você pode acessar esse caminho a partir do host onde o servidor SnapCenter está instalado.
+
+. No prompt de comando, navegue até o diretório onde você copiou o arquivo de instalação.
+. Instale o plug-in: `path_to_installation_bin_file/snapcenter_linux_host_plugin.bin -i silent -DPORT=port_number_for_host -DSERVER_IP=server_name_or_ip_address -DSERVER_HTTPS_PORT=port_number_for_server`
++
+** -DPORT especifica a porta de comunicação HTTPS SMCore.
+** -DSERVER_IP especifica o endereço IP do servidor SnapCenter.
+** -DSERVER_HTTPS_PORT especifica a porta HTTPS do servidor SnapCenter.
+** -DUSER_install_DIR especifica o diretório onde você deseja instalar o pacote de plug-ins do SnapCenter para Linux.
+** DINSTALL_LOG_NAME especifica o nome do arquivo de log.
+
+
++
+[listing]
+----
+/tmp/sc-plugin-installer/snapcenter_linux_host_plugin.bin -i silent  -DPORT=8145 -DSERVER_IP=scserver.domain.com -DSERVER_HTTPS_PORT=8146 -DUSER_INSTALL_DIR=/opt -DINSTALL_LOG_NAME=SnapCenter_Linux_Host_Plugin_Install_2.log -DCHOSEN_FEATURE_LIST=CUSTOM
+----
+. Edite o arquivo /<installation directory>/NetApp/SnapCenter/scc/etc/SC_SMS_Services.properties e, em seguida, adicione o parâmetro PLUGINS_ENABLED: MySQL:3,0.
+. Adicione o host ao servidor SnapCenter usando o cmdlet Add-Smhost e os parâmetros necessários.
++
+As informações sobre os parâmetros que podem ser usados com o comando e suas descrições podem ser obtidas executando _get-Help command_name_. Em alternativa, pode também consultar o https://docs.netapp.com/us-en/snapcenter-cmdlets/index.html["Guia de referência de cmdlet do software SnapCenter"^].
+
+

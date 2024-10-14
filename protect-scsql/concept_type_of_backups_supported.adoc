@@ -1,0 +1,61 @@
+---
+permalink: protect-scsql/concept_type_of_backups_supported.html 
+sidebar: sidebar 
+keywords: Type of backups 
+summary: Fazer backup de bancos de dados do sistema e do usuário do SQL Server usando o SnapCenter requer que você escolha o tipo de recurso, como bancos de dados, instâncias do SQL Server e grupos de disponibilidade. A tecnologia Snapshot é utilizada para criar cópias on-line e somente leitura dos volumes nos quais os recursos residem. 
+---
+= Tipos de backups suportados
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+O backup de bancos de dados do sistema e do usuário do SQL Server usando o SnapCenter exige que você escolha o tipo de recurso, como bancos de dados, instâncias do SQL Server e grupos de disponibilidade (AG). A tecnologia Snapshot é utilizada para criar cópias on-line e somente leitura dos volumes nos quais os recursos residem.
+
+Você pode selecionar a opção somente cópia para especificar que o SQL Server não trunca os logs de transação. Você deve usar essa opção quando também estiver gerenciando o SQL Server com outros aplicativos de backup. Manter os logs de transação intactos permite que qualquer aplicativo de backup restaure os bancos de dados do sistema. Os backups somente de cópia são independentes da sequência de backups programados e não afetam os procedimentos de backup e restauração do banco de dados.
+
+|===
+| Tipo de cópia de segurança | Descrição | Opção somente cópia com tipo de backup 
+
+
+ a| 
+Backup completo e backup de log
+ a| 
+Faz backup do banco de dados do sistema e trunca os logs de transação.
+
+O SQL Server trunca os logs de transação removendo as entradas que já estão comprometidas com o banco de dados.
+
+Após a conclusão do backup completo, essa opção cria um log de transações que captura informações de transação. Normalmente, você deve escolher essa opção. No entanto, se o tempo de backup for curto, você pode optar por não executar um backup de log de transações com backup completo.
+
+Não é possível criar um backup de log para bancos de dados de sistema mestre e msdb. No entanto, você pode criar backups de log para o banco de dados do sistema modelo.
+ a| 
+Faz backup dos arquivos do banco de dados do sistema e dos logs de transação sem truncar os logs.
+
+Um backup só de cópia não pode servir como uma base diferencial ou backup diferencial e não afeta a base diferencial. Restaurar um backup completo somente de cópia é o mesmo que restaurar qualquer outro backup completo.
+
+
+
+ a| 
+Backup completo do banco de dados
+ a| 
+Faz cópias de segurança dos ficheiros da base de dados do sistema.
+
+Você pode criar backup completo do banco de dados para bancos de dados de sistema master, model e msdb.
+ a| 
+Faz cópias de segurança dos ficheiros da base de dados do sistema.
+
+
+
+ a| 
+Backup do log de transações
+ a| 
+Faz o backup dos logs de transação truncados, copiando apenas as transações que foram confirmadas desde o backup do log de transação mais recente.
+
+Se você agendar backups frequentes de log de transações juntamente com backups completos de bancos de dados, poderá escolher pontos de recuperação granular.
+ a| 
+Faz backup dos logs de transação sem truncar-los.
+
+Este tipo de cópia de segurança não afeta a sequência de cópias de segurança de registos regulares. Backups de log somente de cópia são úteis para executar operações de restauração on-line.
+
+|===

@@ -1,0 +1,11 @@
+= 
+:allow-uri-read: 
+
+
+Antes de executar qualquer operação de proteção de dados, como operações de backup, clone ou restauração, você precisa definir sua estratégia e configurar o ambiente. Você também pode configurar o servidor SnapCenter para usar a tecnologia SnapMirror e SnapVault.
+
+Para aproveitar as tecnologias SnapVault e SnapMirror, você deve configurar e inicializar uma relação de proteção de dados entre os volumes de origem e destino no dispositivo de armazenamento. Você pode usar o NetAppSystem Manager ou usar a linha de comando do console de armazenamento para executar essas tarefas.
+
+*Encontre mais informações*
+
+link:https://docs.netapp.com/us-en/ontap-automation/getting_started_with_the_rest_api.html["Primeiros passos com a REST API"]

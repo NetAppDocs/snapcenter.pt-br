@@ -1,0 +1,393 @@
+---
+permalink: protect-scsql/task_create_backup_policies_for_sql_server_databases.html 
+sidebar: sidebar 
+keywords: backup policy 
+summary: Você pode criar uma política de backup para o recurso ou para o grupo de recursos antes de usar o SnapCenter para fazer backup de recursos do SQL Server ou criar uma política de backup no momento em que criar um grupo de recursos ou fazer backup de um único recurso. 
+---
+= Criar políticas de backup para bancos de dados do SQL Server
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Você pode criar uma política de backup para o recurso ou para o grupo de recursos antes de usar o SnapCenter para fazer backup de recursos do SQL Server ou criar uma política de backup no momento em que criar um grupo de recursos ou fazer backup de um único recurso.
+
+.Antes de começar
+* Você precisa ter definido sua estratégia de proteção de dados.
+* Você precisa se preparar para a proteção de dados concluindo tarefas como instalar o SnapCenter, adicionar hosts, identificar recursos e criar conexões do sistema de storage.
+* Você deve ter configurado o diretório de log do host para o backup de log.
+* Você deve ter atualizado (descoberto) os recursos do SQL Server.
+* Se você estiver replicando snapshots em um espelhamento ou cofre, o administrador do SnapCenter deverá ter atribuído as máquinas virtuais de storage (SVMs) para os volumes de origem e de destino a você.
++
+Para obter informações sobre como os administradores atribuem recursos aos usuários, consulte as informações de instalação do SnapCenter.
+
+* Se você quiser executar os scripts do PowerShell em prescripts e postscripts, defina o valor do parâmetro usePowershellProcessforScripts como true no arquivo web.config.
++
+O valor padrão é false.
+
+* Reveja os pré-requisitos e limitações específicos da sincronização ativa do SnapMirror. Para obter informações, https://docs.netapp.com/us-en/ontap/smbc/considerations-limits.html#volumes["Limites de objetos para sincronização ativa do SnapMirror"] consulte .
+
+
+.Sobre esta tarefa
+* Uma política de backup é um conjunto de regras que regem como você gerencia e retém backups e com que frequência o backup do recurso ou do grupo de recursos é feito. Além disso, você pode especificar as configurações de replicação e script. Especificar opções em uma política economiza tempo quando você deseja reutilizar a política para outro grupo de recursos.
++
+O SCRIPT_PATH é definido usando a chave PredefinedWindowsScriptsDirectory localizada no arquivo SMCoreServiceHost.exe.Config do host do plug-in.
+
++
+Se necessário, você pode alterar esse caminho e reiniciar o serviço SMcore. É recomendável usar o caminho padrão para segurança.
+
++
+O valor da chave pode ser exibido do swagger através da API: API /4,7/configsettings
+
++
+Você pode usar a API GET para exibir o valor da chave. A API SET não é suportada.
+
+* SnapLock
++
+** Se a opção 'reter as cópias de backup para um número específico de dias' estiver selecionada, o período de retenção do SnapLock deve ser menor ou igual aos dias de retenção mencionados.
++
+Especificar um período de bloqueio instantâneo impede a exclusão dos instantâneos até que o período de retenção expire. Isso pode levar a reter um número maior de instantâneos do que a contagem especificada na política.
+
++
+Para a versão ONTAP 9.12,1 e inferior, os clones criados a partir dos instantâneos do Vault do SnapLock como parte da restauração herdarão o tempo de expiração do SnapLock Vault. O administrador do storage deve limpar manualmente os clones após o tempo de expiração do SnapLock.
+
++
+
+NOTE: As configurações do SnapLock primário são gerenciadas na política de backup do SnapCenter e as configurações do SnapLock secundário são gerenciadas pelo ONTAP.
+
+
+
+
+
+
+
+== Passo 1: Criar Nome da Política
+
+. No painel de navegação esquerdo, selecione *Configurações*.
+. Na página Configurações, selecione *políticas*.
+. Selecione *novo*.
+. Na página *Nome*, insira o nome e a descrição da política.
+
+
+
+
+== Passo 2: Configurar opções de backup
+
+. Escolha seu tipo de backup
+
+
+[role="tabbed-block"]
+====
+.Backup completo e backup de log
+--
+Faça backup dos arquivos de banco de dados e logs de transação e truncar os logs de transação.
+
+. Selecione *cópia de segurança completa e cópia de segurança de registo*.
+. Insira o número máximo de bancos de dados que devem ser copiados para cada Snapshot.
++
+
+NOTE: Você deve aumentar esse valor se quiser executar várias operações de backup simultaneamente.
+
+
+
+--
+.Backup completo
+--
+Faça uma cópia de segurança dos ficheiros da base de dados.
+
+. Selecione *cópia de segurança completa*.
+. Insira o número máximo de bancos de dados que devem ser copiados para cada Snapshot. O valor padrão é 100
++
+
+NOTE: Você deve aumentar esse valor se quiser executar várias operações de backup simultaneamente.
+
+
+
+--
+.Backup de log
+--
+. Faça backup dos logs de transação.
+. Selecione *Log backup*.
+
+
+--
+.Cópia de segurança apenas
+--
+. Se você estiver fazendo backup de seus recursos usando outro aplicativo de backup, selecione *Backup somente cópia*.
+
+
+Manter os logs de transação intactos permite que qualquer aplicativo de backup restaure os bancos de dados. Você normalmente não deve usar a opção somente cópia em nenhuma outra circunstância.
+
+
+NOTE: O Microsoft SQL não suporta a opção *cópia apenas de backup* juntamente com a opção *backup completo e backup de log* para armazenamento secundário.
+
+--
+====
+. Na seção Configurações do Grupo de disponibilidade, execute as seguintes ações:
++
+.. Backup apenas na réplica de backup preferencial.
++
+Selecione esta opção para fazer backup apenas na réplica de backup preferida. A réplica de backup preferida é decidida pelas preferências de backup configuradas para o AG no SQL Server.
+
+.. Selecione réplicas para backup.
++
+Escolha a réplica AG primária ou a réplica AG secundária para o backup.
+
+.. Selecionar prioridade de cópia de segurança (prioridade mínima e máxima de cópia de segurança)
++
+Especifique um número mínimo de prioridade de backup e um número máximo de prioridade de backup que decida a réplica AG para backup. Por exemplo, você pode ter uma prioridade mínima de 10 e uma prioridade máxima de 50. Neste caso, todas as réplicas AG com uma prioridade superior a 10 e inferior a 50 são consideradas para backup.
+
++
+Por padrão, a prioridade mínima é 1 e a prioridade máxima é 100.
+
+
+
++
+
+NOTE: Nas configurações de cluster, os backups são retidos em cada nó do cluster de acordo com as configurações de retenção definidas na política. Se o nó proprietário do AG for alterado, os backups serão feitos de acordo com as configurações de retenção e os backups do nó proprietário anterior serão mantidos. A retenção para AG é aplicável apenas no nível do nó.
+
+. Programe a frequência de backup para esta política. Especifique o tipo de agendamento selecionando *on demand*, *Hourly*, *Daily*, *Weekly* ou *Monthly*.
++
+Você só pode selecionar um tipo de agendamento para uma política.
+
++
+image:../media/backup_settings.gif["Ecrã de definições de cópia de segurança."]
+
++
+
+NOTE: Você pode especificar a programação (data de início, data de término e frequência) para a operação de backup ao criar um grupo de recursos. Isso permite que você crie grupos de recursos que compartilham a mesma política e frequência de backup, mas permite atribuir diferentes programações de backup a cada política.
+
++
+
+NOTE: Se você tiver agendado para as 2:00 da manhã, o horário não será acionado durante o horário de verão (DST).
+
+
+
+
+
+== Etapa 3: Configurar as configurações de retenção
+
+Na página retenção, dependendo do tipo de backup selecionado na página tipo de backup, execute uma ou mais das seguintes ações:
+
+. Na seção Configurações de retenção para a operação de restauração de até o minuto, execute uma das seguintes ações:
+
+
+[role="tabbed-block"]
+====
+.Número específico de cópias
+--
+Guarde apenas um número específico de instantâneos.
+
+. Selecione a opção *manter backups de log aplicáveis aos últimos dias do <number>* e especifique o número de dias a serem retidos. Se você estiver perto desse limite, talvez queira excluir cópias mais antigas.
+
+
+--
+.Número específico de dias
+--
+Guarde as cópias de backup por um número específico de dias.
+
+. Selecione a opção *manter backups de log aplicáveis aos últimos dias do <number> de backups completos* e especifique o número de dias para manter as cópias de backup de log.
+
+
+--
+====
+. Na seção *Configurações completas de retenções de backup* para as configurações de retenção sob demanda, execute as seguintes ações:
++
+.. Especifique o número total de instantâneos a manter
++
+... Para especificar o número de instantâneos a serem mantidos, selecione *Total de cópias Snapshot a serem mantidas*.
+... Se o número de instantâneos exceder o número especificado, os instantâneos serão excluídos com as cópias mais antigas excluídas primeiro.
+
+
+
+
+
+
+
+IMPORTANT: Por padrão, o valor da contagem de retenção é definido como 2. Se você definir a contagem de retenção como 1, a operação de retenção poderá falhar porque o primeiro snapshot é o snapshot de referência para a relação SnapVault até que um snapshot mais recente seja replicado para o destino.
+
+
+NOTE: O valor máximo de retenção é 1018 para recursos no ONTAP 9.4 ou posterior e 254 para recursos no ONTAP 9.3 ou anterior. Os backups falharão se a retenção for definida para um valor maior do que o que a versão subjacente do ONTAP suporta.
+
+. Período de tempo para manter instantâneos
++
+.. Se você quiser especificar o número de dias para os quais deseja manter as capturas instantâneas antes de excluí-las, selecione *manter cópias snapshot para*.
+
+
+. Se desejar especificar o período de bloqueio de instantâneos, selecione *período de bloqueio de cópias instantâneas* e selecione dias, meses ou anos.
++
+O período de retenção do SnapLock deve ser inferior a 100 anos.
+
+
+
+. Na seção *Configurações completas de retenções de backup* para as configurações de retenção horária, diária, semanal e mensal, especifique as configurações de retenção para o tipo de agendamento selecionado na página tipo de backup.
++
+.. Especifique o número total de instantâneos a manter
++
+... Para especificar o número de instantâneos a serem mantidos, selecione *Total de cópias Snapshot a serem mantidas*. Se o número de instantâneos exceder o número especificado, os instantâneos serão excluídos com as cópias mais antigas excluídas primeiro.
+
+
+
+
+
+
+
+IMPORTANT: Você deve definir a contagem de retenção como 2 ou superior, se quiser habilitar a replicação do SnapVault. Se você definir a contagem de retenção como 1, a operação de retenção poderá falhar porque o primeiro snapshot é o snapshot de referência para a relação SnapVault até que um snapshot mais recente seja replicado para o destino.
+
+. Período de tempo para manter instantâneos
++
+.. Para especificar o número de dias para os quais você deseja manter os instantâneos antes de excluí-los, selecione *manter cópias snapshot para*.
+
+
+. Se desejar especificar o período de bloqueio de instantâneos, selecione *período de bloqueio de cópias instantâneas* e selecione dias, meses ou anos.
++
+O período de retenção do SnapLock deve ser inferior a 100 anos.
+
++
+Por padrão, a retenção de instantâneos de log é definida como 7 dias. Use o cmdlet Set-SmPolicy para alterar a retenção de Snapshot de log.
+
+
+
+Este exemplo define a retenção de instantâneos de log como 2:
+
+.Mostrar exemplo
+[]
+====
+Set-SmPolicy -policyname 'newpol' -PolicyType 'Backup' -PluginPolicyType 'SCSQL' -sqlbackuptype 'FullBackupAndLogBackup' -RetentonSettings 2 [BackupType] [DADOS];ScheduleType 'Hourly';RetentyType 2 2
+
+====
+https://kb.netapp.com/Advice_and_Troubleshooting/Data_Protection_and_Security/SnapCenter/SnapCenter_retains_Snapshot_copies_of_the_database["O SnapCenter retém cópias Snapshot do banco de dados"]
+
+
+
+== Etapa 4: Configurar as configurações de replicação
+
+. Na página replicação, especifique a replicação para o sistema de storage secundário:
+
+
+[role="tabbed-block"]
+====
+.Atualize o SnapMirror
+--
+Atualize o SnapMirror depois de criar uma cópia Snapshot local.
+
+. Selecione esta opção para criar cópias espelhadas de conjuntos de backup em outro volume (SnapMirror).
++
+Esta opção deve estar ativada para a sincronização ativa do SnapMirror.
+
++
+Durante a replicação secundária, o tempo de expiração do SnapLock carrega o tempo de expiração do SnapLock primário. Clicar no botão *Atualizar* na página topologia atualiza o tempo de expiração do SnapLock secundário e primário que são recuperados do ONTAP.
+
++
+link:task_view_sql_server_backups_and_clones_in_the_topology_page.html["Veja os backups e clones do SQL Server na página topologia"]Consulte .
+
+
+
+--
+.Atualize o SnapVault
+--
+Atualize o SnapVault depois de criar uma cópia Snapshot.
+
+. Selecione esta opção para executar a replicação de backup de disco para disco.
++
+Durante a replicação secundária, o tempo de expiração do SnapLock carrega o tempo de expiração do SnapLock primário. Clicar no botão *Atualizar* na página topologia atualiza o tempo de expiração do SnapLock secundário e primário que são recuperados do ONTAP.
+
++
+Quando o SnapLock é configurado apenas no secundário do ONTAP conhecido como SnapLock Vault, clicar no botão *Atualizar* na página topologia atualiza o período de bloqueio no secundário que é recuperado do ONTAP.
+
++
+Para obter mais informações sobre o SnapLock Vault, consulte https://docs.netapp.com/us-en/ontap/snaplock/commit-snapshot-copies-worm-concept.html["Armazene cópias Snapshot em WORM em um destino de cofre"]
+
++
+link:task_view_sql_server_backups_and_clones_in_the_topology_page.html["Veja os backups e clones do SQL Server na página topologia"]Consulte .
+
+
+
+--
+.Etiqueta de política secundária
+--
+. Selecione uma etiqueta Snapshot.
+
+
+Dependendo do rótulo de captura instantânea selecionado, o ONTAP aplica a política de retenção de snapshot secundária que corresponde ao rótulo.
+
+
+NOTE: Se você selecionou *Atualizar SnapMirror depois de criar uma cópia Snapshot local*, você pode especificar opcionalmente o rótulo de política secundária. No entanto, se você selecionou *Atualizar SnapVault depois de criar uma cópia Snapshot local*, especifique o rótulo de política secundária.
+
+--
+.Contagem de tentativas de erro
+--
+. Insira o número de tentativas de replicação que devem ocorrer antes que o processo pare.
+
+
+--
+====
+
+
+== Passo 5: Configurar definições de script
+
+. Na página Script, insira o caminho e os argumentos do prescritor ou postscript que devem ser executados antes ou depois da operação de backup, respetivamente.
++
+Por exemplo, você pode executar um script para atualizar traps SNMP, automatizar alertas e enviar logs.
+
++
+
+NOTE: O caminho de prescripts ou postscripts não deve incluir unidades ou compartilhamentos. O caminho deve ser relativo ao SCRIPT_path.
+
++
+
+NOTE: Você deve configurar a política de retenção SnapMirror no ONTAP para que o storage secundário não atinja o limite máximo de snapshots.
+
+
+
+
+
+== Etapa 6: Configurar as configurações de verificação
+
+Na página Verificação, execute as seguintes etapas:
+
+. Na seção Executar verificação para as seguintes programações de backup, selecione a frequência de agendamento.
+. Na seção Opções de verificação consistência de banco de dados, execute as seguintes ações:
++
+.. Limitar a estrutura de integridade à estrutura física do banco de dados (FÍSICO_SOMENTE)
++
+... Selecione *Limit a estrutura de integridade à estrutura física do banco de dados (PHYSICAL_only)* para limitar a verificação de integridade à estrutura física do banco de dados e para detetar páginas rasgadas, falhas de checksum e falhas comuns de hardware que afetam o banco de dados.
+
+
+.. Suprimir todas as mensagens de informação (SEM INFOMSGS)
++
+... Selecione *Suprima todas as mensagens de informação (NO_INFOMSGS)* para suprimir todas as mensagens informativas. Selecionado por predefinição.
+
+
+.. Exibir todas as mensagens de erro reportadas por objeto (ALL_ERRORMSGS)
++
+... Selecione *Exibir todas as mensagens de erro relatadas por objeto (ALL_ERRORMSGS)* para exibir todos os erros relatados por objeto.
+
+
+.. Não verificar índices não agrupados (NOINDEX)
++
+... Selecione *não verifique índices não agrupados (NOINDEX)* se você não quiser verificar índices não agrupados. O banco de dados do SQL Server usa o Microsoft SQL Server Database Consistency Checker (DBCC) para verificar a integridade física e lógica dos objetos no banco de dados.
+
+
+.. Limitar as verificações e obter os bloqueios em vez de usar um instantâneo de banco de dados interno (TABLOCK)
++
+... Selecione *Limit as verificações e obtenha os bloqueios em vez de usar uma cópia Snapshot do banco de dados interno (TABLOCK)* para limitar as verificações e obter bloqueios em vez de usar um instantâneo do banco de dados interno.
+
+
+
+
+. Na seção *Backup de log*, selecione *verificar backup de log após a conclusão* para verificar o backup de log após a conclusão.
+. Na seção *Configurações do script de verificação*, insira o caminho e os argumentos do prescritor ou postscript que devem ser executados antes ou depois da operação de verificação, respetivamente.
++
+
+NOTE: O caminho de prescripts ou postscripts não deve incluir unidades ou compartilhamentos. O caminho deve ser relativo ao SCRIPT_path.
+
+
+
+
+
+== Passo 7: Rever resumo
+
+. Revise o resumo e selecione *Finish*.
+

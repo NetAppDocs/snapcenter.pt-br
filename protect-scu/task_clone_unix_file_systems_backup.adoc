@@ -1,0 +1,74 @@
+---
+permalink: protect-scu/task_clone_unix_file_systems_backup.html 
+sidebar: sidebar 
+keywords: alternate host, clone, Unix file systems, file systems 
+summary: Você pode usar o SnapCenter para clonar um banco de dados de sistemas de arquivos Unix usando o backup do sistema de arquivos. 
+---
+= Clone backup do sistema de arquivos Unix
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Você pode usar o SnapCenter para clonar o sistema de arquivos Unix usando o backup do sistema de arquivos.
+
+.Antes de começar
+* Você pode ignorar a atualização do arquivo fstab definindo o valor de _SKIP_FSTAB_UPDATE_ para *true* no arquivo _agent.properties_ localizado em _/opt/NetApp/SnapCenter/scc/etc_.
+* Você pode ter um nome de volume de clone estático e caminho de junção definindo o valor de _USE_CUSTOM_CLONE_VOLUME_NAME_FORMAT_ para *true* no arquivo _agent.properties_ localizado em _/opt/NetApp/SnapCenter/scc/etc_. Depois de atualizar o arquivo, você deve reiniciar o SnapCenter para o serviço de plug-in personalizado executando o comando: `/opt/NetApp/snapcenter/scc/bin/scc restart`.
++
+Exemplo: Sem esta propriedade o nome do volume do clone e o caminho de junção serão como <Source_volume_name>_Clone_<Timestamp>, mas agora será <Source_volume_name>_Clone_<Clone_Name>
+
++
+Isso mantém o nome constante para que você possa manter manualmente o arquivo fstab atualizado se você não preferir atualizar o fstab pelo SnapCenter.
+
+
+
+.Passos
+. No painel de navegação esquerdo, clique em *Resources* e selecione o plug-in apropriado na lista.
+. Na página recursos, selecione *caminho* ou *Grupo de recursos* na lista *Exibir*.
+. Selecione o sistema de arquivos na exibição de detalhes ou na exibição de detalhes do grupo de recursos.
++
+A página de topologia é exibida.
+
+. Na exibição Gerenciar cópias, selecione os backups de cópias locais (primárias), cópias espelhadas (secundárias) ou cópias do Vault (secundárias).
+. Selecione a cópia de segurança na tabela e, em seguida, clique em * *image:../media/clone_icon.gif["ícone de clone"]*.
+. Na página localização, execute as seguintes ações:
++
+|===
+| Para este campo... | Faça isso... 
+
+
+ a| 
+Servidor clone
+ a| 
+Por padrão, o host de origem é preenchido.
+
+
+
+ a| 
+Ponto de montagem clone
+ a| 
+Especifique o caminho onde o sistema de arquivos será montado.
+
+|===
+. Na página Scripts, execute as seguintes etapas:
++
+.. Digite os comandos para pré-clone ou pós-clone que devem ser executados antes ou depois da operação clone, respetivamente.
++
+
+NOTE: Você deve verificar se os comandos existem na lista de comandos disponível no host plug-in do caminho _/opt/NetApp/SnapCenter/scc/allowed_Commands.config_.
+
+
+
+. Na página notificação, na lista suspensa *preferência de e-mail*, selecione os cenários nos quais você deseja enviar os e-mails.
++
+Você também deve especificar os endereços de e-mail do remetente e do destinatário e o assunto do e-mail. Se quiser anexar o relatório da operação clone executada, selecione *Anexar Relatório de trabalho*.
+
++
+
+NOTE: Para notificação por e-mail, você deve ter especificado os detalhes do servidor SMTP usando a GUI ou o comando PowerShell SET-SmtpServer.
+
+. Revise o resumo e clique em *Finish*.
+. Monitorize o progresso da operação clicando em *Monitor* > *trabalhos*.
+

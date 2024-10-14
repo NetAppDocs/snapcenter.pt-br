@@ -1,0 +1,125 @@
+---
+permalink: protect-azure/restore-recover-oracle-backups.html 
+sidebar: sidebar 
+keywords: SnapCenter Plug-in for Oracle Database, restore, recover, tablespaces, pluggable databases, point-in-time 
+summary: Você pode usar o SnapCenter para restaurar e recuperar dados de um ou mais backups. 
+---
+= Restaurar e recuperar bancos de dados Oracle
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Em caso de perda de dados, você pode usar o SnapCenter para restaurar dados de um ou mais backups para o seu sistema de arquivos ativo e, em seguida, recuperar o banco de dados.
+
+.Passos
+. No painel de navegação esquerdo, clique em *Resources* e selecione o plug-in apropriado na lista.
+. Na página recursos, selecione *Banco de dados* ou *Grupo de recursos* na lista Exibir.
+. Selecione a base de dados ou o grupo de recursos na lista.
+. Na exibição Gerenciar cópias, selecione *backups* no sistema de armazenamento primário.
+. Selecione a cópia de segurança na tabela e, em seguida, clique em * *image:../media/restore_icon.gif["ícone de restauro"]*.
+. Na página Restaurar escopo, execute as seguintes tarefas:
++
+.. Selecione RAC se tiver selecionado um backup de um banco de dados no ambiente RAC.
+.. Execute as seguintes ações:
++
+... Selecione *todos os dados* se desejar restaurar apenas os arquivos do banco de dados.
+... Selecione *tablespaces* se você quiser restaurar apenas as tablespaces.
+... Selecione *Refazer arquivos de log* se quiser restaurar os arquivos de log refazer dos bancos de dados de espera do Data Guard ou do ative Data Guard.
+... Selecione *bancos de dados conetáveis* e especifique as PDBs que você deseja restaurar.
+... Selecione * espaços de tabela de base de dados Pluggable (PDB)* e especifique o PDB e os espaços de tabela desse PDB que você deseja restaurar.
+... Selecione *Restaurar o banco de dados para o mesmo host onde o backup foi criado* se você quiser restaurar o banco de dados para o mesmo servidor SQL onde os backups são feitos.
+... Selecione *Restaurar o banco de dados para um host alternativo* se você quiser que o banco de dados seja restaurado para um servidor SQL diferente no mesmo ou em um host diferente onde os backups são feitos.
+... Selecione *altere o estado do banco de dados, se necessário, para restaurar e recuperar* para alterar o estado do banco de dados para o estado necessário para executar operações de restauração e recuperação.
+... Selecione *forçar restauração no local* se você quiser executar a restauração no local nos cenários em que novos arquivos de dados são adicionados após o backup ou quando LUNs são adicionados, excluídos ou recriados a um grupo de discos LVM.
+
+
+
+
+. Na página âmbito de recuperação, selecione uma das seguintes opções:
++
+.. Selecione *todos os Logs* se quiser recuperar para a última transação.
+.. Selecione *Until SCN (System Change Number)* se quiser recuperar para um SCN específico.
+.. Selecione *Data e hora* se quiser recuperar para uma data e hora específicas.
+.. Selecione *sem recuperação* se não quiser recuperar.
+.. Selecione *especificar locais de registo de arquivo externo* se pretender especificar a localização dos ficheiros de registo de arquivo externo.
+
+
+. Na página Pré-operações e Pós-operações, especifique os detalhes necessários.
+. Na página notificação, na lista suspensa *preferência de e-mail*, selecione os cenários nos quais você deseja enviar os e-mails.
+. Revise o resumo e clique em *Finish*.
+. Monitorize o progresso da operação clicando em *Monitor* > *trabalhos*.
+
+
+
+
+== Restaure e recupere espaços de tablespaces usando recuperação ponto no tempo
+
+Você pode restaurar um subconjunto de espaços de tablespaces que foram corrompidos ou descartados sem afetar os outros espaços de tablespaces no banco de dados. O SnapCenter usa o RMAN para executar a recuperação pontual (PITR) dos espaços das tabelas.
+
+.Passos
+. No painel de navegação esquerdo, clique em *Resources* e selecione o plug-in apropriado na lista.
+. Na página recursos, selecione *Banco de dados* ou *Grupo de recursos* na lista Exibir.
+. Selecione o banco de dados do tipo instância única (multitenant).
+. No modo de exibição Gerenciar cópias, selecione *backups* no sistema de armazenamento.
++
+Se o backup não estiver catalogado, selecione o backup e clique em *Catálogo*.
+
+. Selecione a cópia de segurança catalogada e, em seguida, clique em * *image:../media/restore_icon.gif["ícone de restauro"]*.
+. Na página Restaurar escopo, execute as seguintes tarefas:
++
+.. Selecione *RAC* se tiver selecionado um backup de um banco de dados no ambiente RAC.
+.. Selecione *tablespaces* se você quiser restaurar apenas as tablespaces.
+.. Selecione *altere o estado do banco de dados, se necessário, para restaurar e recuperar* para alterar o estado do banco de dados para o estado necessário para executar operações de restauração e recuperação.
+
+
+. Na página âmbito de recuperação, selecione uma das seguintes opções:
++
+.. Selecione *Until SCN (System Change Number)* se quiser recuperar para um SCN específico.
+.. Selecione *Data e hora* se quiser recuperar para uma data e hora específicas.
+
+
+. Na página Pré-operações e Pós-operações, especifique os detalhes necessários.
+. Na página notificação, na lista suspensa *preferência de e-mail*, selecione os cenários nos quais você deseja enviar os e-mails.
+. Revise o resumo e clique em *Finish*.
+. Monitorize o processo de restauro utilizando a página *Monitor* > *trabalhos*.
+
+
+
+
+== Restaurar e recuperar banco de dados conetável usando recuperação pontual
+
+Você pode restaurar e recuperar um banco de dados conetável (PDB) que foi corrompido ou descartado sem afetar as outras PDBs no banco de dados de contentores (CDB). O SnapCenter usa o RMAN para executar a recuperação pontual (PITR) do PDB.
+
+.Passos
+. No painel de navegação esquerdo, clique em *Resources* e selecione o plug-in apropriado na lista.
+. Na página recursos, selecione *Banco de dados* ou *Grupo de recursos* na lista Exibir.
+. Selecione o banco de dados do tipo instância única (multitenant).
+. No modo de exibição Gerenciar cópias, selecione *backups* no sistema de armazenamento.
++
+Se o backup não estiver catalogado, selecione o backup e clique em *Catálogo*.
+
+. Selecione a cópia de segurança catalogada e, em seguida, clique em * *image:../media/restore_icon.gif["ícone de restauro"]*.
+. Na página Restaurar escopo, execute as seguintes tarefas:
++
+.. Selecione *RAC* se tiver selecionado um backup de um banco de dados no ambiente RAC.
+.. Dependendo se você deseja restaurar o PDB ou espaços de tabela em um PDB, execute uma das ações:
++
+*** Selecione *bancos de dados conetáveis (PDBs)* se você quiser restaurar um PDB.
+*** Selecione * espaços de tabela de base de dados Pluggable (PDB)* se quiser restaurar espaços de tabela em um PDB.
+
+
+
+
+. Na página âmbito de recuperação, selecione uma das seguintes opções:
++
+.. Selecione *Until SCN (System Change Number)* se quiser recuperar para um SCN específico.
+.. Selecione *Data e hora* se quiser recuperar para uma data e hora específicas.
+
+
+. Na página Pré-operações e Pós-operações, especifique os detalhes necessários.
+. Na página notificação, na lista suspensa *preferência de e-mail*, selecione os cenários nos quais você deseja enviar os e-mails.
+. Revise o resumo e clique em *Finish*.
+. Monitorize o processo de restauro utilizando a página *Monitor* > *trabalhos*.
+

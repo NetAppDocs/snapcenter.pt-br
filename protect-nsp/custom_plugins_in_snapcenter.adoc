@@ -1,0 +1,199 @@
+---
+permalink: protect-nsp/custom_plugins_in_snapcenter.html 
+sidebar: sidebar 
+keywords: Custom plug-in 
+summary: O plug-in personalizado criado pode ser instalado no host usando o servidor SnapCenter para habilitar a proteção de dados do seu aplicativo. 
+---
+= Plug-in personalizado no SnapCenter
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+
+
+== Plug-in personalizado no SnapCenter
+
+O plug-in personalizado criado usando Java, PERL ou estilo NATIVO pode ser instalado no host usando o servidor SnapCenter para habilitar a proteção de dados do seu aplicativo. Você deve ter exportado o plug-in para instalá-lo no host SnapCenter usando o procedimento fornecido neste tutorial.
+
+
+
+=== Criando um arquivo de descrição do plug-in
+
+Para cada plug-in criado, você deve ter um arquivo de descrição. O arquivo de descrição descreve os detalhes do plug-in. O nome do arquivo deve ser Plugin_descritor.xml.
+
+
+
+==== Usando atributos de arquivo do descritor de plug-in e seu significado
+
+|===
+| Atributo | Descrição 
+
+
+ a| 
+Nome
+ a| 
+Nome do plug-in. São permitidos carateres alfanuméricos. Por exemplo, DB2, MySQL, MongoDB
+
+Para plug-ins criados no estilo NATIVO, certifique-se de que não forneça a extensão do arquivo. Por exemplo, se o nome do plug-in for MongoDB.sh, especifique o nome como MongoDB.
+
+
+
+ a| 
+Versão
+ a| 
+Versão de plug-in. Pode incluir tanto a versão maior como a menor. Por exemplo, 1,0, 1,1, 2,0, 2,1
+
+
+
+ a| 
+Nome de exibição
+ a| 
+O nome do plug-in a ser exibido no servidor SnapCenter. Se várias versões do mesmo plug-in forem escritas, verifique se o nome de exibição é o mesmo em todas as versões.
+
+
+
+ a| 
+PluginType
+ a| 
+Linguagem usada para criar o plug-in. Os valores suportados são Perl, Java e Native. O tipo de plug-in nativo inclui scripts de shell Unix/Linux, scripts Windows, Python ou qualquer outra linguagem de script.
+
+
+
+ a| 
+Nome do sistema operacional
+ a| 
+O nome do sistema operacional do host onde o plug-in está instalado. Valores válidos são Windows e Linux. É possível que um único plug-in esteja disponível para implantação em vários tipos de SO, como o plug-in do tipo PERL.
+
+
+
+ a| 
+Versão do sistema operacional
+ a| 
+A versão do sistema operacional do host onde o plug-in está instalado.
+
+
+
+ a| 
+ResourceName
+ a| 
+Nome do tipo de recurso que o plug-in pode suportar. Por exemplo, banco de dados, instância, coleções.
+
+
+
+ a| 
+Pai
+ a| 
+No caso, o ResourceName é hierarquicamente dependente de outro tipo de recurso e, em seguida, o pai determina o ResourceType pai.
+
+Por exemplo, o plug-in DB2, o ResourceName "Database" tem uma "Instância" pai.
+
+
+
+ a| 
+RequireFileSystemPlugin
+ a| 
+Sim ou não determina se a guia recuperação é exibida no assistente de restauração.
+
+
+
+ a| 
+ResourceRequiresAuthentication
+ a| 
+Sim ou não determina se os recursos, que são detetados automaticamente ou não foram detetados automaticamente, precisam de credenciais para executar as operações de proteção de dados após a descoberta do armazenamento.
+
+
+
+ a| 
+RequireFileSystemClone
+ a| 
+Sim ou não determina se o plug-in requer integração de plug-in do sistema de arquivos para o fluxo de trabalho clone.
+
+|===
+Um exemplo do arquivo Plugin_descriptor.xml para o plug-in personalizado DB2 é o seguinte:
+
+....
+<Plugin>
+<SMSServer></SMSServer>
+<Name>DB2</Name>
+<Version>1.0</Version>
+<PluginType>Perl</PluginType>
+<DisplayName>Custom DB2 Plugin</DisplayName>
+<SupportedOS>
+<OS>
+<OSName>windows</OSName>
+<OSVersion>2012</OSVersion>
+</OS>
+<OS>
+<OSName>Linux</OSName>
+<OSVersion>7</OSVersion>
+</OS>
+</SupportedOS>
+<ResourceTypes>
+<ResourceType>
+<ResourceName>Database</ResourceName>
+<Parent>Instance</Parent>
+</ResourceType>
+<ResourceType>
+<ResourceName>Instance</ResourceName>
+</ResourceType>
+</ResourceTypes>
+<RequireFileSystemPlugin>no</RequireFileSystemPlugin>
+<ResourceRequiresAuthentication>yes</ResourceRequiresAuthentication>
+<SupportsApplicationRecovery>yes</SupportsApplicationRecovery>
+</Plugin>
+....
+
+
+=== Criando um arquivo ZIP
+
+Depois que um plug-in é desenvolvido e um arquivo descritor é criado, você deve adicionar os arquivos plug-in e o arquivo Plugin_descriptor.xml a uma pasta e zip-lo.
+
+Você deve considerar o seguinte antes de criar um arquivo ZIP:
+
+* O nome do script deve ser igual ao nome do plug-in.
+* Para o plug-in PERL, a pasta ZIP deve conter uma pasta com o arquivo de script e o arquivo de descritor deve estar fora dessa pasta. O nome da pasta deve ser o mesmo que o nome do plug-in.
+* Para plug-ins diferentes do plug-in PERL, a pasta ZIP deve conter o descritor e os arquivos de script.
+* A versão do SO deve ser um número.
+
+
+Exemplos:
+
+* DB2 plug-in: Adicione DB2.pm e Plugin_descriptor.xml arquivo para "DB2.zip".
+* Plug-in desenvolvido usando Java: Adicione arquivos jar, arquivos jar dependentes e arquivo Plugin_descriptor.xml para uma pasta e zip-lo.
+
+
+
+
+=== Carregar o ficheiro ZIP do plug-in
+
+Você deve carregar o arquivo ZIP do plug-in para o servidor SnapCenter para que o plug-in esteja disponível para implantação no host desejado.
+
+Você pode fazer o upload do plug-in usando a IU ou cmdlets.
+
+*UI:*
+
+* Carregue o arquivo ZIP do plug-in como parte do assistente de fluxo de trabalho *Add* ou *Modify Host*
+* Clique em *"Selecionar para carregar plug-in personalizado"*
+
+
+* PowerShell:*
+
+* Cmdlet Upload-SmPluginPackage
++
+Por exemplo, PS> Upload-SmPluginPackage -AbsolutePath c: DB2_1.zip
+
++
+Para obter informações detalhadas sobre cmdlets do PowerShell, use a ajuda do cmdlet SnapCenter ou consulte as informações de referência do cmdlet.
+
+
+
+https://docs.netapp.com/us-en/snapcenter-cmdlets/index.html["Guia de referência de cmdlet do software SnapCenter"^].
+
+
+
+=== Implantando os plug-ins personalizados
+
+O plug-in personalizado carregado agora está disponível para implantação no host desejado como parte do fluxo de trabalho *Add* e *Modify Host*. Você pode ter várias versões de plug-ins carregados para o servidor SnapCenter e pode selecionar a versão desejada para implantar em um host específico.
+
+Para obter mais informações sobre como carregar o plug-in, consulte, link:add_hosts_and_install_plug_in_packages_on_remote_hosts.html["Adicione hosts e instale pacotes plug-in em hosts remotos"]

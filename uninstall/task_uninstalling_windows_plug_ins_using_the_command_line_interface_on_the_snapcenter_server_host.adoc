@@ -1,0 +1,25 @@
+---
+permalink: uninstall/task_uninstalling_windows_plug_ins_using_the_command_line_interface_on_the_snapcenter_server_host.html 
+sidebar: sidebar 
+keywords: uninstall, windows plug-ins, powershell cmdlet 
+summary: Você pode desinstalar plug-ins individuais ou desinstalar pacotes plug-ins de um ou mais hosts usando o cmdlet Uninstall-SmHostPackage na interface de linha de comando do host do servidor SnapCenter. 
+---
+= Desinstale os plug-ins do Windows usando o cmdlet PowerShell
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Você pode desinstalar plug-ins individuais ou desinstalar pacotes plug-ins de um ou mais hosts usando o cmdlet _Uninstall-SmHostPackage_ na interface de linha de comando do host do servidor SnapCenter.
+
+Você deve ter feito login no SnapCenter como um usuário de domínio com direitos de administrador local em cada host no qual deseja desinstalar os plug-ins.
+
+.Passos
+. Inicie o PowerShell.
+. No host do servidor SnapCenter, digite: _Open-SMConnection -SMSbaseUrl://SnapCenter_SERVER_NAME/DOMAIN_NAME_ comando e insira suas credenciais.
+. Desinstale os plug-ins do Windows usando o cmdlet _Uninstall-SmHostPackage_ e os parâmetros necessários.
++
+As informações sobre os parâmetros que podem ser usados com o cmdlet e suas descrições podem ser obtidas executando _get-Help command_name_. Alternativamente, você também pode consultar o https://docs.netapp.com/us-en/snapcenter-cmdlets/index.html["Guia de referência de cmdlet do software SnapCenter"^].
+
+

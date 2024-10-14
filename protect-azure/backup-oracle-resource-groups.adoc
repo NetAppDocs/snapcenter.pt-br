@@ -1,0 +1,27 @@
+---
+permalink: protect-azure/backup-oracle-resource-groups.html 
+sidebar: sidebar 
+keywords: SnapCenter Plug-in for Oracle Database, back up, resource groups 
+summary: Um grupo de recursos é uma coleção de recursos em um host. Uma operação de backup no grupo de recursos é executada em todos os recursos definidos no grupo de recursos. 
+---
+= Fazer backup de grupos de recursos Oracle
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Você pode fazer backup dos grupos de recursos que consistem em vários recursos. Uma operação de backup no grupo de recursos é executada em todos os recursos definidos no grupo de recursos.
+
+.Passos
+. No painel de navegação esquerdo, selecione *Resources* e, em seguida, selecione o plug-in apropriado na lista.
+. Na página recursos, selecione *Grupo de recursos* na lista *Exibir*.
+. Na página grupos de recursos, selecione o grupo de recursos que você deseja fazer backup e selecione *fazer backup agora*.
+. Na página Backup, execute as seguintes etapas:
++
+.. Se várias políticas estiverem associadas ao grupo de recursos, na lista suspensa *Política*, selecione a política que deseja usar para backup.
+.. Selecione *Backup*.
+
+
+. Monitorize o progresso da operação selecionando *Monitor* > *trabalhos*.
+

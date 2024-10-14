@@ -1,0 +1,20 @@
+---
+permalink: protect-sce/reference_restore_exchange_resources.html 
+sidebar: sidebar 
+keywords: SnapCenter Plug-in for Microsoft Exchange Server 
+summary: Você pode usar o SnapCenter para restaurar bancos de dados do Exchange restaurando um ou mais backups no seu sistema de arquivos ativo. 
+---
+= Restaure o fluxo de trabalho
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Você pode usar o SnapCenter para restaurar bancos de dados do Exchange restaurando um ou mais backups no seu sistema de arquivos ativo.
+
+O fluxo de trabalho a seguir mostra a sequência na qual você deve executar as operações de restauração de banco de dados do Exchange:
+
+image:../media/all_plug_ins_restore_workflow.png["Restaure o fluxo de trabalho"]
+
+Você também pode usar cmdlets do PowerShell manualmente ou em scripts para executar operações de backup e restauração. Para obter informações detalhadas sobre cmdlets do PowerShell, use a ajuda do cmdlet SnapCenter ou https://docs.netapp.com/us-en/snapcenter-cmdlets/index.html["Guia de referência de cmdlet do software SnapCenter"^] consulte .

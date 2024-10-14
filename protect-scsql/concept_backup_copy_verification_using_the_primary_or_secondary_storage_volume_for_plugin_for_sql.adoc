@@ -1,0 +1,18 @@
+---
+permalink: protect-scsql/concept_backup_copy_verification_using_the_primary_or_secondary_storage_volume_for_plugin_for_sql.html 
+sidebar: sidebar 
+keywords: Backup copy verification 
+summary: É possível verificar cópias de backup no volume de storage primário ou no volume de storage secundário SnapMirror ou SnapVault. A verificação usando um volume de storage secundário reduz a carga no volume de storage primário. 
+---
+= Verificação de cópia de backup usando o volume de storage primário ou secundário para Plug-in para SQL Server
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+É possível verificar cópias de backup no volume de storage primário ou no volume de storage secundário SnapMirror ou SnapVault. A verificação usando um volume de storage secundário reduz a carga no volume de storage primário.
+
+Quando você verifica um backup que está no volume de storage primário ou secundário, todos os snapshots primário e secundário são marcados como verificados.
+
+A licença SnapRestore é necessária para verificar cópias de backup no volume de storage secundário SnapMirror e SnapVault.

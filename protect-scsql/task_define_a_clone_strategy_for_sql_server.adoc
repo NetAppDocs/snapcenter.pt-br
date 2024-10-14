@@ -1,0 +1,46 @@
+---
+permalink: protect-scsql/task_define_a_clone_strategy_for_sql_server.html 
+sidebar: sidebar 
+keywords: clone strategy 
+summary: A definição de uma estratégia de clonagem permite clonar seu banco de dados com sucesso. 
+---
+= Defina uma estratégia de clonagem para o SQL Server
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+A definição de uma estratégia de clonagem permite clonar seu banco de dados com sucesso.
+
+. Revise as limitações relacionadas às operações de clone.
+. Decida o tipo de clone que você precisa.
+
+
+
+
+== Limitações das operações de clone
+
+Você deve estar ciente das limitações das operações de clone antes de clonar os bancos de dados.
+
+* Se você estiver usando qualquer versão do Oracle de 11.2.0.4 a 12,1.0,1, a operação clone estará no estado suspenso quando você executar o comando _renamedg_. Você pode aplicar o Oracle patch 19544733 para corrigir esse problema.
+* A clonagem de bancos de dados de um LUN que está diretamente conetado a um host (por exemplo, usando o Microsoft iSCSI Initiator em um host Windows) para um VMDK ou um LUN RDM no mesmo host Windows, ou outro host Windows, ou vice-versa, não é suportada.
+* O diretório raiz do ponto de montagem do volume não pode ser um diretório partilhado.
+* Se você mover um LUN que contém um clone para um novo volume, o clone não poderá ser excluído.
+
+
+
+
+== Tipos de operações de clone
+
+Você pode usar o SnapCenter para clonar um backup de banco de dados do SQL Server ou um banco de dados de produção.
+
+* Clonar a partir de um backup de banco de dados
++
+O banco de dados clonado pode servir como uma linha de base para o desenvolvimento de novos aplicativos e ajudar a isolar erros de aplicativos que ocorrem no ambiente de produção. O banco de dados clonado também pode ser usado para recuperação de erros de banco de dados macio.
+
+* Ciclo de vida do clone
++
+Você pode usar o SnapCenter para agendar tarefas de clone recorrentes que ocorrerão quando o banco de dados de produção não estiver ocupado.
+
+

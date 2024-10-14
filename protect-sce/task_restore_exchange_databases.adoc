@@ -1,0 +1,203 @@
+---
+permalink: protect-sce/task_restore_exchange_databases.html 
+sidebar: sidebar 
+keywords: SnapCenter plug-in for Exchange Server 
+summary: Você pode usar o SnapCenter para restaurar bancos de dados do Exchange com backup. 
+---
+= Restaure bancos de dados do Exchange
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Você pode usar o SnapCenter para restaurar bancos de dados do Exchange com backup.
+
+.Antes de começar
+* Você deve ter feito backup dos grupos de recursos, banco de dados ou grupos de disponibilidade de banco de dados (DAGs).
+* Quando o banco de dados do Exchange é migrado para outro local, a operação de restauração não funciona para backups antigos.
+* Se você estiver replicando snapshots em um espelho ou cofre, o administrador do SnapCenter deverá ter atribuído as SVMs para os volumes de origem e os volumes de destino.
+* Em um DAG, se uma cópia de banco de dados ativo estiver em um armazenamento não NetApp e você quiser restaurar a partir do backup de cópia de banco de dados passivo que está em um armazenamento NetApp, faça a cópia passiva (armazenamento NetApp) como cópia ativa, atualize os recursos e execute a operação de restauração.
++
+Execute o `Move-ActiveMailboxDatabase` comando para fazer a cópia passiva do banco de dados como cópia ativa do banco de dados.
+
++
+O https://docs.microsoft.com/en-us/powershell/module/exchange/move-activemailboxdatabase?view=exchange-ps["Documentação da Microsoft"^] contém informações sobre este comando.
+
+
+
+.Sobre esta tarefa
+* Quando a operação de restauração é executada em um banco de dados, o banco de dados é montado de volta no mesmo host e nenhum novo volume é criado.
+* Os backups no nível DAG devem ser restaurados a partir de bancos de dados individuais.
+* A restauração completa do disco não é suportada quando existem ficheiros diferentes do ficheiro de base de dados do Exchange (.edb).
++
+O plug-in para Exchange não executa uma restauração completa em um disco se o disco contiver arquivos do Exchange, como os usados para replicação. Quando uma restauração completa pode afetar a funcionalidade do Exchange, o Plug-in para Exchange executa uma única operação de restauração de arquivo.
+
+* O plug-in para Exchange não pode restaurar unidades criptografadas BitLocker.
+* O SCRIPT_PATH é definido usando a chave PredefinedWindowsScriptsDirectory localizada no arquivo SMCoreServiceHost.exe.Config do host do plug-in.
++
+Se necessário, você pode alterar esse caminho e reiniciar o serviço SMcore. É recomendável usar o caminho padrão para segurança.
+
++
+O valor da chave pode ser exibido do swagger através da API: API /4,7/configsettings
+
++
+Você pode usar a API GET para exibir o valor da chave. A API SET não é suportada.
+
+* Para a versão ONTAP 9.12,1 e inferior, os clones criados a partir dos instantâneos do Vault do SnapLock como parte da restauração herdarão o tempo de expiração do SnapLock Vault. O administrador do storage deve limpar manualmente os clones após o tempo de expiração do SnapLock.
+* Para a operação de restauração de sincronização ativa do SnapMirror, você deve selecionar o backup no local principal.
+
+
+[role="tabbed-block"]
+====
+.IU do SnapCenter
+--
+.Passos
+. No painel de navegação esquerdo, clique em *Resources* no canto superior esquerdo da página recurso.
+. Selecione o plug-in do Exchange Server na lista suspensa.
+. Na página recursos, selecione *Banco de dados* na lista Exibir.
+. Selecione a base de dados na lista.
+. No modo de exibição Gerenciar cópias, selecione *backups*, na tabela backups primários e clique em * *image:../media/restore_icon.gif["ícone de restauro"]*.
+. Na página Opções, selecione uma das seguintes opções de backup de log:
++
+|===
+| Opção | Descrição 
+
+
+ a| 
+Todos os backups de log
+ a| 
+Escolha *todos os backups de log* para executar a operação de restauração de backup atualizada para restaurar todos os backups de log disponíveis após o backup completo.
+
+
+
+ a| 
+Por backup de log até
+ a| 
+Escolha *por backups de log até* para executar uma operação de restauração pontual, que restaura o banco de dados com base em backups de log até o log selecionado.
+
+
+NOTE: O número de logs exibidos na lista suspensa é baseado no UTM. Por exemplo, se a retenção total do backup for 5 e a retenção UTM for 3, o número de backups de log disponíveis será 5, mas na lista suspensa somente 3 logs serão listados para executar a operação de restauração.
+
+
+
+ a| 
+Por data específica até
+ a| 
+Escolha *por data específica até* para especificar a data e a hora em que os logs de transação são aplicados ao banco de dados restaurado. Essa operação de restauração pontual restaura as entradas de log de transações que foram registradas até o último backup na data e hora especificadas.
+
+
+
+ a| 
+Nenhum
+ a| 
+Escolha *nenhum* quando precisar restaurar somente o backup completo sem nenhum backup de log.
+
+|===
++
+Você pode executar uma das seguintes ações:
+
++
+** * Recuperar e montar banco de dados após restauração * - esta opção é selecionada por padrão.
+** *Não verifique a integridade dos logs de transação no backup antes da restauração* - por padrão, o SnapCenter verifica a integridade dos logs de transação em um backup antes de executar uma operação de restauração.
++
+|===
+
+
+| *Prática recomendada:* você não deve selecionar essa opção. 
+|===
+
+
+. Na página Script, insira o caminho e os argumentos do prescritor ou postscript que devem ser executados antes ou depois da operação de restauração, respetivamente.
++
+Os argumentos de restauração incluem Banco de dados e ServerInstance.
+
++
+Os argumentos de restauração postscript incluem banco de dados, serverInstance, BackupName, LogDirectory e TargetServerInstance.
+
++
+Você pode executar um script para atualizar traps SNMP, automatizar alertas, enviar logs e assim por diante.
+
++
+
+NOTE: O caminho de prescripts ou postscripts não deve incluir unidades ou compartilhamentos. O caminho deve ser relativo ao SCRIPT_path.
+
+. Na página notificação, na lista suspensa *preferência de e-mail*, selecione os cenários nos quais você deseja enviar os e-mails.
++
+Você também deve especificar os endereços de e-mail do remetente e do destinatário e o assunto do e-mail.
+
+. Revise o resumo e clique em *Finish*.
+. Você pode exibir o status do trabalho de restauração expandindo o painel atividade na parte inferior da página.
++
+Deve monitorizar o processo de restauro utilizando a página *Monitor* > *trabalhos*.
+
+
+
+Quando você restaura um banco de dados ativo de um backup, o banco de dados passivo pode entrar no estado suspenso ou com falha se houver um atraso entre a réplica e o banco de dados ativo.
+
+A alteração de estado pode ocorrer quando a cadeia de registo da base de dados ativa se bifurca e inicia uma nova ramificação que quebra a replicação. O Exchange Server tenta corrigir a réplica, mas se não conseguir fazê-lo, após a restauração, você deve criar um novo backup e, em seguida, semear novamente a réplica.
+
+--
+.Cmdlets do PowerShell
+--
+.Passos
+. Inicie uma sessão de conexão com o servidor SnapCenter para um usuário especificado usando o `Open-SmConnection` cmdlet.
++
+[listing]
+----
+Open-smconnection  -SMSbaseurl  https://snapctr.demo.netapp.com:8146/
+----
+. Recupere as informações sobre um ou mais backups que você deseja restaurar usando o `Get-SmBackup` cmdlet.
++
+Este exemplo exibe informações sobre todos os backups disponíveis:
+
++
+[listing]
+----
+PS C:\> Get-SmBackup
+
+BackupId                      BackupName                    BackupTime                    BackupType
+--------                      ----------                    ----------                    ----------
+341                           ResourceGroup_36304978_UTM... 12/8/2017 4:13:24 PM          Full Backup
+342                           ResourceGroup_36304978_UTM... 12/8/2017 4:16:23 PM          Full Backup
+355                           ResourceGroup_06140588_UTM... 12/8/2017 6:32:36 PM          Log Backup
+356                           ResourceGroup_06140588_UTM... 12/8/2017 6:36:20 PM          Full Backup
+----
+. Restaure dados do backup usando o `Restore-SmBackup` cmdlet.
++
+Este exemplo restaura um backup atualizado:
+
++
+[listing]
+----
+C:\PS> Restore-SmBackup -PluginCode SCE -AppObjectId 'sce-w2k12-exch.sceqa.com\sce-w2k12-exch_DB_2' -BackupId 341 -IsRecoverMount:$true
+----
++
+Este exemplo restaura um backup pontual:
+
++
+[listing]
+----
+C:\ PS> Restore-SmBackup -PluginCode SCE -AppObjectId 'sce-w2k12-exch.sceqa.com\sce-w2k12-exch_DB_2' -BackupId 341 -IsRecoverMount:$true -LogRestoreType ByTransactionLogs -LogCount 2
+----
++
+Este exemplo restaura um backup no storage secundário para um story primário:
+
++
+[listing]
+----
+C:\ PS> Restore-SmBackup -PluginCode 'SCE' -AppObjectId 'DB2' -BackupId 81 -IsRecoverMount:$true -Confirm:$false
+-archive @{Primary="paw_vs:vol1";Secondary="paw_vs:vol1_mirror"} -logrestoretype All
+----
++
+O `-archive` parâmetro permite especificar os volumes primário e secundário que deseja usar para a restauração.
+
++
+O `-IsRecoverMount:$true` parâmetro permite montar o banco de dados após a restauração.
+
+
+
+As informações sobre os parâmetros que podem ser usados com o cmdlet e suas descrições podem ser obtidas executando _get-Help command_name_. Em alternativa, pode também consultar o https://docs.netapp.com/us-en/snapcenter-cmdlets/index.html["Guia de referência de cmdlet do software SnapCenter"^].
+
+--
+====

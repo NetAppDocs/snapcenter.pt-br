@@ -1,0 +1,100 @@
+---
+permalink: protect-sco/predefined-environment-variables-prescript-postscript-clone.html 
+sidebar: sidebar 
+keywords: environment variable, predefined, prescript, postscript, clone 
+summary: O SnapCenter permite-lhe utilizar as variáveis de ambiente predefinidas quando executa o prescritor e o postscript durante a clonagem de uma base de dados. 
+---
+= Variáveis de ambiente predefinidas para o prescritor específico de clone e postscript
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+O SnapCenter permite-lhe utilizar as variáveis de ambiente predefinidas quando executa o prescritor e o postscript durante a clonagem de uma base de dados.
+
+*Variáveis de ambiente predefinidas suportadas para clonar um banco de dados*
+
+* *SC_ORIGINAL_SID* especifica o SID do banco de dados de origem.
++
+Esse parâmetro será preenchido para volumes de aplicativos.
+
++
+Exemplo: NFSB32
+
+* *SC_ORIGINAL_HOST* especifica o nome do host de origem.
++
+Esse parâmetro será preenchido para volumes de aplicativos.
+
++
+Exemplo: asmrac1.gdl.englab.NetApp.com
+
+* *SC_ORACLE_Home* especifica o caminho do diretório inicial do Oracle do banco de dados de destino.
++
+Exemplo: /ora01/app/oracle/product/18,1.0/dB_1
+
+* *SC_BACKUP_NAME*" especifica o nome do backup.
++
+Esse parâmetro será preenchido para volumes de aplicativos.
+
++
+Exemplos:
+
++
+** Se o banco de dados não estiver sendo executado no modo ARCHIVELOG: DATA@RG2_scspr2417819002_07-20-2021_12.16.48.9267_0|LOG@RG2_scspr2417819002_07-20-2021_12.16.48.9267_1
+** Se o banco de dados estiver sendo executado no modo ARCHIVELOG: DATA@RG2_scspr2417819002_07-20-2021_12.16.48.9267_0|LOG:RG2_07_22-20-1_12.16.48.9267_12.16.48.9267,RG2_2021_07-21-scspr2417819002_1_2021,RG2_scspr2417819002_scspr2417819002-07-2021_12.16.48.9267_1
+
+
+* *SC_AV_NAME* especifica os nomes dos volumes da aplicação.
++
+Exemplo: AV1|AV2
+
+* *SC_ORIGINAL_os_USER* especifica o proprietário do sistema operacional do banco de dados de origem.
++
+Exemplo: oracle
+
+* *SC_ORIGINAL_os_GROUP* especifica o grupo do sistema operacional do banco de dados de origem.
++
+Exemplo: Oinstall
+
+* *SC_TARGET_SID*" especifica o SID do banco de dados clonado.
++
+Para o fluxo de trabalho do clone PDB, o valor deste parâmetro não será predefinido.
+
++
+Esse parâmetro será preenchido para volumes de aplicativos.
+
++
+Exemplo: Clonedb
+
+* *SC_TARGET_HOST* especifica o nome do host onde o banco de dados será clonado.
++
+Esse parâmetro será preenchido para volumes de aplicativos.
+
++
+Exemplo: asmrac1.gdl.englab.NetApp.com
+
+* *SC_TARGET_os_USER* especifica o proprietário do sistema operacional do banco de dados clonado.
++
+Para o fluxo de trabalho do clone PDB, o valor deste parâmetro não será predefinido.
+
++
+Exemplo: oracle
+
+* *SC_TARGET_os_GROUP* especifica o grupo do sistema operacional do banco de dados clonado.
++
+Para o fluxo de trabalho do clone PDB, o valor deste parâmetro não será predefinido.
+
++
+Exemplo: Oinstall
+
+* *SC_TARGET_DB_port* especifica a porta de banco de dados do banco de dados clonado.
++
+Para o fluxo de trabalho do clone PDB, o valor deste parâmetro não será predefinido.
+
++
+Exemplo: 1521
+
+
+
+Para obter informações sobre delimitadores, link:../protect-sco/predefined-environment-variables-prescript-postscript-backup.html#supported-delimiters["Delimitadores suportados"^]consulte .

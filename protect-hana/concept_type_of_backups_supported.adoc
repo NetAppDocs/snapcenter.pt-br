@@ -1,0 +1,26 @@
+---
+permalink: protect-hana/concept_type_of_backups_supported.html 
+sidebar: sidebar 
+keywords: SnapCenter Plug-in for SAP HANA Database 
+summary: Tipo de backup especifica o tipo de backup que você deseja criar. O SnapCenter é compatível com os tipos de backup baseado em cópia de Snapshot e backup baseado em arquivos para bancos de dados SAP HANA. 
+---
+= Tipos de backups suportados
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Tipo de backup especifica o tipo de backup que você deseja criar. O SnapCenter é compatível com os tipos de backup baseado em cópia de Snapshot e backup baseado em arquivos para bancos de dados SAP HANA.
+
+
+
+== Backup baseado em arquivo
+
+Os backups baseados em arquivos verificam a integridade do banco de dados. Você pode agendar a operação de backup baseada em arquivo para ocorrer em intervalos específicos. Somente os locatários ativos são copiados. Não é possível restaurar e clonar backups baseados em arquivos do SnapCenter.
+
+
+
+== Backup baseado em cópia snapshot
+
+Os backups baseados em cópias snapshot utilizam a tecnologia NetApp Snapshot para criar cópias on-line e somente leitura dos volumes nos quais os bancos de dados SAP HANA estão localizados.

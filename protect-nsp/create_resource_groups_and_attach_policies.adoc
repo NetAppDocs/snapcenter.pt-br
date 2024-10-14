@@ -1,0 +1,196 @@
+---
+permalink: protect-nsp/create_resource_groups_and_attach_policies.html 
+sidebar: sidebar 
+keywords: resource groups, attach policies, snapcenter 
+summary: Um grupo de recursos é o contentor ao qual você deve adicionar recursos que deseja fazer backup e proteger. 
+---
+= Crie grupos de recursos e anexe políticas
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+Um grupo de recursos é o contentor ao qual você deve adicionar recursos que deseja fazer backup e proteger. Ele permite fazer backup de todos os dados associados a uma determinada aplicação simultaneamente. Você também deve anexar uma ou mais políticas ao grupo de recursos para definir o tipo de tarefa de proteção de dados que deseja executar.
+
+.Passos
+. No painel de navegação esquerdo, selecione *Resources* e, em seguida, selecione o plug-in apropriado na lista.
+. Na página recursos, selecione novo grupo de recursos.
+. Na página Nome, execute as seguintes ações:
++
+|===
+| Para este campo... | Faça isso... 
+
+
+ a| 
+Nome
+ a| 
+Introduza um nome para o grupo de recursos.
+
+Observação: O nome do grupo de recursos não deve exceder 250 carateres.
+
+
+
+ a| 
+Tags
+ a| 
+Insira um ou mais rótulos que o ajudarão a pesquisar posteriormente o grupo de recursos.
+
+Por exemplo, se você adicionar HR como uma tag a vários grupos de recursos, poderá encontrar mais tarde todos os grupos de recursos associados à tag HR.
+
+
+
+ a| 
+Use o formato de nome personalizado para cópia Snapshot
+ a| 
+Marque essa caixa de seleção e insira um formato de nome personalizado que você deseja usar para o nome da captura Instantânea.
+
+Por exemplo, _customtext_resource group_policy_hostname ou resource group_hostname_. Por padrão, um carimbo de data/hora é anexado ao nome do instantâneo.
+
+|===
+. Opcional: Na página recursos, selecione um nome de host na lista suspensa *Host* e o tipo de recurso na lista suspensa *Resource Type*.
++
+Isso ajuda a filtrar informações na tela.
+
+. Selecione os recursos na seção *recursos disponíveis* e, em seguida, selecione a seta para a direita para movê-los para a seção *recursos selecionados*.
+. Opcional: Na página *Configurações da aplicação*, faça o seguinte:
++
+.. Selecione a seta backups para definir opções adicionais de backup:
++
+Ative o backup do grupo de consistência e execute as seguintes tarefas:
+
++
+|===
+| Para este campo... | Faça isso... 
+
+
+ a| 
+Tenha tempo para esperar que a operação de snapshot do grupo de consistência seja concluída
+ a| 
+Selecione urgente, Médio ou relaxado para especificar o tempo de espera para que a operação Snapshot seja concluída.
+
+Urgente: 5 segundos, Médio: 7 segundos e relaxado: 20 segundos.
+
+
+
+ a| 
+Desativar a sincronização WAFL
+ a| 
+Selecione esta opção para evitar forçar um ponto de consistência WAFL.
+
+|===
++
+image:../media/application_settings.gif["Uma captura de tela das opções para backup de grupo de consistência: Urgente, médio ou relaxado."]
+
+.. Selecione a seta Scripts e insira os comandos pre e POST para operações quiesce, Snapshot e unquiesce. Também pode introduzir os pré comandos a serem executados antes de sair em caso de falha.
+.. Selecione a seta Configurações personalizadas e insira os pares de valor de chave personalizados necessários para todas as operações de proteção de dados usando esse recurso.
++
+|===
+| Parâmetro | Definição | Descrição 
+
+
+ a| 
+ARCHIVE_LOG_ENABLE
+ a| 
+(Y/N)
+ a| 
+Permite que a gestão do registo de arquivo elimine os registos de arquivo.
+
+
+
+ a| 
+ARCHIVE_LOG_RETENÇÃO
+ a| 
+number_of_days
+ a| 
+Especifica o número de dias em que os logs de arquivo são mantidos.
+
+Esta definição tem de ser igual ou superior a NTAP_SNAPSHOT_ RETENÇÕES.
+
+
+
+ a| 
+ARCHIVE_LOG_DIR
+ a| 
+change_info_directory/logs
+ a| 
+Especifica o caminho para o diretório que contém os logs do arquivo.
+
+
+
+ a| 
+ARCHIVE_LOG_EXT
+ a| 
+extensão_ficheiro
+ a| 
+Especifica o comprimento da extensão do arquivo de log do arquivo.
+
+Por exemplo, se o log de arquivo for log_backup_0_0_0_0,161518551942 9 e se o valor file_extension for 5, a extensão do log manterá 5 dígitos, que é 16151.
+
+
+
+ a| 
+ARCH ARCHIVE_LOG_RECURSIVE_SE
+ a| 
+(Y/N)
+ a| 
+Permite o gerenciamento de logs de arquivo dentro de subdiretórios.
+
+Você deve usar este parâmetro se os logs do arquivo estiverem localizados em subdiretórios.
+
+|===
+.. Selecione a seta *Snapshot Copy Tool* para selecionar a ferramenta para criar instantâneos:
++
+|===
+| Se você quiser... | Então... 
+
+
+ a| 
+SnapCenter para usar o plug-in para Windows e colocar o sistema de arquivos em um estado consistente antes de criar um instantâneo. Para recursos do Linux, essa opção não é aplicável.
+ a| 
+Selecione *SnapCenter com consistência do sistema de arquivos*.
+
+Esta opção não é aplicável ao plug-in SnapCenter para banco de dados SAP HANA.
+
+
+
+ a| 
+SnapCenter para criar um instantâneo no nível de storage
+ a| 
+Selecione *SnapCenter sem consistência do sistema de arquivos*.
+
+
+
+ a| 
+Para inserir o comando a ser executado no host para criar Snapshots.
+ a| 
+Selecione *Other* e digite o comando a ser executado no host para criar uma captura Instantânea.
+
+|===
+
+
+. Na página políticas, execute as seguintes etapas:
++
+.. Selecione uma ou mais políticas na lista suspensa.
++
+
+NOTE: Você também pode criar uma política selecionandoimage:../media/add_policy_from_resourcegroup.gif["Um ícone de mais"] * *.
+
++
+As políticas são listadas na seção *Configurar programações para políticas selecionadas*.
+
+.. Na coluna *Configurar agendas*, selecione *image:../media/add_policy_from_resourcegroup.gif["Um ícone de mais"]* para a política que deseja configurar.
+.. Na caixa de diálogo Adicionar agendas para política _policy_name_, configure a programação e selecione OK.
++
+Onde policy_name é o nome da política selecionada.
+
++
+As programações configuradas são listadas na coluna agendas aplicadas. As agendas de backup de terceiros não são suportadas quando sobrepõem-se às agendas de backup do SnapCenter.
+
+
+
+. Na lista suspensa *preferência de e-mail* na página *notificação*, selecione os cenários nos quais deseja enviar os e-mails.
++
+Você também deve especificar os endereços de e-mail do remetente e do destinatário e o assunto do e-mail. O servidor SMTP deve ser configurado em *Configurações* > *Configurações globais*.
+
+. Revise o resumo e selecione *Finish*.
+

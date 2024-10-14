@@ -1,0 +1,64 @@
+---
+permalink: protect-sce/task_reseed_a_passive_exchange_node_replica.html 
+sidebar: sidebar 
+keywords:  
+summary: Se você precisar semear novamente uma cópia de réplica, por exemplo, quando uma cópia está corrompida, você pode semear novamente para o backup mais recente usando o recurso Reseed no SnapCenter. 
+---
+= Semente novamente uma réplica passiva do nó Exchange
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Se você precisar semear novamente uma cópia de réplica, por exemplo, quando uma cópia está corrompida, você pode semear novamente para o backup mais recente usando o recurso Reseed no SnapCenter.
+
+.Antes de começar
+* Você deve estar usando o servidor SnapCenter 4,1 ou posterior e o plug-in para o Exchange 4,1 ou posterior.
++
+Nova propagação uma réplica não é suportada em versões do SnapCenter anteriores a 4,1.
+
+* Você deve ter criado um backup do banco de dados que deseja fazer o repleed.
+
+
+|===
+
+
+| *Prática recomendada:* para evitar o atraso entre nós, recomendamos que você crie um novo backup antes de executar uma operação de semente novamente ou escolha o host com o backup mais recente. 
+|===
+.Passos
+. No painel de navegação à esquerda, clique em *recursos* e selecione *plug-in do Microsoft Exchange Server* na lista.
+. Na página recursos, selecione a opção apropriada na lista Exibir:
++
+|===
+| Opção | Descrição 
+
+
+ a| 
+Para semente de novo um único banco de dados
+ a| 
+Selecione *Banco de dados* na lista Exibir.
+
+
+
+ a| 
+Para reseed bancos de dados em um DAG
+ a| 
+Selecione *Grupo de disponibilidade da base de dados* na lista Ver.
+
+|===
+. Selecione o recurso que você deseja fazer a semente novamente.
+. Na página Gerenciar cópias, clique em *Reseed*.
+. Na lista de cópias de bancos de dados não saudáveis no assistente Reseed, selecione a que deseja reseed e, em seguida, clique em *Next*.
+. Na janela Host, selecione o host com o backup a partir do qual você deseja semente novamente e clique em *Next*.
+. Na página notificação, na lista suspensa *preferência de e-mail*, selecione os cenários nos quais você deseja enviar os e-mails.
++
+Você também deve especificar os endereços de e-mail do remetente e do destinatário e o assunto do e-mail.
+
+. Revise o resumo e clique em *Finish*.
+. Você pode exibir o status do trabalho expandindo o painel atividade na parte inferior da página.
++
+
+NOTE: A operação Reseed não é suportada se a cópia passiva do banco de dados residir em armazenamento não NetApp.
+
+

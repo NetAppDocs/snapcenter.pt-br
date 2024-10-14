@@ -1,0 +1,33 @@
+= 
+:allow-uri-read: 
+
+
+Você deve configurar os certificados de CA e implantar os certificados de CA no servidor SnapCenter e nos hosts de plug-in correspondentes. Você deve habilitar a validação do certificado CA para os plug-ins.
+
+.Antes de começar
+* Você pode ativar ou desativar os certificados de CA usando o cmdlet RUN _Set-SmCertificateSettings_.
+* Você pode exibir o status do certificado para os plug-ins usando as _Get-SmCertificateSettings_.
+
+
+As informações sobre os parâmetros que podem ser usados com o cmdlet e suas descrições podem ser obtidas executando _get-Help command_name_. Em alternativa, pode também consultar o https://docs.netapp.com/us-en/snapcenter-cmdlets/index.html["Guia de referência de cmdlet do software SnapCenter"^].
+
+.Passos
+. No painel de navegação esquerdo, clique em *hosts*.
+. Na página hosts, clique em *hosts gerenciados*.
+. Selecione um ou vários hosts de plug-in.
+. Clique em *mais opções*.
+. Selecione *Ativar Validação de certificado*.
+
+
+.Depois de terminar
+O host de guia hosts gerenciados exibe um cadeado e a cor do cadeado indica o status da conexão entre o servidor SnapCenter e o host do plug-in.
+
+* image:../media/enable_ca_issues_icon.png["O certificado da CA não está ativado nem atribuído ao ícone do host do plug-in"]* * Indica que o certificado da CA não está habilitado nem atribuído ao host do plug-in.
+* image:../media/enable_ca_good_icon.png["Ícone de certificado CA validado com êxito"]* * Indica que o certificado da CA foi validado com êxito.
+* image:../media/enable_ca_failed_icon.png["Ícone não foi possível validar o certificado CA"]* * Indica que o certificado da CA não pôde ser validado.
+* image:../media/enable_ca_undefined_icon.png["não foi possível recuperar as informações da ligação"]* * indica que as informações de conexão não puderam ser recuperadas.
++
+
+NOTE: Quando o status é amarelo ou verde, as operações de proteção de dados são concluídas com êxito.
+
+

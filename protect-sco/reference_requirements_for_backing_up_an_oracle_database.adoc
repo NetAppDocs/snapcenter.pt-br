@@ -1,0 +1,26 @@
+---
+permalink: protect-sco/reference_requirements_for_backing_up_an_oracle_database.html 
+sidebar: sidebar 
+keywords: requirements, prerequisites 
+summary: Antes de fazer backup de um banco de dados Oracle, você deve garantir que os pré-requisitos sejam concluídos. 
+---
+= Requisitos para fazer backup de um banco de dados Oracle
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Antes de fazer backup de um banco de dados Oracle, você deve garantir que os pré-requisitos sejam concluídos.
+
+* Você deve ter criado um grupo de recursos com uma política anexada.
+* Se você quiser fazer backup de um recurso que tenha uma relação SnapMirror com um armazenamento secundário, a função ONTAP atribuída ao usuário de armazenamento deve incluir o privilégio "'SnapMirror All'". No entanto, se você estiver usando a função "vsadmin", o privilégio "SnapMirror all" não será necessário.
+* Você deve ter atribuído o agregado que está sendo usado pela operação de backup à máquina virtual de storage (SVM) usada pelo banco de dados.
+* Você deve ter verificado que todos os volumes de dados e volumes de log de arquivamento pertencentes ao banco de dados estão protegidos se a proteção secundária estiver ativada para esse banco de dados.
+* Você deve ter verificado que o banco de dados que tem arquivos nos grupos de discos ASM deve estar no estado "MOUNT" ou "OPEN" para verificar seus backups usando o utilitário Oracle DBVERIFY.
+* Você deve ter verificado que o comprimento do ponto de montagem do volume não excede 240 carateres.
+* Você deve aumentar o valor de RESTTimeout para 86400000 ms no arquivo _C: Arquivos de programas/NetApp no host do servidor SnapCenter, se o banco de dados que está sendo feito backup for grande (tamanho em TBs).
++
+Ao modificar os valores, certifique-se de que não existem trabalhos em execução e reinicie o serviço SnapCenter SMCore depois de aumentar o valor.
+
+

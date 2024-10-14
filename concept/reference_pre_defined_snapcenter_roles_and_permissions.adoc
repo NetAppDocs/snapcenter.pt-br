@@ -1,0 +1,824 @@
+---
+permalink: concept/reference_pre_defined_snapcenter_roles_and_permissions.html 
+sidebar: sidebar 
+keywords: RBAC, role, permission, pre-defined role 
+summary: 'O SnapCenter é fornecido com funções predefinidas, cada uma com um conjunto de permissões já ativadas. Ao configurar e administrar o controle de acesso baseado em função (RBAC), você pode usar essas funções predefinidas ou criar novas.' 
+---
+= Funções e permissões do SnapCenter predefinidas
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+O SnapCenter é fornecido com funções predefinidas, cada uma com um conjunto de permissões já ativadas. Ao configurar e administrar o controle de acesso baseado em funções (RBAC), você pode usar essas funções predefinidas ou criar novas.
+
+O SnapCenter inclui as seguintes funções predefinidas:
+
+* Função de administrador do SnapCenter
+* Função de Administrador de cópia de Segurança e Clonagem de aplicações
+* Função Visualizador de cópia de Segurança e Clonagem
+* Função de administrador de infraestrutura
+
+
+Ao adicionar um usuário a uma função, você deve atribuir a permissão StorageConnection para habilitar a comunicação de máquina virtual de armazenamento (SVM) ou atribuir um SVM ao usuário para habilitar a permissão para usar o SVM. A permissão Storage Connection permite que os usuários criem conexões SVM.
+
+Por exemplo, um usuário com a função Administrador do SnapCenter pode criar conexões SVM e atribuí-las a um usuário com a função Administrador de Backup e Clonagem de aplicativos, que por padrão não tem permissão para criar ou editar conexões SVM. Sem uma conexão com o SVM, os usuários não podem concluir operações de backup, clonagem ou restauração.
+
+
+
+== Função de administrador do SnapCenter
+
+A função de administrador do SnapCenter tem todas as permissões ativadas. Não é possível modificar as permissões para esta função. Você pode adicionar usuários e grupos à função ou removê-los.
+
+
+
+== Função de Administrador de cópia de Segurança e Clonagem de aplicações
+
+A função App Backup and Clone Admin tem as permissões necessárias para executar ações administrativas para backups de aplicativos e tarefas relacionadas a clones. Essa função não tem permissões para gerenciamento de host, provisionamento, gerenciamento de conexão de storage ou instalação remota.
+
+|===
+| Permissões | Ativado | Criar | Leia | Atualização | Eliminar 
+
+
+ a| 
+Grupo recursos
+ a| 
+Não aplicável
+ a| 
+Sim
+ a| 
+Sim
+ a| 
+Sim
+ a| 
+Sim
+
+
+
+ a| 
+Política
+ a| 
+Não aplicável
+ a| 
+Sim
+ a| 
+Sim
+ a| 
+Sim
+ a| 
+Sim
+
+
+
+ a| 
+Backup
+ a| 
+Não aplicável
+ a| 
+Sim
+ a| 
+Sim
+ a| 
+Sim
+ a| 
+Sim
+
+
+
+ a| 
+Host
+ a| 
+Não aplicável
+ a| 
+Sim
+ a| 
+Sim
+ a| 
+Sim
+ a| 
+Sim
+
+
+
+ a| 
+Ligação de armazenamento
+ a| 
+Não aplicável
+ a| 
+Não
+ a| 
+Sim
+ a| 
+Não
+ a| 
+Não
+
+
+
+ a| 
+Clone
+ a| 
+Não aplicável
+ a| 
+Sim
+ a| 
+Sim
+ a| 
+Sim
+ a| 
+Sim
+
+
+
+ a| 
+Provisionamento
+ a| 
+Não aplicável
+ a| 
+Não
+ a| 
+Sim
+ a| 
+Não
+ a| 
+Não
+
+
+
+ a| 
+Painel de instrumentos
+ a| 
+Sim
+ a| 
+Não aplicável
+ a| 
+Não aplicável
+ a| 
+Não aplicável
+ a| 
+Não aplicável
+
+
+
+ a| 
+Relatórios
+ a| 
+Sim
+ a| 
+Não aplicável
+ a| 
+Não aplicável
+ a| 
+Não aplicável
+ a| 
+Não aplicável
+
+
+
+ a| 
+Restaurar
+ a| 
+Sim
+ a| 
+Não aplicável
+ a| 
+Não aplicável
+ a| 
+Não aplicável
+ a| 
+Não aplicável
+
+
+
+ a| 
+Recurso
+ a| 
+Sim
+ a| 
+Sim
+ a| 
+Sim
+ a| 
+Sim
+ a| 
+Sim
+
+
+
+ a| 
+Instalação/desinstalação do plug-in
+ a| 
+Não
+ a| 
+Não aplicável
+ a| 
+ a| 
+Não aplicável
+ a| 
+Não aplicável
+
+
+
+ a| 
+Migração
+ a| 
+Não
+ a| 
+Não aplicável
+ a| 
+Não aplicável
+ a| 
+Não aplicável
+ a| 
+Não aplicável
+
+
+
+ a| 
+Montagem
+ a| 
+Sim
+ a| 
+Sim
+ a| 
+Não aplicável
+ a| 
+Não aplicável
+ a| 
+Não aplicável
+
+
+
+ a| 
+Desmontar
+ a| 
+Sim
+ a| 
+Sim
+ a| 
+Não aplicável
+ a| 
+Não aplicável
+ a| 
+Não aplicável
+
+
+
+ a| 
+Restauração completa do volume
+ a| 
+Não
+ a| 
+Não
+ a| 
+Não aplicável
+ a| 
+Não aplicável
+ a| 
+Não aplicável
+
+
+
+ a| 
+Monitor de trabalho
+ a| 
+Sim
+ a| 
+Não aplicável
+ a| 
+Não aplicável
+ a| 
+Não aplicável
+ a| 
+Não aplicável
+
+|===
+
+
+== Função Visualizador de cópia de Segurança e Clonagem
+
+A função Visualizador de cópia de Segurança e Clonagem tem uma vista só de leitura de todas as permissões. Essa função também tem permissões habilitadas para descoberta, geração de relatórios e acesso ao Dashboard.
+
+|===
+| Permissões | Ativado | Criar | Leia | Atualização | Eliminar 
+
+
+ a| 
+Grupo recursos
+ a| 
+Não aplicável
+ a| 
+Não
+ a| 
+Sim
+ a| 
+Não
+ a| 
+Não
+
+
+
+ a| 
+Política
+ a| 
+Não aplicável
+ a| 
+Não
+ a| 
+Sim
+ a| 
+Não
+ a| 
+Não
+
+
+
+ a| 
+Backup
+ a| 
+Não aplicável
+ a| 
+Não
+ a| 
+Sim
+ a| 
+Não
+ a| 
+Não
+
+
+
+ a| 
+Host
+ a| 
+Não aplicável
+ a| 
+Não
+ a| 
+Sim
+ a| 
+Não
+ a| 
+Não
+
+
+
+ a| 
+Ligação de armazenamento
+ a| 
+Não aplicável
+ a| 
+Não
+ a| 
+Sim
+ a| 
+Não
+ a| 
+Não
+
+
+
+ a| 
+Clone
+ a| 
+Não aplicável
+ a| 
+Não
+ a| 
+Sim
+ a| 
+Não
+ a| 
+Não
+
+
+
+ a| 
+Provisionamento
+ a| 
+Não aplicável
+ a| 
+Não
+ a| 
+Sim
+ a| 
+Não
+ a| 
+Não
+
+
+
+ a| 
+Painel de instrumentos
+ a| 
+Sim
+ a| 
+Não aplicável
+ a| 
+Não aplicável
+ a| 
+Não aplicável
+ a| 
+Não aplicável
+
+
+
+ a| 
+Relatórios
+ a| 
+Sim
+ a| 
+Não aplicável
+ a| 
+Não aplicável
+ a| 
+Não aplicável
+ a| 
+Não aplicável
+
+
+
+ a| 
+Restaurar
+ a| 
+Não
+ a| 
+Não
+ a| 
+Não aplicável
+ a| 
+Não aplicável
+ a| 
+Não aplicável
+
+
+
+ a| 
+Recurso
+ a| 
+Não
+ a| 
+Não
+ a| 
+Sim
+ a| 
+Sim
+ a| 
+Não
+
+
+
+ a| 
+Instalação/desinstalação do plug-in
+ a| 
+Não
+ a| 
+Não aplicável
+ a| 
+Não aplicável
+ a| 
+Não aplicável
+ a| 
+Não aplicável
+
+
+
+ a| 
+Migração
+ a| 
+Não
+ a| 
+Não aplicável
+ a| 
+Não aplicável
+ a| 
+Não aplicável
+ a| 
+Não aplicável
+
+
+
+ a| 
+Montagem
+ a| 
+Sim
+ a| 
+Não aplicável
+ a| 
+Não aplicável
+ a| 
+Não aplicável
+ a| 
+Não aplicável
+
+
+
+ a| 
+Desmontar
+ a| 
+Sim
+ a| 
+Não aplicável
+ a| 
+Não aplicável
+ a| 
+Não aplicável
+ a| 
+Não aplicável
+
+
+
+ a| 
+Restauração completa do volume
+ a| 
+Não
+ a| 
+Não aplicável
+ a| 
+Não aplicável
+ a| 
+Não aplicável
+ a| 
+Não aplicável
+
+
+
+ a| 
+Monitor de trabalho
+ a| 
+Sim
+ a| 
+Não aplicável
+ a| 
+Não aplicável
+ a| 
+Não aplicável
+ a| 
+Não aplicável
+
+|===
+
+
+== Função de administrador de infraestrutura
+
+A função Administrador de infraestrutura tem permissões habilitadas para gerenciamento de host, gerenciamento de storage, provisionamento, grupos de recursos, relatórios de instalação remota e acesso ao Dashboard.
+
+|===
+| Permissões | Ativado | Criar | Leia | Atualização | Eliminar 
+
+
+ a| 
+Grupo recursos
+ a| 
+Não aplicável
+ a| 
+Sim
+ a| 
+Sim
+ a| 
+Sim
+ a| 
+Sim
+
+
+
+ a| 
+Política
+ a| 
+Não aplicável
+ a| 
+Não
+ a| 
+Sim
+ a| 
+Sim
+ a| 
+Sim
+
+
+
+ a| 
+Backup
+ a| 
+Não aplicável
+ a| 
+Sim
+ a| 
+Sim
+ a| 
+Sim
+ a| 
+Sim
+
+
+
+ a| 
+Host
+ a| 
+Não aplicável
+ a| 
+Sim
+ a| 
+Sim
+ a| 
+Sim
+ a| 
+Sim
+
+
+
+ a| 
+Ligação de armazenamento
+ a| 
+Não aplicável
+ a| 
+Sim
+ a| 
+Sim
+ a| 
+Sim
+ a| 
+Sim
+
+
+
+ a| 
+Clone
+ a| 
+Não aplicável
+ a| 
+Não
+ a| 
+Sim
+ a| 
+Não
+ a| 
+Não
+
+
+
+ a| 
+Provisionamento
+ a| 
+Não aplicável
+ a| 
+Sim
+ a| 
+Sim
+ a| 
+Sim
+ a| 
+Sim
+
+
+
+ a| 
+Painel de instrumentos
+ a| 
+Sim
+ a| 
+Não aplicável
+ a| 
+Não aplicável
+ a| 
+Não aplicável
+ a| 
+Não aplicável
+
+
+
+ a| 
+Relatórios
+ a| 
+Sim
+ a| 
+Não aplicável
+ a| 
+Não aplicável
+ a| 
+Não aplicável
+ a| 
+Não aplicável
+
+
+
+ a| 
+Restaurar
+ a| 
+Sim
+ a| 
+Não aplicável
+ a| 
+Não aplicável
+ a| 
+Não aplicável
+ a| 
+Não aplicável
+
+
+
+ a| 
+Recurso
+ a| 
+Sim
+ a| 
+Sim
+ a| 
+Sim
+ a| 
+Sim
+ a| 
+Sim
+
+
+
+ a| 
+Instalação/desinstalação do plug-in
+ a| 
+Sim
+ a| 
+Não aplicável
+ a| 
+Não aplicável
+ a| 
+Não aplicável
+ a| 
+Não aplicável
+
+
+
+ a| 
+Migração
+ a| 
+Não
+ a| 
+Não aplicável
+ a| 
+Não aplicável
+ a| 
+Não aplicável
+ a| 
+Não aplicável
+
+
+
+ a| 
+Montagem
+ a| 
+Não
+ a| 
+Não aplicável
+ a| 
+Não aplicável
+ a| 
+Não aplicável
+ a| 
+Não aplicável
+
+
+
+ a| 
+Desmontar
+ a| 
+Não
+ a| 
+Não aplicável
+ a| 
+Não aplicável
+ a| 
+Não aplicável
+ a| 
+Não aplicável
+
+
+
+ a| 
+Restauração completa do volume
+ a| 
+Não
+ a| 
+Não
+ a| 
+Não aplicável
+ a| 
+Não aplicável
+ a| 
+Não aplicável
+
+
+
+ a| 
+Monitor de trabalho
+ a| 
+Sim
+ a| 
+Não aplicável
+ a| 
+Não aplicável
+ a| 
+Não aplicável
+ a| 
+Não aplicável
+
+|===

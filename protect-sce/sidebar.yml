@@ -1,0 +1,109 @@
+---
+section: protect-sce
+title: Proteja os bancos de dados do Microsoft Exchange Server
+entries:
+- title: Plug-in do SnapCenter para conceitos do Microsoft Exchange Server
+  entries:
+  - title: Visão geral
+    url: "/protect-sce/concept_snapcenter_plug_in_for_exchange_server_overview.html"
+  - title: O que você pode fazer com o plug-in SnapCenter para Microsoft Exchange
+      Server
+    url: "/protect-sce/concept_what_you_can_do_with_snapcenter_plug_in_for_microsoft_exchange_server.html"
+  - title: Tipos de armazenamento suportados pelo plug-in SnapCenter para Microsoft
+      Windows e para Microsoft Exchange Server
+    url: "/protect-sce/reference_storage_types_supported_by_snapcenter_plug_in_for_microsoft_windows_and_for_microsoft_exchange_server.html"
+  - title: Mínimo de ONTAP Privileges necessário
+    url: "/protect-sce/concept_minimum_privileges_required_exchange_plug_in.html"
+  - title: Preparar sistemas de storage para replicação SnapMirror e SnapVault
+    url: "/protect-sce/reference_prepare_storage_system_for_snapmirror_and_snapvault.html"
+  - title: Defina uma estratégia de backup para recursos do Exchange Server
+    url: "/protect-sce/task_define_a_backup_strategy_for_exchange_server_resources.html"
+  - title: Defina uma estratégia de restauração para bancos de dados do Exchange
+    url: "/protect-sce/task_define_a_restore_strategy_for_exchange_databases.html"
+- title: Instale o plug-in do SnapCenter para o Microsoft Exchange Server
+  entries:
+  - title: Fluxo de trabalho de instalação do plug-in SnapCenter para Microsoft Exchange
+      Server
+    url: "/protect-sce/concept_install_snapcenter_plug_in_for_microsoft_exchange_server.html"
+  - title: Pré-requisitos para adicionar hosts e instalar o plug-in do SnapCenter
+      para Microsoft Exchange Server
+    url: "/protect-sce/reference_prerequisites_to_add_hosts_and_install_snapcenter_plug_in_for_microsoft_exchange_server.html"
+  - title: Configurar credenciais para o plug-in SnapCenter para Windows
+    url: "/protect-sce/task_set_up_credentials_for_the_snapcenter_plug_in_for_windows_sce.html"
+  - title: Configure o gMSA no Windows Server 2016 ou posterior
+    url: "/protect-sce/task_configure_gMSA_on_windows_server_2012_or_later.html"
+  - title: Adicione hosts e instale o Plug-in para o Exchange
+    url: "/protect-sce/task_add_hosts_and_install_plug_in_for_exchange.html"
+  - title: Instale o plug-in para o Exchange a partir do host do servidor SnapCenter
+      usando cmdlets do PowerShell
+    url: "/protect-sce/task_install_plug_in_for_exchange_from_the_snapcenter_server_host_using_powershell_cmdlets.html"
+  - title: Instale o plug-in SnapCenter para Exchange silenciosamente a partir da
+      linha de comando
+    url: "/protect-sce/task_install_the_snapcenter_plug_in_for_exchange_silently_from_the_command_line.html"
+  - title: Monitore o status da instalação do pacote de plug-in SnapCenter
+    url: "/protect-sce/task_monitor_snapcenter_plug_in_package_installation_status.html"
+  - title: Configurar certificado CA
+    entries:
+    - title: Gerar arquivo CSR do certificado CA
+      url: "/protect-sce/reference_generate_CA_certificate_CSR_file.html"
+    - title: Importar certificados CA
+      url: "/protect-sce/task_import_CA_certificates.html"
+    - title: Obtenha a impressão digital do certificado CA
+      url: "/protect-sce/task_get_the_CA_certificate_thumbprint.html"
+    - title: Configure o certificado CA com os serviços de plug-in do host do Windows
+      url: "/protect-sce/task_configure_CA_certificate_with_Windows_host_plug-in_services.html"
+    - title: Ative certificados de CA para plug-ins
+      url: "/protect-sce/task_enable_ca_certificates_for_plug-ins.html"
+  - title: Configure o SnapManager 7.x para Exchange e SnapCenter para coexistir
+    url: "/protect-sce/task_configure_snapmanager_7_x_for_exchange_and_snapcenter_plug_in_for_exchange_to_coexist.html"
+- title: Instale o plug-in do SnapCenter para VMware vSphere
+  url: "/protect-sce/task_install_snapcenter_plug_in_for_vmware_vsphere.html"
+- title: Preparar-se para a proteção de dados
+  url: "/protect-sce/concept_prepare_for_data_protection.html"
+- title: Faça backup dos recursos do Exchange
+  entries:
+  - title: Fluxo de trabalho de backup
+    url: "/protect-sce/concept_back_up_exchange_resources.html"
+  - title: Exchange banco de dados e verificação de backup
+    url: "/protect-sce/reference_exchange_database_and_backup_verification.html"
+  - title: Determine se os recursos do Exchange estão disponíveis para backup
+    url: "/protect-sce/task_determine_whether_exchange_resources_are_available_for_backup_sce.html"
+  - title: Criar políticas de backup para bancos de dados do Exchange Server
+    url: "/protect-sce/task_create_backup_policies_for_exchange_server_databases.html"
+  - title: Crie grupos de recursos e anexe políticas para Exchange Servers
+    url: "/protect-sce/task_create_resource_groups_and_attach_policies_for_exchange_servers.html"
+  - title: Crie uma conexão de sistema de armazenamento e uma credencial usando cmdlets
+      do PowerShell para Exchange Server
+    url: "/protect-sce/task_create_a_storage_system_connection_and_a_credential_using_powershell_cmdlets_for_exchange_database.html"
+  - title: Faça backup de bancos de dados do Exchange
+    url: "/protect-sce/task_back_up_exchange_databases.html"
+  - title: Faça backup dos grupos de recursos do Exchange
+    url: "/protect-sce/task_back_up_exchange_resources_groups.html"
+  - title: Monitorar operações de backup
+    url: "/protect-sce/task_monitor_backup_operations.html"
+  - title: Cancelar operações de backup para o banco de dados do Exchange
+    url: "/protect-sce/task_cancel_backup_operations_for_exchange_database.html"
+  - title: Veja backups do Exchange na página topologia
+    url: "/protect-sce/task_view_exchange_backups_in_the_topology_page.html"
+- title: Restaure os recursos do Exchange
+  entries:
+  - title: Restaure o fluxo de trabalho
+    url: "/protect-sce/reference_restore_exchange_resources.html"
+  - title: Requisitos para restaurar um banco de dados do Exchange
+    url: "/protect-sce/concept_requirements_for_restoring_an_exchange_database.html"
+  - title: Restaure bancos de dados do Exchange
+    url: "/protect-sce/task_restore_exchange_databases.html"
+  - title: Recuperação granular de e-mails e caixa de correio
+    url: "/protect-sce/reference_granular_recovery_of_mails_and_mailbox.html"
+  - title: Restaure um banco de dados do Exchange Server a partir do armazenamento
+      secundário
+    url: "/protect-sce/task_restore_an_exchange_server_database_from_secondary_storage.html"
+  - title: Semente novamente uma réplica passiva do nó Exchange
+    url: "/protect-sce/task_reseed_a_passive_exchange_node_replica.html"
+  - title: Reseed uma réplica usando cmdlets do PowerShell para o banco de dados do
+      Exchange
+    url: "/protect-sce/task_reseed_a_replica_using_powershell_cmdlets_for_exchange_database.html"
+  - title: Monitorar as operações de restauração
+    url: "/protect-sce/task_monitor_restore_operations.html"
+  - title: Cancelar operações de restauração
+    url: "/protect-sce/task_cancel_restore_operations.html"

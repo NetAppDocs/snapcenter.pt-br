@@ -1,0 +1,51 @@
+---
+permalink: protect-sco/task_back_up_oracle_databases_using_unix_commands.html 
+sidebar: sidebar 
+keywords: backup, cli, commands 
+summary: O fluxo de trabalho de backup inclui Planejamento, identificação dos recursos para backup, criação de políticas de backup, criação de grupos de recursos e inclusão de políticas, criação de backups e monitoramento das operações. 
+---
+= Faça backup de bancos de dados Oracle usando comandos UNIX
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+O fluxo de trabalho de backup inclui Planejamento, identificação dos recursos para backup, criação de políticas de backup, criação de grupos de recursos e inclusão de políticas, criação de backups e monitoramento das operações.
+
+*O que você vai precisar*
+
+* Você deve ter adicionado as conexões do sistema de armazenamento e criado a credencial usando os comandos _Add-SmStorageConnection_ e _Add-SmCredential_.
+* Você deve ter estabelecido a sessão de conexão com o servidor SnapCenter usando o comando _Open-SmConnection_.
++
+Você pode ter apenas uma sessão de login da conta do SnapCenter e o token é armazenado no diretório home do usuário.
+
++
+
+NOTE: A sessão de ligação é válida apenas durante 24 horas. No entanto, você pode criar um token com a opção TokenNeverExpires para criar um token que nunca expira e a sessão sempre será válida.
+
+
+
+*Sobre esta tarefa*
+
+Você deve executar os seguintes comandos para estabelecer a conexão com o servidor SnapCenter, descobrir as instâncias de banco de dados Oracle, adicionar política e grupo de recursos, fazer backup e verificar o backup.
+
+As informações sobre os parâmetros que podem ser usados com o comando e suas descrições podem ser obtidas executando Get-Help _command_name_. Em alternativa, pode também consultar o https://library.netapp.com/ecm/ecm_download_file/ECMLP3323470["Guia de Referência de comandos do software SnapCenter"^].
+
+*Passos*
+
+. Inicie uma sessão de conexão com o servidor SnapCenter para um usuário especificado: _Open-SmConnection_
+. Execute a operação de descoberta de recursos do host: _Get-SmResources_
+. Configurar credenciais de banco de dados Oracle e nós preferenciais para operação de backup de um banco de dados do Real Application Cluster (RAC): _Configure-SmOracleDatabase_
+. Criar uma política de backup: _Add-SmPolicy_
+. Recuperar as informações sobre o local de armazenamento secundário (SnapVault ou SnapMirror) : _Get-SmSecondaryDetails_
++
+Este comando recupera os detalhes do mapeamento de armazenamento primário para secundário de um recurso especificado. Você pode usar os detalhes do mapeamento para configurar as configurações de verificação secundária ao criar um grupo de recursos de backup.
+
+. Adicionar um grupo de recursos ao SnapCenter: _Adicionar-SmResourceGroup_
+. Criar um backup: _New-SmBackup_
++
+Você pode poll a tarefa usando a opção WaitForCompletion. Se essa opção for especificada, o comando continuará a polling o servidor até a conclusão da tarefa de backup.
+
+. Recuperar os logs do SnapCenter: _Get-SmLogs_
+

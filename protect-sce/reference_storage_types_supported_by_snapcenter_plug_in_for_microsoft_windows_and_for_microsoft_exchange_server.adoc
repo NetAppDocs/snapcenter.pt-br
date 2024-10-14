@@ -1,0 +1,92 @@
+---
+permalink: protect-sce/reference_storage_types_supported_by_snapcenter_plug_in_for_microsoft_windows_and_for_microsoft_exchange_server.html 
+sidebar: sidebar 
+keywords: SnapCenter Plug-in for Microsoft Exchange Server 
+summary: O SnapCenter suporta uma ampla variedade de tipos de armazenamento em máquinas físicas e máquinas virtuais. Você deve verificar se há suporte disponível para o seu tipo de armazenamento antes de instalar o pacote para o seu host. 
+---
+= Tipos de armazenamento suportados pelo plug-in SnapCenter para Microsoft Windows e para Microsoft Exchange Server
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+O SnapCenter suporta uma ampla variedade de tipos de armazenamento em máquinas físicas e máquinas virtuais. Você deve verificar se há suporte disponível para o seu tipo de armazenamento antes de instalar o pacote para o seu host.
+
+O suporte para provisionamento e proteção de dados do SnapCenter está disponível no Windows Server. Para obter as informações mais recentes sobre versões suportadas, consulte a https://imt.netapp.com/matrix/imt.jsp?components=121031;&solution=1259&isHWU&src=IMT[] [ferramenta de Matriz de interoperabilidade NetApp].
+
+|===
+| Máquina | Tipo de armazenamento | Provisione usando | Notas de suporte 
+
+
+ a| 
+Servidor físico
+ a| 
+LUNs conectados a FC
+ a| 
+Cmdlets da interface gráfica do usuário (GUI) do SnapCenter ou do PowerShell
+ a| 
+
+
+
+ a| 
+Servidor físico
+ a| 
+LUNs ligados ao iSCSI
+ a| 
+Cmdlets SnapCenter GUI ou PowerShell
+ a| 
+
+
+
+ a| 
+VMware VM
+ a| 
+LUNs RDM ligados por um FC ou iSCSI HBA
+ a| 
+Cmdlets do PowerShell
+ a| 
+Apenas compatibilidade física
+
+
+NOTE: VMDKs não são suportados.
+
+
+
+ a| 
+VMware VM
+ a| 
+ISCSI LUNs ligados diretamente ao sistema convidado pelo iniciador iSCSI
+ a| 
+Cmdlets SnapCenter GUI ou PowerShell
+ a| 
+
+NOTE: VMDKs não são suportados.
+
+
+
+ a| 
+VM Hyper-V
+ a| 
+LUNs de FC virtual (VFC) conectados por um switch Fibre Channel virtual
+ a| 
+Cmdlets SnapCenter GUI ou PowerShell
+ a| 
+Você deve usar o Hyper-V Manager para provisionar LUNs Virtual FC (VFC) conectados por um switch Fibre Channel virtual.
+
+
+NOTE: O Hyper-V passa por discos e faz backup de bancos de dados em VHD(x) que são provisionados no armazenamento NetApp não são suportados.
+
+
+
+ a| 
+VM Hyper-V
+ a| 
+ISCSI LUNs ligados diretamente ao sistema convidado pelo iniciador iSCSI
+ a| 
+Cmdlets SnapCenter GUI ou PowerShell
+ a| 
+
+NOTE: O Hyper-V passa por discos e faz backup de bancos de dados em VHD(x) que são provisionados no armazenamento NetApp não são suportados.
+
+|===

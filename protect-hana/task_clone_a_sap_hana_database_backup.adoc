@@ -1,0 +1,207 @@
+---
+permalink: protect-hana/task_clone_a_sap_hana_database_backup.html 
+sidebar: sidebar 
+keywords: SnapCenter Plug-in for SAP HANA Database,run as 
+summary: Você pode usar o SnapCenter para clonar um backup. Você pode clonar do backup primário ou secundário. 
+---
+= Clone um backup de banco de dados SAP HANA
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Você pode usar o SnapCenter para clonar um backup. Você pode clonar do backup primário ou secundário.
+
+.Antes de começar
+* Você deve ter feito backup dos recursos ou do grupo de recursos.
+* Você deve garantir que os agregados que hospedam os volumes estejam na lista de agregados atribuídos da máquina virtual de storage (SVM).
+* Não é possível clonar backups baseados em arquivo.
+* O servidor clone de destino deve ter o mesmo SID de instância do SAP HANA que é fornecido no campo SID Clone de destino.
+* Para comandos pré-clone ou pós-clone, você deve verificar se os comandos existem na lista de comandos disponível no host do plug-in a partir dos seguintes caminhos:
++
+Para o Windows: _C: Arquivos de programas/NetApp/SnapCenter/SnapCenter Plug-in Creator/etc/allowed_commands_list.txt_
+
++
+Para Linux: _/var/opt/SnapCenter/scc/allowed_commands_list.txt_
+
+
+
+
+NOTE: Se os comandos não existirem na lista de comandos, a operação falhará.
+
+.Sobre esta tarefa
+* Para obter informações sobre limitações de operação de divisão de clones, http://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-vsmg/home.html["Guia de gerenciamento de storage lógico do ONTAP 9"^] consulte .
+* Para a versão ONTAP 9.12,1 e inferior, os clones criados a partir dos instantâneos do Vault do SnapLock como parte da restauração herdarão o tempo de expiração do SnapLock Vault. O administrador do storage deve limpar manualmente os clones após o tempo de expiração do SnapLock.
+
+
+[role="tabbed-block"]
+====
+.IU do SnapCenter
+--
+.Passos
+. No painel de navegação esquerdo, clique em *Resources* e selecione o plug-in apropriado na lista.
+. Na página recursos, filtre recursos da lista suspensa *Exibir* com base no tipo de recurso.
++
+Os recursos são exibidos juntamente com informações como tipo, host, grupos e políticas de recursos associados e status.
+
+. Selecione o grupo de recursos ou recursos.
++
+Você deve selecionar um recurso se selecionar um grupo de recursos.
+
++
+A página de topologia do grupo de recursos ou recursos é exibida.
+
+. Na exibição Gerenciar cópias, selecione *backups* nos sistemas de armazenamento primário ou secundário (espelhado ou abobadado).
+. Selecione o backup de dados na tabela e clique image:../media/clone_icon.gif["ícone de clone"]em .
+. Na página localização, execute as seguintes ações:
++
+|===
+| Para este campo... | Faça isso... 
+
+
+ a| 
+Host plug-in
+ a| 
+Selecione o host no qual o clone deve ser montado e o plug-in está instalado.
+
+
+
+ a| 
+SID Clone alvo
+ a| 
+Insira o ID da instância do SAP HANA para clonar dos backups existentes.
+
+
+
+ a| 
+Endereço IP de exportação NFS
+ a| 
+Insira endereços IP ou os nomes de host nos quais os volumes clonados serão exportados.
+
+
+
+ a| 
+Iniciador iSCSI
+ a| 
+Insira o nome do iniciador iSCSI do host para o qual os LUNs são exportados. Esta opção só está disponível se você selecionou o tipo de recurso LUN.
+
+
+
+ a| 
+Protocolo
+ a| 
+Introduza o protocolo LUN. Esta opção só está disponível se você selecionou o tipo de recurso LUN.
+
+|===
++
+Se o recurso selecionado for um LUN e você estiver clonando de um backup secundário, os volumes de destino serão listados. Uma única fonte pode ter vários volumes de destino.
+
++
+
+NOTE: Antes da clonagem, você deve garantir que o iniciador iSCSI ou o FCP estejam presentes e configurados e conetados em hosts alternativos.
+
+. Na página Scripts, execute as seguintes etapas:
++
+
+NOTE: Os scripts são executados no host do plug-in.
+
++
+.. Digite os comandos para pré-clone ou pós-clone que devem ser executados antes ou depois da operação clone, respetivamente.
++
+*** Comando pre clone: Exclua bancos de dados existentes com o mesmo nome
+*** Comando Post clone: Verifique um banco de dados ou inicie um banco de dados.
+
+
+.. Digite o comando mount para montar um sistema de arquivos em um host.
++
+Monte o comando para um volume ou qtree em uma máquina Linux:
+
++
+Exemplo para NFS:
+
++
+ mount VSERVER_DATA_IP:%VOLUME_NAME_Clone /mnt
++
+
+NOTE: Para os comandos pre e POST para operações quiesce, Snapshot e unquiesce, você deve verificar se os comandos existem na lista de comandos disponível no host plug-in a partir do caminho _/opt/SnapCenter/snapenter/scc/allowed_commands.config_ para Linux e _C: Arquivos de programas/NetApp/SnapCenter/SnapCenter Plug-in Creator/allowed_Commands_list.txt.
+
+
+
+. Na página notificação, na lista suspensa *preferência de e-mail*, selecione os cenários nos quais você deseja enviar os e-mails.
++
+Você também deve especificar os endereços de e-mail do remetente e do destinatário e o assunto do e-mail.
+
+. Revise o resumo e clique em *Finish*.
+. Monitorize o progresso da operação clicando em *Monitor* > *trabalhos*.
+
+
+--
+.Cmdlets do PowerShell
+--
+.Passos
+. Inicie uma sessão de conexão com o servidor SnapCenter para um usuário especificado usando o cmdlet Open-SmConnection.
++
+[listing]
+----
+Open-SmConnection  -SMSbaseurl  https:\\snapctr.demo.netapp.com:8146/
+----
+. Recupere os backups para executar a operação de clone usando o cmdlet Get-SmBackup.
++
+Este exemplo mostra que dois backups estão disponíveis para clonagem:
+
++
+[listing]
+----
+ C:\PS> Get-SmBackup
+
+        BackupId                      BackupName                    BackupTime                    BackupType
+        --------                      ----------                    ----------                    ----------
+         1                     Payroll Dataset_vise-f6_08... 8/4/2015 11:02:32 AM          Full Backup
+         2                     Payroll Dataset_vise-f6_08... 8/4/2015 11:23:17 AM
+----
+. Inicie uma operação de clone a partir de um backup existente e especifique os endereços IP de exportação NFS nos quais os volumes clonados são exportados.
++
+Este exemplo mostra que o backup a ser clonado tem um endereço NFSExportIPs de 10.232.206.169:
+
++
+[listing]
+----
+New-SmClone -AppPluginCode hana -BackupName scsccore1_sccore_test_com_hana_H73_scsccore1_06-07-2017_02.54.29.3817 -Resources @{"Host"="scsccore1.sccore.test.com";"Uid"="H73"}  -CloneToInstance shivscc4.sccore.test.com -mountcommand 'mount 10.232.206.169:%hana73data_Clone /hana83data' -preclonecreatecommands '/home/scripts/scpre_clone.sh' -postclonecreatecommands '/home/scripts/scpost_clone.sh'
+----
++
+
+NOTE: Se NFSExportIPs não for especificado, o padrão será exportado para o host de destino clone.
+
+. Verifique se os backups foram clonados com sucesso usando o cmdlet Get-SmCloneReport para exibir os detalhes da tarefa clone.
++
+Você pode exibir detalhes como ID do clone, data e hora de início, data e hora de término.
+
++
+[listing]
+----
+PS C:\> Get-SmCloneReport -JobId 186
+
+    SmCloneId           : 1
+    SmJobId             : 186
+    StartDateTime       : 8/3/2015 2:43:02 PM
+    EndDateTime         : 8/3/2015 2:44:08 PM
+    Duration            : 00:01:06.6760000
+    Status              : Completed
+    ProtectionGroupName : Draper
+    SmProtectionGroupId : 4
+    PolicyName          : OnDemand_Clone
+    SmPolicyId          : 4
+    BackupPolicyName    : OnDemand_Full_Log
+    SmBackupPolicyId    : 1
+    CloneHostName       : SCSPR0054212005.mycompany.com
+    CloneHostId         : 4
+    CloneName           : Draper__clone__08-03-2015_14.43.53
+    SourceResources     : {Don, Betty, Bobby, Sally}
+    ClonedResources     : {Don_DRAPER, Betty_DRAPER, Bobby_DRAPER, Sally_DRAPER}
+    SmJobError          :
+----
+
+
+--
+====

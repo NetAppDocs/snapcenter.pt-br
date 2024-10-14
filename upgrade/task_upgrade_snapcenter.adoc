@@ -1,0 +1,87 @@
+---
+permalink: upgrade/task_upgrade_snapcenter.html 
+sidebar: sidebar 
+keywords: upgrade, upgrade snapcenter server, windows 
+summary: Você pode usar o arquivo executável do instalador do servidor SnapCenter para atualizar o servidor SnapCenter. 
+---
+= Atualize o servidor SnapCenter no host Windows
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Você pode usar o arquivo executável do instalador do servidor SnapCenter para atualizar o servidor SnapCenter.
+
+.Antes de começar
+* O host do servidor SnapCenter deve estar atualizado com as atualizações do Windows, sem reiniciar o sistema pendente.
+* Você deve garantir que nenhuma outra operação esteja sendo executada antes de iniciar a operação de atualização.
+* Você deve fazer backup do banco de dados do repositório SnapCenter (MySQL) depois de garantir que nenhum trabalho esteja sendo executado. Isso é recomendado antes de atualizar o servidor SnapCenter e o plug-in do Exchange.
++
+Para obter informações, link:../admin/concept_manage_the_snapcenter_server_repository.html#back-up-the-snapcenter-repository["Faça backup do repositório do SnapCenter"^]consulte .
+
+* Você deve fazer backup de todos os arquivos de configuração do SnapCenter que você modificou no host do servidor SnapCenter ou no host do plug-in.
++
+Exemplos de arquivos de configuração do SnapCenter: SnapDriveService.exe.config, SMCoreServiceHost.exe.config e assim por diante.
+
+
+
+.Sobre esta tarefa
+* Durante a atualização, o host é colocado automaticamente no modo de manutenção, o que impede que o host execute quaisquer tarefas agendadas. Após a atualização, o host é automaticamente retirado do modo de manutenção.
+* Durante a atualização, um script SQL é executado para atualizar os dados do Exchange no banco de dados NSM, que converte o DAG e o nome abreviado do host para FQDN. Isso é aplicável somente se você estiver usando o SnapCenter Server com o plug-in do Exchange.
+* Antes de iniciar a operação de atualização, se você tiver colocado manualmente o host no modo de manutenção, após a atualização você precisa tirar manualmente o host do modo de manutenção clicando em *hosts* > *Activate Schedule*.
+* Para o plug-in do SnapCenter para Microsoft SQL Server, o plug-in do SnapCenter para Microsoft Exchange Server e o plug-in do SnapCenter para Microsoft Windows, é recomendável atualizar o servidor e os hosts do plug-in para a versão 4,7 para a execução do SCRIPT_PATH.
++
+Para as agendas de backup e verificação existentes com prescripts e pós-scripts ativados na política, as operações de backup continuarão a funcionar após a atualização.
+
++
+Na página *Detalhes da tarefa*, uma mensagem de aviso recomenda que o cliente copie os scripts para o SCRIPT_path e edite a política para fornecer um caminho relativo ao SCRIPT_path. Para o trabalho de ciclo de vida do clone, a mensagem de aviso aparece no nível do subtrabalho.
+
+
+
+.Passos
+. Baixe o pacote de instalação do servidor SnapCenter no site de suporte da NetApp.
++
+https://mysupport.netapp.com/site/products/all/details/snapcenter/downloads-tab[]
+
+. Crie uma cópia do web.config localizado em C: Arquivos de programas/NetApp/SnapCenter WebApp.
+. Exporte as programações do SnapCenter relacionadas ao host do plug-in a partir do agendamento de tarefas do Windows para que você possa usá-lo para restaurar as programações se a atualização falhar.
++
+`md d:\\SCBackup``schtasks /query /xml /TN taskname >> "D:\SCBackup\taskname.xml"`
+
+. Crie o despejo de banco de dados MySQL do SnapCenter se o backup do repositório não estiver configurado.
++
+`md d:\\SCBackup``mysqldump --all-databases --single-transaction --add-drop-database --triggers --routines --events -u root -p > D:\SCBackup\SCRepoBackup.dmp`
+
++
+Quando solicitado, introduza a palavra-passe.
+
+. Inicie a atualização do servidor SnapCenter clicando duas vezes no arquivo .exe baixado.
++
+Depois de iniciar a atualização, todas as pré-verificações são executadas e, se os requisitos mínimos não forem atendidos, são exibidas mensagens de erro ou aviso apropriadas. Pode ignorar as mensagens de aviso e prosseguir com a instalação. No entanto, os erros devem ser corrigidos.
+
++
+
+NOTE: O SnapCenter continuará a usar a senha de banco de dados existente do repositório do servidor MySQL fornecida durante a instalação da versão anterior do servidor SnapCenter.
+
+. Clique em *Upgrade*.
++
+Em qualquer fase, se clicar no botão *Cancelar*, o fluxo de trabalho de atualização será cancelado. Ele não irá reverter o servidor SnapCenter para o estado anterior.
+
++
+|===
+
+
+| *Prática recomendada:* você deve fazer logout e, em seguida, fazer login no SnapCenter, ou fechar e, em seguida, abrir um novo navegador para acessar a GUI do SnapCenter. 
+|===
+
+
+.Depois de terminar
+* Se o plug-in for instalado usando um usuário sudo, você deve copiar as chaves sha224 disponíveis em _C:/NetApp/SnapCenter para atualizar o arquivo _/etc/sudoers_.
+* Você deve realizar uma nova descoberta de recursos nos hosts.
++
+Se o status do host for exibido como parado, você pode esperar por algum tempo e executar uma nova descoberta. Você também pode alterar o valor do parâmetro *HostRefreshInterval* (o valor padrão é 3600 segundos) para qualquer valor superior a 10 minutos.
+
+* Se a atualização falhar, você deve limpar a instalação com falha, reinstalar a versão anterior do SnapCenter e, em seguida, restaurar o banco de dados NSM para o estado anterior.
+* Depois de atualizar o host do servidor SnapCenter, você também deve atualizar os plug-ins antes de adicionar qualquer sistema de storage.
+

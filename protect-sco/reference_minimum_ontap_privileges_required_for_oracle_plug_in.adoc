@@ -1,0 +1,89 @@
+---
+permalink: protect-sco/reference_minimum_ontap_privileges_required_for_oracle_plug_in.html 
+sidebar: sidebar 
+keywords: ONTAP privileges 
+summary: Os ONTAP Privileges mínimos necessários variam de acordo com os plug-ins do SnapCenter que você está usando para proteção de dados. 
+---
+= Mínimo de ONTAP Privileges necessário para plug-in para Oracle
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Os ONTAP Privileges mínimos necessários variam de acordo com os plug-ins do SnapCenter que você está usando para proteção de dados.
+
+* Comandos All-Access: Privileges mínimo necessário para o ONTAP 8.3.0 e posterior
++
+** event generate-AutoSupport-log
+** mostra o histórico de trabalhos
+** paragem do trabalho
+** lun
+** show de atributo lun
+** lun criar
+** eliminação lun
+** geometria lun
+** lun igrop add
+** lun igrop criar
+** eliminação do agrupamento lun
+** mudar o nome do grupo lun
+** show de grupos de lun
+** nós complementares de mapeamento de lun
+** mapeamento lun criar
+** eliminação do mapeamento lun
+** mapeamento lun remove-reporting-nonos
+** mostra de mapeamento lun
+** modificação de lun
+** movimentação de lun no volume
+** lun offline
+** lun online
+** limpeza da reserva persistente de lun
+** redimensionar lun
+** série lun
+** mostra lun
+** regra adicional de política do SnapMirror
+** regra de modificação de política do SnapMirror
+** regra de remoção da política do SnapMirror
+** SnapMirror policy show
+** restauração de SnapMirror
+** SnapMirror show
+** SnapMirror show-history
+** atualização do SnapMirror
+** SnapMirror update-ls-set
+** SnapMirror lista-destinos
+** versão
+** clone de volume criar
+** show de clone de volume
+** início da divisão do clone de volume
+** paragem dividida clone volume
+** criar volume
+** destruição de volume
+** clone de arquivo de volume criar
+** show-disk-use do arquivo de volume
+** volume off-line
+** volume online
+** modificação do volume
+** criar qtree de volume
+** eliminação de qtree de volume
+** modificação de qtree de volume
+** apresentação de qtree de volume
+** restrição de volume
+** apresentação do volume
+** criar instantâneo de volume
+** eliminar instantâneo do volume
+** modificação do instantâneo do volume
+** mudar o nome do instantâneo do volume
+** restauração de snapshot de volume
+** restauração de arquivo de snapshot de volume
+** apresentação de instantâneo do volume
+** desmontar o volume
+** svm
+** svm cifs
+** apresentação do shadowcopy cifs de svm
+** mostra o svm
+** interface de rede
+** mostra da interface de rede
+** MetroCluster show
+
+
+

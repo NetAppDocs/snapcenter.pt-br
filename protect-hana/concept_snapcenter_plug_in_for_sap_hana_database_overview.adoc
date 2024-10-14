@@ -1,0 +1,20 @@
+---
+permalink: protect-hana/concept_snapcenter_plug_in_for_sap_hana_database_overview.html 
+sidebar: sidebar 
+keywords: SnapCenter Plug-in for SAP HANA Database 
+summary: O plug-in do SnapCenter para banco de dados SAP HANA é um componente do lado do host do software NetApp SnapCenter que permite o gerenciamento da proteção de dados com reconhecimento de aplicações de bancos de dados SAP HANA. O plug-in para banco de dados SAP HANA automatiza o backup, a restauração e a clonagem de bancos de dados SAP HANA em seu ambiente SnapCenter. 
+---
+= Visão geral do plug-in do SnapCenter para banco de dados SAP HANA
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+O plug-in do SnapCenter para banco de dados SAP HANA é um componente do lado do host do software NetApp SnapCenter que permite o gerenciamento da proteção de dados com reconhecimento de aplicações de bancos de dados SAP HANA. O plug-in para banco de dados SAP HANA automatiza o backup, a restauração e a clonagem de bancos de dados SAP HANA em seu ambiente SnapCenter.
+
+O SnapCenter é compatível com contêineres únicos e contêineres de banco de dados multitenant (MDC). Você pode usar o plug-in para banco de dados SAP HANA em ambientes Windows e Linux. O plug-in que não está instalado no host do banco de dados HANA é conhecido como plug-in de host centralizado. O plug-in de host centralizado pode gerenciar vários bancos de DADOS HANA em diferentes hosts.
+
+Quando o plug-in para banco de dados SAP HANA é instalado, você pode usar o SnapCenter com a tecnologia NetApp SnapMirror para criar cópias espelhadas de conjuntos de backup em outro volume. Você também pode usar o plug-in com a tecnologia NetApp SnapVault para executar a replicação de backup disco a disco para conformidade com os padrões.
+
+O plug-in para banco de dados SAP HANA é compatível com a sincronização ativa do SnapMirror (lançada inicialmente como SnapMirror Business Continuity [SM-BC]), que permite que os serviços empresariais continuem operando mesmo em caso de falha completa do local, dando suporte ao failover de aplicações de forma transparente usando uma cópia secundária. Nem a intervenção manual nem o script adicional são necessários para acionar um failover com a sincronização ativa do SnapMirror.

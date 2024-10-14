@@ -1,0 +1,102 @@
+---
+permalink: protect-sco/task_mount_and_unmount_databases_backups.html 
+sidebar: sidebar 
+keywords: mount, unmount, backup, ASM, asm_diskstring 
+summary: Você pode montar um único ou vários dados e Registrar somente backups se quiser acessar os arquivos no backup. Você pode montar o backup no mesmo host em que o backup foi criado ou em um host remoto com o mesmo tipo de configurações Oracle e host. Se você tiver montado manualmente os backups, deverá desmontar manualmente os backups após concluir a operação. Você pode montar o backup do banco de dados apenas uma vez em um host para um banco de dados específico. Ao executar uma operação, você pode montar apenas um único backup. 
+---
+= Montar e desmontar backups de bancos de dados
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Você pode montar um único ou vários dados e Registrar somente backups se quiser acessar os arquivos no backup. Você pode montar o backup no mesmo host em que o backup foi criado ou em um host remoto com o mesmo tipo de configurações Oracle e host. Se você tiver montado manualmente os backups, deverá desmontar manualmente os backups após concluir a operação. Em qualquer instância, um backup de um banco de dados pode ser montado em qualquer um do host. Ao executar uma operação, você pode montar apenas um único backup.
+
+
+NOTE: Em uma configuração do Flex ASM, você não pode executar a operação de montagem em Leaf Nodes se a cardinalidade for menor que os nós numéricos no cluster RAC.
+
+
+
+== Montar um backup de banco de dados
+
+Você deve montar manualmente um backup de banco de dados se quiser acessar os arquivos no backup.
+
+*O que você vai precisar*
+
+* Se você tiver uma instância de banco de dados de Gerenciamento Automático de armazenamento (ASM) em um ambiente NFS e quiser montar os backups ASM, você deve ter adicionado o caminho de disco ASM _/var/opt/SnapCenter/SCO/backup_*/_*_/_/_*_/_ ao caminho existente definido no parâmetro ASM_diskstring.
+* Se você tiver uma instância de banco de dados ASM em um ambiente NFS e quiser montar os backups de log ASM como parte de uma operação de recuperação, você deve ter adicionado o caminho de disco ASM _/var/opt/SnapCenter/scu/clones/_*_/_ ao caminho existente definido no parâmetro ASM_diskstring.
+* No parâmetro ASM_diskstring, você deve configurar _AFD:*_ se estiver usando ASMFD ou configurar _ORCL:*_ se estiver usando ASMLIB.
+
+
+
+NOTE: Para obter informações sobre como editar o parâmetro ASM_diskstring, https://kb.netapp.com/Advice_and_Troubleshooting/Data_Protection_and_Security/SnapCenter/Disk_paths_are_not_added_to_the_asm_diskstring_database_parameter["Como adicionar caminhos de disco ao ASM_diskstring"^]consulte .
+
+* Você deve configurar as credenciais ASM e a porta ASM se for diferente da do host do banco de dados de origem durante a montagem do backup.
+* Se você quiser montar em um host alternativo, verifique se o host alternativo atende aos seguintes requisitos:
++
+** O mesmo UID e GID do host original
+** Mesma versão Oracle que a do host original
+** A mesma distribuição e versão do sistema operacional que a do host original
+** Para NVMe, o NVMe útil deve ser instalado
+
+
+* Você deve garantir que o LUN não seja mapeado para o host AIX usando o iGroup que consiste em protocolos mistos iSCSI e FC. Para obter mais informações, https://kb.netapp.com/mgmt/SnapCenter/SnapCenter_Plug-in_for_Oracle_operations_fail_with_error_Unable_to_discover_the_device_for_LUN_LUN_PATH["A operação falha com erro não é possível descobrir o dispositivo para LUN"^]consulte .
+
+
+*Passos*
+
+. No painel de navegação esquerdo, clique em *Resources* e selecione o plug-in apropriado na lista.
+. Na página recursos, selecione *Banco de dados* ou *Grupo de recursos* na lista *Exibir*.
+. Selecione o banco de dados na exibição de detalhes do banco de dados ou na exibição de detalhes do grupo de recursos.
++
+A página de topologia do banco de dados é exibida.
+
+. Na exibição Gerenciar cópias, selecione *backups* no sistema de armazenamento primário ou secundário (espelhado ou replicado).
+. Selecione o backup na tabela e clique image:../media/mount_icon.gif["ícone de montagem"]em .
+. Na página Monte backups, selecione o host no qual você deseja montar o backup na lista suspensa *escolha o host para montar o backup*.
++
+O caminho de montagem _/var/opt/SnapCenter/SCO/backup_mount/backup_name/database_name_ é exibido.
+
++
+Se você estiver montando o backup de um banco de dados ASM, o caminho de montagem -diskgroupname_SID_backupid será exibido.
+
+. Clique em *montar*.
+
+
+*Depois de terminar*
+
+* Você pode executar o seguinte comando para recuperar as informações relacionadas ao backup montado:
++
+`./sccli Get-SmBackup -BackupName backup_name -ListMountInfo`
+
+* Se tiver montado uma base de dados ASM, pode executar o seguinte comando para recuperar as informações relacionadas com a cópia de segurança montada:
++
+`./sccli Get-Smbackup -BackupNamediskgroupname_SID_backupid-listmountinfo`
+
+* Para recuperar o ID de backup, execute o seguinte comando:
++
+`./sccli Get-Smbackup-BackupNamebackup_name`
+
++
+As informações sobre os parâmetros que podem ser usados com o comando e suas descrições podem ser obtidas executando Get-Help _command_name_. Em alternativa, pode também consultar o https://library.netapp.com/ecm/ecm_download_file/ECMLP3323470["Guia de Referência de comandos do software SnapCenter"^].
+
+
+
+
+
+== Desmontar um backup de banco de dados
+
+Você pode desmontar manualmente um backup de banco de dados montado quando não quiser mais acessar arquivos no backup.
+
+*Passos*
+
+. No painel de navegação esquerdo, clique em *Resources* e selecione o plug-in apropriado na lista.
+. Na página recursos, selecione *Banco de dados* ou *Grupo de recursos* na lista *Exibir*.
+. Selecione o banco de dados na exibição de detalhes do banco de dados ou na exibição de detalhes do grupo de recursos.
++
+A página de topologia do banco de dados é exibida.
+
+. Selecione a cópia de segurança montada e, em seguida, clique image:../media/unmount_icon.gif["desmontar o ícone"]em .
+. Clique em *OK*.
+

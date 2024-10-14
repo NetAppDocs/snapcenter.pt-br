@@ -1,0 +1,202 @@
+---
+permalink: protect-nsp/add_resources_to_netapp_supported_plugins.html 
+sidebar: sidebar 
+keywords: NetApp supported plug-in, resources, snapcenter 
+summary: Você deve adicionar os recursos que deseja fazer backup ou clonar. Dependendo do seu ambiente, os recursos podem ser instâncias de banco de dados ou coleções que você deseja fazer backup ou clonar. 
+---
+= Adicione recursos aos plug-ins compatíveis com NetApp
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Você deve adicionar os recursos que deseja fazer backup ou clonar. Dependendo do seu ambiente, os recursos podem ser instâncias de banco de dados ou coleções que você deseja fazer backup ou clonar.
+
+.Antes de começar
+* Você deve ter concluído tarefas como instalar o servidor SnapCenter, adicionar hosts, criar conexões do sistema de storage e adicionar credenciais.
+* Você deve ter link:develop_a_plug_in_for_your_application.html["criou um plug-in personalizado para a sua aplicação"].
+* Você deve ter carregado os plug-ins para o servidor SnapCenter.
+
+
+.Passos
+. No painel de navegação esquerdo, selecione *Resources* e, em seguida, selecione o plug-in apropriado na lista.
+. Na página recursos, selecione *Adicionar recurso*.
+. Na página fornecer detalhes do recurso, execute as seguintes ações:
++
+|===
+| Para este campo... | Faça isso... 
+
+
+ a| 
+Nome
+ a| 
+Introduza o nome do recurso.
+
+
+
+ a| 
+Nome do host
+ a| 
+Selecione o host.
+
+
+
+ a| 
+Tipo
+ a| 
+Selecione o tipo. Tipo é definido pelo usuário de acordo com o arquivo de descrição do plug-in. Por exemplo, banco de dados e instância.
+
+Caso o tipo selecionado tenha um pai, insira os detalhes do pai. Por exemplo, se o tipo for Banco de dados e o pai for Instância, insira os detalhes da Instância.
+
+
+
+ a| 
+Nome da credencial
+ a| 
+Selecione credencial ou crie uma nova credencial.
+
+
+
+ a| 
+Monte caminhos
+ a| 
+Introduza os caminhos de montagem onde o recurso está montado. Isso é aplicável apenas para um host Windows.
+
+|===
+. Na página fornecer espaço físico de armazenamento, selecione um sistema de armazenamento e escolha um ou mais volumes, LUNs e qtrees e, em seguida, selecione *Salvar*.
++
+Opcional: Selecione o image:../media/add_policy_from_resourcegroup.gif["Ícone Plus"] ícone para adicionar mais volumes, LUNs e qtrees de outros sistemas de armazenamento.
+
++
+
+NOTE: Os plug-ins compatíveis com NetApp não oferecem suporte à descoberta automática dos recursos. Os detalhes de armazenamento de ambientes físicos e virtuais também não são descobertos automaticamente. Você precisa fornecer as informações de storage para ambientes físicos e virtuais ao criar os recursos.
+
++
+image::../media/storage_footprint.gif[Ocupação física do storage]
+
+. Na página Configurações de recursos, forneça pares de valor de chave personalizados para o recurso.
++
+
+NOTE: Certifique-se de que o nome das chaves personalizadas está em maiúsculas.
+
++
+image::../media/resource_settings.gif[definições de recursos]
+
++
+Para os respetivos parâmetros de plug-in, consulte link:add_resources_to_netapp_supported_plugins.html#parameters-to-configure-the-resource["Parâmetros para configurar o recurso"]
+
+. Revise o resumo e selecione *Finish*.
+
+
+.Resultado
+Os recursos são exibidos juntamente com informações como tipo, nome do host ou cluster, grupos e políticas de recursos associados e status geral.
+
+
+IMPORTANT: Você deve atualizar os recursos se os bancos de dados forem renomeados fora do SnapCenter.
+
+.Depois de terminar
+Se você quiser fornecer acesso aos ativos a outros usuários, o administrador do SnapCenter deve atribuir ativos a esses usuários. Isso permite que os usuários executem as ações para as quais eles têm permissões nos ativos que são atribuídos a eles.
+
+Depois de adicionar os recursos, você pode modificar os detalhes do recurso. Se um recurso de plug-ins compatível com NetApp tiver backups associados a ele, os seguintes campos não poderão ser modificados: Nome do recurso, tipo de recurso e nome do host.
+
+
+
+== Parâmetros para configurar o recurso
+
+Se você estiver adicionando os plug-ins manualmente, poderá usar os seguintes parâmetros para configurar o recurso na página Configurações de recursos.
+
+
+
+=== Plug-in para MongoDB
+
+Definições de recursos:
+
+* MONGODB_APP_SERVER(para tipo de recurso como cluster sharded) ou MONGODB_REPLICASE_SERVER(para tipo de recurso como replicaset)
+* OPLOG_PATH (parâmetro opcional no caso de ser fornecido a partir de MongoDB.propertiesfile)
+* MONGODB_AUTHENTICATION_TYPE (SIMPLES para autenticação LDAP e nenhum para outros)
+
+
+Você deve fornecer os seguintes parâmetros precisam ser fornecidos n arquivo MongoDB.properties:
+
+* DISABLE_STARTING_STARTING_SERVICES
++
+** N se os serviços de arranque/paragem forem executados pelo plug-in.
+** Y se iniciar/**parar serviços são executados pelo usuário.
+** Parâmetro opcional como valor padrão é definido como N.
+
+
+* OPLOG_PATH_ (parâmetro opcional no caso de já ser fornecido como par chave-valor personalizado no SnapCenter).
+
+
+
+
+=== Plug-in para MaxDB
+
+Definições de recursos:
+
+* XUSER_ENABLE (Y|N) ativa ou desativa o uso de um xuser para MaxDB para que uma senha não seja necessária para o usuário do banco de dados.
+* HANDLE_LOGWRITER (Y|N) executa as operações de suspender o gravador de log (N) ou retomar logwriter (Y).
+* DBMCLICMD (path_to_dbmcli_cmd) especifica o caminho para o comando MaxDB dbmcli. Se não estiver definido, dbmcli no caminho de pesquisa será usado.
+
+
+
+NOTE: Para o ambiente Windows, o caminho deve estar entre aspas duplas ("...").
+
+* SQLCLICMD (path_to_sqlcli_cmd) especifica o caminho para o comando sqlcli MaxDB. Se o caminho não estiver definido, sqlcli é usado no caminho de pesquisa.
+* MAXDB_UPDATE_HIST_LOG (Y|N) instrui o programa de backup MaxDB se ele deve atualizar o log de histórico do MaxDB.
+* MAXDB_CHECK_SNAPSHOT_DIR : exemplo, SID1:Directory[,Directory...]; [SID2:directoary[,Directory...] verifica se uma operação de cópia Snapshot do Snap Creator é bem-sucedida e garante que o snapshot seja criado.
++
+Isso se aplica somente a NFS. O diretório deve apontar para o local que contém o diretório .snapshot. Vários diretórios podem ser incluídos em uma lista separada por vírgulas.
+
++
+No MaxDB 7,8 e versões posteriores, a solicitação de backup do banco de dados é marcada como Falha no histórico de backup.
+
+* MAXDB_BACKUP_TEMPLATES: Especifica um modelo de backup para cada banco de dados.
++
+O modelo tem de existir e ser um tipo externo de modelo de cópia de segurança. Para habilitar a integração de snapshot para o MaxDB 7,8 e posterior, você deve ter a funcionalidade de servidor em segundo plano do MaxDB e modelo de backup do MaxDB já configurado do tipo EXTERNO.
+
+* MAXDB_BG_SERVER_PREFIX: Especifica o prefixo para o nome do servidor em segundo plano.
++
+Se o parâmetro MAXDB_BACKUP_TEMPLATES estiver definido, você também deve definir o parâmetro MAXDB_BG_SERVER_PREFIX. Se você não definir o prefixo, o valor padrão na_bg_ será usado.
+
+
+
+
+
+=== Plug-in para Sybase ASE
+
+Definições de recursos:
+
+* SYBASE_SERVER (data_Server_NAME) especifica o nome do servidor de dados Sybase (-S opção no comando isql). Por exemplo, p_test.
+* SYBASE_DATABASES_EXCLUDE (dB_name) permite que bancos de dados sejam excluídos se a construção "ALL" for usada.
++
+Você pode especificar vários bancos de dados usando uma lista separada por ponto e vírgula. Por exemplo: pubs2;test_db1.
+
+* SYBASE_USER: User_name especifica o usuário do sistema operacional que pode executar o comando isql.
++
+Necessário para UNIX. Esse parâmetro é necessário se o usuário executando os comandos de início e parada do Snap Creator Agent (geralmente o usuário raiz) e o usuário executando o comando isql forem diferentes.
+
+* SYBASE_TRAN_DUMP dB_name:Directory_path permite que você execute um despejo de transação Sybase depois de criar um snapshot. Por exemplo, pubs2:/sybasedumps/ pubs2
++
+Você deve especificar cada banco de dados que requer um despejo de transação.
+
+* SYBASE_TRAN_DUMP_COMPRESS (Y|N ) ativa ou desativa a compressão de despejo de transação Sybase nativa.
+* SYBASE_ISQL_CMD (por exemplo, /opt/sybase/OCS-15_0/bin/isql) define o caminho para o comando isql.
+* SYBASE_EXCLUDE_TEMPDB (Y|N) permite excluir automaticamente bancos de dados temporários criados pelo usuário.
+
+
+
+
+=== Plug-in para aplicativos Oracle (ORASCPM)
+
+Definições de recursos:
+
+* SQLPLUS_CMD especifica o caminho para sqlplus.
+* Oracle_DATABASES lista os bancos de dados Oracle a serem copiados e o usuário correspondente (banco de dados:usuário).
+* CNTL_FILE_backup_DIR especifica o diretório para o backup do arquivo de controle.
+* ORA_TEMP especifica o diretório para arquivos temporários.
+* Oracle_HOME especifica o diretório onde o software Oracle está instalado.
+* ARCHIVE_LOG_ONLY especifica se você deve fazer o backup dos logs do arquivo ou não.
+* O Oracle_backup_MODE especifica se deve executar o backup on-line ou off-line.
+

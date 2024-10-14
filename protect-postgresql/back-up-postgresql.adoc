@@ -1,0 +1,241 @@
+---
+permalink: protect-postgresql/back-up-postgresql.html 
+sidebar: sidebar 
+keywords: SnapCenter Plug-in for PostgreSQL 
+summary: Se um recurso ainda não fizer parte de qualquer grupo de recursos, você poderá fazer backup do recurso na página recursos. 
+---
+= Faça backup do PostgreSQL
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Se um recurso ainda não fizer parte de qualquer grupo de recursos, você poderá fazer backup do recurso na página recursos.
+
+.Antes de começar
+* Você deve ter criado uma política de backup.
+* Se você quiser fazer backup de um recurso que tenha uma relação SnapMirror com um armazenamento secundário, a função ONTAP atribuída ao usuário de armazenamento deve incluir o privilégio "'SnapMirror All'". No entanto, se você estiver usando a função "vsadmin", o privilégio "SnapMirror all" não será necessário.
+* Para a operação de backup baseada em cópia Snapshot, verifique se todos os clusters de locatários estão válidos e ativos.
+* Para comandos pré e POST para operações quiesce, Snapshot e unquiesce, você deve verificar se os comandos existem na lista de comandos disponível no host plug-in dos seguintes caminhos:
++
+Para o Windows: _C: Arquivos de programas/NetApp/SnapCenter/SnapCenter Plug-in Creator/etc/allowed_commands_list.txt_
+
++
+Para Linux: _/var/opt/SnapCenter/scc/allowed_commands_list.txt_
+
+
+
+
+NOTE: Se os comandos não existirem na lista de comandos, a operação falhará.
+
+[role="tabbed-block"]
+====
+.IU do SnapCenter
+--
+.Passos
+. No painel de navegação esquerdo, selecione *Resources* e, em seguida, selecione o plug-in apropriado na lista.
+. Na página recurso, filtre os recursos da lista suspensa *Exibir* com base no tipo de recurso.
++
+Selecioneimage:../media/filter_icon.png[""] * * e, em seguida, selecione o nome do host e o tipo de recurso para filtrar os recursos. Em seguida, pode image:../media/filter_icon.png[""]selecionar para fechar o painel de filtro.
+
+. Selecione o recurso que você deseja fazer backup.
+. Na página recurso, selecione *Use o formato de nome personalizado para cópia Snapshot* e insira um formato de nome personalizado que você deseja usar para o nome da captura Instantânea.
++
+Por exemplo, _customtext_policy_hostname_ ou _resource_hostname_. Por padrão, um carimbo de data/hora é anexado ao nome do instantâneo.
+
+. Na página Configurações do aplicativo, faça o seguinte:
++
+** Selecione a seta *backups* para definir opções adicionais de backup:
++
+Ative o backup do grupo de consistência, se necessário, e execute as seguintes tarefas:
+
++
+|===
+| Para este campo... | Faça isso... 
+
+
+ a| 
+Tenha tempo para esperar a conclusão da operação "Consistency Group Snapshot"
+ a| 
+Selecione *urgente*, *Médio* ou *relaxado* para especificar o tempo de espera para que a operação Snapshot termine. Urgente: 5 segundos, Médio: 7 segundos e relaxado: 20 segundos.
+
+
+
+ a| 
+Desativar a sincronização WAFL
+ a| 
+Selecione esta opção para evitar forçar um ponto de consistência WAFL.
+
+|===
+** Selecione a seta *Scripts* para executar comandos pré e POST para operações quiesce, Snapshot e unquiesce.
++
+Você também pode executar pré-comandos antes de sair da operação de backup. Os Prescripts e postscripts são executados no servidor SnapCenter.
+
+** Selecione a seta **Custom Configurations (Configurações personalizadas) e, em seguida, insira os pares de valores personalizados necessários para todos os trabalhos que usam esse recurso.
+** Selecione a seta *Snapshot Copy Tool* para selecionar a ferramenta para criar instantâneos:
++
+|===
+| Se você quiser... | Então... 
+
+
+ a| 
+SnapCenter para criar um Snapshot no nível de storage
+ a| 
+Selecione *SnapCenter sem consistência do sistema de arquivos*.
+
+
+
+ a| 
+SnapCenter para usar o plug-in para Windows para colocar o sistema de arquivos em um estado consistente e, em seguida, criar um instantâneo
+ a| 
+Selecione *SnapCenter com consistência do sistema de arquivos*.
+
+
+
+ a| 
+Para inserir o comando para criar uma captura Instantânea
+ a| 
+Selecione *Other* e, em seguida, digite o comando para criar uma captura Instantânea.
+
+|===
++
+image:../media/application_settings.gif[""]
+
+
+
+. Na página políticas, execute as seguintes etapas:
++
+.. Selecione uma ou mais políticas na lista suspensa.
++
+
+NOTE: Você também pode criar uma política clicando em *image:../media/add_policy_from_resourcegroup.gif[""]*.
+
++
+Na seção Configurar agendas para políticas selecionadas, as políticas selecionadas são listadas.
+
+.. Selecioneimage:../media/add_policy_from_resourcegroup.gif[""] * * na coluna Configurar agendas para a política para a qual você deseja configurar um agendamento.
+.. Na caixa de diálogo Adicionar agendas para política _policy_name_, configure a programação e selecione *OK*.
++
+_policy_name_ é o nome da política selecionada.
+
++
+As programações configuradas são listadas na coluna agendas aplicadas.
+
+
+
+. Na página notificação, na lista suspensa *preferência de e-mail*, selecione os cenários nos quais você deseja enviar os e-mails.
++
+Você também deve especificar os endereços de e-mail do remetente e do destinatário e o assunto do e-mail. O SMTP também deve ser configurado em *Configurações* > *Configurações globais*.
+
+. Revise o resumo e selecione *Finish*.
++
+A página de topologia de recursos é exibida.
+
+. Selecione *fazer uma cópia de segurança agora*.
+. Na página Backup, execute as seguintes etapas:
++
+.. Se você aplicou várias políticas ao recurso, na lista suspensa *Política*, selecione a política que deseja usar para backup.
++
+Se a política selecionada para o backup sob demanda estiver associada a um agendamento de backup, os backups sob demanda serão retidos com base nas configurações de retenção especificadas para o tipo de agendamento.
+
+.. Selecione *Backup*.
+
+
+. Monitorize o progresso da operação clicando em *Monitor* > *trabalhos*.
++
+** Nas configurações do MetroCluster, o SnapCenter pode não ser capaz de detetar uma relação de proteção após um failover.
++
+Para obter informações, consulte: https://kb.netapp.com/Advice_and_Troubleshooting/Data_Protection_and_Security/SnapCenter/Unable_to_detect_SnapMirror_or_SnapVault_relationship_after_MetroCluster_failover["Não é possível detetar a relação SnapMirror ou SnapVault após o failover do MetroCluster"^]
+
+** Se você estiver fazendo backup de dados de aplicativos em VMDKs e o tamanho de heap Java para o plug-in SnapCenter para VMware vSphere não for grande o suficiente, o backup pode falhar.
++
+Para aumentar o tamanho do heap Java, localize o arquivo de script _/opt/NetApp/init_scripts/scvservice_. Nesse script, o comando _do_start Method_ inicia o serviço de plug-in SnapCenter VMware. Atualize esse comando para o seguinte: _Java -jar -Xmx8192M -Xms4096M_
+
+
+
+
+
+--
+.Cmdlets do PowerShell
+--
+.Passos
+. Inicie uma sessão de conexão com o servidor SnapCenter para um usuário especificado usando o cmdlet Open-SmConnection.
++
+[listing]
+----
+PS C:\> Open-SmConnection
+----
++
+É apresentado o aviso de nome de utilizador e palavra-passe.
+
+. Adicione recursos manuais usando o cmdlet Add-SmResources.
++
+Este exemplo mostra como adicionar uma instância do PostgreSQL:
+
++
+[listing]
+----
+PS C:\> Add-SmResource -HostName 10.32.212.13 -PluginCode PostgreSQL -ResourceType Instance -ResourceName postgresqlinst1 -StorageFootPrint (@{"VolumeName"="winpostgresql01_data01";"LUNName"="winpostgresql01_data01";"StorageSystem"="scsnfssvm"}) -MountPoints "D:\"
+----
+. Crie uma política de backup usando o cmdlet Add-SmPolicy.
+. Proteja o recurso ou adicione um novo grupo de recursos ao SnapCenter usando o cmdlet Add-SmResourceGroup.
+. Inicie uma nova tarefa de backup usando o cmdlet New-SmBackup.
++
+Este exemplo mostra como fazer backup de um grupo de recursos:
+
++
+[listing]
+----
+C:\PS> New-SMBackup -ResourceGroupName 'ResourceGroup_wback-up-clusters-using-powershell-cmdlets-postgresql.adocith_Resources'  -Policy postgresql_policy1
+----
++
+Este exemplo faz backup de um recurso protegido:
+
++
+[listing]
+----
+C:\PS> New-SMBackup -Resources @{"Host"="10.232.204.42";"Uid"="MDC\SID";"PluginName"="postgresql"} -Policy postgresql_policy2
+----
+. Monitore o status da tarefa (em execução, concluída ou com falha) usando o cmdlet Get-smJobSummaryReport.
++
+[listing]
+----
+PS C:\> Get-smJobSummaryReport -JobID 123
+----
+. Monitore os detalhes da tarefa de backup, como ID do backup, nome do backup para executar a operação de restauração ou clone usando o cmdlet Get-SmBackupReport.
++
+[listing]
+----
+PS C:\> Get-SmBackupReport -JobId 351
+Output:
+BackedUpObjects           : {DB1}
+FailedObjects             : {}
+IsScheduled               : False
+HasMetadata               : False
+SmBackupId                : 269
+SmJobId                   : 2361
+StartDateTime             : 10/4/2016 11:20:45 PM
+EndDateTime               : 10/4/2016 11:21:32 PM
+Duration                  : 00:00:46.2536470
+CreatedDateTime           : 10/4/2016 11:21:09 PM
+Status                    : Completed
+ProtectionGroupName       : Verify_ASUP_Message_windows
+SmProtectionGroupId       : 211
+PolicyName                : test2
+SmPolicyId                : 20
+BackupName                : Verify_ASUP_Message_windows_scc54_10-04-2016_23.20.46.2758
+VerificationStatus        : NotVerified
+VerificationStatuses      :
+SmJobError                :
+BackupType                : SCC_BACKUP
+CatalogingStatus          : NotApplicable
+CatalogingStatuses        :
+ReportDataCreatedDateTime :
+----
+
+
+As informações sobre os parâmetros que podem ser usados com o cmdlet e suas descrições podem ser obtidas executando _get-Help command_name_. Em alternativa, pode também consultar o https://docs.netapp.com/us-en/snapcenter-cmdlets/index.html["Guia de referência de cmdlet do software SnapCenter"^].
+
+--
+====

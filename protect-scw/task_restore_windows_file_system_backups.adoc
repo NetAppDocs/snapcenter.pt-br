@@ -1,0 +1,188 @@
+---
+permalink: protect-scw/task_restore_windows_file_system_backups.html 
+sidebar: sidebar 
+keywords: restore 
+summary: Você pode usar o SnapCenter para restaurar backups do sistema de arquivos. A restauração do sistema de arquivos é um processo multifásico que copia todos os dados de um backup especificado para o local original do sistema de arquivos. 
+---
+= Restaure backups do sistema de arquivos do Windows
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Você pode usar o SnapCenter para restaurar backups do sistema de arquivos. A restauração do sistema de arquivos é um processo multifásico que copia todos os dados de um backup especificado para o local original do sistema de arquivos.
+
+.Antes de começar
+* Tem de ter feito uma cópia de segurança do sistema de ficheiros.
+* Se uma operação agendada, como uma operação de backup, estiver em andamento para um sistema de arquivos, essa operação deve ser cancelada antes que você possa iniciar uma operação de restauração.
+* Você só pode restaurar um backup do sistema de arquivos para o local original, não para um caminho alternativo.
++
+Você não pode restaurar um único arquivo de um backup porque o sistema de arquivos restaurado substitui todos os dados no local original do sistema de arquivos. Para restaurar um único arquivo a partir de um backup do sistema de arquivos, você precisa clonar o backup e acessar o arquivo no clone.
+
+* Não é possível restaurar um sistema ou um volume de inicialização.
+* O SnapCenter pode restaurar sistemas de arquivos em um cluster do Windows sem deixar o grupo de cluster off-line.
+
+
+.Sobre esta tarefa
+* O SCRIPT_PATH é definido usando a chave PredefinedWindowsScriptsDirectory localizada no arquivo SMCoreServiceHost.exe.Config do host do plug-in.
++
+Se necessário, você pode alterar esse caminho e reiniciar o serviço SMcore. É recomendável usar o caminho padrão para segurança.
+
++
+O valor da chave pode ser exibido do swagger através da API: API /4,7/configsettings
+
++
+Você pode usar a API GET para exibir o valor da chave. A API SET não é suportada.
+
+* Para a operação de restauração de sincronização ativa do SnapMirror, você deve selecionar o backup no local principal.
+* Para a versão ONTAP 9.12,1 e inferior, os clones criados a partir dos instantâneos do Vault do SnapLock como parte da restauração herdarão o tempo de expiração do SnapLock Vault. O administrador do storage deve limpar manualmente os clones após o tempo de expiração do SnapLock.
+
+
+[role="tabbed-block"]
+====
+.IU do SnapCenter
+--
+.Passos
+. No painel de navegação esquerdo, clique em *Resources* e selecione o plug-in apropriado na lista.
+. Para filtrar a lista de recursos, selecione as opções sistema de arquivos e Grupo de recursos.
+. Selecione um grupo de recursos na lista e clique em *Restaurar*.
+. Na página backups, selecione se deseja restaurar a partir de sistemas de storage primário ou secundário e, em seguida, selecione um backup para restaurar.
+. Selecione as opções no assistente Restaurar.
+. Você pode inserir o caminho e os argumentos do prescritor ou postscript que deseja que o SnapCenter execute antes ou depois da operação de restauração, respetivamente.
++
+Por exemplo, você pode executar um script para atualizar traps SNMP, automatizar alertas, enviar logs e assim por diante.
+
++
+
+NOTE: O caminho de prescripts ou postscripts não deve incluir unidades ou compartilhamentos. O caminho deve ser relativo ao SCRIPT_path.
+
+. Na página notificação, selecione uma das seguintes opções:
++
+|===
+| Para este campo... | Faça isso... 
+
+
+ a| 
+Registre eventos do servidor SnapCenter no syslog do sistema de storage
+ a| 
+Selecione esta opção para registar eventos do servidor SnapCenter no syslog do sistema de armazenamento.
+
+
+
+ a| 
+Enviar notificação AutoSupport para operações com falha ao sistema de storage
+ a| 
+Selecione esta opção para enviar informações sobre quaisquer operações com falha ao NetApp usando o AutoSupport.
+
+
+
+ a| 
+Preferência por e-mail
+ a| 
+Selecione *Always*, *on failure* ou *on failure or warning* para enviar mensagens de e-mail aos destinatários após restaurar os backups. Introduza o servidor SMTP, a linha de assunto de e-mail predefinida e os endereços de e-mail de e para.
+
+|===
+. Revise o resumo e clique em *Finish*.
+. Monitorize o progresso da operação clicando em *Monitor* > *trabalhos*.
+
+
+
+IMPORTANT: Se o sistema de arquivos restaurado contiver um banco de dados, você também deverá restaurar o banco de dados. Se você não restaurar o banco de dados, o banco de dados pode estar em um estado inválido. Para obter informações sobre como restaurar bancos de dados, consulte o Guia de proteção de dados desse banco de dados.
+
+--
+.Cmdlets do PowerShell
+--
+.Passos
+. Inicie uma sessão de conexão com o servidor SnapCenter para um usuário especificado usando o cmdlet Open-SmConnection.
++
+[listing]
+----
+PS C:\> Open-Smconnection
+----
+. Recupere as informações sobre um ou mais backups que você deseja restaurar usando os cmdlets Get-SmBackup e Get-SmBackupReport.
++
+Este exemplo exibe informações sobre todos os backups disponíveis:
+
++
+[listing]
+----
+PS C:\> Get-SmBackup
+
+BackupId                      BackupName                    BackupTime                    BackupType
+--------                      ----------                    ----------                    ----------
+  1               Payroll Dataset_vise-f6_08... 8/4/2015    11:02:32 AM                 Full Backup
+  2               Payroll Dataset_vise-f6_08... 8/4/2015    11:23:17 AM
+----
++
+Este exemplo exibe informações detalhadas sobre o backup de 29th 2015 de janeiro a 3rd de fevereiro de 2015:
+
++
+[listing]
+----
+PS C:\> Get-SmBackupReport -FromDateTime "1/29/2015" -ToDateTime "2/3/2015"
+
+   SmBackupId           : 113
+   SmJobId              : 2032
+   StartDateTime        : 2/2/2015 6:57:03 AM
+   EndDateTime          : 2/2/2015 6:57:11 AM
+   Duration             : 00:00:07.3060000
+   CreatedDateTime      : 2/2/2015 6:57:23 AM
+   Status               : Completed
+   ProtectionGroupName  : Clone
+   SmProtectionGroupId  : 34
+   PolicyName           : Vault
+   SmPolicyId           : 18
+   BackupName           : Clone_SCSPR0019366001_02-02-2015_06.57.08
+   VerificationStatus   : NotVerified
+
+   SmBackupId           : 114
+   SmJobId              : 2183
+   StartDateTime        : 2/2/2015 1:02:41 PM
+   EndDateTime          : 2/2/2015 1:02:38 PM
+   Duration             : -00:00:03.2300000
+   CreatedDateTime      : 2/2/2015 1:02:53 PM
+   Status               : Completed
+   ProtectionGroupName  : Clone
+   SmProtectionGroupId  : 34
+   PolicyName           : Vault
+   SmPolicyId           : 18
+   BackupName           : Clone_SCSPR0019366001_02-02-2015_13.02.45
+   VerificationStatus   : NotVerified
+----
+. Restaure dados do backup usando o cmdlet Restore-SmBackup.
++
+[listing]
+----
+Restore-SmBackup -PluginCode 'DummyPlugin' -AppObjectId 'scc54.sccore.test.com\DummyPlugin\NTP\DB1' -BackupId 269 -Confirm:$false
+output:
+Name                : Restore 'scc54.sccore.test.com\DummyPlugin\NTP\DB1'
+Id                  : 2368
+StartTime           : 10/4/2016 11:22:02 PM
+EndTime             :
+IsCancellable       : False
+IsRestartable       : False
+IsCompleted         : False
+IsVisible           : True
+IsScheduled         : False
+PercentageCompleted : 0
+Description         :
+Status              : Queued
+Owner               :
+Error               :
+Priority            : None
+Tasks               : {}
+ParentJobID         : 0
+EventId             : 0
+JobTypeId           :
+ApisJobKey          :
+ObjectId            : 0
+PluginCode          : NONE
+PluginName          :
+----
+
+
+As informações sobre os parâmetros que podem ser usados com o cmdlet e suas descrições podem ser obtidas executando _get-Help command_name_. Em alternativa, pode também consultar o https://docs.netapp.com/us-en/snapcenter-cmdlets/index.html["Guia de referência de cmdlet do software SnapCenter"^].
+
+--
+====

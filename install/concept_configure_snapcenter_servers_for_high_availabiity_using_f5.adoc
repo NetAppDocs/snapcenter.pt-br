@@ -1,0 +1,45 @@
+---
+permalink: install/concept_configure_snapcenter_servers_for_high_availabiity_using_f5.html 
+sidebar: sidebar 
+keywords: F5,load balancer 
+summary: 'Para suportar alta disponibilidade (HA) no SnapCenter, você pode instalar o balanceador de carga F5. O F5 permite que o servidor SnapCenter suporte configurações ativo-passivo em até dois hosts que estão no mesmo local. Para usar o balanceador de carga F5 no SnapCenter, você deve configurar os servidores SnapCenter e configurar o balanceador de carga F5.' 
+---
+= Configurar servidores SnapCenter para alta disponibilidade usando o F5
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Para oferecer suporte à alta disponibilidade (HA) no SnapCenter, é possível instalar o balanceador de carga F5. O F5 permite que o servidor SnapCenter suporte configurações ativo-passivo em até dois hosts que estão no mesmo local. Para usar o balanceador de carga F5 no SnapCenter, você deve configurar os servidores SnapCenter e configurar o balanceador de carga F5.
+
+
+NOTE: O SnapCenter também é compatível com o AWS Elastic Load Balancing (ELB) e o balanceamento de carga do Azure.
+
+
+IMPORTANT: Se você atualizou a partir do SnapCenter 4,2.x e estava usando anteriormente o balanceamento de carga de rede (NLB), você pode continuar usando essa configuração ou switch para F5.
+
+A imagem do fluxo de trabalho lista as etapas para configurar os servidores SnapCenter para alta disponibilidade usando o balanceador de carga F5. Para obter instruções detalhadas, https://kb.netapp.com/Advice_and_Troubleshooting/Data_Protection_and_Security/SnapCenter/How_to_configure_SnapCenter_Servers_for_high_availability_using_F5_Load_Balancer["Como configurar servidores SnapCenter para alta disponibilidade usando o balanceador de carga F5"^] consulte .
+
+image::../media/sc-F5-configure-workflow.png[SC F5 configure o fluxo de trabalho]
+
+Você deve ser membro do grupo Administradores locais nos servidores SnapCenter (além de ser atribuído à função SnapCenterAdmin) para usar os seguintes cmdlets para adicionar e remover clusters F5:
+
+* Add-SmServerCluster
+* Add-SmServer
+* Remover-SmServerCluster
++
+Para obter mais informações, https://docs.netapp.com/us-en/snapcenter-cmdlets/index.html["Guia de referência de cmdlet do software SnapCenter"^]consulte .
+
+
+
+
+
+== Informações adicionais de configuração do F5
+
+* Depois de instalar e configurar o SnapCenter para alta disponibilidade, edite o atalho da área de trabalho do SnapCenter para apontar para o IP do cluster F5.
+* Se ocorrer um failover entre servidores SnapCenter e houver também uma sessão do SnapCenter existente, você deverá fechar o navegador e fazer logon no SnapCenter novamente.
+* Na configuração do balanceador de carga (NLB ou F5), se você adicionar um nó parcialmente resolvido pelo nó NLB ou F5 e se o nó SnapCenter não conseguir alcançar esse nó, a página do host do SnapCenter alternará entre hosts inativos e o estado em execução com frequência. Para resolver esse problema, você deve garantir que ambos os nós do SnapCenter sejam capazes de resolver o host no nó NLB ou F5.
+* Os comandos SnapCenter para configurações de MFA devem ser executados em todos os nós. A configuração do grupo dependente deve ser feita no servidor AD FS (Serviços de Federação do ative Directory) usando os detalhes do cluster F5. O acesso à IU do SnapCenter no nível do nó será bloqueado após a ativação do MFA.
+* Durante o failover, as configurações do log de auditoria não serão refletidas no segundo nó. Portanto, você deve repetir manualmente as configurações de log de auditoria no nó passivo F5 quando ele se tornar ativo.
+

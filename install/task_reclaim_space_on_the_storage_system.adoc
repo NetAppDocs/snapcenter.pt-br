@@ -1,0 +1,43 @@
+---
+permalink: install/task_reclaim_space_on_the_storage_system.html 
+sidebar: sidebar 
+keywords: space 
+summary: Embora o NTFS rastreie o espaço disponível em um LUN quando os arquivos são excluídos ou modificados, ele não relata as novas informações para o sistema de armazenamento. Você pode executar o cmdlet PowerShell de recuperação de espaço no host Plug-in para Windows para garantir que os blocos recém-liberados sejam marcados como disponíveis no storage. 
+---
+= Recupere espaço no sistema de storage
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Embora o NTFS rastreie o espaço disponível em um LUN quando os arquivos são excluídos ou modificados, ele não relata as novas informações para o sistema de armazenamento. Você pode executar o cmdlet PowerShell de recuperação de espaço no host Plug-in para Windows para garantir que os blocos recém-liberados sejam marcados como disponíveis no storage.
+
+Se você estiver executando o cmdlet em um host de plug-in remoto, será necessário executar o cmdlet SnapCenterOpen-SMConnection para abrir uma conexão com o servidor SnapCenter.
+
+.Antes de começar
+* Você deve garantir que o processo de recuperação de espaço foi concluído antes de executar uma operação de restauração.
+* Se o LUN for compartilhado por hosts em um cluster de failover do Windows Server, você deverá executar a recuperação de espaço no host que possui o grupo de cluster.
+* Para um desempenho de armazenamento ideal, você deve executar a recuperação de espaço o mais frequentemente possível.
++
+Você deve garantir que todo o sistema de arquivos NTFS foi digitalizado.
+
+
+
+*Sobre esta tarefa*
+
+* A recuperação de espaço é demorada e intensiva na CPU, por isso geralmente é melhor executar a operação quando o sistema de armazenamento e o uso de host do Windows são baixos.
+* A recuperação de espaço recupera quase todo o espaço disponível, mas não 100%.
+* Você não deve executar a desfragmentação do disco ao mesmo tempo que está executando a recuperação de espaço.
++
+Fazer isso pode retardar o processo de recuperação.
+
+
+
+*Passo*
+
+No prompt de comando do PowerShell do servidor de aplicativos, digite o seguinte comando:
+
+`Invoke-SdHostVolumeSpaceReclaim -Path drive_path`
+
+Drive_path é o caminho da unidade mapeado para o LUN.

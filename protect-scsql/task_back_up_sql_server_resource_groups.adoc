@@ -1,0 +1,48 @@
+---
+permalink: protect-scsql/task_back_up_sql_server_resource_groups.html 
+sidebar: sidebar 
+keywords: SnapCenter Plug-in for SQL Server 
+summary: Você pode fazer backup de um grupo de recursos sob demanda na página recursos. Se um grupo de recursos tiver uma política anexada e uma programação configurada, os backups ocorrerão automaticamente de acordo com a programação. 
+---
+= Fazer backup de grupos de recursos do SQL Server
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Você pode fazer backup de um grupo de recursos sob demanda na página recursos. Se um grupo de recursos tiver uma política anexada e uma programação configurada, os backups ocorrerão automaticamente de acordo com a programação.
+
+.Passos
+. No painel de navegação esquerdo, selecione *Resources* e, em seguida, selecione o plug-in apropriado na lista.
+. Na página recursos, selecione *Grupo de recursos* na lista *Exibir*.
++
+Você pode pesquisar o grupo de recursos inserindo o nome do grupo de recursos na caixa de pesquisa ou selecionando * *image:../media/filter_icon.png["Ícone de filtro"] e, em seguida, selecionando a tag. Em seguida, pode selecionarimage:../media/filter_icon.png["Ícone de filtro"] * * para fechar o painel do filtro.
+
+. Na página grupos de recursos, selecione o grupo de recursos que você deseja fazer backup e selecione *fazer backup agora*.
+. Na página Backup, execute as seguintes etapas:
++
+.. Se você associou várias políticas ao grupo de recursos, na lista suspensa *Política*, selecione a política que deseja usar para backup.
++
+Se a política selecionada para o backup sob demanda estiver associada a um agendamento de backup, os backups sob demanda serão retidos com base nas configurações de retenção especificadas para o tipo de agendamento.
+
+.. Após o backup, selecione *Verify* para verificar o backup sob demanda.
++
+A opção *Verify* na política aplica-se apenas a trabalhos agendados.
+
+.. Selecione *Backup*.
+
+
+. Monitorize o progresso da operação selecionando *Monitor* > *trabalhos*.
+
+
+.Informações relacionadas
+link:task_create_backup_policies_for_sql_server_databases.html["Criar políticas de backup para bancos de dados do SQL Server"]
+
+link:task_create_resource_groups_and_attach_policies_for_sql_server.html["Crie grupos de recursos e anexe políticas para o SQL Server"]
+
+link:task_back_up_resources_using_powershell_cmdlets_for_sql.html["Faça backup de recursos usando cmdlets do PowerShell"]
+
+https://kb.netapp.com/Advice_and_Troubleshooting/Data_Protection_and_Security/SnapCenter/Clone_operation_might_fail_or_take_longer_time_to_complete_with_default_TCP_TIMEOUT_value["Operações de backup falha com erro de conexão MySQL devido ao atraso no TCP_TIMEOUT"]
+
+https://kb.netapp.com/Advice_and_Troubleshooting/Data_Protection_and_Security/SnapCenter/Backup_fails_with_Windows_scheduler_error["A cópia de segurança falha com o erro do programador do Windows"]

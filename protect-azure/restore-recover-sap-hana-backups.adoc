@@ -1,0 +1,49 @@
+---
+permalink: protect-azure/restore-recover-sap-hana-backups.html 
+sidebar: sidebar 
+keywords: SnapCenter Plug-in for SAP HANA Database, restore, recover 
+summary: Você pode usar o SnapCenter para restaurar e recuperar dados de um ou mais backups. 
+---
+= Restaure e recupere bancos de dados do SAP HANA
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Você pode restaurar e recuperar dados dos backups.
+
+.Sobre esta tarefa
+Para sistemas HANA detetados automaticamente, se a opção *recurso completo* estiver selecionada, a restauração será executada usando a tecnologia de restauração de snapshot de Arquivo único. Se a caixa de seleção *Fast Restore* estiver selecionada, a tecnologia volume Revert será usada.
+
+Para recursos adicionados manualmente, a tecnologia de reversão de volume é sempre usada.
+
+.Passos
+. No painel de navegação esquerdo, clique em *Resources* e selecione o plug-in apropriado na lista.
+. Na página recursos, filtre recursos da lista suspensa *Exibir* com base no tipo de recurso.
+. Selecione o recurso ou selecione um grupo de recursos e, em seguida, selecione um recurso nesse grupo.
+. Na exibição Gerenciar cópias, selecione *backups* nos sistemas de armazenamento primário ou secundário (espelhado ou abobadado).
+. Na tabela de backup principal, selecione o backup do qual você deseja restaurar e clique em * *image:../media/restore_icon.gif["ícone de restauro"].
+. Na página Restaurar escopo, selecione *recurso completo*.
++
+Todos os volumes de dados configurados do banco de dados SAP HANA são restaurados.
+
+. Para sistemas HANA detetados automaticamente, na página escopo de recuperação, execute as seguintes ações:
++
+.. Selecione *Recover to most recent State* (recuperar para o estado mais recente) se pretender recuperar o mais próximo possível da hora atual.
+.. Selecione *Recover to Point in Time* se você quiser recuperar para o ponto especificado no tempo.
+.. Selecione *Recover to specified data backup* se você quiser recuperar para um backup de dados específico.
+.. Selecione *sem recuperação* se não quiser recuperar agora.
+.. Especifique as localizações de cópia de segurança do registo.
+.. Especifique o local do catálogo de backup.
+
+
+. Na página operações anteriores, insira pré-restauração e desmonte comandos para serem executados antes de executar um trabalho de restauração.
+. Na página Post OPS, insira os comandos mount e POST Restore para serem executados após a execução de um trabalho de restauração.
+. Na página notificação, na lista suspensa *preferência de e-mail*, selecione os cenários nos quais você deseja enviar os e-mails.
++
+Você também deve especificar os endereços de e-mail do remetente e do destinatário e o assunto do e-mail. O SMTP também deve ser configurado na página *Configurações* > *Configurações globais*.
+
+. Revise o resumo e clique em *Finish*.
+. Monitorize o progresso da operação clicando em *Monitor* > *trabalhos*.
+

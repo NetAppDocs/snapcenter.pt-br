@@ -1,0 +1,42 @@
+---
+permalink: protect-sce/task_reseed_a_replica_using_powershell_cmdlets_for_exchange_database.html 
+sidebar: sidebar 
+keywords: SnapCenter plug-in for Exchange Server 
+summary: Você pode usar cmdlets do PowerShell para restaurar uma réplica não saudável usando a cópia mais recente no mesmo host ou a cópia mais recente de um host alternativo. 
+---
+= Reseed uma réplica usando cmdlets do PowerShell para o banco de dados do Exchange
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Você pode usar cmdlets do PowerShell para restaurar uma réplica não saudável usando a cópia mais recente no mesmo host ou a cópia mais recente de um host alternativo.
+
+As informações sobre os parâmetros que podem ser usados com o cmdlet e suas descrições podem ser obtidas executando _get-Help command_name_. Em alternativa, pode também consultar o https://docs.netapp.com/us-en/snapcenter-cmdlets/index.html["Guia de referência de cmdlet do software SnapCenter"^].
+
+.Passos
+. Inicie uma sessão de conexão com o servidor SnapCenter para um usuário especificado usando o `Open-SmConnection` cmdlet.
++
+[listing]
+----
+Open-smconnection  -SMSbaseurl  https:\\snapctr.demo.netapp.com:8146/
+----
+. Semente novamente o banco de dados usando o `reseed-SmDagReplicaCopy` cmdlet.
++
+Este exemplo reconfigura a cópia com falha do banco de dados chamado execkb no host "mva-RX200.NetApp.com" usando o backup mais recente nesse host.
+
++
+[listing]
+----
+reseed-SmDagReplicaCopy -ReplicaHost "mva-rx200.netapp.com" -Database execdb
+----
++
+Este exemplo reconfigura a cópia com falha do banco de dados chamado execkb usando o backup mais recente do banco de dados (produção/cópia) em um host alternativo "mva-rx201.NetApp.com".
+
++
+[listing]
+----
+reseed-SmDagReplicaCopy -ReplicaHost "mva-rx200.netapp.com" -Database  execdb -BackupHost "mva-rx201.netapp.com"
+----
+

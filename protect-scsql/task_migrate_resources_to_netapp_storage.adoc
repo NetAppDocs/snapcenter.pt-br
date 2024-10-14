@@ -1,0 +1,99 @@
+---
+permalink: protect-scsql/task_migrate_resources_to_netapp_storage.html 
+sidebar: sidebar 
+keywords: migrate resources 
+summary: 'Depois de ter aprovisionado o sistema de armazenamento NetApp utilizando o plug-in SnapCenter para Microsoft Windows, pode migrar os recursos para o sistema de armazenamento NetApp ou de um LUN NetApp para outro LUN NetApp utilizando a interface gráfica do utilizador (GUI) do SnapCenter ou utilizando os cmdlets do PowerShell.' 
+---
+= Migrar recursos para o sistema de storage NetApp
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Depois de ter provisionado o sistema de armazenamento NetApp usando o plug-in SnapCenter para Microsoft Windows, você pode migrar seus recursos para o sistema de armazenamento NetApp ou de um LUN NetApp para outro LUN NetApp usando a interface gráfica do usuário (GUI) do SnapCenter ou usando os cmdlets do PowerShell.
+
+.Antes de começar
+* Você deve ter adicionado sistemas de storage ao servidor SnapCenter.
+* Você deve ter atualizado (descoberto) os recursos do SQL Server.
+
+
+A maioria dos campos nessas páginas do assistente são auto-explicativos. As informações a seguir descrevem alguns dos campos para os quais você pode precisar de orientação.
+
+.Passos
+. No painel de navegação esquerdo, clique em *Resources* e selecione o plug-in apropriado na lista.
+. Na página recursos, selecione *Banco de dados* ou *Instância* na lista suspensa *Exibir*.
+. Selecione o banco de dados ou a instância na lista e clique em *Migrate*.
+. Na página recursos, execute as seguintes ações:
++
+|===
+| Para este campo... | Faça isso... 
+
+
+ a| 
+*Nome do banco de dados* (opcional)
+ a| 
+Se você selecionou uma instância para migração, você deve selecionar os bancos de dados dessa instância na lista suspensa *bancos de dados*.
+
+
+
+ a| 
+*Escolha Destinos*
+ a| 
+Selecione o local de destino para dados e arquivos de log.
+
+Os ficheiros de dados e de registo são movidos para a pasta dados e Registo, respetivamente, sob a unidade NetApp selecionada. Se qualquer pasta na estrutura de pastas não estiver presente, uma pasta será criada e o recurso será migrado.
+
+
+
+ a| 
+*Mostrar detalhes do arquivo de banco de dados* (opcional)
+ a| 
+Selecione esta opção quando quiser migrar vários arquivos de um único banco de dados.
+
+
+NOTE: Esta opção não é exibida quando você seleciona o recurso *Instância*.
+
+
+
+ a| 
+*Opções*
+ a| 
+Selecione *Excluir cópia do banco de dados migrado no local original* para excluir a cópia do banco de dados da origem.
+
+Opcional: *EXECUTE ESTATÍSTICAS DE ATUALIZAÇÃO em tabelas antes de desanexar o banco de dados*.
+
+|===
+. Na página verificar, execute as seguintes ações:
++
+|===
+| Para este campo... | Faça isso... 
+
+
+ a| 
+*Opções de verificação de consistência de banco de dados*
+ a| 
+Selecione *Executar antes* para verificar a integridade do banco de dados antes da migração. Selecione *Executar após* para verificar a integridade do banco de dados após a migração.
+
+
+
+ a| 
+* DBCC CHECKDB opções*
+ a| 
+** Selecione a opção *PHYSICAL_only* para limitar a verificação de integridade à estrutura física do banco de dados e para detetar páginas rasgadas, falhas na soma de verificação e falhas comuns de hardware que afetam o banco de dados.
+** Selecione a opção *NO_INFOMSGS* para suprimir todas as mensagens informativas.
+** Selecione a opção *All_ERRORMSGS* para exibir todos os erros relatados por objeto.
+** Selecione a opção *NOINDEX* se não quiser verificar índices não agrupados.
++
+O banco de dados do SQL Server usa o Microsoft SQL Server Database Consistency Checker (DBCC) para verificar a integridade física e lógica dos objetos no banco de dados.
+
++
+
+NOTE: Você pode querer selecionar essa opção para diminuir o tempo de execução.
+
+** Selecione **TABLOCK** opção para limitar as verificações e obter bloqueios em vez de usar um instantâneo de banco de dados interno.
+
+
+|===
+. Revise o resumo e clique em **concluir**.
+

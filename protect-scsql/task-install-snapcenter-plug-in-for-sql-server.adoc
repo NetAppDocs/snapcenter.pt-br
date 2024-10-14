@@ -1,0 +1,52 @@
+---
+permalink: protect-scsql/task-install-snapcenter-plug-in-for-sql-server.html 
+sidebar: sidebar 
+keywords: credentials 
+summary: Fornece instruções para instalar o plug-in SnapCenter para Microsoft SQL Server. 
+---
+= Instale o plug-in do SnapCenter para Microsoft SQL Server
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Fornece um conjunto condensado de instruções de instalação para o plug-in SnapCenter para Microsoft SQL Server.
+
+
+
+== Passo 1: Configurar Executar como credenciais para instalar o plug-in para Microsoft SQL Server
+
+. No painel esquerdo, clique em *Definições > credenciais > novo*.
+. Introduza as credenciais.
++
+Para um formato de nome de usuário de administrador de domínio interno, use: _<username>_ ou _<username> <username> <domain>_ ou _<DomainFQDN>_.
+
++
+Para um formato de nome de usuário de administrador local integrado, use _<username>_.
+
+
+
+
+
+== Passo 2: Adicione um host e instale o plug-in para Microsoft SQL Server
+
+. No painel esquerdo da GUI do SnapCenter, clique em *hosts > Managed hosts > Add*.
+. Na página hosts do assistente, execute o seguinte:
++
+.. Tipo de host: Selecione o tipo de host do Windows.
+.. Nome do host: Use o host SQL ou especifique o FQDN de um host dedicado do Windows.
+.. Credenciais: Selecione o nome da credencial válida do host que você criou ou crie novas credenciais.
+
+
+. Na seção Selecionar plug-ins para instalar, selecione *Microsoft SQL Server*.
+. Clique em *mais Opções* para especificar os seguintes detalhes:
++
+.. Porta: Guarde o número da porta padrão ou especifique o número da porta.
+.. Caminho de instalação: O caminho padrão é _C: Arquivos de programas/NetApp/SnapCenter_. Opcionalmente, você pode personalizar o caminho.
+.. Adicionar todos os hosts no cluster: Marque esta caixa de seleção se estiver usando SQL no WSFC.
+.. Ignorar verificações de pré-instalação: Marque esta caixa de seleção se você já instalou os plug-ins manualmente ou não deseja validar se o host atende aos requisitos para instalar o plug-in.
+
+
+. Clique em *Enviar*.
+

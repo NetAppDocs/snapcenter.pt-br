@@ -1,0 +1,50 @@
+---
+settings:
+  name: SnapCenter Software 6.0
+  internal:
+    pdf_enabled: true
+  prod:
+    pdf_enabled: true
+    harmony_enabled: false
+  versions:
+  - version-number: '6.0'
+    url: "/snapcenter"
+  - version-number: '5.0'
+    url: "/snapcenter-50"
+  - version-number: '4.9'
+    url: "/snapcenter-49"
+  - version-number: '4.8'
+    url: "/snapcenter-48"
+  - version-number: '4.7'
+    url: "/snapcenter-47"
+  - version-number: '4.6'
+    url: "/snapcenter-46"
+  - version-number: '4.5'
+    url: "/snapcenter-45"
+  langs: pt-br,us-en,ja-jp,ko-kr,zh-cn,zh-tw,de-de,es-es,fr-fr,it-it
+sidebar:
+  entries:
+  - title: Documentação do software SnapCenter 6,0
+    url: "/index.html"
+  - title: Notas de lançamento
+    url: "/release-notes.html"
+  - section: concept
+  - section: install
+  - section: protect-scsql
+  - section: protect-hana
+  - section: protect-sco
+  - section: protect-scw
+  - section: protect-sce
+  - section: protect-db2
+  - section: protect-postgresql
+  - section: protect-mysql
+  - section: protect-scu
+  - section: protect-azure
+  - section: protect-nsp
+  - section: admin
+  - section: upgrade
+  - section: tech-refresh
+  - section: uninstall
+  - section: sc-automation
+  - title: Avisos legais
+    url: "/legal-notices.html"

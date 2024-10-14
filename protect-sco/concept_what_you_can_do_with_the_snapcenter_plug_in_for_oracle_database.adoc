@@ -1,0 +1,37 @@
+---
+permalink: protect-sco/concept_what_you_can_do_with_the_snapcenter_plug_in_for_oracle_database.html 
+sidebar: sidebar 
+keywords: backup, restore, clone, oracle database 
+summary: 'Você pode usar o Plug-in para Oracle Database para fazer backup, verificar, restaurar, recuperar, montar, desmontar e clonar bancos de dados Oracle e seus recursos. Você também pode catalogar ou descatalogar os backups de banco de dados com o Oracle Recovery Manager (RMAN).' 
+---
+= O que você pode fazer com o Plug-in para Oracle Database
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+O plug-in SnapCenter para banco de dados Oracle é um componente do lado do host do software NetApp SnapCenter que permite o gerenciamento de proteção de dados com reconhecimento de aplicações de bancos de dados Oracle.
+
+O plug-in para banco de dados Oracle automatiza o backup, catalogação e desinstalação com o Oracle Recovery Manager (RMAN), verificação, montagem, desmontagem, restauração, recuperação e clonagem de bancos de dados Oracle em seu ambiente SnapCenter. O plug-in para banco de dados Oracle instala o plug-in do SnapCenter para UNIX para executar todas as operações de proteção de dados.
+
+Você pode usar o Plug-in para Oracle Database para gerenciar backups de bancos de dados Oracle que executam aplicativos SAP. No entanto, a integração SAP BR*Tools não é suportada.
+
+* Faça backup de arquivos de dados, arquivos de controle e arquivos de log de arquivamento.
++
+A cópia de segurança é suportada apenas no nível da base de dados de contentores (CDB).
+
+* Restauração e recuperação de bancos de dados, CDBs e bancos de dados conetáveis (PDBs).
++
+A recuperação incompleta de PDBs não é suportada.
+
+* Crie clones de bancos de dados de produção até um ponto no tempo.
++
+A clonagem é suportada apenas no nível CDB.
+
+* Verifique os backups imediatamente.
+* Monte e desmonte os backups de dados e log para operação de recuperação.
+* Agendar operações de backup e verificação.
+* Monitorar todas as operações.
+* Exibir relatórios para operações de backup, restauração e clone.
+

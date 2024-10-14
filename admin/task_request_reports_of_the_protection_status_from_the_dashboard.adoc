@@ -1,0 +1,35 @@
+---
+permalink: admin/task_request_reports_of_the_protection_status_from_the_dashboard.html 
+sidebar: sidebar 
+keywords: dashboard 
+summary: Você pode solicitar detalhes de proteção para recursos gerenciados por plug-ins específicos usando o Dashboard. 
+---
+= Solicite relatórios sobre o status da proteção a partir do painel de controle
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Você pode solicitar detalhes de proteção para recursos gerenciados por plug-ins específicos usando o Dashboard. Somente backups de dados são considerados para o resumo da proteção de dados.
+
+*Passos*
+
+. No painel de navegação esquerdo, clique em *Dashboard*.
+. Localize o mosaico Resumo de proteção mais recente no Painel e use o menu suspenso para selecionar um plug-in.
++
+O Dashboard exibe um gráfico de rosca para os recursos que fazem backup no storage primário e, se aplicável ao plug-in, um gráfico de rosca para os recursos que fazem backup no storage secundário.
+
++
+
+NOTE: Os relatórios de proteção de dados estão disponíveis apenas para tipos específicos de plug-ins. Especificar *todos os plug-ins* não é suportado.
+
+. Clique na fatia de rosca que representa o status para o qual você deseja um relatório.
++
+Quando você clica no gráfico de rosca, você é redirecionado da página Painel para os relatórios e, em seguida, para a página Plug-in. O relatório exibe somente o status do plug-in selecionado. Pode rever o relatório ou transferi-lo para o seu sistema local.
+
++
+
+NOTE: O redirecionamento para a página relatórios para o gráfico donut do SnapMirror e o backup SAP HANA baseado em arquivos não é suportado.
+
+

@@ -1,0 +1,33 @@
+---
+permalink: protect-hana/concept_backup_naming_conventions_for_plugin_for_hana.html 
+sidebar: sidebar 
+keywords: Backup naming conventions 
+summary: Você pode usar a convenção padrão de nomenclatura Snapshot ou usar uma convenção de nomenclatura personalizada. A convenção de nomenclatura de backup padrão adiciona um carimbo de data/hora aos nomes de Snapshot que ajuda a identificar quando as cópias foram criadas. 
+---
+= Convenções de nomenclatura de backup para plug-in para bancos de dados SAP HANA
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Você pode usar a convenção padrão de nomenclatura Snapshot ou usar uma convenção de nomenclatura personalizada. A convenção de nomenclatura de backup padrão adiciona um carimbo de data/hora aos nomes de Snapshot que ajuda a identificar quando as cópias foram criadas.
+
+O Snapshot usa a seguinte convenção de nomenclatura padrão:
+
+`resourcegroupname_hostname_timestamp`
+
+Você deve nomear seus grupos de recursos de backup logicamente, como no exemplo a seguir:
+
+[listing]
+----
+dts1_mach1x88_03-12-2015_23.17.26
+----
+Neste exemplo, os elementos de sintaxe têm os seguintes significados:
+
+* _dts1_ é o nome do grupo de recursos.
+* _mach1x88_ é o nome do host.
+* _03-12-2015_23.17.26_ é a data e o carimbo de data/hora.
+
+
+Como alternativa, você pode especificar o formato do nome da captura Instantânea enquanto protege recursos ou grupos de recursos selecionando *usar formato de nome personalizado para cópia Instantânea*. Por exemplo, customtext_resourcegroup_policy_hostname ou resourcegroup_hostname. Por padrão, o sufixo do carimbo de hora é adicionado ao nome do instantâneo.

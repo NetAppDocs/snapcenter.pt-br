@@ -1,0 +1,16 @@
+---
+permalink: protect-sce/concept_install_snapcenter_plug_in_for_microsoft_exchange_server.html 
+sidebar: sidebar 
+keywords: installing 
+summary: Você deve instalar e configurar o plug-in do SnapCenter para o Microsoft Exchange Server se quiser proteger bancos de dados do Exchange. 
+---
+= Fluxo de trabalho de instalação do plug-in SnapCenter para Microsoft Exchange Server
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Você deve instalar e configurar o plug-in do SnapCenter para o Microsoft Exchange Server se quiser proteger bancos de dados do Exchange.
+
+image::../media/sce_install_configure_workflow.gif[Fluxo de trabalho de instalação]

@@ -1,0 +1,60 @@
+---
+permalink: protect-sco/concept_prepare_for_protecting_oracle_databases.html 
+sidebar: sidebar 
+keywords: oracle, preparation for protection, prerequisites 
+summary: Antes de executar qualquer operação de proteção de dados, como operações de backup, clone ou restauração, você precisa definir sua estratégia e configurar o ambiente. Você também pode configurar o servidor SnapCenter para usar a tecnologia SnapMirror e SnapVault. 
+---
+= Prepare-se para proteger bancos de dados Oracle
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Antes de executar qualquer operação de proteção de dados, como operações de backup, clone ou restauração, você precisa definir sua estratégia e configurar o ambiente. Você também pode configurar o servidor SnapCenter para usar a tecnologia SnapMirror e SnapVault.
+
+Para aproveitar as tecnologias SnapVault e SnapMirror, você deve configurar e inicializar uma relação de proteção de dados entre os volumes de origem e destino no dispositivo de armazenamento. Você pode usar o NetAppSystem Manager ou usar a linha de comando do console de armazenamento para executar essas tarefas.
+
+Antes de usar o plug-in para banco de dados Oracle, o administrador do SnapCenter deve instalar e configurar o servidor SnapCenter e executar as tarefas de pré-requisito.
+
+* Instalar e configurar o servidor SnapCenter. link:../install/task_install_the_snapcenter_server_using_the_install_wizard.html["Saiba mais"^]
+* Configure o ambiente SnapCenter adicionando conexões do sistema de storage. link:../install/task_add_storage_systems.html["Saiba mais"^]
++
+
+NOTE: O SnapCenter não é compatível com vários SVMs com o mesmo nome em clusters diferentes. Cada SVM registrado no SnapCenter usando o Registro da SVM ou o Registro de cluster precisa ser único.
+
+* Crie credenciais com o modo de autenticação como Linux ou AIX para o usuário de instalação. link:../protect-sco/reference_prerequisites_for_adding_hosts_and_installing_snapcenter_plug_ins_package_for_linux_or_aix.html#set-up-credentials["Saiba mais"^]
+* Adicione hosts, instale os plug-ins e descubra os recursos.
+* Se você estiver usando o servidor SnapCenter para proteger bancos de dados Oracle que residem em LUNs ou VMDKs do VMware RDM, será necessário implantar o plug-in do SnapCenter para VMware vSphere e Registrar o plug-in com o SnapCenter.
+* Instale o Java em seu host Linux ou AIX.
++
+link:../protect-sco/reference_prerequisites_for_adding_hosts_and_installing_snapcenter_plug_ins_package_for_linux_or_aix.html#linux-host-requirements["Requisitos de host do Linux"^]Consulte ou link:../protect-sco/reference_prerequisites_for_adding_hosts_and_installing_snapcenter_plug_ins_package_for_linux_or_aix.html#aix-host-requirements["Requisitos do anfitrião de AIX"^] para obter mais informações.
+
+* Você deve definir o valor de tempo limite do firewall do aplicativo para 3 horas ou mais.
+* Se você tiver bancos de dados Oracle em ambientes NFS, configure pelo menos um LIF de dados NFS para storage primário ou secundário para executar operações de montagem, clone, verificação e restauração.
+* Se você tiver vários caminhos de dados (LIFs) ou uma configuração DNFS, você pode executar o seguinte usando a CLI do SnapCenter no host do banco de dados:
++
+** Por padrão, todos os endereços IP do host do banco de dados são adicionados à política de exportação de storage NFS na máquina virtual de armazenamento (SVM) para os volumes clonados. Se você quiser ter um endereço IP específico ou restringir a um subconjunto dos endereços IP, execute a CLI Set-PreferredHostIPsInStorageExportPolicy.
+** Se você tiver vários caminhos de dados (LIFs) na SVM, o SnapCenter escolherá o caminho de dados (LIF) apropriado para a montagem do volume clonado NFS. No entanto, se você quiser especificar um caminho de dados específico (LIF), você deve executar a CLI Set-SvmPreferredDataPath. O guia de referência do comando tem mais informações.
+
+
+* Se você tiver bancos de dados Oracle em ambientes SAN, verifique se o ambiente SAN está configurado de acordo com a recomendação mencionada nos guias a seguir:
++
+** https://library.netapp.com/ecm/ecm_download_file/ECMLP2547957["Configurações de host recomendadas para utilitários de host unificado do Linux"^]
+** https://library.netapp.com/ecm/ecm_download_file/ECMLP2547958["Uso de hosts Linux com storage ONTAP"^]
+** https://library.netapp.com/ecm/ecm_download_file/ECMP1119218["Configurações do host afetadas pelos Utilitários de host AIX"^]
+
+
+* Se você tiver bancos de dados Oracle no LVM em sistemas operacionais Oracle Linux ou RHEL, instale a versão mais recente do Logical volume Management (LVM).
+* Se você estiver usando o SnapManager para Oracle e quiser migrar para o plug-in do SnapCenter para o banco de dados Oracle, é possível migrar os perfis para políticas e grupos de recursos do SnapCenter usando o comando sccli SC-Migrate.
+* Configure o SnapMirror e o SnapVault no ONTAP, se você quiser replicação de backup
+
+
+Para usuários do SnapCenter 4.1.1, a documentação do plug-in do SnapCenter para VMware vSphere 4.1.1 tem informações sobre como proteger bancos de dados virtualizados e sistemas de arquivos. Para usuários do SnapCenter 4,2.x, o Agente de dados do NetApp 1,0 e 1,0.1, a documentação tem informações sobre como proteger bancos de dados virtualizados e sistemas de arquivos usando o plug-in do SnapCenter para VMware vSphere fornecido pelo dispositivo virtual NetApp Data Broker baseado em Linux (formato Open Virtual Appliance). Para usuários do SnapCenter 4,3.x, a documentação do plug-in do SnapCenter para VMware vSphere 4,3 tem informações sobre como proteger bancos de dados virtualizados e sistemas de arquivos usando o plug-in SnapCenter baseado no Linux para o dispositivo virtual VMware vSphere (formato Open Virtual Appliance).
+
+*Encontre mais informações*
+
+* https://imt.netapp.com/matrix/imt.jsp?components=121071;&solution=1259&isHWU&src=IMT["Ferramenta de Matriz de interoperabilidade"^]
+* https://docs.netapp.com/us-en/sc-plugin-vmware-vsphere/index.html["Plug-in do SnapCenter para documentação do VMware vSphere"^]
+* https://kb.netapp.com/Advice_and_Troubleshooting/Data_Protection_and_Security/SnapCenter/Data_protection_operation_fails_in_a_non-multipath_environment_in_RHEL_7_and_later["Falha na operação de proteção de dados em um ambiente não multipath no RHEL 7 e posterior"^]
+

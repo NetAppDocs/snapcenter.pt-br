@@ -1,0 +1,31 @@
+---
+permalink: protect-mysql/clone-mysql-resource-backups.html 
+sidebar: sidebar 
+keywords: SnapCenter Plug-in for MySQL 
+summary: O fluxo de trabalho do clone inclui a execução da operação de clone e o monitoramento da operação. 
+---
+= Fluxo de trabalho clone
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+O fluxo de trabalho do clone inclui a execução da operação de clone e o monitoramento da operação.
+
+.Sobre esta tarefa
+* Você pode clonar no servidor MySQL de origem.
+* Você pode clonar backups de recursos pelos seguintes motivos:
++
+** Para testar a funcionalidade que deve ser implementada usando a estrutura e o conteúdo atuais dos recursos durante os ciclos de desenvolvimento de aplicativos
+** Para ferramentas de extração e manipulação de dados ao preencher data warehouses
+** Para recuperar dados que foram excluídos ou alterados por engano
+
+
+
+
+O fluxo de trabalho a seguir mostra a sequência na qual você deve executar a operação clone:
+
+image::../media/sco_scc_wfs_clone_workflow.png[Fluxo de trabalho clone]
+
+Você também pode usar cmdlets do PowerShell manualmente ou em scripts para executar operações de backup, restauração e clone. A ajuda do cmdlet SnapCenter e as informações de referência do cmdlet contêm informações detalhadas sobre cmdlets do PowerShell.

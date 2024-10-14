@@ -1,0 +1,61 @@
+---
+permalink: install/task_export_ca_certificates_from_snapcenter_server.html 
+sidebar: sidebar 
+keywords: security,authentication, export CA certificates 
+summary: Você deve exportar os certificados de CA do servidor SnapCenter para os hosts de plug-in. 
+---
+= Exportar certificados de autoridade de certificação (CA) do servidor SnapCenter
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Você deve exportar os certificados de CA do servidor SnapCenter para os hosts de plug-in usando o MMC (console de gerenciamento da Microsoft).
+
+.Antes de começar
+Você deve ter configurado o SSL bidirecional.
+
+*Passos*
+
+. Vá para o console de gerenciamento da Microsoft (MMC) e clique em *File* > *Add/Remove Snapin*.
+. Na janela Adicionar ou remover snap-ins, selecione *certificados* e clique em *Adicionar*.
+. Na janela certificados Snap-in, selecione a opção *conta de computador* e clique em *concluir*.
+. Clique em *raiz da consola* > *certificados - computador local* > *Pessoal* > *certificados*.
+. Clique com o botão direito do rato no certificado CA adquirido, que é utilizado para o servidor SnapCenter e selecione *todas as tarefas* > *Exportar* para iniciar o assistente de exportação.
+. Execute as seguintes ações no assistente.
+
+
+|===
+| Para esta opção... | Faça o seguinte... 
+
+
+ a| 
+Exportar chave privada
+ a| 
+Selecione *não, não exporte a chave privada* e, em seguida, clique em *seguinte*.
+
+
+
+ a| 
+Exportar formato de ficheiro
+ a| 
+Clique em *seguinte*.
+
+
+
+ a| 
+Nome do ficheiro
+ a| 
+Clique em *Procurar* e especifique o caminho do arquivo para salvar o certificado e clique em *Avançar*.
+
+
+
+ a| 
+Concluir o Assistente de exportação de certificados
+ a| 
+Revise o resumo e clique em *Finish* para iniciar a exportação.
+
+|===
+
+NOTE: A autenticação baseada em certificado não é suportada para configurações do SnapCenter HA e plug-in do SnapCenter para VMware vSphere.

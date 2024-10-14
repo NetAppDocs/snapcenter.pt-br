@@ -1,0 +1,50 @@
+---
+permalink: protect-scsql/task_storage_disaster_recovery_for_scsql.html 
+sidebar: sidebar 
+keywords: disaster recovery 
+summary: Você pode recuperar o plug-in do SnapCenter para armazenamento do SQL Server habilitando o modo DR para armazenamento na página Configurações globais. 
+---
+= Recuperação de desastres de storage (DR) para plug-in SnapCenter para SQL Server
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Você pode recuperar o plug-in do SnapCenter para armazenamento do SQL Server habilitando o modo DR para armazenamento na página Configurações globais.
+
+.Antes de começar
+* Certifique-se de que os plug-ins estão no modo de manutenção.
+* Quebre a relação SnapMirror/SnapVault. link:https://docs.netapp.com/ontap-9/topic/com.netapp.doc.onc-sm-help-950/GUID-8A3F828F-CD3D-48E8-A171-393581FEB2ED.html["Quebrando relacionamentos SnapMirror"]
+* Conete o LUN do secundário à máquina host com a mesma letra de unidade.
+* Certifique-se de que todos os discos estejam conetados usando as mesmas letras de unidade usadas antes do DR.
+* Reinicie o serviço de servidor MSSQL.
+* Certifique-se de que os recursos SQL estão novamente online.
+
+
+.Sobre esta tarefa
+A recuperação de desastres (DR) não é compatível com configurações VMDK e RDM.
+
+.Passos
+. Na página Configurações, navegue até *Configurações* > *Configurações globais* > *recuperação de desastres*.
+. Selecione *Ativar recuperação de desastres*.
+. Clique em *aplicar*.
+. Verifique se a tarefa DR está ativada ou não clicando em *Monitor* > *jobs*.
+
+
+.Depois de terminar
+* Se novos bancos de dados forem criados após o failover, os bancos de dados estarão no modo não DR.
++
+Os novos bancos de dados continuarão operando como antes do failover.
+
+* Os novos backups criados no modo DR serão listados em SnapMirror ou SnapVault (secundário) na página topologia.
++
+Um ícone "i" é exibido ao lado dos novos backups para indicar que esses backups foram criados durante o modo DR.
+
+* Você pode excluir o plug-in do SnapCenter para backups do SQL Server criados durante o failover usando a IU ou o cmdlet a seguir: `Remove-SmBackup`
+* Após o failover, se você quiser que alguns dos recursos estejam em modo não DR, use o seguinte cmdlet: `Remove-SmResourceDRMode`
++
+Para obter mais informações, consulte https://docs.netapp.com/us-en/snapcenter-cmdlets/index.html["Guia de referência de cmdlet do software SnapCenter"^].
+
+* O servidor SnapCenter gerenciará os recursos de storage individuais (bancos de dados SQL) que estão no modo DR ou não DR, mas não o grupo de recursos com recursos de storage que estão no modo DR ou no modo não DR.
+

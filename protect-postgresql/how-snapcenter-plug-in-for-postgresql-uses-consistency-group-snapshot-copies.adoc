@@ -1,0 +1,16 @@
+---
+permalink: protect-postgresql/how-snapcenter-plug-in-for-postgresql-uses-consistency-group-snapshot-copies.html 
+sidebar: sidebar 
+keywords: SnapCenter Plug-in for PostgreSQL 
+summary: Você pode usar o plug-in para criar snapshots de grupo de consistência para grupos de recursos. Um grupo de consistência é um contentor que pode abrigar vários volumes para que você possa gerenciá-los como uma entidade. Um grupo de consistência são snapshots simultâneos de vários volumes, fornecendo cópias consistentes de um grupo de volumes. 
+---
+= Como o plug-in do SnapCenter para PostgreSQL usa snapshots de grupo de consistência
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Você pode usar o plug-in para criar snapshots de grupo de consistência para grupos de recursos. Um grupo de consistência é um contentor que pode abrigar vários volumes para que você possa gerenciá-los como uma entidade. Um grupo de consistência são snapshots simultâneos de vários volumes, fornecendo cópias consistentes de um grupo de volumes.
+
+Você também pode especificar o tempo de espera para que o controlador de armazenamento agrupe snapshots de forma consistente. As opções de tempo de espera disponíveis são *urgente*, *Médio* e *descontraído*. Você também pode ativar ou desativar a sincronização WAFL (Write Anywhere File Layout) durante uma operação consistente de snapshot em grupo. O WAFL Sync melhora o desempenho de um snapshot de grupo de consistência.

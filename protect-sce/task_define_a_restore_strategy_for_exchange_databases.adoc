@@ -1,0 +1,73 @@
+---
+permalink: protect-sce/task_define_a_restore_strategy_for_exchange_databases.html 
+sidebar: sidebar 
+keywords: SnapCenter plug-in for Exchange Server 
+summary: Definir uma estratégia de restauração para o Exchange Server permite restaurar seu banco de dados com sucesso. 
+---
+= Defina uma estratégia de restauração para bancos de dados do Exchange
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Definir uma estratégia de restauração para o Exchange Server permite restaurar seu banco de dados com sucesso.
+
+
+
+== Fontes para uma operação de restauração no Exchange Server
+
+Você pode restaurar um banco de dados do Exchange Server a partir de uma cópia de backup no armazenamento primário.
+
+É possível restaurar bancos de dados somente do storage primário.
+
+
+
+== Tipos de operações de restauração compatíveis com o Exchange Server
+
+Você pode usar o SnapCenter para executar diferentes tipos de operações de restauração em recursos do Exchange.
+
+* Restaurar mais atualizado
+* Restaurar para um ponto anterior no tempo
+
+
+
+
+=== Restaure até o minuto
+
+Em uma operação de restauração atualizada, os bancos de dados são recuperados até o ponto de falha. O SnapCenter realiza isso executando a seguinte sequência:
+
+. Restaura os bancos de dados do backup completo do banco de dados selecionado.
+. Aplica todos os logs de transação que foram copiados, bem como quaisquer novos logs que foram criados desde o backup mais recente.
++
+Os logs de transações são movidos para frente e aplicados a quaisquer bancos de dados selecionados.
+
++
+O Exchange cria uma nova cadeia de log após a conclusão de uma restauração.
+
++
+|===
+
+
+| *Prática recomendada:* recomenda-se que você execute um novo backup completo e de log após a conclusão de uma restauração. 
+|===
++
+Uma operação de restauração atualizada requer um conjunto contíguo de logs de transações.
+
++
+Depois de executar uma restauração atualizada, o backup usado para a restauração estará disponível apenas para operações de restauração pontuais.
+
++
+Se você não precisar manter a capacidade de restauração atualizada para todos os backups, poderá configurar a retenção de backup de log de transações do sistema por meio das políticas de backup.
+
+
+
+
+
+=== Restaurar para um ponto anterior no tempo
+
+Em uma operação de restauração pontual, os bancos de dados são restaurados apenas para um tempo específico do passado. Uma operação de restauração pontual ocorre nas seguintes situações de restauração:
+
+* O banco de dados é restaurado para um determinado tempo em um log de transação de backup.
+* O banco de dados é restaurado e apenas um subconjunto de logs de transações de backup é aplicado a ele.
+

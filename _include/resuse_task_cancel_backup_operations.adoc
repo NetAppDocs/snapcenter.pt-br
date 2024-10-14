@@ -1,0 +1,45 @@
+= 
+:allow-uri-read: 
+
+
+Você pode cancelar as operações de backup que estão na fila.
+
+*O que você vai precisar*
+
+* Você deve estar logado como administrador do SnapCenter ou proprietário do trabalho para cancelar as operações.
+* Você pode cancelar uma operação de backup na página *Monitor* ou no painel *atividade*.
+* Não é possível cancelar uma operação de cópia de segurança em execução.
+* Você pode usar os comandos GUI, cmdlets do SnapCenter ou CLI para cancelar as operações de backup.
+* O botão *Cancelar trabalho* está desativado para operações que não podem ser canceladas.
+* Se você selecionou *todos os membros desta função podem ver e operar em objetos de outros membros* na página usuários/grupos ao criar uma função, você pode cancelar as operações de backup em fila de outros membros enquanto usa essa função.
+
+
+*Passos*
+
+. Execute uma das seguintes ações:
++
+|===
+| A partir do... | Ação 
+
+
+ a| 
+Página do monitor
+ a| 
+.. No painel de navegação esquerdo, clique em *Monitor* > *trabalhos*.
+.. Selecione a operação e clique em *Cancelar trabalho*.
+
+
+
+
+ a| 
+Painel da atividade
+ a| 
+.. Depois de iniciar a operação de backup, clique em *image:../media/activity_pane_icon.gif[""]* no painel atividade para exibir as cinco operações mais recentes.
+.. Selecione a operação.
+.. Na página Detalhes da tarefa, clique em *Cancelar tarefa*.
+
+
+|===
+
+
+A operação é cancelada e o recurso é revertido para o estado anterior.

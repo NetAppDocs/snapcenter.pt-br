@@ -1,0 +1,16 @@
+---
+permalink: protect-db2/types-of-restore-strategies-supported-for-auto-discovered-ibm-db2.html 
+sidebar: sidebar 
+keywords: SnapCenter Plug-in for IBM Db2 
+summary: Você deve definir uma estratégia antes de executar operações de restauração com êxito usando o SnapCenter. Existem dois tipos de estratégias de restauração para bancos de dados IBM DB2 automaticamente descobertos. 
+---
+= Tipo de estratégia de restauração suportada para o IBM DB2 descoberto automaticamente
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Você deve definir uma estratégia antes de executar operações de restauração com êxito usando o SnapCenter.
+
+A restauração completa de recursos é a estratégia de restauração suportada para bancos de dados IBM DB2 automaticamente descobertos. Isso restaura todos os volumes, qtrees e LUNs de um recurso.

@@ -1,0 +1,83 @@
+---
+permalink: protect-sce/task_view_exchange_backups_in_the_topology_page.html 
+sidebar: sidebar 
+keywords: SnapCenter plug-in for Exchange Server 
+summary: Quando você estiver se preparando para fazer backup de um recurso, talvez seja útil exibir uma representação gráfica de todos os backups nos armazenamentos primário e secundário. 
+---
+= Veja backups do Exchange na página topologia
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Quando você estiver se preparando para fazer backup de um recurso, talvez seja útil exibir uma representação gráfica de todos os backups nos armazenamentos primário e secundário.
+
+.Sobre esta tarefa
+Na página topologia, você pode ver todos os backups disponíveis para o grupo de recursos ou recursos selecionado. Você pode exibir os detalhes desses backups e selecioná-los para executar operações de proteção de dados.
+
+Você pode revisar o ícone a seguir na exibição Gerenciar cópias para determinar se os backups estão disponíveis no storage primário ou secundário (cópias espelhadas ou cópias do Vault).
+
+* image:../media/topology_primary_storage.gif["ícone de armazenamento primário"] exibe o número de backups disponíveis no armazenamento primário.
+* image:../media/topology_mirror_secondary_storage.gif["Ícone de espelho de armazenamento secundário"] Exibe o número de backups espelhados no storage secundário usando a tecnologia SnapMirror.
+* image:../media/topology_vault_secondary_storage.gif["ícone do cofre secundário"] Exibe o número de backups replicados no storage secundário usando a tecnologia SnapVault.
++
+** O número de backups exibidos inclui os backups excluídos do armazenamento secundário.
++
+Por exemplo, se você criou backups 6 usando uma política para reter apenas 4 backups, o número de backups exibidos é 6.
+
++
+|===
+
+
+| *Prática recomendada:* para garantir que o número correto de backups replicados seja exibido, recomendamos que você atualize a topologia. 
+|===
+
+
+
+
+Se você tiver uma relação secundária como sincronização ativa do SnapMirror (lançada inicialmente como SnapMirror Business Continuity [SM-BC]), você poderá ver os seguintes ícones adicionais:
+
+* image:../media/topology_replica_site_up.png["site de réplica para cima"] implica que o site de réplica está em cima.
+* image:../media/topology_replica_site_down.png["site de réplica para baixo"] implica que o site de réplica está para baixo.
+* image:../media/topology_reestablished.png["o relacionamento é restabelecido"] implica que a relação do espelho secundário ou do cofre não foi restabelecida.
+
+
+.Passos
+. No painel de navegação esquerdo, clique em *Resources* e selecione o plug-in apropriado na lista.
+. Na página recursos, selecione o banco de dados, o recurso ou o grupo de recursos na lista suspensa *Exibir*.
+. Selecione o recurso na exibição de detalhes do banco de dados ou na exibição de detalhes do grupo de recursos.
++
+Se o recurso estiver protegido, a página topologia do recurso selecionado é exibida.
+
+. Consulte a seção cartão de resumo para ver um resumo do número de backups disponíveis no armazenamento primário e secundário.
++
+A seção cartão de resumo exibe o número total de backups e o número total de backups de log.
+
++
+Clicar no botão *Refresh* inicia uma consulta do armazenamento para exibir uma contagem precisa.
+
++
+Se o backup habilitado para SnapLock for feito, clique no botão *Atualizar* atualiza o tempo de expiração do SnapLock primário e secundário recuperado do ONTAP. Um horário semanal também atualiza o tempo de expiração do SnapLock primário e secundário recuperado do ONTAP.
+
++
+Quando o recurso do aplicativo é espalhado por vários volumes, o tempo de expiração do SnapLock para o backup será o tempo de expiração do SnapLock mais longo definido para um snapshot em um volume. O tempo de expiração mais longo do SnapLock é recuperado do ONTAP.
+
++
+Para a sincronização ativa do SnapMirror, clicar no botão *Atualizar* atualiza o inventário de backup do SnapCenter consultando o ONTAP para sites primários e de réplica. Uma programação semanal também executa essa atividade para todos os bancos de dados que contêm a relação de sincronização ativa do SnapMirror.
+
++
+** Para a sincronização ativa do SnapMirror e somente para o ONTAP 9.14,1, as relações de espelhamento do Async ou EspelrorVault do Async com o novo destino primário devem ser configuradas manualmente após o failover. A partir do ONTAP 9.15,1 em diante, o espelho do Async ou o MirrorVault do Async são configurados automaticamente para o novo destino principal.após o failover.
+** Após o failover, um backup deve ser criado para que o SnapCenter esteja ciente do failover. Você pode clicar em *Refresh* somente depois que um backup tiver sido criado.
+
+
+. No modo de exibição Gerenciar cópias, clique em *backups* no armazenamento primário ou secundário para ver detalhes de um backup.
++
+Os detalhes dos backups são exibidos em um formato de tabela.
+
+. Selecione o backup na tabela e clique nos ícones de proteção de dados para executar operações de restauração, renomeação e exclusão.
++
+
+NOTE: Não é possível renomear ou excluir backups que estão no armazenamento secundário. A exclusão de snapshots é tratada pelas configurações de retenção do ONTAP.
+
+

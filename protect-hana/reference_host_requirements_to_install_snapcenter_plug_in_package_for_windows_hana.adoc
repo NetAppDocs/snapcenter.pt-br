@@ -1,0 +1,58 @@
+---
+permalink: protect-hana/reference_host_requirements_to_install_snapcenter_plug_in_package_for_windows_hana.html 
+sidebar: sidebar 
+keywords: SAP HANA,Custom plug-ins 
+summary: Antes de instalar o pacote de plug-ins do SnapCenter para Windows, você deve estar familiarizado com alguns requisitos básicos de espaço do sistema host e requisitos de dimensionamento. 
+---
+= Requisitos de host para instalar o pacote de plug-ins do SnapCenter para Windows
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Antes de instalar o pacote de plug-ins do SnapCenter para Windows, você deve estar familiarizado com alguns requisitos básicos de espaço do sistema host e requisitos de dimensionamento.
+
+|===
+| Item | Requisitos 
+
+
+ a| 
+Sistemas operacionais
+ a| 
+Microsoft Windows
+
+Para obter as informações mais recentes sobre versões suportadas, consulte o https://imt.netapp.com/matrix/imt.jsp?components=121074;&solution=1257&isHWU&src=IMT["Ferramenta de Matriz de interoperabilidade do NetApp"^].
+
+
+
+ a| 
+RAM mínima para o plug-in SnapCenter no host
+ a| 
+1 GB
+
+
+
+ a| 
+Espaço mínimo de instalação e log para o plug-in SnapCenter no host
+ a| 
+5 GB
+
+
+NOTE: Deve alocar espaço em disco suficiente e monitorizar o consumo de armazenamento pela pasta de registos. O espaço de registo necessário varia consoante o número de entidades a proteger e a frequência das operações de proteçãoão de dados. Se não houver espaço em disco suficiente, os logs não serão criados para as operações executadas recentemente.
+
+
+
+ a| 
+Pacotes de software necessários
+ a| 
+* .NET Core 8.0.5
+* PowerShell Core 7.4.2
+* Java 11 Oracle Java e OpenJDK
+
+
+Para obter as informações mais recentes sobre versões suportadas, consulte o https://imt.netapp.com/matrix/imt.jsp?components=121074;&solution=1257&isHWU&src=IMT["Ferramenta de Matriz de interoperabilidade do NetApp"^].
+
+Para obter informações específicas de solução de problemas .NET, consulte https://kb.netapp.com/mgmt/SnapCenter/SnapCenter_upgrade_or_install_fails_with_This_KB_is_not_related_to_the_OS["A atualização ou instalação do SnapCenter falha para sistemas legados que não têm conetividade com a Internet."]
+
+|===

@@ -1,0 +1,133 @@
+---
+permalink: protect-sce/task_create_resource_groups_and_attach_policies_for_exchange_servers.html 
+sidebar: sidebar 
+keywords: resource group 
+summary: Um grupo de recursos é necessário para qualquer trabalho de proteção de dados. Você também deve anexar uma ou mais políticas ao grupo de recursos para definir o tipo de tarefa de proteção de dados que deseja executar e o cronograma de proteção. 
+---
+= Crie grupos de recursos e anexe políticas para Exchange Servers
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Um grupo de recursos é necessário para qualquer trabalho de proteção de dados. Você também deve anexar uma ou mais políticas ao grupo de recursos para definir o tipo de tarefa de proteção de dados que deseja executar e o cronograma de proteção.
+
+.Sobre esta tarefa
+* O SCRIPT_PATH é definido usando a chave PredefinedWindowsScriptsDirectory localizada no arquivo SMCoreServiceHost.exe.Config do host do plug-in.
++
+Se necessário, você pode alterar esse caminho e reiniciar o serviço SMcore. É recomendável usar o caminho padrão para segurança.
+
++
+O valor da chave pode ser exibido do swagger através da API: API /4,7/configsettings
+
++
+Você pode usar a API GET para exibir o valor da chave. A API SET não é suportada.
+
+* Para a versão ONTAP 9.12,1 e inferior, os clones criados a partir dos instantâneos do Vault do SnapLock como parte da restauração herdarão o tempo de expiração do SnapLock Vault. O administrador do storage deve limpar manualmente os clones após o tempo de expiração do SnapLock.
+* A adição de novos bancos de dados sem a sincronização ativa do SnapMirror a um grupo de recursos existente que contenha recursos com a sincronização ativa do SnapMirror não é suportada.
+* A adição de novos bancos de dados a um grupo de recursos existente no modo failover da sincronização ativa do SnapMirror não é suportada. Você pode adicionar recursos ao grupo de recursos apenas no estado regular ou de failback.
+
+
+.Passos
+. No painel de navegação à esquerda, clique em *recursos* e selecione o plug-in do Microsoft Exchange Server na lista.
+. Na página recursos, selecione *Banco de dados* na lista *Exibir*.
++
+
+NOTE: Se você recentemente adicionou um recurso ao SnapCenter, clique em *Atualizar recursos* para exibir o recurso recém-adicionado.
+
+. Clique em *novo grupo de recursos*.
+. Na página Nome, execute as seguintes ações:
++
+|===
+| Para este campo... | Faça isso... 
+
+
+ a| 
+Nome
+ a| 
+Introduza o nome do grupo de recursos.
+
+
+NOTE: O nome do grupo de recursos não deve exceder 250 carateres.
+
+
+
+ a| 
+Tags
+ a| 
+Insira um ou mais rótulos que o ajudarão a pesquisar posteriormente o grupo de recursos.
+
+Por exemplo, se você adicionar HR como uma tag a vários grupos de recursos, poderá encontrar mais tarde todos os grupos de recursos associados à tag HR.
+
+
+
+ a| 
+Use o formato de nome personalizado para cópia Snapshot
+ a| 
+Opcional: Insira um nome e formato personalizados do instantâneo.
+
+Por exemplo, _customtext_resourcegroup_policy_hostname_ ou _resourcegroup_hostname_. Por padrão, um carimbo de data/hora é anexado ao nome do instantâneo.
+
+|===
+. Na página recursos, execute as seguintes etapas:
++
+.. Selecione o tipo de recurso e o Grupo de disponibilidade de banco de dados nas listas suspensas para filtrar a lista de recursos disponíveis.
++
+
+NOTE: Se você tiver adicionado recursos recentemente, eles aparecerão na lista de recursos disponíveis somente depois de atualizar sua lista de recursos.
+
+
+
++
+Nas seções recursos disponíveis e recursos selecionados, o nome do banco de dados é exibido com o FQDN do host. Esse FQDN indica apenas que o banco de dados está ativo nesse host específico e pode não fazer backup nesse host. Você deve selecionar um ou mais servidores de backup na opção de seleção de servidor, onde você deseja fazer backup caso tenha selecionado a opção *Backup de cópias em servidores a serem selecionados no momento de criação da tarefa de backup* na política.
+
++
+.. Digite o nome do recurso na caixa de texto de pesquisa ou role para localizar um recurso.
+.. Para mover recursos da seção recursos disponíveis para a seção recursos selecionados, execute uma das seguintes etapas:
++
+*** Selecione *seleção automática de todos os recursos no mesmo volume de armazenamento* para mover todos os recursos no mesmo volume para a seção recursos selecionados.
+*** Selecione os recursos na seção recursos disponíveis e clique na seta para a direita para movê-los para a seção recursos selecionados.
++
+Os grupos de recursos do SnapCenter para Microsoft Exchange Server não podem ter mais de 30 bancos de dados por instantâneo. Se houver mais de 30 bancos de dados em um grupo de recursos, um segundo Snapshot será criado para os bancos de dados adicionais. Por conseguinte, são criadas 2 subtarefas no trabalho de cópia de segurança principal. Para backups com replicação secundária, enquanto a atualização do SnapMirror ou do SnapVault estiver em andamento, pode haver cenários em que a atualização para ambos os subtrabalhos se sobreponham. O trabalho de backup principal continua em execução para sempre, mesmo se os logs indicarem que o trabalho está concluído.
+
+
+
+
+
+. Na página políticas, execute as seguintes etapas:
++
+.. Selecione uma ou mais políticas na lista suspensa.
++
+
+NOTE: Você também pode criar uma política clicando em *image:../media/add_policy_from_resourcegroup.gif["Ícone Plus"]*.
+
++
+
+NOTE: Se uma política contiver a opção *Backup de cópias em servidores a serem selecionados na hora de criação da tarefa de backup*, uma opção de seleção de servidor será exibida para selecionar um ou mais servidores. A opção de seleção de servidor irá listar apenas o servidor onde o banco de dados selecionado está no armazenamento NetApp.
+
++
+Na seção Configurar agendas para políticas selecionadas, as políticas selecionadas são listadas.
+
+.. Na seção Configurar agendas para políticas selecionadas, clique em *image:../media/add_policy_from_resourcegroup.gif["Ícone Plus"]* na coluna *Configurar agendas* para a política para a qual você deseja configurar o agendamento.
+.. Na caixa de diálogo Adicionar agendas para política _policy_name_, configure a programação especificando a data de início, data de expiração e frequência e clique em *OK*.
++
+Você deve fazer isso para cada frequência listada na política. As programações configuradas são listadas na coluna *programações aplicadas* na seção Configurar programações para políticas selecionadas.
+
++
+As agendas de backup de terceiros não são suportadas quando sobrepõem-se às agendas de backup do SnapCenter.
+
+
+
+. Na página notificação, na lista suspensa *preferência de e-mail*, selecione os cenários nos quais você deseja enviar os e-mails.
++
+Você também deve especificar os endereços de e-mail do remetente e do destinatário e o assunto do e-mail. Se quiser anexar o relatório da operação realizada no grupo de recursos, selecione *Anexar Relatório de trabalho*.
+
++
+Para notificação por e-mail, você deve ter especificado os detalhes do servidor SMTP usando o comando GUI ou PowerShell `Set-SmSmtpServer` .
+
++
+As informações sobre os parâmetros que podem ser usados com o cmdlet e suas descrições podem ser obtidas executando _get-Help command_name_. Alternativamente, você também pode consultar o https://docs.netapp.com/us-en/snapcenter-cmdlets/index.htmlnapCenter[] Guia de Referência do cmdlet de Software.]
+
+. Revise o resumo e clique em *Finish*.
+

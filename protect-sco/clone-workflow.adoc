@@ -1,0 +1,25 @@
+---
+permalink: protect-sco/clone-workflow.html 
+sidebar: sidebar 
+keywords: clone operation, clone, workflow 
+summary: O fluxo de trabalho do clone inclui Planejamento, execução da operação do clone e monitoramento da operação. 
+---
+= Fluxo de trabalho clone
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+O fluxo de trabalho do clone inclui Planejamento, execução da operação do clone e monitoramento da operação.
+
+Você pode clonar bancos de dados pelos seguintes motivos:
+
+* Para testar a funcionalidade que deve ser implementada usando a estrutura e o conteúdo atuais do banco de dados durante os ciclos de desenvolvimento de aplicativos.
+* Para preencher depósitos de dados usando ferramentas de extração e manipulação de dados.
+* Para recuperar dados que foram excluídos ou alterados por engano.
+
+
+O fluxo de trabalho a seguir mostra a sequência na qual você deve executar a operação clone:
+
+image::../media/sco_scc_wfs_clone_workflow.png[fluxo de trabalho clone]

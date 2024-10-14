@@ -1,0 +1,57 @@
+---
+permalink: protect-db2/host-requirements-to-install-snapcenter-plug-in-package-for-linux.html 
+sidebar: sidebar 
+keywords: SnapCenter 
+summary: Antes de instalar o pacote de plug-ins do SnapCenter para Linux, você deve estar familiarizado com alguns requisitos básicos de espaço e dimensionamento do sistema host. 
+---
+= Requisitos de host para instalar o pacote de plug-ins do SnapCenter para Linux
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Antes de instalar o pacote de plug-ins do SnapCenter para Linux, você deve estar familiarizado com alguns requisitos básicos de espaço e dimensionamento do sistema host.
+
+|===
+| Item | Requisitos 
+
+
+ a| 
+Sistemas operacionais
+ a| 
+* Red Hat Enterprise Linux
+* SUSE Linux Enterprise Server (SLES)
+
+
+Para obter as informações mais recentes sobre versões suportadas, consulte o https://imt.netapp.com/matrix/imt.jsp?components=121073;&solution=1257&isHWU&src=IMT["Ferramenta de Matriz de interoperabilidade do NetApp"].
+
+
+
+ a| 
+RAM mínima para o plug-in SnapCenter no host
+ a| 
+1 GB
+
+
+
+ a| 
+Espaço mínimo de instalação e log para o plug-in SnapCenter no host
+ a| 
+2 GB
+
+
+NOTE: Deve alocar espaço em disco suficiente e monitorizar o consumo de armazenamento pela pasta de registos. O espaço de registo necessário varia consoante o número de entidades a proteger e a frequência das operações de proteçãoão de dados. Se não houver espaço em disco suficiente, os logs não serão criados para as operações executadas recentemente.
+
+
+
+ a| 
+Pacotes de software necessários
+ a| 
+Java 11 Oracle Java e OpenJDK
+
+Se você atualizou O JAVA para a versão mais recente, você deve garantir que a opção JAVA_HOME localizada em /var/opt/SnapCenter/spl/etc/spl.properties esteja definida para a versão JAVA correta e o caminho correto.
+
+Para obter as informações mais recentes sobre versões suportadas, consulte o https://imt.netapp.com/matrix/imt.jsp?components=121073;&solution=1257&isHWU&src=IMT["Ferramenta de Matriz de interoperabilidade do NetApp"].
+
+|===

@@ -1,0 +1,210 @@
+---
+permalink: protect-scw/task_back_up_a_single_resource_on_demand_for_windows_file_systems.html 
+sidebar: sidebar 
+keywords: backing up 
+summary: Se um recurso não estiver em um grupo de recursos, você poderá fazer backup do recurso sob demanda na página recursos. 
+---
+= Faça backup de um único recurso sob demanda para sistemas de arquivos do Windows
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Se um recurso não estiver em um grupo de recursos, você poderá fazer backup do recurso sob demanda na página recursos.
+
+.Sobre esta tarefa
+Se você quiser fazer backup de um recurso que tenha uma relação SnapMirror com o armazenamento secundário, a função atribuída ao usuário de armazenamento deve incluir o privilégio "'SnapMirror All'". No entanto, se você estiver usando a função "vsadmin", o privilégio "SnapMirror all" não será necessário.
+
+
+NOTE: Ao fazer backup de um sistema de arquivos, o SnapCenter não faz backup de LUNs montados em um ponto de montagem de volume (VMP) no sistema de arquivos que está sendo feito backup.
+
+
+IMPORTANT: Se você estiver trabalhando em um contexto de sistema de arquivos do Windows, não faça backup de arquivos de banco de dados. Isso cria um backup inconsistente e uma possível perda de dados ao restaurar. Para proteger arquivos de banco de dados, você deve usar o plug-in SnapCenter apropriado para o banco de dados (por exemplo, plug-in SnapCenter para Microsoft SQL Server, plug-in SnapCenter para Microsoft Exchange Server ou um plug-in personalizado para arquivos de banco de dados).
+
+[role="tabbed-block"]
+====
+.IU do SnapCenter
+--
+.Passos
+. No painel de navegação esquerdo, clique em *Resources* e selecione o plug-in apropriado na lista.
+. Na página recursos, selecione o tipo de recurso sistema de arquivos e, em seguida, selecione o recurso que deseja fazer backup.
+. Se o assistente sistema de arquivos - proteger não iniciar automaticamente, clique em *proteger* para iniciar o assistente.
++
+Especifique as configurações de proteção, conforme descrito nas tarefas criando grupos de recursos.
+
+. Opcional: Na página recurso do assistente, insira um formato de nome personalizado para a captura Instantânea.
++
+Por exemplo, customtext_resourcegroup_policy_hostname ou resourcegroup_hostname. Por padrão, um carimbo de data/hora é anexado ao nome do instantâneo.
+
+. Na página políticas, execute as seguintes tarefas:
++
+.. Selecione uma ou mais políticas na lista suspensa.
++
+Você pode selecionar qualquer política existente e, em seguida, clique em *Detalhes* para determinar se você pode usar essa política.
+
++
+Se nenhuma política existente atender aos seus requisitos, você pode copiar uma política existente e modificá-la ou criar uma nova política clicando image:../media/add_policy_from_resourcegroup.gif[""] para iniciar o assistente de política.
+
++
+As políticas selecionadas são listadas na coluna Política na seção Configurar programações para políticas selecionadas.
+
+.. Na seção Configurar agendas para políticas selecionadas, clique image:../media/add_policy_from_resourcegroup.gif[""] na coluna Configurar agendas para a política para a qual você deseja configurar o agendamento.
+.. Na caixa de diálogo Adicionar agendas para política _policy_name_, configure a programação especificando a data de início, data de expiração e frequência e clique em *Finish*.
++
+As programações configuradas são listadas na coluna agendas aplicadas na seção Configurar programações para políticas selecionadas.
+
++
+https://kb.netapp.com/Advice_and_Troubleshooting/Data_Protection_and_Security/SnapCenter/Scheduled_data_protection_operations_fail_if_the_number_of_operations_running_reaches_maximum_limit["As operações agendadas podem falhar"]
+
+
+
+. Na página notificação, execute as seguintes tarefas:
++
+|===
+| Para este campo... | Faça isso... 
+
+
+ a| 
+Preferência por e-mail
+ a| 
+Selecione *Always*, ou *On Failure*, ou *on failure ou Warning*, para enviar e-mails aos destinatários após criar grupos de recursos de backup, anexar políticas e configurar agendas.
+
+Insira as informações do servidor SMTP, a linha de assunto do e-mail padrão e os endereços de e-mail "'to'" e "'from'".
+
+
+
+ a| 
+De
+ a| 
+Endereço de e-mail
+
+
+
+ a| 
+Para
+ a| 
+E-mail para endereço
+
+
+
+ a| 
+Assunto
+ a| 
+Linha de assunto do e-mail padrão
+
+|===
+. Revise o resumo e clique em *Finish*.
++
+A página de topologia do banco de dados é exibida.
+
+. Clique em *fazer backup agora*.
+. Na página Backup, execute as seguintes etapas:
++
+.. Se você tiver aplicado várias políticas ao recurso, na lista suspensa Política, selecione a política que deseja usar para backup.
++
+Se a política selecionada para o backup sob demanda estiver associada a um agendamento de backup, os backups sob demanda serão retidos com base nas configurações de retenção especificadas para o tipo de agendamento.
+
+.. Clique em *Backup*.
+
+
+. Monitorize o progresso da operação clicando em *Monitor* > *trabalhos*.
+
+
+--
+.Cmdlets do PowerShell
+--
+.Passos
+. Inicie uma sessão de conexão com o servidor SnapCenter para um usuário especificado usando o cmdlet Open-SmConnection.
++
+[listing]
+----
+Open-smconnection  -SMSbaseurl  https://snapctr.demo.netapp.com:8146
+----
++
+É apresentado o aviso de nome de utilizador e palavra-passe.
+
+. Crie uma política de backup usando o cmdlet Add-SmPolicy.
++
+Este exemplo cria uma nova política de backup com um tipo de backup SQL de fullbackup:
+
++
+[listing]
+----
+PS C:\> Add-SmPolicy -PolicyName TESTPolicy
+-PluginPolicyType SCSQL -PolicyType Backup
+-SqlBackupType FullBackup -Verbose
+----
++
+Este exemplo cria uma nova política de backup com um tipo de backup do sistema de arquivos do Windows CrashConsistent:
+
++
+[listing]
+----
+PS C:\> Add-SmPolicy -PolicyName FileSystemBackupPolicy
+-PluginPolicyType SCW -PolicyType Backup
+-ScwBackupType CrashConsistent -Verbose
+----
+. Descubra os recursos do host usando o cmdlet Get-SmResources.
++
+Este exemplo descobre os recursos do plug-in Microsoft SQL no host especificado:
+
++
+[listing]
+----
+C:\PS>PS C:\> Get-SmResources -HostName vise-f6.sddev.mycompany.com
+-PluginCode SCSQL
+----
++
+Este exemplo descobre os recursos para sistemas de arquivos do Windows no host especificado:
+
++
+[listing]
+----
+C:\PS>PS C:\> Get-SmResources -HostName vise2-f6.sddev.mycompany.com
+-PluginCode SCW
+----
+. Adicione um novo grupo de recursos ao SnapCenter usando o cmdlet Add-SmResourceGroup.
++
+Este exemplo cria um novo grupo de recursos de backup de banco de dados SQL com a política e os recursos especificados:
+
++
+[listing]
+----
+PS C:\> Add-SmResourceGroup -ResourceGroupName AccountingResource
+-Resources @{"Host"="visef6.org.com";
+"Type"="SQL Database";"Names"="vise-f6\PayrollDatabase"}
+-Policies "BackupPolicy"
+----
++
+Este exemplo cria um novo grupo de recursos de backup do sistema de arquivos do Windows com a política e os recursos especificados:
+
++
+[listing]
+----
+PS C:\> Add-SmResourceGroup -ResourceGroupName EngineeringResource
+-PluginCode SCW -Resources @{"Host"="WIN-VOK20IKID5I";
+"Type"="Windows Filesystem";"Names"="E:\"}
+-Policies "EngineeringBackupPolicy"
+----
+. Inicie uma nova tarefa de backup usando o cmdlet New-SmBackup.
++
+[listing]
+----
+PS C:> New-SmBackup -ResourceGroupName PayrollDataset -Policy FinancePolicy
+----
+. Exiba o status da tarefa de backup usando o cmdlet Get-SmBackupReport.
++
+Este exemplo exibe um relatório de resumo de todos os trabalhos executados na data especificada:
+
++
+[listing]
+----
+PS C:\> Get-SmJobSummaryReport -Date '1/27/2016'
+----
+
+
+As informações sobre os parâmetros que podem ser usados com o cmdlet e suas descrições podem ser obtidas executando _get-Help command_name_. Em alternativa, pode também consultar o https://docs.netapp.com/us-en/snapcenter-cmdlets/index.html["Guia de referência de cmdlet do software SnapCenter"^].
+
+--
+====

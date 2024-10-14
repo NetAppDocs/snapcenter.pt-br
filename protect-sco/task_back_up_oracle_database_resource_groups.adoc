@@ -1,0 +1,55 @@
+---
+permalink: protect-sco/task_back_up_oracle_database_resource_groups.html 
+sidebar: sidebar 
+keywords: backup, resource group 
+summary: Um grupo de recursos é uma coleção de recursos em um host ou cluster. Uma operação de backup no grupo de recursos é executada em todos os recursos definidos no grupo de recursos. 
+---
+= Faça backup de grupos de recursos de banco de dados Oracle
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Um grupo de recursos é uma coleção de recursos em um host ou cluster. A operação de backup é realizada em todos os recursos definidos no grupo de recursos.
+
+Você pode fazer backup de um grupo de recursos sob demanda na página recursos. Se um grupo de recursos tiver uma política anexada e uma programação configurada, os backups serão criados de acordo com a programação.
+
+.Passos
+. No painel de navegação esquerdo, selecione *Resources* e o plug-in apropriado na lista.
+. Na página recursos, selecione *Grupo de recursos* na lista *Exibir*.
+. Digite o nome do grupo de recursos na caixa de pesquisa ou clique image:../media/filter_icon.png["Ícone de filtro"]em e selecione a tag.
++
+Clique image:../media/filter_icon.png["Ícone de filtro"] em para fechar o painel de filtro.
+
+. Na página Grupo de recursos, selecione o grupo de recursos para fazer backup.
++
+
+NOTE: Se você tiver um grupo de recursos federados com dois bancos de dados e um tiver dados em um storage que não seja NetApp, a operação de backup será abortada mesmo que o outro banco de dados esteja no storage NetApp.
+
+. Na página Backup, execute as seguintes etapas:
++
+.. Se você tiver várias políticas associadas ao grupo de recursos, selecione a política de backup que deseja usar na lista suspensa *Política*.
++
+Se a política selecionada para o backup sob demanda estiver associada a um agendamento de backup, os backups sob demanda serão retidos com base nas configurações de retenção especificadas para o tipo de agendamento.
+
+.. Selecione *Backup*.
+
+
+. Monitorize o progresso selecionando *Monitor > trabalhos*.
+
+
+.Depois de terminar
+* Na configuração do AIX, você pode usar o `lkdev` comando para bloquear e o `rendev` comando para renomear os discos nos quais o banco de dados que foi feito backup residia.
++
+Bloquear ou renomear dispositivos não afetará a operação de restauração quando você restaurar usando esse backup.
+
+* Se a operação de backup falhar porque o tempo de execução da consulta do banco de dados excedeu o valor de tempo limite, você deve alterar o valor dos parâmetros ORACLE_SQL_QUERY_TIMEOUT e ORACLE_PLUGIN_SQL_QUERY_TIMEOUT executando `Set-SmConfigSettings` o cmdlet:
++
+Depois de modificar o valor dos parâmetros, reinicie o serviço SnapCenter Plug-in Loader (SPL) executando o seguinte comando `/opt/NetApp/snapcenter/spl/bin/spl restart`
+
+* Se o arquivo não estiver acessível e o ponto de montagem não estiver disponível durante o processo de verificação, a operação pode falhar com o código de erro DBV-00100 arquivo especificado. Você deve modificar os valores dos parâmetros VERIFICATION_DELAY_ e VERIFICATION_RETRY_COUNT em sco.properties.
++
+Depois de modificar o valor dos parâmetros, reinicie o serviço SnapCenter Plug-in Loader (SPL) executando o seguinte comando `/opt/NetApp/snapcenter/spl/bin/spl restart`
+
+

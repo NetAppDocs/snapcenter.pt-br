@@ -1,0 +1,22 @@
+---
+permalink: protect-scw/reference_back_up_windows_file_systems.html 
+sidebar: sidebar 
+keywords: SnapCenter 
+summary: Ao instalar o plug-in do SnapCenter para Microsoft Windows em seu ambiente, você pode usar o SnapCenter para fazer backup de sistemas de arquivos do Windows. Você pode fazer backup de um único sistema de arquivos ou de um grupo de recursos que contenha vários sistemas de arquivos. Você pode fazer backup sob demanda ou de acordo com um cronograma de proteção definido. 
+---
+= Faça backup dos sistemas de arquivos do Windows
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Ao instalar o plug-in do SnapCenter para Microsoft Windows em seu ambiente, você pode usar o SnapCenter para fazer backup de sistemas de arquivos do Windows. Você pode fazer backup de um único sistema de arquivos ou de um grupo de recursos que contenha vários sistemas de arquivos. Você pode fazer backup sob demanda ou de acordo com um cronograma de proteção definido.
+
+Você pode agendar vários backups para serem executados em servidores simultaneamente. As operações de backup e restauração não podem ser executadas simultaneamente no mesmo recurso.
+
+O fluxo de trabalho a seguir mostra a sequência na qual você deve executar as operações de backup:
+
+image::../media/sce_backup_workflow.gif[fluxo de trabalho de cópia de segurança sce]
+
+Você também pode usar cmdlets do PowerShell manualmente ou em scripts para executar operações de backup, restauração e clone. A ajuda do cmdlet SnapCenter ou https://docs.netapp.com/us-en/snapcenter-cmdlets/index.html["Guia de referência de cmdlet do software SnapCenter"^] contém informações detalhadas sobre cmdlets do PowerShell.

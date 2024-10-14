@@ -1,0 +1,72 @@
+---
+permalink: install/task_configure_audit_log_settings.html 
+sidebar: sidebar 
+keywords: audit, log, configure 
+summary: Você pode configurar para Registrar os eventos de segurança das plataformas de software e de todo o software em execução nessas plataformas. 
+---
+= Configurar as definições do registo de auditoria
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Os logs de auditoria são gerados para cada atividade do servidor SnapCenter. Por padrão, os logs de auditoria são protegidos no local instalado padrão _C: Arquivos de programas/NetApp/SnapCenter WebApp/audit_.
+
+Os logs de auditoria são protegidos por meio da geração de resumos assinados digitalmente para cada evento de auditoria para protegê-lo da modificação não autorizada. Os resumos gerados são mantidos no arquivo de checksum de auditoria separado e em seguida são verificações periódicas de integridade para garantir a integridade do conteúdo.
+
+Você deve ter feito login como a função "SnapCenterAdmin".
+
+*Sobre esta tarefa*
+
+* Os alertas são enviados nos seguintes cenários:
++
+** O agendamento de verificação da integridade do log de auditoria ou o servidor Syslog está ativado ou desativado
+** Verificação de integridade do log de auditoria, log de auditoria ou falha de log do servidor Syslog
+** Baixo espaço em disco
+
+
+* O e-mail é enviado somente quando a verificação de integridade falhar.
+* Você deve modificar os caminhos do diretório de log de auditoria e do diretório de log de checksum de auditoria juntos. Você não pode modificar apenas um deles.
+* Quando os caminhos do diretório de log de auditoria e do diretório de log de checksum de auditoria são modificados, a verificação de integridade não pode ser realizada em logs de auditoria presentes no local anterior.
+* Os caminhos do diretório de log de auditoria e do diretório de log de verificação de auditoria devem estar na unidade local do servidor SnapCenter.
++
+Unidades compartilhadas ou montadas em rede não são suportadas.
+
+* Se o protocolo UDP for usado nas configurações do servidor Syslog, os erros devido à porta estão inativos ou não podem ser capturados como um erro ou um alerta no SnapCenter.
+* Você pode usar os comandos Set-SmAuditSettings e Get-SmAuditSettings para configurar os logs de auditoria.
++
+As informações sobre os parâmetros que podem ser usados com o cmdlet e suas descrições podem ser obtidas executando Get-Help command_name. Alternativamente, você também pode consultar o https://docs.netapp.com/us-en/snapcenter-cmdlets/index.html["Guia de referência de cmdlet do software SnapCenter"^].
+
+
+
+*Passos*
+
+. Na página *Configurações*, navegue até *Configurações* > *Configurações globais* > *Configurações do log de auditoria*.
+. Na secção Registo de auditoria, introduza os detalhes.
+. Digite o diretório *Audit log* e o diretório de log de checksum* de auditoria
++
+.. Introduza o tamanho máximo do ficheiro
+.. Introduza o máximo de ficheiros de registo
+.. Insira a porcentagem de uso do espaço em disco para enviar um alerta
+
+
+. (Opcional) Ativar *Log UTC Time*.
+. (Opcional) ative *Audit Log Integrity Check Schedule* e clique em *Start Integrity Check* para verificação de integridade sob demanda.
++
+Você também pode executar o comando *Start-SmAuditIntegrityCheck* para iniciar a verificação de integridade sob demanda.
+
+. (Opcional) ative os logs de auditoria encaminhados para o servidor syslog remoto e insira os detalhes do servidor Syslog.
++
+Você deve importar o certificado do servidor Syslog para o protocolo 'Trusted Root' para TLS 1,2.
+
++
+.. Introduza o sistema anfitrião do servidor Syslog
+.. Introduza a porta do servidor Syslog
+.. Introduza o protocolo Syslog Server
+.. Introduza o formato RFC
+
+
+. Clique em *Salvar*.
+. Você pode ver verificações de integridade de auditoria e verificações de espaço em disco clicando em *Monitor* > *jobs*.
+

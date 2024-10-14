@@ -1,0 +1,47 @@
+---
+permalink: protect-hana/task_prepare_multitenant_database_containers_for_data_protection.html 
+sidebar: sidebar 
+keywords: multitenant database containers 
+summary: 'Para hosts SAP HANA diretamente registrados no SnapCenter, a instalação ou atualização do plug-in do SnapCenter para o banco de dados SAP HANA acionará uma descoberta automática de recursos no host. Depois de instalar ou atualizar o plug-in, para cada recurso de contentores de banco de dados multitenant que estava localizado no host do plug-in, outro recurso MDC será automaticamente descoberto com um formato GUID diferente e registrado no SnapCenter. O novo recurso estará no estado "bloqueado".' 
+---
+= Preparar contentores de banco de dados multitenant para proteção de dados
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Para hosts SAP HANA diretamente registrados no SnapCenter, a instalação ou atualização do plug-in do SnapCenter para o banco de dados SAP HANA acionará uma descoberta automática de recursos no host. Depois de instalar ou atualizar o plug-in, para cada recurso de contentores de banco de dados multitenant (MDC) localizado no host do plug-in, outro recurso MDC será automaticamente descoberto com um formato GUID diferente e registrado no SnapCenter. O novo recurso estará no estado "bloqueado".
+
+.Sobre esta tarefa
+Por exemplo, no SnapCenter 4,2, se o recurso E90 MDC estava localizado no host do plug-in e registrado manualmente, após a atualização para o SnapCenter 4,3, outro recurso E90 MDC com um GUID diferente será descoberto e registrado no SnapCenter.
+
+
+NOTE: Os backups associados ao recurso do SnapCenter 4,2 e versões anteriores devem ser mantidos até o final do período de retenção. Após o período de retenção expirar, você pode excluir o recurso MDC antigo e continuar a gerenciar o novo recurso MDC descoberto automaticamente.
+
+`Old MDC resource` É o recurso MDC para um host de plug-in que foi adicionado manualmente no SnapCenter 4,2 ou versões anteriores.
+
+Execute as etapas a seguir para começar a usar o novo recurso descoberto no SnapCenter 4,3 para operações de proteção de dados:
+
+.Passos
+. Na página recursos, selecione o recurso MDC antigo com backups adicionados à versão anterior do SnapCenter e coloque-o em "modo de manutenção" na página topologia.
++
+Se o recurso for parte de um grupo de recursos, coloque o grupo de recursos em "modo de manutenção".
+
+. Configure o novo recurso MDC descoberto após a atualização para o SnapCenter 4,3 selecionando o novo recurso na página recursos.
++
+"Novo recurso MDC" é o recurso MDC recém-descoberto que foi descoberto quando o servidor SnapCenter e o host do plug-in foram atualizados para 4,3. O novo recurso MDC pode ser identificado como um recurso com o mesmo SID que o antigo recurso MDC, para um determinado host, e com um ícone de cadeado vermelho ao lado dele na página recursos.
+
+. Proteja o novo recurso MDC descoberto após a atualização para o SnapCenter 4,3 selecionando políticas de proteção, horários e configurações de notificação.
+. Exclua os backups feitos no SnapCenter 4,2 ou versões anteriores com base nas configurações de retenção.
+. Exclua o grupo de recursos da página topologia.
+. Exclua o recurso MDC antigo da página recursos.
++
+Por exemplo, se o período de retenção de snapshots primários for de 7 dias e a retenção de snapshots secundários for de 45 dias, após 45 dias estarem concluídos e após todos os backups serem excluídos, você deverá excluir o grupo de recursos e o recurso MDC antigo.
+
+
+
+.Informações relacionadas
+link:task_configure_hdb_user_store_key_and_hdbsql_os_user_for_the_sap_hana_database.html["Configure a chave do armazenamento de usuários HDB e o usuário do sistema operacional HDBSQL para o banco de dados SAP HANA"]
+
+link:task_view_sap_hana_database_backups_and_clones_in_the_topology_page_sap_hana.html["Veja os backups e clones do banco de dados SAP HANA na página topologia"]

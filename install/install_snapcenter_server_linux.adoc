@@ -1,0 +1,162 @@
+---
+permalink: install/install_snapcenter_server_linux.html 
+sidebar: sidebar 
+keywords: install, snapcenter software, install, linux host 
+summary: Você pode instalar o servidor SnapCenter no host Linux. 
+---
+= Instale o servidor SnapCenter no host Linux
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Você pode executar o executável do instalador do servidor SnapCenter para instalar o servidor SnapCenter.
+
+.Antes de começar
+* Se você quiser instalar o servidor SnapCenter usando um usuário não-root que não tenha Privileges suficiente para instalar o SnapCenter, obtenha o arquivo de checksum de sudoers no site de suporte da NetApp. Você deve usar o arquivo de checksum apropriado baseado na versão Linux.
+* Durante a instalação do runtime .NET, se a instalação não conseguir resolver as dependências da biblioteca _libicu_, então instale _libicu_ executando o comando: `yum install -y libicu`
+* Se a instalação do servidor SnapCenter falhar devido à não disponibilidade de _Perl_, então instale _Perl_ executando o comando: `yum install -y perl`
+* Se o pacote sudo não estiver disponível no SUSE Linux, instale o pacote sudo para evitar falha de autenticação.
+* Para o SUSE Linux, configure o nome do host para evitar a falha de instalação.
+* Verifique o status seguro do Linux executando o comando `sestatus`. Se o status _SELinux_ estiver "ativado" e o modo _atual_ estiver "aplicando", execute o seguinte:
++
+** Execute o comando: `sudo semanage port -a -t http_port_t -p tcp <WEBAPP_EXTERNAL_PORT_>`
++
+O valor padrão de _WEBAPP_EXTERNAL_PORT_ é 8146
+
+** Se o firewall bloquear a porta, execute `sudo firewall-cmd --add-port <WEBAPP_EXTERNAL_PORT_>/tcp`
++
+O valor padrão de _WEBAPP_EXTERNAL_PORT_ é 8146
+
+** Execute os seguintes comandos a partir do diretório onde você tem permissão de leitura e gravação:
++
+*** `sudo ausearch -c 'nginx' --raw | audit2allow -M my-nginx`
++
+Se o comando retornar "nada a fazer", execute novamente o comando após instalar o servidor SnapCenter.
+
+*** Se o comando criar _my-nginx.PP_, execute o comando para tornar o pacote de políticas ativo: `sudo semodule -i my-nginx.pp`
+
+
+** O caminho usado para o diretório PID do MySQL é _/var/opt/mysqld_. Execute os seguintes comandos para definir as permissões para a instalação do MySQL.
++
+*** `mkdir /var/opt/mysqld`
+*** `sudo semanage fcontext -a -t mysqld_var_run_t "/var/opt/mysqld(/.*)?"`
+*** `sudo restorecon -Rv /var/opt/mysqld`
+
+
+** O caminho usado para o diretório de dados MySQL é _/install_DIR/NetApp/SnapCenter/SnapManagerWeb/Repositório/MySQL/_. Execute os seguintes comandos para definir as permissões para o diretório de dados MySQL.
++
+*** `mkdir -p /INSTALL_DIR/NetApp/snapcenter/SnapManagerWeb/Repository/MySQL`
+*** `sudo semanage fcontext -a -t mysqld_db_t "/INSTALL_DIR/NetApp/snapcenter/SnapManagerWeb/Repository/MySQL(/.*)?"`
+*** `sudo restorecon -Rv /INSTALL_DIR/NetApp/snapcenter/SnapManagerWeb/Repository/MySQL`
+
+
+
+
+
+
+.Sobre esta tarefa
+* Quando o servidor SnapCenter é instalado no host Linux, serviços de terceiros como MySQL, RabbitMq, Errlang são instalados. Você não deve desinstalá-los.
+* O servidor SnapCenter instalado no host Linux não suporta:
++
+** Alta disponibilidade
+** Plug-ins do Windows
+** Ative Directory (suporta apenas os utilizadores locais, tanto o utilizador raiz como o utilizador não-raiz com creds)
+** Autenticação baseada em chave para fazer login no SnapCenter
+
+
+
+
+.Passos
+. Faça o download do seguinte de https://mysupport.netapp.com/site/products/all/details/snapcenter/downloads-tab["Site de suporte da NetApp"^] para _/home Directory_.
++
+** Pacote de instalação do servidor SnapCenter - *SnapCenter-linux-server-(el8/el9/sles15).bin*
+** Arquivo de chave pública - *SnapCenter_public_key.pub*
+** Respetivo arquivo de assinatura - *SnapCenter-linux-server-(el8/el9/sles15).bin.SIG*
+
+
+. Valide o arquivo de assinatura.
+`$openssl dgst -sha256 -verify snapcenter_public_key.pub -signature <path to signature file> <path to bin file>`
+. Para instalação de usuários que não sejam root, adicione o conteúdo visualizado especificado em *SnapCenter_Server_checksum_(el8/el9/sles15).txt* disponível junto com o instalador .bin.
+. Atribua a permissão executar para o instalador .bin.
+`chmod +x snapcenter-linux-server-(el8/el9/sles15).bin`
+. Execute uma das ações para instalar o servidor SnapCenter.
++
+|===
+| Se você quiser executar... | Faça isso... 
+
+
+ a| 
+Instalação interativa
+ a| 
+`./snapcenter-linux-server-(el8/el9/sles15).bin`
+
+Ser-lhe-á pedido que introduza os seguintes detalhes:
+
+** A porta externa do webapp usada para acessar o servidor SnapCenter fora do host Linux. O valor padrão é 8146.
+** O usuário do servidor SnapCenter que instalará o servidor SnapCenter.
+** O diretório de instalação onde os pacotes serão instalados.
+
+
+
+
+ a| 
+Instalação não interativa
+ a| 
+`sudo ./snapcenter-linux-server-(el8/el9/sles15).bin -i silent -DWEBAPP_EXTERNAL_PORT=<port> -DWEBAPP_INTERNAL_PORT=<port> -DSMCORE_PORT=<port> -DSCHEDULER_PORT=<port>  -DSNAPCENTER_SERVER_USER=<user> -DUSER_INSTALL_DIR=<dir> -DINSTALL_LOG_NAME=<filename>`
+
+Exemplo: Sudo ./SnapCenter_linux_server.bin -i silent -DWEBAPP_EXTERNAL_PORT.8146 -DSNAPCENTER_SERVER_USER-root -DUSER_INSTALL_DIR/opt -DINSTALL_LOG_NAME.InstallerLog.log
+
+Os registos serão armazenados em _/var/opt/SnapCenter/logs_.
+
+Parâmetros a serem passados para a instalação do servidor SnapCenter:
+
+** DWEBAPP_EXTERNAL_port: Porta externa webapp usada para acessar o servidor SnapCenter fora do host Linux. O valor padrão é 8146.
+** DWEBAPP_INTERNAL_port: Porta interna do webapp usada para acessar o servidor SnapCenter dentro do host Linux. O valor padrão é 8147.
+** DSMCORE_port: Porta SMCore na qual os serviços smcore estão sendo executados. O valor padrão é 8145.
+** DSCHEDULER_port: Porta do Agendador na qual os serviços do agendador estão sendo executados. O valor padrão é 8154.
+** DSNAPCENTER_Server_User: Usuário do servidor SnapCenter que instalará o servidor SnapCenter. Para _DSNAPCENTER_SERVER_USER_, o padrão é o usuário que executa o instalador.
+** DUSER_install_DIR: Diretório de instalação onde os pacotes serão instalados. Para _DUSER_install_DIR_, o diretório de instalação padrão é _/opt_.
+** DINSTALL_LOG_NAME: Nome do arquivo de log onde os logs de instalação serão armazenados. Este é um parâmetro opcional e, se especificado, nenhum log será exibido no console.se você não especificar esse parâmetro, os logs serão exibidos no console e também armazenados no arquivo de log padrão.
+** DSELINUX: Se o status _SELinux_ estiver "habilitado", o _current mode_ está "impondo", e você executou os comandos mencionados na seção antes de começar, você deve especificar esse parâmetro e atribuir o valor como 1. O valor padrão é 0.
+** DUPGRADE: O valor padrão é 0. Especifique este parâmetro e seu valor como qualquer inteiro diferente de 0 para atualizar o servidor SnapCenter.
+
+
+|===
+
+
+.O que se segue?
+* Se o status _SELinux_ estiver "habilitado" e o modo _atual_ estiver "impondo", o serviço *nginx* não será iniciado. Você deve executar os seguintes comandos:
++
+.. Vá para o diretório inicial.
+.. Executar o comando: `journalctl -x|grep nginx`.
+.. Se a porta interna do Webapp (8147) não tiver permissão para ouvir, execute os seguintes comandos:
++
+*** `ausearch -c 'nginx' --raw | audit2allow -M my-nginx`
+*** `semodule -i my-nginx.pp`
+
+
+.. Executar `setsebool -P httpd_can_network_connect on`
+
+
+
+
+
+
+== Registre o produto para habilitar o suporte
+
+Se você é novo no NetApp e não tem uma conta NetApp existente, deve Registrar o produto para habilitar o suporte.
+
+.Passos
+. Depois de instalar o SnapCenter, navegue até *Ajuda > sobre*.
+. Na caixa de diálogo _sobre o SnapCenter_, anote a instância do SnapCenter, um número de 20 dígitos que começa com 971.
+. Clique https://register.netapp.com[]em .
+. Clique em *Eu não sou um Cliente NetApp registrado*.
+. Especifique os seus dados para se registar.
+. Deixe o campo NetApp Reference SN em branco.
+. Selecione *SnapCenter* na lista suspensa linha de produtos.
+. Selecione o fornecedor de faturação.
+. Insira o ID da instância do SnapCenter de 20 dígitos.
+. Clique em *Enviar*.
+

@@ -1,0 +1,40 @@
+= 
+:allow-uri-read: 
+
+
+Você pode cancelar as operações de clone que estão na fila.
+
+Você deve estar logado como administrador do SnapCenter ou proprietário da tarefa para cancelar operações de clone.
+
+.Sobre esta tarefa
+* Você pode cancelar uma operação de clone na fila a partir da página *Monitor* ou do painel *atividade*.
+* Não é possível cancelar uma operação de clone em execução.
+* Você pode usar a GUI do SnapCenter, cmdlets do PowerShell ou os comandos CLI para cancelar as operações de clone na fila.
+* Se você selecionou *todos os membros desta função podem ver e operar em outros objetos membros* na página usuários/grupos enquanto cria uma função, você pode cancelar as operações de clone em fila de outros membros enquanto usa essa função.
+
+
+.Passo
+Execute uma das seguintes ações:
+
+|===
+| A partir do... | Ação 
+
+
+ a| 
+Página do monitor
+ a| 
+. No painel de navegação esquerdo, clique em *Monitor* > *trabalhos*.
+. Selecione a operação e clique em *Cancelar trabalho*.
+
+
+
+
+ a| 
+Painel da atividade
+ a| 
+. Depois de iniciar a operação clone, clique image:../media/activity_pane_icon.gif[""]no painel atividade para exibir as cinco operações mais recentes.
+. Selecione a operação.
+. Na página *Detalhes do trabalho*, clique em *Cancelar trabalho*.
+
+
+|===

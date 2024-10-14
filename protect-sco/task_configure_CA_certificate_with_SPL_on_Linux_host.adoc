@@ -1,0 +1,121 @@
+---
+permalink: protect-sco/task_configure_CA_certificate_with_SPL_on_Linux_host.html 
+sidebar: sidebar 
+keywords: SnapCenter, SPL, Plug-in loader service, CA certificate, certificate 
+summary: Configure o certificado CA com o serviço SnapCenter Plug-in Loader no host Linux 
+---
+= Configure o certificado CA com o serviço SnapCenter Plug-in Loader (SPL) no host Linux
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Você deve gerenciar a senha do keystore SPL e seu certificado, configurar o certificado CA, configurar certificados raiz ou intermediários para o armazenamento de confiança SPL e configurar o par de chaves assinadas CA para o armazenamento de confiança SPL com o serviço SnapCenter Plug-in Loader para ativar o certificado digital instalado.
+
+
+IMPORTANT: O SPL usa o arquivo 'keystore.jks', que está localizado em '/var/opt/SnapCenter/spl/etc', tanto como seu armazenamento de confiança e armazenamento de chaves.
+
+
+
+== Gerenciar senha para o armazenamento de chaves SPL e alias do par de chaves assinadas CA em uso
+
+*Passos*
+
+. Você pode recuperar a senha padrão do keystore SPL do arquivo de propriedade SPL.
++
+É o valor correspondente à chave 'SPL_KEYSTORE_PASS'.
+
+. Altere a senha do keystore:
++
+ keytool -storepasswd -keystore keystore.jks
+. Altere a senha para todos os aliases de entradas de chave privada no keystore para a mesma senha usada para o keystore:
++
+ keytool -keypasswd -alias "<alias_name>" -keystore keystore.jks
++
+Atualize o mesmo para a chave SPL_KEYSTORE_PASS no arquivo spl.properties.
+
+. Reinicie o serviço depois de alterar a senha.
+
+
+
+NOTE: A senha para o keystore SPL e para todos os alias associados da chave privada deve ser a mesma.
+
+
+
+== Configure certificados raiz ou intermediários para o armazenamento de confiança SPL
+
+Você deve configurar os certificados raiz ou intermediários sem a chave privada para o armazenamento de confiança SPL.
+
+*Passos*
+
+. Navegue até a pasta que contém o keystore SPL: _/var/opt/SnapCenter/spl/etc_.
+. Localize o arquivo 'keystore.jks'.
+. Liste os certificados adicionados no keystore:
++
+ keytool -list -v -keystore keystore.jks
+. Adicione um certificado raiz ou intermediário:
++
+ keytool -import -trustcacerts -alias <AliasNameForCerticateToBeImported> -file /<CertificatePath> -keystore keystore.jks
+. Reinicie o serviço depois de configurar os certificados raiz ou intermédios para o armazenamento de confiança SPL.
+
+
+
+NOTE: Você deve adicionar o certificado de CA raiz e, em seguida, os certificados de CA intermediários.
+
+
+
+== Configure o par de chaves assinadas da CA para o armazenamento de confiança SPL
+
+Você deve configurar o par de chaves assinadas da CA para o armazenamento de confiança SPL.
+
+*Passos*
+
+. Navegue até a pasta que contém o keystore /var/opt/SnapCenter/spl/etc. do SPL
+. Localize o arquivo 'keystore.jks'.
+. Liste os certificados adicionados no keystore:
++
+ keytool -list -v -keystore keystore.jks
+. Adicione o certificado da CA com chave privada e pública.
++
+ keytool -importkeystore -srckeystore <CertificatePathToImport> -srcstoretype pkcs12 -destkeystore keystore.jks -deststoretype JKS
+. Liste os certificados adicionados no keystore.
++
+ keytool -list -v -keystore keystore.jks
+. Verifique se o keystore contém o alias correspondente ao novo certificado da CA, que foi adicionado ao keystore.
+. Altere a senha da chave privada adicionada para o certificado da CA para a senha do keystore.
++
+A senha padrão do keystore SPL é o valor da chave SPL_KEYSTORE_PASS no arquivo spl.properties.
+
++
+ keytool -keypasswd -alias "<aliasNameOfAddedCertInKeystore>" -keystore keystore.jks
+. Se o nome do alias no certificado da CA for longo e contiver espaço ou carateres especiais ("*",","), altere o nome do alias para um nome simples:
++
+ keytool -changealias -alias "<OrignalAliasName>" -destalias "<NewAliasName>" -keystore keystore.jks
+. Configure o nome do alias a partir do keystore localizado no arquivo spl.properties.
++
+Atualize este valor com a chave SPL_CERTIFICATE_ALIAS.
+
+. Reinicie o serviço depois de configurar o par de chaves assinadas pela CA para o armazenamento de confiança SPL.
+
+
+
+
+== Configurar a lista de revogação de certificados (CRL) para SPL
+
+Você deve configurar a CRL para SPL
+
+*Sobre esta tarefa*
+
+* O SPL procurará os arquivos CRL em um diretório pré-configurado.
+* O diretório padrão para os arquivos CRL para SPL é _/var/opt/SnapCenter/spl/etc/crl_.
+
+
+*Passos*
+
+. Você pode modificar e atualizar o diretório padrão no arquivo spl.properties contra a chave SPL_CRL_PATH.
+. Você pode colocar mais de um arquivo CRL neste diretório.
++
+Os certificados recebidos serão verificados em relação a cada CRL.
+
+

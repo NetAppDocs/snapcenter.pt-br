@@ -1,0 +1,55 @@
+---
+permalink: protect-scsql/reference_storage_layout_recommendations_for_snapcenter_plug_in_for_microsoft_sql_server.html 
+sidebar: sidebar 
+keywords: Storage layout 
+summary: Um layout de armazenamento bem projetado permite que o servidor SnapCenter faça backup de seus bancos de dados para atender aos seus objetivos de recuperação. Você deve considerar vários fatores ao definir seu layout de armazenamento, incluindo o tamanho do banco de dados, a taxa de alteração do banco de dados e a frequência com que você realiza backups. 
+---
+= Recomendações de layout de storage para o plug-in SnapCenter para Microsoft SQL Server
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Um layout de armazenamento bem projetado permite que o servidor SnapCenter faça backup de seus bancos de dados para atender aos seus objetivos de recuperação. Você deve considerar vários fatores ao definir seu layout de armazenamento, incluindo o tamanho do banco de dados, a taxa de alteração do banco de dados e a frequência com que você realiza backups.
+
+As seções a seguir definem as recomendações e restrições de layout de storage para LUNs e discos de máquina virtual (VMDKs) com o plug-in SnapCenter para Microsoft SQL Server instalado no seu ambiente.
+
+Nesse caso, os LUNs podem incluir discos VMware RDM e LUNs iSCSI de conexão direta mapeados para o convidado.
+
+
+
+== Requisitos de LUN e VMDK
+
+Opcionalmente, você pode usar LUNs ou VMDKs dedicados para obter performance e gerenciamento ideais para os seguintes bancos de dados:
+
+* Bancos de dados de sistemas mestres e de modelos
+* Tempdb
+* Arquivos de banco de dados do usuário (.mdf e .ndf)
+* Arquivos de log de transações de banco de dados do usuário (.ldf)
+* Diretório de log
+
+
+Para restaurar bancos de dados grandes, a prática recomendada é usar LUNs ou VMDKs dedicados. O tempo necessário para restaurar um LUN ou VMDK completo é menor do que o tempo necessário para restaurar os arquivos individuais que são armazenados no LUN ou VMDK.
+
+Para o diretório de log, você deve criar um LUN ou VMDK separado para que haja espaço livre suficiente nos discos de arquivo de dados ou log.
+
+
+
+== Layouts de amostra de LUN e VMDK
+
+O gráfico a seguir mostra como você pode configurar o layout de armazenamento para bancos de dados grandes em LUNs:
+
+image::../media/smsql_storage_layout_mult_vols_snapcenter.gif[Diagrama de vários LUNs]
+
+O gráfico a seguir mostra como você pode configurar o layout de armazenamento para bancos de dados médios ou pequenos em LUNs:
+
+image::../media/smsql_storage_layout_mult_dbs_luns_snapcenter.gif[Vários bancos de dados por diagrama LUN]
+
+O gráfico a seguir mostra como você pode configurar o layout de armazenamento para bancos de dados grandes em VMDKs:
+
+image::../media/smsql_storage_layout_large_dbs_vmdk.gif[Layout de storage para bancos de dados grandes em VMDKs]
+
+O gráfico a seguir mostra como você pode configurar o layout de armazenamento para bancos de dados médios ou pequenos em VMDKs:
+
+image::../media/smsql_storage_layout_med_small_dbs_vmdk.gif[Layout de storage para bancos de dados médios ou pequenos em VMDKs]

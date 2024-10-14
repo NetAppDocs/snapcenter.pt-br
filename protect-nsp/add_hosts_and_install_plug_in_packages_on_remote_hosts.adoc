@@ -1,0 +1,187 @@
+---
+permalink: protect-nsp/add_hosts_and_install_plug_in_packages_on_remote_hosts.html 
+sidebar: sidebar 
+keywords: add hosts 
+summary: Você deve usar a página SnapCenterAdd Host para adicionar hosts e, em seguida, instalar os pacotes de plug-in. Os plug-ins são instalados automaticamente nos hosts remotos. Você pode adicionar um host e instalar os pacotes de plug-in para um host individual ou para um cluster. 
+---
+= Adicione hosts e instale pacotes plug-in em hosts remotos
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Você deve usar a página SnapCenterAdd Host para adicionar hosts e, em seguida, instalar os pacotes de plug-in. Os plug-ins são instalados automaticamente nos hosts remotos. Você pode adicionar um host e instalar os pacotes de plug-in para um host individual ou para um cluster.
+
+.Antes de começar
+* Você deve ser um usuário atribuído a uma função que tenha as permissões de instalação e desinstalação do plug-in, como a função Administrador do SnapCenter.
+* Você deve garantir que o serviço de enfileiramento de mensagens esteja em execução.
+* Se você estiver usando a conta de serviço gerenciado de grupo (gMSA), você deve configurar o gMSA com Privileges administrativo.
++
+link:configure_gMSA_on_windows_server_2012_or_later.html["Configure a conta de serviço gerenciado de grupo no Windows Server 2016 ou posterior para aplicativos personalizados"]
+
+
+
+.Sobre esta tarefa
+Não é possível adicionar um servidor SnapCenter como um host plug-in a outro servidor SnapCenter.
+
+Se você instalar plug-ins em um cluster (WSFC), os plug-ins serão instalados em todos os nós do cluster.
+
+.Passos
+. No painel de navegação esquerdo, selecione *hosts*.
+. Verifique se a guia *hosts gerenciados* está selecionada na parte superior.
+. Selecione *Adicionar*.
+. Na página hosts, execute as seguintes ações:
++
+|===
+| Para este campo... | Faça isso... 
+
+
+ a| 
+Tipo de host
+ a| 
+Selecione o tipo de host:
+
+** Windows
+** Linux
+
+
+
+NOTE: Os plug-ins compatíveis com NetApp podem ser usados em ambientes Windows e Linux.
+
+
+
+ a| 
+Nome do host
+ a| 
+Insira o nome de domínio totalmente qualificado (FQDN) ou o endereço IP do host.
+
+O SnapCenter depende da configuração adequada do DNS. Portanto, a melhor prática é entrar no FQDN.
+
+Para ambientes Windows, o endereço IP é suportado para hosts de domínio não confiáveis somente se for resolvido para o FQDN.
+
+Você pode inserir os endereços IP ou FQDN de um host autônomo.
+
+Se você estiver adicionando um host usando o SnapCenter e o host fizer parte de um subdomínio, você deverá fornecer o FQDN.
+
+
+
+ a| 
+Credenciais
+ a| 
+Selecione o nome da credencial que você criou ou crie novas credenciais.
+
+As credenciais devem ter direitos administrativos no host remoto. Para obter detalhes, consulte as informações sobre como criar credenciais.
+
+Você pode exibir detalhes sobre as credenciais posicionando o cursor sobre o nome da credencial que você especificou.
+
+
+NOTE: O modo de autenticação de credenciais é determinado pelo tipo de host especificado no assistente Adicionar host.
+
+|===
+. Na seção *Select Plug-ins to Install*, selecione os plug-ins a instalar.
++
+Você pode instalar os seguintes plug-ins na lista:
+
++
+** MongoDB
+** ORASCPM (exibido como aplicativos Oracle)
+** SAP ASE
+** ORASCPM
+** SAP MaxDB
+** Armazenamento
+
+
+. (Opcional) Selecione *mais opções* para instalar os outros plug-ins.
++
+|===
+| Para este campo... | Faça isso... 
+
+
+ a| 
+Porta
+ a| 
+Guarde o número da porta padrão ou especifique o número da porta.
+
+O número da porta padrão é 8145. Se o servidor SnapCenter tiver sido instalado em uma porta personalizada, esse número de porta será exibido como a porta padrão.
+
+
+NOTE: Se você instalou manualmente os plug-ins e especificou uma porta personalizada, você deve especificar a mesma porta. Caso contrário, a operação falha.
+
+
+
+ a| 
+Caminho de instalação
+ a| 
+Os plug-ins personalizados podem ser instalados em um sistema Windows ou em um sistema Linux.
+
+** Para o pacote de plug-ins do SnapCenter para Windows, o caminho padrão é C: Arquivos de programas/NetApp/SnapCenter.
++
+Opcionalmente, você pode personalizar o caminho.
+
+** Para o pacote de plug-ins do SnapCenter para Linux, o caminho padrão é `/opt/NetApp/snapcenter`.
++
+Opcionalmente, você pode personalizar o caminho.
+
+** Para os plug-ins personalizados do SnapCenter:
++
+... Na seção Plug-ins personalizados, selecione *Procurar* e selecione a pasta plug-in personalizado zipado.
++
+A pasta zipada contém o código de plug-in personalizado e o arquivo .xml do descritor.
+
++
+Para o Plug-in de armazenamento, navegue até `_C:\ProgramData\NetApp\SnapCenter\Package Repository_` a pasta e selecione `Storage.zip`-a.
+
+... Selecione *Upload*.
++
+O arquivo .xml do descritor na pasta de plug-in personalizado zipado é validado antes que o pacote seja carregado.
+
++
+Os plug-ins personalizados que são carregados para o servidor SnapCenter são listados.
+
+
+
+
+
+
+
+ a| 
+Ignorar as verificações de pré-instalação
+ a| 
+Marque essa caixa de seleção se você já instalou os plug-ins manualmente e não quiser validar se o host atende aos requisitos para instalar o plug-in.
+
+
+
+ a| 
+Use a conta de serviço gerenciado de grupo (gMSA) para executar os serviços de plug-in
+ a| 
+Para o host Windows, marque essa caixa de seleção se desejar usar a conta de serviço gerenciado de grupo (gMSA) para executar os serviços de plug-in.
+
+
+IMPORTANT: Forneça o nome do gMSA no seguinte formato:
+
+
+NOTE: O gMSA será usado como uma conta de serviço de logon apenas para o serviço SnapCenter Plug-in para Windows.
+
+|===
+. Selecione *Enviar*.
++
+Se você não tiver selecionado a caixa de seleção *Ignorar pré-verificações*, o host será validado para verificar se o host atende aos requisitos para a instalação do plug-in. O espaço em disco, a RAM, a versão do PowerShell, a versão do .NET, a localização (para plug-ins do Windows) e a versão Java (para plug-ins do Linux) são validados de acordo com os requisitos mínimos. Se os requisitos mínimos não forem cumpridos, são apresentadas mensagens de erro ou de aviso adequadas.
+
++
+Se o erro estiver relacionado ao espaço em disco ou à RAM, você pode atualizar o arquivo web.config localizado no NetApp SnapCenter para modificar os valores padrão. Se o erro estiver relacionado a outros parâmetros, você deve corrigir o problema.
+
++
+
+NOTE: Em uma configuração de HA, se você estiver atualizando o arquivo web.config, será necessário atualizar o arquivo em ambos os nós.
+
+. Se o tipo de host for Linux, verifique a impressão digital e selecione *Confirm and Submit*.
++
+
+NOTE: A verificação de impressões digitais é obrigatória mesmo que o mesmo host tenha sido adicionado anteriormente ao SnapCenter e a impressão digital tenha sido confirmada.
+
+. Monitorize o progresso da instalação.
++
+Os arquivos de log específicos da instalação estão localizados em `/custom_location/snapcenter/` logs.
+
+

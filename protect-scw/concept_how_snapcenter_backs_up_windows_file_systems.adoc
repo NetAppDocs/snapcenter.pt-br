@@ -1,0 +1,23 @@
+---
+permalink: protect-scw/concept_how_snapcenter_backs_up_windows_file_systems.html 
+sidebar: sidebar 
+keywords: SnapCenter 
+summary: 'O SnapCenter usa a tecnologia Snapshot para fazer backup dos recursos do sistema de arquivos do Windows que residem em LUNs, CSVs (volumes compartilhados de cluster), volumes RDM (mapeamento de dispositivos brutos), ALM (mapeamento de LUN assimétrico) em clusters do Windows e VMDKs baseados em VMFS/NFS (VMware Virtual Machine File System usando NFS).' 
+---
+= Como o SnapCenter faz backup dos sistemas de arquivos do Windows
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+O SnapCenter usa a tecnologia Snapshot para fazer backup dos recursos do sistema de arquivos do Windows que residem em LUNs, CSVs (volumes compartilhados de cluster), volumes RDM (mapeamento de dispositivos brutos), ALM (mapeamento de LUN assimétrico) em clusters do Windows e VMDKs baseados em VMFS/NFS (VMware Virtual Machine File System usando NFS).
+
+O SnapCenter cria backups criando snapshots dos sistemas de arquivos. Os backups federados, em que um volume contém LUNs de vários hosts, são mais rápidos e eficientes do que os backups de cada LUN individual, porque apenas um snapshot do volume é criado em comparação com snapshots individuais de cada sistema de arquivos.
+
+Quando o SnapCenter cria um instantâneo, todo o volume do sistema de storage é capturado no instantâneo. No entanto, o backup é válido apenas para o servidor host para o qual o backup foi criado.
+
+Se os dados de outros servidores host residirem no mesmo volume, esses dados não poderão ser restaurados a partir do Snapshot.
+
+
+NOTE: Se um sistema de arquivos do Windows contiver um banco de dados, o backup do sistema de arquivos não será o mesmo que o backup do banco de dados. Para fazer backup de um banco de dados, você deve usar um dos plug-ins do banco de dados.

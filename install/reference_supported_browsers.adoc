@@ -1,0 +1,20 @@
+---
+permalink: install/reference_supported_browsers.html 
+sidebar: sidebar 
+keywords: SnapCenter, browsers, chrome, IE, Edge 
+summary: O software SnapCenter pode ser usado em vários navegadores. 
+---
+= Navegadores suportados
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+O software SnapCenter pode ser usado em vários navegadores.
+
+* Chrome versão 125 e posterior
+* Microsoft Edge 110.0.1587.17 e posterior
+
+
+Para obter as informações mais recentes sobre versões suportadas, consulte : https://imt.netapp.com/matrix/imt.jsp?components=121074;&solution=1257&isHWU&src=IMT["Ferramenta de Matriz de interoperabilidade do NetApp"^].

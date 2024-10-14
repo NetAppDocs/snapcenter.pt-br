@@ -1,0 +1,41 @@
+---
+permalink: protect-mysql/back-up-resource-groups-mysql.html 
+sidebar: sidebar 
+keywords: SnapCenter Plug-in for MySQL 
+summary: Um grupo de recursos é uma coleção de recursos em um host. Uma operação de backup no grupo de recursos é executada em todos os recursos definidos no grupo de recursos. 
+---
+= Fazer backup de grupos de recursos
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Um grupo de recursos é uma coleção de recursos em um host. Uma operação de backup no grupo de recursos é executada em todos os recursos definidos no grupo de recursos.
+
+.Antes de começar
+* Você deve ter criado um grupo de recursos com uma política anexada.
+* Se você quiser fazer backup de um recurso que tenha uma relação SnapMirror com um armazenamento secundário, a função ONTAP atribuída ao usuário de armazenamento deve incluir o privilégio "'SnapMirror All'". No entanto, se você estiver usando a função "vsadmin", o privilégio "SnapMirror all" não será necessário.
+
+
+.Sobre esta tarefa
+Você pode fazer backup de um grupo de recursos sob demanda na página recursos. Se um grupo de recursos tiver uma política anexada e uma programação configurada, os backups ocorrerão automaticamente de acordo com a programação.
+
+.Passos
+. No painel de navegação esquerdo, selecione *Resources* e, em seguida, selecione o plug-in apropriado na lista.
+. Na página recursos, selecione *Grupo de recursos* na lista *Exibir*.
++
+Você pode pesquisar o grupo de recursos inserindo o nome do grupo de recursos na caixa de pesquisa ou image:../media/filter_icon.png[""]selecionando e selecionando a tag. Em seguida, pode image:../media/filter_icon.png[""]selecionar para fechar o painel de filtro.
+
+. Na página grupos de recursos, selecione o grupo de recursos que você deseja fazer backup e selecione *fazer backup agora*.
+. Na página Backup, execute as seguintes etapas:
++
+.. Se você associou várias políticas ao grupo de recursos, na lista suspensa *Política*, selecione a política que deseja usar para backup.
++
+Se a política selecionada para o backup sob demanda estiver associada a um agendamento de backup, os backups sob demanda serão retidos com base nas configurações de retenção especificadas para o tipo de agendamento.
+
+.. Selecione *Backup*.
+
+
+. Monitorize o progresso da operação selecionando *Monitor* > *trabalhos*.
+

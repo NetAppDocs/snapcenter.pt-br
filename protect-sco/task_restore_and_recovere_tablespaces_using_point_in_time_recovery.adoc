@@ -1,0 +1,89 @@
+---
+permalink: protect-sco/task_restore_and_recovere_tablespaces_using_point_in_time_recovery.html 
+sidebar: sidebar 
+keywords: restore, PITR, point-in-time recovery, RMAN, tablespaces 
+summary: 'Você pode restaurar um subconjunto de espaços de tablespaces que foi corrompido ou descartado sem afetar os outros espaços de tablespaces no banco de dados. O SnapCenter usa o RMAN para executar a recuperação ponto-em-tempo (PITR) dos espaços das tabelas.' 
+---
+= Restaure e recupere espaços de tablespaces usando recuperação ponto no tempo
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Você pode restaurar um subconjunto de espaços de tablespaces que foi corrompido ou descartado sem afetar os outros espaços de tablespaces no banco de dados. O SnapCenter usa o RMAN para executar a recuperação pontual (PITR) dos espaços das tabelas.
+
+*Antes de começar*
+
+* Os backups que são necessários para executar PITR de tablespaces devem ser catalogados e montados.
+* Se tiver instalado o plug-in como um utilizador não root, deve atribuir manualmente as permissões de execução aos diretórios prescritor e postscript.
+
+
+*Sobre esta tarefa*
+
+Durante a operação PITR, o RMAN cria uma instância auxiliar no destino auxiliar especificado. O destino auxiliar pode ser um ponto de montagem ou um grupo de discos ASM. Se houver espaço suficiente no local montado, você pode reutilizar um dos locais montados em vez de um ponto de montagem dedicado.
+
+Você deve especificar a data e hora ou SCN e o espaço de tabela é restaurado no banco de dados de origem.
+
+Você pode selecionar e restaurar vários espaços de tabela que residem em ambientes ASM, NFS e SAN. Por exemplo, se as tablespaces TS2 e TS3 residem em NFS e TS4 residem em SAN, você pode executar em uma única operação PITR para restaurar todos os espaços de tabela.
+
+
+NOTE: Em uma configuração RAC, você pode executar PITR de espaços de tablespaces de qualquer nó do RAC.
+
+*Passos*
+
+. No painel de navegação esquerdo, clique em *Resources* e selecione o plug-in apropriado na lista.
+. Na página recursos, selecione *Banco de dados* ou *Grupo de recursos* na lista *Exibir*.
+. Selecione o banco de dados do tipo instância única (multitenant) na exibição de detalhes do banco de dados ou na exibição de detalhes do grupo de recursos.
++
+A página de topologia do banco de dados é exibida.
+
+. Na exibição Gerenciar cópias, selecione *backups* nos sistemas de armazenamento primário ou secundário (espelhado ou replicado).
++
+Se o backup não estiver catalogado, selecione o backup e clique em *Catálogo*.
+
+. Selecione a cópia de segurança catalogada e, em seguida, clique em * *image:../media/restore_icon.gif["ícone de restauro"]*.
+. Na página Restaurar escopo, execute as seguintes tarefas:
++
+.. Se você tiver selecionado um backup de um banco de dados em um ambiente de Real Application clusters (RAC), selecione o nó RAC.
+.. Selecione *tablespaces* e especifique as tablespaces que você deseja restaurar.
++
+
+NOTE: Você não pode executar PITR em SYSAUX, SISTEMA e DESFAZER espaços de tablespaces.
+
+.. Selecione *altere o estado do banco de dados, se necessário, para restaurar e recuperar* para alterar o estado do banco de dados para o estado necessário para executar operações de restauração e recuperação.
+
+
+. Na página Recovery Scope (Escopo de recuperação), execute uma das seguintes ações:
++
+** Se você quiser recuperar para um número específico de mudança de sistema (SCN), selecione *até SCN* e especifique o SCN e o destino auxiliar.
+** Se pretender recuperar para uma data e hora específicas, selecione *Data e hora* e especifique a data e hora e o destino auxiliar.
++
+O SnapCenter identifica e monta e cataloga o número ideal de backups de dados e log necessários para executar o PITR com base no SCN especificado ou na data e hora selecionadas.
+
+
+
+. Na página PreOps, insira o caminho e os argumentos do prescritor que deseja executar antes da operação de restauração.
++
+Você deve armazenar as prescripts no caminho /var/opt/SnapCenter/spl/scripts ou em qualquer pasta dentro deste caminho. Por padrão, o caminho /var/opt/SnapCenter/spl/scripts é preenchido. Se você criou qualquer pasta dentro desse caminho para armazenar os scripts, você deve especificar essas pastas no caminho.
+
++
+Você também pode especificar o valor de tempo limite do script. O valor padrão é de 60 segundos.
+
++
+O SnapCenter permite-lhe utilizar as variáveis de ambiente predefinidas quando executa o prescritor e o postscript. link:../protect-sco/predefined-environment-variables-prescript-postscript-restore.html["Saiba mais"^]
+
+. Na página PostOps, execute as seguintes etapas:
++
+.. Insira o caminho e os argumentos do postscript que você deseja executar após a operação de restauração.
++
+
+NOTE: Se a operação de restauração falhar, os postscripts não serão executados e as atividades de limpeza serão acionadas diretamente.
+
+.. Marque a caixa de seleção se desejar abrir o banco de dados após a recuperação.
+
+
+. Na página notificação, na lista suspensa *preferência de e-mail*, selecione os cenários em que deseja enviar as notificações por e-mail.
+. Revise o resumo e clique em *Finish*.
+. Monitorize o progresso da operação clicando em *Monitor* > *trabalhos*.
+

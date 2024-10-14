@@ -1,0 +1,50 @@
+---
+permalink: admin/task_delete_clones.html 
+sidebar: sidebar 
+keywords: Delete clones 
+summary: Você pode excluir clones se você achar que eles não são mais necessários. 
+---
+= Excluir clones
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Você pode excluir clones se você achar que eles não são mais necessários.
+
+*Sobre esta tarefa*
+
+Não é possível excluir clones que atuam como fonte para outros clones.
+
+Por exemplo, se o banco de dados de produção for db1, o banco de dados clone1 será clonado do backup de db1 e, posteriormente, clone1 será protegido. O banco de dados clone2 é clonado a partir do backup de clone1. Se você decidir excluir clone1, primeiro você deve excluir clone2 e, em seguida, excluir clone1.
+
+*Passos*
+
+. No painel de navegação esquerdo, clique em *Resources* e selecione o plug-in apropriado na lista.
+. Na página recursos, selecione o recurso ou o grupo de recursos na lista suspensa *Exibir*.
+. Selecione o recurso ou grupo de recursos na lista.
++
+A página de topologia do recurso ou do grupo de recursos é exibida.
+
+. Na exibição Gerenciar cópias, selecione *clones* nos sistemas de storage primário ou secundário (espelhado ou replicado).
+. Selecione o clone e clique image:../media/delete_icon.gif[""]em .
++
+Se você estiver excluindo clones do banco de dados SAP HANA, na página Excluir clone, execute as seguintes ações:
+
++
+.. No campo *Pre clone delete*, insira os comandos que devem ser executados antes de excluir o clone.
+.. No campo *Desmontar*, digite o comando para desmontar o clone antes de excluir o clone.
+
+
+. Clique em *OK*.
+
+
+*Depois de terminar*
+
+Às vezes, os sistemas de arquivos não são excluídos. Você deve aumentar o valor do parâmetro CLONE_DELAY executando o seguinte comando:``./sccli Set-SmConfigSettings``
+
+
+NOTE: O parâmetro CLONE_DELAY_DELAY especifica o número de segundos a aguardar após a conclusão da exclusão do clone do aplicativo e antes de iniciar a exclusão do sistema de arquivos.
+
+Depois de modificar o valor do parâmetro, reinicie o serviço SnapCenter Plug-in Loader (SPL).

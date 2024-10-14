@@ -1,0 +1,244 @@
+---
+permalink: protect-sco/task_restore_an_oracle_database.html 
+sidebar: sidebar 
+keywords: restore, recover, Oracle 
+summary: Em caso de perda de dados, você pode usar o SnapCenter para restaurar dados de um ou mais backups para o seu sistema de arquivos ativo e, em seguida, recuperar o banco de dados. 
+---
+= Restaurar e recuperar banco de dados Oracle
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Em caso de perda de dados, você pode usar o SnapCenter para restaurar dados de um ou mais backups para o seu sistema de arquivos ativo e, em seguida, recuperar o banco de dados.
+
+*Antes de começar*
+
+Se tiver instalado o plug-in como um utilizador não root, deve atribuir manualmente as permissões de execução aos diretórios prescritor e postscript.
+
+*Sobre esta tarefa*
+
+* A recuperação é efetuada utilizando os registos de arquivo disponíveis no local de registo de arquivo configurado. Se o banco de dados estiver sendo executado no modo ARCHIVELOG, o banco de dados Oracle salvará os grupos preenchidos de arquivos de log refazer em um ou mais destinos off-line, conhecidos coletivamente como o log refazer arquivado. O SnapCenter identifica e monta o número ideal de backups de log com base na opção SCN especificada, data e hora selecionadas ou todos os logs. Se os logs de arquivo necessários para recuperação não estiverem disponíveis no local configurado, você deverá montar o instantâneo contendo os logs e especificar o caminho como logs de arquivo externo.
++
+Se você migrar o banco de dados ASM do ASMLIB para o ASMFD, os backups criados com o ASMLIB não podem ser usados para restaurar o banco de dados. Você deve criar backups na configuração ASMFD e usar esses backups para restaurar. Da mesma forma, se o banco de dados ASM for migrado do ASMFD para o ASMLIB, você deverá criar backups na configuração ASMLIB para restaurar.
+
++
+Quando você restaura um banco de dados, um arquivo de bloqueio operacional (.SM_lock_dbsid) é criado no host de banco de dados Oracle no diretório _/var/opt/SnapCenter/SCO/lock_ para evitar que várias operações sejam executadas no banco de dados. Depois que o banco de dados foi restaurado, o arquivo de bloqueio operacional é removido automaticamente.
+
++
+
+NOTE: A restauração do arquivo SPFILE e Senha não é suportada.
+
+* Para políticas habilitadas para o SnapLock, para ONTAP 9.12,1 e versões abaixo, se você especificar um período de bloqueio do Snapshot, os clones criados a partir dos snapshots à prova de violação como parte da restauração herdarão o tempo de expiração do SnapLock. O administrador do storage deve limpar manualmente os clones após o tempo de expiração do SnapLock.
+
+
+*Passos*
+
+. No painel de navegação esquerdo, clique em *Resources* e selecione o plug-in apropriado na lista.
+. Na página recursos, selecione *Banco de dados* ou *Grupo de recursos* na lista *Exibir*.
+. Selecione o banco de dados na exibição de detalhes do banco de dados ou na exibição de detalhes do grupo de recursos.
++
+A página de topologia do banco de dados é exibida.
+
+. Na exibição Gerenciar cópias, selecione *backups* nos sistemas de armazenamento primário ou secundário (espelhado ou replicado).
+. Selecione a cópia de segurança na tabela e, em seguida, clique em * *image:../media/restore_icon.gif["ícone de restauro"]*.
+. Na página Restaurar escopo, execute as seguintes tarefas:
++
+.. Se você tiver selecionado um backup de um banco de dados em um ambiente de Real Application clusters (RAC), selecione o nó RAC.
+.. Quando você seleciona um dado espelhado ou de cofre:
++
+*** se não houver backup de log no mirror ou vault, nada será selecionado e os localizadores estarão vazios.
+*** se existirem cópias de segurança de registo no mirror ou no vault, a cópia de segurança de registo mais recente é selecionada e o localizador correspondente é apresentado.
++
+
+NOTE: Se a cópia de segurança de registo selecionada existir na localização do espelho e do cofre, ambos os localizadores são apresentados.
+
+
+
+.. Execute as seguintes ações:
++
+|===
+| Se você quiser restaurar... | Faça isso... 
+
+
+ a| 
+Todos os arquivos de dados do banco de dados
+ a| 
+Selecione *todos os dados*.
+
+Somente os arquivos de dados do banco de dados são restaurados. Os ficheiros de controlo, os registos de arquivo ou os ficheiros de registo de refazer não são restaurados.
+
+
+
+ a| 
+Tablespaces
+ a| 
+Selecione *tablespaces*.
+
+Você pode especificar os espaços de tablespaces que você deseja restaurar.
+
+
+
+ a| 
+Controlar ficheiros
+ a| 
+Selecione *Control Files*.
+
+
+NOTE: Durante a restauração de arquivos de controle, certifique-se de que a estrutura de diretórios existe ou deve ser criada com os proprietários corretos de usuário e grupo, se houver, para permitir que os arquivos sejam copiados para o local de destino pelo processo de restauração. Se o diretório não existir, o trabalho de restauro falhará.
+
+
+
+ a| 
+Refazer ficheiros de registo
+ a| 
+Selecione *Refazer arquivos de log*.
+
+Esta opção está disponível apenas para bancos de dados em espera do Data Guard ou em espera do ative Data Guard.
+
+
+NOTE: Os ficheiros de registo de refazer não são salvaguardados para bases de dados que não sejam do Data Guard. Para bancos de dados que não sejam do Data Guard, a recuperação é realizada usando logs de arquivo.
+
+
+
+ a| 
+Bancos de dados conetáveis (PDBs)
+ a| 
+Selecione *bancos de dados conetáveis* e especifique as PDBs que você deseja restaurar.
+
+
+
+ a| 
+Espaço de tabela de banco de dados conetável (PDB)
+ a| 
+Selecione * espaços de tabela de base de dados Pluggable (PDB)* e especifique o PDB e os espaços de tabela desse PDB que você deseja restaurar.
+
+Esta opção só está disponível se tiver selecionado um PDB para restauro.
+
+|===
+.. Selecione *altere o estado do banco de dados, se necessário, para restaurar e recuperar* para alterar o estado do banco de dados para o estado necessário para executar operações de restauração e recuperação.
++
+Os vários estados de um banco de dados de cima para baixo são abertos, montados, iniciados e desligados. Você deve selecionar essa caixa de seleção se o banco de dados estiver em um estado mais alto, mas o estado deve ser alterado para um estado inferior para executar uma operação de restauração. Se o banco de dados estiver em um estado inferior, mas o estado tiver de ser alterado para um estado superior para executar a operação de restauração, o estado do banco de dados será alterado automaticamente, mesmo que você não marque a caixa de seleção.
+
++
+Se um banco de dados estiver no estado aberto e, para restaurar, o banco de dados precisar estar no estado montado, o estado do banco de dados será alterado somente se você selecionar essa caixa de seleção.
+
+.. Selecione *forçar restauração no local* se você quiser executar a restauração no local nos cenários em que novos arquivos de dados são adicionados após o backup ou quando LUNs são adicionados, excluídos ou recriados a um grupo de discos LVM.
+
+
+. Na página Recovery Scope (Escopo de recuperação), execute as seguintes ações:
++
+|===
+| Se você... | Faça isso... 
+
+
+ a| 
+Deseja recuperar para a última transação
+ a| 
+Selecione *todos os registos*.
+
+
+
+ a| 
+Deseja recuperar para um número específico de mudança de sistema (SCN)
+ a| 
+Selecione *até SCN (número de mudança do sistema)*.
+
+
+
+ a| 
+Deseja recuperar dados e tempo específicos
+ a| 
+Selecione *Data e hora*.
+
+Você deve especificar a data e a hora do fuso horário do host do banco de dados.
+
+
+
+ a| 
+Não quero recuperar
+ a| 
+Selecione *sem recuperação*.
+
+
+
+ a| 
+Deseja especificar quaisquer locais de registo de arquivo externo
+ a| 
+Se o banco de dados estiver sendo executado no modo ARCHIVELOG, o SnapCenter identifica e monta o número ideal de backups de log com base na opção SCN especificada, data e hora selecionadas ou todos os logs.
+
+Se você ainda quiser especificar a localização dos arquivos de log de arquivo externo, selecione *especificar locais de log de arquivo externo*.
+
+Se os logs de arquivo forem podados como parte do backup e você tiver montado manualmente os backups de log de arquivamento necessários, você deve especificar o caminho de backup montado como o local de log de arquivamento externo para recuperação.
+
+
+NOTE: Você deve verificar o caminho e o conteúdo do caminho de montagem antes de listá-lo como um local de log externo.
+
+** https://docs.netapp.com/us-en/ontap-apps-dbs/oracle/oracle-dp-overview.html["Proteção de dados Oracle com ONTAP"^]
+** https://kb.netapp.com/Advice_and_Troubleshooting/Data_Protection_and_Security/SnapCenter/ORA-00308%3A_cannot_open_archived_log_ORA_LOG_arch1_123_456789012.arc["A operação falha com erro ORA-00308"^]
+
+
+|===
++
+Não é possível executar a restauração com recuperação de backups secundários se os volumes de log de arquivamento não estiverem protegidos, mas os volumes de dados estiverem protegidos. Você só pode restaurar selecionando *sem recuperação*.
+
++
+Se você estiver recuperando um banco de dados RAC com a opção abrir banco de dados selecionada, somente a instância RAC em que a operação de recuperação foi iniciada será devolvida ao estado aberto.
+
++
+
+NOTE: A recuperação não é suportada para bancos de dados de espera do Data Guard e ative Data Guard.
+
+. Na página PreOps, insira o caminho e os argumentos do prescritor que deseja executar antes da operação de restauração.
++
+Você deve armazenar as prescrições no caminho _/var/opt/SnapCenter/spl/scripts_ ou em qualquer pasta dentro deste caminho. Por padrão, o caminho _/var/opt/SnapCenter/spl/scripts_ é preenchido. Se você criou qualquer pasta dentro desse caminho para armazenar os scripts, você deve especificar essas pastas no caminho.
+
++
+Você também pode especificar o valor de tempo limite do script. O valor padrão é de 60 segundos.
+
++
+O SnapCenter permite-lhe utilizar as variáveis de ambiente predefinidas quando executa o prescritor e o postscript. link:../protect-sco/predefined-environment-variables-prescript-postscript-restore.html["Saiba mais"^]
+
+. Na página PostOps, execute as seguintes etapas:
++
+.. Insira o caminho e os argumentos do postscript que você deseja executar após a operação de restauração.
++
+Você deve armazenar os postscripts em _/var/opt/SnapCenter/spl/scripts_ ou em qualquer pasta dentro deste caminho. Por padrão, o caminho _/var/opt/SnapCenter/spl/scripts_ é preenchido. Se você criou qualquer pasta dentro desse caminho para armazenar os scripts, você deve especificar essas pastas no caminho.
+
++
+
+NOTE: Se a operação de restauração falhar, os postscripts não serão executados e as atividades de limpeza serão acionadas diretamente.
+
+.. Marque a caixa de seleção se desejar abrir o banco de dados após a recuperação.
++
+Depois de restaurar um banco de dados de contentor (CDB) com ou sem arquivos de controle, ou depois de restaurar apenas arquivos de controle CDB, se você especificar para abrir o banco de dados após a recuperação, apenas o CDB será aberto e não os bancos de dados conetáveis (PDB) nesse CDB.
+
++
+Em uma configuração RAC, somente a instância RAC usada para recuperação é aberta após a recuperação.
+
++
+
+NOTE: Depois de restaurar um espaço de tabela do usuário com arquivos de controle, uma espaço de tabela do sistema com ou sem arquivos de controle, ou um PDB com ou sem arquivos de controle, apenas o estado do PDB relacionado à operação de restauração é alterado para o estado original. O estado das outras PDBs que não foram usadas para restauração não é alterado para o estado original porque o estado dessas PDBs não foi salvo. Você deve alterar manualmente o estado das PDBs que não foram usadas para restauração.
+
+
+
+. Na página notificação, na lista suspensa *preferência de e-mail*, selecione os cenários em que deseja enviar as notificações por e-mail.
++
+Você também deve especificar os endereços de e-mail do remetente e do destinatário e o assunto do e-mail. Se pretender anexar o relatório da operação de restauro efetuada, tem de selecionar *Anexar Relatório de trabalho*.
+
++
+
+NOTE: Para notificação por e-mail, você deve ter especificado os detalhes do servidor SMTP usando a GUI ou o comando PowerShell SET-SmtpServer.
+
+. Revise o resumo e clique em *Finish*.
+. Monitorize o progresso da operação clicando em *Monitor* > *trabalhos*.
+
+
+*Para mais informações*
+
+* https://kb.netapp.com/Advice_and_Troubleshooting/Data_Protection_and_Security/SnapCenter/Oracle_RAC_One_Node_database_is_skipped_for_performing_SnapCenter_operations["O banco de dados Oracle RAC One Node é ignorado para a execução das operações do SnapCenter"^]
+* https://kb.netapp.com/Advice_and_Troubleshooting/Data_Protection_and_Security/SnapCenter/Failed_to_restore_from_a_secondary_SnapMirror_or_SnapVault_location["Falha ao restaurar a partir de um local secundário de SnapMirror ou SnapVault"^]
+* https://kb.netapp.com/Advice_and_Troubleshooting/Data_Protection_and_Security/SnapCenter/Failed_to_restore_when_a_backup_of_an_orphan_incarnation_is_selected["Falha ao restaurar a partir de um backup de uma encarnação órfã"^]
+* https://kb.netapp.com/Advice_and_Troubleshooting/Data_Protection_and_Security/SnapCenter/What_are_the_customizable_parameters_for_backup_restore_and_clone_operations_on_AIX_systems["Parâmetros personalizáveis para operações de backup, restauração e clone em sistemas AIX"^]
+

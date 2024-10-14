@@ -1,0 +1,50 @@
+---
+permalink: protect-sce/task_cancel_restore_operations.html 
+sidebar: sidebar 
+keywords: SnapCenter plug-in for Exchange Server 
+summary: Você pode cancelar trabalhos de restauração que estão na fila. 
+---
+= Cancelar operações de restauração para o banco de dados do Exchange
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Você pode cancelar trabalhos de restauração que estão na fila.
+
+Você deve estar logado como administrador do SnapCenter ou proprietário da tarefa para cancelar as operações de restauração.
+
+.Sobre esta tarefa
+* Você pode cancelar uma operação de restauração em fila na página *Monitor* ou no painel *atividade*.
+* Não é possível cancelar uma operação de restauração em execução.
+* Você pode usar a GUI do SnapCenter, cmdlets do PowerShell ou os comandos CLI para cancelar as operações de restauração em fila.
+* O botão *Cancelar trabalho* está desativado para operações de restauração que não podem ser canceladas.
+* Se você selecionou *todos os membros desta função podem ver e operar em outros objetos membros* na página usuários/grupos ao criar uma função, você pode cancelar as operações de restauração em fila de outros membros enquanto usa essa função.
+
+
+.Passo
+Execute uma das seguintes ações:
+
+|===
+| A partir do... | Ação 
+
+
+ a| 
+Página do monitor
+ a| 
+. No painel de navegação esquerdo, clique em *Monitor* > *trabalhos*.
+. Selecione o trabalho e clique em *Cancelar trabalho*.
+
+
+
+
+ a| 
+Painel da atividade
+ a| 
+. Depois de iniciar a operação de restauração, clique image:../media/activity_pane_icon.gif[""]no painel atividade para exibir as cinco operações mais recentes.
+. Selecione a operação.
+. Na página Detalhes da tarefa, clique em *Cancelar tarefa*.
+
+
+|===

@@ -1,0 +1,149 @@
+---
+permalink: tech-refresh/task_tech_refresh_storage_system.html 
+sidebar: sidebar 
+keywords: tech refresh, storage system, 
+summary: Realizar atualização técnica do sistema de storage movendo os dados do armazenamento antigo para o novo armazenamento, montando o novo armazenamento nos respetivos hosts e, em seguida, trazendo os bancos de dados. 
+---
+= Atualização técnica do sistema de storage
+:allow-uri-read: 
+
+
+[role="lead"]
+Quando o storage é atualizado pela tecnologia, os dados são migrados para um novo storage e os hosts de aplicativos são montados com um novo storage. O fluxo de trabalho de backup do SnapCenter identifica o novo storage e cria o snapshot se o novo storage for registrado no SnapCenter.
+
+É possível executar a restauração, a montagem e a clonagem nos novos backups criados após a atualização do storage. No entanto, essas operações falharão quando executadas nos backups que foram criados antes da atualização de armazenamento, pois os backups têm os detalhes de armazenamento antigos. Você deve executar a API de atualização técnica de armazenamento ou cmdlet para atualizar os backups antigos no SnapCenter com os novos detalhes de armazenamento.
+
+A atualização técnica é suportada para os seguintes plug-ins do SnapCenter:
+
+* Plug-in do SnapCenter para Microsoft SQL Server
+* Plug-in do SnapCenter para Windows
+* Plug-in SnapCenter para banco de dados Oracle
+* Plug-in do SnapCenter para banco de dados SAP HANA
+* Plug-in do SnapCenter para Microsoft Exchange Server
+
+
+Os casos de uso suportados são:
+
+* Atualização do storage primário
++
+A atualização técnica de storage é suportada para substituir o storage primário por um novo storage. Não é possível converter o storage secundário existente em um storage primário.
+
+* Atualização do storage secundário
+
+
+Os outros cenários suportados são:
+
+* Alteração de nome do SVM
+* Alteração do nome do volume
+
+
+
+
+== Atualize os backups do armazenamento primário
+
+Quando o armazenamento for atualizado pela tecnologia, você deve executar a API ou cmdlet de atualização técnica de armazenamento para atualizar os backups antigos no SnapCenter com os novos detalhes de armazenamento.
+
+.Antes de começar
+Como este fluxo de trabalho modifica os dados no repositório SnapCenter, recomenda-se fazer backup do repositório SnapCenter. No caso de quaisquer problemas de dados, o repositório SnapCenter pode ser revertido para o estado antigo usando o backup.
+
+Para obter mais informações, https://docs.netapp.com/us-en/snapcenter/admin/concept_manage_the_snapcenter_server_repository.html#back-up-the-snapcenter-repository["Faça backup do repositório do SnapCenter"] consulte .
+
+.Passos
+. Migre os dados do armazenamento antigo para o novo armazenamento.
++
+Para obter informações sobre como migrar, consulte:
+
++
+** https://kb.netapp.com/mgmt/SnapCenter/How_to_perform_Storage_tech_refresh["Como migrar os dados para um novo storage"]
+** https://kb.netapp.com/onprem/ontap/dp/SnapMirror/How_can_I_copy_a_volume_and_preserve_all_of_the_Snapshot_copies["Como posso copiar um volume e preservar todas as cópias Snapshot?"]
+
+
+. Coloque o host no modo de manutenção.
+. Monte o novo armazenamento nos respetivos hosts e abra os bancos de dados.
++
+O novo armazenamento deve ser conetado ao host da mesma maneira que antes. Por exemplo, se ele foi conetado como SAN, ele precisa ser conetado como SAN.
+
++
+O novo armazenamento precisa ser montado na mesma unidade ou caminho que o do armazenamento antigo.
+
+. Verifique se todos os recursos estão ativos e em execução.
+. Adicione o novo armazenamento no SnapCenter.
++
+Garanta que você tenha um nome exclusivo da SVM nos clusters no SnapCenter. Se você estiver usando o mesmo nome do SVM no novo storage e se todos os volumes do SVM puderem ser migrados antes de executar a atualização de storage, é recomendável excluir o SVM no cluster antigo e redescobrir o cluster antigo no SnapCenter, que removerá o SVM do cache.
+
+. Coloque o host no modo de produção.
+. No SnapCenter, crie um backup dos recursos cujo storage é migrado. Um novo backup é necessário para que o SnapCenter identifique o espaço físico do storage mais recente e será usado para atualizar os metadados de backups antigos existentes.
++
+
+NOTE: Sempre que um novo LUN for conetado ao host, ele terá um novo número de série. Durante a descoberta do sistema de arquivos do Windows, o SnapCenter tratará cada número de série único como novo recurso. Durante a atualização técnica de armazenamento quando o LUN de um novo armazenamento é anexado ao host com a mesma letra ou caminho de unidade, a descoberta do sistema de arquivos do Windows no SnapCenter marcará o recurso existente como excluído, mesmo que ele seja montado com a mesma letra ou caminho de unidade e exibirá o novo LUN como novo recurso. Como o recurso é marcado como excluído, ele não será considerado para atualização técnica de armazenamento no SnapCenter e todos os backups do recurso antigo serão perdidos. Quando a atualização de armazenamento acontece, para recursos do sistema de arquivos do Windows, a descoberta de recursos não deve ser realizada antes de executar a API de atualização de armazenamento ou cmdlet.
+
+. Execute a API de atualização de armazenamento: `/<snapcenter_version>/techrefresh/primarystorage` Ou o cmdlet: _Invoke-SmTechRefreshPrimaryStorage_.
++
+
+NOTE: Se o recurso estiver configurado com uma política de replicação ativada, o backup mais recente após a atualização de armazenamento deve ter detalhes do armazenamento secundário.
+
++
+.. Se você estiver usando a configuração FCI (SQL failover Cluster Instances), os backups serão mantidos no nível do cluster. Você deve fornecer o nome do cluster como entrada para atualização técnica de armazenamento.
+.. Se você estiver usando a configuração do SQL Availability Group (AG), os backups serão mantidos no nível do nó. Você deve fornecer o nome do nó como entrada para atualização técnica de storage.
+.. Se você estiver usando a configuração do Oracle Real Application clusters (RAC), poderá executar a atualização técnica de storage em qualquer nó.
++
+O atributo _IsDryRun_ é definido como true por padrão. Ele identificará os recursos para os quais o armazenamento é atualizado. Você pode exibir o recurso e os detalhes de armazenamento alterados executando a API: '_SnapCenter_version>/jobs/_jobid' ou o cmdlet _Get-SmJobSummaryReport_.
+
+
+
+. Depois de verificar os detalhes do armazenamento, defina o atributo _IsDryRun_ como False e execute a API de atualização de armazenamento: `/<snapcenter_version>/techrefresh/primarystorage` Ou o cmdlet: _Invoke-SmTechRefreshPrimaryStorage_.
++
+Isso atualizará os detalhes de armazenamento nos backups mais antigos.
+
++
+Você pode executar a API ou cmdlet no mesmo host várias vezes, ele atualizará os detalhes de armazenamento nos backups mais antigos somente se o armazenamento for atualizado.
+
++
+
+NOTE: A hierarquia de clones não pode ser migrada no ONTAP. Se o storage que está sendo migrado tiver metadados clone no SnapCenter, o recurso clonado será marcado como recurso independente. Clones de metadados de clones serão removidos recursivamente.
+
+. (Opcional) se todos os snapshots não forem movidos do armazenamento primário antigo para o novo armazenamento primário, execute a seguinte API: `/<snapcenter_version>/hosts/primarybackupsexistencecheck` Ou o cmdlet _Invoke-SmPrimaryBackupsExistenceCheck_.
++
+Isso executará a verificação de existência de snapshot no novo armazenamento primário e marcará os respetivos backups não disponíveis para qualquer operação no SnapCenter.
+
+
+
+
+
+== Atualize os backups do armazenamento secundário
+
+Quando o armazenamento for atualizado pela tecnologia, você deve executar a API ou cmdlet de atualização técnica de armazenamento para atualizar os backups antigos no SnapCenter com os novos detalhes de armazenamento.
+
+.Antes de começar
+Como este fluxo de trabalho modifica os dados no repositório SnapCenter, recomenda-se fazer backup do repositório SnapCenter. No caso de quaisquer problemas de dados, o repositório SnapCenter pode ser revertido para o estado antigo usando o backup.
+
+Para obter mais informações, https://docs.netapp.com/us-en/snapcenter/admin/concept_manage_the_snapcenter_server_repository.html#back-up-the-snapcenter-repository["Faça backup do repositório do SnapCenter"] consulte .
+
+.Passos
+. Migre os dados do armazenamento antigo para o novo armazenamento.
++
+Para obter informações sobre como migrar, consulte:
+
++
+** https://kb.netapp.com/mgmt/SnapCenter/How_to_perform_Storage_tech_refresh["Como migrar os dados para um novo storage"]
+** https://kb.netapp.com/onprem/ontap/dp/SnapMirror/How_can_I_copy_a_volume_and_preserve_all_of_the_Snapshot_copies["Como posso copiar um volume e preservar todas as cópias Snapshot?"]
+
+
+. Estabeleça a relação SnapMirror entre o storage primário e o novo storage secundário e verifique se o estado da relação está bom.
+. No SnapCenter, crie um backup dos recursos cujo storage é migrado.
++
+Um novo backup é necessário para que o SnapCenter identifique o espaço físico do storage mais recente e será usado para atualizar os metadados de backups antigos existentes.
+
++
+
+IMPORTANT: Deve aguardar até que esta operação esteja concluída. Se você avançar para a próxima etapa antes da conclusão, o SnapCenter perderá completamente os metadados secundários antigos do snapshot.
+
+. Depois de criar com êxito o backup de todos os recursos em um host, execute a API de atualização de armazenamento secundário: `/<snapcenter_version>/techrefresh/secondarystorage` Ou o cmdlet: _Invoke-SmTechRefreshSecondaryStorage_.
++
+Isso atualizará os detalhes de armazenamento secundário dos backups mais antigos no host fornecido.
+
++
+Se você quiser executar isso em nível de recurso, clique em *Atualizar* para cada recurso para atualizar os metadados de armazenamento secundário.
+
+. Depois de atualizar com êxito os backups mais antigos, você pode quebrar o relacionamento antigo de storage secundário com o primário.
+

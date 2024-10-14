@@ -1,0 +1,69 @@
+---
+permalink: upgrade/task_upgrade_your_plug_in_packages.html 
+sidebar: sidebar 
+keywords: upgrade, upgrade plug-in packages 
+summary: Os pacotes plug-in são distribuídos como parte da atualização do SnapCenter. 
+---
+= Atualize seus pacotes de plug-in
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Os pacotes plug-in são distribuídos como parte da atualização do SnapCenter.
+
+O procedimento de atualização coloca seu host Windows, Linux ou AIX no modo "Manutenção", o que impede que o host execute quaisquer tarefas agendadas.
+
+.Antes de começar
+* Se você é um usuário não-root com acesso às máquinas Linux, você deve atualizar o arquivo _/etc/sudoers_ com os últimos valores de checksum antes de executar a operação de atualização.
+* Por padrão, o SnapCenter deteta JAVA_HOME do ambiente. Se você quiser usar um JAVA_HOME fixo e se você estiver atualizando os plug-ins em um host Linux, você deve adicionar manualmente o parâmetro SKIP_JAVAHOME_UPDATE no arquivo _spl.properties_ localizado em _/var/opt/SnapCenter/spl/etc/_ e definir o valor como TRUE.
++
+O valor de JAVA_HOME é atualizado quando o plug-in é atualizado ou quando o serviço SnapCenter plug-in Loader (SPL) é reiniciado. Antes de atualizar ou reiniciar o SPL, se você adicionar o parâmetro SKIP_JAVAHOME_UPDATE e definir o valor como VERDADEIRO, o valor de JAVA_HOME não será atualizado.
+
+* Você deve ter feito backup de todos os arquivos de configuração do SnapCenter que você modificou no host do servidor SnapCenter ou no host do plug-in.
++
+Exemplos de arquivos de configuração do SnapCenter: SnapDriveService.exe.config, SMCoreServiceHost.exe.config e assim por diante.
+
+
+
+.Sobre esta tarefa
+* O procedimento de atualização coloca seu host Windows, Linux ou AIX no modo "Manutenção", o que impede que o host execute quaisquer tarefas agendadas.
+* Para o plug-in do SnapCenter para Microsoft SQL Server, o plug-in do SnapCenter para Microsoft Exchange Server e o plug-in do SnapCenter para Microsoft Windows, é recomendável atualizar o servidor e os hosts do plug-in para a versão mais recente para que o SCRIPT_PATH seja executado.
++
+Para as agendas de backup e verificação existentes com prescripts e pós-scripts ativados na política, as operações de backup continuarão a funcionar após a atualização.
+
++
+Na página *Detalhes da tarefa*, uma mensagem de aviso recomenda que o cliente copie os scripts para o SCRIPT_path e edite a política para fornecer um caminho relativo ao SCRIPT_path. Para o trabalho de ciclo de vida do clone, a mensagem de aviso aparece no nível do subtrabalho.
+
+
+
+.Passos
+. No painel de navegação à esquerda, clique em *hosts* > *hosts gerenciados*.
+. Atualize os hosts executando uma das seguintes tarefas:
++
+** Se a coluna Estado geral exibir ""Atualização disponível"" para um dos hosts, clique no nome do host e execute o seguinte:
++
+... Clique em *mais opções*.
+... Selecione *Ignorar pré-verificações* se não quiser validar se o host atende aos requisitos para atualizar o plug-in.
+... Clique em *Upgrade*.
+
+
+** Se você quiser atualizar vários hosts, selecione todos os hosts, clique image:../media/more_icon.gif[""]em e clique em *Upgrade* > *OK*.
++
+Todos os serviços relacionados são reiniciados durante a atualização do plug-in.
+
++
+
+NOTE: Todos os plug-ins do pacote são selecionados, mas apenas os plug-ins que foram instalados com a versão anterior do SnapCenter são atualizados e os plug-ins restantes não são instalados. Você deve usar a opção *Add plug-ins* para instalar qualquer novo plug-in.
+
++
+Se você não selecionou a caixa de seleção *Ignorar pré-verificações*, o host será validado para ver se atende aos requisitos para instalar o plug-in. Se os requisitos mínimos não forem atendidos, mensagens de erro ou aviso apropriadas serão exibidas. Depois de corrigir o problema, clique em *Upgrade*.
+
++
+
+NOTE: Se o erro estiver relacionado ao espaço em disco ou à RAM, você pode atualizar o web.config localizado em C: SnapCenter, ou os arquivos de configuração do NetApp localizados em C: Windows System32 PowerShell v1,0 módulos SnapCenter para modificar os valores padrão. Se o erro estiver relacionado aos parâmetros restantes, você deve corrigir o problema e, em seguida, validar os requisitos novamente.
+
+
+
+

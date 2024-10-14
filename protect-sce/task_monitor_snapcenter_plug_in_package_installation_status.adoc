@@ -1,0 +1,40 @@
+---
+permalink: protect-sce/task_monitor_snapcenter_plug_in_package_installation_status.html 
+sidebar: sidebar 
+keywords: resource group 
+summary: Pode monitorizar o progresso da instalação do pacote de plug-ins do SnapCenter utilizando a página trabalhos. Você pode querer verificar o andamento da instalação para determinar quando ela está concluída ou se há um problema. 
+---
+= Monitore o status da instalação do pacote de plug-in SnapCenter
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Pode monitorizar o progresso da instalação do pacote de plug-ins do SnapCenter utilizando a página trabalhos. Você pode querer verificar o andamento da instalação para determinar quando ela está concluída ou se há um problema.
+
+.Sobre esta tarefa
+Os seguintes ícones são apresentados na página trabalhos e indicam o estado da operação:
+
+* image:../media/progress_icon.gif["Ícone em andamento"] Em curso
+* image:../media/success_icon.gif["Ícone Concluído"] Concluído com êxito
+* image:../media/failed_icon.gif["Ícone com falha"] Falha
+* image:../media/warning_icon.gif["Preenchido com ícone de avisos"] Preenchido com avisos ou não foi possível iniciar devido a avisos
+* image:../media/verification_job_in_queue.gif["O trabalho de verificação está na fila"] Em fila de espera
+
+
+.Passos
+. No painel de navegação esquerdo, clique em *Monitor*.
+. Na página *Monitor*, clique em *empregos*.
+. Na página *trabalhos*, para filtrar a lista de modo a que apenas as operações de instalação de plug-in sejam listadas, faça o seguinte:
++
+.. Clique em *filtro*.
+.. Opcional: Especifique a data de início e fim.
+.. No menu suspenso tipo, selecione *Instalação Plug-in*.
+.. No menu suspenso Status, selecione o status da instalação.
+.. Clique em *aplicar*.
+
+
+. Selecione o trabalho de instalação e clique em *Detalhes* para visualizar os detalhes do trabalho.
+. Na página *Detalhes do trabalho*, clique em *Visualizar logs*.
+

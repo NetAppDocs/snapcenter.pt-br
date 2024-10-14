@@ -1,0 +1,109 @@
+---
+permalink: install/concept_configure_lun_storage.html 
+sidebar: sidebar 
+keywords: LUN storage, iSCSI, 
+summary: Pode utilizar o SnapCenter para configurar um LUN ligado a FC ou ligado a iSCSI. Você também pode usar o SnapCenter para conetar um LUN existente a um host do Windows. 
+---
+= Configurar armazenamento LUN
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Pode utilizar o SnapCenter para configurar um LUN ligado a FC ou ligado a iSCSI. Você também pode usar o SnapCenter para conetar um LUN existente a um host do Windows.
+
+LUNs são a unidade básica de armazenamento em uma configuração SAN. O host do Windows vê LUNs no seu sistema como discos virtuais. Para obter mais informações, http://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-sanconf/home.html["Guia de configuração de SAN ONTAP 9"^]consulte .
+
+
+
+== Estabeleça uma sessão iSCSI
+
+Se estiver a utilizar iSCSI para ligar a um LUN, tem de estabelecer uma sessão iSCSI antes de criar o LUN para ativar a comunicação.
+
+*Antes de começar*
+
+* Você deve ter definido o nó do sistema de storage como um destino iSCSI.
+* Tem de ter iniciado o serviço iSCSI no sistema de armazenamento. http://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-sanag/home.html["Saiba mais"^]
+
+
+*Sobre esta tarefa*
+
+Pode estabelecer uma sessão iSCSI apenas entre as mesmas versões IP, de IPv6 a IPv6, ou de IPv4 a IPv4.
+
+Você pode usar um endereço IPv6 local de link para gerenciamento de sessão iSCSI e para comunicação entre um host e um destino somente quando ambos estiverem na mesma sub-rede.
+
+Se alterar o nome de um iniciador iSCSI, o acesso a iSCSI Targets é afetado. Depois de alterar o nome, você pode precisar reconfigurar os destinos acessados pelo iniciador para que eles possam reconhecer o novo nome. Tem de se certificar de que reinicia o anfitrião depois de alterar o nome de um iniciador iSCSI.
+
+Se o seu host tiver mais de uma interface iSCSI, depois de estabelecer uma sessão iSCSI para SnapCenter usando um endereço IP na primeira interface, não será possível estabelecer uma sessão iSCSI de outra interface com um endereço IP diferente.
+
+*Passos*
+
+. No painel de navegação esquerdo, clique em *hosts*.
+. Na página hosts, clique em *iSCSI Session*.
+. Na lista suspensa *Storage Virtual Machine*, selecione a máquina virtual de armazenamento (SVM) para o destino iSCSI.
+. Na lista suspensa *Host*, selecione o host para a sessão.
+. Clique em *estabelecer sessão*.
++
+É apresentado o assistente estabelecer sessão.
+
+. No assistente estabelecer sessão, identifique o alvo:
++
+|===
+| Neste campo... | Digite... 
+
+
+ a| 
+Nome do nó de destino
+ a| 
+O nome do nó do destino iSCSI
+
+Se houver um nome de nó de destino existente, o nome será exibido no formato somente leitura.
+
+
+
+ a| 
+Endereço do portal de destino
+ a| 
+O endereço IP do portal de rede de destino
+
+
+
+ a| 
+Porta do portal de destino
+ a| 
+A porta TCP do portal de rede de destino
+
+
+
+ a| 
+Endereço do portal do iniciador
+ a| 
+O endereço IP do portal de rede do iniciador
+
+|===
+. Quando estiver satisfeito com as suas entradas, clique em *Connect*.
++
+O SnapCenter estabelece a sessão iSCSI.
+
+. Repita este procedimento para estabelecer uma sessão para cada alvo.
+
+
+
+
+== Desligar uma sessão iSCSI
+
+Ocasionalmente, pode ser necessário desconetar uma sessão iSCSI de um destino com o qual você tem várias sessões.
+
+*Passos*
+
+. No painel de navegação esquerdo, clique em *hosts*.
+. Na página hosts, clique em *iSCSI Session*.
+. Na lista suspensa *Storage Virtual Machine*, selecione a máquina virtual de armazenamento (SVM) para o destino iSCSI.
+. Na lista suspensa *Host*, selecione o host para a sessão.
+. Na lista de sessões iSCSI, selecione a sessão que deseja desconetar e clique em *desconetar sessão*.
+. Na caixa de diálogo desconetar sessão, clique em *OK*.
++
+O SnapCenter desliga a sessão iSCSI.
+
+

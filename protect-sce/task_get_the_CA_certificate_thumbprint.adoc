@@ -1,0 +1,38 @@
+---
+permalink: protect-sce/task_get_the_CA_certificate_thumbprint.html 
+sidebar: sidebar 
+keywords: SnapCenter 
+summary: Obtenha a impressão digital do certificado CA. 
+---
+= Obtenha a impressão digital do certificado CA
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Uma impressão digital de certificado é uma cadeia hexadecimal que identifica um certificado. Uma impressão digital é calculada a partir do conteúdo do certificado usando um algoritmo de impressão digital.
+
+.Passos
+. Execute o seguinte na GUI:
++
+.. Clique duas vezes no certificado.
+.. Na caixa de diálogo certificado, clique na guia *Detalhes*.
+.. Percorra a lista de campos e clique em *thumbprint*.
+.. Copie os carateres hexadecimais da caixa.
+.. Remova os espaços entre os números hexadecimais.
++
+Por exemplo, se a impressão digital for: "A9 09 50 2D D8 2a E4 14 33 E6 F8 38 86 B0 0d 42 77 A3 2a 7b", depois de remover os espaços, será: "A909502d82ae41433e6f83886b00d4277a32a7b".
+
+
+
+. Execute o seguinte no PowerShell:
++
+.. Execute o seguinte comando para listar a impressão digital do certificado instalado e identificar o certificado instalado recentemente pelo nome do assunto.
++
+_Get-ChildItem -Path Cert: LocalMachine/My_
+
+.. Copie a impressão digital.
+
+
+

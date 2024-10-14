@@ -1,0 +1,53 @@
+---
+section: protect-scu
+title: Proteja sistemas de arquivos Unix
+entries:
+- title: Visão geral do plug-in SnapCenter para sistemas de arquivos Unix
+  url: "/protect-scu/concept_overview_snapcenter_plug_in_for_UNIX_file_systems.html"
+- title: Instale o plug-in SnapCenter para sistemas de arquivos Unix
+  entries:
+  - title: Pré-requisitos para adicionar hosts e instalar o pacote Plug-ins para Linux
+    url: "/protect-scu/reference_prerequisites_for_adding_hosts_and_installing_snapcenter_plug_ins_package_for_linux.html"
+  - title: Adicione hosts e instale o pacote Plug-ins para Linux
+    url: "/protect-scu/task_add_hosts_and_install_the_snapcenter_plug_ins_package_for_linux.html"
+  - title: Configure o serviço SnapCenter Plug-in Loader
+    url: "/protect-scu/task_configure_snapcenter_plug_in_loader_service.html"
+  - title: Configure o certificado CA com o serviço SnapCenter Plug-in Loader no host
+      Linux
+    url: "/protect-scu/task_configure_CA_certificate_with_SPL_on_Linux_host.html"
+  - title: Ative certificados de CA para plug-ins
+    url: "/protect-scu/task_enable_ca_certificates_for_plug-ins.html"
+- title: Instale o plug-in do SnapCenter para VMware vSphere
+  url: "/protect-scu/reference_install_snapcenter_plug_in_for_vmware_vsphere.html"
+- title: Prepare-se para proteger sistemas de arquivos Unix
+  url: "/protect-scu/reference_prepare_for_protecting_UNIX file systems.html"
+- title: Faça backup de sistemas de arquivos Unix
+  entries:
+  - title: Descubra os sistemas de arquivos UNIX
+    url: "/protect-scu/task_determine_whether_unix_file_systems_are_available_for_backup.html"
+  - title: Criar políticas de backup
+    url: "/protect-scu/task_create_backup_policies_for_unix_file_systems.html"
+  - title: Criar grupos de recursos
+    url: "/protect-scu/task_create_resource_groups_and_attach_policies_for_unix_file_systems.html"
+  - title: Faça backup de sistemas de arquivos UNIX
+    url: "/protect-scu/task_back_up_unix_file_systems.html"
+  - title: Fazer backup de grupos de recursos
+    url: "/protect-scu/task_back_up_unix_file_systems_resource_groups.html"
+  - title: Monitorizar o progresso da cópia de segurança
+    url: "/protect-scu/task_monitor_unix_file_systems_backup_operations.html"
+  - title: Veja sistemas de arquivos Unix protegidos na página topologia
+    url: "/protect-scu/view_protected_unix_file_systems_in_the_topology_page.html"
+- title: Restaurar e recuperar sistemas de arquivos Unix
+  entries:
+  - title: Restaurar e recuperar sistemas de arquivos Unix
+    url: "/protect-scu/task_restore_unix_file_systems.html"
+  - title: Monitorar operações de restauração de sistemas de arquivos Unix
+    url: "/protect-scu/task_monitor_unix_file_systems_restore_operations.html"
+- title: Clonar sistemas de arquivos Unix
+  entries:
+  - title: Clonar sistemas de arquivos Unix
+    url: "/protect-scu/task_clone_unix_file_systems_backup.html"
+  - title: Divida um clone
+    url: "/protect-scu/task_split_a_clone.html"
+  - title: Monitorar operações de clones de sistemas de arquivos Unix
+    url: "/protect-scu/task_monitor_unix_file_systems_clone_operations.html"

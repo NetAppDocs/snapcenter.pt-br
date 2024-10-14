@@ -1,0 +1,207 @@
+---
+permalink: admin/concept_what_operations_can_be_performed_from_the_resource_page.html 
+sidebar: sidebar 
+keywords: Resources page 
+summary: Você pode descobrir recursos e executar operações de proteção de dados na página recursos. As operações que você pode executar diferem com base no plug-in que você está usando para gerenciar seus recursos. 
+---
+= Operações suportadas a partir da página recursos
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Você pode descobrir recursos e executar operações de proteção de dados na página recursos. As operações que você pode executar diferem com base no plug-in que você está usando para gerenciar seus recursos.
+
+Na página recursos, você pode executar as seguintes tarefas:
+
+|===
+| Você pode executar essas tarefas... | Para Microsoft Exchange Server | Para Microsoft SQL Server | Para Microsoft Windows | Para o banco de dados Oracle | Para banco de dados SAP HANA | Para plug-ins personalizados 
+
+
+ a| 
+Determine se os recursos estão disponíveis para backup
+ a| 
+Sim
+ a| 
+Sim
+ a| 
+Sim
+ a| 
+Sim
+ a| 
+Sim
+ a| 
+Sim
+
+
+
+ a| 
+Faça backup sob demanda de um recurso
+ a| 
+Sim
+ a| 
+Sim
+ a| 
+Sim
+ a| 
+Sim
+ a| 
+Sim
+ a| 
+Sim
+
+
+
+ a| 
+Restauração a partir de backups
+ a| 
+Sim
+ a| 
+Sim
+ a| 
+Sim
+ a| 
+Sim
+ a| 
+Sim
+ a| 
+Sim
+
+
+
+ a| 
+Backups de clones
+ a| 
+Não
+ a| 
+Sim
+ a| 
+Sim
+ a| 
+Sim
+ a| 
+Sim
+ a| 
+Sim
+
+
+
+ a| 
+Gerenciar backups
+ a| 
+Sim
+ a| 
+Sim
+ a| 
+Sim
+ a| 
+Sim
+ a| 
+Sim
+ a| 
+Sim
+
+
+
+ a| 
+Gerenciar clones
+ a| 
+Não
+ a| 
+Sim
+ a| 
+Sim
+ a| 
+Sim
+ a| 
+Sim
+ a| 
+Sim
+
+
+
+ a| 
+Gerenciar políticas
+ a| 
+Sim
+ a| 
+Sim
+ a| 
+Sim
+ a| 
+Sim
+ a| 
+Sim
+ a| 
+Sim
+
+
+
+ a| 
+Gerenciar conexões de armazenamento
+ a| 
+Sim
+ a| 
+Sim
+ a| 
+Sim
+ a| 
+Sim
+ a| 
+Sim
+ a| 
+Sim
+
+
+
+ a| 
+Monte backups
+ a| 
+Não
+ a| 
+Não
+ a| 
+Não
+ a| 
+Sim
+ a| 
+Não
+ a| 
+Não
+
+
+
+ a| 
+Desmontar backups
+ a| 
+Não
+ a| 
+Não
+ a| 
+Não
+ a| 
+Sim
+ a| 
+Não
+ a| 
+Não
+
+
+
+ a| 
+Ver detalhes
+ a| 
+Sim
+ a| 
+Sim
+ a| 
+Sim
+ a| 
+Sim
+ a| 
+Sim
+ a| 
+Sim
+
+|===

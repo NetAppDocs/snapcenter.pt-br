@@ -1,0 +1,192 @@
+---
+permalink: install/reference_connection_and_port_requirements.html 
+sidebar: sidebar 
+keywords: ports, port requirements 
+summary: Você deve garantir que os requisitos de conexões e portas sejam atendidos antes de instalar os plug-ins do servidor SnapCenter e do aplicativo ou do banco de dados. 
+---
+= Requisitos de conexão e porta
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Você deve garantir que os requisitos de conexões e portas sejam atendidos antes de instalar os plug-ins do servidor SnapCenter e do aplicativo ou do banco de dados.
+
+* Os aplicativos não podem compartilhar uma porta.
++
+Cada porta deve ser dedicada ao aplicativo apropriado.
+
+* Para portas personalizáveis, você pode selecionar uma porta personalizada durante a instalação se não quiser usar a porta padrão.
++
+Você pode alterar uma porta de plug-in após a instalação usando o assistente Modificar host.
+
+* Para portas fixas, você deve aceitar o número de porta padrão.
+* Firewalls
++
+** Firewalls, proxies ou outros dispositivos de rede não devem interferir nas conexões.
+** Se você especificar uma porta personalizada ao instalar o SnapCenter, adicione uma regra de firewall no host do plug-in para essa porta para o Loader de plug-ins do SnapCenter.
+
+
+
+
+A tabela a seguir lista as diferentes portas e seus valores padrão.
+
+|===
+| Tipo de porta | Porta predefinida 
+
+
+ a| 
+Porta SnapCenter
+ a| 
+8146 (HTTPS), bidirecional, personalizável, como no URL _\https://server:8146_
+
+Usado para comunicação entre o cliente SnapCenter (o usuário SnapCenter) e o servidor SnapCenter. Também usado para comunicação dos hosts de plug-in para o servidor SnapCenter.
+
+Para personalizar a porta, consulte https://docs.netapp.com/us-en/snapcenter/install/task_install_the_snapcenter_server_using_the_install_wizard.html["Instale o servidor SnapCenter usando o assistente de instalação."]
+
+
+
+ a| 
+Porta de comunicação SnapCenter SMCore
+ a| 
+8145 (HTTPS), bidirecional, personalizável
+
+A porta é usada para comunicação entre o servidor SnapCenter e os hosts onde os plug-ins do SnapCenter estão instalados.
+
+Para personalizar a porta, consulte https://docs.netapp.com/us-en/snapcenter/install/task_install_the_snapcenter_server_using_the_install_wizard.html["Instale o servidor SnapCenter usando o assistente de instalação."]
+
+
+
+ a| 
+Porta de serviço do Agendador
+ a| 
+8154 (HTTPS)
+
+Esta porta é usada para orquestrar os fluxos de trabalho do agendador do SnapCenter para todos os plug-ins gerenciados dentro do host do servidor SnapCenter de maneira centralizada.
+
+Para personalizar a porta, consulte https://docs.netapp.com/us-en/snapcenter/install/task_install_the_snapcenter_server_using_the_install_wizard.html["Instale o servidor SnapCenter usando o assistente de instalação."]
+
+
+
+ a| 
+Porto RabbitMQ
+ a| 
+5672 (tcp)
+
+Esta é a porta padrão em que o RabbitMQ escuta e é usada para comunicação entre o serviço de Agendador e o SnapCenter.
+
+
+
+ a| 
+Porta MySQL
+ a| 
+3306 (HTTPS), bidirecional, personalizável
+
+A porta é usada para comunicação entre o SnapCenter e o banco de dados do repositório MySQL.
+
+Você pode criar conexões seguras do servidor SnapCenter para o servidor MySQL. link:../install/concept_configure_secured_mysql_connections_with_snapcenter_server.html["Saiba mais"]
+
+Para personalizar a porta, consulte https://docs.netapp.com/us-en/snapcenter/install/task_install_the_snapcenter_server_using_the_install_wizard.html["Instale o servidor SnapCenter usando o assistente de instalação."]
+
+
+
+ a| 
+Hosts de plug-in do Windows
+ a| 
+135, 445 (TCP)
+
+Além das portas 135 e 445, o intervalo de portas dinâmico especificado pela Microsoft também deve estar aberto. As operações de instalação remota usam o serviço Windows Management Instrumentation (WMI), que procura dinamicamente esse intervalo de portas.
+
+Para obter informações sobre o intervalo de portas dinâmico suportado, consulte https://support.microsoft.com/kb/832017["Visão geral do serviço e requisitos de porta de rede para Windows"^]
+
+As portas são usadas para comunicação entre o servidor SnapCenter e o host no qual o plug-in está sendo instalado. Para enviar binários de pacotes de plug-in para hosts de plug-in do Windows, as portas devem estar abertas apenas no host de plug-in e podem ser fechadas após a instalação.
+
+
+
+ a| 
+Hosts plug-in Linux ou AIX
+ a| 
+22 (SSH)
+
+As portas são usadas para comunicação entre o servidor SnapCenter e o host onde o plug-in está sendo instalado. As portas são usadas pelo SnapCenter para copiar binários de pacotes de plug-in para hosts de plug-in Linux ou AIX e devem ser abertas ou excluídas do firewall ou iptables.
+
+
+
+ a| 
+Pacote de plug-ins do SnapCenter para Windows, pacote de plug-ins do SnapCenter para Linux ou pacote de plug-ins do SnapCenter para AIX
+ a| 
+8145 (HTTPS), bidirecional, personalizável
+
+A porta é usada para comunicação entre SMCore e hosts onde o pacote plug-ins está instalado.
+
+O caminho de comunicação também precisa ser aberto entre o LIF de gerenciamento da SVM e o servidor SnapCenter.
+
+Para personalizar a porta, consulte https://docs.netapp.com/us-en/snapcenter/protect-scw/task_add_hosts_and_install_snapcenter_plug_in_for_microsoft_windows.html["Adicione hosts e instale o plug-in do SnapCenter para Microsoft Windows"] ou https://docs.netapp.com/us-en/snapcenter/protect-sco/task_add_hosts_and_installing_the_snapcenter_plug_ins_package_for_linux_or_aix.html["Adicione hosts e instale o pacote de plug-ins do SnapCenter para Linux ou AIX."]
+
+
+
+ a| 
+Plug-in SnapCenter para banco de dados Oracle
+ a| 
+27216, personalizável
+
+A porta JDBC padrão é usada pelo plug-in para Oracle para conexão com o banco de dados Oracle.
+
+Para personalizar a porta, consulte https://docs.netapp.com/us-en/snapcenter/protect-sco/task_add_hosts_and_installing_the_snapcenter_plug_ins_package_for_linux_or_aix.html["Adicione hosts e instale o pacote de plug-ins do SnapCenter para Linux ou AIX."]
+
+
+
+ a| 
+Plug-in do SnapCenter para banco de dados do Exchange
+ a| 
+909, personalizável
+
+A porta NET.TCP padrão é usada pelo plug-in para Windows para conetar-se aos retornos de chamada do Exchange VSS.
+
+Para personalizar a porta, link:../protect-sce/task_add_hosts_and_install_plug_in_for_exchange.html["Adicione hosts e instale o Plug-in para o Exchange"]consulte .
+
+
+
+ a| 
+Plug-ins compatíveis com NetApp para SnapCenter
+ a| 
+9090 (HTTPS), fixo
+
+Esta é uma porta interna que é usada somente no host de plug-in personalizado; nenhuma exceção de firewall é necessária.
+
+A comunicação entre o servidor SnapCenter e plug-ins personalizados é roteada através da porta 8145.
+
+
+
+ a| 
+Porta de comunicação do cluster ONTAP ou SVM
+ a| 
+443 (HTTPS), bidirectional80 (HTTP), bidirecional
+
+A porta é usada pela sal (camada de abstração de storage) para comunicação entre o host que executa o servidor SnapCenter e o SVM. Atualmente, a porta também é usada pelo sal em hosts plug-in do SnapCenter para Windows para comunicação entre o host do plug-in do SnapCenter e o SVM.
+
+
+
+ a| 
+Plug-in do SnapCenter para o banco de dados SAP HANA vCode Spell Checkerports
+ a| 
+3instance_number13 ou 3instance_number15, HTTP ou HTTPS, bidirecional e personalizável
+
+Para um locatário único de contentor de banco de dados multitenant (MDC), o número da porta termina com 13; para não MDC, o número da porta termina com 15.
+
+Por exemplo, 32013 é o número da porta, por exemplo, 20 e 31015 é o número da porta, por exemplo, 10.
+
+Para personalizar a porta, consulte https://docs.netapp.com/us-en/snapcenter/protect-hana/task_add_hosts_and_install_plug_in_packages_on_remote_hosts_sap_hana.html["Adicione hosts e instale pacotes plug-in em hosts remotos."]
+
+
+
+ a| 
+Porta de comunicação do controlador de domínio
+ a| 
+Consulte a documentação da Microsoft para identificar as portas que devem ser abertas no firewall em um controlador de domínio para que a autenticação funcione corretamente.
+
+É necessário abrir as portas necessárias da Microsoft no controlador de domínio para que o servidor SnapCenter, os hosts Plug-in ou outro cliente Windows possam autenticar os usuários.
+
+|===
+Para modificar os detalhes da porta, link:../admin/concept_manage_hosts.html#modify-plug-in-hosts["Modificar hosts de plug-in"]consulte .

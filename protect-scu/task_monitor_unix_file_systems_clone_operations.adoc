@@ -1,0 +1,42 @@
+---
+permalink: protect-scu/task_monitor_unix_file_systems_clone_operations.html 
+sidebar: sidebar 
+keywords: clone, monitor, unix file systems 
+summary: Você pode monitorar o andamento das operações de clone do SnapCenter usando a página tarefas. Você pode querer verificar o progresso de uma operação para determinar quando ela está concluída ou se há um problema. 
+---
+= Monitorar operações de clones de sistemas de arquivos Unix
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Você pode monitorar o andamento das operações de clone do SnapCenter usando a página tarefas. Você pode querer verificar o progresso de uma operação para determinar quando ela está concluída ou se há um problema.
+
+.Sobre esta tarefa
+Os seguintes ícones são apresentados na página trabalhos e indicam o estado da operação:
+
+* image:../media/progress_icon.gif["Ícone em andamento"] Em curso
+* image:../media/success_icon.gif["Ícone Concluído"] Concluído com êxito
+* image:../media/failed_icon.gif["Ícone com falha"] Falha
+* image:../media/warning_icon.gif["Preenchido com ícone de avisos"] Preenchido com avisos ou não foi possível iniciar devido a avisos
+* image:../media/verification_job_in_queue.gif["O trabalho de verificação está na fila"] Em fila de espera
+* image:../media/cancel_icon.gif["Ícone Cancelar"] Cancelado
+
+
+*Passos*
+
+. No painel de navegação esquerdo, clique em *Monitor*.
+. Na página *Monitor*, clique em *empregos*.
+. Na página *trabalhos*, execute as seguintes etapas:
++
+.. Clique image:../media/filter_icon.png["Ícone de filtro"] para filtrar a lista para que apenas operações de clone sejam listadas.
+.. Especifique as datas de início e fim.
+.. Na lista suspensa *Type*, selecione *Clone*.
+.. Na lista suspensa *Status*, selecione o status do clone.
+.. Clique em *Apply* para ver as operações concluídas com êxito.
+
+
+. Selecione a tarefa clone e clique em *Detalhes* para exibir os detalhes da tarefa.
+. Na página Detalhes da tarefa, clique em *Exibir logs*.
+

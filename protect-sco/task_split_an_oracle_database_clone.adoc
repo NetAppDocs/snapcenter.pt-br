@@ -1,0 +1,54 @@
+---
+permalink: protect-sco/task_split_an_oracle_database_clone.html 
+sidebar: sidebar 
+keywords: split a clone, split 
+summary: Você pode usar o SnapCenter para dividir um recurso clonado do recurso pai. O clone que é dividido torna-se independente do recurso pai. 
+---
+= Divida um clone do banco de dados Oracle
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Você pode usar o SnapCenter para dividir um recurso clonado do recurso pai. O clone que é dividido torna-se independente do recurso pai.
+
+*Sobre esta tarefa*
+
+* Não é possível executar a operação de divisão de clones em um clone intermediário.
++
+Por exemplo, depois de criar clone1 a partir de um backup de banco de dados, você pode criar um backup de clone1 e clonar esse backup (clone2). Depois de criar o clone2, o clone1 é um clone intermediário e não é possível executar a operação de divisão de clones no clone1. No entanto, você pode executar a operação de divisão de clones no clone2.
+
++
+Depois de dividir clone2, você pode executar a operação de divisão de clones no clone1 porque clone1 não é mais o clone intermediário.
+
+* Quando você divide um clone, as cópias de backup do clone são excluídas.
+* Para obter informações sobre limitações de operação de divisão de clones, consulte http://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-vsmg/home.html["Guia de gerenciamento de storage lógico do ONTAP 9"^] .
+* Certifique-se de que o volume ou o agregado no sistema de storage esteja on-line.
+
+
+*Passos*
+
+. No painel de navegação esquerdo, clique em *Resources* e selecione o plug-in apropriado na lista.
+. Na página recursos, selecione *Banco de dados* na lista *Exibir*.
+. Selecione o recurso clonado (por exemplo, o banco de dados ou LUN) e clique image:../media/split_cone.gif[""]em .
+. Revise o tamanho estimado do clone que deve ser dividido e o espaço necessário disponível no agregado e clique em *Iniciar*.
+. Monitorize o progresso da operação clicando em *Monitor* > *trabalhos*.
++
+A operação de divisão de clones deixa de responder se o serviço SMCore for reiniciado e os bancos de dados nos quais a operação de divisão de clones foi executada são listados como clones na página recursos. Você deve executar o cmdlet _Stop-SmJob_ para interromper a operação de divisão de clones e tentar novamente a operação de divisão de clones.
+
++
+Se você quiser um tempo de enquete mais longo ou menor para verificar se o clone está dividido ou não, você pode alterar o valor do parâmetro CloneSplitStatusCheckPollTime no arquivo SMCoreServiceHost.exe.config para definir o intervalo de tempo para que o SMCore busque o status da operação de divisão de clones. O valor é em milissegundos e o valor padrão é de 5 minutos.
+
++
+Por exemplo,
+
++
+[listing]
+----
+<add key="CloneSplitStatusCheckPollTime" value="300000" />
+----
+
+
+
+IMPORTANT: A operação de inicialização dividida do clone falha se o backup, a restauração ou a divisão do clone do outro estiverem em andamento. Você deve reiniciar a operação de divisão de clones somente depois que as operações em execução estiverem concluídas.

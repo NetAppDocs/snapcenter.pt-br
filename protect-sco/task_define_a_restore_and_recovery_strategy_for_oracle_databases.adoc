@@ -1,0 +1,230 @@
+---
+permalink: protect-sco/task_define_a_restore_and_recovery_strategy_for_oracle_databases.html 
+sidebar: sidebar 
+keywords: backup types, restore methods, connect-and-copy restore, full restore, partial restore, in-place restore, recovery type, limitations 
+summary: Você deve definir uma estratégia antes de restaurar e recuperar seu banco de dados para que você possa executar operações de restauração e recuperação com sucesso. 
+---
+= Definir uma estratégia de restauração e recuperação para bancos de dados Oracle
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Você deve definir uma estratégia antes de restaurar e recuperar seu banco de dados para que você possa executar operações de restauração e recuperação com sucesso.
+
+
+
+== Tipos de backups suportados para operações de restauração e recuperação
+
+O SnapCenter dá suporte à restauração e recuperação de diferentes tipos de backups de bancos de dados Oracle.
+
+* Backup de dados on-line
+* Backup de dados de desligamento off-line
+* Backup de dados de montagem off-line
++
+
+NOTE: Se você estiver restaurando um desligamento off-line ou backup de dados de montagem off-line, o SnapCenter deixa o banco de dados no estado off-line. Você deve recuperar manualmente o banco de dados e redefinir os logs.
+
+* Backup completo
+* Backups de montagem off-line de bancos de dados em espera do Data Guard
+* Backups on-line somente de dados de bancos de dados em espera do ative Data Guard
++
+
+NOTE: Não é possível executar a recuperação de bancos de dados em espera do ative Data Guard.
+
+* Backups de dados on-line, backups completos on-line, backups de montagem off-line e backups de desligamento off-line em uma configuração RAC (Real Application clusters)
+* Backups de dados on-line, backups completos online, backups de montagem off-line e backups de desligamento off-line em uma configuração de gerenciamento de armazenamento automático (ASM)
+
+
+
+
+== Tipos de métodos de restauração suportados para bancos de dados Oracle
+
+O SnapCenter é compatível com conexão e cópia ou restauração no local para bancos de dados Oracle. Durante uma operação de restauração, o SnapCenter determina o método de restauração apropriado para que o sistema de arquivos seja usado para restauração sem perda de dados.
+
+
+NOTE: O SnapCenter não é compatível com SnapRestore baseado em volume.
+
+
+
+=== Restauração de conexão e cópia
+
+Se o layout do banco de dados for diferente do backup ou se houver novos arquivos após a criação do backup, a restauração de conexão e cópia será executada. No método de restauração de conexão e cópia, as seguintes tarefas são executadas:
+
+*Passos*
+
+. O volume é clonado do Snapshot e a pilha do sistema de arquivos é criada no host usando LUNs ou volumes clonados.
+. Os arquivos são copiados dos sistemas de arquivos clonados para os sistemas de arquivos originais.
+. Os sistemas de arquivos clonados são então desmontados do host e os volumes clonados são excluídos do ONTAP.
+
+
+
+NOTE: Para uma configuração do Flex ASM (em que a cardinalidade é menor do que os nós numéricos no cluster RAC) ou bancos de dados do ASM RAC no VMDK ou RDM, somente o método de restauração de conexão e cópia é suportado.
+
+Mesmo que você tenha ativado com força a restauração no local, o SnapCenter executa a restauração de conexão e cópia nos seguintes cenários:
+
+* Faça a restauração a partir do sistema de storage secundário e, se o Data ONTAP for anterior a 8,3
+* Restauração de grupos de discos ASM presentes em nós de uma configuração do Oracle RAC em que a instância de banco de dados não está configurada
+* Na configuração do Oracle RAC, em qualquer um dos nós pares se a instância ASM ou a instância de cluster não estiver em execução ou se o nó peer estiver inativo
+* Restauração de arquivos de controle somente
+* Restaure um subconjunto de espaços de tablespaces que residem em um grupo de discos ASM
+* O grupo de discos é partilhado entre ficheiros de dados, ficheiro SP e ficheiro de palavra-passe
+* O serviço SnapCenter Plug-in Loader (SPL) não está instalado ou não está em execução no nó remoto em um ambiente RAC
+* Novos nós são adicionados ao Oracle RAC e o servidor SnapCenter não está ciente dos nós recém-adicionados
+
+
+
+
+=== Restauração no local
+
+Se o layout do banco de dados for semelhante ao backup e não tiver sofrido nenhuma alteração de configuração na pilha de armazenamento e banco de dados, a restauração no local é realizada, em que a restauração do arquivo ou LUN é realizada no ONTAP. O SnapCenter suporta apenas o SFSR (Single File SnapRestore) como parte do método de restauração no local.
+
+
+NOTE: O Data ONTAP 8.3 ou posterior oferece suporte à restauração no local a partir de um local secundário.
+
+Se você quiser executar a restauração no local no banco de dados, verifique se você tem somente datafiles no grupo de discos ASM. Você deve criar um backup depois que quaisquer alterações forem feitas no grupo de discos ASM ou na estrutura física do banco de dados. Depois de executar a restauração no local, o grupo de discos conterá o mesmo número de arquivos de dados que no momento do backup.
+
+A restauração no local será aplicada automaticamente quando o grupo de discos ou o ponto de montagem corresponder aos seguintes critérios:
+
+* Não são adicionados dados novos após a cópia de segurança (verificação de ficheiro estrangeiro)
+* Sem adição, exclusão ou recriação de disco ASM ou LUN após backup (verificação de alteração estrutural do grupo de discos ASM)
+* Sem adição, exclusão ou recriação de LUNs ao grupo de discos LVM (verificação de alteração estrutural do grupo de discos LVM)
+
+
+
+NOTE: Você também pode habilitar a restauração no local com força usando GUI, CLI do SnapCenter ou cmdlet do PowerShell para substituir a verificação de arquivo estrangeiro e a verificação de alteração estrutural do grupo de discos LVM.
+
+
+
+==== Executar a restauração no local no ASM RAC
+
+No SnapCenter, o nó no qual você executa a restauração é denominado como nó principal e todos os outros nós do RAC no qual reside o grupo de discos ASM são chamados de nós de ponto. O SnapCenter altera o estado do grupo de discos ASM para desmontar em todos os nós em que o grupo de discos ASM está no estado de montagem antes de executar a operação de restauração de storage. Após a conclusão da restauração de armazenamento, o SnapCenter altera o estado do grupo de discos ASM como era antes da operação de restauração.
+
+Em ambientes SAN, o SnapCenter remove dispositivos de todos os nós de mesmo nível e executa a operação de desmapear LUN antes da operação de restauração de storage. Após a operação de restauração de storage, o SnapCenter executa operações de mapa LUN e constrói dispositivos em todos os nós de mesmo nível. Em um ambiente SAN, se o layout ASM do Oracle RAC estiver residindo em LUNs, em seguida, durante a restauração do SnapCenter, executa operações de desmapeamento de LUN, restauração de LUN e mapa de LUN em todos os nós do cluster RAC onde reside o grupo de discos ASM. Antes de restaurar, mesmo que todos os iniciadores dos nós RAC não fossem usados para os LUNs, depois de restaurar o SnapCenter, cria um novo iGroup com todos os iniciadores de todos os nós RAC.
+
+* Se houver alguma falha durante a atividade de pré-restauração em nós de pares, o SnapCenter reverte automaticamente o estado do grupo de discos ASM como era antes de executar a restauração em nós de pares nos quais a operação de pré-restauração foi bem-sucedida. A reversão não é suportada para o nó principal e o nó ponto em que a operação falhou. Antes de tentar outra restauração, você deve corrigir manualmente o problema no nó peer e trazer o grupo de discos ASM no nó primário de volta ao estado de montagem.
+* Se houver alguma falha durante a atividade de restauração, a operação de restauração falhará e nenhum retorno será executado. Antes de tentar outra restauração, você deve corrigir manualmente o problema de restauração de armazenamento e colocar o grupo de discos ASM no nó principal de volta ao estado de montagem.
+* Se houver alguma falha durante a atividade do Postrestore em qualquer um dos nós pares, o SnapCenter continuará com a operação de restauração nos outros nós de mesmo nível. Você deve corrigir manualmente o problema de pós-restauração no nó peer.
+
+
+
+
+== Tipos de operações de restauração compatíveis com bancos de dados Oracle
+
+O SnapCenter permite executar diferentes tipos de operações de restauração para bancos de dados Oracle.
+
+Antes de restaurar o banco de dados, os backups são validados para identificar se há arquivos ausentes quando comparados aos arquivos de banco de dados reais.
+
+
+
+=== Restauração completa
+
+* Restaura apenas os arquivos de dados
+* Restaura apenas os arquivos de controle
+* Restaura os arquivos de dados e controle
+* Restaura arquivos de dados, controla arquivos e refaz arquivos de log em bancos de dados de espera do Data Guard e ative Data Guard
+
+
+
+
+=== Restauração parcial
+
+* Restaura apenas os espaços de tabela selecionados
+* Restaura apenas os bancos de dados conetáveis selecionados (PDBs)
+* Restaura apenas os espaços de tabela selecionados de um PDB
+
+
+
+
+== Tipos de operações de recuperação compatíveis com bancos de dados Oracle
+
+O SnapCenter permite executar diferentes tipos de operações de recuperação para bancos de dados Oracle.
+
+* O banco de dados até a última transação (todos os logs)
+* O banco de dados até um número específico de mudança de sistema (SCN)
+* A base de dados até uma data e hora específicas
++
+Você deve especificar a data e a hora para recuperação com base no fuso horário do host do banco de dados.
+
++
+O SnapCenter também fornece a opção sem recuperação para bancos de dados Oracle.
+
+
+
+
+NOTE: O plug-in para banco de dados Oracle não suporta recuperação se você tiver restaurado usando um backup que foi criado com a função de banco de dados como standby. Você deve sempre executar a recuperação manual para bancos de dados físicos em espera.
+
+
+
+== Limitações relacionadas à restauração e recuperação de bancos de dados Oracle
+
+Antes de executar operações de restauração e recuperação, você precisa estar ciente das limitações.
+
+Se você estiver usando qualquer versão do Oracle de 11.2.0.4 a 12,1.0,1, a operação de restauração estará no estado suspenso quando você executar o comando _renamedg_. Você pode aplicar o Oracle patch 19544733 para corrigir esse problema.
+
+As seguintes operações de restauração e recuperação não são suportadas:
+
+* Restauração e recuperação de espaços de tablespaces do banco de dados de contentor raiz (CDB)
+* Restauração de espaços de tablespaces temporários e espaços de tablespaces temporários associados a PDBs
+* Restauração e recuperação de espaços de tablespaces de vários PDBs simultaneamente
+* Restauração de backups de log
+* Restauração de backups para um local diferente
+* Restauração de arquivos de log refazer em qualquer configuração que não seja os bancos de dados de espera do Data Guard ou do ative Data Guard
+* Restauração do arquivo SPFILE e Senha
+* Quando você executa uma operação de restauração em um banco de dados que foi recriado usando o nome do banco de dados pré-existente no mesmo host, foi gerenciado pelo SnapCenter e teve backups válidos, a operação de restauração substitui os arquivos de banco de dados recém-criados, mesmo que os DBIDs sejam diferentes.
++
+Isso pode ser evitado executando qualquer uma das seguintes ações:
+
++
+** Descubra os recursos do SnapCenter depois que o banco de dados for recriado
+** Crie uma cópia de segurança da base de dados recriada
+
+
+
+
+
+
+== Limitações relacionadas à recuperação ponto-em-tempo de tablespaces
+
+* A recuperação pontual (PITR) do SISTEMA, SYSAUX e DESFAZER espaços DE tablespaces não é suportada
+* PITR de tablespaces não pode ser executado junto com outros tipos de restauração
+* Se um espaço de tabela for renomeado e você quiser recuperá-lo para um ponto antes de ser renomeado, você deve especificar o nome anterior do espaço de tabela
+* Se as restrições para as tabelas em um espaço de tabela estiverem contidas em outro espaço de tabela, você deve recuperar ambas as espaço de tabela
+* Se uma tabela e seus índices forem armazenados em diferentes espaços de tabela, então os índices devem ser descartados antes de executar o PITR
+* O PITR não pode ser usado para recuperar o espaço de tabela padrão atual
+* O PITR não pode ser usado para recuperar tablespaces contendo qualquer um dos seguintes objetos:
++
+** Objetos com objetos subjacentes (como vistas materializadas) ou objetos contidos (como tabelas particionadas), a menos que todos os objetos subjacentes ou contidos estejam no conjunto de recuperação
++
+Além disso, se as partições de uma tabela particionada forem armazenadas em diferentes espaços de tabela, então você deve soltar a tabela antes de executar o PITR ou mover todas as partições para a mesma espaço de tabela antes de executar o PITR.
+
+** Desfazer ou reverter segmentos
+** Filas avançadas compatíveis com Oracle 8i com vários destinatários
+** Objetos de propriedade do usuário SYS
++
+Exemplos desses tipos de objetos são PL/SQL, classes Java, programas de chamada, visualizações, sinônimos, usuários, Privileges, dimensões, diretórios e sequências.
+
+
+
+
+
+
+
+== Fontes e destinos para restaurar bancos de dados Oracle
+
+É possível restaurar um banco de dados Oracle a partir de uma cópia de backup no storage primário ou no storage secundário. Você só pode restaurar bancos de dados para o mesmo local na mesma instância de banco de dados. No entanto, na configuração do Real Application Cluster (RAC), você pode restaurar bancos de dados para outros nós.
+
+
+
+=== Fontes para operações de restauração
+
+É possível restaurar bancos de dados a partir de um backup no storage primário ou no storage secundário. Se você quiser restaurar a partir de um backup no storage secundário em uma configuração de vários espelhos, você pode selecionar o espelho de armazenamento secundário como a origem.
+
+
+
+=== Destinos para operações de restauração
+
+Você só pode restaurar bancos de dados para o mesmo local na mesma instância de banco de dados.
+
+Em uma configuração RAC, você pode restaurar bancos de dados RAC de qualquer nó no cluster.

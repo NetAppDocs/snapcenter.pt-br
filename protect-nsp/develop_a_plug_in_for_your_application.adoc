@@ -1,0 +1,196 @@
+---
+permalink: protect-nsp/develop_a_plug_in_for_your_application.html 
+sidebar: sidebar 
+keywords: overview snapcenter 
+summary: O servidor SnapCenter permite que você implante e gerencie seus aplicativos como plug-ins para o SnapCenter. 
+---
+= Visão geral
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+O servidor SnapCenter permite que você implante e gerencie seus aplicativos como plug-ins para o SnapCenter. Os aplicativos de sua escolha podem ser conetados ao servidor SnapCenter para recursos de proteção e gerenciamento de dados.
+
+O SnapCenter permite que você desenvolva plug-ins personalizados usando diferentes linguagens de programação. Você pode desenvolver um plug-in personalizado usando Perl, Java, BATCH ou outras linguagens de script.
+
+Para usar plug-ins personalizados no SnapCenter, você deve executar as seguintes tarefas:
+
+* Crie um plug-in para sua aplicação usando as instruções deste guia
+* Crie um arquivo de descrição
+* Exporte o plug-in personalizado para instalá-lo no host SnapCenter
+* Carregue o ficheiro zip plug-in para o servidor SnapCenter
+
+
+
+
+== Tratamento genérico de plug-in em todas as chamadas de API
+
+Para cada chamada de API, use as seguintes informações:
+
+* Parâmetros do plug-in
+* Códigos de saída
+* Registar mensagens de erro
+* Consistência de dados
+
+
+
+
+=== Use parâmetros Plug-in
+
+Um conjunto de parâmetros é passado para o plug-in como parte de cada chamada de API feita. A tabela a seguir lista as informações específicas para os parâmetros.
+
+|===
+| Parâmetro | Finalidade 
+
+
+ a| 
+AÇÃO
+ a| 
+Determina o nome do fluxo de trabalho. Por exemplo, descobrir, fazer backup, fileOrVolRestore ou cloneVolAndLun
+
+
+
+ a| 
+RECURSOS
+ a| 
+Lista os recursos a serem protegidos. Um recurso é identificado por UID e tipo. A lista é apresentada ao plug-in no seguinte formato:
+
+"<UID>, <TYPE>; <UID>, <TYPE>". Por exemplo, "Instance1,Instance;Instance2' DB1,Database"
+
+
+
+ a| 
+NOME_APP
+ a| 
+Determina qual plug-in está sendo usado. Por exemplo, DB2, MySQL. O servidor SnapCenter tem suporte interno para os aplicativos listados. Este parâmetro é sensível a maiúsculas e minúsculas.
+
+
+
+ a| 
+APP_IGNORE_ERROR
+ a| 
+(Y ou N) isso faz com que o SnapCenter saia ou não saia quando um erro de aplicativo for encontrado. Isso é útil quando você está fazendo backup de vários bancos de dados e não quer que uma única falha pare a operação de backup.
+
+
+
+ a| 
+<RESOURCE_NAME>__APP_INSTANCE_USERNAME
+ a| 
+A credencial SnapCenter está definida para o recurso.
+
+
+
+ a| 
+<RESOURCE_NAME>_APP_INSTANCE_PASSWORD
+ a| 
+A credencial SnapCenter está definida para o recurso.
+
+
+
+ a| 
+<RESOURCE_NAME>_<CUSTOM_PARAM>
+ a| 
+Cada valor de chave personalizada no nível de recurso está disponível para plug-ins pré-fixados com "<RESOURCE_NAME>_". Por exemplo, se uma chave personalizada for "MASTER_SLAVE" para um recurso chamado "MySQLDB", ela estará disponível como MySQLDB_MASTER_SLAVE
+
+|===
+
+
+=== Utilize códigos de saída
+
+O plug-in retorna o status da operação de volta ao host por meio de códigos de saída. Cada código tem um significado específico e o plug-in usa o código de saída direito para indicar o mesmo.
+
+A tabela a seguir mostra os códigos de erro e seu significado.
+
+|===
+| Código de saída | Finalidade 
+
+
+ a| 
+0
+ a| 
+Operação bem-sucedida.
+
+
+
+ a| 
+99
+ a| 
+A operação solicitada não é suportada ou implementada.
+
+
+
+ a| 
+100
+ a| 
+Falha na operação, ignore unquiesce e saia. Unquiesce é por padrão.
+
+
+
+ a| 
+101
+ a| 
+Falha na operação, continue com a operação de backup.
+
+
+
+ a| 
+outros
+ a| 
+Falha na operação, execute unquiesce e saia.
+
+|===
+
+
+=== Registar mensagens de erro
+
+As mensagens de erro são passadas do plug-in para o servidor SnapCenter. A mensagem inclui a mensagem, o nível do log e o carimbo de hora.
+
+A tabela a seguir lista os níveis e seus propósitos.
+
+|===
+| Parâmetro | Finalidade 
+
+
+ a| 
+INFORMAÇÕES
+ a| 
+mensagem informativa
+
+
+
+ a| 
+AVISAR
+ a| 
+mensagem de aviso
+
+
+
+ a| 
+ERRO
+ a| 
+mensagem de erro
+
+
+
+ a| 
+DEPURAR
+ a| 
+mensagem de depuração
+
+
+
+ a| 
+TRAÇADO
+ a| 
+mensagem de rastreio
+
+|===
+
+
+=== Preservar a consistência de dados
+
+Plug-ins personalizados preservam dados entre operações da mesma execução de fluxo de trabalho. Por exemplo, um plug-in pode armazenar dados no final do quiesce, que pode ser usado durante a operação de unquiesce.
+
+Os dados a serem preservados são definidos como parte do objeto resultado por plug-in, seguindo um formato específico e descrito em detalhes sob cada estilo de desenvolvimento de plug-in.

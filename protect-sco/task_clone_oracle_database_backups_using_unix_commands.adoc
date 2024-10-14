@@ -1,0 +1,43 @@
+---
+permalink: protect-sco/task_clone_oracle_database_backups_using_unix_commands.html 
+sidebar: sidebar 
+keywords: clone, CLI, commands 
+summary: O fluxo de trabalho do clone inclui Planejamento, execução da operação do clone e monitoramento da operação. 
+---
+= Clonar backups de bancos de dados Oracle usando comandos UNIX
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+O fluxo de trabalho do clone inclui Planejamento, execução da operação do clone e monitoramento da operação.
+
+*Sobre esta tarefa*
+
+Você deve executar os seguintes comandos para criar o arquivo de especificação de clone de banco de dados Oracle e iniciar a operação de clone.
+
+As informações sobre os parâmetros que podem ser usados com o comando e suas descrições podem ser obtidas executando Get-Help _command_name_. Em alternativa, pode também consultar o https://library.netapp.com/ecm/ecm_download_file/ECMLP3323470["Guia de Referência de comandos do software SnapCenter"^].
+
+*Passos*
+
+. Crie uma especificação de clone de banco de dados Oracle a partir de um backup especificado: _New-SmOracleCloneSpecification_
++
+
+NOTE: Se a política de proteção de dados secundária for unificada mirror-Vault, especifique somente -IncludeSecondaryDetails. Você não precisa especificar -SecondaryStorageType.
+
++
+Esse comando cria automaticamente um arquivo de especificação de clone de banco de dados Oracle para o banco de dados de origem especificado e seu backup. Você também deve fornecer um SID de banco de dados clone para que o arquivo de especificação criado tenha os valores gerados automaticamente para o banco de dados clone que você estará criando.
+
++
+
+NOTE: O arquivo de especificação do clone é criado em _/var/opt/SnapCenter/SCO/clone_specs_.
+
+. Inicie uma operação de clone a partir de um grupo de recursos clone ou de um backup existente: _New-SmClone_
++
+Este comando inicia uma operação clone. Você também precisa fornecer um caminho de arquivo de especificação de clone do Oracle para a operação de clone. Você também pode especificar as opções de recuperação, o host onde a operação de clone a ser executada, as prescrições, os postscripts e outros detalhes.
+
++
+Por padrão, o arquivo de destino do log de arquivamento para o banco de dados clone é preenchido automaticamente em ORACLE_Home/CLONE_SIDs_.
+
+

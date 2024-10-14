@@ -1,0 +1,16 @@
+---
+permalink: protect-postgresql/install-snapcenter-plug-in-for-postgresql.html 
+sidebar: sidebar 
+keywords: installing 
+summary: Você deve instalar e configurar o plug-in do SnapCenter para PostgreSQL se quiser proteger o PostgreSQL. 
+---
+= Fluxo de trabalho de instalação do plug-in SnapCenter para PostgreSQL
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Você deve instalar e configurar o plug-in do SnapCenter para PostgreSQL se quiser proteger clusters do PostgreSQL.
+
+image::../media/sap_hana_install_configure_workflow.gif[Instalar e configurar o fluxo de trabalho]

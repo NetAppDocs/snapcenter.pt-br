@@ -1,0 +1,57 @@
+---
+permalink: protect-scw/task_back_up_resource_groups_for_windows_file_systems.html 
+sidebar: sidebar 
+keywords: backing up 
+summary: Um grupo de recursos é uma coleção de recursos em um host ou cluster. Uma operação de backup no grupo de recursos é executada em todos os recursos definidos no grupo de recursos. Você pode fazer backup de um grupo de recursos sob demanda na página recursos. Se um grupo de recursos tiver uma política anexada e uma programação configurada, os backups ocorrerão automaticamente de acordo com a programação. 
+---
+= Fazer backup de grupos de recursos para sistemas de arquivos do Windows
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Um grupo de recursos é uma coleção de recursos em um host ou cluster. Uma operação de backup no grupo de recursos é executada em todos os recursos definidos no grupo de recursos. Você pode fazer backup de um grupo de recursos sob demanda na página recursos. Se um grupo de recursos tiver uma política anexada e uma programação configurada, os backups ocorrerão automaticamente de acordo com a programação.
+
+.Antes de começar
+* Você deve ter criado um grupo de recursos com uma política anexada.
+* Se você quiser fazer backup de um recurso que tenha uma relação SnapMirror com o armazenamento secundário, a função atribuída ao usuário de armazenamento deve incluir o privilégio "'SnapMirror All'". No entanto, se você estiver usando a função "vsadmin", o privilégio "SnapMirror all" não será necessário.
+* Se um grupo de recursos tiver vários bancos de dados de hosts diferentes, a operação de backup em alguns dos hosts pode ser desencadeada tarde devido a problemas de rede. Você deve configurar o valor de MaxRetryForUninitializedHosts no web.config usando o cmdlet Set-SmConfigSettings PowerShell
+
+
+
+NOTE: Ao fazer backup de um sistema de arquivos, o SnapCenter não faz backup de LUNs montados em um ponto de montagem de volume (VMP) no sistema de arquivos que está sendo feito backup.
+
+
+IMPORTANT: Se você estiver trabalhando em um contexto de sistema de arquivos do Windows, não faça backup de arquivos de banco de dados. Isso cria um backup inconsistente e uma possível perda de dados ao restaurar. Para proteger arquivos de banco de dados, você deve usar o plug-in SnapCenter apropriado para o banco de dados (por exemplo, plug-in SnapCenter para Microsoft SQL Server, plug-in SnapCenter para Microsoft Exchange Server ou um plug-in personalizado para arquivos de banco de dados).
+
+.Passos
+. No painel de navegação esquerdo, clique em *Resources* e selecione o plug-in apropriado na lista.
+. Na página recursos, selecione *Grupo de recursos* na lista *Exibir*.
++
+Você pode pesquisar o grupo de recursos inserindo o nome do grupo de recursos na caixa de pesquisa ou clicando image:../media/filter_icon.png[""] e selecionando a tag. Em seguida, pode clicar image:../media/filter_icon.png[""] para fechar o painel de filtro.
+
+. Na página grupos de recursos, selecione o grupo de recursos que deseja fazer backup e clique em *fazer backup agora*.
++
+
+NOTE: Para o plug-in SnapCenter para banco de dados Oracle, se você tiver um grupo de recursos federados com dois bancos de dados e um do banco de dados tiver um arquivo de dados em um armazenamento não NetApp, a operação de backup será abortada mesmo que o outro banco de dados esteja em um armazenamento NetApp.
+
+. Na página Backup, execute as seguintes etapas:
++
+.. Se você associou várias políticas ao grupo de recursos, na lista suspensa *Política*, selecione a política que deseja usar para backup.
++
+Se a política selecionada para o backup sob demanda estiver associada a um agendamento de backup, os backups sob demanda serão retidos com base nas configurações de retenção especificadas para o tipo de agendamento.
+
+.. Clique em *Backup*.
+
+
+. Monitorize o progresso da operação clicando em *Monitor* > *trabalhos*.
++
+** Nas configurações do MetroCluster, o SnapCenter pode não ser capaz de detetar uma relação de proteção após um failover.
++
+https://kb.netapp.com/Advice_and_Troubleshooting/Data_Protection_and_Security/SnapCenter/Unable_to_detect_SnapMirror_or_SnapVault_relationship_after_MetroCluster_failover["Não é possível detetar a relação SnapMirror ou SnapVault após o failover do MetroCluster"^]
+
+** Se você estiver fazendo backup de dados de aplicativos em VMDKs e o tamanho de heap Java para o plug-in SnapCenter para VMware vSphere não for grande o suficiente, o backup pode falhar. Para aumentar o tamanho de heap Java, localize o arquivo de `/opt/netapp/init_scripts/scvservice` script . Nesse script, o `do_start method` comando inicia o serviço de plug-in SnapCenter VMware. Atualize esse comando para o seguinte: `Java -jar -Xmx8192M -Xms4096M`.
+
+
+

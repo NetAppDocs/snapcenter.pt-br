@@ -1,0 +1,90 @@
+---
+permalink: protect-sco/reference_storage_types_supported_by_snapcenter_plug_in_for_oracle_database.html 
+sidebar: sidebar 
+keywords: storage types, iSCSI, NFS, RDM, VMDK, NFS, LVM, ASM, SAN filesystem 
+summary: O SnapCenter oferece suporte a uma ampla variedade de tipos de armazenamento em máquinas físicas e virtuais. Você deve verificar o suporte para seu tipo de storage antes de instalar o pacote de plug-ins do SnapCenter para Linux ou o pacote de plug-ins do SnapCenter para AIX. 
+---
+= Tipos de armazenamento suportados pelo Plug-in para Oracle Database
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+O SnapCenter oferece suporte a uma ampla variedade de tipos de armazenamento em máquinas físicas e virtuais. Você deve verificar o suporte para seu tipo de storage antes de instalar o pacote de plug-ins do SnapCenter para Linux ou o pacote de plug-ins do SnapCenter para AIX.
+
+O SnapCenter não oferece suporte ao provisionamento de storage para Linux e AIX.
+
+
+
+== Tipos de armazenamento compatíveis com Linux
+
+A tabela a seguir lista os tipos de armazenamento suportados no Linux.
+
+|===
+| Máquina | Tipo de armazenamento 
+
+
+ a| 
+Servidor físico
+ a| 
+* LUNs conectados a FC
+* LUNs ligados ao iSCSI
+* Volumes conectados a NFS
+* NVMe-FC
+* NVMe-TCP
+
+
+
+
+ a| 
+VMware ESXi
+ a| 
+* LUNs RDM conetados por um FC ou iSCSI ESXi HAScanning de adaptadores de barramento de host (HBAs) pode levar muito tempo para ser concluído porque o SnapCenter verifica todos os adaptadores de barramento de host presentes no host.
++
+Você pode editar o arquivo *LinuxConfig.pm* localizado em _/opt/NetApp/SnapCenter/spl/plugins/scu/scucore/modules/SCU/Config_ para definir o valor do parâmetro *SCSI_HOSTS_OPTIMIZED_RESCAN* para 1 para reexaminar somente os HBA listados em HBA_DRIVER_NAMES.
+
+* ISCSI LUNs ligados diretamente ao sistema convidado pelo iniciador iSCSI
+* VMDKs em armazenamentos de dados NFS
+* VMDKs no VMFS criado em NVMe-TCP
++
+
+NOTE: O RAC é compatível com o ESX 8.0U2, que tem suporte para VMDK compartilhado
+
+* Volumes NFS conectados diretamente ao sistema convidado
+* Armazenamentos de dados da VVol em NFS e SAN
++
+O armazenamento de dados da VVol só pode ser provisionado com as Ferramentas do ONTAP para o VMware vSphere.
+
+
+
+|===
+
+
+== Tipos de storage compatíveis com AIX
+
+A tabela a seguir lista os tipos de armazenamento suportados no AIX.
+
+|===
+| Máquina | Tipo de armazenamento 
+
+
+ a| 
+Servidor físico
+ a| 
+* LUNs conectados a FC e iSCSI.
++
+Em um ambiente SAN, os sistemas de arquivos ASM, LVM e SAN são compatíveis.
+
++
+
+NOTE: NFS no AIX e no sistema de arquivos não é suportado.
+
+* Sistema de arquivos Journaled aprimorado (JFS2)
++
+Suporta log in-line em sistemas de arquivos SAN e layout LVM.
+
+
+
+|===
+O https://imt.netapp.com/matrix/imt.jsp?components=121071;&solution=1259&isHWU&src=IMT["Ferramenta de Matriz de interoperabilidade do NetApp"] contém as informações mais recentes sobre as versões suportadas.

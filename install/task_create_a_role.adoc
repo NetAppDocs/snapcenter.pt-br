@@ -1,0 +1,38 @@
+---
+permalink: install/task_create_a_role.html 
+sidebar: sidebar 
+keywords: role, create, permission 
+summary: Além de usar as funções existentes do SnapCenter, você pode criar suas próprias funções e personalizar as permissões. 
+---
+= Crie uma função
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Além de usar as funções existentes do SnapCenter, você pode criar suas próprias funções e personalizar as permissões.
+
+Você deve ter feito login como a função "SnapCenterAdmin".
+
+*Passos*
+
+. No painel de navegação esquerdo, clique em *Configurações*.
+. Na página Configurações, clique em *funções*.
+. Clique image:../media/add_icon_configure_database.gif["adicionar ícone no ecrã de configuração da base de dados"]em .
+. Na página Adicionar função, especifique um nome e uma descrição para a nova função.
++
+
+NOTE: No SnapCenter 4,5, você pode incluir apenas os seguintes carateres especiais em nomes de usuário e nomes de grupo: Espaço ( ), hífen (-), sublinhado (_) e dois pontos (:). Se você quiser usar uma função que você criou em uma versão anterior do SnapCenter com esses carateres especiais, você pode desativar a validação do nome da função alterando o valor do parâmetro 'DisableSQLInjectionValidation' para true no arquivo web.config localizado onde o SnapCenter está instalado. Depois de modificar o valor, não é necessário reiniciar o serviço.
+
+. Selecione *todos os membros desta função podem ver objetos de outros membros* para permitir que outros membros da função vejam recursos como volumes e hosts depois que eles atualizarem a lista de recursos.
++
+Você deve desmarcar essa opção se não quiser que os membros dessa função vejam objetos aos quais outros membros são atribuídos.
+
++
+
+NOTE: Quando essa opção está ativada, a atribuição de acesso aos usuários a objetos ou recursos não é necessária se os usuários pertencerem à mesma função que o usuário que criou os objetos ou recursos.
+
+. Na página permissões, selecione as permissões que você deseja atribuir à função ou clique em *Selecionar tudo* para conceder todas as permissões à função.
+. Clique em *Enviar*.
+
