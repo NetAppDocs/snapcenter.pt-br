@@ -126,7 +126,7 @@ Selecione *Eliminar registos de arquivo a partir dos destinos que fazem parte da
 
 |===
 +
-image:../media/sco_backuppolicy_prunning.gif[""]
+image:../media/sco_backuppolicy_prunning.gif["política de backup"]
 
 
 
@@ -200,7 +200,7 @@ Quando o SnapLock é configurado apenas no secundário do ONTAP conhecido como S
 
 Para obter mais informações sobre o SnapLock Vault, consulte https://docs.netapp.com/us-en/ontap/snaplock/commit-snapshot-copies-worm-concept.html["Armazene cópias Snapshot em WORM em um destino de cofre"]
 
-link:..protect-sco/task_view_oracle_databse_backups_and_clones_in_the_topology_page.html["Veja os backups e clones do banco de dados Oracle na página topologia"]Consulte .
+link:../protect-sco/task_view_oracle_databse_backups_and_clones_in_the_topology_page.html["Veja os backups e clones do banco de dados Oracle na página topologia"]Consulte .
 
 
 

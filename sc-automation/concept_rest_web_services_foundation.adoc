@@ -7,7 +7,7 @@ summary: REST é um estilo para criar aplicações web distribuídas. Quando apl
 = Base de serviços web REST
 :allow-uri-read: 
 :icons: font
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

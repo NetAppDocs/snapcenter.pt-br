@@ -285,7 +285,7 @@ IMPORTANT: A política somente primária não pode ser usada se a sincronizaçã
 
 Clicar no botão *Atualizar* na página topologia atualiza o tempo de expiração do SnapLock secundário e primário que são recuperados do ONTAP.
 
-link:..protect-sce/task_view_exchange_backups_in_the_topology_page.html["Veja backups do Exchange na página topologia"]Consulte .
+link:../protect-sce/task_view_exchange_backups_in_the_topology_page.html["Veja backups do Exchange na página topologia"]Consulte .
 
 
 

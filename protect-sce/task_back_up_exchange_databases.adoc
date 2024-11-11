@@ -34,7 +34,7 @@ Se um banco de dados não fizer parte de qualquer grupo de recursos, você poder
 . No painel de navegação à esquerda, clique em *recursos* e selecione o *plug-in do Microsoft Exchange Server* na lista.
 . Na página recursos, selecione *Banco de dados* ou *Grupo de disponibilidade de banco de dados* na lista *Exibir*.
 +
-Na página recursos, o image:../media/not_supported_icon.png[""] ícone indica que o banco de dados está em armazenamento não NetApp.
+Na página recursos, o image:../media/not_supported_icon.png["armazenamento não suportado"] ícone indica que o banco de dados está em armazenamento não NetApp.
 
 +
 
@@ -217,7 +217,7 @@ C:\PS> Get-SmJobSummaryReport -JobId 168
 ----
 
 
-As informações sobre os parâmetros que podem ser usados com o cmdlet e suas descrições podem ser obtidas executando _get-Help command_name_. Em alternativa, consulte https://docs.netapp.com/us-en/snapcenter-cmdlets/index.htmlnapCenter[] o Guia de Referência do cmdlet de Software].
+As informações sobre os parâmetros que podem ser usados com o cmdlet e suas descrições podem ser obtidas executando _get-Help command_name_. Em alternativa, https://docs.netapp.com/us-en/snapcenter-cmdlets/index.html["Guia de referência de cmdlet do software SnapCenter"^]consulte .
 
 --
 ====

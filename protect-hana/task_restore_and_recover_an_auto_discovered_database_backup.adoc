@@ -18,21 +18,19 @@ Você pode usar o SnapCenter para restaurar e recuperar dados de um ou mais back
 * Você deve ter cancelado qualquer operação de backup que esteja atualmente em andamento para o recurso ou grupo de recursos que deseja restaurar.
 * Para comandos pré-restauração, pós restauração, montagem e desmontagem, você deve verificar se os comandos existem na lista de comandos disponível no host do plug-in a partir dos seguintes caminhos:
 +
-Para o Windows: _C: Arquivos de programas/NetApp/SnapCenter/SnapCenter Plug-in Creator/etc/allowed_commands_list.txt_
+** Localização padrão no host do Windows: _C: Arquivos de programas/NetApp/SnapCenter/SnapCenter Plug-in Creator/etc/allowed_commands.config_
+** Localização padrão no host Linux: _/opt/NetApp/SnapCenter/scc/etc/allowed_Commands.config_
 
-+
-Para Linux: _/var/opt/SnapCenter/scc/allowed_commands_list.txt_
 
-+
+
+
 
 NOTE: Se os comandos não existirem na lista de comandos, a operação falhará.
-
-
 
 .Sobre esta tarefa
 * As cópias de backup baseadas em arquivo não podem ser restauradas a partir do SnapCenter.
 * Após a atualização para o SnapCenter 4,3, os backups feitos no SnapCenter 4,2 podem ser restaurados, mas não podem ser recuperados. Você precisa usar scripts de recuperação HANA ou estúdio externos ao SnapCenter para recuperar os backups feitos no SnapCenter 4,2.
-* Para a versão ONTAP 9.12,1 e inferior, os clones criados a partir dos instantâneos do Vault do SnapLock como parte da restauração herdarão o tempo de expiração do SnapLock Vault. O administrador do storage deve limpar manualmente os clones após o tempo de expiração do SnapLock.
+* Para o ONTAP 9.12,1 e versões anteriores, os clones criados a partir dos instantâneos do Vault do SnapLock como parte da restauração herdarão o tempo de expiração do SnapLock Vault. O administrador do storage deve limpar manualmente os clones após o tempo de expiração do SnapLock.
 * Para a operação de restauração de sincronização ativa do SnapMirror, você deve selecionar o backup no local principal.
 
 
@@ -158,10 +156,6 @@ Os comandos de desmontagem não estão disponíveis para recursos descobertos au
 . Na página Post OPS, insira os comandos mount e POST Restore para serem executados após a execução de um trabalho de restauração.
 +
 Os comandos de montagem não estão disponíveis para recursos descobertos automaticamente.
-
-+
-
-NOTE: Para os comandos pre e POST para operações quiesce, Snapshot e unquiesce, você deve verificar se os comandos existem na lista de comandos disponível no host plug-in a partir do caminho _/opt/SnapCenter/snapenter/scc/allowed_commands.config_ para Linux e _C: Arquivos de programas/NetApp/SnapCenter/SnapCenter Plug-in Creator/allowed_Commands_list.txt.
 
 . Na página notificação, na lista suspensa *preferência de e-mail*, selecione os cenários nos quais você deseja enviar os e-mails.
 +

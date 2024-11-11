@@ -19,10 +19,9 @@ Se um recurso ainda não fizer parte de qualquer grupo de recursos, você poder�
 * Para a operação de backup baseada em cópia Snapshot, certifique-se de que todos os bancos de dados do locatário estejam válidos e ativos.
 * Para comandos pré e POST para operações quiesce, Snapshot e unquiesce, você deve verificar se os comandos existem na lista de comandos disponível no host plug-in dos seguintes caminhos:
 +
-Para o Windows: _C: Arquivos de programas/NetApp/SnapCenter/SnapCenter Plug-in Creator/etc/allowed_commands_list.txt_
+** Localização padrão no host do Windows: _C: Arquivos de programas/NetApp/SnapCenter/SnapCenter Plug-in Creator/etc/allowed_commands.config_
+** Localização padrão no host Linux: _/opt/NetApp/SnapCenter/scc/etc/allowed_Commands.config_
 
-+
-Para Linux: _/var/opt/SnapCenter/scc/allowed_commands_list.txt_
 
 
 
@@ -37,7 +36,7 @@ NOTE: Se os comandos não existirem na lista de comandos, a operação falhará.
 . No painel de navegação esquerdo, selecione *Resources* e, em seguida, selecione o plug-in apropriado na lista.
 . Na página recurso, filtre os recursos da lista suspensa *Exibir* com base no tipo de recurso.
 +
-Selecioneimage:../media/filter_icon.png[""] * * e, em seguida, selecione o nome do host e o tipo de recurso para filtrar os recursos. Em seguida, pode image:../media/filter_icon.png[""]selecionar para fechar o painel de filtro.
+image:../media/filter_icon.png["ícone de filtro"]Selecione e, em seguida, selecione o nome do host e o tipo de recurso para filtrar os recursos. Em seguida, pode image:../media/filter_icon.png["ícone de filtro"]selecionar para fechar o painel de filtro.
 
 . Selecione o recurso que você deseja fazer backup.
 . Na página recurso, selecione *Use o formato de nome personalizado para cópia Snapshot* e insira um formato de nome personalizado que você deseja usar para o nome da captura Instantânea.
@@ -100,7 +99,7 @@ Selecione *Other* e, em seguida, digite o comando para criar uma captura Instant
 
 |===
 +
-image:../media/application_settings.gif[""]
+image:../media/application_settings.gif["definições da aplicação"]
 
 
 

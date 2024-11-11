@@ -27,9 +27,8 @@ Exemplos de arquivos de configuração do SnapCenter: SnapDriveService.exe.confi
 
 
 .Sobre esta tarefa
-* Durante a atualização, o host é colocado automaticamente no modo de manutenção, o que impede que o host execute quaisquer tarefas agendadas. Após a atualização, o host é automaticamente retirado do modo de manutenção.
 * Durante a atualização, um script SQL é executado para atualizar os dados do Exchange no banco de dados NSM, que converte o DAG e o nome abreviado do host para FQDN. Isso é aplicável somente se você estiver usando o SnapCenter Server com o plug-in do Exchange.
-* Antes de iniciar a operação de atualização, se você tiver colocado manualmente o host no modo de manutenção, após a atualização você precisa tirar manualmente o host do modo de manutenção clicando em *hosts* > *Activate Schedule*.
+* Antes de iniciar a operação de atualização, se você tiver colocado manualmente o host do servidor no modo de manutenção, após a atualização, você precisa tirar manualmente o host do servidor do modo de manutenção clicando em *hosts* > *Activate Schedule*.
 * Para o plug-in do SnapCenter para Microsoft SQL Server, o plug-in do SnapCenter para Microsoft Exchange Server e o plug-in do SnapCenter para Microsoft Windows, é recomendável atualizar o servidor e os hosts do plug-in para a versão 4,7 para a execução do SCRIPT_PATH.
 +
 Para as agendas de backup e verificação existentes com prescripts e pós-scripts ativados na política, as operações de backup continuarão a funcionar após a atualização.
@@ -78,10 +77,10 @@ Em qualquer fase, se clicar no botão *Cancelar*, o fluxo de trabalho de atualiz
 
 .Depois de terminar
 * Se o plug-in for instalado usando um usuário sudo, você deve copiar as chaves sha224 disponíveis em _C:/NetApp/SnapCenter para atualizar o arquivo _/etc/sudoers_.
-* Você deve realizar uma nova descoberta de recursos nos hosts.
+* Você deve executar uma nova descoberta de recursos no host do servidor.
 +
-Se o status do host for exibido como parado, você pode esperar por algum tempo e executar uma nova descoberta. Você também pode alterar o valor do parâmetro *HostRefreshInterval* (o valor padrão é 3600 segundos) para qualquer valor superior a 10 minutos.
+Se o status do host do servidor for exibido como parado, você pode esperar por algum tempo e executar uma nova descoberta. Você também pode alterar o valor do parâmetro *HostRefreshInterval* (o valor padrão é 3600 segundos) para qualquer valor superior a 10 minutos.
 
 * Se a atualização falhar, você deve limpar a instalação com falha, reinstalar a versão anterior do SnapCenter e, em seguida, restaurar o banco de dados NSM para o estado anterior.
-* Depois de atualizar o host do servidor SnapCenter, você também deve atualizar os plug-ins antes de adicionar qualquer sistema de storage.
+* Depois de atualizar o host do servidor, você também deve atualizar os plug-ins antes de adicionar qualquer sistema de storage.
 

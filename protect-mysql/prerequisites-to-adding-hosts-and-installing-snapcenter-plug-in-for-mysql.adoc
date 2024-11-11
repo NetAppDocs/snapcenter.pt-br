@@ -60,37 +60,23 @@ https://imt.netapp.com/matrix/imt.jsp?components=121071;&solution=1259&isHWU&src
 
 == Comandos suplementares
 
-Para executar um comando complementar no plug-in SnapCenter para MySQL, você deve incluí-lo no `allowed_commands.config` arquivo.
+Para executar um comando complementar no plug-in do SnapCenter para MySQL, você deve incluí-lo no arquivo _allowed_commands.config_.
 
-`allowed_commands.config` O arquivo está localizado no subdiretório "etc" do diretório SnapCenter Plug-in para MySQL.
+* Localização padrão no host do Windows: _C: Arquivos de programas/NetApp/SnapCenter/SnapCenter Plug-in Creator/etc/allowed_commands.config_
+* Localização padrão no host Linux: _/opt/NetApp/SnapCenter/scc/etc/allowed_Commands.config_
 
-.Hosts do Windows
-Predefinição: `C:\Program Files\NetApp\SnapCenter\Snapcenter Plug-in Creator\etc\allowed_commands.config`
 
-Caminho personalizado: `<Custom_Directory>\NetApp\SnapCenter\Snapcenter Plug-in Creator\etc\allowed_commands.config`
+Para permitir comandos suplementares no host do plug-in, abra o arquivo _allowed_Commands.config_ em um editor. Digite cada comando em uma linha separada e os comandos não são sensíveis a maiúsculas e minúsculas. Certifique-se de especificar o nome de caminho totalmente qualificado e incluir o nome de caminho entre aspas (") se ele contiver espaços.
 
-.Hosts Linux
-Predefinição: `/opt/NetApp/snapcenter/scc/etc/allowed_commands.config`
+Por exemplo:
 
-Caminho personalizado: `<Custom_Directory>allowed_commands.config`
+Comando: Comando de montagem: Comando umount: Comando "C: Arquivos de programas/NetApp comandos do SnapCreator" comando: myscript.bat
 
-Para permitir comandos suplementares no host do plug-in, abra `allowed_commands.config` o arquivo em um editor. Insira cada comando em uma linha separada. Não é sensível a maiúsculas e minúsculas. Por exemplo,
-
-comando: montar
-
-comando: umount
-
-Certifique-se de que especifica o nome de caminho totalmente qualificado. Coloque o nome do caminho entre aspas (") se ele contiver espaços. Por exemplo,
-
-Comando: "C: Arquivos de programas/comandos NetApp/sdcli.exe"
-
-comando: myscript.bat
-
-Se o `allowed_commands.config` arquivo não estiver presente, os comandos ou execução de script serão bloqueados e o fluxo de trabalho falhará com o seguinte erro:
+Se o arquivo _allowed_commands.config_ não estiver presente, os comandos ou a execução de script serão bloqueados e o fluxo de trabalho falhará com o seguinte erro:
 
 "[/mnt/mount -a] execução não permitida. Autorize adicionando o comando no arquivo %s no host do plugin."
 
-Se o comando ou script não estiver presente no `allowed_commands.config`, a execução do comando ou script será bloqueada e o fluxo de trabalho falhará com o seguinte erro:
+Se o comando ou script não estiver presente no _allowed_Commands.config_, a execução do comando ou script será bloqueada e o fluxo de trabalho falhará com o seguinte erro:
 
 "[/mnt/mount -a] execução não permitida. Autorize adicionando o comando no arquivo %s no host do plugin."
 
@@ -106,6 +92,7 @@ O SnapCenter 2,0 e versões posteriores permitem que um usuário não root insta
 *O que você vai precisar*
 
 * Sudo versão 1.8.7 ou posterior.
+* Se o umask for 0027, certifique-se de que a pasta java e todos os arquivos dentro devem ter permissão de 555. Caso contrário, a instalação do plug-in pode falhar.
 * Para o usuário não-root, certifique-se de que o nome do usuário não-root e do grupo do usuário devem ser os mesmos.
 * Edite o arquivo _/etc/ssh/sshd_config_ para configurar os algoritmos de código de autenticação de mensagem: Macs hmac-SHA2-256 e MACs hmac-SHA2-512.
 +

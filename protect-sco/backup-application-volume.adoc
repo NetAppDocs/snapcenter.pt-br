@@ -21,9 +21,9 @@ Por padrão, backups do grupo de consistência (CG) são criados. Se você quise
 
 . No painel de navegação esquerdo, clique em *Resources* e selecione o plug-in Oracle Database na lista.
 . Na página recursos, selecione *volume do aplicativo* na lista *Exibir*.
-. Clique em *image:../media/filter_icon.png[""]* e selecione o nome do host e o tipo de banco de dados para filtrar os recursos.
+. Clique image:../media/filter_icon.png["ícone de filtro"]em e selecione o nome do host e o tipo de banco de dados para filtrar os recursos.
 +
-Em seguida, pode clicar emimage:../media/filter_icon.png[""]* * para fechar o painel do filtro.
+Em seguida, pode clicar image:../media/filter_icon.png["ícone de filtro"] para fechar o painel de filtro.
 
 . Selecione o volume da aplicação que pretende efetuar uma cópia de segurança.
 +
@@ -55,7 +55,7 @@ Especifique os destinos dos ficheiros de registo de arquivo que não pretende ef
 .. Selecione uma ou mais políticas na lista suspensa.
 +
 
-NOTE: Você também pode criar uma política clicando em *image:../media/add_policy_from_resourcegroup.gif[""]*.
+NOTE: Você também pode criar uma política clicando image:../media/add_policy_from_resourcegroup.gif["adicionar política"]em .
 
 
 
@@ -63,7 +63,7 @@ NOTE: Você também pode criar uma política clicando em *image:../media/add_pol
 Na seção Configurar agendas para políticas selecionadas, as políticas selecionadas são listadas.
 
 +
-.. Clique image:../media/add_policy_from_resourcegroup.gif[""] na coluna Configurar agendas para a política para a qual você deseja configurar um agendamento.
+.. Clique image:../media/add_policy_from_resourcegroup.gif["adicionar política"] na coluna Configurar agendas para a política para a qual você deseja configurar um agendamento.
 .. Na janela Adicionar programações para a política _policy_name_, configure a programação e clique em *OK*.
 +
 _policy_name_ é o nome da política selecionada.

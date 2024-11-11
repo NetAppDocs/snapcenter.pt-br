@@ -88,7 +88,7 @@ Selecione esta opção para evitar forçar um ponto de consistência WAFL.
 
 |===
 +
-image:../media/application_settings.gif[""]
+image:../media/application_settings.gif["definições da aplicação"]
 
 .. Clique na seta *Scripts* e insira os comandos pre e POST para operações quiesce, Snapshot e unquiesce. Também pode introduzir os pré comandos a serem executados antes de sair em caso de falha.
 .. Clique na seta *Custom Configurations* (Configurações personalizadas) e insira os pares de valor de chave personalizados necessários para todas as operações de proteção de dados usando esse recurso.

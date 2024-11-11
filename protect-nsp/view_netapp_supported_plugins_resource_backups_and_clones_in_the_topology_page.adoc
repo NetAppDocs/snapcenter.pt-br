@@ -68,5 +68,5 @@ NOTE: Não é possível renomear ou excluir backups que estão no sistema de arm
 
 NOTE: Não é possível renomear os backups que estão no sistema de armazenamento primário.
 
-. Se você quiser excluir um clone, selecione o clone da tabela e clique image:../media/delete_icon.gif[""] para excluir o clone.
+. Se você quiser excluir um clone, selecione o clone da tabela e clique image:../media/delete_icon.gif["eliminar ícone"] para excluir o clone.
 

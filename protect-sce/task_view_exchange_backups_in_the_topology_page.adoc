@@ -38,9 +38,9 @@ Por exemplo, se você criou backups 6 usando uma política para reter apenas 4 b
 
 Se você tiver uma relação secundária como sincronização ativa do SnapMirror (lançada inicialmente como SnapMirror Business Continuity [SM-BC]), você poderá ver os seguintes ícones adicionais:
 
-* image:../media/topology_replica_site_up.png["site de réplica para cima"] implica que o site de réplica está em cima.
-* image:../media/topology_replica_site_down.png["site de réplica para baixo"] implica que o site de réplica está para baixo.
-* image:../media/topology_reestablished.png["o relacionamento é restabelecido"] implica que a relação do espelho secundário ou do cofre não foi restabelecida.
+* image:../media/topology_replica_site_up.png["site de réplica para cima"] O site da réplica está em cima.
+* image:../media/topology_replica_site_down.png["site de réplica para baixo"] O site da réplica está inativo.
+* image:../media/topology_reestablished.png["o relacionamento é restabelecido"] A relação do espelho secundário ou do cofre não foi restabelecida.
 
 
 .Passos

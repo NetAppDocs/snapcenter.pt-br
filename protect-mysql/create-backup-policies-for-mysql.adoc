@@ -58,7 +58,7 @@ Você pode fornecer vários valores-chave a serem passados para o plug-in.
 NOTE: Você pode especificar a programação (data de início, data de término e frequência) para a operação de backup enquanto cria um grupo de recursos. Isso permite que você crie grupos de recursos que compartilham a mesma política e frequência de backup, mas também permite que você atribua diferentes programações de backup a cada política.
 
 +
-image::../media/backup_settings.gif[definições de cópia de segurança]
+image::../media/backup_settings.gif[backup seting]
 
 +
 

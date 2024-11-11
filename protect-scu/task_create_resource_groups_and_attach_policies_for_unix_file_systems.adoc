@@ -22,7 +22,7 @@ Anexe uma ou mais políticas ao grupo de recursos para definir o tipo de tarefa 
 A imagem a seguir ilustra a relação entre recursos, grupos de recursos e políticas para bancos de dados:
 
 +
-image::../media/sco_resourcegroup_policy.gif[política do sco resourcegroup]
+image::../media/sco_resourcegroup_policy.gif[política de grupo de recursos]
 
 * Para políticas habilitadas para o SnapLock, para ONTAP 9.12,1 e versões abaixo, se você especificar um período de bloqueio do Snapshot, os clones criados a partir dos snapshots à prova de violação como parte da restauração herdarão o tempo de expiração do SnapLock. O administrador do storage deve limpar manualmente os clones após o tempo de expiração do SnapLock.
 * A adição de novos sistemas de arquivos sem a sincronização ativa do SnapMirror a um grupo de recursos existente que contenha recursos com a sincronização ativa do SnapMirror não é suportada.

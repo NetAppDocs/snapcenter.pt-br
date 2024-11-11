@@ -48,7 +48,7 @@ link:task_configure_CA_client_certificate_for_LDAPS.html["Configure o certificad
 . No painel de navegação esquerdo, clique em *Configurações*.
 . Na página Configurações, clique em *Configurações globais*.
 . Na página Configurações globais, clique em *Configurações de domínio*.
-. Clique image:../media/add_policy_from_resourcegroup.gif[""] para Registrar um novo domínio.
+. Clique image:../media/add_policy_from_resourcegroup.gif["adicionar política"] para Registrar um novo domínio.
 . Na página Registrar novo domínio, selecione *LDAP* ou *LDAPS*.
 +
 .. Se selecionar *LDAP*, especifique as informações necessárias para registar o domínio não fidedigno para LDAP:

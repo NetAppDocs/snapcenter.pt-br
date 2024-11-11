@@ -156,7 +156,7 @@ Durante a replicação secundária, o tempo de expiração do SnapLock carrega o
 
 Clicar no botão *Atualizar* na página topologia atualiza o tempo de expiração do SnapLock secundário e primário que são recuperados do ONTAP.
 
-link:..protect-hana/task_view_sap_hana_database_backups_and_clones_in_the_topology_page_sap_hana.html["Veja os backups e clones do banco de dados SAP HANA na página topologia"]Consulte .
+link:../protect-hana/task_view_sap_hana_database_backups_and_clones_in_the_topology_page_sap_hana.html["Veja os backups e clones do banco de dados SAP HANA na página topologia"]Consulte .
 
 
 
@@ -171,7 +171,7 @@ Quando o SnapLock é configurado apenas no secundário do ONTAP conhecido como S
 
 Para obter mais informações sobre o SnapLock Vault, consulte https://docs.netapp.com/us-en/ontap/snaplock/commit-snapshot-copies-worm-concept.html["Armazene cópias Snapshot em WORM em um destino de cofre"]
 
-link:..protect-hana/task_view_sap_hana_database_backups_and_clones_in_the_topology_page_sap_hana.html["Veja os backups e clones do banco de dados SAP HANA na página topologia"]Consulte .
+link:task_view_sap_hana_database_backups_and_clones_in_the_topology_page_sap_hana.html["Veja os backups e clones do banco de dados SAP HANA na página topologia"]Consulte .
 
 
 

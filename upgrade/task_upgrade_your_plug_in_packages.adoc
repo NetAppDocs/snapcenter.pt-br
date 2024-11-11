@@ -13,7 +13,7 @@ summary: Os pacotes plug-in são distribuídos como parte da atualização do Sn
 [role="lead"]
 Os pacotes plug-in são distribuídos como parte da atualização do SnapCenter.
 
-O procedimento de atualização coloca seu host Windows, Linux ou AIX no modo "Manutenção", o que impede que o host execute quaisquer tarefas agendadas.
+Você não precisa colocar manualmente cada host de plug-in que deseja atualizar para o modo de manutenção, pois o procedimento de atualização coloca seus hosts de plug-in do Windows, Linux ou AIX no modo de manutenção. O modo de manutenção impede que quaisquer trabalhos agendados sejam executados no host do plug-in durante a atualização.
 
 .Antes de começar
 * Se você é um usuário não-root com acesso às máquinas Linux, você deve atualizar o arquivo _/etc/sudoers_ com os últimos valores de checksum antes de executar a operação de atualização.
@@ -28,7 +28,6 @@ Exemplos de arquivos de configuração do SnapCenter: SnapDriveService.exe.confi
 
 
 .Sobre esta tarefa
-* O procedimento de atualização coloca seu host Windows, Linux ou AIX no modo "Manutenção", o que impede que o host execute quaisquer tarefas agendadas.
 * Para o plug-in do SnapCenter para Microsoft SQL Server, o plug-in do SnapCenter para Microsoft Exchange Server e o plug-in do SnapCenter para Microsoft Windows, é recomendável atualizar o servidor e os hosts do plug-in para a versão mais recente para que o SCRIPT_PATH seja executado.
 +
 Para as agendas de backup e verificação existentes com prescripts e pós-scripts ativados na política, as operações de backup continuarão a funcionar após a atualização.
@@ -42,14 +41,14 @@ Na página *Detalhes da tarefa*, uma mensagem de aviso recomenda que o cliente c
 . No painel de navegação à esquerda, clique em *hosts* > *hosts gerenciados*.
 . Atualize os hosts executando uma das seguintes tarefas:
 +
-** Se a coluna Estado geral exibir ""Atualização disponível"" para um dos hosts, clique no nome do host e execute o seguinte:
+** Se a coluna Estado geral exibir "Atualização disponível" para um dos plug-ins, clique no nome do host do plug-in e execute o seguinte:
 +
 ... Clique em *mais opções*.
-... Selecione *Ignorar pré-verificações* se não quiser validar se o host atende aos requisitos para atualizar o plug-in.
+... Selecione *Ignorar pré-verificações* se não quiser validar se o host do plug-in atende aos requisitos para atualizar o plug-in.
 ... Clique em *Upgrade*.
 
 
-** Se você quiser atualizar vários hosts, selecione todos os hosts, clique image:../media/more_icon.gif[""]em e clique em *Upgrade* > *OK*.
+** Se você quiser atualizar vários hosts de plug-in, selecione todos os hosts, clique em image:../media/more_icon.gif[""]e clique em *Upgrade* > *OK*.
 +
 Todos os serviços relacionados são reiniciados durante a atualização do plug-in.
 
@@ -58,7 +57,7 @@ Todos os serviços relacionados são reiniciados durante a atualização do plug
 NOTE: Todos os plug-ins do pacote são selecionados, mas apenas os plug-ins que foram instalados com a versão anterior do SnapCenter são atualizados e os plug-ins restantes não são instalados. Você deve usar a opção *Add plug-ins* para instalar qualquer novo plug-in.
 
 +
-Se você não selecionou a caixa de seleção *Ignorar pré-verificações*, o host será validado para ver se atende aos requisitos para instalar o plug-in. Se os requisitos mínimos não forem atendidos, mensagens de erro ou aviso apropriadas serão exibidas. Depois de corrigir o problema, clique em *Upgrade*.
+Se você não tiver selecionado a caixa de seleção *Ignorar pré-verificações*, o host do plug-in será validado para ver se ele atende aos requisitos para instalar o plug-in. Se os requisitos mínimos não forem atendidos, mensagens de erro ou aviso apropriadas serão exibidas. Depois de corrigir o problema, clique em *Upgrade*.
 
 +
 

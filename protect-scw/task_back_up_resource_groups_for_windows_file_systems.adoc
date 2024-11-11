@@ -29,7 +29,7 @@ IMPORTANT: Se você estiver trabalhando em um contexto de sistema de arquivos do
 . No painel de navegação esquerdo, clique em *Resources* e selecione o plug-in apropriado na lista.
 . Na página recursos, selecione *Grupo de recursos* na lista *Exibir*.
 +
-Você pode pesquisar o grupo de recursos inserindo o nome do grupo de recursos na caixa de pesquisa ou clicando image:../media/filter_icon.png[""] e selecionando a tag. Em seguida, pode clicar image:../media/filter_icon.png[""] para fechar o painel de filtro.
+Você pode pesquisar o grupo de recursos inserindo o nome do grupo de recursos na caixa de pesquisa ou clicando image:../media/filter_icon.png["ícone de filtro"] e selecionando a tag. Em seguida, pode clicar image:../media/filter_icon.png["ícone de filtro"] para fechar o painel de filtro.
 
 . Na página grupos de recursos, selecione o grupo de recursos que deseja fazer backup e clique em *fazer backup agora*.
 +

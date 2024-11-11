@@ -7,7 +7,7 @@ summary: Cada solicitação de API gera uma resposta de volta ao cliente. Você 
 = Interpretação de uma resposta API
 :allow-uri-read: 
 :icons: font
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

@@ -196,7 +196,7 @@ NOTE: Em uma configuração de HA, se você estiver atualizando o arquivo web.co
 
 == Configure a porta personalizada para comunicação NET TCP
 
-Por padrão, a partir da versão do SnapCenter 6,0, o plug-in do SnapCenter para Windows usa a porta 909 para comunicação DE REDE TCP. Se a porta 909 estiver em uso, você poderá configurar outra porta para comunicação TCP de REDE.
+Por padrão, começando com a versão do SnapCenter 6,0, o plug-in do SnapCenter para Windows usa a porta 909 para comunicação DE REDE TCP. Se a porta 909 estiver em uso, você poderá configurar outra porta para comunicação TCP de REDE.
 
 .Passos
 . Modifique o valor da chave _NetTCPPort_ localizada em _C:/Program Files/NetApp/SnapCenter/SnapCenter Plug-in para o número de porta necessário.

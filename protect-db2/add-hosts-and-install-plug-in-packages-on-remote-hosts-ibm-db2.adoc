@@ -26,7 +26,7 @@ Você deve usar a página Adicionar host do SnapCenter para adicionar hosts e, e
 * A documentação de administração contém informações sobre o gerenciamento de hosts.
 * Se você estiver usando a conta de serviço gerenciado de grupo (gMSA), você deve configurar o gMSA com Privileges administrativo.
 +
-link:../protect-db2/task_configure_gMSA_on_windows_server_2012_or_later.html["Configurar conta de serviço gerenciado de grupo no Windows Server 2016 ou posterior para IBM DB2"^]
+link:../protect-db2/configure-gMSA-on-windows-server-2012-or-later.html["Configurar conta de serviço gerenciado de grupo no Windows Server 2016 ou posterior para IBM DB2"^]
 
 
 

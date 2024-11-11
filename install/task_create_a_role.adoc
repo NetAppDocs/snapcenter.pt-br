@@ -23,7 +23,7 @@ Você deve ter feito login como a função "SnapCenterAdmin".
 . Na página Adicionar função, especifique um nome e uma descrição para a nova função.
 +
 
-NOTE: No SnapCenter 4,5, você pode incluir apenas os seguintes carateres especiais em nomes de usuário e nomes de grupo: Espaço ( ), hífen (-), sublinhado (_) e dois pontos (:). Se você quiser usar uma função que você criou em uma versão anterior do SnapCenter com esses carateres especiais, você pode desativar a validação do nome da função alterando o valor do parâmetro 'DisableSQLInjectionValidation' para true no arquivo web.config localizado onde o SnapCenter está instalado. Depois de modificar o valor, não é necessário reiniciar o serviço.
+NOTE: Você pode incluir apenas os seguintes carateres especiais em nomes de usuário e nomes de grupo: Espaço ( ), hífen (-), sublinhado (_) e dois pontos (:).
 
 . Selecione *todos os membros desta função podem ver objetos de outros membros* para permitir que outros membros da função vejam recursos como volumes e hosts depois que eles atualizarem a lista de recursos.
 +

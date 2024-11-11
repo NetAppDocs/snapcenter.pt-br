@@ -7,7 +7,7 @@ summary: Acessar a API fornece alguma perspetiva antes de começar a usá-la com
 = Comece a usar a API REST
 :allow-uri-read: 
 :icons: font
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

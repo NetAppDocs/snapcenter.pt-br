@@ -47,4 +47,4 @@ image::../media/datasets_and_policies.gif[Diagrama de conjunto de dados e polít
 
 A imagem a seguir ilustra a relação entre recursos, grupos de recursos e políticas para sistemas de arquivos do Windows:
 
-image::../media/resources_and_policies_for_wfs.gif[recursos e políticas para wfs]
+image::../media/resources_and_policies_for_wfs.gif[recursos e políticas]

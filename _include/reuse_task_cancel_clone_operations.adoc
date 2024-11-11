@@ -32,7 +32,7 @@ Página do monitor
  a| 
 Painel da atividade
  a| 
-. Depois de iniciar a operação clone, clique image:../media/activity_pane_icon.gif[""]no painel atividade para exibir as cinco operações mais recentes.
+. Depois de iniciar a operação clone, clique image:../media/activity_pane_icon.gif["ícones no painel de atividades"]no painel atividade para exibir as cinco operações mais recentes.
 . Selecione a operação.
 . Na página *Detalhes do trabalho*, clique em *Cancelar trabalho*.
 

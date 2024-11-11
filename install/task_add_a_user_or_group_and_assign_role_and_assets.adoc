@@ -18,7 +18,7 @@ Para configurar o controle de acesso baseado em função para usuários do SnapC
 * Você deve ter criado as contas de usuário ou grupo no ative Directory no sistema operacional ou banco de dados. Você não pode usar o SnapCenter para criar essas contas.
 +
 
-NOTE: No SnapCenter 4,5, você pode incluir apenas os seguintes carateres especiais em nomes de usuário e nomes de grupo: Espaço ( ), hífen (-), sublinhado (_) e dois pontos (:). Se você quiser usar uma função que você criou em uma versão anterior do SnapCenter com esses carateres especiais, você pode desativar a validação do nome da função alterando o valor do parâmetro 'DisableSQLInjectionValidation' para true no arquivo web.config localizado onde o SnapCenter está instalado. Depois de modificar o valor, não é necessário reiniciar o serviço.
+NOTE: Você pode incluir apenas os seguintes carateres especiais em nomes de usuário e nomes de grupo: Espaço ( ), hífen (-), sublinhado (_) e dois pontos (:).
 
 * O SnapCenter inclui várias funções predefinidas.
 +

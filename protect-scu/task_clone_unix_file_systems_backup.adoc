@@ -57,7 +57,7 @@ Especifique o caminho onde o sistema de arquivos será montado.
 .. Digite os comandos para pré-clone ou pós-clone que devem ser executados antes ou depois da operação clone, respetivamente.
 +
 
-NOTE: Você deve verificar se os comandos existem na lista de comandos disponível no host plug-in do caminho _/opt/NetApp/SnapCenter/scc/allowed_Commands.config_.
+NOTE: Você deve verificar se os comandos existem na lista de comandos disponível no host plug-in do caminho _/opt/NetApp/SnapCenter/scc/etc/allowed_Commands.config_.
 
 
 

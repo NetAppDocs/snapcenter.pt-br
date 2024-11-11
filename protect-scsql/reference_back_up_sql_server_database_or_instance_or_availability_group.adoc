@@ -45,6 +45,4 @@ Se os dados de outros servidores host SQL residirem no mesmo volume, esses dados
 
 *Encontre mais informações*
 
-link:task_back_up_resources_using_powershell_cmdlets_for_sql.html["Faça backup de recursos usando cmdlets do PowerShell"]
-
 link:https://kb.netapp.com/Advice_and_Troubleshooting/Data_Protection_and_Security/SnapCenter/Quiesce_or_grouping_resources_operations_fail["Operações de quiesce ou agrupamento de recursos falham"]

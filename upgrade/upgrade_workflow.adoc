@@ -25,19 +25,6 @@ image::../media/upgrade_workflow.png[atualizar fluxo de trabalho]
 | Se você estiver na versão do servidor SnapCenter... | Você pode atualizar diretamente o servidor SnapCenter para... | Versões de plug-in suportadas 
 
 
-.2+| 4,8 | 4,9  a| 
-* 4,8
-* 4,9
-
-
-
-
-| 5,0  a| 
-* 5,0
-
-
-
-
 .2+| 4,9 | 5,0  a| 
 * 4,9
 * 5,0
@@ -51,16 +38,29 @@ image::../media/upgrade_workflow.png[atualizar fluxo de trabalho]
 
 
 
-| 5,0  a| 
+.2+| 5,0  a| 
 6,0
  a| 
 * 5,0
 * 6,0
 
 
+
+
+| 6.0.1  a| 
+* 6.0.1
+
+
+
+
+| 6,0 | 6.0.1  a| 
+* 6,0
+* 6.0.1
+
+
 |===
 
-IMPORTANT: Por exemplo, se você estiver no SnapCenter versão 4,8 e quiser atualizar para o 6,0, primeiro você deve atualizar para o 4,9 e, em seguida, fazer uma atualização contínua para o 6,0.
+IMPORTANT: Por exemplo, se você estiver no SnapCenter versão 4,9 e quiser atualizar para 6,0.1, primeiro você deve atualizar para 5,0 e, em seguida, fazer uma atualização contínua para 6,0.
 
 
 NOTE: Para obter informações sobre como atualizar o plug-in do SnapCenter para VMware vSphere, https://docs.netapp.com/us-en/sc-plugin-vmware-vsphere/scpivs44_upgrade.html["Atualize o plug-in do SnapCenter para o VMware vSphere"^] consulte .

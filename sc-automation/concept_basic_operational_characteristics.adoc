@@ -7,7 +7,7 @@ summary: Embora O REST estabeleça um conjunto comum de tecnologias e práticas 
 = Caraterísticas operacionais básicas
 :allow-uri-read: 
 :icons: font
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

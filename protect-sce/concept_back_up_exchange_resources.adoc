@@ -17,4 +17,4 @@ Você pode agendar vários backups para serem executados em servidores simultane
 
 O fluxo de trabalho a seguir mostra a sequência na qual você deve executar a operação de backup:
 
-image:../media/sce_backup_workflow.gif[""]
+image:../media/sce_backup_workflow.gif["Fluxo de trabalho de backup de banco de dados Exchange"]

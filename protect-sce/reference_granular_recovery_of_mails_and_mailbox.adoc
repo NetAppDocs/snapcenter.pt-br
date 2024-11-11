@@ -13,7 +13,7 @@ summary: 'O software Single Mailbox Recovery (SMBR) permite restaurar e recupera
 [role="lead"]
 O software Single Mailbox Recovery (SMBR) permite restaurar e recuperar e-mails ou caixa de correio em vez do banco de dados completo do Exchange.
 
-Restaurar banco de dados completo apenas para recuperar um único e-mail vai consumir muito tempo e recursos. O SMBR ajuda a recuperar rapidamente os e-mails criando uma cópia clone do Snapshot e, em seguida, usando as API da Microsoft para montar a caixa de correio no SMBR. Para obter informações sobre como usar o SMBR, https://library.netapp.com/ecm/ecm_download_file/ECMLP2871407["Guia de administração DE SMBR"^] consulte .
+Restaurar banco de dados completo apenas para recuperar um único e-mail vai consumir muito tempo e recursos. O SMBR ajuda a recuperar rapidamente os e-mails criando uma cópia clone do Snapshot e, em seguida, usando as API da Microsoft para montar a caixa de correio no SMBR. Para obter informações sobre como usar o SMBR, https://docs.netapp.com/p/snap/smbr/8.3/Administrative-Server-Administration-Guide.pdf["Guia de administração DE SMBR"^] consulte .
 
 Para obter informações adicionais sobre SMBR, consulte o seguinte:
 

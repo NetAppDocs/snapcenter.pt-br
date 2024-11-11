@@ -52,8 +52,8 @@ entries:
   entries:
   - title: Fluxo de trabalho de instalação do plug-in SnapCenter para IBM DB2
     url: "/protect-db2/install-snapcenter-plug-in-for-ibm-db2.html"
-  - title: Pré-requisitos para adicionar hosts e instalar o plug-in do SnapCenter
-      para IBM DB2
+  - title: Pré-requisitos para adicionar hosts e instalar o pacote Plug-ins para Windows,
+      Linux ou AIX
     url: "/protect-db2/prerequisites-to-adding-hosts-and-installing-snapcenter-plug-in-for-ibm-db2.html"
   - title: Requisitos de host para instalar o pacote de plug-ins do SnapCenter para
       Windows

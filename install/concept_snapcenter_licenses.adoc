@@ -22,7 +22,9 @@ Baseado em controladora padrão da SnapCenter
  a| 
 Necessário para FAS, AFF e All SAN Array (ASA)
 
-A licença padrão da SnapCenter é uma licença baseada em controlador e está incluída como parte do pacote premium. Se você tiver a licença do SnapManager Suite, você também obtém o direito de licença padrão do SnapCenter. Se você quiser instalar o SnapCenter em uma base de avaliação com o storage FAS, AFF ou ASA, obtenha uma licença de avaliação do pacote Premium entrando em Contato com o representante de vendas.
+A licença padrão da SnapCenter é uma licença baseada em controlador e está incluída como parte do ONTAP One. Se você tiver a licença do SnapManager Suite, você também obtém o direito de licença padrão do SnapCenter. Se você quiser instalar o SnapCenter em uma base de avaliação com o storage FAS, AFF ou ASA, poderá obter uma licença de avaliação do ONTAP One entrando em Contato com o representante de vendas.
+
+Para obter informações sobre as licenças incluídas no ONTAP One, https://docs.netapp.com/us-en/ontap/system-admin/manage-licenses-concept.html#licenses-included-with-ontap-one["Licenças incluídas no ONTAP One"] consulte .
 
 
 NOTE: O SnapCenter também é oferecido como parte do pacote de proteção de dados. Se você comprou o A400 ou posterior, você deve comprar o pacote de proteção de dados.
@@ -87,7 +89,7 @@ NOTE: É recomendado, mas não obrigatório, que você adicione licenças padrã
 
 |===
 
-NOTE: As licenças do SnapCenter Advanced e do SnapCenter nas File Services estão obsoletas e não estão mais disponíveis. A licença baseada em capacidade não é mais necessária para o Amazon FSX for NetApp ONTAP e Cloud Volumes ONTAP. As licenças padrão e a licença baseada em capacidade não são necessárias para o Azure NetApp Files.
+NOTE: As licenças do SnapCenter Advanced e do SnapCenter nas File Services estão obsoletas e não estão mais disponíveis. A licença padrão e a licença baseada em capacidade não são mais necessárias para o Amazon FSX for NetApp ONTAP, ONTAP Select, Cloud Volumes ONTAP e Azure NetApp Files.
 
 Você deve instalar uma ou mais licenças do SnapCenter. Para obter informações sobre como adicionar licenças, link:../install/concept_snapcenter_standard_controller_based_licenses.html["Adicione licenças padrão baseadas em controladora SnapCenter"]consulte .
 

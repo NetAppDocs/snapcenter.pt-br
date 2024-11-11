@@ -33,4 +33,4 @@ Se você estiver fazendo backup de todos os bancos de dados de um host, por exem
 
 A imagem a seguir ilustra a relação entre recursos, grupos de recursos e políticas para bancos de dados:
 
-image::../media/sco_resourcegroup_policy.gif[política do sco resourcegroup]
+image::../media/sco_resourcegroup_policy.gif[política de grupo de recursos]

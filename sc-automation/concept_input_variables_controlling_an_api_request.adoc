@@ -7,7 +7,7 @@ summary: Você pode controlar como uma chamada de API é processada através de 
 = Variáveis de entrada que controlam uma solicitação de API
 :allow-uri-read: 
 :icons: font
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

@@ -18,8 +18,9 @@ Você pode criar uma política de backup para o recurso ou para o grupo de recur
 . Na página Configurações, clique em *políticas*.
 . Clique em *novo*.
 . Na página Nome, insira o nome e a descrição da política.
-. Na página Configurações, execute as seguintes etapas:
+. Na página tipo de política, execute as seguintes etapas:
 +
+.. Selecione *Azure NetApp Files* como o tipo de armazenamento.
 .. Selecione o tipo de cópia de segurança.
 +
 ... Selecione *Backup completo e Log Backup* se quiser fazer backup de arquivos de banco de dados e logs de transações.
@@ -35,13 +36,14 @@ Você pode criar uma política de backup para o recurso ou para o grupo de recur
 ... Selecione a prioridade da cópia de segurança.
 
 
-.. Especifique o tipo de agendamento.
 
 
-. Na página retenção, dependendo do tipo de backup selecionado, especifique as configurações de retenção.
+. Na página Snapshot e backup, execute as seguintes etapas:
 +
+.. Selecione a frequência da cópia de segurança agendada.
+.. Especifique as configurações de retenção dependendo do tipo de backup selecionado.
+.. Se você quiser habilitar o backup do Azure NetApp Files, selecione *Ativar backup* e especifique as configurações de retenção.
 
-NOTE: A replicação para storage secundário não é suportada.
 
 . Na página Verificação, execute as seguintes etapas:
 +

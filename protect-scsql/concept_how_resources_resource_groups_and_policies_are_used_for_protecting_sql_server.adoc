@@ -31,4 +31,4 @@ Pense em um grupo de recursos como definindo _o que_ você quer proteger e quand
 
 A imagem a seguir ilustra a relação entre recursos, grupos de recursos e políticas para bancos de dados:
 
-image::../media/scsql_resourcegroup_policy.gif[política scsql resourcegroup]
+image::../media/scsql_resourcegroup_policy.gif[política de grupo de recursos]

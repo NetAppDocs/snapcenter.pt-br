@@ -40,7 +40,7 @@ NOTE: Você deve repetir este comando para cada permissão.
 Há vários comandos de CLI do ONTAP que você deve executar para criar funções de cluster e atribuir permissões.
 
 
-NOTE: No SnapCenter 5,0, os usuários de administradores de cluster só são compatíveis com APIS REST. Se você quiser criar funções usando um administrador que não seja de cluster, use o ZAPI.
+NOTE: A partir do SnapCenter 5,0, os usuários de administradores de cluster só são compatíveis com APIs REST. Se você quiser criar funções usando um administrador que não seja de cluster, use o ZAPI.
 
 * `security login role create -vserver Cluster_name or cluster_name -role Role_Name -cmddirname "metrocluster show" -access readonly`
 * `security login role create -vserver Cluster_name or cluster_name -role Role_Name -cmddirname "cluster identity modify" -access all`

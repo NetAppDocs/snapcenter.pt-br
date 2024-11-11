@@ -13,4 +13,4 @@ summary: Você deve instalar e configurar o plug-in do SnapCenter para o Microso
 [role="lead"]
 Você deve instalar e configurar o plug-in do SnapCenter para o Microsoft Exchange Server se quiser proteger bancos de dados do Exchange.
 
-image::../media/sce_install_configure_workflow.gif[Fluxo de trabalho de instalação]
+image::../media/sce_install_configure_workflow.png[Fluxo de trabalho de instalação]
