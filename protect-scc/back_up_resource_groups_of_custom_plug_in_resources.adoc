@@ -1,0 +1,46 @@
+---
+permalink: protect-scc/back_up_resource_groups_of_custom_plug_in_resources.html 
+sidebar: sidebar 
+keywords: backup, custom plug-in 
+summary: Você pode fazer backup de um grupo de recursos sob demanda na página recursos. Se um grupo de recursos tiver uma política anexada e uma programação configurada, os backups ocorrerão automaticamente de acordo com a programação. 
+---
+= Faça backup de grupos de recursos de plug-in personalizados
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Você pode fazer backup de um grupo de recursos sob demanda na página recursos. Se um grupo de recursos tiver uma política anexada e uma programação configurada, os backups ocorrerão automaticamente de acordo com a programação.
+
+.Antes de começar
+* Você deve ter criado um grupo de recursos com uma política anexada.
+* Se você quiser fazer backup de um recurso que tenha uma relação SnapMirror com o armazenamento secundário, a função ONTAP atribuída ao usuário de armazenamento deve incluir o privilégio "'SnapMirror All'". No entanto, se você estiver usando a função "vsadmin", o privilégio "SnapMirror all" não será necessário.
+
+
+.Passos
+. No painel de navegação esquerdo, clique em *Resources* e selecione o plug-in apropriado na lista.
+. Na página recursos, selecione *Grupo de recursos* na lista *Exibir*.
++
+Você pode pesquisar o grupo de recursos inserindo o nome do grupo de recursos na caixa de pesquisa ou clicando image:../media/filter_icon.png["ícone de filtro"] e selecionando a tag. Em seguida, pode clicar image:../media/filter_icon.png["ícone de filtro"] para fechar o painel de filtro.
+
+. Na página grupos de recursos, selecione o grupo de recursos que deseja fazer backup e clique em *fazer backup agora*.
+. Na página Backup, execute as seguintes etapas:
++
+.. Se você associou várias políticas ao grupo de recursos, na lista suspensa *Política*, selecione a política que deseja usar para backup.
++
+Se a política selecionada para o backup sob demanda estiver associada a um agendamento de backup, os backups sob demanda serão retidos com base nas configurações de retenção especificadas para o tipo de agendamento.
+
+.. Clique em *Backup*.
+
+
+. Monitorize o progresso da operação clicando em *Monitor* > *trabalhos*.
++
+** Nas configurações do MetroCluster, o SnapCenter pode não ser capaz de detetar uma relação de proteção após um failover.
++
+https://kb.netapp.com/Advice_and_Troubleshooting/Data_Protection_and_Security/SnapCenter/Unable_to_detect_SnapMirror_or_SnapVault_relationship_after_MetroCluster_failover["Não é possível detetar a relação SnapMirror ou SnapVault após o failover do MetroCluster"]
+
+** Se você estiver fazendo backup de dados de aplicativos em VMDKs e o tamanho de heap Java para o plug-in SnapCenter para VMware vSphere não for grande o suficiente, o backup pode falhar. Para aumentar o tamanho do heap Java, localize o arquivo de script /opt/NetApp/init_scripts/scvservice. Nesse script, o `do_start method` comando inicia o serviço de plug-in SnapCenter VMware. Atualize esse comando para o seguinte: `Java -jar -Xmx8192M -Xms4096M`.
+
+
+

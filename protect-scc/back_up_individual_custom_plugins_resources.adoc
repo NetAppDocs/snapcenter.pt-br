@@ -1,17 +1,17 @@
 ---
-permalink: protect-nsp/back_up_individual_netapp_supported_plugins_resources.html 
+permalink: protect-scc/back_up_individual_custom_plugins_resources.html 
 sidebar: sidebar 
-keywords: backup, NetApp supported plug-ins, NetApp supported plug-ins, MongoDB, ORASCPM, Oracle Applications, SAP ASE, SAP MaxDB, Storage plug-in 
-summary: Se um recurso de plug-ins com suporte do NetApp individual não fizer parte de qualquer grupo de recursos, você poderá fazer o backup do recurso na página recursos. Você pode fazer backup do recurso sob demanda ou, se o recurso tiver uma política anexada e uma programação configurada, os backups ocorrem automaticamente de acordo com a programação. 
+keywords: backup, custom plug-in 
+summary: Se um recurso de plug-ins personalizados do SnapCenter individual não fizer parte de qualquer grupo de recursos, você poderá fazer o backup do recurso na página recursos. Você pode fazer backup do recurso sob demanda ou, se o recurso tiver uma política anexada e uma programação configurada, os backups ocorrem automaticamente de acordo com a programação. 
 ---
-= Fazer backup de recursos de plug-ins compatíveis com NetApp individuais
+= Faça backup de recursos individuais de plug-ins personalizados do SnapCenter
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Se um recurso de plug-ins com suporte do NetApp individual não fizer parte de qualquer grupo de recursos, você poderá fazer o backup do recurso na página recursos. Você pode fazer backup do recurso sob demanda ou, se o recurso tiver uma política anexada e uma programação configurada, os backups ocorrem automaticamente de acordo com a programação.
+Se um recurso de plug-ins personalizado individual não fizer parte de qualquer grupo de recursos, você poderá fazer o backup do recurso na página recursos. Você pode fazer backup do recurso sob demanda ou, se o recurso tiver uma política anexada e uma programação configurada, os backups ocorrem automaticamente de acordo com a programação.
 
 .Antes de começar
 * Você deve ter criado uma política de backup.
@@ -26,7 +26,7 @@ Se um recurso de plug-ins com suporte do NetApp individual não fizer parte de q
 . No painel de navegação esquerdo, clique em *Resources* e selecione o plug-in apropriado na lista.
 . Na página recursos, filtre recursos da lista suspensa *Exibir* com base no tipo de recurso.
 +
-Clique image:../media/filter_icon.png["ícone de filtro"]em e selecione o nome do host e o tipo de recurso para filtrar os recursos. Em seguida, pode clicar image:../media/filter_icon.png["ícone de filtro"] para fechar o painel de filtro.
+Clique image:../media/filter_icon.png[""]em e selecione o nome do host e o tipo de recurso para filtrar os recursos. Em seguida, pode clicar image:../media/filter_icon.png["Ícone de filtro"] para fechar o painel de filtro.
 
 . Clique no recurso que você deseja fazer backup.
 . Na página recurso, se você quiser usar um nome personalizado, marque a caixa de seleção *usar formato de nome personalizado para cópia Snapshot* e insira um formato de nome personalizado para o nome da captura Instantânea.
@@ -156,7 +156,8 @@ Este exemplo adiciona recursos:
 +
 [listing]
 ----
-Add-SmResource -HostName 'scc55.sccore.test.com' -PluginCode 'DummyPlugin' -ResourceName QDBVOL1 -ResourceType Database -StorageFootPrint ( @{"VolumeName"="qtree_vol1_scc55_sccore_test_com";"QTREENAME"="qtreeVol1";"StorageSystem"="vserver_scauto_primary"}) -Instance QTREE1
+Add-SmResource -HostName '10.232.206.248' -PluginCode 'DB2' -ResourceName NONREC1 -ResourceType Database -StorageFootPrint ( @
+{"VolumeName"="DB2_NONREC1DB";"LunName"="DB2_NONREC1DB";"Vserver"="vserver_scauto_secondary"}) -Instance db2inst1
 ----
 . Crie uma política de backup usando o cmdlet Add-SmPolicy.
 +
@@ -165,7 +166,7 @@ Este exemplo cria uma nova política de backup:
 +
 [listing]
 ----
-Add-SMPolicy -PolicyName 'test2' -PolicyType 'Backup' -PluginPolicyType DummyPlugin  -description 'testPolicy'
+Add-SMPolicy -PolicyName 'db2VolumePolicy' -PolicyType 'Backup' -PluginPolicyType DB2  -description 'VolumePolicy'
 ----
 . Adicione um novo grupo de recursos ao SnapCenter usando o cmdlet Add-SmResourceGroup.
 +
@@ -174,13 +175,14 @@ Este exemplo cria um novo grupo de recursos com a política e os recursos especi
 +
 [listing]
 ----
-Add-SmResourceGroup -ResourceGroupName 'Verify_Backup_on_Multiple_Qtree_different_vserver_windows' -Resources @(@{"Host"="scc55.sccore.test.com";"Uid"="QTREE2";"PluginName"="DummyPlugin"},@{"Host"="scc55.sccore.test.com";"Uid"="QTREE";"PluginName"="DummyPlugin"}) -Policies test2 -plugincode 'DummyPlugin' -usesnapcenterwithoutfilesystemconsistency
+Add-SmResourceGroup -ResourceGroupName 'Verify_ManualBackup_DatabaseLevel_MultipleVolume_unix' -Resources @(@
+{"Host"="10.232.206.248";"Uid"="db2inst2\NONREC"},@{"Host"="10.232.206.248";"Uid"="db2inst1\NONREC"}) -Policies db2ManualPolicy
 ----
 . Inicie uma nova tarefa de backup usando o cmdlet New-SmBackup.
 +
 [listing]
 ----
-New-SMBackup -DatasetName Verify_Backup_on_Multiple_Qtree_different_vserver_windows -Policy test2
+New-SMBackup -DatasetName Verify_ManualBackup_DatabaseLevel_MultipleVolume_unix -Policy db2ManualPolicy
 ----
 . Exiba o status da tarefa de backup usando o cmdlet Get-SmBackupReport.
 +
@@ -189,36 +191,31 @@ Este exemplo exibe um relatório de resumo de todos os trabalhos executados na d
 +
 [listing]
 ----
-Get-SmBackupReport -JobId 149
-
-BackedUpObjects           : {QTREE2, QTREE}
+PS C:\> Get-SmBackupReport -JobId 351
+Output:
+BackedUpObjects           : {DB1}
 FailedObjects             : {}
 IsScheduled               : False
 HasMetadata               : False
-SmBackupId                : 1
-SmJobId                   : 149
-StartDateTime             : 1/15/2024 1:35:17 AM
-EndDateTime               : 1/15/2024 1:36:19 AM
-Duration                  : 00:01:02.4265750
-CreatedDateTime           : 1/15/2024 1:35:51 AM
+SmBackupId                : 269
+SmJobId                   : 2361
+StartDateTime             : 10/4/2016 11:20:45 PM
+EndDateTime               : 10/4/2016 11:21:32 PM
+Duration                  : 00:00:46.2536470
+CreatedDateTime           : 10/4/2016 11:21:09 PM
 Status                    : Completed
-ProtectionGroupName       : Verify_Backup_on_Multiple_Qtree_different_vserver_windows
-SmProtectionGroupId       : 1
+ProtectionGroupName       : Verify_ASUP_Message_windows
+SmProtectionGroupId       : 211
 PolicyName                : test2
-SmPolicyId                : 4
-BackupName                : Verify_Backup_on_Multiple_Qtree_different_vserver_windows_scc55_01-15-2024_01.35.17.4467
-VerificationStatus        : NotApplicable
+SmPolicyId                : 20
+BackupName                : Verify_ASUP_Message_windows_scc54_10-04-2016_23.20.46.2758
+VerificationStatus        : NotVerified
 VerificationStatuses      :
 SmJobError                :
 BackupType                : SCC_BACKUP
 CatalogingStatus          : NotApplicable
 CatalogingStatuses        :
 ReportDataCreatedDateTime :
-PluginCode                : SCC
-PluginName                : DummyPlugin
-PluginDisplayName         : DummyPlugin
-JobTypeId                 :
-JobHost                   : scc55.sccore.test.com
 ----
 
 

@@ -4,16 +4,14 @@ sidebar: sidebar
 keywords: NetApp supported plug-ins 
 summary: Você pode usar os plug-ins compatíveis com NetApp para operações de proteção de dados. 
 ---
-= O que você pode fazer com os plug-ins e o plug-in de armazenamento compatíveis com o NetApp
+= O que você pode fazer com os plug-ins compatíveis com o NetApp
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Você pode usar o plug-in compatível com NetApp para operações de proteção de dados.
-
-*Plug-ins compatíveis com NetApp*
+Você pode usar os plug-ins compatíveis com NetApp, como MongoDB, ORASCPM, aplicações Oracle, SAP ASE, SAP MaxDB e plug-in de storage para operações de proteção de dados.
 
 * Adicione recursos como bancos de dados, instâncias, documentos ou espaços de tabela.
 * Criar backups.
@@ -24,9 +22,7 @@ Você pode usar o plug-in compatível com NetApp para operações de proteção 
 * Exibir relatórios para operações de backup, restauração e clone.
 
 
-*Plug-in de armazenamento*
-
-Você pode usar o plug-in de storage para operações de proteção de dados.
+Você pode usar os plug-ins compatíveis com NetApp para operações de proteção de dados.
 
 * Tire snapshots de grupos de consistência dos volumes de storage nos clusters do ONTAP.
 * Faça backup de aplicativos personalizados usando a estrutura de script pré e pós integrada

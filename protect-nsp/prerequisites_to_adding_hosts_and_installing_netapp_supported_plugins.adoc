@@ -2,24 +2,23 @@
 permalink: protect-nsp/prerequisites_to_adding_hosts_and_installing_netapp_supported_plugins.html 
 sidebar: sidebar 
 keywords: credentials 
-summary: Antes de adicionar um host e instalar os pacotes de plug-ins, você deve completar todos os requisitos. Os plug-ins compatíveis com NetApp podem ser usados em ambientes Windows e Linux. 
+summary: Antes de adicionar um host e instalar os pacotes de plug-ins, você deve completar todos os requisitos. Os plug-ins compatíveis com NetApp podem ser usados em ambientes Windows, Linux ou AIX. 
 ---
-= Pré-requisitos para adicionar hosts e instalar plug-ins compatíveis com NetApp
+= Pré-requisitos para adicionar hosts e instalar o pacote Plug-ins para Windows, Linux ou AIX
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Antes de adicionar um host e instalar os pacotes de plug-ins, você deve completar todos os requisitos. Os plug-ins compatíveis com NetApp podem ser usados em ambientes Windows e Linux.
+Antes de adicionar um host e instalar os pacotes de plug-ins, você deve completar todos os requisitos. Os plug-ins compatíveis com NetApp são compatíveis com ambientes Windows, Linux e AIX.
 
-* Você deve ter criado um plug-in personalizado. Para obter detalhes, consulte as informações do desenvolvedor.
-+
-link:develop_a_plug_in_for_your_application.html["Desenvolva um plug-in para sua aplicação"]
 
-* Você deve ter instalado o Java 11 em seu host Linux ou Windows.
+NOTE: Os aplicativos de armazenamento e Oracle são compatíveis com AIX.
+
+* Você deve ter instalado o Java 11 em seu host Linux, Windows ou AIX.
 * Ao instalar um plug-in em um host do Windows, se você especificar uma credencial que não está integrada ou se o usuário pertence a um usuário local do grupo de trabalho, será necessário desativar o UAC no host.
-* Os plug-ins compatíveis com NetApp devem estar disponíveis no host cliente a partir do qual a operação de adição de host é executada.
+* Os plug-ins compatíveis com o NetApp, como MongoDB, ORASCPM, aplicativos Oracle, SAP ASE, SAP MaxDB e plug-in de armazenamento, devem estar disponíveis no host do cliente de onde a operação de adição de host é executada.
 
 
 
@@ -30,53 +29,19 @@ Se estiver a utilizar iSCSI, o serviço iSCSI deverá estar em execução.
 
 
 
-== Hash SHA512
-
-* Para plug-ins compatíveis com NetApp, você deve garantir que você adicionou o hash SHA512 do arquivo de plug-in compatível com NetApp ao arquivo _custom_plugin_checksum_list_.
-+
-** Para o host Linux, o hash SHA512 está localizado em _/var/opt/SnapCenter/scc/custom_plugin_checksum_list.txt_
-** Para o host do Windows, o hash SHA512 está localizado em _C:/arquivos de programas/NetApp/SnapCenter Plug-in Creator/custom_plugin_checksum_list.txt_
-+
-Para o caminho de instalação personalizado, o hash SHA512 está localizado em _<custom path>/NetApp/SnapCenter/SnapCenter Plug-in Creator/custom_plugin_checksum_list.txt_
-
-
-
-+
-O custom_plugin_checksum_list faz parte da instalação de plug-in suportada pelo NetApp no host pelo SnapCenter.
-
-* Para plug-ins compatíveis com NetApp criados para o seu aplicativo, você deve ter executado as seguintes etapas:
-+
-.. Gerou o hash SHA512 do arquivo zip do plug-in.
-+
-Você pode usar ferramentas on-line como https://emn178.github.io/online-tools/sha512_file_hash.html["Hash SHA512"^].
-
-.. Adicionado o hash SHA512 gerado ao arquivo custom_plugin_checksum_list em uma nova linha.
-+
-Os comentários começam com o símbolo nº para identificar o plug-in ao qual o hash pertence.
-
-+
-A seguir está um exemplo de uma entrada de hash SHA512 no arquivo de checksum:
-
-+
-....
-#ORASCPM
-03721f567a1e4a1cb5569066b9a58af619ee12b1f8713108f81b696cfbdb81c25232fa63d6e6777a2b2a1ec068bb0a93a59a8ade71587182f8bccbe81f7e0ba6
-....
-
-
-
-
-
-
 == Hosts do Windows
 
 * Você deve ter um usuário de domínio com Privileges de administrador local com permissões de login local no host remoto.
 * Se você gerenciar nós de cluster no SnapCenter, precisará ter um usuário com Privileges administrativo para todos os nós do cluster.
+* Você deve escolher manualmente o plug-in do SnapCenter para Microsoft Windows.
 
 
 
 
-== Hosts Linux
+== Hosts Linux e AIX
+
+
+NOTE: Os aplicativos de armazenamento e Oracle são compatíveis com AIX.
 
 * Você deve ter habilitado a conexão SSH baseada em senha para o usuário root ou não root.
 * Você deve ter instalado o Java 11 em seu host Linux.
@@ -122,3 +87,130 @@ IMPORTANT: O exemplo deve ser usado apenas como referência para criar seus pró
 
 
 
+
+
+
+== Requisitos de anfitrião do AIX
+
+Você deve garantir que o host atenda aos requisitos antes de instalar o pacote de plug-ins do SnapCenter para AIX.
+
+
+NOTE: Os aplicativos de armazenamento e Oracle são compatíveis com AIX.
+
+
+NOTE: O plug-in do SnapCenter para UNIX, que faz parte do pacote de plug-ins do SnapCenter para AIX, não suporta grupos de volume simultâneos.
+
+|===
+| Item | Requisitos 
+
+
+ a| 
+Sistemas operacionais
+ a| 
+AIX 7,1 ou posterior
+
+
+
+ a| 
+RAM mínima para o plug-in SnapCenter no host
+ a| 
+4 GB
+
+
+
+ a| 
+Espaço mínimo de instalação e log para o plug-in SnapCenter no host
+ a| 
+2 GB
+
+
+NOTE: Deve alocar espaço em disco suficiente e monitorizar o consumo de armazenamento pela pasta de registos. O espaço de registo necessário varia consoante o número de entidades a proteger e a frequência das operações de proteçãoão de dados. Se não houver espaço em disco suficiente, os logs não serão criados para as operações executadas recentemente.
+
+
+
+ a| 
+Pacotes de software necessários
+ a| 
+Java 11 IBM Java
+
+Se você atualizou O JAVA para a versão mais recente, você deve garantir que a opção JAVA_HOME localizada em /var/opt/SnapCenter/spl/etc/spl.properties esteja definida para a versão JAVA correta e o caminho correto.
+
+|===
+Para obter as informações mais recentes sobre versões suportadas, consulte o https://imt.netapp.com/matrix/imt.jsp?components=121073;&solution=1257&isHWU&src=IMT["Ferramenta de Matriz de interoperabilidade do NetApp"^].
+
+
+
+=== Configure sudo Privileges para usuários não-root para host AIX
+
+O SnapCenter 4,4 e posterior permite que um usuário não root instale o pacote de plug-ins do SnapCenter para AIX e inicie o processo de plug-in. Os processos de plug-in serão executados como um usuário não-root eficaz. Você deve configurar o sudo Privileges para que o usuário não-root forneça acesso a vários caminhos.
+
+*O que você vai precisar*
+
+* Sudo versão 1.8.7 ou posterior.
+* Edite o arquivo _/etc/ssh/sshd_config_ para configurar os algoritmos de código de autenticação de mensagem: Macs hmac-SHA2-256 e MACs hmac-SHA2-512.
++
+Reinicie o serviço sshd depois de atualizar o arquivo de configuração.
+
++
+Exemplo:
+
++
+[listing]
+----
+#Port 22
+#AddressFamily any
+#ListenAddress 0.0.0.0
+#ListenAddress ::
+#Legacy changes
+#KexAlgorithms diffie-hellman-group1-sha1
+#Ciphers aes128-cbc
+#The default requires explicit activation of protocol
+Protocol 2
+HostKey/etc/ssh/ssh_host_rsa_key
+MACs hmac-sha2-256
+----
+
+
+*Sobre esta tarefa*
+
+Você deve configurar o sudo Privileges para que o usuário não-root forneça acesso aos seguintes caminhos:
+
+* /Home/_AIX_USER_/.SC_NetApp/SnapCenter_aix_host_plugin.bsx
+* /Custom_location/NetApp/SnapCenter/spl/installation/plugins/uninstall
+* /Custom_location/NetApp/SnapCenter/spl/bin/spl
+
+
+*Passos*
+
+. Faça login no host AIX no qual você deseja instalar o pacote de plug-ins do SnapCenter para AIX.
+. Adicione as seguintes linhas ao arquivo /etc/sudoers usando o utilitário visudo Linux.
++
+[listing, subs="+quotes"]
+----
+Cmnd_Alias HPPACMD = sha224:checksum_value== /home/_AIX_USER_/.sc_netapp/snapcenter_aix_host_plugin.bsx,
+/opt/NetApp/snapcenter/spl/installation/plugins/uninstall, /opt/NetApp/snapcenter/spl/bin/spl
+Cmnd_Alias PRECHECKCMD = sha224:checksum_value== /home/_AIX_USER_/.sc_netapp/AIX_Prechecks.sh
+Cmnd_Alias CONFIGCHECKCMD = sha224:checksum_value== /opt/NetApp/snapcenter/spl/plugins/scu/scucore/configurationcheck/Config_Check.sh
+Cmnd_Alias SCCMD = sha224:checksum_value== /opt/NetApp/snapcenter/spl/bin/sc_command_executor
+_AIX_USER_ ALL=(ALL) NOPASSWD:SETENV: HPPACMD, PRECHECKCMD, CONFIGCHECKCMD, SCCMD
+Defaults: _AIX_USER_ !visiblepw
+Defaults: _AIX_USER_ !requiretty
+----
++
+
+NOTE: Se você estiver tendo uma configuração RAC, juntamente com os outros comandos permitidos, você deve adicionar o seguinte ao arquivo /etc/sudoers: '/<crs_home>/bin/olsnodes'
+
+
+
+Você pode obter o valor de _crs_Home_ do arquivo _/etc/oracle/olr.loc_.
+
+_AIX_USER_ é o nome do usuário não-root que você criou.
+
+Você pode obter o _checksum_value_ do arquivo *SC_unix_plugins_checksum.txt*, que está localizado em:
+
+* Se o servidor SnapCenter estiver instalado no host do Windows, o SnapCenter NetApp não será instalado no sistema operacional Windows.
+* _/opt/NetApp/SnapCenter/SnapManagerWeb/Repository/SC_UNIX_plugins_checksum.txt_ se o servidor SnapCenter estiver instalado no host Linux.
+
+
+
+IMPORTANT: O exemplo deve ser usado apenas como referência para criar seus próprios dados.

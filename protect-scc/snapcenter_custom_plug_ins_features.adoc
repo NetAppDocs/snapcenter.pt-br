@@ -1,17 +1,17 @@
 ---
-permalink: protect-nsp/netapp_supported_plugins_features.html 
+permalink: protect-scc/snapcenter_custom_plug_ins_features.html 
 sidebar: sidebar 
-keywords: NetApp supported plug-ins features, MongoDB, ORASCPM, Oracle Applications, SAP ASE, SAP MaxDB, Storage plug-in 
-summary: O SnapCenter se integra à aplicação plug-in e às tecnologias NetApp no sistema de storage. Para trabalhar com plug-ins compatíveis com NetApp, use a interface gráfica do usuário do SnapCenter. 
+keywords: custom plug-ins features 
+summary: O SnapCenter se integra à aplicação plug-in e às tecnologias NetApp no sistema de storage. Para trabalhar com plug-ins personalizados, use a interface gráfica do usuário do SnapCenter. 
 ---
-= Recursos de plug-ins compatíveis com NetApp
+= Recursos de plug-ins personalizados do SnapCenter
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-O SnapCenter se integra à aplicação plug-in e às tecnologias NetApp no sistema de storage. Para trabalhar com plug-ins compatíveis com NetApp, como MongoDB, ORASCPM (aplicações Oracle), SAP ASE, SAP MaxDB e plug-in de storage, você usa a interface gráfica de usuário do SnapCenter.
+O SnapCenter se integra à aplicação plug-in e às tecnologias NetApp no sistema de storage. Para trabalhar com plug-ins personalizados, use a interface gráfica do usuário do SnapCenter.
 
 * * Interface gráfica unificada do usuário*
 +
@@ -23,11 +23,11 @@ Você pode agendar operações de backup, configurar a retenção de backup base
 
 * *Tecnologia NetApp Snapshot sem interrupções*
 +
-O SnapCenter usa a tecnologia Snapshot do NetApp com os plug-ins compatíveis com o NetApp para fazer backup de recursos. Os snapshots consomem espaço mínimo de storage.
+O SnapCenter usa a tecnologia Snapshot do NetApp com plug-ins personalizados para fazer backup de recursos. Os snapshots consomem espaço mínimo de storage.
 
 
 
-Os plug-ins compatíveis com NetApp também oferecem os seguintes benefícios:
+O uso do recurso plug-ins personalizados também oferece os seguintes benefícios:
 
 * Suporte a fluxos de trabalho de backup, restauração e clone
 * Delegação de funções centralizada e segurança compatível com RBAC

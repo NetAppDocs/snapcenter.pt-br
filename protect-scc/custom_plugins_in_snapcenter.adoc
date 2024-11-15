@@ -1,5 +1,5 @@
 ---
-permalink: protect-nsp/custom_plugins_in_snapcenter.html 
+permalink: protect-scc/custom_plugins_in_snapcenter.html 
 sidebar: sidebar 
 keywords: Custom plug-in 
 summary: O plug-in personalizado criado pode ser instalado no host usando o servidor SnapCenter para habilitar a proteção de dados do seu aplicativo. 

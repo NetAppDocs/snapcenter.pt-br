@@ -1,20 +1,20 @@
 ---
-permalink: protect-nsp/install_the_netapp_supported_plugins_on_linux_hosts_using_the_command_line_interface.html 
+permalink: protect-scc/install_the_custom_plug_ins_on_linux_hosts_using_the_command_line_interface.html 
 sidebar: sidebar 
-keywords: install, NetApp supported plug-in 
-summary: 'Você deve instalar os plug-ins compatíveis com o SnapCenter NetApp usando a interface de usuário (UI) do SnapCenter. Se o seu ambiente não permitir a instalação remota do plug-in a partir da IU do SnapCenter, você pode instalar o plug-in compatível com NetApp no modo console ou no modo silencioso usando a interface de linha de comando (CLI).' 
+keywords: install, custom plug-in 
+summary: 'Você deve instalar os plug-ins personalizados do SnapCenter usando a interface de usuário (UI) do SnapCenter. Se o seu ambiente não permitir a instalação remota do plug-in a partir da IU do SnapCenter, você pode instalar o plug-in personalizado no modo console ou no modo silencioso usando a interface de linha de comando (CLI).' 
 ---
-= Instale os plug-ins compatíveis com NetApp em hosts Linux usando a interface de linha de comando
+= Instale os plug-ins personalizados do SnapCenter em hosts Linux usando a interface de linha de comando
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Você deve instalar os plug-ins compatíveis com o NetApp usando a interface de usuário (UI) do SnapCenter. Se o seu ambiente não permitir a instalação remota do plug-in a partir da IU do SnapCenter, você poderá instalar os plug-ins compatíveis com NetApp no modo console ou no modo silencioso usando a interface de linha de comando (CLI).
+Você deve instalar os plug-ins personalizados do SnapCenter usando a interface de usuário (UI) do SnapCenter. Se o seu ambiente não permitir a instalação remota do plug-in a partir da IU do SnapCenter, você pode instalar os plug-ins personalizados no modo console ou no modo silencioso usando a interface de linha de comando (CLI).
 
 .Passos
-. Copie o pacote de plug-ins do SnapCenter para o arquivo de instalação do Linux (SnapCenter_linux_host_plugin.bin) de C:/NetApp/SnapCenter para o host onde você deseja instalar os plug-ins suportados pelo NetApp.
+. Copie o pacote de plug-ins do SnapCenter para o arquivo de instalação do Linux (SnapCenter_linux_host_plugin.bin) do repositório de pacotes C: NetApp/SnapCenter para o host onde você deseja instalar os plug-ins personalizados.
 +
 Você pode acessar esse caminho a partir do host onde o servidor SnapCenter está instalado.
 
@@ -25,7 +25,7 @@ Você pode acessar esse caminho a partir do host onde o servidor SnapCenter est�
 ** -DSERVER_IP especifica o endereço IP do servidor SnapCenter.
 ** -DSERVER_HTTPS_PORT especifica a porta HTTPS do servidor SnapCenter.
 ** -DUSER_install_DIR especifica o diretório onde você deseja instalar o pacote de plug-ins do SnapCenter para Linux.
-** _DINSTALL_LOG_NAME especifica o nome do arquivo de log.
+** DINSTALL_LOG_NAME especifica o nome do arquivo de log.
 
 
 +
@@ -37,9 +37,9 @@ Você pode acessar esse caminho a partir do host onde o servidor SnapCenter est�
 +
 As informações sobre os parâmetros que podem ser usados com o comando e suas descrições podem ser obtidas executando _get-Help command_name_. Em alternativa, pode também consultar o https://docs.netapp.com/us-en/snapcenter-cmdlets/index.html["Guia de referência de cmdlet do software SnapCenter"^].
 
-. Faça login no SnapCenter e faça o upload do plug-in compatível com o NetApp a partir da IU ou usando cmdlets do PowerShell.
+. Faça login no SnapCenter e faça o upload do plug-in personalizado a partir da IU ou usando cmdlets do PowerShell.
 +
-Pode carregar o plug-in suportado pelo NetApp a partir da IU consultando link:add_hosts_and_install_plug_in_packages_on_remote_hosts.html["Adicione hosts e instale pacotes plug-in em hosts remotos"]a secção.
+Pode carregar o plug-in personalizado a partir da IU consultando link:add_hosts_and_install_plug_in_packages_on_remote_hosts.html["Adicione hosts e instale pacotes plug-in em hosts remotos"]a secção.
 
 +
 A ajuda do cmdlet SnapCenter e as informações de referência do cmdlet contêm mais informações sobre cmdlets do PowerShell.

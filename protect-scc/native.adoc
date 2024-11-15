@@ -1,5 +1,5 @@
 ---
-permalink: protect-nsp/native.html 
+permalink: protect-scc/native.html 
 sidebar: sidebar 
 keywords: custom plug-in 
 summary: Desenvolva o plug-in usando o estilo NATIVO. 

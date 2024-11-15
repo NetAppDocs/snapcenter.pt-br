@@ -1,0 +1,137 @@
+---
+section: protect-scc
+title: Proteja aplicativos personalizados
+entries:
+- title: Plug-ins personalizados do SnapCenter
+  entries:
+  - title: Visão geral dos plug-ins personalizados do SnapCenter
+    url: "/protect-scc/snapcenter_custom_plug_ins_overview.html"
+  - title: O que você pode fazer com os plug-ins personalizados do SnapCenter
+    url: "/protect-scc/what_you_can_do_with_custom_plugins.html"
+  - title: Recursos de plug-ins personalizados do SnapCenter
+    url: "/protect-scc/snapcenter_custom_plug_ins_features.html"
+  - title: Tipos de storage compatíveis com plug-ins personalizados SnapCenter
+    url: "/protect-scc/storage_types_supported_by_custom_plugins.html"
+  - title: Mínimo de ONTAP Privileges necessário para plug-in personalizado
+    url: "/protect-scc/minimum_ontap_privileges_required_for_custom_plugins.html"
+  - title: Preparar sistemas de storage para replicação SnapMirror e SnapVault
+    url: "/protect-scc/prepare_storage_systems_for_snapmirror_and_snapvault_replication_for_custom_plugins.html"
+  - title: Defina uma estratégia de backup
+    url: "/protect-scc/define_a_backup_strategy.html"
+  - title: Estratégia de backup para plug-ins personalizados
+    entries:
+    - title: Agendamentos de backup de recursos personalizados de plug-in
+      url: "/protect-scc/backup_schedules_of_custom_plug_in_resources.html"
+    - title: Número de trabalhos de cópia de segurança necessários
+      url: "/protect-scc/number_of_backup_jobs_needed.html"
+  - title: Tipos de estratégias de restauração suportadas para recursos de plug-in
+      personalizados adicionados manualmente
+    url: "/protect-scc/types_of_restore_strategies_supported_for_manually_added_custom_plugin_resources.html"
+- title: Desenvolva um plug-in para sua aplicação
+  entries:
+  - title: Visão geral
+    url: "/protect-scc/develop_a_plug_in_for_your_application.html"
+  - title: Desenvolvimento baseado EM PERL
+    url: "/protect-scc/perl.html"
+  - title: Estilo nativo
+    url: "/protect-scc/native.html"
+  - title: Estilo Java
+    url: "/protect-scc/java.html"
+  - title: Plug-in personalizado no SnapCenter
+    url: "/protect-scc/custom_plugins_in_snapcenter.html"
+- title: Prepare-se para instalar os plug-ins personalizados do SnapCenter
+  entries:
+  - title: Fluxo de trabalho de instalação de plug-ins personalizados do SnapCenter
+    url: "/protect-scc/install_snapcenter_custom_plug_in.html"
+  - title: Pré-requisitos para adicionar hosts e instalar plug-ins personalizados
+      do SnapCenter
+    url: "/protect-scc/prerequisites_to_adding_hosts_and_installing_snapcenter_custom_plug_ins.html"
+  - title: Requisitos de host para instalar o pacote de plug-ins do SnapCenter para
+      Windows
+    url: "/protect-scc/host_requirements_to_install_snapcenter_plug_in_package_for_windows.html"
+  - title: Requisitos de host para instalar o pacote de plug-ins do SnapCenter para
+      Linux
+    url: "/protect-scc/host_requirements_for_installing_the_snapcenter_plug_in_package_for_linux.html"
+  - title: Configurar credenciais para plug-ins personalizados do SnapCenter
+    url: "/protect-scc/set_up_credentials_for_snapcenter_custom_plug_in.html"
+  - title: Configure o gMSA no Windows Server 2016 ou posterior
+    url: "/protect-scc/configure_gMSA_on_windows_server_2012_or_later.html"
+  - title: Instale os plug-ins personalizados do SnapCenter
+    entries:
+    - title: Adicione hosts e instale pacotes plug-in em hosts remotos
+      url: "/protect-scc/add_hosts_and_install_plug_in_packages_on_remote_hosts.html"
+    - title: Instale pacotes de plug-ins do SnapCenter para Linux ou Windows em vários
+        hosts remotos usando cmdlets
+      url: "/protect-scc/install_snapcenter_plug_in_packages_for_linux_or_windows_on_multiple_remote_hosts_using_cmdlets.html"
+    - title: Instale os plug-ins personalizados do SnapCenter em hosts Linux usando
+        a interface de linha de comando
+      url: "/protect-scc/install_the_custom_plug_ins_on_linux_hosts_using_the_command_line_interface.html"
+    - title: Monitore o status da instalação do pacote de plug-in SnapCenter
+      url: "/protect-scc/monitor_the_status_of_installing_plugin.html"
+  - title: Configurar certificado CA
+    entries:
+    - title: Gerar arquivo CSR do certificado CA
+      url: "/protect-scc/generate_CA_certificate_CSR_file.html"
+    - title: Importar certificados CA
+      url: "/protect-scc/import_CA_certificates.html"
+    - title: Obtenha a impressão digital do certificado CA
+      url: "/protect-scc/get_the_CA_certificate_thumbprint.html"
+    - title: Configure o certificado CA com os serviços de plug-in do host do Windows
+      url: "/protect-scc/configure_CA_certificate_with_Windows_host_plug-in_services.html"
+    - title: Configure o certificado CA para o serviço de plug-ins personalizados
+        do SnapCenter no host Linux
+      url: "/protect-scc/configure_CA_certificate_on_Linux_host.html"
+    - title: Configure o certificado de CA para o serviço de plug-ins personalizados
+        do SnapCenter no host do Windows
+      url: "/protect-scc/configure_CA_certificate_on_windows_host.html"
+    - title: Ative certificados de CA para plug-ins
+      url: "/protect-scc/enable_ca_certificates_for_plug-ins.html"
+- title: Preparar-se para a proteção de dados
+  entries:
+  - title: Pré-requisitos para usar os plug-ins personalizados do SnapCenter
+    url: "/protect-scc/prerequisites_for_using_custom_plugins.html"
+  - title: Como recursos, grupos de recursos e políticas são usados para proteger
+      recursos personalizados de plug-in
+    url: "/protect-scc/how_resources_resource_groups_policies_used_for_protecting_custom_plugins_resources.html"
+- title: Fazer backup de recursos de plug-in personalizados
+  entries:
+  - title: Fazer backup do fluxo de trabalho
+    url: "/protect-scc/back_up_custom_plugins_resources.html"
+  - title: Adicione recursos aos plug-ins personalizados do SnapCenter
+    url: "/protect-scc/add_resources_to_snapcenter_custom_plug_ins.html"
+  - title: Crie políticas para recursos de plug-in personalizados
+    url: "/protect-scc/create_policies_for_custom_plug_in_resources.html"
+  - title: Crie grupos de recursos e anexe políticas
+    url: "/protect-scc/create_resource_groups_and_attach_policies.html"
+  - title: Faça backup de recursos individuais de plug-in personalizados
+    url: "/protect-scc/back_up_individual_custom_plugins_resources.html"
+  - title: Faça backup de grupos de recursos de plug-in personalizados
+    url: "/protect-scc/back_up_resource_groups_of_custom_plug_in_resources.html"
+  - title: Crie uma conexão de sistema de armazenamento e uma credencial usando cmdlets
+      do PowerShell
+    url: "/protect-scc/create_a_storage_system_connection_and_a_credential_using_powershell_cmdlets.html"
+  - title: Monitorar operações de backup
+    url: "/protect-scc/monitor_resources_backup_operations.html"
+  - title: Cancelar as operações de cópia de segurança
+    url: "/protect-scc/cancel_backup_operations.html"
+  - title: Veja backups e clones relacionados a recursos de plug-in personalizados
+      na página topologia
+    url: "/protect-scc/view_custom_plug_in_resource_backups_and_clones_in_the_topology_page.html"
+- title: Restaurar recursos personalizados de plug-in
+  entries:
+  - title: Restaure o fluxo de trabalho
+    url: "/protect-scc/restore_custom_plug_in_resources.html"
+  - title: Restaurar um backup de recursos
+    url: "/protect-scc/restore_a_resource_backup.html"
+  - title: Restaure recursos usando cmdlets do PowerShell
+    url: "/protect-scc/restore_and_recover_resources_using_powershell_cmdlets.html"
+  - title: Monitorar as operações de restauração
+    url: "/protect-scc/monitor_resources_restore_operations.html"
+- title: Clonar backups de recursos de plug-in personalizados
+  entries:
+  - title: Fluxo de trabalho clone
+    url: "/protect-scc/clone_custom_plug_in_resource_backups.html"
+  - title: Clone de um backup
+    url: "/protect-scc/clone_from_a_backup.html"
+  - title: Monitorar operações de clone no SnapCenter
+    url: "/protect-scc/monitor_resource_clone_operations.html"

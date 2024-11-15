@@ -1,5 +1,5 @@
 ---
-permalink: protect-nsp/restore_and_recover_resources_using_powershell_cmdlets.html 
+permalink: protect-scc/restore_and_recover_resources_using_powershell_cmdlets.html 
 sidebar: sidebar 
 keywords: restore resources 
 summary: A restauração de um backup de recurso inclui iniciar uma sessão de conexão com o servidor SnapCenter, listar os backups e recuperar informações de backup e restaurar um backup. 

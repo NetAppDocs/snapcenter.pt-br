@@ -1,10 +1,10 @@
 ---
-permalink: protect-nsp/restore_netapp_supported_plugins_resources.html 
+permalink: protect-scc/restore_custom_plug_in_resources.html 
 sidebar: sidebar 
 keywords:  
 summary: O fluxo de trabalho de restauração e recuperação inclui Planejamento, execução das operações de restauração e monitoramento das operações. 
 ---
-= Restaure os recursos de plug-in compatíveis com o NetApp
+= Restaurar recursos personalizados de plug-in
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

@@ -1,5 +1,5 @@
 ---
-permalink: protect-nsp/perl.html 
+permalink: protect-scc/perl.html 
 sidebar: sidebar 
 keywords: custom plug-in 
 summary: Desenvolva o plug-in usando Perl. 

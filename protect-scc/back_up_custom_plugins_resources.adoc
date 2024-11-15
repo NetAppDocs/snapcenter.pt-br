@@ -1,0 +1,20 @@
+---
+permalink: protect-scc/back_up_custom_plugins_resources.html 
+sidebar: sidebar 
+keywords: backup, custom plug-in 
+summary: O fluxo de trabalho de backup inclui Planejamento, identificação dos recursos para backup, gerenciamento de políticas de backup, criação de grupos de recursos e inclusão de políticas, criação de backups e monitoramento das operações. 
+---
+= Faça backup dos recursos de plug-ins personalizados do SnapCenter
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+O fluxo de trabalho de backup inclui Planejamento, identificação dos recursos para backup, gerenciamento de políticas de backup, criação de grupos de recursos e inclusão de políticas, criação de backups e monitoramento das operações.
+
+O fluxo de trabalho a seguir mostra a sequência na qual você deve executar a operação de backup:
+
+image::../media/scc_backup_workflow.png[Fluxo de trabalho de backup]
+
+Você também pode usar cmdlets do PowerShell manualmente ou em scripts para executar operações de backup, restauração e clone. Para obter informações detalhadas sobre cmdlets do PowerShell, use a ajuda do cmdlet SnapCenter ou consulte o. https://docs.netapp.com/us-en/snapcenter-cmdlets/index.html["Guia de referência de cmdlet do software SnapCenter"]

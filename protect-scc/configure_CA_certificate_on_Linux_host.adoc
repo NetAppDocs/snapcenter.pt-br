@@ -1,0 +1,116 @@
+---
+permalink: protect-scc/configure_CA_certificate_on_Linux_host.html 
+sidebar: sidebar 
+keywords: SnapCenter 
+summary: Configure o certificado CA para o serviço de plug-ins compatíveis com NetApp no host Linux 
+---
+= Configure o certificado CA para o serviço de plug-ins personalizados do SnapCenter no host Linux
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Você deve gerenciar a senha do armazenamento de chaves de plug-ins personalizados e seu certificado, configurar o certificado de CA, configurar certificados raiz ou intermediários para o armazenamento de confiança de plug-ins personalizados e configurar o par de chaves assinadas de CA para armazenamento de confiança de plug-ins personalizados personalizados com o serviço de plug-ins personalizados SnapCenter para ativar o certificado digital instalado.
+
+Plug-ins personalizados usam o arquivo 'keystore.jks', que está localizado em _/opt/NetApp/SnapCenter/scc/etc_ tanto como seu armazenamento de confiança e armazenamento de chaves.
+
+
+
+== Gerenciar senha para armazenamento de chaves plug-in personalizado e alias do par de chaves assinadas CA em uso
+
+.Passos
+. Você pode recuperar a senha padrão do keystore do plug-in personalizado do arquivo de propriedade do agente do plug-in personalizado.
++
+É o valor correspondente à chave 'KEYSTORE_PASS'.
+
+. Altere a senha do keystore:
++
+ keytool -storepasswd -keystore keystore.jks
+. Altere a senha para todos os aliases de entradas de chave privada no keystore para a mesma senha usada para o keystore:
++
+ keytool -keypasswd -alias "alias_name_in_cert" -keystore keystore.jks
++
+Atualize o mesmo para a chave KEYSTORE_PASS no arquivo _agent.properties_.
+
+. Reinicie o serviço depois de alterar a senha.
+
+
+
+NOTE: A palavra-passe para o armazenamento de chaves plug-in personalizado e para todas as palavras-passe de alias associadas da chave privada deve ser a mesma.
+
+
+
+== Configure certificados raiz ou intermediários para armazenamento de confiança de plug-in personalizado
+
+Você deve configurar os certificados raiz ou intermediários sem a chave privada para armazenamento de confiança de plug-in personalizado.
+
+.Passos
+. Navegue até a pasta que contém o keystore de plug-in personalizado: /Opt/NetApp/SnapCenter/scc/etc.
+. Localize o arquivo 'keystore.jks'.
+. Liste os certificados adicionados no keystore:
++
+`keytool -list -v -keystore keystore.jks`
+
+. Adicione um certificado raiz ou intermediário:
++
+ keytool -import -trustcacerts -alias myRootCA -file /root/USERTrustRSA_Root.cer -keystore keystore.jks
+. Reinicie o serviço depois de configurar os certificados raiz ou intermédios para o armazenamento de confiança de plug-in personalizado.
+
+
+
+NOTE: Você deve adicionar o certificado de CA raiz e, em seguida, os certificados de CA intermediários.
+
+
+
+== Configure o par de chaves assinadas da CA para o armazenamento de confiança de plug-in personalizado
+
+Você deve configurar o par de chaves assinadas da CA para o armazenamento de confiança do plug-in personalizado.
+
+.Passos
+. Navegue até a pasta que contém o keystore de plug-in personalizado /opt/NetApp/SnapCenter/scc/etc.
+. Localize o arquivo 'keystore.jks'.
+. Liste os certificados adicionados no keystore:
++
+`keytool -list -v -keystore keystore.jks`
+
+. Adicione o certificado da CA com chave privada e pública.
++
+`keytool -importkeystore -srckeystore /root/snapcenter.ssl.test.netapp.com.pfx -srcstoretype pkcs12 -destkeystore keystore.jks -deststoretype JKS`
+
+. Liste os certificados adicionados no keystore.
++
+`keytool -list -v -keystore keystore.jks`
+
+. Verifique se o keystore contém o alias correspondente ao novo certificado da CA, que foi adicionado ao keystore.
+. Altere a senha da chave privada adicionada para o certificado da CA para a senha do keystore.
++
+A senha padrão do keystore do plug-in personalizado é o valor da chave KEYSTORE_PASS no arquivo agent.properties.
+
++
+ keytool -keypasswd -alias "alias_name_in_CA_cert" -keystore keystore.jks
+. Se o nome do alias no certificado da CA for longo e contiver espaço ou carateres especiais ("*",","), altere o nome do alias para um nome simples:
++
+ keytool -changealias -alias "long_alias_name" -destalias "simple_alias" -keystore keystore.jks
+. Configure o nome do alias do certificado CA no arquivo agent.properties.
++
+Atualize este valor com a chave SCC_CERTIFICATE_ALIAS.
+
+. Reinicie o serviço depois de configurar o par de chaves assinadas pela CA para o armazenamento de confiança de plug-in personalizado.
+
+
+
+
+== Configurar a lista de revogação de certificados (CRL) para plug-ins personalizados do SnapCenter
+
+.Sobre esta tarefa
+* Os plug-ins personalizados do SnapCenter pesquisarão os arquivos CRL em um diretório pré-configurado.
+* O diretório padrão para os arquivos CRL para plug-ins personalizados do SnapCenter é ' opt/NetApp/SnapCenter/scc/etc/crl'.
+
+
+.Passos
+. Você pode modificar e atualizar o diretório padrão no arquivo agent.properties contra a chave CRL_PATH.
++
+Você pode colocar mais de um arquivo CRL neste diretório. Os certificados recebidos serão verificados em relação a cada CRL.
+
+
