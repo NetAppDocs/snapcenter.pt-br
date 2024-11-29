@@ -11,7 +11,7 @@ summary: Você pode usar o SnapCenter para clonar um backup.
 
 
 [role="lead"]
-Você pode usar o SnapCenter para clonar um banco de dados Oracle usando o backup do banco de dados.
+Você pode usar o SnapCenter para clonar um banco de dados Oracle usando o backup do banco de dados. Os clones criados são clones espessos e são criados no pool de capacidade pai.
 
 .Passos
 . No painel de navegação esquerdo, clique em *Resources* e selecione o plug-in apropriado na lista.
@@ -89,33 +89,4 @@ Desmarque a caixa de seleção se quiser atribuir o DBID do banco de dados de or
 . Na página notificação, na lista suspensa *preferência de e-mail*, selecione os cenários nos quais você deseja enviar os e-mails.
 . Revise o resumo e selecione *Finish*.
 . Monitorize o progresso da operação selecionando *Monitor* > *trabalhos*.
-
-
-
-
-== Divida um clone de banco de dados Oracle
-
-Você pode usar o SnapCenter para dividir um recurso clonado do recurso pai. O clone que é dividido torna-se independente do recurso pai.
-
-.Passos
-. No painel de navegação esquerdo, clique em *Resources* e selecione o plug-in apropriado na lista.
-. Na página recursos, selecione *Banco de dados* na lista Exibir.
-. Selecione o recurso clonado (por exemplo, o banco de dados ou LUN) e clique em * *image:../media/clone_icon.gif["ícone de clone"]*.
-. Revise o tamanho estimado do clone que deve ser dividido e o espaço necessário disponível no agregado e clique em *Iniciar*.
-. Monitorize o progresso da operação clicando em *Monitor* > *trabalhos*.
-
-
-
-
-== Clone dividido de um banco de dados conetável
-
-Você pode usar o SnapCenter para dividir um banco de dados conetável clonado (PDB).
-
-.Passos
-. No painel de navegação esquerdo, clique em *Resources* e selecione o plug-in apropriado na lista.
-. Selecione a base de dados de contentor de origem (CDB) na vista de grupo de recursos ou recursos.
-. Na exibição Gerenciar cópias, selecione *clones* nos sistemas de storage primário.
-. Selecione o clone PDB (targetCDB:PDBClone) e clique em * *image:../media/clone_icon.gif["ícone de clone"].
-. Revise o tamanho estimado do clone que deve ser dividido e o espaço necessário disponível no agregado e clique em *Iniciar*.
-. Monitorize o progresso da operação clicando em *Monitor* > *trabalhos*.
 

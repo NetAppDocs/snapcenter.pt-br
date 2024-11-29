@@ -19,6 +19,9 @@ O plug-in do SnapCenter para o banco de dados IBM DB2 é um componente do lado d
 
 O SnapCenter suporta configurações DB2 de instância única e várias instâncias. Você pode usar o Plug-in para IBM DB2 Database em ambientes Linux e Windows. Em ambientes Windows, o DB2 será suportado como recurso manual.
 
+
+NOTE: O ambiente DB2 pureScale e os sistemas DB2 multi node (DPF) não são suportados.
+
 Quando o Plug-in para o banco de dados IBM DB2 é instalado, você pode usar o SnapCenter com a tecnologia NetApp SnapMirror para criar cópias espelhadas de conjuntos de backup em outro volume. Você também pode usar o plug-in com a tecnologia NetApp SnapVault para executar a replicação de backup disco a disco para conformidade com os padrões.
 
 O plug-in do SnapCenter para DB2 é compatível com NFS e SAN em layouts de storage de arquivos do ONTAP e do Azure NetApp.

@@ -155,4 +155,4 @@ NOTE: A verificação de impressões digitais é obrigatória mesmo que o mesmo 
 
 
 .Depois de terminar
-Se você quiser atualizar para a versão do SnapCenter 6,0, o plug-in baseado EM PERL existente para DB2 será desinstalado do servidor de plug-in remoto.
+Se você quiser atualizar para o SnapCenter 6,0 ou posterior, o plug-in baseado EM PERL existente para DB2 será desinstalado do servidor de plug-in remoto.

@@ -46,7 +46,7 @@ NOTE: Deve alocar espaço em disco suficiente e monitorizar o consumo de armazen
  a| 
 Pacotes de software necessários
  a| 
-* DOTNET Core 8.0.5
+* DOTNET Core começando com a versão 8.0.5 e incluindo todos os patches .NET 8 subsequentes
 * PowerShell Core 7.4.2
 
 
