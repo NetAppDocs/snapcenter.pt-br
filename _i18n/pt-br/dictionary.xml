@@ -9949,18 +9949,18 @@
   <block id="180a2e8c671bfb57b670570970b59480" category="summary">A versão 6.0.1 do software SnapCenter inclui vários novos recursos e aprimoramentos.</block>
   <block id="f5db6e0b0a7608b32dd00dbb85353e53" category="doc">Novidades do software SnapCenter 6.0.1</block>
   <block id="0ee351a583abf7baa869129519adaddb" category="inline-link-macro">Suporte para backup Azure NetApp Files</block>
-  <block id="62c2d7366772786ca345ac877bf79c4a" category="cell"><block ref="62c2d7366772786ca345ac877bf79c4a" category="inline-link-macro-rx"></block></block>
   <block id="4cc6d2996939fe7970c652728017b3e9" category="paragraph">O SnapCenter dá suporte ao recurso de backup do Azure NetApp Files que expande os recursos de proteção de dados do Azure NetApp Files fornecendo solução de backup totalmente gerenciada para recuperação, arquivamento e conformidade de longo prazo.</block>
   <block id="f47390dbd7bff67c8e4d16001f8c4395" category="inline-link-macro">Suporte para alta disponibilidade de SnapCenter em execução no Linux</block>
-  <block id="fa7aa08aceadadc58383fc01281330d1" category="cell"><block ref="fa7aa08aceadadc58383fc01281330d1" category="inline-link-macro-rx"></block></block>
   <block id="8951fc15a429c65f620e89da09c5240e" category="paragraph">Configure a alta disponibilidade no SnapCenter em execução no Windows ou Linux usando o balanceador de carga F5, o balanceamento de carga de rede (NLB), o balanceamento de carga elástico (ELB) da Amazon Web Services (AWS) ou o balanceador de carga do Azure.</block>
   <block id="1810fc343d328f63ca20580898910abc" category="inline-link-macro">Suporte para gerenciar trabalhos de backup programados</block>
-  <block id="a9e5aa37b3dc50c95040bd19f911000b" category="cell"><block ref="a9e5aa37b3dc50c95040bd19f911000b" category="inline-link-macro-rx"></block></block>
   <block id="6775f2c837a6e0d211c88415495a3ca3" category="paragraph">Permite-lhe definir um limite para o número de trabalhos agendados que podem ser executados a qualquer momento. Isso permite que você controle o número de backups que deseja executar com base na configuração de hardware do seu sistema.</block>
   <block id="6c1303e3667436380323a8f91aeeb3b1" category="inline-link-macro">Suporte para gerenciar trabalhos obsoletos</block>
-  <block id="0f16714fed95f3a4b2ef5ba9724d3658" category="cell"><block ref="0f16714fed95f3a4b2ef5ba9724d3658" category="inline-link-macro-rx"></block></block>
   <block id="4b6d2450b6badef80cca9ba40b34bd88" category="paragraph">Permite-lhe limpar trabalhos obsoletos que estão presos durante mais de 72 horas.</block>
   <block id="70e43ac38d4ee9a77d2476513c883d81" category="cell">Suporte para IBM DB2, Oracle Application e Storage plug-in no AIX</block>
   <block id="9b37c223b27baf9481210cc34272107f" category="paragraph">Oferece suporte à proteção de dados do plug-in IBM DB2, Oracle Application e Storage no AIX</block>
   <block id="5dd03e8d039863e563e049be198c3fd3" category="sidebar">Notas de versão</block>
+  <block id="4396a053fce24f7f396ccf91773d1924" category="cell"><block ref="4396a053fce24f7f396ccf91773d1924" category="inline-link-macro-rx"></block></block>
+  <block id="c382d5571738a226abf22d83f911bf29" category="cell"><block ref="c382d5571738a226abf22d83f911bf29" category="inline-link-macro-rx"></block></block>
+  <block id="2a332b39aa52e9f2636ba160aca67cb8" category="cell"><block ref="2a332b39aa52e9f2636ba160aca67cb8" category="inline-link-macro-rx"></block></block>
+  <block id="4e57d9d37ed4764b16b2fed20544a690" category="cell"><block ref="4e57d9d37ed4764b16b2fed20544a690" category="inline-link-macro-rx"></block></block>
 </blocks>
