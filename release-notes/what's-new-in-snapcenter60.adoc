@@ -17,7 +17,7 @@ A versão 6,0 do software SnapCenter inclui vários novos recursos e aprimoramen
 | Atualização | Descrição 
 
 
-| link:https://docs.netapp.com/us-en/snapcenter/concept/concept_snapcenter_overview.html#snapcenter-plug-ins["Suporte a plug-in de workloads empresariais com suporte à NetApp"]  a| 
+| link:https://docs.netapp.com/us-en/snapcenter/concept/concept_snapcenter_overview.html#snapcenter-plug-ins["Suporte a plug-ins de workloads empresariais com suporte à NetApp"]  a| 
 O SnapCenter fornece plug-ins para gerenciar cargas de trabalho, como PostgreSQL, MySQL e IBM DB2. É possível descobrir, fazer backup, restaurar, montar e clonar os workloads automaticamente.
 
 O SnapCenter também fornece plug-ins para gerenciar workloads como SAP ASE, SAP MaxDB, MongoDB, aplicações Oracle e storage ONTAP. É possível fazer backup, restaurar e clonar os workloads.
@@ -25,6 +25,8 @@ O SnapCenter também fornece plug-ins para gerenciar workloads como SAP ASE, SAP
 
 
 | link:https://docs.netapp.com/us-en/snapcenter/install/install_snapcenter_server_linux.html["Suporte para a versão Linux do SnapCenter para workloads na nuvem e no local"]  a| 
+Binários separados do SnapCenter agora estão disponíveis para versões do Linux, como Red Hat Enterprise Linux (RHEL), Oracle Linux e SLES.
+
 * Suporta Azure NetApp Files, Amazon FSX para NetApp ONTAP, Cloud Volumes ONTAP e armazenamento ONTAP.
 * Binários separados para versões Linux, como Red Hat Enterprise Linux (RHEL), Oracle Linux e SUSE Linux Enterprise Server (SLES).
 * Suporta bancos de dados clássicos como SAP HANA, Oracle, IBM DB2, SAP ASE e SAP MaxDB.
@@ -34,22 +36,22 @@ O SnapCenter também fornece plug-ins para gerenciar workloads como SAP ASE, SAP
 
 
 
-| link:https://docs.netapp.com/us-en/snapcenter/concept/concept_snapcenter_overview.html["Suporte para o SnapMirror ative Sync"]  a| 
-Capacidade de fazer backup, restaurar e clonar workloads SAN de forma otimizada (bancos de dados e VMs VMware) configurados para failover transparente de aplicações e continuidade dos negócios.
+| link:https://docs.netapp.com/us-en/snapcenter/concept/concept_snapcenter_overview.html["Suporte para sincronização ativa do SnapMirror"]  a| 
+Agora você pode usar o SnapCenter para configurar os recursos de sincronização ativa do SnapMirror e fazer backup, restauração e clonagem de workloads SAN de forma eficiente para bancos de dados e VMs VMware. Isso garante failover transparente de aplicações e continuidade dos negócios.
 
 
 
 | link:https://docs.netapp.com/us-en/snapcenter/install/concept_create_and_manage_smb_shares.html["Suporte para Microsoft SQL Server sobre SMB3"]  a| 
-Os bancos de dados do Microsoft SQL Server implantados no protocolo SMB3 no ONTAP, Azure NetApp Files, Amazon FSX for NetApp ONTAP e ONTAP Cloud volumes agora podem ser protegidos usando o SnapCenter.
+Agora você pode usar o SnapCenter para proteger bancos de dados do Microsoft SQL Server implantados no protocolo SMB3 no ONTAP, Azure NetApp Files, Amazon FSX for NetApp ONTAP e Cloud Volumes ONTAP.
 
 
 
 | link:https://docs.netapp.com/us-en/snapcenter/protect-sco/reference_storage_types_supported_by_snapcenter_plug_in_for_oracle_database.html#storage-types-supported-on-linux["Suporte para NVMe/TCP"]  a| 
-Se você estiver migrando workloads críticos para NVMe/TCP para melhor performance, poderá usar o SnapCenter para fazer backup e recuperar aplicações e sistemas de arquivos.
+O SnapCenter agora oferece suporte ao protocolo NVMe sobre TCP para fazer backup e recuperar aplicações e sistemas de arquivos.
 
 
 
-| Suporte para VMware vVols  a| 
-Se você implantou seus bancos de dados e sistemas de arquivos no VMware vVols, poderá usar o SnapCenter para protegê-los.
+| Suporte para VMware vSphere Virtual volumes (vVols)  a| 
+Agora você pode usar o SnapCenter para proteger seus bancos de dados e sistemas de arquivos implantados no vVols.
 
 |===

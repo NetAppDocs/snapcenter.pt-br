@@ -18,26 +18,33 @@ A versão 6.0.1 do software SnapCenter inclui vários novos recursos e aprimoram
 
 
 | link:https://docs.netapp.com/us-en/snapcenter/protect-azure/protect-applications-azure-netapp-files.html["Suporte para backup Azure NetApp Files"]  a| 
-O SnapCenter dá suporte ao recurso de backup do Azure NetApp Files que expande os recursos de proteção de dados do Azure NetApp Files fornecendo solução de backup totalmente gerenciada para recuperação, arquivamento e conformidade de longo prazo.
+Agora você pode usar o SnapCenter para fazer backup e clonar aplicativos que residem no Azure NetApp Files para armazenamento de Blobs do Azure (armazenamento de objetos).
 
 
 
 | link:https://docs.netapp.com/us-en/snapcenter/install/concept_configure_snapcenter_servers_for_high_availabiity_using_f5.html["Suporte para alta disponibilidade de SnapCenter em execução no Linux"]  a| 
-Configure a alta disponibilidade no SnapCenter em execução no Windows ou Linux usando o balanceador de carga F5, o balanceamento de carga de rede (NLB), o balanceamento de carga elástico (ELB) da Amazon Web Services (AWS) ou o balanceador de carga do Azure.
+O suporte para configuração de HA para SnapCenter agora é estendido para sistemas Linux. Você pode usar os balanceadores de carga padrão para esta configuração:
+
+* F5 balanceador de carga
+* Balanceamento de carga de rede da Microsoft (NLB)
+* Amazon Web Services (AWS)
+* Balanceamento de carga elástico (ELB)
+* Balanceador de carga do Azure
 
 
 
-| link:https://docs.netapp.com/us-en/snapcenter/admin/concept_monitor_jobs_schedules_events_and_logs.html#manage-scheduled-backup-jobs["Suporte para gerenciar trabalhos de backup programados"]  a| 
-Permite-lhe definir um limite para o número de trabalhos agendados que podem ser executados a qualquer momento. Isso permite que você controle o número de backups que deseja executar com base na configuração de hardware do seu sistema.
+
+| link:https://docs.netapp.com/us-en/snapcenter/admin/concept_monitor_jobs_schedules_events_and_logs.html#manage-scheduled-backup-jobs["Capacidade de gerir trabalhos de cópia de segurança programados"]  a| 
+Agora você pode definir um limite para os trabalhos agendados para controlar o número de backups que deseja executar em um determinado momento com base na configuração de hardware do sistema.
 
 
 
-| link:https://docs.netapp.com/us-en/snapcenter/admin/concept_monitor_jobs_schedules_events_and_logs.html#manage-stale-jobs["Suporte para gerenciar trabalhos obsoletos"]  a| 
-Permite-lhe limpar trabalhos obsoletos que estão presos durante mais de 72 horas.
+| link:https://docs.netapp.com/us-en/snapcenter/admin/concept_monitor_jobs_schedules_events_and_logs.html#manage-stale-jobs["Capacidade de gerenciar trabalhos obsoletos"]  a| 
+Agora você pode definir um agendamento predefinido para limpar trabalhos obsoletos que estão presos por mais de 72 horas.
 
 
 
-| Suporte para IBM DB2, Oracle Application e Storage plug-in no AIX  a| 
-Oferece suporte à proteção de dados do plug-in IBM DB2, Oracle Application e Storage no AIX
+| Funcionalidade de proteção de dados incluída para IBM DB2, Oracle Application e Storage plug-in em execução no AIX  a| 
+Oferece suporte à proteção de dados do plug-in IBM DB2, Oracle Application e Storage em execução no AIX.
 
 |===
