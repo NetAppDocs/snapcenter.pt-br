@@ -70,7 +70,7 @@ Você pode usar o SnapCenter para dividir um recurso clonado do recurso pai. O c
 
 . No painel de navegação esquerdo, clique em *Resources* e selecione o plug-in Oracle Database na lista.
 . Na página recursos, selecione *volume do aplicativo* na lista *Exibir*.
-. Selecione o recurso clonado e clique image:../media/split_cone.gif[""]em .
+. Selecione o recurso clonado e clique image:../media/split_clone.gif["dividir clone"]em .
 . Revise o tamanho estimado do clone que deve ser dividido e o espaço necessário disponível no agregado e clique em *Iniciar*.
 . Monitorize o progresso da operação clicando em *Monitor* > *trabalhos*.
 
@@ -90,7 +90,7 @@ Você pode excluir clones se você achar que eles não são mais necessários. N
 A página de topologia do recurso ou do grupo de recursos é exibida.
 
 . Na exibição Gerenciar cópias, selecione *clones* nos sistemas de storage primário ou secundário (espelhado ou replicado).
-. Selecione o clone e clique image:../media/delete_icon.gif[""]em .
+. Selecione o clone e clique image:../media/delete_icon.gif["eliminar ícone"]em .
 . Na página Excluir clone, execute as seguintes ações:
 +
 .. No campo *Pré-clone delete*, insira os nomes dos scripts a serem executados antes de excluir o clone.

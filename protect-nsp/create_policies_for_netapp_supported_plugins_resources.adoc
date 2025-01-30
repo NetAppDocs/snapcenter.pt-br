@@ -48,25 +48,28 @@ NOTE: As configurações do SnapLock primário são gerenciadas na política de 
 . No painel de navegação esquerdo, clique em *Configurações*.
 . Na página Configurações, clique em *políticas*.
 . Clique em *novo*.
-. Na página Nome, insira o nome e a descrição da política.
-. Na página Configurações, execute as seguintes etapas:
+. Na página Nome, insira o nome e os detalhes da política.
+. Na página tipo de política, execute o seguinte:
 +
-** Especifique o tipo de agendamento selecionando *on demand*, *Hourly*, *Daily*, *Weekly* ou *Monthly*.
+.. Selecione o tipo de armazenamento.
+.. Na seção Configurações personalizadas de backup, forneça quaisquer configurações específicas de backup que tenham que ser passadas para o formato de valor de chave do plug-in.
++
+Você pode fornecer vários valores-chave a serem passados para o plug-in.
+
+
+
+. Na página Snapshot e replicação, execute as seguintes etapas:
++
+.. Especifique o tipo de agendamento selecionando *on demand*, *Hourly*, *Daily*, *Weekly* ou *Monthly*.
 +
 
 NOTE: Você pode especificar a programação (data de início, data de término e frequência) para a operação de backup enquanto cria um grupo de recursos. Isso permite que você crie grupos de recursos que compartilham a mesma política e frequência de backup, mas permite que você atribua diferentes programações de backup a cada política.
 
 +
-image::../media/backup_settings.gif[Página de definições de cópia de segurança]
-
-+
 
 NOTE: Se você tiver agendado para as 2:00 da manhã, o horário não será acionado durante o horário de verão (DST).
 
-** Na seção Configurações personalizadas de backup, forneça quaisquer configurações específicas de backup que tenham que ser passadas para o formato de valor de chave do plug-in. Você pode fornecer vários valores-chave a serem passados para o plug-in.
-
-
-. Na página *retenção*, especifique as configurações de retenção para o tipo de backup e o tipo de agendamento selecionado na página *tipo de backup*:
+.. Na seção Configurações de instantâneos, especifique as configurações de retenção para o tipo de backup e o tipo de agendamento selecionado na página *tipo de backup*:
 +
 |===
 | Se você quiser... | Então... 
@@ -75,7 +78,7 @@ NOTE: Se você tiver agendado para as 2:00 da manhã, o horário não será acio
  a| 
 Mantenha um certo número de instantâneos
  a| 
-Selecione *Total de cópias Snapshot a manter* e especifique o número de capturas instantâneas que deseja manter.
+Selecione *Copies to keep* e especifique o número de instantâneos que deseja manter.
 
 Se o número de instantâneos exceder o número especificado, os instantâneos serão excluídos com as cópias mais antigas excluídas primeiro.
 
@@ -90,19 +93,46 @@ NOTE: O valor máximo de retenção é 1018 para recursos no ONTAP 9.4 ou poster
  a| 
 Mantenha as capturas instantâneas por um determinado número de dias
  a| 
-Selecione *manter cópias Snapshot para* e especifique o número de dias para os quais deseja manter as capturas instantâneas antes de excluí-las.
+Selecione *reter cópias para* e especifique o número de dias para os quais deseja manter as capturas instantâneas antes de excluí-las.
 
 
 
  a| 
-Período de bloqueio de cópias snapshot
+Período de bloqueio da cópia Snapshot principal
  a| 
 Selecione período de bloqueio instantâneo e selecione dias, meses ou anos.
 
 O período de retenção do SnapLock deve ser inferior a 100 anos.
 
+
+
+ a| 
+Período de bloqueio da cópia Snapshot secundária
+ a| 
+Selecione *período de bloqueio de cópia instantânea secundária* e selecione dias, meses ou anos.
+
+Para que essa opção seja efetiva, você deve executar as seguintes tarefas:
+
+*** Selecione o *período de bloqueio de cópia de instantâneo primário*.
+*** Selecione uma ou ambas as opções de replicação secundária.
+
+
 |===
-. Na página *replicação*, especifique as configurações de replicação:
+.. Selecione uma etiqueta de política.
++
+Dependendo do rótulo de política selecionado, o ONTAP aplica a política de retenção de snapshot secundária que corresponde ao rótulo.
+
++
+
+NOTE: Se você selecionou *Atualizar SnapMirror depois de criar uma cópia Snapshot local*, você pode especificar opcionalmente o rótulo de política secundária. No entanto, se você selecionou *Atualizar SnapVault depois de criar uma cópia Snapshot local*, especifique o rótulo de política secundária.
+
+
+
+. Na seção Selecionar opções de replicação secundária, selecione uma ou ambas as seguintes opções de replicação secundária:
++
+
+NOTE: Você deve selecionar as opções de replicação secundária para *período de bloqueio de cópia snapshot secundário* para entrar em vigor.
+
 +
 |===
 | Para este campo... | Faça isso... 
@@ -119,7 +149,7 @@ Durante a replicação secundária, o tempo de expiração do SnapLock carrega o
 
 Clicar no botão *Atualizar* na página topologia atualiza o tempo de expiração do SnapLock secundário e primário que são recuperados do ONTAP.
 
-link:../protect-nsp/view_netapp_supported_plugins_resource_backups_and_clones_in_the_topology_page.html["Veja os backups e clones relacionados a recursos de plug-in compatíveis com o NetApp na página topologia"]Consulte .
+link:view_netapp_supported_plugins_resource_backups_and_clones_in_the_topology_page.html["Veja os backups e clones relacionados a recursos de plug-ins compatíveis com o NetApp na página topologia"]Consulte .
 
 
 
@@ -132,21 +162,9 @@ Durante a replicação secundária, o tempo de expiração do SnapLock carrega o
 
 Quando o SnapLock é configurado apenas no secundário do ONTAP conhecido como SnapLock Vault, clicar no botão *Atualizar* na página topologia atualiza o período de bloqueio no secundário que é recuperado do ONTAP.
 
-Para obter mais informações sobre o SnapLock Vault, consulte confirmar snapshots para WORM em um destino de cofre
+Para obter mais informações sobre o SnapLock Vault, consulte confirmar snapshots para WORM em um destino de cofre.
 
-link:../protect-nsp/view_netapp_supported_plugins_resource_backups_and_clones_in_the_topology_page.html["Veja os backups e clones relacionados a recursos de plug-in compatíveis com o NetApp na página topologia"].
-
-
-
- a| 
-*Etiqueta de política secundária*
- a| 
-Selecione uma etiqueta Snapshot.
-
-Dependendo do rótulo de captura instantânea selecionado, o ONTAP aplica a política de retenção de snapshot secundária que corresponde ao rótulo.
-
-
-NOTE: Se você selecionou *Atualizar SnapMirror depois de criar uma cópia Snapshot local*, você pode especificar opcionalmente o rótulo de política secundária. No entanto, se você selecionou *Atualizar SnapVault depois de criar uma cópia Snapshot local*, especifique o rótulo de política secundária.
+link:view_netapp_supported_plugins_resource_backups_and_clones_in_the_topology_page.html["Veja os backups e clones relacionados a recursos de plug-ins compatíveis com o NetApp na página topologia"]Consulte .
 
 
 

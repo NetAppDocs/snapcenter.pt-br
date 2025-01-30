@@ -39,7 +39,7 @@ Os bancos de dados não estão no estado normal quando estão no estado de monta
 Todos os bancos de dados e DAGs são exibidos com seus DAG ou nomes de host no formato FQDN, para que você possa distinguir entre vários bancos de dados.
 
 +
-Clique image:../media/filter_icon.png["Ícone de filtro"] e selecione o nome do host e o Exchange Server para filtrar os recursos. Em seguida, pode clicar image:../media/filter_icon.png["Ícone de filtro"] para fechar o painel de filtro.
+Clique image:../media/filter_icon.gif["ícone de filtro"] e selecione o nome do host e o Exchange Server para filtrar os recursos. Em seguida, pode clicar image:../media/filter_icon.gif["ícone de filtro"] para fechar o painel de filtro.
 
 . Clique em *Atualizar recursos*.
 +

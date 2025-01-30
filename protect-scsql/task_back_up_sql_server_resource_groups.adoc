@@ -17,7 +17,7 @@ Você pode fazer backup de um grupo de recursos sob demanda na página recursos.
 . No painel de navegação esquerdo, selecione *Resources* e, em seguida, selecione o plug-in apropriado na lista.
 . Na página recursos, selecione *Grupo de recursos* na lista *Exibir*.
 +
-Você pode pesquisar o grupo de recursos inserindo o nome do grupo de recursos na caixa de pesquisa ou selecionando * *image:../media/filter_icon.png["Ícone de filtro"] e, em seguida, selecionando a tag. Em seguida, pode selecionarimage:../media/filter_icon.png["Ícone de filtro"] * * para fechar o painel do filtro.
+Você pode pesquisar o grupo de recursos inserindo o nome do grupo de recursos na caixa de pesquisa ou image:../media/filter_icon.gif["Ícone de filtro"]selecionando e selecionando a tag. Em seguida, pode image:../media/filter_icon.gif["Ícone de filtro"]selecionar para fechar o painel de filtro.
 
 . Na página grupos de recursos, selecione o grupo de recursos que você deseja fazer backup e selecione *fazer backup agora*.
 . Na página Backup, execute as seguintes etapas:

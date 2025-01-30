@@ -15,4 +15,4 @@ O fluxo de trabalho de restauração inclui Planejamento, execução das operaç
 
 O fluxo de trabalho a seguir mostra a sequência na qual você deve executar a operação de restauração:
 
-image::../media/all_plug_ins_restore_workflow.png[all_plug-ins_restore_workflow]
+image::../media/all_plug_ins_restore_workflow.gif[all_plug-ins_restore_workflow]

@@ -48,16 +48,14 @@ Você não pode criar um backup para o volume de dados do SAP HANA, mas o SnapCe
 
 
 
-
-NOTE: As configurações do SnapLock primário são gerenciadas na política de backup do SnapCenter e as configurações do SnapLock secundário são gerenciadas pelo ONTAP.
-
 .Passos
 . No painel de navegação esquerdo, clique em *Configurações*.
 . Na página Configurações, clique em *políticas*.
 . Clique em *novo*.
-. Na página Nome, insira o nome e a descrição da política.
-. Na página Configurações, execute as seguintes etapas:
+. Na página Nome, insira o nome e os detalhes da política.
+. Na página tipo de política, execute as seguintes etapas:
 +
+** Escolha o tipo de armazenamento
 ** Escolha o tipo de cópia de segurança:
 +
 |===
@@ -65,37 +63,34 @@ NOTE: As configurações do SnapLock primário são gerenciadas na política de 
 
 
  a| 
-Efetue uma verificação de integridade da base de dados
- a| 
-Selecione *Backup baseado em arquivos*. Somente os locatários ativos são copiados.
-
-
-
- a| 
 Crie um backup usando a tecnologia Snapshot
  a| 
 Selecione *Snapshot based*.
 
+
+
+ a| 
+Efetue uma verificação de integridade da base de dados
+ a| 
+Selecione *Backup baseado em arquivos*. Somente os locatários ativos são copiados.
+
 |===
+
+
+. Na página Snapshot e replicação, execute as seguintes etapas:
++
 ** Especifique o tipo de agendamento selecionando *on demand*, *Hourly*, *Daily*, *Weekly* ou *Monthly*.
 +
 
 NOTE: Você pode especificar a programação (data de início, data de término e frequência) para a operação de backup enquanto cria um grupo de recursos. Isso permite que você crie grupos de recursos que compartilham a mesma política e frequência de backup, mas também permite que você atribua diferentes programações de backup a cada política.
 
 +
-image::../media/backup_settings.gif[definições de cópia de segurança]
-
-+
 
 NOTE: Se você tiver agendado para as 2:00 da manhã, o horário não será acionado durante o horário de verão (DST).
 
-** Na seção *Configurações personalizadas de backup*, forneça quaisquer configurações específicas de backup que tenham que ser passadas para o formato de valor de chave do plug-in.
-+
-Você pode fornecer vários valores-chave a serem passados para o plug-in.
 
 
-
-. Na página retenção, especifique as configurações de retenção para o tipo de backup e o tipo de agendamento selecionado na página tipo de backup:
+. Na página Snapshot e replicação, especifique as configurações de retenção para o tipo de backup e o tipo de agendamento selecionado na página tipo de backup:
 +
 |===
 | Se você quiser... | Então... 
@@ -104,7 +99,7 @@ Você pode fornecer vários valores-chave a serem passados para o plug-in.
  a| 
 Mantenha um certo número de instantâneos
  a| 
-Selecione *Total de cópias Snapshot a manter* e especifique o número de capturas instantâneas que deseja manter.
+Selecione *Copies to keep* e especifique o número de instantâneos que deseja manter.
 
 Se o número de instantâneos exceder o número especificado, os instantâneos serão excluídos com as cópias mais antigas excluídas primeiro.
 
@@ -125,19 +120,44 @@ NOTE: Para a replicação do sistema SAP HANA, o total de snapshots obtidos ser�
  a| 
 Mantenha as capturas instantâneas por um determinado número de dias
  a| 
-Selecione *manter cópias Snapshot para* e especifique o número de dias para os quais deseja manter as capturas instantâneas antes de excluí-las.
+Selecione *reter cópias para* e especifique o número de dias para os quais deseja manter as capturas instantâneas antes de excluí-las.
 
 
 
  a| 
-Período de bloqueio de cópias snapshot
+Período de bloqueio da cópia Snapshot principal
  a| 
 Selecione período de bloqueio de cópias instantâneas e selecione dias, meses ou anos.
 
 O período de retenção do SnapLock deve ser inferior a 100 anos.
 
+
+
+ a| 
+Período de bloqueio da cópia Snapshot secundária
+ a| 
+Selecione *período de bloqueio de cópia instantânea secundária* e selecione dias, meses ou anos.
+
+Para que essa opção seja efetiva, você deve executar as seguintes tarefas:
+
+** Selecione o *período de bloqueio de cópia de instantâneo primário*.
+** Selecione uma ou ambas as opções de replicação secundária.
+
+
 |===
-. Para backups baseados em cópia Snapshot, especifique as configurações de replicação na página replicação:
+. Selecione uma etiqueta Snapshot.
++
+Dependendo do rótulo de captura instantânea selecionado, o ONTAP aplica a política de retenção de snapshot secundária que corresponde ao rótulo.
+
++
+
+NOTE: Se você selecionou *Atualizar SnapMirror depois de criar uma cópia Snapshot local*, você pode especificar opcionalmente o rótulo de política secundária. No entanto, se você selecionou *Atualizar SnapVault depois de criar uma cópia Snapshot local*, especifique o rótulo de política secundária.
+
+. Para backups baseados em cópia Snapshot, na seção Selecionar opções de replicação secundária, selecione uma ou ambas as opções de replicação secundária a seguir:
++
+
+NOTE: Você deve selecionar as opções de replicação secundária para *período de bloqueio de cópia snapshot secundário* para entrar em vigor.
+
 +
 |===
 | Para este campo... | Faça isso... 
@@ -171,19 +191,7 @@ Quando o SnapLock é configurado apenas no secundário do ONTAP conhecido como S
 
 Para obter mais informações sobre o SnapLock Vault, consulte https://docs.netapp.com/us-en/ontap/snaplock/commit-snapshot-copies-worm-concept.html["Armazene cópias Snapshot em WORM em um destino de cofre"]
 
-link:task_view_sap_hana_database_backups_and_clones_in_the_topology_page_sap_hana.html["Veja os backups e clones do banco de dados SAP HANA na página topologia"]Consulte .
-
-
-
- a| 
-*Etiqueta de política secundária*
- a| 
-Selecione uma etiqueta Snapshot.
-
-Dependendo do rótulo de captura instantânea selecionado, o ONTAP aplica a política de retenção de snapshot secundária que corresponde ao rótulo.
-
-
-NOTE: Se você selecionou *Atualizar SnapMirror depois de criar uma cópia Snapshot local*, você pode especificar opcionalmente o rótulo de política secundária. No entanto, se você selecionou *Atualizar SnapVault depois de criar uma cópia Snapshot local*, especifique o rótulo de política secundária.
+link:../protect-hana/task_view_sap_hana_database_backups_and_clones_in_the_topology_page_sap_hana.html["Veja os backups e clones do banco de dados SAP HANA na página topologia"]Consulte .
 
 
 

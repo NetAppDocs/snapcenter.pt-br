@@ -24,7 +24,7 @@ Por padrão, backups do grupo de consistência (CG) são criados. Se você quise
 . No painel de navegação esquerdo, clique em *Resources* e selecione o plug-in Oracle Database na lista.
 . Na página recursos, selecione *Grupo de recursos* na lista *Exibir*.
 +
-Você pode pesquisar o grupo de recursos inserindo o nome do grupo de recursos na caixa de pesquisa ou clicando image:../media/filter_icon.png["ícone de filtro"]em e selecionando a tag. Em seguida, pode clicar image:../media/filter_icon.png["ícone de filtro"] para fechar o painel de filtro.
+Você pode pesquisar o grupo de recursos inserindo o nome do grupo de recursos na caixa de pesquisa ou clicando em * *image:../media/filter_icon.gif["ícone de filtro"] e, em seguida, selecionando a tag. Em seguida, pode clicar emimage:../media/filter_icon.gif["ícone de filtro"]* * para fechar o painel do filtro.
 
 . Na página grupos de recursos, selecione o grupo de recursos que deseja fazer backup e clique em *fazer backup agora*.
 . Na página Backup, execute as seguintes etapas:

@@ -78,7 +78,7 @@ Se você tiver excluído um banco de dados Oracle no host, o servidor SnapCenter
 . No painel de navegação esquerdo, clique em *Resources* e selecione o plug-in apropriado na lista.
 . Na página recursos, selecione *Banco de dados* na lista *Exibir*.
 +
-Clique image:../media/filter_icon.png["ícone de filtro"]em e selecione o nome do host e o tipo de banco de dados para filtrar os recursos. Em seguida, clique no image:../media/filter_icon.png["ícone de filtro"] ícone para fechar o painel de filtro.
+Clique em image:../media/filter_icon.gif["ícone de filtro"]ícone ilter] e, em seguida, selecione o nome do host e o tipo de banco de dados para filtrar os recursos. Você pode clicar no ícone imagfilter_icon.gif[filter icon]_icon.png[] para fechar o painel de filtro.
 
 . Clique em *Atualizar recursos*.
 +

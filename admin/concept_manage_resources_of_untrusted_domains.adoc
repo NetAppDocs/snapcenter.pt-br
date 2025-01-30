@@ -78,5 +78,5 @@ Você deve ter removido os hosts, usuários, grupos e credenciais associados ao 
 . Na página Configurações, clique em *Configurações globais*.
 . Na página Configurações globais, clique em *Configurações de domínio*.
 . Na lista de domínios, selecione o domínio que deseja cancelar o Registro.
-. Clique image:../media/delete_icon.gif[""]em e, em seguida, clique em *OK*.
+. Clique image:../media/delete_icon.gif["eliminar ícone"]em e, em seguida, clique em *OK*.
 

@@ -90,7 +90,7 @@ Introduza o nome de utilizador para o qual a chave de armazenamento de utilizado
 |===
 . Na página fornecer espaço físico de armazenamento, selecione um sistema de armazenamento e escolha um ou mais volumes, LUNs e qtrees e clique em *Salvar*.
 +
-Opcional: Você pode clicar noimage:../media/add_policy_from_resourcegroup.gif[""] ícone * para adicionar mais volumes, LUNs e qtrees de outros sistemas de armazenamento.
+Opcional: Você pode clicar noimage:../media/add_policy_from_resourcegroup.gif["adicionar grupo de recursos do formulário de política"] ícone * para adicionar mais volumes, LUNs e qtrees de outros sistemas de armazenamento.
 
 . Revise o resumo e clique em *Finish*.
 +

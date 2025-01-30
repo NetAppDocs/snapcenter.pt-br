@@ -48,7 +48,7 @@ Na página *Detalhes da tarefa*, uma mensagem de aviso recomenda que o cliente c
 ... Clique em *Upgrade*.
 
 
-** Se você quiser atualizar vários hosts de plug-in, selecione todos os hosts, clique em image:../media/more_icon.gif[""]e clique em *Upgrade* > *OK*.
+** Se você quiser atualizar vários hosts, selecione todos os hosts, clique image:../media/more_icon.gif["ícone mais"]em e clique em *Upgrade* > *OK*.
 +
 Todos os serviços relacionados são reiniciados durante a atualização do plug-in.
 

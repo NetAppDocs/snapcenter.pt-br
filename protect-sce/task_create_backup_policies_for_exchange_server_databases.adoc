@@ -57,10 +57,6 @@ Especificar um período de bloqueio instantâneo impede a exclusão dos instant�
 +
 Para as versões ONTAP 9.12,1 e inferiores, os clones criados a partir dos snapshots de cofre do SnapLock herdarão o tempo de expiração do SnapLock Vault. O administrador do storage deve limpar manualmente os clones após o tempo de expiração do SnapLock.
 
-+
-
-NOTE: As configurações do SnapLock primário são gerenciadas na política de backup do SnapCenter e as configurações do SnapLock secundário são gerenciadas pelo ONTAP.
-
 
 
 
@@ -69,8 +65,8 @@ NOTE: As configurações do SnapLock primário são gerenciadas na política de 
 . No painel de navegação esquerdo, clique em *Configurações*.
 . Na página Configurações, clique em *políticas*.
 . Clique em *novo*.
-. Na página Nome, insira o nome e a descrição da política.
-. Na página tipo de backup, execute as seguintes etapas:
+. Na página Nome, insira o nome e os detalhes da política.
+. Na página tipo de backup e replicação, execute as seguintes etapas:
 +
 .. Escolha o tipo de cópia de segurança:
 +
@@ -164,6 +160,59 @@ NOTE: Você pode especificar a programação (data de início, data de término)
 
 NOTE: Se você tiver agendado para as 2:00 da manhã, o horário não será acionado durante o horário de verão (DST).
 
+.. Selecione a etiqueta Política.
++
+Dependendo do rótulo de captura instantânea selecionado, o ONTAP aplica a política de retenção de snapshot secundária que corresponde ao rótulo.
+
++
+
+NOTE: Se você selecionou *Atualizar SnapMirror depois de criar uma cópia Snapshot local*, você pode especificar opcionalmente o rótulo de política secundária. No entanto, se você selecionou *Atualizar SnapVault depois de criar uma cópia Snapshot local*, especifique o rótulo de política secundária.
+
+.. Na seção Selecionar opções de replicação secundária, selecione uma ou ambas as seguintes opções de replicação secundária:
++
+
+NOTE: Você deve selecionar as opções de replicação secundária para *período de bloqueio de cópia snapshot secundário* para entrar em vigor. A opção *período de bloqueio de cópia de instantâneo secundário* está disponível na página retenção.
+
++
+|===
+| Para este campo... | Faça isso... 
+
+
+ a| 
+Atualize o SnapMirror depois de criar um instantâneo local
+ a| 
+Selecione esta opção para manter cópias espelhadas de conjuntos de backup em outro volume (SnapMirror).
+
+Durante a replicação secundária, o tempo de expiração do SnapLock carrega o tempo de expiração do SnapLock primário.
+
+Esta opção deve estar ativada para a sincronização ativa do SnapMirror.
+
+
+IMPORTANT: A política somente primária não pode ser usada se a sincronização ativa do SnapMirror estiver configurada para volumes do Exchange ONTAP. O SnapCenter não permite isso. Você deve ativar a opção "espelho".
+
+Clicar no botão *Atualizar* na página topologia atualiza o tempo de expiração do SnapLock secundário e primário que são recuperados do ONTAP.
+
+link:../protect-sce/task_view_exchange_backups_in_the_topology_page.html["Veja backups do Exchange na página topologia"]Consulte .
+
+
+
+ a| 
+Atualize o SnapVault depois de criar um instantâneo local
+ a| 
+Selecione esta opção para executar a replicação de backup de disco para disco.
+
+
+
+ a| 
+Contagem de tentativas de erro
+ a| 
+Insira o número de tentativas de replicação que devem ocorrer antes que o processo pare.
+
+|===
++
+
+NOTE: Você deve configurar a política de retenção do SnapMirror no ONTAP para o storage secundário para evitar atingir o limite máximo de snapshots no storage secundário.
+
 
 
 . Na página retenção, configure as definições de retenção.
@@ -243,11 +292,24 @@ Selecione a opção *manter cópias Snapshot para* e especifique o número de di
 
 
  a| 
-Período de bloqueio instantâneo
+Período de bloqueio do instantâneo principal
  a| 
-Selecione *período de bloqueio de cópias instantâneas* e selecione dias, meses ou anos.
+Selecione *período de bloqueio de cópia de instantâneo primário* e selecione dias, meses ou anos.
 
 O período de retenção do SnapLock deve ser inferior a 100 anos.
+
+
+
+ a| 
+Período de bloqueio secundário de instantâneos
+ a| 
+Selecione *período de bloqueio de cópia instantânea secundária* e selecione dias, meses ou anos.
+
+Para que essa opção seja efetiva, você deve executar as seguintes tarefas:
+
+*** Selecione o *período de bloqueio de cópia de instantâneo primário*.
+*** Selecione uma ou ambas as opções de replicação secundária.
+
 
 |===
 +
@@ -264,59 +326,6 @@ No exemplo, o valor 10 significa que você mantém até 10 backups de log no hos
 
 
 
-
-. Na página replicação, selecione uma ou ambas as seguintes opções de replicação secundária:
-+
-|===
-| Para este campo... | Faça isso... 
-
-
- a| 
-Atualize o SnapMirror depois de criar um instantâneo local
- a| 
-Selecione esta opção para manter cópias espelhadas de conjuntos de backup em outro volume (SnapMirror).
-
-Durante a replicação secundária, o tempo de expiração do SnapLock carrega o tempo de expiração do SnapLock primário.
-
-Esta opção deve estar ativada para a sincronização ativa do SnapMirror.
-
-
-IMPORTANT: A política somente primária não pode ser usada se a sincronização ativa do SnapMirror estiver configurada para volumes do Exchange ONTAP. O SnapCenter não permite isso. Você deve ativar a opção "espelho".
-
-Clicar no botão *Atualizar* na página topologia atualiza o tempo de expiração do SnapLock secundário e primário que são recuperados do ONTAP.
-
-link:../protect-sce/task_view_exchange_backups_in_the_topology_page.html["Veja backups do Exchange na página topologia"]Consulte .
-
-
-
- a| 
-Atualize o SnapVault depois de criar um instantâneo local
- a| 
-Selecione esta opção para executar a replicação de backup de disco para disco.
-
-
-
- a| 
-Etiqueta de política secundária
- a| 
-Selecione uma etiqueta Snapshot.
-
-Dependendo do rótulo de captura instantânea selecionado, o ONTAP aplica a política de retenção de snapshot secundária que corresponde ao rótulo.
-
-
-NOTE: Se você selecionou *Atualizar SnapMirror depois de criar uma cópia Snapshot local*, você pode especificar opcionalmente o rótulo de política secundária. No entanto, se você selecionou *Atualizar SnapVault depois de criar uma cópia Snapshot local*, especifique o rótulo de política secundária.
-
-
-
- a| 
-Contagem de tentativas de erro
- a| 
-Insira o número de tentativas de replicação que devem ocorrer antes que o processo pare.
-
-|===
-+
-
-NOTE: Você deve configurar a política de retenção do SnapMirror no ONTAP para o storage secundário para evitar atingir o limite máximo de snapshots no storage secundário.
 
 . Na página Script, insira o caminho e os argumentos do prescritor ou postscript que devem ser executados antes ou depois da operação de backup, respetivamente.
 +

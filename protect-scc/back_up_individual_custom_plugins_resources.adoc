@@ -26,7 +26,7 @@ Se um recurso de plug-ins personalizado individual não fizer parte de qualquer 
 . No painel de navegação esquerdo, clique em *Resources* e selecione o plug-in apropriado na lista.
 . Na página recursos, filtre recursos da lista suspensa *Exibir* com base no tipo de recurso.
 +
-Clique image:../media/filter_icon.png[""]em e selecione o nome do host e o tipo de recurso para filtrar os recursos. Em seguida, pode clicar image:../media/filter_icon.png["Ícone de filtro"] para fechar o painel de filtro.
+Clique image:../media/filter_icon.gif["ícone de filtro"]em e selecione o nome do host e o tipo de recurso para filtrar os recursos. Em seguida, pode clicar image:../media/filter_icon.gif["Ícone de filtro"] para fechar o painel de filtro.
 
 . Clique no recurso que você deseja fazer backup.
 . Na página recurso, se você quiser usar um nome personalizado, marque a caixa de seleção *usar formato de nome personalizado para cópia Snapshot* e insira um formato de nome personalizado para o nome da captura Instantânea.

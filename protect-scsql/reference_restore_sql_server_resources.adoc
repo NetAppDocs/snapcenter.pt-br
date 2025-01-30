@@ -15,7 +15,7 @@ Você pode usar o SnapCenter para restaurar bancos de dados SQL Server restauran
 
 O fluxo de trabalho a seguir mostra a sequência na qual você deve executar as operações de restauração de banco de dados:
 
-image::../media/all_plug_ins_restore_workflow.png[all_plug-ins_restore_workflow]
+image::../media/all_plug_ins_restore_workflow.gif[all_plug-ins_restore_workflow]
 
 Você também pode usar cmdlets do PowerShell manualmente ou em scripts para executar operações de backup, restauração, recuperação, verificação e clone. Para obter informações detalhadas sobre cmdlets do PowerShell, use a ajuda do cmdlet SnapCenter ou consulte o. https://docs.netapp.com/us-en/snapcenter-cmdlets/index.html["Guia de referência de cmdlet do software SnapCenter"]
 

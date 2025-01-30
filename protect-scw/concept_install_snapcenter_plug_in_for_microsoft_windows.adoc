@@ -13,4 +13,4 @@ summary: Você deve instalar e configurar o plug-in do SnapCenter para Microsoft
 [role="lead"]
 Você deve instalar e configurar o plug-in do SnapCenter para Microsoft Windows se quiser proteger arquivos do Windows que não sejam arquivos de banco de dados.
 
-image::../media/scw_workflow_for_installing.png[instale o fluxo de trabalho]
+image::../media/scw_workflow_for_installing.gif[instale o fluxo de trabalho]

@@ -1,0 +1,141 @@
+---
+permalink: protect-db2/create-resource-groups-secondary-protection-for-asa-r2-db2-resources.html 
+sidebar: sidebar 
+keywords: asa r2, secondary protection, consistency group, primary consistency group, secondary consistency group 
+summary: Um grupo de recursos é um contentor onde você adiciona recursos que deseja fazer backup e proteger. Um grupo de recursos permite fazer backup de todos os dados associados a um determinado aplicativo simultaneamente. 
+---
+= Crie grupos de recursos e habilite a proteção secundária para recursos do IBM DB2 em sistemas ASA R2
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Você deve criar o grupo de recursos para adicionar os recursos que estão em sistemas ASA R2. Você também pode provisionar a proteção secundária enquanto cria o grupo de recursos.
+
+.Antes de começar
+* Você deve garantir que não esteja adicionando recursos do ONTAP 9.x e do ASA R2 ao mesmo grupo de recursos.
+* Você deve garantir que não tenha um banco de dados com recursos do ONTAP 9.x e do ASA R2.
+
+
+.Sobre esta tarefa
+* A proteção secundária só está disponível se o usuário conetado for atribuído à função que tem a capacidade *SecondaryProtection* ativada.
+* Se você ativou a proteção secundária, o grupo de recursos será colocado no modo de manutenção ao criar os grupos de consistência primária e secundária. Depois que os grupos de consistência primária e secundária são criados, o grupo de recursos é colocado fora do modo de manutenção.
+* O SnapCenter não é compatível com proteção secundária para um recurso clone.
+
+
+.Passos
+. No painel de navegação esquerdo, selecione *Resources* e o plug-in apropriado na lista.
+. Na página recursos, clique em *novo Grupo de recursos*.
+. Na página Nome, execute as seguintes ações:
++
+.. Introduza um nome para o grupo de recursos no campo Nome.
++
+
+NOTE: O nome do grupo de recursos não deve exceder 250 carateres.
+
+.. Insira um ou mais rótulos no campo Tag para ajudá-lo a pesquisar o grupo de recursos mais tarde.
++
+Por exemplo, se você adicionar HR como uma tag a vários grupos de recursos, poderá encontrar mais tarde todos os grupos de recursos associados à tag HR.
+
+.. Marque essa caixa de seleção e insira um formato de nome personalizado que você deseja usar para o nome da captura Instantânea.
++
+Por exemplo, customtext_resource group_policy_hostname ou resource group_hostname. Por padrão, um carimbo de data/hora é anexado ao nome do instantâneo.
+
+.. Especifique os destinos dos ficheiros de registo de arquivo que não pretende efetuar uma cópia de segurança.
++
+
+NOTE: Você deve usar exatamente o mesmo destino que foi definido no aplicativo, incluindo o prefixo, se necessário.
+
+
+
+. Na página recursos, selecione o nome do host do banco de dados na lista suspensa *Host*.
++
+
+NOTE: Os recursos são listados na seção recursos disponíveis somente se o recurso for descoberto com êxito. Se você tiver adicionado recursos recentemente, eles aparecerão na lista de recursos disponíveis somente depois de atualizar sua lista de recursos.
+
+. Selecione os recursos do ASA R2 na seção recursos disponíveis e mova-os para a seção recursos selecionados.
+. Na página Configurações do aplicativo, selecione a opção de backup.
+. Na página políticas, execute as seguintes etapas:
++
+.. Selecione uma ou mais políticas na lista suspensa.
++
+
+NOTE: Você também pode criar uma política clicando image:../media/add_policy_from_resourcegroup.gif["adicionar símbolo"]em .
+
++
+Na seção Configurar agendas para políticas selecionadas, as políticas selecionadas são listadas.
+
+.. Clique image:../media/add_policy_from_resourcegroup.gif["adicionar símbolo"] na coluna Configurar agendas para a política para a qual você deseja configurar um agendamento.
+.. Na janela Adicionar programações para a política _policy_name_, configure a programação e clique em *OK*.
++
+Onde, _policy_name_ é o nome da política selecionada.
+
++
+As programações configuradas são listadas na coluna agendas aplicadas.
+
+
+
++
+As agendas de backup de terceiros não são suportadas quando sobrepõem-se às agendas de backup do SnapCenter.
+
+. Se a proteção secundária estiver ativada para a política selecionada, a página proteção secundária será exibida e você precisará executar as seguintes etapas:
++
+.. Selecione o tipo da política de replicação.
++
+
+NOTE: A política de replicação síncrona não é suportada.
+
+.. Especifique o sufixo do grupo de consistência que você deseja usar.
+.. Nos drop-down Cluster de destino e SVM de destino, selecione o cluster com peering e SVM que você deseja usar.
++
+
+NOTE: O peering de cluster e SVM não é compatível com o SnapCenter. Você deve usar o Gerenciador de sistema ou os CLIs ONTAP para executar peering de cluster e SVM.
+
+
+
+
+
+
+NOTE: Se os recursos já estiverem protegidos fora do SnapCenter, esses recursos serão exibidos na seção recursos protegidos secundários.
+
+. Na página Verificação, execute as seguintes etapas:
++
+.. Clique em *carregar localizadores* para carregar os volumes SnapMirror ou SnapVault para executar a verificação no armazenamento secundário.
+.. Clique image:../media/add_policy_from_resourcegroup.gif["adicionar símbolo"] na coluna Configurar agendas para configurar o agendamento de verificação para todos os tipos de agendamento da política.
+.. Na caixa de diálogo Adicionar agendamentos de verificação policy_name , execute as seguintes ações:
++
+|===
+| Se você quiser... | Faça isso... 
+
+
+ a| 
+Execute a verificação após a cópia de segurança
+ a| 
+Selecione *Executar verificação após backup*.
+
+
+
+ a| 
+Marque uma verificação
+ a| 
+Selecione *Executar verificação agendada* e, em seguida, selecione o tipo de agendamento na lista suspensa.
+
+|===
+.. Selecione *verificar no local secundário* para verificar os backups no sistema de armazenamento secundário.
+.. Clique em *OK*.
++
+As programações de verificação configuradas são listadas na coluna agendas aplicadas.
+
+
+
+. Na página notificação, na lista suspensa *preferência de e-mail*, selecione os cenários nos quais você deseja enviar os e-mails.
++
+Você também deve especificar os endereços de e-mail do remetente e do destinatário e o assunto do e-mail. Se quiser anexar o relatório da operação realizada no grupo de recursos, selecione *Anexar Relatório de trabalho*.
+
++
+
+NOTE: Para notificação por e-mail, você deve ter especificado os detalhes do servidor SMTP usando a GUI ou o comando PowerShell SET-SmtpServer.
+
+. Revise o resumo e clique em *Finish*.
+

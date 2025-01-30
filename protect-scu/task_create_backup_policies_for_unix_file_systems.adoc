@@ -19,14 +19,77 @@ Antes de usar o SnapCenter para fazer backup de sistemas de arquivos Unix, você
 * Reveja os pré-requisitos e limitações específicos da sincronização ativa do SnapMirror. Para obter informações, https://docs.netapp.com/us-en/ontap/smbc/considerations-limits.html#volumes["Limites de objetos para sincronização ativa do SnapMirror"] consulte .
 
 
+.Sobre esta tarefa
+* SnapLock
++
+** Se a opção 'reter as cópias de backup para um número específico de dias' estiver selecionada, o período de retenção do SnapLock deve ser menor ou igual aos dias de retenção mencionados.
++
+Especificar um período de bloqueio instantâneo impede a exclusão dos instantâneos até que o período de retenção expire. Isso pode levar a reter um número maior de instantâneos do que a contagem especificada na política.
+
++
+Para a versão ONTAP 9.12,1 e inferior, os clones criados a partir dos instantâneos do Vault do SnapLock como parte da restauração herdarão o tempo de expiração do SnapLock Vault. O administrador do storage deve limpar manualmente os clones após o tempo de expiração do SnapLock.
+
+
+
+
+
 .Passos
 . No painel de navegação esquerdo, clique em *Configurações*.
 . Na página Configurações, clique em *políticas*.
 . Selecione *Unix File Systems* na lista suspensa.
 . Clique em *novo*.
-. Na página Nome, insira o nome e a descrição da política.
-. Especifique a frequência da programação selecionando *on demand*, *Hourly*, *Daily*, *Weekly* ou *Monthly*.
-. Na página retenção, especifique as configurações de retenção para o tipo de backup e o tipo de agendamento selecionado na página tipo de backup:
+. Na página Nome, insira o nome e os detalhes da política.
+. Na página Backup e replicação, execute as seguintes ações:
++
+.. Especifique as definições de cópia de segurança.
+.. Especifique a frequência da programação selecionando *on demand*, *Hourly*, *Daily*, *Weekly* ou *Monthly*.
+.. Selecione uma etiqueta Snapshot.
++
+Dependendo do rótulo de captura instantânea selecionado, o ONTAP aplica a política de retenção de snapshot secundária que corresponde ao rótulo.
+
++
+
+NOTE: Se você selecionou *Atualizar SnapMirror depois de criar uma cópia Snapshot local*, você pode especificar opcionalmente o rótulo de política secundária. No entanto, se você selecionou *Atualizar SnapVault depois de criar uma cópia Snapshot local*, especifique o rótulo de política secundária.
+
+.. Na seção Selecionar opções de replicação secundária, selecione uma ou ambas as seguintes opções de replicação secundária:
++
+
+NOTE: Você deve selecionar as opções de replicação secundária para *período de bloqueio de cópia snapshot secundário* para entrar em vigor. A opção *período de bloqueio de cópia de instantâneo secundário* está disponível na página retenção.
+
++
+|===
+| Para este campo... | Faça isso... 
+
+
+ a| 
+Atualize o SnapMirror depois de criar uma cópia Snapshot local
+ a| 
+Selecione este campo para criar cópias espelhadas dos conjuntos de backup em outro volume (replicação SnapMirror).
+
+Esta opção deve estar ativada para a sincronização ativa do SnapMirror.
+
+
+
+ a| 
+Atualize o SnapVault depois de criar uma cópia Snapshot local
+ a| 
+Selecione esta opção para executar a replicação de backup disco a disco (backups SnapVault).
+
+
+
+ a| 
+Contagem de tentativas de erro
+ a| 
+Introduza o número máximo de tentativas de replicação que podem ser permitidas antes de a operação parar.
+
+|===
++
+
+NOTE: Você deve configurar a política de retenção do SnapMirror no ONTAP para o storage secundário para evitar atingir o limite máximo de snapshots no storage secundário.
+
+
+
+. Na página retenção, especifique as configurações de retenção para o tipo de backup e o tipo de agendamento selecionado na página Backup e replicação:
 +
 |===
 
@@ -54,54 +117,32 @@ Mantenha as capturas instantâneas por um determinado número de dias
  a| 
 Selecione *manter cópias Snapshot para* e especifique o número de dias para os quais deseja manter as capturas instantâneas antes de excluí-las.
 
+
+
+ a| 
+Período de bloqueio da cópia Snapshot principal
+ a| 
+Se desejar especificar o período de bloqueio de instantâneos para o primário, selecione *período de bloqueio de cópia de instantâneo primário* e selecione dias, meses ou anos.
+
+O período de retenção do SnapLock deve ser inferior a 100 anos.
+
+
+
+ a| 
+Período de bloqueio secundário de instantâneos
+ a| 
+Selecione *período de bloqueio de cópia instantânea secundária* e selecione dias, meses ou anos.
+
+Para que essa opção seja efetiva, você deve executar as seguintes tarefas:
+
+** Selecione o *período de bloqueio de cópia de instantâneo primário*.
+** Selecione uma ou ambas as opções de replicação secundária.
+
+
 |===
 +
 
 NOTE: Você pode reter backups de log de arquivamento somente se tiver selecionado os arquivos de log de arquivamento como parte do backup.
-
-. Na página replicação, especifique as configurações de replicação:
-+
-|===
-| Para este campo... | Faça isso... 
-
-
- a| 
-Atualize o SnapMirror depois de criar uma cópia Snapshot local
- a| 
-Selecione este campo para criar cópias espelhadas dos conjuntos de backup em outro volume (replicação SnapMirror).
-
-Esta opção deve estar ativada para a sincronização ativa do SnapMirror.
-
-
-
- a| 
-Atualize o SnapVault depois de criar uma cópia Snapshot local
- a| 
-Selecione esta opção para executar a replicação de backup disco a disco (backups SnapVault).
-
-
-
- a| 
-Etiqueta de política secundária
- a| 
-Selecione uma etiqueta Snapshot.
-
-Dependendo do rótulo de captura instantânea selecionado, o ONTAP aplica a política de retenção de snapshot secundária que corresponde ao rótulo.
-
-
-NOTE: Se você selecionou *Atualizar SnapMirror depois de criar uma cópia Snapshot local*, você pode especificar opcionalmente o rótulo de política secundária. No entanto, se você selecionou *Atualizar SnapVault depois de criar uma cópia Snapshot local*, especifique o rótulo de política secundária.
-
-
-
- a| 
-Contagem de tentativas de erro
- a| 
-Introduza o número máximo de tentativas de replicação que podem ser permitidas antes de a operação parar.
-
-|===
-+
-
-NOTE: Você deve configurar a política de retenção do SnapMirror no ONTAP para o storage secundário para evitar atingir o limite máximo de snapshots no storage secundário.
 
 . Na página Script, insira o caminho e os argumentos do prescritor ou postscript que você deseja executar antes ou depois da operação de backup, respetivamente.
 +

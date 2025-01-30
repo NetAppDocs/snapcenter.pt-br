@@ -25,7 +25,7 @@ NOTE: Os clones PDB não são exibidos na exibição de inventário ou recursos.
 . No painel de navegação esquerdo, clique em *Resources* e selecione o plug-in apropriado na lista.
 . Selecione a base de dados de contentor de origem (CDB) na vista de grupo de recursos ou recursos.
 . Na exibição Gerenciar cópias, selecione *clones* nos sistemas de storage primário ou secundário (espelhado ou replicado).
-. Selecione o clone PDB (targetCDB:PDBClone) e clique image:../media/split_cone.gif[""]em .
+. Selecione o clone PDB (targetCDB:PDBClone) e clique image:../media/split_clone.gif["dividir clone"]em .
 . Revise o tamanho estimado do clone que deve ser dividido e o espaço necessário disponível no agregado e clique em *Iniciar*.
 . Monitorize o progresso da operação clicando em *Monitor* > *trabalhos*.
 

@@ -46,7 +46,7 @@ NOTE: Deve alocar espaço em disco suficiente e monitorizar o consumo de armazen
  a| 
 Pacotes de software necessários
  a| 
-* DOTNET Core começando com a versão 8.0.5 e incluindo todos os patches .NET 8 subsequentes
+* Pacote de Hospedagem ASP.NET Core Runtime 8.0.12 (e todos os patches 8,0.x subsequentes)
 * PowerShell Core 7.4.2
 
 

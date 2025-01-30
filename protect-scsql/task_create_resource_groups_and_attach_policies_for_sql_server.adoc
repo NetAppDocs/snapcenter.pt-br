@@ -78,12 +78,12 @@ NOTE: Se você tiver adicionado recursos recentemente, eles aparecerão na lista
 .. Selecione uma ou mais políticas na lista suspensa.
 +
 
-NOTE: Você também pode criar uma política clicando em *image:../media/add_policy_from_resourcegroup.gif[""]*.
+NOTE: Você também pode criar uma política clicando em *image:../media/add_policy_from_resourcegroup.gif["adicionar grupo de recursos do formulário de política"]*.
 
 +
 Na seção Configurar agendas para políticas selecionadas, as políticas selecionadas são listadas.
 
-.. Na seção Configurar agendas para políticas selecionadas, clique em *image:../media/add_policy_from_resourcegroup.gif[""]* na coluna Configurar agendas para a política para a qual você deseja configurar o agendamento.
+.. Na seção Configurar agendas para políticas selecionadas, clique em *image:../media/add_policy_from_resourcegroup.gif["adicionar grupo de recursos do formulário de política"]* na coluna Configurar agendas para a política para a qual você deseja configurar o agendamento.
 .. Na caixa de diálogo Adicionar agendas para política _policy_name_, configure a programação especificando a data de início, data de expiração e frequência e clique em *OK*.
 +
 Você deve fazer isso para cada frequência listada na política. As programações configuradas são listadas na coluna agendas aplicadas na seção *Configurar programações para políticas selecionadas*.
@@ -111,7 +111,7 @@ A lista inclui todos os servidores SQL adicionados no SnapCenter. Você pode sel
 NOTE: A versão do servidor de verificação deve corresponder à versão e edição do servidor SQL que está hospedando o banco de dados principal.
 
 .. Clique em *Load Locators* para carregar os volumes SnapMirror e SnapVault para executar a verificação no armazenamento secundário.
-.. Selecione a política para a qual pretende configurar o seu agendamento de verificação e, em seguida, clique em * *image:../media/add_policy_from_resourcegroup.gif[""].
+.. Selecione a política para a qual pretende configurar o seu agendamento de verificação e, em seguida, clique em * *image:../media/add_policy_from_resourcegroup.gif["adicionar grupo de recursos do formulário de política"].
 .. Na caixa de diálogo Adicionar agendamentos de verificação policy_name , execute as seguintes ações:
 +
 |===

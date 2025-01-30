@@ -39,9 +39,6 @@ NOTE: Você deve repetir este comando para cada permissão.
 
 Existem vários comandos de CLI do ONTAP que você deve executar para criar funções SVM e atribuir permissões.
 
-
-NOTE: A partir do 5,0, os usuários de administração do vserver só são suportados com APIS REST. Se você quiser criar funções usando um administrador que não seja vserver, use o ZAPI.
-
 * `security login role create -vserver SVM_Name -role SVM_Role_Name -cmddirname "snapmirror list-destinations" -access all`
 * `security login role create -vserver SVM_Name -role SVM_Role_Name -cmddirname "event generate-autosupport-log" -access all`
 * `security login role create -vserver SVM_Name -role SVM_Role_Name -cmddirname "job history show" -access all`

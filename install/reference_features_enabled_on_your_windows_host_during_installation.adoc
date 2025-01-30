@@ -63,7 +63,7 @@ Servidor Web
 +
 ** Extensão .NET 4,5
 ** Inicialização da aplicação
-** Pacote de Hospedagem ASP.NET Core começando com a versão 8.0.5 e incluindo todos os patches .NET 8 subsequentes
+** Pacote de Hospedagem ASP.NET Core Runtime 8.0.12 (e todos os patches 8,0.x subsequentes)
 ** O lado do servidor inclui
 ** Protocolo WebSocket
 
@@ -87,10 +87,9 @@ Scripts e ferramentas de gerenciamento do IIS
 
 
  a| 
-O NET Framework 8.0.5 é um dos nossos selecionados Jogos de Plataforma
+O NET Framework 8.0.12 é um dos nossos selecionados Jogos de Plataforma
  a| 
-* .NET Framework começando com a versão 8.0.5 e incluindo todos os patches .NET 8 subsequentes
-* ASP.NET começando com a versão 8.0.5 e incluindo todos os patches .NET 8 subsequentes
+* Pacote de Hospedagem ASP.NET Core Runtime 8.0.12 (e todos os patches 8,0.x subsequentes)
 * Windows Communication Foundation (WCF) HTTP Activation45
 +
 ** Ativação TCP

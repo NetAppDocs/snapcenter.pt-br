@@ -31,10 +31,10 @@ As informações sobre os parâmetros que podem ser usados com o cmdlet e suas d
 
 O host de guia hosts gerenciados exibe um cadeado e a cor do cadeado indica o status da conexão entre o servidor SnapCenter e o host do plug-in.
 
-* image:../media/enable_ca_issues_icon.png[""]* * Indica que não há certificado CA habilitado ou atribuído ao host do plug-in.
-* image:../media/enable_ca_good_icon.png[""]* * Indica que o certificado da CA foi validado com êxito.
-* image:../media/enable_ca_failed_icon.png[""]* * Indica que o certificado da CA não pôde ser validado.
-* image:../media/enable_ca_undefined_icon.png[""]* * indica que as informações de conexão não puderam ser recuperadas.
+* image:../media/enable_ca_issues_icon.png["ícone de problemas"]* * Indica que não há certificado CA habilitado ou atribuído ao host do plug-in.
+* image:../media/enable_ca_good_icon.png["bom ícone"]* * Indica que o certificado da CA foi validado com êxito.
+* image:../media/enable_ca_failed_icon.png["ícone com falha"]* * Indica que o certificado da CA não pôde ser validado.
+* image:../media/enable_ca_undefined_icon.png["ícone indefinido"]* * indica que as informações de conexão não puderam ser recuperadas.
 
 
 

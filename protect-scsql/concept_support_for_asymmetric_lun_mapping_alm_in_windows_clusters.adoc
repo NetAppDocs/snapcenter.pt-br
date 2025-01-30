@@ -21,7 +21,7 @@ Segue-se um exemplo de uma configuração ALM:
 * FCI para alta disponibilidade local (HA) e Availability Group (AG) para recuperação de desastres com uma instância autônoma no local de recuperação de desastres
 
 
-image::../media/asymmetric_lun_mapping_diagram.gif[mapeamento lun]
+image::../media/asymmetric_lun_mapping_diagram.gif[mapeamento lun assimétrico]
 
 O storage no data center principal é compartilhado entre os nós de FCI presentes no data center principal. O storage no data center de recuperação de desastres é compartilhado entre os nós FCI presentes no data center de recuperação de desastres.
 

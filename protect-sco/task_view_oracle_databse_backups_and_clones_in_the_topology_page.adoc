@@ -80,11 +80,11 @@ NOTE: Não é possível renomear ou excluir backups que estão no armazenamento 
 ** Se você catalogou o backup usando o Oracle Recovery Manager (RMAN), não será possível renomear esses backups catalogados.
 
 
-. Se quiser excluir um clone, selecione-o na tabela e clique image:../media/delete_icon.gif[""]em .
+. Se quiser excluir um clone, selecione-o na tabela e clique image:../media/delete_icon.gif["eliminar ícone"]em .
 
 
 Se o valor atribuído ao SnapmirrorStatusUpdateWaitTime for menor, as cópias de backup Mirror e Vault não serão listadas na página de topologia, mesmo que os volumes de dados e log sejam protegidos com êxito. Você deve aumentar o valor atribuído ao SnapmirrorStatusUpdateWaitTime usando o cmdlet _Set-SmConfigSettings_ PowerShell.
 
 As informações sobre os parâmetros que podem ser usados com o comando e suas descrições podem ser obtidas executando Get-Help _command_name_.
 
-Em alternativa, pode também consultar a https://library.netapp.com/ecm/ecm_download_file/ECMLP3323470["Guia de Referência de comandos do software SnapCenter"^] ou https://docs.netapp.com/us-en/snapcenter-cmdlets/index.html["Guia de referência de cmdlet do software SnapCenter"^].
+Em alternativa, pode também consultar a https://library.netapp.com/ecm/ecm_download_file/ECMLP3337666["Guia de Referência de comandos do software SnapCenter"^] ou https://docs.netapp.com/us-en/snapcenter-cmdlets/index.html["Guia de referência de cmdlet do software SnapCenter"^].

@@ -62,7 +62,7 @@ A página de topologia do grupo de recursos ou recursos é exibida.
 +
 Não é possível excluir os backups que estão no sistema de storage secundário.
 
-. Selecione a cópia de segurança e, em seguida, clique image:../media/delete_icon.gif[""]em .
+. Selecione a cópia de segurança e, em seguida, clique image:../media/delete_icon.gif["eliminar ícone"]em .
 +
 Se você estiver excluindo um backup de banco de dados SAP HANA, os catálogos associados do SAP HANA do backup também serão excluídos.
 

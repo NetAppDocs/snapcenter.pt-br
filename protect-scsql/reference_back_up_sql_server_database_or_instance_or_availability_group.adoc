@@ -19,7 +19,7 @@ As operações de backup e restauração não podem ser executadas simultaneamen
 
 O fluxo de trabalho a seguir mostra a sequência na qual você deve executar as operações de backup:
 
-image::../media/scsql_backup_workflow.png[Fluxo de trabalho de backup SCSQL]
+image::../media/scsql_backup_workflow.gif[Fluxo de trabalho de backup SCSQL]
 
 
 NOTE: As opções fazer backup agora, restaurar, gerenciar backups e clonar na página recursos serão desativadas se você selecionar um LUN que não seja NetApp, um banco de dados corrompido ou um banco de dados que está sendo restaurado.

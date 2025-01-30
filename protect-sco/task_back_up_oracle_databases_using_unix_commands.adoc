@@ -30,7 +30,7 @@ NOTE: A sessão de ligação é válida apenas durante 24 horas. No entanto, voc
 
 Você deve executar os seguintes comandos para estabelecer a conexão com o servidor SnapCenter, descobrir as instâncias de banco de dados Oracle, adicionar política e grupo de recursos, fazer backup e verificar o backup.
 
-As informações sobre os parâmetros que podem ser usados com o comando e suas descrições podem ser obtidas executando Get-Help _command_name_. Em alternativa, pode também consultar o https://library.netapp.com/ecm/ecm_download_file/ECMLP3323470["Guia de Referência de comandos do software SnapCenter"^].
+As informações sobre os parâmetros que podem ser usados com o comando e suas descrições podem ser obtidas executando Get-Help _command_name_. Em alternativa, pode também consultar o https://library.netapp.com/ecm/ecm_download_file/ECMLP3337666["Guia de Referência de comandos do software SnapCenter"^].
 
 *Passos*
 

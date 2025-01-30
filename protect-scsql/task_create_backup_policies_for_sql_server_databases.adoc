@@ -52,10 +52,6 @@ Especificar um período de bloqueio instantâneo impede a exclusão dos instant�
 +
 Para a versão ONTAP 9.12,1 e inferior, os clones criados a partir dos instantâneos do Vault do SnapLock como parte da restauração herdarão o tempo de expiração do SnapLock Vault. O administrador do storage deve limpar manualmente os clones após o tempo de expiração do SnapLock.
 
-+
-
-NOTE: As configurações do SnapLock primário são gerenciadas na política de backup do SnapCenter e as configurações do SnapLock secundário são gerenciadas pelo ONTAP.
-
 
 
 
@@ -67,24 +63,26 @@ NOTE: As configurações do SnapLock primário são gerenciadas na política de 
 . No painel de navegação esquerdo, selecione *Configurações*.
 . Na página Configurações, selecione *políticas*.
 . Selecione *novo*.
-. Na página *Nome*, insira o nome e a descrição da política.
+. Na página *Nome*, insira o nome e os detalhes da política.
 
 
 
 
-== Passo 2: Configurar opções de backup
+== Passo 2: Configurar opções de política
 
-. Escolha seu tipo de backup
-
-
+. Na página tipo de política, execute as seguintes etapas:
++
+.. Selecione o tipo de armazenamento.
+.. Selecione o escopo da política.
++
 [role="tabbed-block"]
 ====
 .Backup completo e backup de log
 --
 Faça backup dos arquivos de banco de dados e logs de transação e truncar os logs de transação.
 
-. Selecione *cópia de segurança completa e cópia de segurança de registo*.
-. Insira o número máximo de bancos de dados que devem ser copiados para cada Snapshot.
+... Selecione *cópia de segurança completa e cópia de segurança de registo*.
+... Insira o número máximo de bancos de dados que devem ser copiados para cada Snapshot.
 +
 
 NOTE: Você deve aumentar esse valor se quiser executar várias operações de backup simultaneamente.
@@ -96,8 +94,8 @@ NOTE: Você deve aumentar esse valor se quiser executar várias operações de b
 --
 Faça uma cópia de segurança dos ficheiros da base de dados.
 
-. Selecione *cópia de segurança completa*.
-. Insira o número máximo de bancos de dados que devem ser copiados para cada Snapshot. O valor padrão é 100
+... Selecione *cópia de segurança completa*.
+... Insira o número máximo de bancos de dados que devem ser copiados para cada Snapshot. O valor padrão é 100
 +
 
 NOTE: Você deve aumentar esse valor se quiser executar várias operações de backup simultaneamente.
@@ -107,14 +105,14 @@ NOTE: Você deve aumentar esse valor se quiser executar várias operações de b
 --
 .Backup de log
 --
-. Faça backup dos logs de transação.
-. Selecione *Log backup*.
+... Faça backup dos logs de transação.
+... Selecione *Log backup*.
 
 
 --
 .Cópia de segurança apenas
 --
-. Se você estiver fazendo backup de seus recursos usando outro aplicativo de backup, selecione *Backup somente cópia*.
+... Se você estiver fazendo backup de seus recursos usando outro aplicativo de backup, selecione *Backup somente cópia*.
 
 
 Manter os logs de transação intactos permite que qualquer aplicativo de backup restaure os bancos de dados. Você normalmente não deve usar a opção somente cópia em nenhuma outra circunstância.
@@ -124,6 +122,14 @@ NOTE: O Microsoft SQL não suporta a opção *cópia apenas de backup* juntament
 
 --
 ====
+
+
+
+
+
+
+== Etapa 3: Configurar as configurações do Grupo de disponibilidade
+
 . Na seção Configurações do Grupo de disponibilidade, execute as seguintes ações:
 +
 .. Backup apenas na réplica de backup preferencial.
@@ -147,12 +153,17 @@ Por padrão, a prioridade mínima é 1 e a prioridade máxima é 100.
 
 NOTE: Nas configurações de cluster, os backups são retidos em cada nó do cluster de acordo com as configurações de retenção definidas na política. Se o nó proprietário do AG for alterado, os backups serão feitos de acordo com as configurações de retenção e os backups do nó proprietário anterior serão mantidos. A retenção para AG é aplicável apenas no nível do nó.
 
-. Programe a frequência de backup para esta política. Especifique o tipo de agendamento selecionando *on demand*, *Hourly*, *Daily*, *Weekly* ou *Monthly*.
+
+
+
+
+== Etapa 4: Configurar as configurações Snapshot e replicação
+
+. Na página Snapshot e replicação, execute as seguintes etapas:
++
+.. Especifique o tipo de agendamento selecionando *on demand*, *Hourly*, *Daily*, *Weekly* ou *Monthly*.
 +
 Você só pode selecionar um tipo de agendamento para uma política.
-
-+
-image:../media/backup_settings.gif["Ecrã de definições de cópia de segurança."]
 
 +
 
@@ -166,11 +177,11 @@ NOTE: Se você tiver agendado para as 2:00 da manhã, o horário não será acio
 
 
 
-== Etapa 3: Configurar as configurações de retenção
 
-Na página retenção, dependendo do tipo de backup selecionado na página tipo de backup, execute uma ou mais das seguintes ações:
 
-. Na seção Configurações de retenção para a operação de restauração de até o minuto, execute uma das seguintes ações:
+== Passo 5: Configure as configurações de retenção atualizadas
+
+. Na seção Configurações de retenção atualizadas, dependendo do tipo de backup selecionado na página tipo de backup, execute uma ou mais das seguintes ações:
 
 
 [role="tabbed-block"]
@@ -192,11 +203,15 @@ Guarde as cópias de backup por um número específico de dias.
 
 --
 ====
-. Na seção *Configurações completas de retenções de backup* para as configurações de retenção sob demanda, execute as seguintes ações:
+
+
+== Etapa 6: Configurar as configurações de instantâneo
+
+. Para as configurações de retenção de backup completo, execute as seguintes ações:
 +
-.. Especifique o número total de instantâneos a manter
+.. Especifique o número total de instantâneos a serem mantidos
 +
-... Para especificar o número de instantâneos a serem mantidos, selecione *Total de cópias Snapshot a serem mantidas*.
+... Para especificar o número de instantâneos a serem mantidos, selecione *cópias a serem mantidas*.
 ... Se o número de instantâneos exceder o número especificado, os instantâneos serão excluídos com as cópias mais antigas excluídas primeiro.
 
 
@@ -205,65 +220,61 @@ Guarde as cópias de backup por um número específico de dias.
 
 
 
-IMPORTANT: Por padrão, o valor da contagem de retenção é definido como 2. Se você definir a contagem de retenção como 1, a operação de retenção poderá falhar porque o primeiro snapshot é o snapshot de referência para a relação SnapVault até que um snapshot mais recente seja replicado para o destino.
+IMPORTANT: Por padrão, o valor da contagem de retenção é definido como 2. Se você definir a contagem de retenção como 1, a operação de retenção pode falhar porque o primeiro snapshot é o snapshot de referência para a relação SnapVault até que um snapshot mais recente seja replicado para o destino.
 
 
 NOTE: O valor máximo de retenção é 1018 para recursos no ONTAP 9.4 ou posterior e 254 para recursos no ONTAP 9.3 ou anterior. Os backups falharão se a retenção for definida para um valor maior do que o que a versão subjacente do ONTAP suporta.
 
-. Período de tempo para manter instantâneos
+. Duração de tempo para manter instantâneos
 +
-.. Se você quiser especificar o número de dias para os quais deseja manter as capturas instantâneas antes de excluí-las, selecione *manter cópias snapshot para*.
+.. Se você quiser especificar o número de dias para os quais deseja manter os snapshots antes de excluí-los, selecione *reter cópias para*.
 
 
-. Se desejar especificar o período de bloqueio de instantâneos, selecione *período de bloqueio de cópias instantâneas* e selecione dias, meses ou anos.
-+
-O período de retenção do SnapLock deve ser inferior a 100 anos.
-
-
-
-. Na seção *Configurações completas de retenções de backup* para as configurações de retenção horária, diária, semanal e mensal, especifique as configurações de retenção para o tipo de agendamento selecionado na página tipo de backup.
-+
-.. Especifique o número total de instantâneos a manter
-+
-... Para especificar o número de instantâneos a serem mantidos, selecione *Total de cópias Snapshot a serem mantidas*. Se o número de instantâneos exceder o número especificado, os instantâneos serão excluídos com as cópias mais antigas excluídas primeiro.
-
-
-
-
-
-
-
-IMPORTANT: Você deve definir a contagem de retenção como 2 ou superior, se quiser habilitar a replicação do SnapVault. Se você definir a contagem de retenção como 1, a operação de retenção poderá falhar porque o primeiro snapshot é o snapshot de referência para a relação SnapVault até que um snapshot mais recente seja replicado para o destino.
-
-. Período de tempo para manter instantâneos
-+
-.. Para especificar o número de dias para os quais você deseja manter os instantâneos antes de excluí-los, selecione *manter cópias snapshot para*.
-
-
-. Se desejar especificar o período de bloqueio de instantâneos, selecione *período de bloqueio de cópias instantâneas* e selecione dias, meses ou anos.
+. Se você quiser especificar o período de bloqueio de cópia de snapshot principal, selecione *período de bloqueio de cópia de snapshot primário* e selecione dias, meses ou anos.
 +
 O período de retenção do SnapLock deve ser inferior a 100 anos.
 
+. Se pretender especificar o período de bloqueio de cópia de instantâneo secundário, selecione *período de bloqueio de cópia de instantâneo secundário* e selecione dias, meses ou anos.
 +
-Por padrão, a retenção de instantâneos de log é definida como 7 dias. Use o cmdlet Set-SmPolicy para alterar a retenção de Snapshot de log.
+Para que essa opção seja efetiva, você deve executar as seguintes tarefas:
 
-
-
++
+** Selecione o *período de bloqueio de cópia de instantâneo primário*.
+** Selecione uma ou ambas as opções de replicação secundária.
++
 Este exemplo define a retenção de instantâneos de log como 2:
 
++
 .Mostrar exemplo
 []
 ====
 Set-SmPolicy -policyname 'newpol' -PolicyType 'Backup' -PluginPolicyType 'SCSQL' -sqlbackuptype 'FullBackupAndLogBackup' -RetentonSettings 2 [BackupType] [DADOS];ScheduleType 'Hourly';RetentyType 2 2
 
 ====
++
 https://kb.netapp.com/Advice_and_Troubleshooting/Data_Protection_and_Security/SnapCenter/SnapCenter_retains_Snapshot_copies_of_the_database["O SnapCenter retém cópias Snapshot do banco de dados"]
 
 
 
-== Etapa 4: Configurar as configurações de replicação
+. Selecione uma etiqueta Snapshot
++
+Dependendo do rótulo de captura instantânea selecionado, o ONTAP aplica a política de retenção de snapshot secundária que corresponde ao rótulo.
 
-. Na página replicação, especifique a replicação para o sistema de storage secundário:
++
+
+NOTE: Se você selecionou *Atualizar SnapMirror depois de criar uma cópia Snapshot local*, você pode especificar opcionalmente o rótulo de política secundária. No entanto, se você selecionou *Atualizar SnapVault depois de criar uma cópia Snapshot local*, especifique o rótulo de política secundária.
+
+
+
+
+
+== Etapa 7: Configurar opções de replicação secundária
+
+. Na seção Selecionar opções de replicação secundária, selecione uma ou ambas as seguintes opções de replicação secundária:
++
+
+NOTE: Você deve selecionar as opções de replicação secundária para *período de bloqueio de cópia snapshot secundário* para entrar em vigor.
+
 
 
 [role="tabbed-block"]
@@ -280,7 +291,7 @@ Esta opção deve estar ativada para a sincronização ativa do SnapMirror.
 Durante a replicação secundária, o tempo de expiração do SnapLock carrega o tempo de expiração do SnapLock primário. Clicar no botão *Atualizar* na página topologia atualiza o tempo de expiração do SnapLock secundário e primário que são recuperados do ONTAP.
 
 +
-link:task_view_sql_server_backups_and_clones_in_the_topology_page.html["Veja os backups e clones do SQL Server na página topologia"]Consulte .
+link:../protect-scsql/task_view_sql_server_backups_and_clones_in_the_topology_page.html["Veja os backups e clones do SQL Server na página topologia"]Consulte .
 
 
 
@@ -300,20 +311,9 @@ Quando o SnapLock é configurado apenas no secundário do ONTAP conhecido como S
 Para obter mais informações sobre o SnapLock Vault, consulte https://docs.netapp.com/us-en/ontap/snaplock/commit-snapshot-copies-worm-concept.html["Armazene cópias Snapshot em WORM em um destino de cofre"]
 
 +
-link:task_view_sql_server_backups_and_clones_in_the_topology_page.html["Veja os backups e clones do SQL Server na página topologia"]Consulte .
+link:../protect-scsql/task_view_sql_server_backups_and_clones_in_the_topology_page.html["Veja os backups e clones do SQL Server na página topologia"]Consulte .
 
 
-
---
-.Etiqueta de política secundária
---
-. Selecione uma etiqueta Snapshot.
-
-
-Dependendo do rótulo de captura instantânea selecionado, o ONTAP aplica a política de retenção de snapshot secundária que corresponde ao rótulo.
-
-
-NOTE: Se você selecionou *Atualizar SnapMirror depois de criar uma cópia Snapshot local*, você pode especificar opcionalmente o rótulo de política secundária. No entanto, se você selecionou *Atualizar SnapVault depois de criar uma cópia Snapshot local*, especifique o rótulo de política secundária.
 
 --
 .Contagem de tentativas de erro
@@ -325,7 +325,7 @@ NOTE: Se você selecionou *Atualizar SnapMirror depois de criar uma cópia Snaps
 ====
 
 
-== Passo 5: Configurar definições de script
+== Passo 8: Configurar definições de script
 
 . Na página Script, insira o caminho e os argumentos do prescritor ou postscript que devem ser executados antes ou depois da operação de backup, respetivamente.
 +
@@ -343,7 +343,7 @@ NOTE: Você deve configurar a política de retenção SnapMirror no ONTAP para q
 
 
 
-== Etapa 6: Configurar as configurações de verificação
+== Etapa 9: Configurar as configurações de verificação
 
 Na página Verificação, execute as seguintes etapas:
 
@@ -387,7 +387,7 @@ NOTE: O caminho de prescripts ou postscripts não deve incluir unidades ou compa
 
 
 
-== Passo 7: Rever resumo
+== Passo 10: Rever resumo
 
 . Revise o resumo e selecione *Finish*.
 

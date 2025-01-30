@@ -16,7 +16,7 @@ Se um recurso não fizer parte de qualquer grupo de recursos, você poderá faze
 .Passos
 . No painel de navegação esquerdo, selecione *Resources* e o plug-in apropriado na lista.
 . Na página recursos, selecione *caminho* na lista Exibir.
-. Clique image:../media/filter_icon.png["Ícone de filtro"]em e selecione o nome do host e os sistemas de arquivos Unix para filtrar os recursos.
+. Clique image:../media/filter_icon.gif["ícone de filtro"]em e selecione o nome do host e os sistemas de arquivos Unix para filtrar os recursos.
 . Selecione o sistema de ficheiros que pretende efetuar uma cópia de segurança.
 . Na página recursos, você pode executar as seguintes etapas:
 +

@@ -403,9 +403,9 @@ NOTE: Se você especificar detalhes incorretos durante a criação de uma creden
 
 . No painel de navegação esquerdo, clique em *Resources* e selecione o plug-in apropriado na lista.
 . Na página recursos, selecione *Banco de dados* na lista *Exibir*.
-. Clique image:../media/filter_icon.png["ícone de filtro"]em e selecione o nome do host e o tipo de banco de dados para filtrar os recursos.
+. Clique image:../media/filter_icon.gif["ícone de filtro"]em e selecione o nome do host e o tipo de banco de dados para filtrar os recursos.
 +
-Em seguida, pode clicar image:../media/filter_icon.png["ícone de filtro"] para fechar o painel de filtro.
+Em seguida, pode clicar image:../media/filter_icon.gif["ícone de filtro"] para fechar o painel de filtro.
 
 . Selecione o banco de dados e clique em *Configurações do banco de dados* > *Configurar banco de dados*.
 . Na seção Configurar configurações do banco de dados, na lista suspensa *usar credencial existente*, selecione a credencial que deve ser usada para executar tarefas de proteção de dados no banco de dados Oracle.

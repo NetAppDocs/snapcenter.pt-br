@@ -34,14 +34,14 @@ Se um banco de dados não fizer parte de qualquer grupo de recursos, você poder
 . No painel de navegação à esquerda, clique em *recursos* e selecione o *plug-in do Microsoft Exchange Server* na lista.
 . Na página recursos, selecione *Banco de dados* ou *Grupo de disponibilidade de banco de dados* na lista *Exibir*.
 +
-Na página recursos, o image:../media/not_supported_icon.png["armazenamento não suportado"] ícone indica que o banco de dados está em armazenamento não NetApp.
+Na página recursos, o image:../media/not_supported_icon.gif["ícone não suportado"] ícone indica que o banco de dados está em armazenamento não NetApp.
 
 +
 
 NOTE: Em um DAG, se uma cópia de banco de dados ativo estiver em um armazenamento não NetApp e pelo menos uma cópia de banco de dados passivo residir em um armazenamento NetApp, você poderá proteger o banco de dados.
 
 +
-Clique em *image:../media/filter_icon.png[""]* e selecione o nome do host e o tipo de banco de dados para filtrar os recursos. Em seguida, pode clicar emimage:../media/filter_icon.png[""]* * para fechar o painel do filtro.
+Clique em *image:../media/filter_icon.gif["ícone de filtro"]* e selecione o nome do host e o tipo de banco de dados para filtrar os recursos. Em seguida, pode clicar emimage:../media/filter_icon.gif["ícone de filtro"]* * para fechar o painel do filtro.
 
 +
 ** Se você quiser fazer backup de um banco de dados, clique no nome do banco de dados.
@@ -62,7 +62,7 @@ Por exemplo, _customtext_policy_hostname_ ou _resource_hostname_. Por padrão, u
 .. Selecione uma ou mais políticas na lista suspensa.
 +
 
-NOTE: Você também pode criar uma política clicando em *image:../media/add_policy_from_resourcegroup.gif[""]*.
+NOTE: Você também pode criar uma política clicando em *image:../media/add_policy_from_resourcegroup.gif["adicionar grupo de recursos do formulário de política"]*.
 
 +
 
@@ -74,7 +74,7 @@ NOTE: Se uma política contiver a opção *Backup de cópias em servidores a ser
 Na seção Configurar agendas para políticas selecionadas, as políticas selecionadas são listadas.
 
 +
-.. Clique emimage:../media/add_policy_from_resourcegroup.gif[""]* * na coluna Configurar agendas para a política para a qual você deseja configurar um agendamento.
+.. Clique emimage:../media/add_policy_from_resourcegroup.gif["adicionar grupo de recursos do formulário de política"]* * na coluna Configurar agendas para a política para a qual você deseja configurar um agendamento.
 .. Na janela Adicionar programações para a política _policy_name_, configure a programação e clique em *OK*.
 +
 Onde, _policy_name_ é o nome da política selecionada.

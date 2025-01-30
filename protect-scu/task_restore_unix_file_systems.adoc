@@ -17,7 +17,7 @@ Em caso de perda de dados, você pode usar o SnapCenter para restaurar sistemas 
 
 * Você deve executar os seguintes comandos para estabelecer a conexão com o servidor SnapCenter, listar os backups e recuperar suas informações e restaurar o backup.
 +
-As informações sobre os parâmetros que podem ser usados com o comando e suas descrições podem ser obtidas executando Get-Help _command_name_. Em alternativa, pode também consultar o https://library.netapp.com/ecm/ecm_download_file/ECMLP3323470["Guia de Referência de comandos do software SnapCenter"^].
+As informações sobre os parâmetros que podem ser usados com o comando e suas descrições podem ser obtidas executando Get-Help _command_name_. Em alternativa, pode também consultar o https://library.netapp.com/ecm/ecm_download_file/ECMLP3337666["Guia de Referência de comandos do software SnapCenter"^].
 
 * Para a operação de restauração de sincronização ativa do SnapMirror, você deve selecionar o backup no local principal.
 

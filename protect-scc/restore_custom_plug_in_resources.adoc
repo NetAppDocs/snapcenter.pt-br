@@ -16,6 +16,6 @@ O fluxo de trabalho de restauração e recuperação inclui Planejamento, execu�
 .Sobre esta tarefa
 O fluxo de trabalho a seguir mostra a sequência na qual você deve executar a operação de restauração:
 
-image::../media/all_plug_ins_restore_workflow.png[Restaure o fluxo de trabalho]
+image::../media/all_plug_ins_restore_workflow.gif[Restaure o fluxo de trabalho]
 
 Você também pode usar cmdlets do PowerShell manualmente ou em scripts para executar operações de backup, restauração e clone. Para obter informações sobre cmdlets do PowerShell, use a ajuda do cmdlet SnapCenter ou consulte https://docs.netapp.com/us-en/snapcenter-cmdlets/index.html["Guia de referência de cmdlet do software SnapCenter"] .

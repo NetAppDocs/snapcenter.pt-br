@@ -114,6 +114,9 @@ entries:
     url: "/protect-db2/create-backup-policies-for-ibm-db2.html"
   - title: Crie grupos de recursos e anexe políticas
     url: "/protect-db2/create-resource-groups-and-attach-policies.html"
+  - title: Crie grupos de recursos e habilite a proteção secundária para recursos
+      do IBM DB2 em sistemas ASA R2
+    url: "/protect-db2/create-resource-groups-secondary-protection-for-asa-r2-db2-resources.html"
   - title: Crie uma conexão de sistema de armazenamento e uma credencial usando cmdlets
       do PowerShell para IBM DB2
     url: "/protect-db2/create-a-storage-system-connection-and-a-run-as-account-using-powershell-cmdlets-for-ibm-db2.html"

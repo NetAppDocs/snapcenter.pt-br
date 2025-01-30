@@ -31,7 +31,7 @@ Depois de dividir clone2, você pode executar a operação de divisão de clones
 
 . No painel de navegação esquerdo, clique em *Resources* e selecione o plug-in apropriado na lista.
 . Na página recursos, selecione *Banco de dados* na lista *Exibir*.
-. Selecione o recurso clonado (por exemplo, o banco de dados ou LUN) e clique image:../media/split_cone.gif[""]em .
+. Selecione o recurso clonado (por exemplo, o banco de dados ou LUN) e clique image:../media/split_clone.gif["dividir clone"]em .
 . Revise o tamanho estimado do clone que deve ser dividido e o espaço necessário disponível no agregado e clique em *Iniciar*.
 . Monitorize o progresso da operação clicando em *Monitor* > *trabalhos*.
 +

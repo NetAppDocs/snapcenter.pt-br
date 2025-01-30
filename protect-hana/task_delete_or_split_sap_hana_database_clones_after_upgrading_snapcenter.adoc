@@ -25,6 +25,6 @@ Se você quiser localizar o espaço físico de armazenamento dos clones ocultos,
 A página de topologia do recurso é exibida.
 
 . Na visualização Gerenciar cópias, selecione os clones nos sistemas de storage primário ou secundário (espelhado ou replicado).
-. Selecione os clones e clique image:../media/delete_icon.gif["eliminar"] para excluir clones ou clique para image:../media/split_cone.gif["dividir"]dividir os clones.
+. Selecione os clones e clique image:../media/delete_icon.gif["eliminar ícone"] para excluir clones ou clique para image:../media/split_clone.gif["dividir clone"]dividir os clones.
 . Clique em *OK*.
 

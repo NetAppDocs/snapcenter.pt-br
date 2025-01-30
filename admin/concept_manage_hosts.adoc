@@ -322,7 +322,7 @@ Certifique-se de que não estão a ser executados trabalhos ao reiniciar os serv
 . No painel de navegação esquerdo, clique em *hosts*.
 . Na página hosts, clique em *hosts gerenciados*.
 . Na página hosts gerenciados, selecione o host que deseja iniciar.
-. Clique image:../media/more_icon.gif["ícone mais"] e clique em *Start Service* (Iniciar serviço) ou *Restart Service* (Reiniciar serviço).
+. Clique image:../media/more_icon.gif["ícone mais"] no ícone e clique em *Start Service* (Iniciar serviço) ou *Restart Service* (Reiniciar serviço).
 +
 Você pode iniciar ou reiniciar o serviço de vários hosts simultaneamente.
 
@@ -342,7 +342,7 @@ NOTE: Não é possível suspender as programações em um host que está inativo
 . No painel de navegação esquerdo, clique em *hosts*.
 . Na página hosts, clique em *hosts gerenciados*.
 . Na página hosts gerenciados, selecione o host que você deseja suspender.
-. Clique no image:../media/more_icon.gif["ícone mais"]e, em seguida, clique em *Suspend Schedule* para colocar o host para esse plug-in no modo de manutenção.
+. Clique no image:../media/more_icon.gif["ícone mais"] ícone e, em seguida, clique em *Suspend Schedule* para colocar o host para este plug-in no modo de manutenção.
 +
 Você pode suspender a programação de vários hosts simultaneamente.
 

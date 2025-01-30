@@ -32,7 +32,7 @@ A opção *consistência do sistema de arquivos* é aplicável apenas para aplic
 . Na página políticas, execute as seguintes etapas:
 +
 .. Selecione uma ou mais políticas na lista suspensa.
-.. Selecioneimage:../media/add_policy_from_resourcegroup.gif[""] * * na coluna Configurar agendas para a política para a qual você deseja configurar um agendamento.
+.. Selecioneimage:../media/add_policy_from_resourcegroup.gif["adicionar grupo de recursos do formulário de política"] * * na coluna Configurar agendas para a política para a qual você deseja configurar um agendamento.
 .. Na caixa de diálogo Adicionar agendas para política _policy_name_, configure a programação e selecione *OK*.
 +
 _policy_name_ é o nome da política selecionada.

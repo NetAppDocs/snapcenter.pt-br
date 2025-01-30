@@ -31,7 +31,7 @@ Você pode fazer backup de um grupo de recursos sob demanda na página recursos.
 . No painel de navegação à esquerda, clique em *recursos* e selecione o *plug-in do Microsoft Exchange Server* na lista.
 . Na página recursos, selecione *Grupo de recursos* na lista *Exibir*.
 +
-Você pode pesquisar o grupo de recursos inserindo o nome do grupo de recursos na caixa de pesquisa ou clicando em *image:../media/filter_icon.png[""]* e, em seguida, selecionando a tag. Em seguida, pode clicar emimage:../media/filter_icon.png[""]* * para fechar o painel do filtro.
+Você pode pesquisar o grupo de recursos inserindo o nome do grupo de recursos na caixa de pesquisa ou clicando em *image:../media/filter_icon.gif["ícone de filtro"]* e, em seguida, selecionando a tag. Em seguida, pode clicar emimage:../media/filter_icon.gif["ícone de filtro"]* * para fechar o painel do filtro.
 
 . Na página grupos de recursos, selecione o grupo de recursos que deseja fazer backup e clique em *fazer backup agora*.
 . Na página Backup, execute as seguintes etapas:

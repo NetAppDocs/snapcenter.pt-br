@@ -30,7 +30,6 @@ NOTE: Não é possível modificar ou remover permissões para a função SnapCen
 . No painel de navegação esquerdo, clique em *Configurações*.
 . Na página Configurações, clique em *funções*.
 . No campo Nome da função, clique na função que deseja modificar.
-. Na página Detalhes da função altere as permissões ou desmarque os membros conforme necessário.
 . Selecione *todos os membros desta função podem ver objetos de outros membros* para permitir que outros membros da função vejam recursos como volumes e hosts depois que eles atualizarem a lista de recursos.
 +
 Desmarque essa opção se você não quiser que os membros dessa função vejam objetos aos quais outros membros são atribuídos.
@@ -39,6 +38,7 @@ Desmarque essa opção se você não quiser que os membros dessa função vejam 
 
 NOTE: Quando essa opção está ativada, a atribuição de acesso aos usuários a objetos ou recursos não é necessária se os usuários pertencerem à mesma função que o usuário que criou os objetos ou recursos.
 
+. Na página Detalhes da função altere as permissões ou desmarque os membros conforme necessário.
 . Clique em *Enviar*.
 
 

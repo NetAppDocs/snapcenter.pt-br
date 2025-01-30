@@ -181,12 +181,12 @@ Selecione *Other* e, em seguida, digite o comando a ser executado no host para c
 .. Selecione uma ou mais políticas na lista suspensa.
 +
 
-NOTE: Você também pode criar uma política clicando em *image:../media/add_policy_from_resourcegroup.gif[""]*.
+NOTE: Você também pode criar uma política clicando em *image:../media/add_policy_from_resourcegroup.gif["adicionar grupo de recursos do formulário de política"]*.
 
 +
 As políticas são listadas na seção Configurar programações para políticas selecionadas.
 
-.. Na coluna Configurar agendas, clique em *image:../media/add_policy_from_resourcegroup.gif[""]* para a política que deseja configurar.
+.. Na coluna Configurar agendas, clique em *image:../media/add_policy_from_resourcegroup.gif["adicionar grupo de recursos do formulário de política"]* para a política que deseja configurar.
 .. Na caixa de diálogo Adicionar agendas para política _policy_name_, configure a programação e clique em *OK*.
 +
 Onde, policy_name é o nome da política selecionada.

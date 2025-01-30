@@ -13,4 +13,4 @@ summary: Você deve instalar e configurar o plug-in do SnapCenter para o Microso
 [role="lead"]
 Você deve instalar e configurar o plug-in do SnapCenter para o Microsoft SQL Server se quiser proteger bancos de dados do SQL Server.
 
-image::../media/scsql_install_configure_workflow.png[Fluxo de trabalho da SQL]
+image::../media/scsql_install_configure_workflow.gif[instale o fluxo de trabalho do sql workflow]

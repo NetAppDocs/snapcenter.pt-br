@@ -17,6 +17,8 @@ Você pode agendar vários backups para serem executados em servidores simultane
 
 O fluxo de trabalho a seguir mostra a sequência na qual você deve executar as operações de backup:
 
+image::../media/sce_backup_workflow.gif[fluxo de trabalho de backup]
+
 image::../media/sce_backup_workflow.gif[Fluxo de trabalho de backup do banco de dados do Exchange]
 
 Você também pode usar cmdlets do PowerShell manualmente ou em scripts para executar operações de backup, restauração e clone. A ajuda do cmdlet SnapCenter ou https://docs.netapp.com/us-en/snapcenter-cmdlets/index.html["Guia de referência de cmdlet do software SnapCenter"^] contém informações detalhadas sobre cmdlets do PowerShell.

@@ -14,7 +14,7 @@ summary: Você pode instalar o plug-in do SnapCenter para Microsoft Windows loca
 Você pode instalar o plug-in do SnapCenter para Microsoft Windows localmente em um host do Windows se não conseguir instalar o plug-in remotamente a partir da GUI do SnapCenter. Você pode executar o plug-in do SnapCenter para o programa de instalação do Microsoft Windows sem supervisão, no modo silencioso, a partir da linha de comando do Windows.
 
 .Antes de começar
-* Você deve ter instalado o Microsoft .Net 4.7.2 ou posterior.
+* Você deve ter instalado o pacote de hospedagem ASP.NET Core Runtime 8.0.12 (e todos os patches 8,0.x subsequentes).
 * Você deve ter instalado o PowerShell 7.4.2 ou posterior.
 * Você deve ter ativado o enfileiramento de mensagens do Windows.
 * Você deve ser um administrador local no host.

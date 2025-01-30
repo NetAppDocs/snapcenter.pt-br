@@ -17,22 +17,7 @@ O caminho de atualização ajuda você a entender a partir de quais versões ant
 | Se você estiver na versão do servidor SnapCenter... | Você pode atualizar diretamente o servidor SnapCenter para... | Versões de plug-in suportadas 
 
 
-.2+| 4,9 | 5,0  a| 
-* 4,9
-* 5,0
-
-
-
-
-| 6,0  a| 
-* 6,0
-
-
-
-
-.2+| 5,0  a| 
-6,0
- a| 
+.3+| 5,0 | 6,0  a| 
 * 5,0
 * 6,0
 
@@ -45,13 +30,31 @@ O caminho de atualização ajuda você a entender a partir de quais versões ant
 
 
 
-| 6,0 | 6.0.1  a| 
+| 6,1  a| 
+* 6,1
+
+
+
+
+.2+| 6,0  a| 
+6.0.1
+ a| 
 * 6,0
 * 6.0.1
 
 
+
+
+| 6,1  a| 
+* 6,1
+
+
+
+
+| 6.0.1 | 6,1  a| 
+* 6.0.1
+* 6,1
+
+
 |===
-
-IMPORTANT: Por exemplo, se você estiver no SnapCenter versão 4,9 e quiser atualizar para 6,0.1, primeiro você deve atualizar para 5,0 e, em seguida, fazer uma atualização contínua para 6,0.1.
-
 Para obter informações sobre como atualizar o plug-in do SnapCenter para VMware vSphere, https://docs.netapp.com/us-en/sc-plugin-vmware-vsphere/scpivs44_upgrade.html["Atualize o plug-in do SnapCenter para o VMware vSphere"^] consulte .

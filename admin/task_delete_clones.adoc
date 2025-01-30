@@ -28,7 +28,7 @@ Por exemplo, se o banco de dados de produção for db1, o banco de dados clone1 
 A página de topologia do recurso ou do grupo de recursos é exibida.
 
 . Na exibição Gerenciar cópias, selecione *clones* nos sistemas de storage primário ou secundário (espelhado ou replicado).
-. Selecione o clone e clique image:../media/delete_icon.gif[""]em .
+. Selecione o clone e clique image:../media/delete_icon.gif["eliminar ícone"]em .
 +
 Se você estiver excluindo clones do banco de dados SAP HANA, na página Excluir clone, execute as seguintes ações:
 

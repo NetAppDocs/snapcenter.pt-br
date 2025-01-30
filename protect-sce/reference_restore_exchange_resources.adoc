@@ -15,6 +15,6 @@ Você pode usar o SnapCenter para restaurar bancos de dados do Exchange restaura
 
 O fluxo de trabalho a seguir mostra a sequência na qual você deve executar as operações de restauração de banco de dados do Exchange:
 
-image:../media/all_plug_ins_restore_workflow.png["Restaure o fluxo de trabalho"]
+image:../media/all_plug_ins_restore_workflow.gif["Restaure o fluxo de trabalho"]
 
 Você também pode usar cmdlets do PowerShell manualmente ou em scripts para executar operações de backup e restauração. Para obter informações detalhadas sobre cmdlets do PowerShell, use a ajuda do cmdlet SnapCenter ou https://docs.netapp.com/us-en/snapcenter-cmdlets/index.html["Guia de referência de cmdlet do software SnapCenter"^] consulte .

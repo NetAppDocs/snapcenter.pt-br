@@ -49,7 +49,7 @@ Marque essa caixa de seleção e insira um formato de nome personalizado que voc
 . Na página políticas, execute as seguintes etapas:
 +
 .. Selecione uma ou mais políticas na lista suspensa.
-.. Na coluna Configurar agendas, clique em *image:../media/add_policy_from_resourcegroup.gif[""]* para a política que deseja configurar.
+.. Na coluna Configurar agendas, clique em *image:../media/add_policy_from_resourcegroup.gif["adicionar grupo de recursos do formulário de política"]* para a política que deseja configurar.
 .. Na caixa de diálogo Adicionar agendas para política _policy_name_, configure a programação e clique em *OK*.
 
 

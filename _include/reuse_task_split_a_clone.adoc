@@ -42,7 +42,7 @@ Selecione *caminho* na lista Exibir.
 +
 A página de topologia do recurso é exibida.
 
-. No modo de exibição *Gerenciar cópias*, selecione o recurso clonado (por exemplo, o banco de dados ou LUN) e clique em * *image:../media/split_cone.gif["Ícone do clone dividido"]*.
+. No modo de exibição *Gerenciar cópias*, selecione o recurso clonado (por exemplo, o banco de dados ou LUN) e clique em * *image:../media/split_clone.gif["Ícone do clone dividido"]*.
 . Revise o tamanho estimado do clone que deve ser dividido e o espaço necessário disponível no agregado e clique em *Iniciar*.
 . Monitorize o progresso da operação clicando em *Monitor* > *trabalhos*.
 +

@@ -36,7 +36,7 @@ NOTE: Se os comandos não existirem na lista de comandos, a operação falhará.
 . No painel de navegação esquerdo, selecione *Resources* e, em seguida, selecione o plug-in apropriado na lista.
 . Na página recurso, filtre os recursos da lista suspensa *Exibir* com base no tipo de recurso.
 +
-image:../media/filter_icon.png["ícone de filtro"]Selecione e, em seguida, selecione o nome do host e o tipo de recurso para filtrar os recursos. Em seguida, pode image:../media/filter_icon.png["ícone de filtro"]selecionar para fechar o painel de filtro.
+Selecioneimage:../media/filter_icon.gif["ícone de filtro"] * * e, em seguida, selecione o nome do host e o tipo de recurso para filtrar os recursos. Em seguida, pode image:../media/filter_icon.gif["ícone de filtro"]selecionar para fechar o painel de filtro.
 
 . Selecione o recurso que você deseja fazer backup.
 . Na página recurso, selecione *Use o formato de nome personalizado para cópia Snapshot* e insira um formato de nome personalizado que você deseja usar para o nome da captura Instantânea.
@@ -108,12 +108,12 @@ image:../media/application_settings.gif["definições da aplicação"]
 .. Selecione uma ou mais políticas na lista suspensa.
 +
 
-NOTE: Você também pode criar uma política clicando em *image:../media/add_policy_from_resourcegroup.gif[""]*.
+NOTE: Você também pode criar uma política clicando em *image:../media/add_policy_from_resourcegroup.gif["adicionar grupo de recursos do formulário de política"]*.
 
 +
 Na seção Configurar agendas para políticas selecionadas, as políticas selecionadas são listadas.
 
-.. Selecioneimage:../media/add_policy_from_resourcegroup.gif[""] * * na coluna Configurar agendas para a política para a qual você deseja configurar um agendamento.
+.. Selecioneimage:../media/add_policy_from_resourcegroup.gif["adicionar grupo de recursos do formulário de política"] * * na coluna Configurar agendas para a política para a qual você deseja configurar um agendamento.
 .. Na caixa de diálogo Adicionar agendas para política _policy_name_, configure a programação e selecione *OK*.
 +
 _policy_name_ é o nome da política selecionada.

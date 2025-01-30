@@ -28,9 +28,9 @@ Os recursos descobertos automaticamente não podem ser modificados ou excluídos
 .Passos
 . No painel de navegação à esquerda, clique em *Resources* e selecione o Plug-in para IBM DB2 na lista.
 . Na página recursos, selecione o tipo de recurso na lista Exibir.
-. (Opcional) clique em *image:../media/filter_icon.png["ícone de filtro"]* e selecione o nome do host.
+. (Opcional) clique em *image:../media/filter_icon.gif["ícone de filtro"]* e selecione o nome do host.
 +
-Em seguida, pode clicar emimage:../media/filter_icon.png["ícone de filtro"]* * para fechar o painel do filtro.
+Em seguida, pode clicar emimage:../media/filter_icon.gif["ícone de filtro"]* * para fechar o painel do filtro.
 
 . Clique em *Atualizar recursos* para descobrir os recursos disponíveis no host.
 +

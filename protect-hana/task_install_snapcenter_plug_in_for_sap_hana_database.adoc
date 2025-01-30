@@ -13,4 +13,4 @@ summary: Você deve instalar e configurar o plug-in do SnapCenter para o banco d
 [role="lead"]
 Você deve instalar e configurar o plug-in do SnapCenter para o banco de dados SAP HANA se quiser proteger os bancos de dados SAP HANA.
 
-image::../media/sap_hana_install_configure_workflow.png[Instalar fluxo de trabalho de plug-in HANA]
+image::../media/sap_hana_install_configure_workflow.gif[instalar o plug-in do sap hana]

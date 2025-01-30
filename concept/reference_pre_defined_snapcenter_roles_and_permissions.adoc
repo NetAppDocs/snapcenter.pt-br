@@ -281,6 +281,21 @@ Não aplicável
 
 
  a| 
+Em segundo lugar proteção
+ a| 
+Não
+ a| 
+Não
+ a| 
+Não aplicável
+ a| 
+Não aplicável
+ a| 
+Não aplicável
+
+
+
+ a| 
 Monitor de trabalho
  a| 
 Sim
@@ -545,6 +560,21 @@ Não aplicável
 
 
  a| 
+Em segundo lugar proteção
+ a| 
+Não
+ a| 
+Não aplicável
+ a| 
+Não aplicável
+ a| 
+Não aplicável
+ a| 
+Não aplicável
+
+
+
+ a| 
 Monitor de trabalho
  a| 
 Sim
@@ -795,6 +825,21 @@ Não aplicável
 
  a| 
 Restauração completa do volume
+ a| 
+Não
+ a| 
+Não
+ a| 
+Não aplicável
+ a| 
+Não aplicável
+ a| 
+Não aplicável
+
+
+
+ a| 
+Em segundo lugar proteção
  a| 
 Não
  a| 

@@ -21,7 +21,7 @@ NOTE: Certifique-se de que *OpenSSL 1,0.2g* esteja instalado no host onde você 
 Valide a assinatura do pacote binário executando o comando:
 
 * Para host Linux: `openssl dgst -sha256 -verify snapcenter_public_key.pub -signature snapcenter_linux_host_plugin.bin.sig snapcenter_linux_host_plugin.bin`
-* Para o host AIX: `openssl dgst -sha256 -verify snapcenter_public_key.pub -signature snapcenter_linux_host_plugin.bsx.sig snapcenter_linux_host_plugin.bsx`
+* Para o host AIX: `openssl dgst -sha256 -verify snapcenter_public_key.pub -signature snapcenter_aix_host_plugin.bsx.sig snapcenter_aix_host_plugin.bsx`
 
 
 

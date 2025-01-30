@@ -56,14 +56,14 @@ Especifique os destinos dos ficheiros de registo de arquivo.
 . Na página políticas, execute as seguintes etapas:
 +
 .. Selecione uma ou mais políticas na lista suspensa.
-.. Na coluna Configurar agendas, clique em *image:../media/add_policy_from_resourcegroup.gif[""]* para a política que deseja configurar.
+.. Na coluna Configurar agendas, clique em *image:../media/add_policy_from_resourcegroup.gif["adicionar grupo de recursos do formulário de política"]* para a política que deseja configurar.
 .. Na caixa de diálogo Adicionar agendas para política _policy_name_, configure a programação e clique em *OK*.
 
 
 . Na página Verificação, execute as seguintes etapas:
 +
 .. Selecione o servidor de verificação.
-.. Selecione a política para a qual deseja configurar o agendamento de verificação e clique em *image:../media/add_policy_from_resourcegroup.gif[""].
+.. Selecione a política para a qual deseja configurar o agendamento de verificação e clique em *image:../media/add_policy_from_resourcegroup.gif["adicionar grupo de recursos do formulário de política"].
 .. Selecione *Executar verificação após cópia de segurança* ou *Executar verificação agendada*.
 .. Clique em *OK*.
 

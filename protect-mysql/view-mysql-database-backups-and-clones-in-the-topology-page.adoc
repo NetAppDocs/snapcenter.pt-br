@@ -63,5 +63,5 @@ Os detalhes dos backups e clones são exibidos em um formato de tabela.
 NOTE: Não é possível renomear ou excluir backups que estão no armazenamento secundário.
 
 . Se quiser excluir um clone, selecione-o na tabela e clique image:../media/delete_icon.gif["Eliminar ícone"]em .
-. Se quiser dividir um clone, selecione-o na tabela e clique image:../media/split_cone.gif["Clone split icon"]em .
+. Se quiser dividir um clone, selecione-o na tabela e clique image:../media/split_clone.gif["Clone split icon"]em .
 

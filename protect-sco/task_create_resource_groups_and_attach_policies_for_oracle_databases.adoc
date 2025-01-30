@@ -64,6 +64,7 @@ NOTE: Os recursos são listados na seção recursos disponíveis somente se o re
 
 NOTE: Você pode adicionar bancos de dados de hosts Linux e AIX em um único grupo de recursos.
 
+. Na página Configurações do aplicativo, selecione a opção de backup.
 . Na página políticas, execute as seguintes etapas:
 +
 .. Selecione uma ou mais políticas na lista suspensa.

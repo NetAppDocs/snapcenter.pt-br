@@ -17,7 +17,7 @@ Uma operação de clonagem de banco de dados gera relatórios com base nas IDs d
 
 O fluxo de trabalho a seguir mostra a sequência na qual você deve executar as operações de clonagem:
 
-image::../media/scsql_clone_workflow.png[Diagrama do fluxo de trabalho do clone]
+image::../media/scsql_clone_workflow.gif[Diagrama do fluxo de trabalho do clone]
 
 Você também pode usar cmdlets do PowerShell manualmente ou em scripts para executar operações de backup, restauração, recuperação, verificação e clone. Para obter informações detalhadas sobre cmdlets do PowerShell, use a ajuda do cmdlet SnapCenter ou consulte o. https://docs.netapp.com/us-en/snapcenter-cmdlets/index.html["Guia de referência de cmdlet do software SnapCenter"]
 

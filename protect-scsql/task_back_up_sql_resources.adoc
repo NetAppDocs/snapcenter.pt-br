@@ -14,6 +14,7 @@ summary: Se um recurso ainda não fizer parte de qualquer grupo de recursos, voc
 Se um recurso ainda não fizer parte de qualquer grupo de recursos, você poderá fazer backup do recurso na página recursos.
 
 .Sobre esta tarefa
+* Para otimizar a operação de backup, você deve criar um Registro de pesquisa reversa de nomes de cluster do Windows e endereços IP no servidor DNS.
 * Para autenticação de credenciais do Windows, você deve configurar sua credencial antes de instalar os plug-ins.
 * Para autenticação de instância do SQL Server, você deve adicionar a credencial após a instalação dos plug-ins.
 * Para autenticação gMSA, você deve configurar o gMSA enquanto Registra o host com o SnapCenter na página *Adicionar host* ou *Modificar host* para ativar e usar o gMSA.
@@ -51,12 +52,12 @@ Por exemplo, customtext_policy_hostname ou resource_hostname. Por padrão, um ca
 +
 .. Na seção políticas, selecione uma ou mais políticas na lista suspensa.
 +
-Pode criar uma política selecionandoimage:../media/add_policy_from_resourcegroup.gif[""] * * para iniciar o assistente de política.
+Pode criar uma política selecionandoimage:../media/add_policy_from_resourcegroup.gif["adicionar grupo de recursos do formulário de política"] * * para iniciar o assistente de política.
 
 +
 Na seção *Configurar programações para políticas selecionadas*, as políticas selecionadas são listadas.
 
-.. Selecioneimage:../media/add_policy_from_resourcegroup.gif[""] * * na coluna Configurar agendas para a política para a qual você deseja configurar um agendamento.
+.. Selecioneimage:../media/add_policy_from_resourcegroup.gif["adicionar grupo de recursos do formulário de política"] * * na coluna Configurar agendas para a política para a qual você deseja configurar um agendamento.
 .. Na caixa de diálogo *Adicionar programações para política* `policy_name`, configure a programação e selecione *OK*.
 +
  `policy_name`Aqui está o nome da política que você selecionou.
@@ -78,7 +79,7 @@ Você pode selecionar vários servidores de verificação (host local ou host re
 NOTE: A versão do servidor de verificação deve ser igual ou superior à versão da edição do servidor SQL que está hospedando o banco de dados principal.
 
 .. Selecione *carregar localizadores secundários para verificar backups no secundário* para verificar seus backups no sistema de armazenamento secundário.
-.. Selecione a política para a qual pretende configurar o seu agendamento de verificação e, em seguida, selecione * *image:../media/add_policy_from_resourcegroup.gif[""].
+.. Selecione a política para a qual pretende configurar o seu agendamento de verificação e, em seguida, selecione * *image:../media/add_policy_from_resourcegroup.gif["adicionar grupo de recursos do formulário de política"].
 .. Na caixa de diálogo Adicionar agendas de verificação _policy_name_, execute as seguintes ações:
 +
 |===

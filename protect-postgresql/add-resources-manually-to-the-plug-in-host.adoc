@@ -70,7 +70,7 @@ Isso é opcional.
 |===
 . Na página fornecer espaço físico de armazenamento, selecione um tipo de armazenamento e escolha um ou mais volumes, LUNs e qtrees e clique em *Salvar*.
 +
-Opcional: Você pode clicar noimage:../media/add_policy_from_resourcegroup.gif[""] ícone * para adicionar mais volumes, LUNs e qtrees de outros sistemas de armazenamento.
+Opcional: Você pode clicar noimage:../media/add_policy_from_resourcegroup.gif["adicionar grupo de recursos do formulário de política"] ícone * para adicionar mais volumes, LUNs e qtrees de outros sistemas de armazenamento.
 
 . Opcional: Na página Configurações de recursos, para recursos no host do Windows, insira pares de valor de chave personalizados para o plug-in PostgreSQL
 . Revise o resumo e clique em *Finish*.

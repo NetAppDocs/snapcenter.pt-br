@@ -20,14 +20,14 @@ Se um recurso ainda não fizer parte de qualquer grupo de recursos, você poder�
 . Na página políticas, execute as seguintes etapas:
 +
 .. Selecione uma ou mais políticas na lista suspensa.
-.. Selecioneimage:../media/add_policy_from_resourcegroup.gif[""] * * na coluna Configurar agendas para a política para a qual você deseja configurar um agendamento.
+.. Selecioneimage:../media/add_policy_from_resourcegroup.gif["adicionar grupo de recursos do formulário de política"] * * na coluna Configurar agendas para a política para a qual você deseja configurar um agendamento.
 .. Na caixa de diálogo Adicionar agendas para política _policy_name_, configure a programação e selecione *OK*.
 
 
 . Na página Verificação, execute as seguintes etapas:
 +
 .. Selecione o servidor de verificação.
-.. Selecione a política para a qual pretende configurar o seu agendamento de verificação e, em seguida, clique em * *image:../media/add_policy_from_resourcegroup.gif[""].
+.. Selecione a política para a qual pretende configurar o seu agendamento de verificação e, em seguida, clique em * *image:../media/add_policy_from_resourcegroup.gif["adicionar grupo de recursos do formulário de política"].
 .. Selecione *Executar verificação após cópia de segurança* ou *Executar verificação agendada*.
 .. Clique em OK.
 

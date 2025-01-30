@@ -13,4 +13,4 @@ summary: Você deve instalar e configurar o plug-in do SnapCenter para PostgreSQ
 [role="lead"]
 Você deve instalar e configurar o plug-in do SnapCenter para PostgreSQL se quiser proteger clusters do PostgreSQL.
 
-image::../media/sap_hana_install_configure_workflow.png[Instalar e configurar o fluxo de trabalho]
+image::../media/sap_hana_install_configure_workflow.gif[Instalar e configurar o fluxo de trabalho]

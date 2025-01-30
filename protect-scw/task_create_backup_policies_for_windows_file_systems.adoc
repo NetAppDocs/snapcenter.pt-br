@@ -47,25 +47,12 @@ Você pode usar a API GET para exibir o valor da chave. A API SET não é suport
 
 
 
-
-NOTE: As configurações do SnapLock primário são gerenciadas na política de backup do SnapCenter e as configurações do SnapLock secundário são gerenciadas pelo ONTAP.
-
 .Passos
-. No painel de navegação esquerdo, clique em *Configurações*.
-. Na página Configurações, clique em *políticas*.
-. Para determinar se você pode usar uma política existente, selecione o nome da política e clique em *Detalhes*.
-+
-Depois de analisar as políticas existentes, você pode executar um dos seguintes procedimentos:
-
-+
-** Use uma política existente.
-** Copie uma política existente e modifique a configuração da política.
-** Crie uma nova política.
-
-
-. Para criar uma nova política, clique em *novo*.
-. Na página Nome, insira o nome da política e uma descrição.
-. Na página Opções de backup, execute as seguintes tarefas:
+. No painel de navegação esquerdo, selecione *Configurações*.
+. Na página Configurações, selecione *políticas*.
+. Selecione *novo*.
+. Na página Nome, insira o nome e os detalhes da política.
+. Na página Backup e replicação, execute as seguintes tarefas:
 +
 .. Selecione uma definição de cópia de segurança.
 +
@@ -94,52 +81,28 @@ A política especifica apenas a frequência de backup. O cronograma de proteçã
 
 NOTE: Se você tiver agendado para as 2:00 da manhã, o horário não será acionado durante o horário de verão (DST).
 
-
-
-. Na página retenção, especifique as configurações de retenção para backups sob demanda e para cada frequência de programação selecionada.
+.. Selecione uma etiqueta de política.
 +
-|===
-| Opção | Descrição 
-
-
- a| 
-Total de cópias Snapshot a reter
- a| 
-Escolha esta opção se quiser especificar o número de armazenamentos Snapshots SnapCenter antes de excluí-los automaticamente.
-
-
-
- a| 
-Excluir cópias Snapshot anteriores a
- a| 
-Escolha esta opção se quiser especificar o número de dias que o SnapCenter retém uma cópia de backup antes de excluí-la.
-
-
-
- a| 
-Período de bloqueio de cópias snapshot
- a| 
-Selecione período de bloqueio instantâneo e selecione dias, meses ou anos.
-
-O período de retenção do SnapLock deve ser inferior a 100 anos.
-
-|===
-+
-
-IMPORTANT: Você deve definir a contagem de retenção para 2 ou superior. O valor mínimo para a contagem de retenção é 2.
+Dependendo do rótulo de captura instantânea selecionado, o ONTAP aplica a política de retenção de snapshot secundária que corresponde ao rótulo.
 
 +
 
-NOTE: O valor máximo de retenção é 1018 para recursos no ONTAP 9.4 ou posterior e 254 para recursos no ONTAP 9.3 ou anterior. Os backups falharão se a retenção for definida para um valor maior do que o que a versão subjacente do ONTAP suporta.
+NOTE: Se você selecionou *Atualizar SnapMirror depois de criar uma cópia Snapshot local*, você pode especificar opcionalmente o rótulo de política secundária. No entanto, se você selecionou *Atualizar SnapVault depois de criar uma cópia Snapshot local*, especifique o rótulo de política secundária.
 
-. Na página replicação, especifique a replicação para o sistema de storage secundário:
+
+
+. Na seção Selecionar opções de replicação secundária, selecione uma ou ambas as seguintes opções de replicação secundária:
++
+
+NOTE: Você deve selecionar as opções de replicação secundária para *período de bloqueio de cópia snapshot secundário* para entrar em vigor.
+
 +
 |===
 | Para este campo... | Faça isso... 
 
 
  a| 
-*Atualizar SnapMirror depois de criar uma cópia Snapshot local*
+Atualize o SnapMirror depois de criar uma cópia Snapshot local
  a| 
 Selecione esta opção para criar cópias espelhadas de conjuntos de backup em outro volume (SnapMirror).
 
@@ -165,18 +128,6 @@ Para obter mais informações sobre o SnapLock Vault, consulte https://docs.neta
 
 
  a| 
-Etiqueta de política secundária
- a| 
-Selecione uma etiqueta Snapshot.
-
-Dependendo do rótulo de captura instantânea selecionado, o ONTAP aplica a política de retenção de snapshot secundária que corresponde ao rótulo.
-
-
-NOTE: Se você selecionou *Atualizar SnapMirror depois de criar uma cópia Snapshot local*, você pode especificar opcionalmente o rótulo de política secundária. No entanto, se você selecionou *Atualizar SnapVault depois de criar uma cópia Snapshot local*, especifique o rótulo de política secundária.
-
-
-
- a| 
 Contagem de tentativas de erro
  a| 
 Insira o número de tentativas de replicação que devem ocorrer antes que o processo pare.
@@ -185,6 +136,55 @@ Insira o número de tentativas de replicação que devem ocorrer antes que o pro
 +
 
 NOTE: Você deve configurar a política de retenção do SnapMirror no ONTAP para o storage secundário para evitar atingir o limite máximo de snapshots no storage secundário.
+
+. Na página Configurações de retenção, especifique as configurações de retenção para backups sob demanda e para cada frequência de programação selecionada.
++
+|===
+| Opção | Descrição 
+
+
+ a| 
+Total de cópias Snapshot a serem mantidas
+ a| 
+Escolha esta opção se quiser especificar o número de armazenamentos Snapshots SnapCenter antes de excluí-los automaticamente.
+
+
+
+ a| 
+Manter cópias Snapshot durante
+ a| 
+Escolha esta opção se quiser especificar o número de dias que o SnapCenter retém uma cópia de backup antes de excluí-la.
+
+
+
+ a| 
+Período de bloqueio da cópia Snapshot principal
+ a| 
+Selecione período de bloqueio instantâneo e selecione dias, meses ou anos.
+
+O período de retenção do SnapLock deve ser inferior a 100 anos.
+
+
+
+ a| 
+Período de bloqueio da cópia Snapshot secundária
+ a| 
+Selecione *período de bloqueio de cópia instantânea secundária* e selecione dias, meses ou anos.
+
+Para que essa opção seja efetiva, você deve executar as seguintes tarefas:
+
+** Selecione o *período de bloqueio de cópia de instantâneo primário*.
+** Selecione uma ou ambas as opções de replicação secundária.
+
+
+|===
++
+
+IMPORTANT: Você deve definir a contagem de retenção para 2 ou superior. O valor mínimo para a contagem de retenção é 2.
+
++
+
+NOTE: O valor máximo de retenção é 1018 para recursos no ONTAP 9.4 ou posterior e 254 para recursos no ONTAP 9.3 ou anterior. Os backups falharão se a retenção for definida para um valor maior do que o que a versão subjacente do ONTAP suporta.
 
 . Na página Script, insira o caminho do prescritor ou postscript que você deseja que o servidor SnapCenter seja executado antes ou depois da operação de backup, respetivamente, e um limite de tempo que o SnapCenter espera que o script seja executado antes do tempo limite.
 +

@@ -40,7 +40,7 @@ link:../protect-sco/reference_prerequisites_for_adding_hosts_and_installing_snap
 
 * Se você tiver bancos de dados Oracle em ambientes SAN, verifique se o ambiente SAN está configurado de acordo com a recomendação mencionada nos guias a seguir:
 +
-** https://library.netapp.com/ecm/ecm_download_file/ECMLP2547957["Configurações de host recomendadas para utilitários de host unificado do Linux"^]
+** https://library.netapp.com/ecm/ecm_download_file/ECMLP2547958["Uso de hosts Linux com storage ONTAP"^]
 ** https://library.netapp.com/ecm/ecm_download_file/ECMP1119218["Configurações do host afetadas pelos Utilitários de host AIX"^]
 
 

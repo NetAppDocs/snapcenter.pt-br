@@ -13,4 +13,4 @@ summary: A imagem de fluxo de trabalho mostra as etapas para instalar e configur
 [role="lead"]
 O fluxo de trabalho mostra as diferentes tarefas necessárias para instalar e configurar o servidor SnapCenter.
 
-image::../media/install_snapcenter_server.png[Instale o servidor SnapCenter]
+image::../media/install_snapcenter_server.gif[Instale o servidor SnapCenter]

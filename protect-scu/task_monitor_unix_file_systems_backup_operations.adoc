@@ -35,7 +35,7 @@ Os seguintes ícones são apresentados na página trabalhos e indicam o estado c
 . Na página Monitor, clique em *trabalhos*.
 . Na página trabalhos, execute as seguintes etapas:
 +
-.. Clique image:../media/filter_icon.png["ícone de filtro"] para filtrar a lista de modo a que apenas as operações de cópia de segurança sejam listadas.
+.. Clique image:../media/filter_icon.gif["ícone de filtro"] para filtrar a lista de modo a que apenas as operações de cópia de segurança sejam listadas.
 .. Especifique as datas de início e fim.
 .. Na lista suspensa *Type*, selecione *Backup*.
 .. Na lista suspensa *Status*, selecione o status da cópia de segurança.
@@ -63,7 +63,7 @@ O painel atividade exibe informações sobre operações de backup, restauraçã
 
 .Passos
 . No painel de navegação esquerdo, clique em *Resources* e selecione o plug-in apropriado na lista.
-. Clique image:../media/activity_pane_icon.gif["painel da atividade"]no painel atividade para visualizar as cinco operações mais recentes.
+. Clique image:../media/activity_pane_icon.gif["ícone do painel de atividades"]no painel atividade para visualizar as cinco operações mais recentes.
 +
 Quando você clica em uma das operações, os detalhes da operação são listados na página *Detalhes da tarefa*.
 
