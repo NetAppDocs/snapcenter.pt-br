@@ -31,12 +31,6 @@ A atualização técnica de storage é suportada para substituir o storage prim�
 * Atualização do storage secundário
 
 
-Os outros cenários suportados são:
-
-* Alteração de nome do SVM
-* Alteração do nome do volume
-
-
 
 
 == Atualize os backups do armazenamento primário

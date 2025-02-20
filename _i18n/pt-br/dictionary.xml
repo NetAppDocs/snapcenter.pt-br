@@ -1633,7 +1633,6 @@
   <block id="5010ac065b072d3a5a66d4913af22358" category="section-title">Crie um LUN FC RDM compartilhado</block>
   <block id="10680a7aa79949d8b454b29a782cc64a" category="paragraph">Antes de usar LUNs FC RDM para compartilhar o storage entre nós em um cluster da Microsoft, primeiro você deve criar o disco de quorum compartilhado e o disco de storage compartilhado e adicioná-los a ambas as máquinas virtuais no cluster.</block>
   <block id="cbdb6828febec04786f22df9a1ccc748" category="inline-link">Cluster de máquinas virtuais em hosts físicos</block>
-  <block id="343e62dffb88999e9c503088341e1fc0" category="paragraph">O disco compartilhado não é criado usando o plug-in para Windows. Você deve criar e adicionar o LUN compartilhado a cada máquina virtual no cluster. Para obter informações,<block ref="4339506e2feb8115940eea5a6e9ba248" category="inline-link-rx"></block>consulte .</block>
   <block id="c939b5dd7dddc4f1908d7f58a2ab351d" category="summary">O SnapCenter requer várias licenças para habilitar operações de proteção de dados. O tipo de licenças do SnapCenter que você instala depende do ambiente de storage e dos recursos que deseja usar.</block>
   <block id="07cdb1cc7dcc527060e65d98659cb1d4" category="doc">Licenças SnapCenter</block>
   <block id="03d6fc6f0007d8c1e15a56f0a4522686" category="paragraph">O SnapCenter requer várias licenças para habilitar a proteção de dados de aplicativos, bancos de dados, sistemas de arquivos e máquinas virtuais. O tipo de licenças do SnapCenter que você instala depende do ambiente de storage e dos recursos que deseja usar.</block>
@@ -2036,7 +2035,6 @@
   <block id="e5111e1a8d09cf3b9cc87da0144221fb" category="list-text">Feche todas as guias do navegador e reabra um navegador para limpar os cookies de sessão existentes ou ativos e faça login novamente.</block>
   <block id="907fe6bfcd498fe3e561f7fb3ee67c89" category="paragraph">A funcionalidade de MFA do SnapCenter também pode ser ativada usando APIS REST.</block>
   <block id="b73f485c1067e4b3168b292142131855" category="inline-link">Tentativas simultâneas de login em várias guias mostram erro de MFA</block>
-  <block id="9e4f9470d66f1730ad7525f9043126be" category="paragraph">Para obter informações sobre solução de problemas,<block ref="361c774ee5cb22be42ef8ea152ed45ad" category="inline-link-rx"></block> consulte .</block>
   <block id="aeb89440d41f10fd9cc43ab75d800138" category="section-title">Atualizar metadados MFA do AD FS</block>
   <block id="19b3ff63dd3f3b6c1e3e48e8b3be6141" category="paragraph">Você deve atualizar os metadados MFA do AD FS no SnapCenter sempre que houver qualquer modificação no servidor AD FS, como atualização, renovação de certificado da CA, DR, etc.</block>
   <block id="6ef1300bebff7801c85a1789a6c0790a" category="list-text">Faça download do arquivo de metadados de federação do AD FS de <block ref="a9571343becbc81f25857902551c1e72" category="inline-link-rx"></block> FQDN&gt;/FederationMetadata/2007-06/FederationMetadata.xml"</block>
@@ -2045,8 +2043,6 @@
   <block id="f668cd2acef670f8b213c6c785ddf8d6" category="paragraph"><block ref="7da21d8fe0787a3171af06722db1ee6f" prefix="" category="inline-code"></block></block>
   <block id="97088f26ec75cb4d55c4fe5eeb3b62b4" category="section-title">Atualizar os metadados do SnapCenter MFA</block>
   <block id="ac82039d46e3be923c813d3d4c5456e4" category="paragraph">Você deve atualizar os metadados do SnapCenter MFA no AD FS sempre que houver qualquer modificação no servidor ADFS, como reparo, renovação de certificado da CA, DR, etc.</block>
-  <block id="56ec825045a003fc115765658ea8b639" category="list-text">Clique em *confiança de parte*.</block>
-  <block id="83e84b83a6a686044df5e13021693e95" category="list-text">Clique com o botão direito do Mouse na confiança de quem confia que foi criada para o SnapCenter e clique em *Excluir*.</block>
   <block id="d929cc2f30ed7ebb91266d0b79b5f2cf" category="paragraph">O nome definido pelo utilizador da confiança da parte dependente será apresentado.</block>
   <block id="18231d11def74e66e747d2eb30fc1c50" category="list-text">Habilite a autenticação multifator (MFA).</block>
   <block id="0f5b112cebb37022dbfe2c80e388d605" category="paragraph"><block ref="5ec6b0ec41fc91e8184fa478c63adb14" category="inline-link-macro-rx"></block>Consulte .</block>
@@ -7910,8 +7906,6 @@
   <block id="5d119381977c6ff7d37f0df02522b5a7" category="list-text">Clonar a partir de um backup de banco de dados</block>
   <block id="c236bac131d0c45fb131c82a9be9626b" category="paragraph">O banco de dados clonado pode servir como uma linha de base para o desenvolvimento de novos aplicativos e ajudar a isolar erros de aplicativos que ocorrem no ambiente de produção. O banco de dados clonado também pode ser usado para recuperação de erros de banco de dados macio.</block>
   <block id="f23686c03668cab87b56c945fea15bb6" category="paragraph">Você pode usar o SnapCenter para agendar tarefas de clone recorrentes que ocorrerão quando o banco de dados de produção não estiver ocupado.</block>
-  <block id="0441f921ecb29005b4b309df792042a3" category="summary">Definir uma estratégia de restauração para o SQL Server permite que você restaure seu banco de dados com sucesso.</block>
-  <block id="24fc557949539a292d3c18f3c9454f62" category="doc">Defina uma estratégia de restauração para o SQL Server</block>
   <block id="2e80c4cfa5c04ee6722df6b343b1b1df" category="summary">Os recursos são bancos de dados, instâncias de aplicativos, grupos de disponibilidade e componentes semelhantes que são mantidos pelos plug-ins instalados. Você pode adicionar esses recursos a grupos de recursos para que você possa executar tarefas de proteção de dados, mas primeiro você deve identificar quais recursos você tem disponíveis. A determinação dos recursos disponíveis também verifica se a instalação do plug-in foi concluída com êxito.</block>
   <block id="ecf0b987abaa45528fdf383aaa587dfa" category="list-text">Você já deve ter concluído tarefas como instalar o servidor SnapCenter, adicionar hosts, criar conexões do sistema de storage e adicionar credenciais.</block>
   <block id="dbf32a76a7158bc00ab7beb879cf30c4" category="list-text">Para descobrir os bancos de dados Microsoft SQL, uma das seguintes condições deve ser atendida.</block>
@@ -9011,9 +9005,6 @@
   <block id="8ffddc72407882a56963d8f378c8a456" category="list-text">Atualização do storage primário</block>
   <block id="9f4800cf67d29558e0e5678693afc837" category="paragraph">A atualização técnica de storage é suportada para substituir o storage primário por um novo storage. Não é possível converter o storage secundário existente em um storage primário.</block>
   <block id="1e1065b586c984207ccf5533c1320669" category="list-text">Atualização do storage secundário</block>
-  <block id="3d31d63019c8a7405127998ac1be0ceb" category="paragraph">Os outros cenários suportados são:</block>
-  <block id="0985fc6b1b51806986eb62030f325040" category="list-text">Alteração de nome do SVM</block>
-  <block id="fc957d9228b0c0b7e2969feb8f831113" category="list-text">Alteração do nome do volume</block>
   <block id="7fd4a62a4b2e1acfeaddfc8e7f2832c8" category="section-title">Atualize os backups do armazenamento primário</block>
   <block id="ff8ce159bd650a518bc9706cce5196da" category="paragraph">Quando o armazenamento for atualizado pela tecnologia, você deve executar a API ou cmdlet de atualização técnica de armazenamento para atualizar os backups antigos no SnapCenter com os novos detalhes de armazenamento.</block>
   <block id="e1efdab7eb1b670b3a9bd8ace49c4b03" category="list-text">Migre os dados do armazenamento antigo para o novo armazenamento.</block>
@@ -10033,4 +10024,9 @@
   <block id="888e5b40ea166427f96db1a9c08af7fc" category="sidebar">Documentação do software SnapCenter 6,1</block>
   <block id="fc8e535c7339f77157a0f93f32cb1f80" category="list-text">Os workflows de montagem e catálogo do Oracle e SAP HANA não são compatíveis com backups de storage de objetos, mas são compatíveis com snapshots.</block>
   <block id="2128757ca4207f5d5000cd4894d8c58f" category="list-text">Os clones do Oracle PDB não são compatíveis com backups de storage de objetos, mas são compatíveis com snapshots.</block>
+  <block id="6eec14240810faadbd60c3ec98b543e7" category="paragraph">O disco compartilhado não é criado usando o plug-in para Windows. Você deve criar e adicionar o LUN compartilhado a cada máquina virtual no cluster. Para obter informações,<block ref="0564b16166a6e24aa234d21e5bcdc18a" category="inline-link-rx"></block>consulte .</block>
+  <block id="744d48cfa6032e04d109166f7ff6aeaf" category="paragraph">Para obter informações sobre solução de problemas,<block ref="361c774ee5cb22be42ef8ea152ed45ad" category="inline-link-rx"></block> consulte .</block>
+  <block id="a141599a0eec0e6d9aea907fc97ea039" category="list-text">Selecione *confiança de parte*.</block>
+  <block id="458f1b484cf2f93e8e2f35b3f5a3b94a" category="list-text">Clique com o botão direito do Mouse na confiança de quem confia que foi criada para o SnapCenter e selecione *Excluir*.</block>
+  <block id="c6cd54ad2b3bca5fe6357919d1ec62e7" category="list-text">Você deve instalar o Pacote de Hospedagem ASP.NET Core Runtime 8.0.12 (e todos os patches 8,0.x subsequentes) e o PowerShell 7.4.2 ou posterior.</block>
 </blocks>

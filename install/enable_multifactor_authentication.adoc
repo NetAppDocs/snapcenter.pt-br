@@ -143,8 +143,8 @@ Você deve atualizar os metadados do SnapCenter MFA no AD FS sempre que houver q
 .Passos
 . No host do AD FS, abra o assistente de gerenciamento do AD FS e execute as seguintes etapas:
 +
-.. Clique em *confiança de parte*.
-.. Clique com o botão direito do Mouse na confiança de quem confia que foi criada para o SnapCenter e clique em *Excluir*.
+.. Selecione *confiança de parte*.
+.. Clique com o botão direito do Mouse na confiança de quem confia que foi criada para o SnapCenter e selecione *Excluir*.
 +
 O nome definido pelo utilizador da confiança da parte dependente será apresentado.
 
