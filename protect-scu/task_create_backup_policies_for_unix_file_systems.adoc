@@ -105,7 +105,7 @@ Selecione *Total de cópias Snapshot a manter* e especifique o número de captur
 Se o número de instantâneos exceder o número especificado, os instantâneos serão excluídos com as cópias mais antigas excluídas primeiro.
 
 
-NOTE: O valor máximo de retenção é 1018 para recursos no ONTAP 9.4 ou posterior e 254 para recursos no ONTAP 9.3 ou anterior. Os backups falharão se a retenção for definida para um valor maior do que o que a versão subjacente do ONTAP suporta.
+NOTE: O valor máximo de retenção é 1018. Os backups falharão se a retenção for definida para um valor maior do que o que a versão subjacente do ONTAP suporta.
 
 
 IMPORTANT: Você deve definir a contagem de retenção como 2 ou superior, se quiser habilitar a replicação do SnapVault. Se você definir a contagem de retenção como 1, a operação de retenção poderá falhar porque o primeiro snapshot é o snapshot de referência para a relação SnapVault até que um snapshot mais recente seja replicado para o destino.
@@ -132,12 +132,6 @@ O período de retenção do SnapLock deve ser inferior a 100 anos.
 Período de bloqueio secundário de instantâneos
  a| 
 Selecione *período de bloqueio de cópia instantânea secundária* e selecione dias, meses ou anos.
-
-Para que essa opção seja efetiva, você deve executar as seguintes tarefas:
-
-** Selecione o *período de bloqueio de cópia de instantâneo primário*.
-** Selecione uma ou ambas as opções de replicação secundária.
-
 
 |===
 +

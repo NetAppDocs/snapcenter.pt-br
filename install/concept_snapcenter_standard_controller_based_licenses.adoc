@@ -11,13 +11,13 @@ summary: Se você estiver usando controladores de storage FAS, AFF ou ASA, é ne
 
 
 [role="lead"]
-É necessária uma licença baseada em controlador padrão da SnapCenter se você estiver usando controladores de storage FAS, AFF ou All SAN Array (ASA).
+Se você estiver usando controladores de storage FAS, AFF ou ASA, é necessária uma licença baseada em controlador padrão da SnapCenter.
 
 A licença baseada no controlador tem as seguintes caraterísticas:
 
 * Direito padrão da SnapCenter incluído na compra de pacote Premium ou Flash (não com o pacote básico)
 * Uso ilimitado de armazenamento
-* Habilitado adicionando-o diretamente ao controlador de storage FAS, AFF ou ASA usando a linha de comando Gerenciador de sistema do ONTAP ou cluster de storage
+* Habilitado ao adicioná-lo diretamente à controladora de storage FAS, AFF ou ASA usando o Gerenciador de sistema do ONTAP ou a CLI do ONTAP.
 +
 
 NOTE: Você não insere nenhuma informação de licença na GUI do SnapCenter para as licenças baseadas no controlador do SnapCenter.
@@ -162,7 +162,7 @@ All-Flash Optimized: false
 
 == Passo 4: Recupere o número de série da licença baseada no controlador
 
-Se você estiver usando o armazenamento FAS ou AFF, poderá recuperar a licença baseada no controlador SnapCenter do site de suporte da NetApp antes de instalá-la usando a linha de comando ONTAP.
+Se você estiver usando o armazenamento FAS, ASA ou AFF, poderá recuperar a licença baseada no controlador SnapCenter do site de suporte da NetApp antes de instalá-la usando a linha de comando ONTAP.
 
 .Antes de começar
 * Você deve ter credenciais de login válidas no site de suporte da NetApp.

@@ -46,7 +46,6 @@
   <block id="1ac86f6dd27abfcb13588ec9dff9ba2a" category="list-text">Fazer backup de programações</block>
   <block id="d25ed0a2e5a416476005adbae8f92042" category="paragraph">As agendas de backup (exatamente quando os backups devem ser executados) fazem parte de uma configuração de grupo de recursos. Por exemplo, se você tiver um grupo de recursos que tenha uma política configurada para backups semanais, poderá configurar a programação para fazer backup todas as quintas-feiras às 10:00 horas. Você pode acessar programações de grupos de recursos clicando em *recursos* &gt; *grupos de recursos*.</block>
   <block id="04a9cf8066f01cc2ca9e6a6e6b25a340" category="paragraph">Os ONTAP Privileges mínimos necessários variam de acordo com os plug-ins do SnapCenter que você está usando para proteção de dados.</block>
-  <block id="f787fb91924061fe015dd390115ff7b0" category="list-text">Comandos All-Access: Privileges mínimo necessário para o ONTAP 8.3.0 e posterior</block>
   <block id="f29e68a537349e874e09abd00f21d020" category="list-text">event generate-AutoSupport-log</block>
   <block id="e3890e588ffa00d05486b60aaec37e39" category="list-text">mostra o histórico de trabalhos</block>
   <block id="5b4f487acd2a1e48d6c43939945c2783" category="list-text">paragem do trabalho</block>
@@ -513,7 +512,6 @@
   <block id="8e9c48fe78f7db8b873c1b8d90139e22" category="list-text">Desative a coleta de dados EMS inserindo _Disable-SmDataCollectionEms_.</block>
   <block id="446a2f14b20bdf1f8fabde0cb8e8b51f" category="section-title">Inicie a recolha de dados EMS</block>
   <block id="4250a340e7b9c6a47392e8eb582132b9" category="paragraph">A coleta de dados do EMS é ativada por padrão e está programada para ser executada a cada sete dias a partir da data de instalação. Se você a tiver desativado, você poderá iniciar a coleta de dados EMS novamente usando o cmdlet _enable-SmDataCollectionEMS_.</block>
-  <block id="d06bfbc0749c176c2a7d908e8b92e373" category="paragraph">A permissão Data ONTAP event Generate-AutoSupport-log foi concedida ao usuário da máquina virtual de storage (SVM).</block>
   <block id="d4eebbbd9ad773c8069231c64b1463fd" category="list-text">Ative a coleta de dados EMS inserindo _enable-SmDataCollectionEMS_.</block>
   <block id="e491daede62a6579dd942889f56f16d7" category="section-title">Alterar o cronograma de coleta de dados do EMS e o SVM de destino</block>
   <block id="98e5542972b0ba06f813e4c68d3fec0b" category="paragraph">Você pode usar cmdlets do PowerShell para alterar o cronograma de coleta de dados do EMS ou a máquina virtual de armazenamento de destino (SVM).</block>
@@ -674,7 +672,6 @@
   <block id="09a6d5e712449f112a3dcd2169dac55a" category="paragraph">Quando você estiver restaurando o repositório do SnapCenter, outras operações do SnapCenter que estão sendo executadas serão impactadas porque durante a operação de restauração o banco de dados do repositório não está acessível.</block>
   <block id="f65a265b9c1e948edcb4b8b5bd492a18" category="list-text">Restaure o backup do repositório usando o cmdlet _Restore-SmRepositoryBackup_.</block>
   <block id="ec9dad1ea2b1a5314f82d20d3bf23f49" category="paragraph">O cmdlet a seguir restaura o repositório de banco de dados MySQL do SnapCenter a partir dos backups existentes no iSCSI LUN ou VMDK:</block>
-  <block id="322c20f898d5631d47f9131b0ff643f9" category="paragraph">O cmdlet a seguir restaura o banco de dados MySQL do SnapCenter quando os arquivos de backup são excluídos acidentalmente no iSCSI LUN. Para VMDK, restaure manualmente o backup a partir de snapshots do ONTAP.</block>
   <block id="ba26ffcdcd99a1aea9b86f7be319ba8b" category="admonition">O backup que foi usado para executar a operação de restauração do repositório não será listado quando os backups do repositório forem recuperados após a execução da operação de restauração.</block>
   <block id="071788d560dec04e39684f7e9734f7f8" category="section-title">Migrar o repositório SnapCenter</block>
   <block id="36a43a17d046b7175ef97b0dd0dbf8f8" category="paragraph">Você pode migrar o repositório de banco de dados do servidor SnapCenter do local padrão para outro disco. Você pode migrar o repositório quando quiser realocá-lo para um disco com mais espaço.</block>
@@ -1065,7 +1062,6 @@
   <block id="28cff6abd4b7b43406436e547f34789e" category="paragraph">O SnapCenter inclui o servidor SnapCenter e plug-ins leves individuais. É possível automatizar a implantação de plug-ins para hosts remotos de aplicações, agendar operações de backup, verificação e clone e monitorar todas as operações de proteção de dados.</block>
   <block id="66f12d94976f038895bab4372ee87640" category="paragraph">O SnapCenter pode ser implantado das seguintes maneiras:</block>
   <block id="ad5726653853fba2b5d98515c638da77" category="list-text">No local para proteger o seguinte:</block>
-  <block id="f6ce44442588fc16e1d7cc2d3995eff2" category="list-text">Dados em sistemas primários ONTAP FAS, AFF ou All SAN Array (ASA) e replicados para sistemas secundários ONTAP FAS, AFF ou ASA</block>
   <block id="7deab53ede49d0d1a58c65f2e25ff259" category="list-text">Dados em sistemas primários ONTAP Select</block>
   <block id="3f897d901d24f02777ff0994b7823d1a" category="list-text">Dados em sistemas primários e secundários ONTAP FAS, AFF ou ASA e protegidos no storage de objetos StorageGRID local</block>
   <block id="bc549d53e5e7a7aeb8a41511751a99f2" category="list-text">No local em uma nuvem híbrida para proteger o seguinte:</block>
@@ -1268,7 +1264,6 @@
   <block id="6fe96fe83e4fe586b0886b2e5017d10d" category="paragraph">Por exemplo, se você quiser executar operações de Snapshot e proteção de dados em um ambiente SQL Server, você deve definir credenciais com as credenciais Windows ou SQL adequadas. O servidor SnapCenter autentica o conjunto de credenciais usando qualquer um dos métodos. Se você quiser executar operações de snapshot e proteção de dados em um ambiente de sistema de arquivos do Windows no storage ONTAP, a função de administrador do SnapCenter deve ter admin Privileges no host do Windows.</block>
   <block id="1247a4f73aec617351c15da7677f2470" category="paragraph">Da mesma forma, se você deseja executar operações de proteção de dados em um banco de dados Oracle e se a autenticação do sistema operacional (os) estiver desativada no host do banco de dados, você deve definir credenciais com o banco de dados Oracle ou as credenciais Oracle ASM. O servidor SnapCenter autentica as credenciais definidas usando um desses métodos, dependendo da operação.</block>
   <block id="880474ac5a13e7ace0b497d868bfcec8" category="section-title">Plug-in do SnapCenter para VMware vSphere RBAC</block>
-  <block id="f801aae5c222a63a7b4293067447308c" category="paragraph">Se você estiver usando o plug-in SnapCenter VMware para proteção de dados consistente com VM, o vCenter Server fornecerá um nível adicional de RBAC. O plug-in SnapCenter VMware é compatível com o vCenter Server RBAC e o Data ONTAP RBAC.</block>
   <block id="924b38ecfddee0161d42ebb991f8e8a3" category="paragraph">Para obter informações, consulte<block ref="1ec180cad4f4e747c7ef776c635100ff" category="inline-link-rx"></block></block>
   <block id="fee7e83316f093eca52deec4c8b672ce" category="paragraph">Você deve criar uma conta vsadmin com as permissões necessárias para acessar o sistema de armazenamento.</block>
   <block id="f5e109b370464d84cabe080f73038355" category="inline-link-macro">Crie uma função de cluster do ONTAP com Privileges mínimo</block>
@@ -1639,7 +1634,6 @@
   <block id="794df3791a8c800841516007427a2aa3" category="cell">Licença</block>
   <block id="b428bd66304bced88a8f85c2e42e2a8d" category="cell">Quando necessário</block>
   <block id="932a86c21601cea5fd4dd8e8496f1347" category="paragraph">Baseado em controladora padrão da SnapCenter</block>
-  <block id="e9f8485c0c52ec084887222481b5cb66" category="paragraph">Necessário para FAS, AFF e All SAN Array (ASA)</block>
   <block id="54e6e66bc0a69ef86d9bb0b63900793e" category="admonition">O SnapCenter também é oferecido como parte do pacote de proteção de dados. Se você comprou o A400 ou posterior, você deve comprar o pacote de proteção de dados.</block>
   <block id="06bfcdba3ea733216950ad2dd53126d5" category="paragraph">SnapMirror ou SnapVault</block>
   <block id="253b40ae359ba25b56231803430c4873" category="paragraph">ONTAP</block>
@@ -1671,11 +1665,9 @@
   <block id="802a2285a60e079b52f32ba2c3140d0d" category="paragraph">A recuperação de caixa de correio única NetApp chegou ao fim da disponibilidade (EOA) em 12 de maio de 2023. Para obter mais informações, <block ref="5a98ce97c5b40ecef6f220dc57d4f14a" category="inline-link-macro-rx"></block>consulte . A NetApp continuará a oferecer suporte a clientes que adquiriram capacidade, manutenção e suporte da caixa de correio por meio de números de peça de marketing introduzidos em 24 de junho de 2020, durante o período do direito ao suporte.</block>
   <block id="03da3b5726a1efd6df1fc511966c89a6" category="paragraph">O NetApp Single Mailbox Recovery é um produto parceiro fornecido pela Ontrack. O Ontrack PowerControls oferece recursos semelhantes aos da recuperação de caixa de correio única do NetApp. Os clientes podem adquirir novas licenças de software Ontrack PowerControls e renovações de manutenção e suporte Ontrack PowerControls do Ontrack (até licensingteam@ontrack.com) para recuperação granular da caixa de correio após a data EOA de 12 de maio de 2023.</block>
   <block id="28f9c2d1c67ea659588c7bfc2680e96d" category="summary">Se você estiver usando controladores de storage FAS, AFF ou ASA, é necessária uma licença baseada em controlador padrão da SnapCenter.</block>
-  <block id="e6c51d0ec467f9742ef4d9ed2bfd5390" category="paragraph">É necessária uma licença baseada em controlador padrão da SnapCenter se você estiver usando controladores de storage FAS, AFF ou All SAN Array (ASA).</block>
   <block id="b1c23ca4e9e67a158bfb24299743d88f" category="paragraph">A licença baseada no controlador tem as seguintes caraterísticas:</block>
   <block id="5300768d44eab29e62cfac966d22baea" category="list-text">Direito padrão da SnapCenter incluído na compra de pacote Premium ou Flash (não com o pacote básico)</block>
   <block id="c55c867b9e6458f61ad9c49c7535bfab" category="list-text">Uso ilimitado de armazenamento</block>
-  <block id="6b22646455acfe9efc53d4f10b58a5fe" category="list-text">Habilitado adicionando-o diretamente ao controlador de storage FAS, AFF ou ASA usando a linha de comando Gerenciador de sistema do ONTAP ou cluster de storage</block>
   <block id="c0919ecf5802c65bf773794b7af70540" category="admonition">Você não insere nenhuma informação de licença na GUI do SnapCenter para as licenças baseadas no controlador do SnapCenter.</block>
   <block id="17449a90a0d7161db56cba83fa4f2728" category="list-text">Bloqueado no número de série do controlador</block>
   <block id="eb55a5732c8239cbf4f476df49cc20a3" category="paragraph">Para obter informações sobre as licenças necessárias, <block ref="6de8516502145d64739d69762f4898a1" category="inline-link-macro-rx"></block>consulte .</block>
@@ -1707,7 +1699,6 @@
   <block id="1220394f5402b4332338e11150062d91" category="list-text">Digite o comando system show -instance e, em seguida, revise a saída para localizar o número de série do controlador.</block>
   <block id="065b83de49a875bb4bd71dbe16fad428" category="list-text">Registe os números de série.</block>
   <block id="4fb6996a4b0fc33cbed31ac896875422" category="section-title">Passo 4: Recupere o número de série da licença baseada no controlador</block>
-  <block id="da68fe81ae35bfda8d512b213d4ea64f" category="paragraph">Se você estiver usando o armazenamento FAS ou AFF, poderá recuperar a licença baseada no controlador SnapCenter do site de suporte da NetApp antes de instalá-la usando a linha de comando ONTAP.</block>
   <block id="26e6565b87611c0e2e61e424bbf253a8" category="list-text">Você deve ter credenciais de login válidas no site de suporte da NetApp.</block>
   <block id="315713e21026e04eaaa2b9a3821e4c3d" category="paragraph">Se você não inserir credenciais válidas, nenhuma informação será retornada para sua pesquisa.</block>
   <block id="253fa4a7008b4934e4b20001065ef254" category="list-text">Você deve ter o número de série do controlador.</block>
@@ -2390,7 +2381,6 @@
   <block id="1e1ed4854c77f284f3e97b0843b6e570" category="doc">Sistemas e aplicações de storage compatíveis</block>
   <block id="ed3518bf4a914f119b6bdecebdd5768f" category="paragraph">Você deve conhecer o sistema de storage compatível, as aplicações e os bancos de dados.</block>
   <block id="16f0739cf9b014b8e0cab25818f1687c" category="list-text">O SnapCenter oferece suporte ao ONTAP 9.12.1 e posterior para proteger seus dados.</block>
-  <block id="213ee580d561421ab50f46ea0b22affa" category="list-text">O SnapCenter oferece suporte ao Amazon FSX for NetApp ONTAP para proteger seus dados da versão de patch do software SnapCenter 4,5 P1.</block>
   <block id="dc39fb71951ab3bfb20cab9c1beb9446" category="paragraph">Se você estiver usando o Amazon FSX for NetApp ONTAP, verifique se os plug-ins de host do servidor SnapCenter são atualizados para 4,5 P1 ou posterior para executar operações de proteção de dados.</block>
   <block id="47217be9e2af813e09f7a7760c32e8ce" category="paragraph">É compatível com NVMe (non-volátil Memory Express) em Transport Control Protocol (TCP).</block>
   <block id="cc788b7e72b2a734dd0985bd1e0e9fe3" category="inline-link">Documentação do Amazon FSX para NetApp ONTAP</block>
@@ -2467,7 +2457,6 @@
   <block id="994b4bd5e17452cd36f1c413715e9b54" category="list-text">Repita este procedimento para todos os ativos necessários.</block>
   <block id="4cc186df234138a57b2e8c5d8e5f7f8d" category="list-text">Clique em *Salvar*.</block>
   <block id="7a94136f80a88afa27fcebdcd0e728a6" category="paragraph">Depois de adicionar usuários ou grupos e atribuir funções, atualize a lista recursos.</block>
-  <block id="6c778a52dc5f13a6dd5e629e65cf1082" category="summary">Use os comandos de login de segurança para adicionar uma função RBAC do ONTAP quando seus sistemas de storage estiverem executando o Clustered ONTAP.</block>
   <block id="a69e754efca1b9623b6b0f65a2d8dc73" category="doc">Adicione uma função ONTAP RBAC usando comandos de login de segurança</block>
   <block id="474d9e4d882e646ea038c1c3f1057d2e" category="list-text">Antes de criar uma função RBAC do ONTAP para sistemas de storage que executam o Clustered ONTAP, é necessário identificar o seguinte:</block>
   <block id="ebe591ae9d43ae4398d95940e9fd9562" category="list-text">A tarefa (ou tarefas) que você deseja executar</block>
@@ -2478,9 +2467,6 @@
   <block id="dee6c2623edcbb8e68bfe81ea75668fa" category="paragraph">Você deve sempre atribuir primeiro o All-Access Privileges.</block>
   <block id="1deb5fee27bfdda7d20d4c10f6e8f273" category="list-text">Atribua funções aos usuários.</block>
   <block id="407e9947315902e28583d3951a4332d4" category="list-text">Varie a configuração dependendo se os plug-ins do SnapCenter estão conetados ao IP do administrador de cluster para todo o cluster ou diretamente conetados a um SVM no cluster.</block>
-  <block id="b0d5e2e1ad5a75d6a2a8f8b07fde4928" category="paragraph">Para simplificar a configuração dessas funções em sistemas de storage, você pode usar a ferramenta Criador de usuários do RBAC para Data ONTAP, publicada no Fórum de Comunidades do NetApp.</block>
-  <block id="8e841d21791a29493ed9fc18a2573067" category="paragraph">Esta ferramenta lida automaticamente com a configuração correta do ONTAP Privileges. Por exemplo, a ferramenta Criador de Usuário RBAC para Data ONTAP adiciona automaticamente o Privileges na ordem correta para que o Privileges de Acesso total apareça primeiro. Se você adicionar primeiro o Privileges somente leitura e depois adicionar o Privileges All-Access, o ONTAP marca o Privileges All-Access como duplicatas e os ignora.</block>
-  <block id="5f1f3816baaf1ae27261430125d83764" category="admonition">Se você atualizar mais tarde o SnapCenter ou o ONTAP, execute novamente a ferramenta Criador de usuários do RBAC para Data ONTAP para atualizar as funções de usuário criadas anteriormente. As funções de usuário criadas para uma versão anterior do SnapCenter ou do ONTAP não funcionam corretamente com versões atualizadas. Quando você executa novamente a ferramenta, ela manipula automaticamente a atualização. Você não precisa recriar os papéis.</block>
   <block id="9dc5053bca32e6394932747f3adab2c4" category="inline-link">Guia de autenticação do administrador da ONTAP 9 e alimentação RBAC</block>
   <block id="cf450319b4b50a20dcf243d6273acbf4" category="paragraph">Para obter mais informações sobre como configurar funções RBAC do ONTAP, consulte<block ref="4054a3747c1ed1604c443c75434e693a" category="inline-link-rx"></block>.</block>
   <block id="74fec6bb431ffa93b327d4933607ec3f" category="admonition">Para consistência, a documentação do SnapCenter refere-se às funções como usando o Privileges. A GUI do OnCommand System Manager usa o termo _attribute_ em vez de _Privilege_. Ao configurar funções RBAC do ONTAP, esses dois termos significam a mesma coisa.</block>
@@ -2541,7 +2527,6 @@
   <block id="6f9f8c6ff90de911912e63ac72e07121" category="paragraph">Se você adicionou clusters FSX usando fsxadmin, os clusters FSX são listados aqui.</block>
   <block id="33369003833687837d9530cf914920b1" category="paragraph">Quando você clica no nome do cluster, todos os SVMs que fazem parte do cluster são exibidos na seção máquinas virtuais de armazenamento.</block>
   <block id="0386bdeabfbeabf10a27e1684fb9871a" category="paragraph">Se um novo SVM for adicionado ao cluster do ONTAP usando a GUI do ONTAP, clique em *redescobrir* para exibir o SVM recém-adicionado.</block>
-  <block id="cff41786c5502cd7deaf78557f919f0f" category="admonition">Se você atualizou os sistemas de storage FAS ou AFF para todos os Arrays SAN (ASA), atualize a conexão de storage no servidor SnapCenter para refletir o novo tipo de storage no SnapCenter.</block>
   <block id="cca118bc594fa4e8713e94b8b6656358" category="paragraph">Um administrador de cluster deve permitir que o AutoSupport em cada nó do sistema de storage envie notificações por e-mail de todos os sistemas de storage aos quais o SnapCenter tem acesso, executando o seguinte comando na linha de comando do sistema de storage:</block>
   <block id="2a41146d1eea3c93eec15e8eb831797f" category="paragraph"><block ref="8f230e9ca65c4719bd75e249d2c0deac" prefix="" category="inline-code"></block></block>
   <block id="90ad471fa77b40e816901adea8426b02" category="admonition">O administrador da máquina virtual de storage (SVM) não tem acesso ao AutoSupport.</block>
@@ -4267,7 +4252,6 @@
   <block id="cee00ab879a477aea09f4b1f404b14fc" category="paragraph">Mantenha um certo número de instantâneos</block>
   <block id="b19465911649130b0ad9e7ed87b43f2f" category="paragraph">Selecione *Total de cópias Snapshot a manter* e especifique o número de capturas instantâneas que deseja manter.</block>
   <block id="7537e0d42ad63b5bae18964aee575640" category="paragraph">Se o número de instantâneos exceder o número especificado, os instantâneos serão excluídos com as cópias mais antigas excluídas primeiro.</block>
-  <block id="225ea283dca2590a2a542a782ac56927" category="admonition">O valor máximo de retenção é 1018 para recursos no ONTAP 9.4 ou posterior e 254 para recursos no ONTAP 9.3 ou anterior. Os backups falharão se a retenção for definida para um valor maior do que o que a versão subjacente do ONTAP suporta.</block>
   <block id="a73c04130d1785278e42ce85b94c154d" category="admonition">Para backups baseados em cópias Snapshot, defina a contagem de retenção para 2 ou superior, se quiser habilitar a replicação do SnapVault. Se você definir a contagem de retenção como 1, a operação de retenção poderá falhar porque o primeiro snapshot é o snapshot de referência para a relação SnapVault até que um snapshot mais recente seja replicado para o destino.</block>
   <block id="c0ab35de65d78830f03751afe7a38d7b" category="admonition">Para replicação do sistema SAP HANA, recomenda-se adicionar todos os recursos do sistema SAP HANA a um grupo de recursos. Isso garante que o número certo de backups seja retido.</block>
   <block id="3d721f84f4ba496ced30bffcfa1591da" category="admonition">Para a replicação do sistema SAP HANA, o total de snapshots obtidos será igual ao conjunto de retenção para o grupo de recursos. A remoção do Snapshot mais antigo é baseada em qual nó o Snapshot mais antigo está localizado. Por exemplo, a retenção está definida como 7 para um grupo de recursos com SAP HANA System Replication primário e SAP HANA System Replication secundário. Você pode tirar um máximo de 7 snapshots de cada vez, incluindo SAP HANA System Replication Primary e SAP HANA System Replication secundário.</block>
@@ -4763,7 +4747,6 @@
   <block id="ee951528ab77b8d58d90d5ab615dd4aa" category="paragraph">Nome do plug-in. São permitidos carateres alfanuméricos. Por exemplo, DB2, MySQL, MongoDB</block>
   <block id="ff1642648bf25086a549307da08e818d" category="paragraph">Para plug-ins criados no estilo NATIVO, certifique-se de que não forneça a extensão do arquivo. Por exemplo, se o nome do plug-in for MongoDB.sh, especifique o nome como MongoDB.</block>
   <block id="34b6cd75171affba6957e308dcbd92be" category="paragraph">Versão</block>
-  <block id="96472ac7d17b3fa637c939c5dbe7aa2c" category="paragraph">Versão de plug-in. Pode incluir tanto a versão maior como a menor. Por exemplo, 1,0, 1,1, 2,0, 2,1</block>
   <block id="3b868ced6f60acf5ee565ac021d42941" category="paragraph">Nome de exibição</block>
   <block id="0c5cf3f9437d836d57e97dfa37ce8453" category="paragraph">O nome do plug-in a ser exibido no servidor SnapCenter. Se várias versões do mesmo plug-in forem escritas, verifique se o nome de exibição é o mesmo em todas as versões.</block>
   <block id="54d2dab039ee358ddca7d63d0f413e56" category="paragraph">PluginType</block>
@@ -5191,7 +5174,6 @@
   <block id="c2230088d27abaa2d470e15431fe93b5" category="list-text">Faça backup de aplicativos personalizados usando a estrutura de script pré e pós integrada</block>
   <block id="b7ef57ec0d80db01d4596e446c5f7c1f" category="paragraph">Você pode fazer backup do volume ONTAP, LUN ou Qtree.</block>
   <block id="b24c71863603f1e22b9646ccb63beac7" category="list-text">Atualize os snapshots feitos no primário para um secundário ONTAP, aproveitando a relação de replicação existente (SnapVault/SnapMirror/replicação unificada) usando a política SnapCenter</block>
-  <block id="36fecb1daf18c8eeaacbcc8cdc70f4a6" category="paragraph">O ONTAP primário e o secundário podem ser ONTAP FAS, AFF, All SAN Array (ASA), Select ou Cloud ONTAP.</block>
   <block id="0930cbd774389ffda4b953dfada42944" category="list-text">Recupere o volume, LUN ou arquivos completos do ONTAP.</block>
   <block id="01416c60ab0c357d59811f108a67d5bd" category="paragraph">Você deve fornecer o caminho do arquivo respetivo manualmente, pois os recursos de pesquisa ou indexação não estão incorporados ao produto.</block>
   <block id="17f0138477115892c87d600e535c1ed0" category="paragraph">A restauração de Qtree ou diretório não é suportada, mas você pode clonar e exportar apenas o Qtree se o escopo de backup estiver definido em um nível Qtree.</block>
@@ -5817,10 +5799,7 @@
   <block id="8b8199b2cc69508101df27784ccae8d5" category="doc">Monitore o status da instalação do pacote de plug-in SnapCenter</block>
   <block id="ec053c308e147d0958e28a0ea54218e5" category="summary">Se você precisar semear novamente uma cópia de réplica, por exemplo, quando uma cópia está corrompida, você pode semear novamente para o backup mais recente usando o recurso Reseed no SnapCenter.</block>
   <block id="aabc88376ed488867dcbd5ebe7ee5f24" category="doc">Semente novamente uma réplica passiva do nó Exchange</block>
-  <block id="95ae09e6950aff657a0ec2b6e13f37f0" category="list-text">Você deve estar usando o servidor SnapCenter 4,1 ou posterior e o plug-in para o Exchange 4,1 ou posterior.</block>
-  <block id="48d90a5e363abeb3058a0de5e6f65119" category="paragraph">Nova propagação uma réplica não é suportada em versões do SnapCenter anteriores a 4,1.</block>
   <block id="b2570b05b44ba71c96d94339ccd4972a" category="list-text">Você deve ter criado um backup do banco de dados que deseja fazer o repleed.</block>
-  <block id="6bdff70e9de2a356cc9745518bb414e7" category="cell">*Prática recomendada:* para evitar o atraso entre nós, recomendamos que você crie um novo backup antes de executar uma operação de semente novamente ou escolha o host com o backup mais recente.</block>
   <block id="f4bfc70881af07e0b233d284dd9a5c22" category="list-text">No painel de navegação à esquerda, clique em *recursos* e selecione *plug-in do Microsoft Exchange Server* na lista.</block>
   <block id="0fade6059cbb08ae2900df60356ee4c4" category="list-text">Na página recursos, selecione a opção apropriada na lista Exibir:</block>
   <block id="08367630ec592ba2c7487a0cf5b3bbe7" category="paragraph">Para semente de novo um único banco de dados</block>
@@ -6248,8 +6227,6 @@
   <block id="abd96a9e67c87700d0ddbbf79ca1ad42" category="list-text">Suporte para o recurso de mapa LUN seletivo (SLM) do ONTAP</block>
   <block id="fcc8a219537ae52cbcb4de4b42305ef7" category="paragraph">Habilitado por padrão, o recurso SLM deteta periodicamente os LUNs que não têm caminhos otimizados e os corrige. Você pode configurar o SLM modificando os parâmetros no arquivo scu.properties localizado em /var/opt/SnapCenter/scu/etc.</block>
   <block id="5bc73a697938fe752e1c9b686f4c9bca" category="list-text">Você pode desativar isso definindo o valor do parâmetro ENABLE_LUNPATH_MONITORING como false.</block>
-  <block id="1988e9c8cf124cb346a67d52ea613567" category="inline-link">Guia de administração de SAN ONTAP 9</block>
-  <block id="bb05b6e20b4cf14467757d0be8887ff0" category="list-text">Você pode especificar a frequência em que os caminhos LUN serão corrigidos automaticamente atribuindo o valor (em horas) ao parâmetro LUNPATH_MONITORING_INTERVAL. Para obter informações sobre o SLM, consulte<block ref="cb74c6abbb61537bc6ce7c3d4eb82b8a" category="inline-link-rx"></block>.</block>
   <block id="5773f6440e36169f1e12e5bf94061c09" category="list-text">Suporte para memória não volátil Express (NVMe) no Linux</block>
   <block id="258f389f9aaafec4ce1ef8c36ad97497" category="list-text">O NVMe útil deve ser instalado no host.</block>
   <block id="ab89efb871fba5e381bbef07f0387285" category="paragraph">É necessário instalar o NVMe util para clonar ou montar em um host alternativo.</block>
@@ -7096,7 +7073,6 @@
   <block id="af50d714aae8420f1fba06fef93a651c" category="list-text">Os sistemas de arquivos clonados são então desmontados do host e os volumes clonados são excluídos do ONTAP.</block>
   <block id="f3d8e7bed549389cd494b6bfbb85a42f" category="admonition">Para uma configuração do Flex ASM (em que a cardinalidade é menor do que os nós numéricos no cluster RAC) ou bancos de dados do ASM RAC no VMDK ou RDM, somente o método de restauração de conexão e cópia é suportado.</block>
   <block id="08a1ae55d996ee98dd80c5c4c62d96d9" category="paragraph">Mesmo que você tenha ativado com força a restauração no local, o SnapCenter executa a restauração de conexão e cópia nos seguintes cenários:</block>
-  <block id="10dba007e44356285cbd9088246559ad" category="list-text">Faça a restauração a partir do sistema de storage secundário e, se o Data ONTAP for anterior a 8,3</block>
   <block id="a0a19d4dbaa7f0338115cde34d5f3fac" category="list-text">Restauração de grupos de discos ASM presentes em nós de uma configuração do Oracle RAC em que a instância de banco de dados não está configurada</block>
   <block id="ec96fc3f26a5e3def34349a5ba3106a0" category="list-text">Na configuração do Oracle RAC, em qualquer um dos nós pares se a instância ASM ou a instância de cluster não estiver em execução ou se o nó peer estiver inativo</block>
   <block id="21f04616c9f47b98a118438980bfa7c0" category="list-text">Restauração de arquivos de controle somente</block>
@@ -7106,7 +7082,6 @@
   <block id="1b143938aaf5bb9e6ff4dad55436c4c6" category="list-text">Novos nós são adicionados ao Oracle RAC e o servidor SnapCenter não está ciente dos nós recém-adicionados</block>
   <block id="8fe5511a781b8c0eb456871713250421" category="section-title">Restauração no local</block>
   <block id="d4f49b060e7bae27b677a5d8d6a56473" category="paragraph">Se o layout do banco de dados for semelhante ao backup e não tiver sofrido nenhuma alteração de configuração na pilha de armazenamento e banco de dados, a restauração no local é realizada, em que a restauração do arquivo ou LUN é realizada no ONTAP. O SnapCenter suporta apenas o SFSR (Single File SnapRestore) como parte do método de restauração no local.</block>
-  <block id="d1977d8080b26c1ee878aaa6c61e9d31" category="admonition">O Data ONTAP 8.3 ou posterior oferece suporte à restauração no local a partir de um local secundário.</block>
   <block id="37349ec346f2d78876e8b6f263b4cb20" category="paragraph">Se você quiser executar a restauração no local no banco de dados, verifique se você tem somente datafiles no grupo de discos ASM. Você deve criar um backup depois que quaisquer alterações forem feitas no grupo de discos ASM ou na estrutura física do banco de dados. Depois de executar a restauração no local, o grupo de discos conterá o mesmo número de arquivos de dados que no momento do backup.</block>
   <block id="45fbe01b3c6942c8f893e08fa3c65f19" category="paragraph">A restauração no local será aplicada automaticamente quando o grupo de discos ou o ponto de montagem corresponder aos seguintes critérios:</block>
   <block id="003fdb57b0f7d55f85205faea9f2db43" category="list-text">Não são adicionados dados novos após a cópia de segurança (verificação de ficheiro estrangeiro)</block>
@@ -7372,7 +7347,6 @@
   <block id="382cdda6e690bf1f356fe8262a77acad" category="list-text">Selecione *tablespaces* e especifique as tablespaces que você deseja restaurar.</block>
   <block id="4cdff21e1a3b3a11f16dc574421a1599" category="doc">Divida um clone do banco de dados Oracle</block>
   <block id="b1b82801e9c78c50ebcf99fde0aea87a" category="list-text">Quando você divide um clone, as cópias de backup do clone são excluídas.</block>
-  <block id="cba97cc8f5b2bb7297dd2360ae8b024a" category="list-text">Para obter informações sobre limitações de operação de divisão de clones, consulte<block ref="3ae98799f9586e965a749204c2b3e8f9" category="inline-link-rx"></block> .</block>
   <block id="c073ee3bf31639ca8cd5dfdf2fe18185" category="paragraph">A operação de divisão de clones deixa de responder se o serviço SMCore for reiniciado e os bancos de dados nos quais a operação de divisão de clones foi executada são listados como clones na página recursos. Você deve executar o cmdlet _Stop-SmJob_ para interromper a operação de divisão de clones e tentar novamente a operação de divisão de clones.</block>
   <block id="103e35e260868e1aa1c36274a7301158" category="paragraph">Se você quiser um tempo de enquete mais longo ou menor para verificar se o clone está dividido ou não, você pode alterar o valor do parâmetro CloneSplitStatusCheckPollTime no arquivo SMCoreServiceHost.exe.config para definir o intervalo de tempo para que o SMCore busque o status da operação de divisão de clones. O valor é em milissegundos e o valor padrão é de 5 minutos.</block>
   <block id="fbfa277a055cde6a44aa257516ef119c" category="admonition">A operação de inicialização dividida do clone falha se o backup, a restauração ou a divisão do clone do outro estiverem em andamento. Você deve reiniciar a operação de divisão de clones somente depois que as operações em execução estiverem concluídas.</block>
@@ -7851,7 +7825,6 @@
   <block id="82c2224d099110596a9863d056598afe" category="paragraph">Guarde as cópias de backup por um número específico de dias.</block>
   <block id="9bbf41d74c8f89f293d3299ea7bebf83" category="list-text">Selecione a opção *manter backups de log aplicáveis aos últimos dias do &lt;number&gt; de backups completos* e especifique o número de dias para manter as cópias de backup de log.</block>
   <block id="0e549e42000cf1cd2bd13dc132e61448" category="paragraph">O período de retenção do SnapLock deve ser inferior a 100 anos.</block>
-  <block id="4caf8c069465c53a1a175fa4a08aa0a8" category="paragraph">Este exemplo define a retenção de instantâneos de log como 2:</block>
   <block id="92ac5fc0212c94ee50e6dc85913caeec" category="example-title">Mostrar exemplo</block>
   <block id="8047dd542f0833c625160d18deaef831" category="paragraph">Set-SmPolicy -policyname 'newpol' -PolicyType 'Backup' -PluginPolicyType 'SCSQL' -sqlbackuptype 'FullBackupAndLogBackup' -RetentonSettings 2 [BackupType] [DADOS];ScheduleType 'Hourly';RetentyType 2 2</block>
   <block id="f2d35fb96ac070e63c88b1b43cf8c70b" category="inline-link">O SnapCenter retém cópias Snapshot do banco de dados</block>
@@ -8485,7 +8458,6 @@
   <block id="6a1ea7acf8d1cfa3f328f2086b1d0e71" category="paragraph">Selecione *Always*, *on failure* ou *on failure or warning* para enviar mensagens de e-mail aos destinatários após restaurar os backups. Introduza o servidor SMTP, a linha de assunto de e-mail predefinida e os endereços de e-mail de e para.</block>
   <block id="ef96beee5f80fc2bcd7726a450b3a989" category="admonition">Se o sistema de arquivos restaurado contiver um banco de dados, você também deverá restaurar o banco de dados. Se você não restaurar o banco de dados, o banco de dados pode estar em um estado inválido. Para obter informações sobre como restaurar bancos de dados, consulte o Guia de proteção de dados desse banco de dados.</block>
   <block id="b651b2481c776bf3bf9ea345a8be10ad" category="summary">Ao se preparar para fazer backup ou clonar um recurso, você poderá ver uma representação gráfica de todos os backups e clones no storage primário e secundário. Na página topologia, você pode ver todos os backups e clones disponíveis para o grupo de recursos ou recursos selecionado. Você pode visualizar os detalhes desses backups e clones e, em seguida, selecioná-los para executar operações de proteção de dados.</block>
-  <block id="ab4899518bdf2b09eb1ef12f3cb58429" category="list-text">Se você atualizou do SnapCenter 1,1, os clones no secundário (espelho ou cofre) não serão exibidos em cópias espelhadas ou cópias do cofre na página topologia. Todos os clones criados usando o SnapCenter 1,1 são exibidos nas cópias locais no SnapCenter 3,0.</block>
   <block id="a5034055581c83d2fec0b4b410e664f4" category="paragraph">A seção cartão de resumo exibe o número total de backups e clones. Somente para banco de dados Oracle, a seção cartão de resumo também exibe o número total de backups de log.</block>
   <block id="80c82fe3ce8c148b5edc714385f5f5b1" category="paragraph">Se você estiver usando plug-ins personalizados do SnapCenter, não será possível renomear os backups que estão no sistema de storage primário.</block>
   <block id="82df92bf63205eb90f0513c131abc2dd" category="list-text">Se você quiser excluir um clone, selecione o clone da tabela e clique <block ref="f790bf9188cee374d2bb1f3790c6a393" category="inline-image-macro-rx" type="image"></block> para excluir o clone.</block>
@@ -9154,7 +9126,6 @@
   <block id="93e063301f68e16961686672bfe6208e" category="list-text">Você deve fazer backup de todos os arquivos de configuração do SnapCenter que você modificou no host do servidor SnapCenter ou no host do plug-in.</block>
   <block id="77b44cc84c18e6f68f7831889cfc9abd" category="paragraph">Exemplos de arquivos de configuração do SnapCenter: SnapDriveService.exe.config, SMCoreServiceHost.exe.config e assim por diante.</block>
   <block id="a6230500cc307e0a76e575726dcf9cdd" category="list-text">Durante a atualização, um script SQL é executado para atualizar os dados do Exchange no banco de dados NSM, que converte o DAG e o nome abreviado do host para FQDN. Isso é aplicável somente se você estiver usando o SnapCenter Server com o plug-in do Exchange.</block>
-  <block id="ed00a9e405426a3469fc285a29a849ab" category="list-text">Para o plug-in do SnapCenter para Microsoft SQL Server, o plug-in do SnapCenter para Microsoft Exchange Server e o plug-in do SnapCenter para Microsoft Windows, é recomendável atualizar o servidor e os hosts do plug-in para a versão 4,7 para a execução do SCRIPT_PATH.</block>
   <block id="d707739d912438c4a86ec02ff6529da1" category="paragraph">Para as agendas de backup e verificação existentes com prescripts e pós-scripts ativados na política, as operações de backup continuarão a funcionar após a atualização.</block>
   <block id="8159134911a3775f77dfaeafb846c0d3" category="paragraph">Na página *Detalhes da tarefa*, uma mensagem de aviso recomenda que o cliente copie os scripts para o SCRIPT_path e edite a política para fornecer um caminho relativo ao SCRIPT_path. Para o trabalho de ciclo de vida do clone, a mensagem de aviso aparece no nível do subtrabalho.</block>
   <block id="d6d9056bd3ccaf6f2ea25c46f86b217c" category="list-text">Baixe o pacote de instalação do servidor SnapCenter no site de suporte da NetApp.</block>
@@ -9460,9 +9431,6 @@
   <block id="caa08201cb734b2c4b9c07d88af03f12" category="list-text">Se necessário, reconstrua o host secundário.<block ref="fe77a15e62ab867fe36429b52c13f7a6" prefix=" " category="inline-code"></block></block>
   <block id="6027414af513eb2fd2ff4d1ba01ecc48" category="list-text">Failover para o segundo host.<block ref="0b9b9eafa89b540bbf9b9ff9bde04610" prefix=" " category="inline-code"></block></block>
   <block id="c5161716a036dddca2f68cda30000d0f" category="paragraph">Mude de NLB para F5 para alta disponibilidade</block>
-  <block id="39dc06ca99004e21bf85ae55cfbb26ff" category="paragraph">A licença padrão da SnapCenter é uma licença baseada em controlador e está incluída como parte do ONTAP One. Se você tiver a licença do SnapManager Suite, você também obtém o direito de licença padrão do SnapCenter. Se você quiser instalar o SnapCenter em uma base de avaliação com o storage FAS, AFF ou ASA, poderá obter uma licença de avaliação do ONTAP One entrando em Contato com o representante de vendas.</block>
-  <block id="a167444fdea2847400372052380975f2" category="inline-link">Licenças incluídas no ONTAP One</block>
-  <block id="ecad5e8e1aac5e2b9870fc1d4a8bbb91" category="paragraph">Para obter informações sobre as licenças incluídas no ONTAP One,<block ref="c2fb007f72246516006250865a9beb37" category="inline-link-rx"></block> consulte .</block>
   <block id="156a5008fbec69c3f4a424d5bca0e1d8" category="admonition">As licenças do SnapCenter Advanced e do SnapCenter nas File Services estão obsoletas e não estão mais disponíveis. A licença padrão e a licença baseada em capacidade não são mais necessárias para o Amazon FSX for NetApp ONTAP, ONTAP Select, Cloud Volumes ONTAP e Azure NetApp Files.</block>
   <block id="dbd495ad96b61252237734b22b1ddf62" category="admonition">Você pode incluir apenas os seguintes carateres especiais em nomes de usuário e nomes de grupo: Espaço ( ), hífen (-), sublinhado (_) e dois pontos (:).</block>
   <block id="3c1eae5e6ea0b19f0a43abeaee269bc2" category="paragraph">Opcionalmente, você pode executar vários procedimentos de instalação e configuração usando cmdlets do PowerShell. Você deve estar usando o PowerShell 7.4.2 ou posterior.</block>
@@ -9480,7 +9448,6 @@
   <block id="30e30875c1a26a8c3649817182f09da6" category="paragraph">O SnapCenter é compatível com a proteção de aplicações como Oracle, SQL e SAP HANA que residem no Azure NetApp Files. A partir da versão 6.0.1, o SnapCenter dá suporte ao recurso de backup Azure NetApp Files que expande os recursos de proteção de dados do Azure NetApp Files fornecendo solução de backup totalmente gerenciada para recuperação, arquivamento e conformidade de longo prazo.</block>
   <block id="03ba6af8c8aacc925daefdecc52c1ced" category="paragraph">O Azure NetApp Files é uma solução de storage premium que pode ser cara para a retenção de backup a longo prazo. Para otimizar custos, você pode migrar os backups do storage Azure NetApp Files para um armazenamento de objetos Azure. A partir do SnapCenter 6,0.1, é possível fazer backup e clonar aplicativos que residem no Azure NetApp Files para o armazenamento de Blobs do Azure (armazenamento de objetos). Você pode manter duas cópias dos seus dados, cópias snapshot de volume no storage Azure NetApp Files para recuperação de curto prazo e outra cópia no armazenamento Blob do Azure para recuperação de longo prazo.</block>
   <block id="20c30f0cc89f35ed825a3cd3d901372c" category="paragraph">Quando uma política com backup do Azure NetApp Files está habilitada e associada a um recurso, o SnapCenter manipula a criação de snapshots de volume e o backup no armazenamento de Blobs do Azure. O SnapCenter cria o cofre de backup e habilita o backup para o volume. Se você ativou o backup para o volume, o SnapCenter utiliza o cofre existente.</block>
-  <block id="e55ea9fc643ab80ebff324b5ff0d6b8d" category="list-text">As funcionalidades de armazenamento de objetos para sistemas de armazenamento FAS ou AFF ONTAP e FSxN não são suportadas.</block>
   <block id="1e05d9799692ccd6b7989f741f68ec55" category="list-text">A verificação de backup do storage de objetos, suporte à API REST, gerenciamento do ciclo de vida de clones do storage de objetos e recursos de geração de relatórios para backups de storage de objetos não é compatível.</block>
   <block id="c54485c49dccc7921e44c57c0bc07610" category="list-text">A restauração de backups no armazenamento de Blobs do Azure para o Azure NetApp Files não é suportada. Você pode usar a opção clone, alternativamente.</block>
   <block id="9a6872cf47cae5149dfd734be3f2eee0" category="paragraph"><block ref="9a6872cf47cae5149dfd734be3f2eee0" category="inline-link-macro-rx"></block></block>
@@ -9850,13 +9817,8 @@
   <block id="8c4df87df7072888db58abdf493c82ba" category="paragraph">Se desejar especificar o período de bloqueio de instantâneos para o primário, selecione período de bloqueio de cópias instantâneas e selecione dias, meses ou anos.</block>
   <block id="37f001fbef310181d8f4577b4c03a798" category="paragraph">Período de bloqueio secundário de instantâneos</block>
   <block id="2e37f31a39b30876eff1858ef3d01783" category="paragraph">Selecione *período de bloqueio de cópia instantânea secundária* e selecione dias, meses ou anos.</block>
-  <block id="d4fab0a3b9169228dc7321f4155040a6" category="paragraph">Para que essa opção seja efetiva, você deve executar as seguintes tarefas:</block>
-  <block id="768d22eeffe1b0d643b0ed933c3e5f76" category="list-text">Selecione o *período de bloqueio de cópia de instantâneo primário*.</block>
-  <block id="8dedb6d4cefe12f20aa79a3e591fbe62" category="list-text">Selecione uma ou ambas as opções de replicação secundária.</block>
   <block id="49d10f32e6045f6eb1e87608c6663036" category="list-text">Na seção Selecionar opções de replicação secundária, selecione uma ou ambas as seguintes opções de replicação secundária:</block>
   <block id="8a2dda8619fc89210a82c7915ff8404f" category="admonition">Você deve selecionar as opções de replicação secundária para *período de bloqueio de cópia snapshot secundário* para entrar em vigor.</block>
-  <block id="e0db40503bb9a725a94275ee8cd82432" category="paragraph">Dependendo do rótulo de captura instantânea selecionado, o ONTAP aplica a política de retenção de snapshot secundária que corresponde ao rótulo.</block>
-  <block id="7924c7d510ee4c17272379c570f53baa" category="paragraph">Observação: Se você selecionou *Atualizar SnapMirror depois de criar uma cópia Snapshot local*, você pode especificar opcionalmente o rótulo de política secundária. No entanto, se você selecionou *Atualizar SnapVault depois de criar uma cópia Snapshot local*, especifique o rótulo de política secundária.</block>
   <block id="21c50f2705444dd3390a81b7b2265c1d" category="admonition">Você também pode criar uma política clicando em *<block ref="7b8f66898e8dfce6b3b454cf0514c993" category="inline-image-macro-rx" type="image"></block>*.</block>
   <block id="1fdb686d7eb7b44f458d7be7367ce764" category="doc">Crie grupos de recursos e habilite a proteção secundária para recursos do IBM DB2 em sistemas ASA R2</block>
   <block id="58500be789107a86aa8893793e67951d" category="inline-image-macro">dividir clone</block>
@@ -10029,4 +9991,52 @@
   <block id="c6cd54ad2b3bca5fe6357919d1ec62e7" category="list-text">Você deve instalar o Pacote de Hospedagem ASP.NET Core Runtime 8.0.12 (e todos os patches 8,0.x subsequentes) e o PowerShell 7.4.2 ou posterior.</block>
   <block id="088d994d276e3b7e6090022acb48aaf7" category="list-text">O SnapCenter 6,1 é compatível com sistemas NetApp ASA R2 que executam o ONTAP 9.16.1.</block>
   <block id="a1c01ec21d4b8df32fe29facff7e7688" category="paragraph">Os sistemas ASA R2 oferecem uma solução unificada de hardware e software para ambientes somente SAN criados em plataformas all-flash.</block>
+  <block id="9044893459e9f46e1e17047570a05298" category="list-text">Comandos All-Access: Privileges mínimo necessário para o ONTAP 9.12.1 e posterior</block>
+  <block id="a70835f5bcf15a6863468bb82abc19de" category="inline-link">Divida um volume FlexClone do volume pai</block>
+  <block id="fc3cc01cd9612e6f3077d4a6505ead8a" category="list-text">Para obter informações sobre operações de divisão de volume do FlexClone, consulte,<block ref="5db08c189f8e967bc5a82064aa92c31e" category="inline-link-rx"></block>.</block>
+  <block id="41fbf2c9674d14c871b1a98dff345ddd" category="paragraph">A permissão NetApp ONTAP event Generate-AutoSupport-log foi concedida ao usuário da máquina virtual de storage (SVM).</block>
+  <block id="251c52ce7ef8b529e63b81a2f40b7a26" category="paragraph">O cmdlet a seguir restaura o banco de dados MySQL do SnapCenter quando os arquivos de backup são excluídos acidentalmente no iSCSI LUN. Para VMDK, restaure manualmente o backup a partir de snapshots do ONTAP.</block>
+  <block id="b9832b10a87d0c3793ed3b413ee1d839" category="section-title">Compatível com API REST</block>
+  <block id="bc9f5cd1669f71a2b0bd213a944d8fdb" category="paragraph">Todas as conexões de armazenamento com sistemas de armazenamento ONTAP e ASA R2 passarão por ZAPI por padrão. A API REST pode ser ativada para versões selecionadas do ONTAP.</block>
+  <block id="421f02448bcd1490276fcd375668a6be" category="paragraph">Você pode modificar as chaves de configuração nos seguintes arquivos de configuração:</block>
+  <block id="94b74299dc7f33d5bf8e4fc497c26334" category="list-text">IsRestEnabledForStorageConnection</block>
+  <block id="cbd8678f4d2dba6d97b2ccfc54882755" category="paragraph">O valor padrão é falso.</block>
+  <block id="f0688c9d46cbff7f5beea9484384b94b" category="list-text">MinOntapVersionToUseREST</block>
+  <block id="d4c8b7e3186cc7a235889624e991da17" category="paragraph">O valor padrão é 9.13.1.</block>
+  <block id="47d8f56926b22a7924da528e4f31b5c0" category="list-title">Habilite a conexão por meio da API REST</block>
+  <block id="3417b0a11f8af3b1f8164a8e20bf282c" category="list-text">Defina IsRestEnabledForStorageConnection como true.</block>
+  <block id="ddba2c3830da989226db244ba9e5c6e5" category="list-text">Adicione a chave em SMCoreServiceHost.dll.config e SnapDriveService.dll.config no servidor e nos hosts plug-in do Windows.</block>
+  <block id="b11d97cb8b208a769f494e058b30b6b7" category="paragraph">_&lt;add key="IsRestEnabledForStorageConnection" value="true" /&gt;_</block>
+  <block id="4a4a2eb369b6eb05f8fff0bc1a85bd94" category="list-title">Limite a conexão por meio da API REST para a versão específica do ONTAP</block>
+  <block id="e533a16b31a9f8c3587cecc2af8a8fe1" category="list-text">Defina o parâmetro de configuração MinOntapVersionToUseREST como true.</block>
+  <block id="3718cae69e88fbef374d622befa883f6" category="paragraph">_&lt;add key="MinOntapVersionToUseREST" value="9.13.1" /&gt;_</block>
+  <block id="4cfd86a863ba0d1e8735375105b45c40" category="list-text">Reinicie o serviço para o SmCore no servidor e o plug-in e o serviço SnapDrive na máquina plug-in.</block>
+  <block id="b80a17415adfb59b3e776fff090809b3" category="list-text">Dados em sistemas primários ONTAP FAS, AFF ou ASA e replicados para sistemas secundários ONTAP FAS, AFF ou ASA</block>
+  <block id="cdd64112d524e2506ad9aaa5ea6bf0f8" category="paragraph">Se você estiver usando o plug-in SnapCenter VMware para proteção de dados consistente com VM, o vCenter Server fornecerá um nível adicional de RBAC. O plug-in SnapCenter VMware é compatível com o vCenter Server RBAC e o NetApp ONTAP RBAC.</block>
+  <block id="7e3e9dbf627ec3409c614f9c9b2cb57e" category="paragraph">Necessário para FAS, AFF, ASA</block>
+  <block id="82d07a027b5d595de4499a5069c4ccf5" category="paragraph">A licença padrão da SnapCenter é uma licença baseada em controlador e está incluída como parte do NetApp ONTAP One. Se você tiver a licença do SnapManager Suite, você também obtém o direito de licença padrão do SnapCenter. Se você quiser instalar o SnapCenter em uma base de avaliação com o storage FAS, AFF ou ASA, poderá obter uma licença de avaliação do NetApp ONTAP One entrando em Contato com o representante de vendas.</block>
+  <block id="173cbb56fed3c8d1bffc40cfe1678533" category="inline-link">Licenças incluídas no NetApp ONTAP One</block>
+  <block id="94875c624efb32d934c5cd2c0c78f2f0" category="paragraph">Para obter informações sobre as licenças incluídas no NetApp ONTAP One,<block ref="0ab66dfac600c25af9e742e0f8819421" category="inline-link-rx"></block> consulte .</block>
+  <block id="8bf34d96b4ef3036d5fecf25c54f239f" category="list-text">Habilitado ao adicioná-lo diretamente à controladora de storage FAS, AFF ou ASA usando o Gerenciador de sistema do ONTAP ou a CLI do ONTAP.</block>
+  <block id="f59cbb2508b7e0a4a75f1eddabac7e1e" category="paragraph">Se você estiver usando o armazenamento FAS, ASA ou AFF, poderá recuperar a licença baseada no controlador SnapCenter do site de suporte da NetApp antes de instalá-la usando a linha de comando ONTAP.</block>
+  <block id="ab396c0026ca30099e9b89003c80fcf5" category="list-text">O SnapCenter oferece suporte ao Amazon FSX for NetApp ONTAP para proteger seus dados.</block>
+  <block id="9efdf202df78f9a33e298564c835e4ba" category="summary">Use os comandos de login de segurança para adicionar uma função RBAC do NetApp ONTAP quando seus sistemas de storage estiverem executando o Clustered NetApp ONTAP.</block>
+  <block id="2ad5f6ef1c47048e237f2fafae87313a" category="doc">Adicione uma função NetApp ONTAP RBAC usando comandos de login de segurança</block>
+  <block id="e1be0500812e131476a1a2d9b7429541" category="paragraph">Use os comandos de login de segurança para adicionar uma função RBAC do NetApp ONTAP quando seus sistemas de storage estiverem executando o Clustered ONTAP.</block>
+  <block id="34a087679e427c81dd4b62602fb6e759" category="paragraph">Para simplificar a configuração dessas funções em sistemas de storage, você pode usar a ferramenta Criador de usuários do RBAC para NetApp ONTAP, publicada no Fórum de Comunidades do NetApp.</block>
+  <block id="cd63f10378363da86bcf8672b918512a" category="paragraph">Esta ferramenta lida automaticamente com a configuração correta do ONTAP Privileges. Por exemplo, a ferramenta Criador de Usuário RBAC para NetApp ONTAP adiciona automaticamente o Privileges na ordem correta para que o Privileges de Acesso total apareça primeiro. Se você adicionar primeiro o Privileges somente leitura e depois adicionar o Privileges All-Access, o ONTAP marca o Privileges All-Access como duplicatas e os ignora.</block>
+  <block id="0715b20c4e81f0c852f66480ef00c667" category="admonition">Se você atualizar mais tarde o SnapCenter ou o ONTAP, execute novamente a ferramenta Criador de usuários do RBAC para NetApp ONTAP para atualizar as funções de usuário criadas anteriormente. As funções de usuário criadas para uma versão anterior do SnapCenter ou do ONTAP não funcionam corretamente com versões atualizadas. Quando você executa novamente a ferramenta, ela manipula automaticamente a atualização. Você não precisa recriar os papéis.</block>
+  <block id="30962a20671f7b70a267e94343e24484" category="list-text">As funcionalidades de armazenamento de objetos para sistemas de armazenamento FAS, ASA ou AFF ONTAP e Amazon FSX for NetApp ONTAP não são suportadas.</block>
+  <block id="02cf8992ec066e2a6c94ef201a56fde4" category="list-text">Para obter informações sobre operações de divisão de volume do FlexClone, consulte, <block ref="a740171a60876518d945f2e24ddd79f9" category="inline-link-rx"></block>.</block>
+  <block id="d664b55967efa51159bf2dcaad494f28" category="admonition">O valor máximo de retenção é 1018. Os backups falharão se a retenção for definida para um valor maior do que o que a versão subjacente do ONTAP suporta.</block>
+  <block id="45674f4fab4d30d82c5e48053de84a2d" category="paragraph">O ONTAP primário e o secundário podem ser ONTAP FAS, AFF, ASA, ONTAP Select ou Cloud Volumes ONTAP.</block>
+  <block id="5809b9053ee07314ee267cf4861e2fe2" category="paragraph">Versão de plug-in. Pode incluir tanto a versão maior como a menor. Por exemplo, 5,0, 6,0, 6,1</block>
+  <block id="04421acf26388af407e2e444d1d9a4ea" category="paragraph">Para evitar o atraso entre nós, você pode criar um novo backup antes de executar uma operação de semente novamente ou escolher o host com o backup mais recente.</block>
+  <block id="0002a57eb89728985300757fccb645db" category="inline-link">Seção Administração de SAN ONTAP 9</block>
+  <block id="9b84e6db97d84dfea46f94fa87561146" category="list-text">Você pode especificar a frequência em que os caminhos LUN serão corrigidos automaticamente atribuindo o valor (em horas) ao parâmetro LUNPATH_MONITORING_INTERVAL. Para obter informações sobre o SLM, consulte<block ref="791bce609970821d75a70463f2e5a4f8" category="inline-link-rx"></block>.</block>
+  <block id="d51e2f3016053dc7090b1d16e111cc04" category="list-text">Restauração a partir do sistema de storage secundário</block>
+  <block id="bf1764b9ff5a6e7b28ab3b2166bff7a4" category="admonition">O NetApp ONTAP é compatível com a restauração no local a partir de um local secundário.</block>
+  <block id="cdc0da196ab05c60eaebdca9a2459cd1" category="list-text">Para obter informações sobre operações de divisão de volume do FlexClone, consulte, <block ref="a740171a60876518d945f2e24ddd79f9" category="inline-link-rx"></block></block>
+  <block id="dc4d7bf5602b12335597fd5350deab23" category="admonition">O valor máximo de retenção é 1018. Os backups falharão se a retenção for definida para um valor maior do que o que a versão subjacente do NetApp ONTAP suporta.</block>
+  <block id="ee96dd48de878c0191d0701d853dd514" category="paragraph">Este exemplo define a retenção de instantâneos de registo como 2:</block>
 </blocks>

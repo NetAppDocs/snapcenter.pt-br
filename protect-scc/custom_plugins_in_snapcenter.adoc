@@ -42,7 +42,7 @@ Para plug-ins criados no estilo NATIVO, certifique-se de que não forneça a ext
  a| 
 Versão
  a| 
-Versão de plug-in. Pode incluir tanto a versão maior como a menor. Por exemplo, 1,0, 1,1, 2,0, 2,1
+Versão de plug-in. Pode incluir tanto a versão maior como a menor. Por exemplo, 5,0, 6,0, 6,1
 
 
 

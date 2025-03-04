@@ -25,7 +25,6 @@ NOTE: Os clones de um backup de um espelhamento flexível de versão em um volum
 * image:../media/topology_vault_secondary_storage.gif["ícone do cofre secundário"] Exibe o número de backups e clones replicados no storage secundário usando a tecnologia SnapVault.
 +
 ** O número de backups exibidos inclui os backups excluídos do armazenamento secundário. Por exemplo, se você criou backups 6 usando uma política para reter apenas 4 backups, o número de backups exibidos será 6.
-** Se você atualizou do SnapCenter 1,1, os clones no secundário (espelho ou cofre) não serão exibidos em cópias espelhadas ou cópias do cofre na página topologia. Todos os clones criados usando o SnapCenter 1,1 são exibidos nas cópias locais no SnapCenter 3,0.
 
 
 

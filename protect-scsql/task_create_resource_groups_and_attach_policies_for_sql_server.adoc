@@ -16,7 +16,7 @@ Um grupo de recursos é um contentor ao qual você adiciona recursos que deseja 
 Você pode proteger recursos individualmente sem criar um novo grupo de recursos. Você pode fazer backups no recurso protegido.
 
 .Sobre esta tarefa
-* Para a versão ONTAP 9.12,1 e inferior, os clones criados a partir dos instantâneos do Vault do SnapLock como parte da restauração herdarão o tempo de expiração do SnapLock Vault. O administrador do storage deve limpar manualmente os clones após o tempo de expiração do SnapLock.
+* Para a versão ONTAP 9.12,1 e inferior, os clones criados a partir dos snapshots do SnapLock Vault como parte da restauração herdarão o tempo de expiração do SnapLock Vault. O administrador do storage deve limpar manualmente os clones após o tempo de expiração do SnapLock.
 * A adição de novos bancos de dados sem a sincronização ativa do SnapMirror a um grupo de recursos existente que contenha recursos com a sincronização ativa do SnapMirror não é suportada.
 * A adição de novos bancos de dados a um grupo de recursos existente no modo failover da sincronização ativa do SnapMirror não é suportada. Você pode adicionar recursos ao grupo de recursos apenas no estado regular ou de failback.
 

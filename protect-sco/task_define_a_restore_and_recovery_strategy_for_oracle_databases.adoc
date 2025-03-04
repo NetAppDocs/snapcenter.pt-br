@@ -64,7 +64,7 @@ NOTE: Para uma configuração do Flex ASM (em que a cardinalidade é menor do qu
 
 Mesmo que você tenha ativado com força a restauração no local, o SnapCenter executa a restauração de conexão e cópia nos seguintes cenários:
 
-* Faça a restauração a partir do sistema de storage secundário e, se o Data ONTAP for anterior a 8,3
+* Restauração a partir do sistema de storage secundário
 * Restauração de grupos de discos ASM presentes em nós de uma configuração do Oracle RAC em que a instância de banco de dados não está configurada
 * Na configuração do Oracle RAC, em qualquer um dos nós pares se a instância ASM ou a instância de cluster não estiver em execução ou se o nó peer estiver inativo
 * Restauração de arquivos de controle somente
@@ -81,7 +81,7 @@ Mesmo que você tenha ativado com força a restauração no local, o SnapCenter 
 Se o layout do banco de dados for semelhante ao backup e não tiver sofrido nenhuma alteração de configuração na pilha de armazenamento e banco de dados, a restauração no local é realizada, em que a restauração do arquivo ou LUN é realizada no ONTAP. O SnapCenter suporta apenas o SFSR (Single File SnapRestore) como parte do método de restauração no local.
 
 
-NOTE: O Data ONTAP 8.3 ou posterior oferece suporte à restauração no local a partir de um local secundário.
+NOTE: O NetApp ONTAP é compatível com a restauração no local a partir de um local secundário.
 
 Se você quiser executar a restauração no local no banco de dados, verifique se você tem somente datafiles no grupo de discos ASM. Você deve criar um backup depois que quaisquer alterações forem feitas no grupo de discos ASM ou na estrutura física do banco de dados. Depois de executar a restauração no local, o grupo de discos conterá o mesmo número de arquivos de dados que no momento do backup.
 

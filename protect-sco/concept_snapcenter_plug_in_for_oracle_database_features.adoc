@@ -55,7 +55,7 @@ Habilitado por padrão, o recurso SLM deteta periodicamente os LUNs que não tê
 
 +
 ** Você pode desativar isso definindo o valor do parâmetro ENABLE_LUNPATH_MONITORING como false.
-** Você pode especificar a frequência em que os caminhos LUN serão corrigidos automaticamente atribuindo o valor (em horas) ao parâmetro LUNPATH_MONITORING_INTERVAL. Para obter informações sobre o SLM, consulte http://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-sanag/home.html["Guia de administração de SAN ONTAP 9"^].
+** Você pode especificar a frequência em que os caminhos LUN serão corrigidos automaticamente atribuindo o valor (em horas) ao parâmetro LUNPATH_MONITORING_INTERVAL. Para obter informações sobre o SLM, consulte https://docs.netapp.com/us-en/ontap/san-admin/index.html["Seção Administração de SAN ONTAP 9"^].
 
 
 * Suporte para memória não volátil Express (NVMe) no Linux

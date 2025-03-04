@@ -6,8 +6,6 @@ summary: Você pode usar o SnapCenter para dividir um recurso clonado do recurso
 ---
 = Divida um clone
 :allow-uri-read: 
-:icons: font
-:imagesdir: ../media/
 
 
 [role="lead"]
@@ -22,7 +20,7 @@ Por exemplo, depois de criar clone1 a partir de um backup de banco de dados, voc
 Depois de dividir clone2, você pode executar a operação de divisão de clones no clone1 porque clone1 não é mais o clone intermediário.
 
 * Quando você divide um clone, as cópias de backup e as tarefas de clone do clone são excluídas.
-* Para obter informações sobre limitações de operação de divisão de clones, http://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-vsmg/home.html["Guia de gerenciamento de storage lógico do ONTAP 9"^] consulte .
+* Para obter informações sobre operações de divisão de volume do FlexClone, consulte, https://docs.netapp.com/us-en/ontap/volumes/split-flexclone-from-parent-task.html["Divida um volume FlexClone do volume pai"^].
 * Certifique-se de que o volume ou o agregado no sistema de storage esteja on-line.
 
 

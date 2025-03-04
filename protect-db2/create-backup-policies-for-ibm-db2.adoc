@@ -96,12 +96,6 @@ Período de bloqueio secundário de instantâneos
  a| 
 Selecione *período de bloqueio de cópia instantânea secundária* e selecione dias, meses ou anos.
 
-Para que essa opção seja efetiva, você deve executar as seguintes tarefas:
-
-*** Selecione o *período de bloqueio de cópia de instantâneo primário*.
-*** Selecione uma ou ambas as opções de replicação secundária.
-
-
 |===
 +
 
@@ -150,7 +144,8 @@ Selecione uma etiqueta Snapshot.
 
 Dependendo do rótulo de captura instantânea selecionado, o ONTAP aplica a política de retenção de snapshot secundária que corresponde ao rótulo.
 
-Observação: Se você selecionou *Atualizar SnapMirror depois de criar uma cópia Snapshot local*, você pode especificar opcionalmente o rótulo de política secundária. No entanto, se você selecionou *Atualizar SnapVault depois de criar uma cópia Snapshot local*, especifique o rótulo de política secundária.
+
+NOTE: Se você selecionou *Atualizar SnapMirror depois de criar uma cópia Snapshot local*, você pode especificar opcionalmente o rótulo de política secundária. No entanto, se você selecionou *Atualizar SnapVault depois de criar uma cópia Snapshot local*, especifique o rótulo de política secundária.
 
 
 

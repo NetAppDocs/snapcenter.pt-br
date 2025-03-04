@@ -26,7 +26,7 @@ O SnapCenter pode ser implantado das seguintes maneiras:
 
 * No local para proteger o seguinte:
 +
-** Dados em sistemas primários ONTAP FAS, AFF ou All SAN Array (ASA) e replicados para sistemas secundários ONTAP FAS, AFF ou ASA
+** Dados em sistemas primários ONTAP FAS, AFF ou ASA e replicados para sistemas secundários ONTAP FAS, AFF ou ASA
 ** Dados em sistemas primários ONTAP Select
 ** Dados em sistemas primários e secundários ONTAP FAS, AFF ou ASA e protegidos no storage de objetos StorageGRID local
 ** Dados em sistemas primários e secundários do ONTAP ASA R2
