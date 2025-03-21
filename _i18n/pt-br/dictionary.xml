@@ -3319,7 +3319,6 @@
   <block id="98950caea953c79d817eba870ba7ae48" category="summary">Crie a credencial do Azure no SnapCenter para acessar a conta do Azure NetApp.</block>
   <block id="1ed01bab203e8745a0dcfe58f019c1d9" category="doc">Crie a credencial do Azure no SnapCenter</block>
   <block id="df807c6f76450e7af962b9ec2ffe867e" category="paragraph">Você deve criar a credencial do Azure no SnapCenter para acessar a conta do Azure NetApp.</block>
-  <block id="c564c60262d5040cb9b4b2cb05c8532d" category="paragraph">Antes de criar a credencial do Azure, certifique-se de que criou o principal de serviço no Azure. O ID do locatário, o ID do cliente e a chave secreta associados ao responsável do serviço serão necessários para criar a credencial do Azure.</block>
   <block id="2c15d2ecea29fd187ddafb032b93d4a6" category="list-text">Na página Configurações, clique em *Credential*.</block>
   <block id="2c918b288cc3e2bd0419ef617cee7af1" category="list-text">Na página Credential (credencial), especifique as seguintes informações necessárias para criar a credencial.</block>
   <block id="dcd46a1f9a42cb16a43e224e294b8f7a" category="paragraph">Nome da credencial</block>
@@ -10039,4 +10038,11 @@
   <block id="cdc0da196ab05c60eaebdca9a2459cd1" category="list-text">Para obter informações sobre operações de divisão de volume do FlexClone, consulte, <block ref="a740171a60876518d945f2e24ddd79f9" category="inline-link-rx"></block></block>
   <block id="dc4d7bf5602b12335597fd5350deab23" category="admonition">O valor máximo de retenção é 1018. Os backups falharão se a retenção for definida para um valor maior do que o que a versão subjacente do NetApp ONTAP suporta.</block>
   <block id="ee96dd48de878c0191d0701d853dd514" category="paragraph">Este exemplo define a retenção de instantâneos de registo como 2:</block>
+  <block id="ab6d9fe11358cebc1d2cc02fa1c47496" category="list-text">Certifique-se de ter criado o princípio de serviço no Azure.</block>
+  <block id="6f346066b074941885d0989051206e4e" category="list-text">Certifique-se de que você tem o ID do locatário, o ID do cliente e a chave secreta associados ao responsável de serviço disponível com você.</block>
+  <block id="db4af27eace345776f29f9a3dbb3b5ff" category="list-text">O ID do Locatário pode ser encontrado no Portal do Azure na página Visão geral do ID do Entra.</block>
+  <block id="dc2337ddc542969fd93e297dc61108a9" category="list-text">O ID do cliente também é conhecido como ID do aplicativo para o Enterprise App/Service Principal. Isso pode ser encontrado no Portal do Azure na página Visão geral do aplicativo corporativo que você criou para atuar como o principal de serviço do SnapCenter.</block>
+  <block id="ee69fc7e193d5b369d8bd7792465c781" category="list-text">A chave secreta do cliente também é conhecida como o valor secreto. Você pode criar esse segredo de cliente no Portal do Azure navegando até *inscrições de aplicativos* em Entra ID. Depois de selecionar a aplicação Enterprise que criou, navegue até *certificados e segredos* e, em seguida, *segredo de novo cliente*.</block>
+  <block id="732f79401041a0ecc8df586c30756a84" category="admonition">O valor secreto só pode ser acessado quando criado. Você não pode acessá-lo mais tarde.</block>
+  <block id="f221207f0adcd828979d33693cf006d5" category="list-text">O responsável de Serviço precisa receber permissões. A função de Colaborador permitirá que o responsável do serviço execute as ações necessárias no Azure. Isso pode ser concedido a partir da página Controle de Acesso (IAM) na página assinatura.</block>
 </blocks>
