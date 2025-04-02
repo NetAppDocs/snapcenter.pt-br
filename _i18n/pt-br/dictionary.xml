@@ -5391,7 +5391,6 @@
   <block id="f367d650e57088caf7b808e01235016d" category="inline-link">Como restaurar do armazenamento secundário em SMBR com o SnapCenter</block>
   <block id="41b4c689a8b0e3ba8bfecb2a1e608e46" category="list-text"><block ref="41b4c689a8b0e3ba8bfecb2a1e608e46" category="inline-link-rx"></block></block>
   <block id="f004280f6db6ea5f9302c9851388d751" category="inline-link">Recuperando o Microsoft Exchange Mail do SnapVault usando SMBR</block>
-  <block id="1b0fb59a5bc951f7dc82cb43fe362145" category="list-text"><block ref="00a76af185a73b84e54e96058031aef5" category="inline-link-rx"></block></block>
   <block id="e1470cbc380c0e4285ea434aa1f30381" category="doc">Preparar sistemas de storage para replicação SnapMirror e SnapVault</block>
   <block id="e53c11d95478892635e2a7753106adc5" category="summary">Antes de adicionar um host e instalar os pacotes de plug-in, você deve completar todos os requisitos.</block>
   <block id="690761e3a499ee562da842d3bd6f2db0" category="doc">Pré-requisitos para adicionar hosts e instalar o plug-in do SnapCenter para Microsoft Exchange Server</block>
@@ -7908,7 +7907,6 @@
   <block id="2a1a78f96ec6b03f3ccdd06b708e6f1a" category="list-text">(Opcional) substitua o plug-in do SnapCenter para arquivos de configuração do SQL Server do backup de recuperação de desastres (DR) para a nova máquina.</block>
   <block id="9f2c74676fb5b339a2fd4a0ccd75bd1e" category="list-text">Importe programações do Windows e SQL da pasta do plug-in do SnapCenter para SQL Server do backup de DR.</block>
   <block id="27e7993c4841ae5fd670cdd945ccb96d" category="inline-link-macro">APIs de recuperação de desastres</block>
-  <block id="ab9238ca6f628634f6f6f2cf63502cdb" category="paragraph">Veja <block ref="44de5c9fafab2e4e76e19e3717abc2e2" category="inline-link-macro-rx"></block>o vídeo.</block>
   <block id="a8827ae14ad272b19b5554bf29b0dd50" category="summary">Depois que o plug-in do SnapCenter para o armazenamento primário do SQL Server estiver novamente on-line, você deve fazer o failback para o storage primário.</block>
   <block id="c259d7aac6b257b97bf45bb54cdbfb28" category="doc">Failback do plug-in do SnapCenter para storage secundário do SQL Server para storage primário</block>
   <block id="7ffc5c3595639b4cfa7e25819a476178" category="list-text">Coloque o plug-in do SnapCenter para SQL Server no modo *Manutenção* na página hosts gerenciados.</block>
@@ -10045,4 +10043,6 @@
   <block id="ee69fc7e193d5b369d8bd7792465c781" category="list-text">A chave secreta do cliente também é conhecida como o valor secreto. Você pode criar esse segredo de cliente no Portal do Azure navegando até *inscrições de aplicativos* em Entra ID. Depois de selecionar a aplicação Enterprise que criou, navegue até *certificados e segredos* e, em seguida, *segredo de novo cliente*.</block>
   <block id="732f79401041a0ecc8df586c30756a84" category="admonition">O valor secreto só pode ser acessado quando criado. Você não pode acessá-lo mais tarde.</block>
   <block id="f221207f0adcd828979d33693cf006d5" category="list-text">O responsável de Serviço precisa receber permissões. A função de Colaborador permitirá que o responsável do serviço execute as ações necessárias no Azure. Isso pode ser concedido a partir da página Controle de Acesso (IAM) na página assinatura.</block>
+  <block id="c23d56866a5b11fd0d8dc189fcf21298" category="list-text"><block ref="341e3fddad4b27511133b6917a75bb8a" category="inline-link-rx"></block></block>
+  <block id="57cf9c4ee485623172a5c60cbee423a4" category="paragraph">Veja <block ref="96716f545c5cf1a209bf10c1a798ce38" category="inline-link-macro-rx"></block>o vídeo.</block>
 </blocks>
