@@ -3968,7 +3968,6 @@
   <block id="bed33f0d8ca7a361d2db96468ec4530a" category="paragraph">O SnapCenter suporta configurações DB2 de instância única e várias instâncias. Você pode usar o Plug-in para IBM DB2 Database em ambientes Linux e Windows. Em ambientes Windows, o DB2 será suportado como recurso manual.</block>
   <block id="c3395454ca09d74ac87021eb3fc9f403" category="paragraph">Quando o Plug-in para o banco de dados IBM DB2 é instalado, você pode usar o SnapCenter com a tecnologia NetApp SnapMirror para criar cópias espelhadas de conjuntos de backup em outro volume. Você também pode usar o plug-in com a tecnologia NetApp SnapVault para executar a replicação de backup disco a disco para conformidade com os padrões.</block>
   <block id="ee9977908b8afee30488e8caec66d0fb" category="paragraph">O plug-in do SnapCenter para DB2 é compatível com NFS e SAN em layouts de storage de arquivos do ONTAP e do Azure NetApp.</block>
-  <block id="d63a091b1a9135cd24b47b631680f297" category="paragraph">VMDK ou layout de armazenamento virtual não é suportado.</block>
   <block id="d91a0b52cfc5d0c3e4b59e8544b3c61d" category="doc">Divida um clone</block>
   <block id="f36fcdaf30a6f579eb56856f5e83318d" category="summary">O SnapCenter oferece suporte a uma ampla variedade de tipos de armazenamento em máquinas físicas e máquinas virtuais (VMs). Você deve verificar o suporte para seu tipo de storage antes de instalar o plug-in SnapCenter para IBM DB2.</block>
   <block id="6426213ce16798143b0b51f16c7f4f53" category="doc">Tipos de storage compatíveis com o plug-in SnapCenter para IBM DB2</block>
@@ -4501,7 +4500,6 @@
   <block id="7f30d362b46650080b9026ef95dfe5f2" category="paragraph">O SnapCenter suporta configurações MySQL de instância única. Você pode usar o Plug-in para Banco de dados MySQL em ambientes Linux e Windows. Em ambientes Windows, o MySQL será suportado como recurso manual.</block>
   <block id="e417b7c5210d9ffe922c02319c459751" category="paragraph">Quando o Plug-in para Banco de dados MySQL é instalado, você pode usar o SnapCenter com tecnologia NetApp SnapMirror para criar cópias espelhadas de conjuntos de backup em outro volume. Você também pode usar o plug-in com a tecnologia NetApp SnapVault para executar a replicação de backup disco a disco para conformidade com os padrões.</block>
   <block id="8a1b03bf3dea7ac1c1925685477e35ea" category="paragraph">O plug-in do SnapCenter para MySQL é compatível com NFS e SAN em layouts de storage de arquivos do ONTAP e do Azure NetApp.</block>
-  <block id="72f4f1f1ebc26a28eb085ea04d34b5db" category="paragraph">O VMDK ou o layout de armazenamento virtual são suportados.</block>
   <block id="aeb9838805bc067b8277d80da271966d" category="paragraph">Links simbólicos não são suportados.</block>
   <block id="3a16a89981eac15a65e1d123f0f768f0" category="summary">O SnapCenter oferece suporte a uma ampla variedade de tipos de armazenamento em máquinas físicas e máquinas virtuais (VMs). Você deve verificar o suporte para o seu tipo de armazenamento antes de instalar o plug-in SnapCenter para MySQL.</block>
   <block id="a8e3ba965f3e160532b9d3ee582e1c53" category="doc">Tipos de armazenamento suportados pelo plug-in SnapCenter para MySQL</block>
@@ -10045,4 +10043,5 @@
   <block id="f221207f0adcd828979d33693cf006d5" category="list-text">O responsável de Serviço precisa receber permissões. A função de Colaborador permitirá que o responsável do serviço execute as ações necessárias no Azure. Isso pode ser concedido a partir da página Controle de Acesso (IAM) na página assinatura.</block>
   <block id="c23d56866a5b11fd0d8dc189fcf21298" category="list-text"><block ref="341e3fddad4b27511133b6917a75bb8a" category="inline-link-rx"></block></block>
   <block id="57cf9c4ee485623172a5c60cbee423a4" category="paragraph">Veja <block ref="96716f545c5cf1a209bf10c1a798ce38" category="inline-link-macro-rx"></block>o vídeo.</block>
+  <block id="5c8b8bc332cb41802ffbe6c5cda258ab" category="paragraph">O layout de storage virtual VMDK, vVol e RDM é suportado.</block>
 </blocks>

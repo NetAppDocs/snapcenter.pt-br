@@ -19,6 +19,6 @@ Quando o Plug-in para Banco de dados MySQL é instalado, você pode usar o SnapC
 
 O plug-in do SnapCenter para MySQL é compatível com NFS e SAN em layouts de storage de arquivos do ONTAP e do Azure NetApp.
 
-O VMDK ou o layout de armazenamento virtual são suportados.
+O layout de storage virtual VMDK, vVol e RDM é suportado.
 
 Links simbólicos não são suportados.

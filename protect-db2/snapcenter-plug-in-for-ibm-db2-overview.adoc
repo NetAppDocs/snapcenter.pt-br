@@ -26,4 +26,4 @@ Quando o Plug-in para o banco de dados IBM DB2 é instalado, você pode usar o S
 
 O plug-in do SnapCenter para DB2 é compatível com NFS e SAN em layouts de storage de arquivos do ONTAP e do Azure NetApp.
 
-VMDK ou layout de armazenamento virtual não é suportado.
+O layout de storage virtual VMDK, vVol e RDM é suportado.
