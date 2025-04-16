@@ -1,6 +1,6 @@
 ---
 settings:
-  name: SnapCenter Software
+  name: SnapCenter software
   internal:
     pdf_enabled: true
   prod:
@@ -26,7 +26,7 @@ settings:
   langs: pt-br,us-en,de-de,es-es,fr-fr,it-it,ja-jp,ko-kr,zh-cn,zh-tw
 sidebar:
   entries:
-  - title: Documentação do software SnapCenter 6,1
+  - title: SnapCenter software 6,1 docs
     url: "/index.html"
   - section: release-notes
   - section: concept

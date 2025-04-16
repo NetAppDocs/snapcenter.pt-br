@@ -1053,7 +1053,6 @@
   <block id="9c124c0fc8c6cc2725dad57b45c85eb0" category="paragraph">A imagem a seguir ilustra a relação entre recursos, grupos de recursos e políticas para bancos de dados:</block>
   <block id="ac79b4abc4dc6d0e9ec4abc5ca6b78a2" category="image-alt">Diagrama de conjunto de dados e política</block>
   <block id="a2736a5a798a9322639036f21c70d1d1" category="paragraph">A imagem a seguir ilustra a relação entre recursos, grupos de recursos e políticas para sistemas de arquivos do Windows:</block>
-  <block id="0344fda8fff2d8c5a125ffa5ba5f19a7" category="summary">O software SnapCenter é uma plataforma simples, centralizada e dimensionável que fornece proteção de dados consistente com aplicações para aplicações, bancos de dados, sistemas de arquivos host e VMs em execução nos sistemas ONTAP em qualquer lugar na nuvem híbrida.</block>
   <block id="6309043436d4e7e5bad9a81c89ff15e4" category="doc">Visão geral do SnapCenter</block>
   <block id="edaafea0543ae64ebb79a2ed2e7a055b" category="paragraph">O SnapCenter utiliza as tecnologias NetApp Snapshot, SnapRestore, FlexClone, SnapMirror e SnapVault para oferecer o seguinte:</block>
   <block id="6d02db19251dfec578c356202bfb1bdc" category="list-text">Backups rápidos, com uso eficiente de espaço, consistentes com aplicações e baseados em disco</block>
@@ -1369,7 +1368,6 @@
   <block id="2968590fdb19353b9fdbc6088dd778eb" category="list-text">Montar (apenas para banco de dados Oracle)</block>
   <block id="5a3f263989738cd612ecc94d6ff5f735" category="list-text">Desmontar (apenas para banco de dados Oracle)</block>
   <block id="a90c9bf6b95fa2c04eefdb89d6650e4b" category="paragraph">A permissão Monitor de tarefas permite que membros de diferentes funções vejam as operações em todos os objetos aos quais são atribuídos.</block>
-  <block id="7608e75619cff3eeb4e8bce40481b456" category="doc">Documentação do software SnapCenter</block>
   <block id="979623b664e821ca043ae0d13a9b68a0" category="summary">As credenciais usam diferentes métodos de autenticação, dependendo do aplicativo ou do ambiente. As credenciais autenticam os usuários para que eles possam executar operações do SnapCenter. Você deve criar um conjunto de credenciais para a instalação de plug-ins e outro conjunto para operações de proteção de dados.</block>
   <block id="5b00a6bb860d50a1c997c998160e673c" category="doc">Métodos de autenticação para suas credenciais</block>
   <block id="7e68841acc918ef617f53709d7f28228" category="section-title">Autenticação do Windows</block>
@@ -2372,7 +2370,6 @@
   <block id="4c6ec01f6ae03e08c146fe6865423a4b" category="list-text">PowerShell 7.4.2 ou posterior</block>
   <block id="149d1be25c7d76696b875863179ac66d" category="list-text">O nginx é um servidor web que pode ser usado como proxy reverso</block>
   <block id="6d4ed4face9b51c5caae12208e47fa1e" category="paragraph">PAM (Pluggable Authentication Modules) é uma ferramenta de segurança do sistema que permite que os administradores de sistema definam a política de autenticação sem ter que recompilar programas que fazem a autenticação.</block>
-  <block id="14c90652b0a2e523d6e8630706107e75" category="summary">O software SnapCenter pode ser usado em vários navegadores.</block>
   <block id="6d84e3718084e0db779da4ff8791a2f2" category="doc">Navegadores suportados</block>
   <block id="e49b0f86241cddbd59f6488d104741df" category="list-text">Chrome versão 125 e posterior</block>
   <block id="f5a551e6a3161ca6d9ee33d926d734d5" category="list-text">Microsoft Edge 110.0.1587.17 e posterior</block>
@@ -9965,8 +9962,6 @@
   <block id="4a3f09c73e2dacacbebddfd96cac1948" category="inline-link">Notas de versão do software SnapCenter 6,1</block>
   <block id="77400fe4524142ac29310162939726cb" category="paragraph">Para obter detalhes sobre problemas conhecidos, limitações, problemas corrigidos e comandos novos e alterados, consulte o<block ref="5c68c6454568b27710c4196bb910da4f" category="inline-link-rx"></block>. Você deve entrar com sua conta do NetApp ou criar uma conta para acessar as Notas de versão.</block>
   <block id="d6eb82c324cab2f36e345863fad95090" category="cell">6,1</block>
-  <block id="e62d168588d6c1af2fbd37668a7343da" category="summary">A versão 6,1 do software SnapCenter inclui vários novos recursos e aprimoramentos.</block>
-  <block id="0220307da5eec95fc03c435ffbbc2bfa" category="doc">Novidades do software SnapCenter 6,1</block>
   <block id="1e095c69621645fccc8f12cd7f35f6fc" category="inline-link-macro">Suporte para sistemas ASA R2</block>
   <block id="cf1b0e66e5b65c6a3b32f92fdc6552c4" category="cell"><block ref="cf1b0e66e5b65c6a3b32f92fdc6552c4" category="inline-link-macro-rx"></block></block>
   <block id="cc753d144910e12701641281c8cb88ed" category="paragraph">O SnapCenter agora oferece suporte a sistemas ASA R2 que criam uma experiência simplificada específica para as necessidades de clientes somente SAN.</block>
@@ -9975,8 +9970,6 @@
   <block id="92d37724657724129ae0451584c728aa" category="inline-link">Remova o plug-in do SnapCenter para VMware vSphere</block>
   <block id="79cfb9f00fa8ea603f631e679e453fad" category="paragraph">Para obter informações sobre como desinstalar o plug-in do SnapCenter para VMware vSphere,<block ref="cae8a6db54fa4da6d80207fee61e78d1" category="inline-link-rx"></block> consulte .</block>
   <block id="9792c7ba1a8a833a1c75e11c4a7b46c3" category="list-text">Se você quiser atualizar vários hosts, selecione todos os hosts, clique <block ref="725f4bf2ffc300942027282d0182533f" category="inline-image-macro-rx" type="image"></block>em e clique em *Upgrade* &gt; *OK*.</block>
-  <block id="eafbda6a16d2997896c70ba8ded3db33" category="sidebar">O software SnapCenter é uma plataforma simples, centralizada e dimensionável que fornece proteção de dados consistente com aplicações para aplicações, bancos de dados, sistemas de arquivos host e VMs em execução nos sistemas ONTAP em qualquer lugar na nuvem híbrida. Esta biblioteca de documentação inclui informações para a versão 6,1.</block>
-  <block id="888e5b40ea166427f96db1a9c08af7fc" category="sidebar">Documentação do software SnapCenter 6,1</block>
   <block id="fc8e535c7339f77157a0f93f32cb1f80" category="list-text">Os workflows de montagem e catálogo do Oracle e SAP HANA não são compatíveis com backups de storage de objetos, mas são compatíveis com snapshots.</block>
   <block id="2128757ca4207f5d5000cd4894d8c58f" category="list-text">Os clones do Oracle PDB não são compatíveis com backups de storage de objetos, mas são compatíveis com snapshots.</block>
   <block id="6eec14240810faadbd60c3ec98b543e7" category="paragraph">O disco compartilhado não é criado usando o plug-in para Windows. Você deve criar e adicionar o LUN compartilhado a cada máquina virtual no cluster. Para obter informações,<block ref="0564b16166a6e24aa234d21e5bcdc18a" category="inline-link-rx"></block>consulte .</block>
@@ -10044,4 +10037,11 @@
   <block id="c23d56866a5b11fd0d8dc189fcf21298" category="list-text"><block ref="341e3fddad4b27511133b6917a75bb8a" category="inline-link-rx"></block></block>
   <block id="57cf9c4ee485623172a5c60cbee423a4" category="paragraph">Veja <block ref="96716f545c5cf1a209bf10c1a798ce38" category="inline-link-macro-rx"></block>o vídeo.</block>
   <block id="5c8b8bc332cb41802ffbe6c5cda258ab" category="paragraph">O layout de storage virtual VMDK, vVol e RDM é suportado.</block>
+  <block id="e5385a9de21528bfedd644f4c0331eb1" category="summary">O software SnapCenter é uma plataforma simples, centralizada e dimensionável que fornece proteção de dados consistente com aplicações para aplicações, bancos de dados, sistemas de arquivos host e VMs em execução nos sistemas ONTAP em qualquer lugar na nuvem híbrida.</block>
+  <block id="0d391616b89aaac354c13202aaccb4ba" category="summary">O software SnapCenter pode ser usado em vários navegadores.</block>
+  <block id="68578ccfcf5117ca8a9a2d7d884e320f" category="summary">A versão 6,1 do software SnapCenter inclui vários novos recursos e aprimoramentos.</block>
+  <block id="600ede45d5c4a07242a73e3a5a885e15" category="doc">Novidades do software SnapCenter 6,1</block>
+  <block id="8f13c7650e8ef95e186d64196ea879a5" category="sidebar">O software SnapCenter é uma plataforma simples, centralizada e dimensionável que fornece proteção de dados consistente com aplicações para aplicações, bancos de dados, sistemas de arquivos host e VMs em execução nos sistemas ONTAP em qualquer lugar na nuvem híbrida. Esta biblioteca de documentação inclui informações para a versão 6,1.</block>
+  <block id="8127605cde4cee83a23b35f1207c7572" category="sidebar">Documentação do software SnapCenter</block>
+  <block id="f3e84c2e19a0aa80c716ba1fc7f07e0e" category="sidebar">SnapCenter software 6,1 docs</block>
 </blocks>
