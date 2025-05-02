@@ -17,7 +17,7 @@ A versão 6,1 do software SnapCenter inclui vários novos recursos e aprimoramen
 | Atualização | Descrição 
 
 
-| link:../install/learn-about-supporting-asa-r2-in-snapcenter.html["Suporte para sistemas ASA R2"]  a| 
+| link:../get-started/reference_supported_storage_systems_and_applications.html["Suporte para sistemas ASA R2"]  a| 
 O SnapCenter agora oferece suporte a sistemas ASA R2 que criam uma experiência simplificada específica para as necessidades de clientes somente SAN.
 
 

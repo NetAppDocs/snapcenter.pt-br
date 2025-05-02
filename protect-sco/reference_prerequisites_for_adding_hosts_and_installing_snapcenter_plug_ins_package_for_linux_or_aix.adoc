@@ -390,7 +390,7 @@ Você deve configurar credenciais usadas para executar operações de proteção
 
 *Sobre esta tarefa*
 
-Você deve rever os diferentes métodos de autenticação suportados para o banco de dados Oracle. Para obter informações, link:../install/concept_authentication_methods_for_your_credentials.html["Métodos de autenticação para suas credenciais"^]consulte .
+Você deve rever os diferentes métodos de autenticação suportados para o banco de dados Oracle. Para obter informações, link:../get-started/concept_authentication_methods_for_your_credentials.html["Métodos de autenticação para suas credenciais"^]consulte .
 
 Se você configurar credenciais para grupos de recursos individuais e o nome de usuário não tiver Privileges de administrador completo, o nome de usuário deve ter, pelo menos, Privileges de grupo de recursos e backup.
 

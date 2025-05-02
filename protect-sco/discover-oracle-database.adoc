@@ -45,7 +45,7 @@ Você deve executar as seguintes etapas se o banco de dados for realocado:
 
 
 
-== Para versões Oracle 12cR2 a 18c
+== Para versões do Oracle 12cR2 a 18c, 19C ou 21c
 
 .Base de dados RAC
 Os bancos de dados RAC são descobertos usando o comando srvctl config. Você deve ter as entradas do banco de dados no arquivo /etc/oratab.

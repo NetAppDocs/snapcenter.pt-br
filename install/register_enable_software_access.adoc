@@ -1,7 +1,7 @@
 ---
 permalink: install/register_enable_software_access.html 
 sidebar: sidebar 
-keywords: install, snapcenter software, install, register, new customer, NetApp account, enable 
+keywords: install, snapcenter software, install, register, new customer, NetApp account, enable, Amazon FSx for NetApp ONTAP, Azure NetApp Files 
 summary: Se você não tiver uma conta NetApp existente, siga estas etapas para se Registrar para acessar o software. 
 ---
 = Registe-se para aceder ao software SnapCenter
@@ -9,7 +9,7 @@ summary: Se você não tiver uma conta NetApp existente, siga estas etapas para 
 
 
 [role="lead"]
-Você pode acessar o software SnapCenter se você é novo no Amazon FSX for NetApp ONTAP ou Azure NetApp Files e não tem uma conta NetApp existente.
+Você deve se Registrar para acessar o software SnapCenter se você é novo no Amazon FSX for NetApp ONTAP ou Azure NetApp Files e não tem uma conta NetApp existente.
 
 .Antes de começar
 * Você deve ter acesso ao ID de e-mail corporativo.
@@ -18,21 +18,16 @@ Você pode acessar o software SnapCenter se você é novo no Amazon FSX for NetA
 
 
 .Sobre esta tarefa
-Seu Registro está sujeito a validações de informações e pode levar até um dia para confirmar e atualizar a nova conta do site de suporte da NetApp (NSS) para acesso "completo" a partir do acesso "convidado".
+Seu Registro está sujeito a validações de informações e pode levar até um dia para confirmar e atualizar a nova conta do site de suporte da NetApp (NSS) para acesso *completo* a partir do acesso *convidado*.
 
 .Passos
 . Clique https://mysupport.netapp.com/site/user/registration[] para inscrição.
-. Insira seu ID de e-mail corporativo, preencha o captcha e aceite a política de privacidade do NetApp e clique em *Enviar*.
+. Insira seu ID de e-mail corporativo, preencha o captcha, aceite a política de privacidade do NetApp e clique em *Enviar*.
 . Autentique o Registro inserindo a OTP enviada para seu ID de e-mail e clique em *continuar*.
 . Na página de conclusão do registo, introduza os seguintes detalhes para concluir o registo.
 +
 .. Selecione *Cliente NetApp / Usuário final*.
-.. No campo DE NÚMERO DE SÉRIE, insira um dos seguintes itens:
-+
-*** ID de subscrição do Azure se estiver a utilizar o Azure NetApp Files.
-*** ID do sistema de arquivos se você estiver usando o Amazon FSX for NetApp ONTAP.
-
-
+.. No campo NÚMERO DE SÉRIE, insira o ID de assinatura do Azure se você estiver usando o Azure NetApp Files ou o ID do sistema de arquivos se estiver usando o Amazon FSX for NetApp ONTAP.
 
 
 

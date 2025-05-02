@@ -1,10 +1,10 @@
 ---
-permalink: concept/reference_data_security.html 
+permalink: get-started/reference_data_security.html 
 sidebar: sidebar 
-keywords: security,authentication, CA certificates 
+keywords: security, authentication, CA certificates, FIPS, SSL, AES, TLS, RBAC, MFA, multi-factor authentication 
 summary: A SnapCenter emprega recursos rígidos de segurança e autenticação para permitir que você mantenha seus dados seguros. 
 ---
-= Recursos de segurança
+= Recursos de segurança no SnapCenter
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
@@ -17,23 +17,20 @@ O SnapCenter inclui os seguintes recursos de segurança:
 
 * Toda a comunicação com o SnapCenter usa HTTP sobre SSL (HTTPS).
 * Todas as credenciais no SnapCenter são protegidas usando criptografia AES (Advanced Encryption Standard).
-* O SnapCenter usa algoritmos de segurança compatíveis com o padrão Federal de processamento de informações (FIPS).
-* O SnapCenter suporta o uso dos certificados de CA autorizados fornecidos pelo cliente.
-* O SnapCenter 4.1.1 ou posterior suporta TLS (Transport Layer Security) 1,2 para comunicação com o ONTAP. Você também pode usar o TLS 1,2 para comunicação entre clientes e servidores.
-+
-A partir de 5,0, o SnapCenter suporta TLS (TLS) 1,3 para comunicação com o ONTAP.
-
-* O SnapCenter suporta um determinado conjunto de pacotes de criptografia SSL para fornecer segurança em toda a comunicação de rede.
-+
-Para obter mais informações, https://kb.netapp.com/Advice_and_Troubleshooting/Data_Protection_and_Security/SnapCenter/How_to_configure_the_supported_SSL_Cipher_Suite["Como configurar o SSL Cipher Suite suportado"]consulte .
-
+* Suporta algoritmos de segurança compatíveis com o Federal Information Processing Standard (FIPS).
+* Suporte ao uso dos certificados de CA autorizados fornecidos pelo cliente.
+* Suporta TLS (Transport Layer Security) 1,3 para comunicação com o ONTAP. Você também pode usar o TLS 1,2 para comunicação entre clientes e servidores.
+* Suporta um determinado conjunto de pacotes de criptografia SSL para fornecer segurança em toda a comunicação de rede. https://kb.netapp.com/Advice_and_Troubleshooting/Data_Protection_and_Security/SnapCenter/How_to_configure_the_supported_SSL_Cipher_Suite["Saiba mais"].
 * O SnapCenter é instalado no firewall da sua empresa para permitir o acesso ao servidor SnapCenter e para permitir a comunicação entre o servidor SnapCenter e os plug-ins.
 * O acesso à API e à operação do SnapCenter usa tokens criptografados com criptografia AES, que expiram após 24 horas.
 * O SnapCenter é integrado ao Windows active Directory para login e controle de acesso baseado em função (RBAC) que regem as permissões de acesso.
 * O IPsec é compatível com o SnapCenter no ONTAP para máquinas host Windows e Linux. https://docs.netapp.com/us-en/ontap/networking/configure_ip_security_@ipsec@_over_wire_encryption.html#use-ipsec-identities["Saiba mais"].
 * Os cmdlets do SnapCenter PowerShell são protegidos por sessão.
-* Após um período padrão de 15 minutos de inatividade, o SnapCenter avisa que você será desconetado em 5 minutos. Após 20 minutos de inatividade, o SnapCenter faz o logout e você deve fazer login novamente. Você pode modificar o período de logout.
-* O início de sessão está temporariamente desativado após 5 ou mais tentativas de início de sessão incorretas.
+* Após um período padrão de 15 minutos de inatividade, o SnapCenter avisa que você será desconetado em 5 minutos.
++
+Após 20 minutos de inatividade, o SnapCenter faz o logout e você deve fazer login novamente. Você pode modificar o período de logout.
+
+* O início de sessão está temporariamente desativado após 5 tentativas de início de sessão incorretas.
 * Suporta autenticação de certificado CA entre o servidor SnapCenter e o ONTAP. https://kb.netapp.com/Advice_and_Troubleshooting/Data_Protection_and_Security/SnapCenter/How_to_securely_connect_SnapCenter_with_ONTAP_using_CA_certificate["Saiba mais"].
 * O verificador de integridade é adicionado ao servidor SnapCenter e aos plug-ins e valida todos os binários enviados durante novas operações de instalação e atualização.
 

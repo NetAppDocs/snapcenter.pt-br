@@ -31,8 +31,7 @@ NOTE: Você não deve instalar o servidor SnapCenter em um host que tenha servid
 
 
 
-*Passos*
-
+.Passos
 . Baixe o pacote de instalação do servidor SnapCenter em https://mysupport.netapp.com/site/products/all/details/snapcenter/downloads-tab["Site de suporte da NetApp"^].
 . Inicie a instalação do servidor SnapCenter clicando duas vezes no arquivo .exe baixado.
 +
@@ -63,23 +62,4 @@ No entanto, se você clicar em *Cancelar* quando as operações "SnapCenter Serv
 +
 Os ficheiros de registo estão sempre listados (o mais antigo primeiro) na pasta %temp% do utilizador admin. Se você quiser redirecionar os locais de log, inicie a instalação do servidor SnapCenter a partir do prompt de comando executando:``C:\installer_location\installer_name.exe /log"C:\"``
 
-
-
-
-
-== Registre o produto para habilitar o suporte
-
-Se você é novo nos produtos NetApp e não tem uma conta NetApp existente, deve Registrar o produto para habilitar o suporte.
-
-.Passos
-. Depois de instalar o SnapCenter, navegue até *Ajuda > sobre*.
-. Na caixa de diálogo _sobre o SnapCenter_, anote a instância do SnapCenter, um número de 20 dígitos que começa com 971.
-. Clique https://register.netapp.com[]em .
-. Clique em *Eu não sou um Cliente NetApp registrado*.
-. Especifique os seus dados para se registar.
-. Deixe o campo NetApp Reference SN em branco.
-. Selecione *SnapCenter* na lista suspensa linha de produtos.
-. Selecione o fornecedor de faturação.
-. Insira o ID da instância do SnapCenter de 20 dígitos.
-. Clique em *Enviar*.
 

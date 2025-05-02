@@ -95,3 +95,18 @@ No entanto, você pode executar manualmente a restauração no nível do arquivo
 * NVMe não é compatível.
 * O provisionamento não é compatível.
 
+
+
+
+== Caraterísticas
+
+* Permite que o Plug-in para Oracle Database execute operações de proteção de dados em bancos de dados Oracle, manipulando a pilha de armazenamento de host subjacente em sistemas Linux ou AIX
+* Dá suporte aos protocolos NFS (Network File System) e SAN (Storage Area Network) em um sistema de storage que esteja executando o ONTAP.
+* Para sistemas Linux, os bancos de dados Oracle em VMDK e LUNs RDM são suportados quando você implementa o plug-in SnapCenter para VMware vSphere e Registra o plug-in com o SnapCenter.
+* Suporta Mount Guard para AIX em sistemas de arquivos SAN e layout LVM.
+* Suporta o Enhanced Journaled File System (JFS2) com Registro em linha em sistemas de arquivos SAN e layout LVM apenas para sistemas AIX.
++
+Dispositivos nativos SAN, sistemas de arquivos e layouts LVM criados em dispositivos SAN são suportados.
+
+* Automatiza operações de backup, restauração e clone com reconhecimento de aplicações para sistemas de arquivos UNIX em seu ambiente SnapCenter
+

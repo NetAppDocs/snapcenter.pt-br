@@ -1,19 +1,40 @@
 ---
-permalink: concept/reference_pre_defined_snapcenter_roles_and_permissions.html 
+permalink: get-started/rbac-snapcenter.html 
 sidebar: sidebar 
-keywords: RBAC, role, permission, pre-defined role 
-summary: 'O SnapCenter é fornecido com funções predefinidas, cada uma com um conjunto de permissões já ativadas. Ao configurar e administrar o controle de acesso baseado em função (RBAC), você pode usar essas funções predefinidas ou criar novas.' 
+keywords: RBAC, roles, permissions, application-level RBAC, ONTAP permissions, default snapcenter roles, ONTAP permissions, SnapCenter Admin role 
+summary: 'As permissões de controle de acesso baseado em função (RBAC) e ONTAP do SnapCenter permitem que os administradores do SnapCenter criem funções e definam permissões de acesso. Esse acesso gerenciado centralmente capacita os administradores de aplicativos a trabalhar com segurança em ambientes delegados.' 
 ---
-= Funções e permissões do SnapCenter predefinidas
+= Controles de acesso baseados em função no SnapCenter
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-O SnapCenter é fornecido com funções predefinidas, cada uma com um conjunto de permissões já ativadas. Ao configurar e administrar o controle de acesso baseado em funções (RBAC), você pode usar essas funções predefinidas ou criar novas.
+As permissões de controle de acesso baseado em função (RBAC) e ONTAP do SnapCenter permitem que os administradores do SnapCenter delegem o controle de recursos do SnapCenter a diferentes usuários ou grupos de usuários. Esse acesso gerenciado centralmente capacita os administradores de aplicativos a trabalhar com segurança em ambientes delegados.
 
-O SnapCenter inclui as seguintes funções predefinidas:
+Você pode criar e modificar funções e adicionar acesso a recursos aos usuários a qualquer momento. No entanto, quando você estiver configurando o SnapCenter pela primeira vez, você deve, pelo menos, adicionar usuários ou grupo do ative Directory a funções e, em seguida, adicionar acesso a recursos a esses usuários ou grupos.
+
+
+NOTE: Você não pode usar o SnapCenter para criar contas de usuário ou grupo. Você deve criar contas de usuário ou grupo no ative Directory do sistema operacional ou banco de dados.
+
+
+
+== Tipos de RBAC no SnapCenter
+
+O SnapCenter usa os seguintes tipos de controle de acesso baseado em função:
+
+* SnapCenter RBAC
+* RBAC no nível da aplicação
+* Plug-in do SnapCenter para VMware vSphere RBAC
+* Permissões da ONTAP
+
+
+
+
+=== SnapCenter RBAC
+
+O SnapCenter tem funções predefinidas e você pode atribuir usuários ou grupos de usuários a essas funções. As funções predefinidas são:
 
 * Função de administrador do SnapCenter
 * Função de Administrador de cópia de Segurança e Clonagem de aplicações
@@ -21,19 +42,61 @@ O SnapCenter inclui as seguintes funções predefinidas:
 * Função de administrador de infraestrutura
 
 
+Quando você atribui uma função a um usuário, somente as tarefas relevantes a esse usuário são visíveis na página tarefas, a menos que você tenha atribuído a função SnapCenterAdmin.
+
+Você também pode criar novas funções e gerenciar permissões e usuários. Você pode atribuir permissões a usuários ou grupos para acessar objetos do SnapCenter, como hosts, conexões de storage e grupos de recursos.
+
+É possível atribuir permissões RBAC a usuários e grupos dentro da mesma floresta e a usuários pertencentes a diferentes florestas. Não é possível atribuir permissões RBAC a usuários pertencentes a grupos aninhados entre florestas.
+
+
+NOTE: Se você criar uma função personalizada, ela deverá conter todas as permissões da função SnapCenterAdmin. Se você copiar apenas algumas das permissões, por exemplo, Host add ou Host remove, não será possível executar essas operações.
+
+Os usuários são obrigados a fornecer autenticação durante o login, por meio da interface gráfica do usuário (GUI) ou usando cmdlets do PowerShell. Se os usuários forem membros de mais de uma função, depois de inserir credenciais de login, eles serão solicitados a especificar a função que desejam usar. Os usuários também são obrigados a fornecer autenticação para executar as APIs.
+
+
+
+=== RBAC no nível da aplicação
+
+O SnapCenter usa credenciais para verificar se os usuários autorizados do SnapCenter também têm permissões no nível do aplicativo.
+
+Por exemplo, se você deseja executar operações de proteção de dados em um ambiente SQL Server, você deve definir credenciais com as credenciais Windows ou SQL adequadas. O servidor SnapCenter autentica o conjunto de credenciais usando qualquer um dos métodos. Se você deseja executar operações de proteção de dados em um ambiente de sistema de arquivos do Windows no storage ONTAP, a função de administração do SnapCenter deve ter admin Privileges no host do Windows.
+
+Da mesma forma, se você deseja executar operações de proteção de dados em um banco de dados Oracle e se a autenticação do sistema operacional (os) estiver desativada no host do banco de dados, você deve definir credenciais com o banco de dados Oracle ou as credenciais Oracle ASM. O servidor SnapCenter autentica as credenciais definidas usando um desses métodos, dependendo da operação.
+
+
+
+=== Plug-in do SnapCenter para VMware vSphere RBAC
+
+Se você estiver usando o plug-in SnapCenter VMware para proteção de dados consistente com VM, o vCenter Server fornecerá um nível adicional de RBAC. O plug-in SnapCenter VMware é compatível com o vCenter Server RBAC e o ONTAP RBAC. https://docs.netapp.com/us-en/sc-plugin-vmware-vsphere/scpivs44_types_of_rbac_for_snapcenter_users.html["Saiba mais"^]
+
+|===
+
+
+| *Prática recomendada:* a NetApp recomenda que você crie uma função do ONTAP para o plug-in do SnapCenter para operações do VMware vSphere e atribua a ele todos os Privileges necessários. 
+|===
+
+
+=== Permissões da ONTAP
+
+Você deve criar uma conta vsadmin com as permissões necessárias para acessar o sistema de armazenamento. link:../install/task_add_a_user_or_group_and_assign_role_and_assets.html["Saiba mais"]
+
+
+
+== Permissões atribuídas às funções SnapCenter predefinidas
+
 Ao adicionar um usuário a uma função, você deve atribuir a permissão StorageConnection para habilitar a comunicação de máquina virtual de armazenamento (SVM) ou atribuir um SVM ao usuário para habilitar a permissão para usar o SVM. A permissão Storage Connection permite que os usuários criem conexões SVM.
 
 Por exemplo, um usuário com a função Administrador do SnapCenter pode criar conexões SVM e atribuí-las a um usuário com a função Administrador de Backup e Clonagem de aplicativos, que por padrão não tem permissão para criar ou editar conexões SVM. Sem uma conexão com o SVM, os usuários não podem concluir operações de backup, clonagem ou restauração.
 
 
 
-== Função de administrador do SnapCenter
+=== Função de administrador do SnapCenter
 
 A função de administrador do SnapCenter tem todas as permissões ativadas. Não é possível modificar as permissões para esta função. Você pode adicionar usuários e grupos à função ou removê-los.
 
 
 
-== Função de Administrador de cópia de Segurança e Clonagem de aplicações
+=== Função de Administrador de cópia de Segurança e Clonagem de aplicações
 
 A função App Backup and Clone Admin tem as permissões necessárias para executar ações administrativas para backups de aplicativos e tarefas relacionadas a clones. Essa função não tem permissões para gerenciamento de host, provisionamento, gerenciamento de conexão de storage ou instalação remota.
 
@@ -311,7 +374,7 @@ Não aplicável
 |===
 
 
-== Função Visualizador de cópia de Segurança e Clonagem
+=== Função Visualizador de cópia de Segurança e Clonagem
 
 A função Visualizador de cópia de Segurança e Clonagem tem uma vista só de leitura de todas as permissões. Essa função também tem permissões habilitadas para descoberta, geração de relatórios e acesso ao Dashboard.
 
@@ -590,7 +653,7 @@ Não aplicável
 |===
 
 
-== Função de administrador de infraestrutura
+=== Função de administrador de infraestrutura
 
 A função Administrador de infraestrutura tem permissões habilitadas para gerenciamento de host, gerenciamento de storage, provisionamento, grupos de recursos, relatórios de instalação remota e acesso ao Dashboard.
 

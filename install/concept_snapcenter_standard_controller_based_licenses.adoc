@@ -25,7 +25,7 @@ NOTE: Você não insere nenhuma informação de licença na GUI do SnapCenter pa
 * Bloqueado no número de série do controlador
 
 
-Para obter informações sobre as licenças necessárias, link:../install/concept_snapcenter_licenses.html["Licenças SnapCenter"^]consulte .
+Para obter informações sobre as licenças necessárias, link:../get-started/concept_snapcenter_licenses.html["Licenças SnapCenter"]consulte .
 
 
 

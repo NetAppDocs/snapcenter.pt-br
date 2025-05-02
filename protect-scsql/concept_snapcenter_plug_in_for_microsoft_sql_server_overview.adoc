@@ -14,3 +14,9 @@ summary: O plug-in do SnapCenter para Microsoft SQL Server é um componente do l
 O plug-in do SnapCenter para Microsoft SQL Server é um componente do lado do host do software NetApp SnapCenter que permite o gerenciamento de proteção de dados com reconhecimento de aplicativos de bancos de dados do Microsoft SQL Server. O plug-in para SQL Server automatiza as operações de backup, verificação, restauração e clone de banco de dados do SQL Server em seu ambiente SnapCenter.
 
 Quando o plug-in para SQL Server é instalado, você pode usar o SnapCenter com a tecnologia NetApp SnapMirror para criar cópias espelhadas de conjuntos de backup em outro volume e com a tecnologia NetApp SnapVault para executar replicação de backup de disco para disco para fins de conformidade ou arquivamento de padrões.
+
+* Automatiza operações de backup, restauração e clone com reconhecimento de aplicações para bancos de dados Microsoft SQL Server em seu ambiente SnapCenter.
+* Suporta bancos de dados Microsoft SQL Server em VMDK e LUNs de mapeamento de dispositivo bruto (RDM) quando você implementa o plug-in SnapCenter para VMware vSphere e Registra o plug-in com o SnapCenter
+* É compatível apenas com o provisionamento de compartilhamentos SMB. Não é fornecido suporte para fazer backup de bancos de dados SQL Server em compartilhamentos SMB.
+* Suporta a importação de backups do SnapManager para Microsoft SQL Server para SnapCenter.
+

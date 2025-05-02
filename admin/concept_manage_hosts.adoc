@@ -133,7 +133,7 @@ Sim
 
 
  a| 
-Inicie os serviços de plug-in
+Iniciar serviços de plug-in (aplicável apenas para plug-ins em execução no host Windows)
  a| 
 Sim
  a| 
@@ -141,7 +141,7 @@ Sim
  a| 
 Sim
  a| 
-Sim
+Não
  a| 
 Sim
  a| 

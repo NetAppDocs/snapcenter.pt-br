@@ -1,0 +1,75 @@
+---
+permalink: get-started/reference_supported_storage_systems_and_applications.html 
+sidebar: sidebar 
+keywords: storage system, ONTAP version, ASA r2 systems 
+summary: Você deve conhecer o sistema de storage suportado, as aplicações e os bancos de dados. 
+---
+= Sistemas e aplicações de storage com suporte da SnapCenter
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Você deve conhecer os sistemas de storage, aplicações e bancos de dados compatíveis com o SnapCenter.
+
+
+
+== Sistemas de storage compatíveis
+
+* NetApp ONTAP 9.12.1 e posterior
+* Azure NetApp Files
+* Amazon FSX para NetApp ONTAP
++
+É compatível com NVMe (non-volátil Memory Express) em Transport Control Protocol (TCP).
+
++
+Para obter informações sobre o Amazon FSX for NetApp ONTAP, https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/what-is-fsx-ontap.html["Documentação do Amazon FSX para NetApp ONTAP"^] consulte .
+
+* Sistemas NetApp ASA R2 que executam o NetApp ONTAP 9.16.1.
++
+Os sistemas ASA R2 oferecem uma solução unificada de hardware e software para ambientes somente SAN criados em plataformas all-flash. https://docs.netapp.com/us-en/asa-r2/get-started/learn-about.html["Saiba mais sobre os sistemas ASA R2"].
+
++
+
+NOTE: O SnapCenter suporta apenas o sistema de arquivos de máquina virtual (VMFS) VMware em sistemas ASA R2.
+
++
+|===
+| Operações compatíveis | Operações não suportadas 
+
+
+ a| 
+** Criação de backups primários de aplicativos através do VMDK
+** Transferir instantâneos de grupo de consistência para o sistema de armazenamento secundário
+** Restaurar os backups e restaurar a partir de um local alternativo
++
+*** Restauração no local a partir de storage primário e secundário com o VMware vMotion
+*** Conecte e copie a restauração a partir de storage primário e secundário
+
+
+** Clonagem dos backups e clonagem para um local alternativo
+
+ a| 
+** Mapeamento de dispositivo bruto (RDM)
+** Volumes de aplicações para Oracle
+** SAP HANA NDV
+** LockVault
+** Snapshot à prova de violações
+** Grupo flexível
+** Grupo de consistência hierárquica
+** Migração do ONTAP 9.x para sistemas ASA R2
+** Renomeação de snapshots
+** O provisionamento secundário do diretório de log do host plug-in SQL não é suportado pelo SnapCenter. Você deve configurar manualmente usando a CLI do ONTAP ou o Gerenciador do sistema.
+
+
+|===
+
+
+
+
+== Aplicativos e bancos de dados compatíveis
+
+O SnapCenter oferece suporte à proteção de diferentes aplicativos e bancos de dados. Para obter informações detalhadas sobre os aplicativos e bancos de dados suportados, https://imt.netapp.com/matrix/imt.jsp?components=121074;&solution=1257&isHWU&src=IMT["Ferramenta de Matriz de interoperabilidade do NetApp"^] consulte .
+
+O SnapCenter é compatível com a proteção de workloads Oracle e Microsoft SQL em ambientes de data center definido por software (SDDC) da Amazon. https://community.netapp.com/t5/Tech-ONTAP-Blogs/Protect-Oracle-MS-SQL-workloads-using-NetApp-SnapCenter-in-VMware-Cloud-on-AWS/ba-p/449168["Saiba mais"^].

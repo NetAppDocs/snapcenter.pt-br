@@ -4,16 +4,14 @@ sidebar: sidebar
 keywords: REST APIs, swagger 
 summary: Descreve como usar APIs REST para executar várias operações de gerenciamento do SnapCenter. As APIs REST são expostas por meio da página da Web do Swagger. 
 ---
-= Visão geral das APIs REST
+= Automação da SnapCenter com APIS REST
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-As APIS REST podem ser usadas para executar várias operações de gerenciamento do SnapCenter. As APIs REST são expostas por meio da página da Web do Swagger.
-
-Você pode acessar a página da Web do Swagger disponível em _ https:// SnapCenter_IP_address_or_name>: SnapCenter_port>/swagger/_ para exibir a documentação da API REST, bem como emitir manualmente uma chamada de API.
+Você pode usar APIS REST para executar várias operações de gerenciamento do SnapCenter. As APIs REST são expostas por meio da página da Web do Swagger. Você pode acessar a página da Web do Swagger disponível em _ https:// SnapCenter_IP_address_or_name>: SnapCenter_port>/swagger/_ para exibir a documentação da API REST, bem como emitir manualmente uma chamada de API.
 
 Os plug-ins compatíveis com APIs REST são:
 
@@ -22,3 +20,5 @@ Os plug-ins compatíveis com APIs REST são:
 * Plug-ins personalizados
 * Plug-in para Oracle Database
 
+
+Para obter informações sobre o plug-in do SnapCenter para APIs REST do VMware vSphere, consulte https://docs.netapp.com/us-en/sc-plugin-vmware-vsphere/scpivs44_rest_apis_overview.html["Plug-in do SnapCenter para APIs REST do VMware vSphere"^]

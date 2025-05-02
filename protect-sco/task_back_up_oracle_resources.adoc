@@ -24,7 +24,7 @@ Em seguida, pode clicar image:../media/filter_icon.gif["ícone de filtro"] para 
 +
 A página Database-Protect (proteção de banco de dados) é exibida.
 
-. Na página recursos, você pode executar as seguintes etapas:
+. Na página recursos, execute as seguintes etapas:
 +
 .. Marque a caixa de seleção e insira um formato de nome personalizado que você deseja usar para o nome da captura Instantânea.
 +
@@ -37,8 +37,7 @@ Por exemplo, `customtext_policy_hostname` ou `resource_hostname`. Por padrão, u
 +
 .. Selecione uma ou mais políticas na lista suspensa.
 +
-
-NOTE: Você pode criar uma política clicando image:../media/add_policy_from_resourcegroup.gif["adicionar símbolo"]em .
+Você pode criar uma política clicando image:../media/add_policy_from_resourcegroup.gif["adicionar símbolo"]em .
 
 +
 Na seção Configurar agendas para políticas selecionadas, as políticas selecionadas são listadas.

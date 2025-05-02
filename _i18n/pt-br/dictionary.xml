@@ -543,7 +543,6 @@
   <block id="320cffd49992ddc2ff397b2f5ed9ff37" category="paragraph">Suspenda programações e coloque hosts no modo de manutenção</block>
   <block id="b80f27d815157abd6f6904b89de247cf" category="paragraph">Modifique hosts adicionando, atualizando ou removendo plug-ins</block>
   <block id="8d7c1f20c13e0316da0e1e10165d0e4e" category="paragraph">Remova os hosts do SnapCenter</block>
-  <block id="5e28bb2687c876f76721b6e829c38901" category="paragraph">Inicie os serviços de plug-in</block>
   <block id="f3b0c215f33e3f0850061318855bf01e" category="paragraph">Provisionar discos</block>
   <block id="9ffdc9bbe0ad65c8a5f776210c0f94ab" category="paragraph">Gerenciar compartilhamentos SMB</block>
   <block id="d469d8d940da31fd12b8d95f9ed6f7cb" category="paragraph">Gerir iGroups</block>
@@ -998,22 +997,12 @@
   <block id="b6c70cefc8ae641c443411b83f6bd49a" category="list-text">Na parte superior da página Monitor, clique em *relatórios*.</block>
   <block id="faf9e714e1e52c762508824205a93a5a" category="paragraph">O relatório apresenta informações apenas para o trabalho selecionado. Pode rever o relatório ou transferi-lo para o seu sistema local.</block>
   <block id="3d94bcd4444e768c821c4af7214a7a73" category="summary">Você pode recuperar o servidor SnapCenter em caso de desastres como corrupção de recursos ou falha do servidor usando o recurso de recuperação de desastres do SnapCenter.</block>
-  <block id="94c4200231b3891f27561beda5d4e31f" category="doc">Recuperação de desastres do SnapCenter</block>
-  <block id="1da5a00a663269fc81a2098b0d91e4d6" category="paragraph">Você pode recuperar o servidor SnapCenter em caso de desastres como corrupção de recursos ou falha do servidor usando o recurso recuperação de desastres (DR) do SnapCenter. Você pode recuperar o repositório do SnapCenter, as programações do servidor e os componentes de configuração do servidor. Você também pode recuperar o plug-in do SnapCenter para SQL Server e o plug-in do SnapCenter para armazenamento de dados SQL Server.</block>
-  <block id="68e856b5be6554a8e4ee8b393b327b0b" category="paragraph">Esta seção descreve os dois tipos de recuperação de desastres (DR) no SnapCenter:</block>
   <block id="4bafae51c760477df325c1b3815da1aa" category="list-title">DR do servidor SnapCenter</block>
   <block id="4561e7fcd617a663505d8992af88d242" category="list-text">Os dados do servidor SnapCenter são copiados e podem ser recuperados sem nenhum plug-in adicionado ou gerenciado pelo servidor SnapCenter.</block>
   <block id="db73b4bff7f9b92f00d36e2a3fa01152" category="list-text">O servidor SnapCenter secundário deve ser instalado no mesmo diretório de instalação e na mesma porta que o servidor SnapCenter primário.</block>
-  <block id="3dbcd484a9ede0a6feaf76cb9d8a6868" category="list-text">Para autenticação multifator (MFA), durante o DR do servidor SnapCenter, feche todas as guias do navegador e reabra um navegador para fazer login novamente. Isso apagará os cookies de sessão existentes ou ativos e atualizará os dados de configuração corretos.</block>
   <block id="eb3b9ec963eb618621a779602a309514" category="inline-link-macro">Workflows de API REST para recuperação de desastres do servidor SnapCenter</block>
-  <block id="d239ebbabeedcdb87dfeedbd548986ac" category="list-text">A funcionalidade de recuperação de desastres do SnapCenter usa APIS REST para fazer backup do servidor SnapCenter. <block ref="6bd0ca01dc1606a35edfa9534e3c90d2" category="inline-link-macro-rx"></block>Consulte .</block>
-  <block id="7dc560127d94117067b15f71651a7211" category="list-text">O arquivo de configuração relacionado às configurações de auditoria não é feito backup no backup de DR e nem no servidor de DR após a operação de restauração. Deve repetir manualmente as definições do registo de auditoria.</block>
   <block id="717bb61127675bdfbac9d09d06c4bd89" category="paragraph-title">Plug-in do SnapCenter e recuperação de desastres de storage</block>
   <block id="dc894d281805d8d1c222c04f94404928" category="inline-link-macro">Recuperação de desastres do plug-in SnapCenter para SQL Server</block>
-  <block id="a3c30c25a1e544471bac224e74207425" category="paragraph">O DR é compatível apenas com o plug-in SnapCenter para SQL Server. Quando o plug-in do SnapCenter estiver inativo, mude para um host SQL diferente e recupere os dados executando algumas etapas. <block ref="47046db67c1574cb29142c431fb68f1f" category="inline-link-macro-rx"></block>Consulte .</block>
-  <block id="9fbd6c9c898d3b24f2f3cfa67bb8c2b2" category="paragraph">A SnapCenter usa a tecnologia ONTAP SnapMirror para replicar dados. Ele pode ser usado para replicar dados para um local secundário para recuperação de desastres e mantê-los sincronizados. Um failover pode ser iniciado quebrando a relação de replicação no SnapMirror. Durante o failback, a sincronização pode ser revertida e os dados do local de DR podem ser replicados de volta para o local principal.</block>
-  <block id="61f6987ebe8ac6f46f0b880c5ae59a51" category="summary">Você pode usar prescripts e postscripts personalizados como parte de suas operações de proteção de dados. Esses scripts habilitam a automação antes do trabalho de proteção de dados ou depois. Por exemplo, você pode incluir um script que o notifica automaticamente sobre falhas ou avisos de trabalhos de proteção de dados. Antes de configurar suas prescriptas e pós-scripts, você deve entender alguns dos requisitos para criar esses scripts.</block>
-  <block id="7322146fa0278b7076d42a67da3ca68f" category="doc">Prescripts e postscripts</block>
   <block id="435a98a7bde7c8c702ecea454519078b" category="section-title">Tipos de script suportados</block>
   <block id="ace671fcc1d4c5939c3ed0ebf95d2b2c" category="paragraph">Os seguintes tipos de scripts são suportados para o Windows:</block>
   <block id="629e171db7b408e3e171f1586f3caf6f" category="list-text">Arquivos em lote</block>
@@ -1024,13 +1013,11 @@
   <block id="6ed9402e52f305d484cb3e2eee84b210" category="list-text">Scripts de shell</block>
   <block id="ceb1c56a363e3e946d8da6a79de2b489" category="admonition">Junto com shell bash padrão outros shells como sh-shell, k-shell e c-shell também são suportados.</block>
   <block id="cb1dcb2d36da486647d1983837107510" category="section-title">Caminho do script</block>
-  <block id="6b98b59317c1c01b7bc7ca4cd17411bb" category="paragraph">Todos os prescripts e pós-scripts executados como parte das operações do SnapCenter, em sistemas de storage não virtualizados e virtualizados, são executados no host do plug-in.</block>
   <block id="cb7915cb66b1b1e301d1220e2e017bb5" category="list-text">Os scripts do Windows devem estar localizados no host do plug-in.</block>
   <block id="13e879c5832931b24329a65364023ff4" category="admonition">O caminho de prescripts ou postscripts não deve incluir unidades ou compartilhamentos. O caminho deve ser relativo ao SCRIPT_path.</block>
   <block id="c157096c2e47e568177494234a87f0e1" category="list-text">Os scripts UNIX devem estar localizados no host do plug-in.</block>
   <block id="fef867655f1f81bcdd0d00a9356cb04e" category="admonition">O caminho do script é validado no momento da execução.</block>
   <block id="2ef92c32f18381ca1aac0ef10eb1ed42" category="section-title">Onde especificar scripts</block>
-  <block id="74791fd4df03254b423dc68919cf67a3" category="paragraph">Os scripts são especificados nas políticas de backup. Quando um trabalho de backup é iniciado, a diretiva associa automaticamente o script aos recursos que estão sendo copiados. Ao criar uma política de backup, você pode especificar os argumentos prescritor e postscript.</block>
   <block id="70871ac0eac7d5e43a705f18b69f6651" category="admonition">Não é possível especificar vários scripts.</block>
   <block id="3093ae9f5bdaf1b35b772bada2c6ddc5" category="section-title">Tempos limite de script</block>
   <block id="d3873d463c5b3fb3a7750ff0ae00fee1" category="paragraph">O tempo limite é definido para 60 segundos, por padrão. Você pode modificar o valor de tempo limite.</block>
@@ -1038,28 +1025,12 @@
   <block id="7d901a35f38f46ac340bf0fcef37cb9d" category="paragraph">O diretório padrão para os arquivos de saída de prescripts e postscripts do Windows é o Windows System32.</block>
   <block id="7a21760d7cbd0896708b77121ef519dc" category="paragraph">Não há local padrão para as prescripts e postscripts UNIX. Você pode redirecionar o arquivo de saída para qualquer local preferido.</block>
   <block id="e72e41b6444b5d653a8ae41192189e01" category="summary">Antes de usar o SnapCenter, é útil entender conceitos básicos relacionados às operações de backup, clonagem e restauração que você deseja executar. Você interage com recursos, grupos de recursos e políticas para diferentes operações.</block>
-  <block id="12c254b6e514e7d479282efdf4ebc497" category="doc">Recursos, grupos de recursos e políticas</block>
-  <block id="bcf3bda2b735386ee88e07d933ef93af" category="list-text">*Os recursos* são normalmente bancos de dados, sistemas de arquivos do Windows ou compartilhamentos de arquivos que você faz backup ou clone com o SnapCenter.</block>
-  <block id="b5715ff44476a6af909e5b70490a8701" category="paragraph">No entanto, dependendo do seu ambiente, os recursos podem ser instâncias de banco de dados, grupos de disponibilidade do Microsoft SQL Server, bancos de dados Oracle RAC, sistemas de arquivos do Windows ou um grupo de aplicativos personalizados.</block>
-  <block id="fd6dcf11a3928e2145496c23e888f16f" category="list-text">Um *grupo de recursos* é uma coleção de recursos em um host ou cluster. O grupo de recursos também pode conter recursos de vários hosts e vários clusters.</block>
-  <block id="074c5ac634a392ef824fb1686f6770df" category="paragraph">Quando você executa uma operação em um grupo de recursos, executa essa operação em todos os recursos definidos no grupo de recursos de acordo com a programação especificada para o grupo de recursos.</block>
-  <block id="d79cff4c1db527cd769833fe27ab0821" category="paragraph">Você pode fazer backup sob demanda de um único recurso ou de um grupo de recursos. Você também pode configurar backups programados para recursos únicos e grupos de recursos.</block>
-  <block id="d99163bd0d3c99c89172cac0128e3c9b" category="admonition">Se você colocar um host de um grupo de recursos compartilhados no modo de manutenção e se houver programações associadas ao mesmo grupo de recursos compartilhados, todas as operações agendadas serão suspensas para todos os outros hosts do grupo de recursos compartilhados.</block>
-  <block id="a12dde1e0eef70b1fcc9aeb14c48068f" category="paragraph">Você deve usar um plug-in de banco de dados para fazer backup de bancos de dados, um plug-in de sistema de arquivos para fazer backup de sistemas de arquivos e o plug-in SnapCenter para VMware vSphere para fazer backup de VMs e datastores.</block>
-  <block id="0f43c5d4ff5d94ce419f2c7a8697c3c6" category="list-text">*Políticas* especificam a frequência de backup, retenção de cópia, replicação, scripts e outras caraterísticas das operações de proteção de dados.</block>
-  <block id="82136d78126753a8c16935350ed00044" category="paragraph">Ao criar um grupo de recursos, você seleciona uma ou mais políticas para esse grupo. Você também pode selecionar uma política ao executar um backup sob demanda.</block>
-  <block id="82b5afd38c6996694c3ff68544cd8311" category="paragraph">Pense em um grupo de recursos como definindo _o que_ você quer proteger e quando você quer protegê-lo em termos de dia e tempo. Pense em uma política como definindo _como_ você quer protegê-la. Se você estiver fazendo backup de todos os bancos de dados ou fazendo backup de todos os sistemas de arquivos de um host, por exemplo, você pode criar um grupo de recursos que inclua todos os bancos de dados ou todos os sistemas de arquivos no host. Em seguida, você pode anexar duas políticas ao grupo de recursos: Uma política diária e uma política por hora.</block>
-  <block id="413d9db5e9371c72c8a46ca2aa854b0b" category="paragraph">Ao criar o grupo de recursos e anexar as políticas, você pode configurar o grupo de recursos para executar um backup completo diário e outro agendamento que executa backups de log por hora.</block>
   <block id="9c124c0fc8c6cc2725dad57b45c85eb0" category="paragraph">A imagem a seguir ilustra a relação entre recursos, grupos de recursos e políticas para bancos de dados:</block>
-  <block id="ac79b4abc4dc6d0e9ec4abc5ca6b78a2" category="image-alt">Diagrama de conjunto de dados e política</block>
-  <block id="a2736a5a798a9322639036f21c70d1d1" category="paragraph">A imagem a seguir ilustra a relação entre recursos, grupos de recursos e políticas para sistemas de arquivos do Windows:</block>
   <block id="6309043436d4e7e5bad9a81c89ff15e4" category="doc">Visão geral do SnapCenter</block>
   <block id="edaafea0543ae64ebb79a2ed2e7a055b" category="paragraph">O SnapCenter utiliza as tecnologias NetApp Snapshot, SnapRestore, FlexClone, SnapMirror e SnapVault para oferecer o seguinte:</block>
   <block id="6d02db19251dfec578c356202bfb1bdc" category="list-text">Backups rápidos, com uso eficiente de espaço, consistentes com aplicações e baseados em disco</block>
   <block id="3f47ac8ce2ea087a29a167d91aa9f473" category="list-text">Restauração rápida e granular, e recuperação consistente com aplicações</block>
   <block id="730379f67cffd2b9f827972fda727e5c" category="list-text">Clonagem rápida e com uso eficiente de espaço</block>
-  <block id="28cff6abd4b7b43406436e547f34789e" category="paragraph">O SnapCenter inclui o servidor SnapCenter e plug-ins leves individuais. É possível automatizar a implantação de plug-ins para hosts remotos de aplicações, agendar operações de backup, verificação e clone e monitorar todas as operações de proteção de dados.</block>
-  <block id="66f12d94976f038895bab4372ee87640" category="paragraph">O SnapCenter pode ser implantado das seguintes maneiras:</block>
   <block id="ad5726653853fba2b5d98515c638da77" category="list-text">No local para proteger o seguinte:</block>
   <block id="7deab53ede49d0d1a58c65f2e25ff259" category="list-text">Dados em sistemas primários ONTAP Select</block>
   <block id="3f897d901d24f02777ff0994b7823d1a" category="list-text">Dados em sistemas primários e secundários ONTAP FAS, AFF ou ASA e protegidos no storage de objetos StorageGRID local</block>
@@ -1070,8 +1041,6 @@
   <block id="b340c2b4a7a978a510c8ebb351622143" category="list-text">Dados em sistemas primários Cloud Volumes ONTAP (anteriormente ONTAP Cloud)</block>
   <block id="b380e442ff5c6e48e283af8b6f99806f" category="list-text">Dados que estão no Amazon FSX for ONTAP</block>
   <block id="97f2c8bf124398ba05bca9cc6fb869b1" category="list-text">Dados em Azure NetApp Files primário (Oracle, Microsoft SQL e SAP HANA)</block>
-  <block id="1b195709096f08d5640d18382cb88214" category="paragraph">O SnapCenter inclui os seguintes recursos principais:</block>
-  <block id="0d5a14c7c275ceabc6219ec9ab60645f" category="list-text">Proteção de dados centralizada e consistente com aplicações</block>
   <block id="07af457ed5409f58b0d5ca2b41b5ec39" category="inline-link-macro">Desenvolva um plug-in para sua aplicação</block>
   <block id="1e06a8cc16bd3bc423f81e8ff56e4fc0" category="list-text">Backups baseados em políticas</block>
   <block id="9939c592ab7bc8c3264f4ed7fde3bd18" category="paragraph">Os backups baseados em políticas utilizam a tecnologia NetApp Snapshot para criar backups rápidos, com uso eficiente de espaço, consistentes com aplicações e baseados em disco. Como opção, você pode automatizar a proteção desses backups para um storage secundário por meio de atualizações dos relacionamentos de proteção existentes.</block>
@@ -1082,74 +1051,29 @@
   <block id="217601d383b816e6a2548e57b5006f92" category="list-text">Clonagem</block>
   <block id="e83cfee5e1167f2033d1e804f1841a96" category="paragraph">O SnapCenter fornece clonagem rápida, com uso eficiente de espaço e consistente com aplicações, o que possibilita o desenvolvimento acelerado de software. Você pode clonar em qualquer destino na nuvem híbrida.</block>
   <block id="4f6da05ed76330876dac0fffae948e27" category="list-text">Interface gráfica do usuário (GUI) de gerenciamento de usuário único</block>
-  <block id="79cb5b6ee15ef97e043769469fa6934f" category="paragraph">A GUI do SnapCenter fornece uma interface única e única para gerenciar backups e clones de um recurso em qualquer destino na nuvem híbrida.</block>
   <block id="c534b8c3e9d947f12540681e6b032d6e" category="list-text">APIs REST, cmdlets do Windows, comandos UNIX</block>
-  <block id="7ef2193aefa38af010eb09987c5e35ec" category="paragraph">O SnapCenter inclui APIS REST para a maioria das funcionalidades de integração com qualquer software de orquestração e uso de cmdlets e interface de linha de comando do Windows PowerShell.</block>
-  <block id="66ee30700091538587a27acf4ecad692" category="inline-link">Visão geral da API REST</block>
-  <block id="9a9a51f1993f5461829d8466a8fb013e" category="paragraph">Para obter mais informações sobre APIs REST,<block ref="ea5c19f623f4ce0e4a3a37a512890f94" category="inline-link-rx"></block>consulte .</block>
-  <block id="c4c043cf140b5a7134a11a4a9825d3a1" category="paragraph">Para obter mais informações sobre cmdlets do Windows,<block ref="bc822c4319e03a98720e4951c1009810" category="inline-link-rx"></block>consulte .</block>
   <block id="34b88b9f409afc7274c8a769ee450883" category="inline-link">Guia de Referência de comandos do software SnapCenter</block>
-  <block id="44764ea524336d8792197315c021bc65" category="list-text">Dashboard e relatórios centralizados de proteção de dados</block>
-  <block id="36fbf00d5877eca259aff6ad5fc25b19" category="list-text">Controle de acesso baseado em função (RBAC) para segurança e delegação.</block>
-  <block id="571dae8a7f248327dfd110856b096a06" category="list-text">Banco de dados de repositório com alta disponibilidade</block>
-  <block id="45c4b930a6370709b2fb231c5711f324" category="paragraph">O SnapCenter fornece um banco de dados de repositório integrado com alta disponibilidade para armazenar todos os metadados de backup.</block>
   <block id="aa4473d6d9a217be25c4635b52860652" category="list-text">Instalação automática de plug-ins por push</block>
-  <block id="89ea065c3c74f05616217a18c8d2f94c" category="paragraph">Você pode automatizar um envio remoto de plug-ins do SnapCenter do host do servidor SnapCenter para os hosts de aplicativos.</block>
   <block id="520b661a272c9e6f55f469cc9c24193d" category="list-text">Alta disponibilidade</block>
-  <block id="6bb8422b104a0a46085c0103ad9847a6" category="paragraph">A alta disponibilidade para SnapCenter é configurada usando o balanceador de carga externo (F5). Até dois nós são suportados no mesmo data center.</block>
   <block id="e7cf8487e37960d508be850cc465db13" category="list-text">Recuperação de desastres (DR)</block>
-  <block id="c4e950e6ae10611fc22e75c70937d0c1" category="paragraph">Você pode recuperar o servidor SnapCenter em caso de desastres como corrupção de recursos ou falha do servidor.</block>
   <block id="acdc6b4f6edd40f37bce01247a32ff86" category="list-text">SnapLock</block>
-  <block id="f14c7b4687be07acacb0f5aeed1474f5" category="inline-link">O que é SnapLock</block>
   <block id="09e67fdf7831d393b41ce0d8f15d404a" category="list-text">SnapMirror ative Sync (lançado inicialmente como SnapMirror Business Continuity [SM-BC])</block>
   <block id="e0dffcf4f6e23c33a87445934bfed926" category="paragraph">O SnapMirror active Sync permite que os serviços empresariais continuem operando mesmo em uma falha completa do local, com suporte ao failover de aplicações de forma transparente, usando uma cópia secundária. Nem a intervenção manual nem o script adicional são necessários para acionar um failover com a sincronização ativa do SnapMirror.</block>
   <block id="108b992c720e99adbd1f893194020c9a" category="paragraph">Os plug-ins suportados para esse recurso são plug-in SnapCenter para SQL Server, plug-in SnapCenter para Windows, plug-in SnapCenter para banco de dados Oracle, plug-in SnapCenter para banco de dados SAP HANA, plug-in SnapCenter para Microsoft Exchange Server e plug-in SnapCenter para Unix.</block>
   <block id="c3b24ca654a7950d4bad9f6faf738040" category="admonition">Para suportar a proximidade do iniciador do host no SnapCenter, seu valor, origem ou destino deve ser definido no ONTAP.</block>
-  <block id="902e0904329b45926164b6b7032c1a94" category="paragraph">A funcionalidade de sincronização ativa do SnapMirror não é suportada no SnapCenter:</block>
   <block id="28ec9bb7161f9f7cbea0f9792f8c6ee7" category="list-text">Se você converter as cargas de trabalho de sincronização ativa assimétrica do SnapMirror existentes para simétricas alterando a política nas relações de sincronização ativa do SnapMirror de _automatedfailover_ para _automatedfailoverduplex_ no ONTAP, o mesmo não será suportado no SnapCenter.</block>
   <block id="df3cc8d4fdd0fe554f12ddf2704663a5" category="list-text">Se houver backups de um grupo de recursos (já protegido no SnapCenter) e a política de armazenamento for alterada nas relações de sincronização ativa do SnapMirror de _automatedfailover_ para _automatedfailoverduplex_ no ONTAP, o mesmo não é suportado no SnapCenter.</block>
   <block id="4a85397e66688e4e619ffe832e627548" category="inline-link">Descrição geral da sincronização ativa do SnapMirror</block>
-  <block id="1cc705d062d72b3d56c8c0e4c2089925" category="paragraph">Para obter mais informações sobre a sincronização ativa do SnapMirror, consulte<block ref="014166fe18ae8fdd05d96b765aaf21c5" category="inline-link-rx"></block></block>
   <block id="ee68e5b99222bbc29a480fcb0d1d6ee2" category="inline-link">Pré-requisitos</block>
-  <block id="887682b9c04fe04102469c6bfc66a6b9" category="paragraph">Para a sincronização ativa do SnapMirror, verifique se você atendeu aos vários requisitos de configuração de hardware, software e sistema. Para obter mais informações, consulte<block ref="f9eb78fd44fa2b4062d85447a53a0e44" category="inline-link-rx"></block></block>
-  <block id="67680376f85af0a668d2b1da4df68375" category="list-text">Espelhamento síncrono</block>
-  <block id="a29cff3cfb7c24ba08368273081b8abe" category="paragraph">O recurso de espelhamento síncrono oferece replicação de dados on-line em tempo real entre storage arrays em uma distância remota.</block>
-  <block id="460f1e8c3e603bf77d64ce3d701324a5" category="inline-link">Visão geral do espelhamento síncrono</block>
-  <block id="a9314244914bf1f4587a6c4aa7129dc3" category="paragraph">Para obter mais informações sobre o espelho de sincronização, consulte<block ref="1bae9f986edc3b7a3e1cb690e92ffc03" category="inline-link-rx"></block></block>
-  <block id="26e2418d177df1dddb008e455ce28752" category="section-title">Arquitetura da SnapCenter</block>
-  <block id="a8eee41e395faca880e51b4fdfd9f5c4" category="paragraph">A plataforma SnapCenter é baseada em uma arquitetura de vários níveis que inclui um servidor de gerenciamento centralizado (servidor SnapCenter) e um host de plug-in SnapCenter.</block>
-  <block id="cd7120d7b7b9a237440ccfd5b7694671" category="paragraph">O SnapCenter é compatível com data center multisite. O servidor SnapCenter e o host do plug-in podem estar em diferentes locais geográficos.</block>
-  <block id="21c5e3a34f1b7d7f8403a2ffbab1364c" category="image-alt">arquitetura da SnapCenter</block>
-  <block id="4a8478781fce30dd0844fa495323657c" category="section-title">Componentes do SnapCenter</block>
-  <block id="cf24b0c24f360df578fe1cb64878f30f" category="paragraph">O SnapCenter consiste nos plug-ins do servidor SnapCenter e do SnapCenter. Você deve instalar apenas os plug-ins apropriados para os dados que deseja proteger.</block>
   <block id="f709ed2f05802131924f53cb483d0216" category="list-text">Servidor SnapCenter</block>
-  <block id="bbfce10ba1cee1672b10ec42c0b22053" category="list-text">Pacote de plug-ins do SnapCenter para Windows, que inclui os seguintes plug-ins:</block>
   <block id="4b2565450d503764049f6fd2bae4ee64" category="list-text">Plug-in do SnapCenter para Microsoft SQL Server</block>
-  <block id="36a92a010308100e1efc10d9eb98c369" category="list-text">Plug-in do SnapCenter para Microsoft Windows</block>
   <block id="76a0ff76d49e2e625dab109d55123b8e" category="list-text">Plug-in do SnapCenter para Microsoft Exchange Server</block>
   <block id="51edbc830d9024f2e4139814d748cb86" category="list-text">Plug-in do SnapCenter para banco de dados SAP HANA</block>
   <block id="03720547c7eaf5a2184cb04e804c96dc" category="list-text">Plug-in do SnapCenter para IBM DB2</block>
   <block id="3245d8514a844d08673af1fb25bec2f4" category="list-text">Plug-in SnapCenter para PostgreSQL</block>
   <block id="aa96d0986aa898ff8efdb0e691f15a6c" category="list-text">Plug-in SnapCenter para MySQL</block>
-  <block id="540808ccc7df5d84b1442ccc4f14797d" category="list-text">Pacote de plug-ins do SnapCenter para Linux, que inclui os seguintes plug-ins:</block>
   <block id="2e41c2081a8838f41650e76a978d4057" category="list-text">Plug-in SnapCenter para banco de dados Oracle</block>
-  <block id="2215a3a36ae9bad6bae7dd09aa015343" category="list-text">Plug-in do SnapCenter para sistemas de arquivos UNIX</block>
-  <block id="41055e583e58ee1a92771580cdfe9b3f" category="list-text">Pacote de plug-ins do SnapCenter para AIX, que inclui os seguintes plug-ins:</block>
-  <block id="4bfa416280fc4f5037348c904859e18f" category="paragraph">O plug-in do SnapCenter para VMware vSphere, antigo agente de dados da NetApp, é um dispositivo virtual autônomo que suporta operações de proteção de dados da SnapCenter em bancos de dados virtualizados e sistemas de arquivos.</block>
-  <block id="e4b70dc0a2377b7bbef832a55b2d603c" category="paragraph">O servidor SnapCenter inclui um servidor da Web, uma interface de usuário centralizada baseada em HTML5, cmdlets do PowerShell, APIs REST e o repositório SnapCenter.</block>
-  <block id="a46edffb8a36d10263fe5881dfb121f5" category="paragraph">Servidor SnapCenter suporta Microsoft Windows e Linux (RHEL 8.x, RHEL 9.x, SLES 15 SP5)</block>
-  <block id="94b7d8402eae2cedafc0012930db7112" category="paragraph">Se você estiver usando o pacote de plug-ins do SnapCenter para Linux ou o pacote de plug-ins do SnapCenter para AIX, as programações são executadas centralmente usando o agendador de quartzo.</block>
-  <block id="34491d7c290ea91e85fff45d101c134f" category="list-text">Para o plug-in do SnapCenter para banco de dados Oracle, o agente host que é executado no host do servidor SnapCenter se comunica com o SnapCenter Plug-in Loader (SPL) que é executado no host Linux ou AIX para executar diferentes operações de proteção de dados.</block>
-  <block id="a45f8ebdad00cd1e18e59d75c2e10a6e" category="list-text">Para plug-in do SnapCenter para banco de dados SAP HANA e plug-ins personalizados do SnapCenter, o servidor SnapCenter se comunica com esses plug-ins por meio do agente SCCore que é executado no host.</block>
   <block id="b62cae9c23cf035ec4b43fec7f0697d6" category="paragraph">O servidor SnapCenter e os plug-ins se comunicam com o agente host usando HTTPS. As informações sobre as operações do SnapCenter são armazenadas no repositório do SnapCenter.</block>
-  <block id="91e3724846bcc53dbc1d1e5a3296e15f" category="inline-link">O SnapCenter não consegue descobrir recursos ao usar namespace disjoint</block>
-  <block id="0c6faa7f360e593d37b8a98e5281e4e7" category="admonition">O SnapCenter oferece suporte a namespace disjoint para hosts do Windows. Se você enfrentar problemas ao usar o namespace disjoint,<block ref="96bf41c45768bfb194201403aea10b84" category="inline-link-rx"></block> consulte .</block>
-  <block id="e9f0ead185217526014d410774e0c02d" category="paragraph">Você deve executar os seguintes comandos para saber o status dos componentes do SnapCenter em execução no host Linux:</block>
-  <block id="91a89e84ff068fecedee5cdb97a98565" category="list-text"><block ref="34a5a8afae500cef4b1ce732f91299b4" prefix="" category="inline-code"></block></block>
-  <block id="018711c946e27a5728eba091ba0c341c" category="list-text"><block ref="72df62b41020005557bddb803125585e" prefix="" category="inline-code"></block></block>
-  <block id="15e1d1bc077ba982b23c741635929fe8" category="list-text"><block ref="ab91f9679f898e8b87f6fe5ee2eb0579" prefix="" category="inline-code"></block></block>
-  <block id="82958a7d67f72ffbc63a735562462509" category="list-text"><block ref="afd5a6d0dfcc14bade8191bf3a3e84b3" prefix="" category="inline-code"></block></block>
-  <block id="cdf4292e2b40a9d1b4de9f92f6bc8dc0" category="list-text"><block ref="10f7b18179d749d1a97369228d4f8771" prefix="" category="inline-code"></block></block>
   <block id="a6d093f66e362f8852d5b0ce5d1adf5a" category="section-title">Plug-ins do SnapCenter</block>
   <block id="e1087bd8c9bab7e111508724bff61f97" category="paragraph">Cada plug-in do SnapCenter é compatível com ambientes, bancos de dados e aplicações específicos.</block>
   <block id="9a8bf4c46d108a9dadf51b9b7637621f" category="cell">Nome do plug-in</block>
@@ -1157,53 +1081,37 @@
   <block id="7d2ba3b97f3aab58caeba3b5018ddbb9" category="cell">Requer outros plug-ins</block>
   <block id="bb73505c097bd61c1fcc4430d2a38c41" category="cell">Instalado no host</block>
   <block id="f66bfcfeebc3b396ab9d87fb382940e8" category="cell">Plataforma suportada</block>
-  <block id="b7fbe764824282400630c2688855f643" category="paragraph">Plug-in para SQL Server</block>
-  <block id="1b56d64a91a049474d624d61865df0e5" category="paragraph">Pacote de plug-ins para Windows</block>
   <block id="4bd5f1ead0d86ce18467a87e3a1a2420" category="paragraph">Plug-in para Windows</block>
   <block id="d1395d300c3eb2d6389098837ce303ae" category="paragraph">Host do SQL Server</block>
   <block id="aea23489ce3aa9b6406ebb28e0cda430" category="paragraph">Windows</block>
   <block id="0b059e758179ae9106a6228fd71a42cb" category="paragraph">Host Windows</block>
-  <block id="73384374c38d7037d15b34d093d9221c" category="paragraph">Plug-in para Exchange</block>
   <block id="0a39d95d53ff8629bb834199d1c7a40d" category="paragraph">Host do Exchange Server</block>
   <block id="85101367016c9d3b3a2358db405464f9" category="paragraph">Plug-in para Oracle Database</block>
-  <block id="cadac0894f43abf9c33b9327f0f80e59" category="paragraph">Pacote de plug-ins para Linux e pacote de plug-ins para AIX</block>
   <block id="edfe16ec78fecac4fc9f4239fe727d7b" category="paragraph">Plug-in para UNIX</block>
   <block id="5d797905d64e803732cc61497e40d3cd" category="paragraph">Host Oracle</block>
   <block id="692efed951a032e2a70ff014b92f87bb" category="paragraph">Linux ou AIX</block>
   <block id="ec068fb3d4dea4c520ab13a179930564" category="paragraph">Plug-in para banco de dados SAP HANA</block>
-  <block id="fd4fbbf78285b947d3b440c75bcb9489" category="paragraph">Pacote de plug-ins para Linux e pacote de plug-ins para Windows</block>
   <block id="d2d37741a3c204436d78ca699e0e7154" category="paragraph">Plug-in para UNIX ou Plug-in para Windows</block>
   <block id="5d5cde1005f814f00d44032094a9a04f" category="paragraph">Host cliente HDBSQL</block>
   <block id="4abb41aae1dfe9c81afb3c3672df559c" category="paragraph">Linux ou Windows</block>
   <block id="98c5825b9b497a5e2a61777325ed802f" category="paragraph">Plug-ins personalizados</block>
-  <block id="fde05c42841c2ef404a5ed9e7babdf62" category="paragraph">Para backups do sistema de arquivos, Plug-in para Windows</block>
   <block id="0c6a45824d8aa208ef88a943b710cb80" category="paragraph">Host de aplicativo personalizado</block>
-  <block id="c74acc8210aba80290a20a7458476e6f" category="paragraph">Plug-in para IBM DB2</block>
   <block id="7affc9aa382d06b530a170abd5ed58b0" category="paragraph">DB2 host</block>
-  <block id="913f55628bc69e673add45d88f36a89e" category="paragraph">Plug-in para PostgreSQL</block>
   <block id="de2f98bb47449438a4cc0f3280943d06" category="paragraph">PostgreSQL host</block>
-  <block id="54c99346904c81a433d45388157e7f4f" category="paragraph">Plug-in para MySQL</block>
-  <block id="8ca02aa304dba71d65516a19860e4e61" category="paragraph">Db2MySQL host</block>
   <block id="a364132418180f0b14b5eb7db8b87808" category="admonition">O plug-in do SnapCenter para VMware vSphere é compatível com operações de backup e restauração consistentes com VM e falhas para máquinas virtuais (VMs), armazenamentos de dados e discos de máquinas virtuais (VMDKs), além de oferecer suporte aos plug-ins específicos da aplicação SnapCenter para proteger operações de backup e restauração consistentes com aplicações para bancos de dados e sistemas de arquivos virtualizados.</block>
   <block id="8c3d0c00ea667e3e0723e5cdc6473a09" category="inline-link">Plug-in do SnapCenter para documentação do VMware vSphere</block>
-  <block id="62f7213e474f9b816a1b8dc7abf5a528" category="paragraph">Para usuários do SnapCenter 4.1.1, a documentação do plug-in do SnapCenter para VMware vSphere 4.1.1 tem informações sobre como proteger bancos de dados virtualizados e sistemas de arquivos. Para usuários do SnapCenter 4,2.x, o Agente de dados do NetApp 1,0 e 1,0.1, a documentação tem informações sobre como proteger bancos de dados virtualizados e sistemas de arquivos usando o plug-in do SnapCenter para VMware vSphere fornecido pelo dispositivo virtual NetApp Data Broker baseado em Linux (formato Open Virtual Appliance). Para usuários que usam o SnapCenter 4,3 ou posterior, o<block ref="856325c2376fb402b33d836e8e7311f1" category="inline-link-rx"></block> tem informações sobre como proteger bancos de dados virtualizados e sistemas de arquivos usando o plug-in SnapCenter baseado em Linux para o dispositivo virtual VMware vSphere (formato Open Virtual Appliance).</block>
   <block id="043833147a39840644f2ff01a835f90d" category="section-title">Plug-in do SnapCenter para recursos do Microsoft SQL Server</block>
   <block id="50e95eafa6faf8d2ee3f01921820b42b" category="list-text">Automatiza operações de backup, restauração e clone com reconhecimento de aplicações para bancos de dados Microsoft SQL Server em seu ambiente SnapCenter.</block>
   <block id="e40237d2b53363bc373f8134071d1be1" category="list-text">Suporta bancos de dados Microsoft SQL Server em VMDK e LUNs de mapeamento de dispositivo bruto (RDM) quando você implementa o plug-in SnapCenter para VMware vSphere e Registra o plug-in com o SnapCenter</block>
   <block id="a7e3ff2bca34971756f1600032ff8b61" category="list-text">É compatível apenas com o provisionamento de compartilhamentos SMB. Não é fornecido suporte para fazer backup de bancos de dados SQL Server em compartilhamentos SMB.</block>
   <block id="6bff10ef4d0d0d6d7ed28de9adc0169d" category="list-text">Suporta a importação de backups do SnapManager para Microsoft SQL Server para SnapCenter.</block>
-  <block id="2f75224064f651f17be474084e7a7ff5" category="section-title">Plug-in do SnapCenter para recursos do Microsoft Windows</block>
   <block id="1b789581aeaa48640561ebae3b263a76" category="list-text">Habilita a proteção de dados com reconhecimento de aplicativos para outros plug-ins que estão sendo executados em hosts do Windows em seu ambiente SnapCenter</block>
   <block id="d764b7be86ece9a7b21fa445a8e1493c" category="list-text">Automatiza operações de backup, restauração e clone com reconhecimento de aplicações para sistemas de arquivos da Microsoft em seu ambiente SnapCenter</block>
   <block id="a156a2baa4fc7e4c8c93e2f496941e06" category="list-text">É compatível com o provisionamento de storage, a consistência Snapshot e a exigência de espaço para hosts do Windows</block>
   <block id="dea9211ac8214ee6078ef38e9e19fd1b" category="admonition">O Plug-in para Windows provisiona compartilhamentos SMB e sistemas de arquivos do Windows em LUNs físicos e RDM, mas não suporta operações de backup para sistemas de arquivos do Windows em compartilhamentos SMB.</block>
-  <block id="bb1a0267e6190653f6b95ebf12a64e69" category="section-title">Plug-in do SnapCenter para recursos do Microsoft Exchange Server</block>
   <block id="b1af2c6f8c468738169b12e770baea8c" category="list-text">Automatiza as operações de backup e restauração com reconhecimento de aplicativos para bancos de dados do Microsoft Exchange Server e grupos de disponibilidade de banco de dados (DAGs) em seu ambiente SnapCenter</block>
-  <block id="916a82194899f7648d08a0282d32c9c0" category="list-text">Suporta servidores Exchange virtualizados em LUNs RDM quando você implementa o plug-in SnapCenter para VMware vSphere e Registra o plug-in com o SnapCenter</block>
-  <block id="0b097b0a8b52154e1f44510513daf112" category="section-title">Plug-in do SnapCenter para recursos de banco de dados Oracle</block>
   <block id="a220880aac504c9f55528c3222ffa997" category="list-text">Automatiza operações de backup, restauração, recuperação, verificação, montagem, desmontagem e clone com reconhecimento de aplicações para bancos de dados Oracle em seu ambiente SnapCenter</block>
   <block id="3cd50b9048607f4d77076208b701991a" category="list-text">Suporta bancos de dados Oracle para SAP, no entanto, a integração SAP BR*Tools não é fornecida</block>
-  <block id="20af11fdcaf5cc09c6db373d456919d2" category="section-title">Plug-in do SnapCenter para recursos UNIX</block>
   <block id="3a9c0d21c2708025f8baec1b565ee73f" category="list-text">Permite que o Plug-in para Oracle Database execute operações de proteção de dados em bancos de dados Oracle, manipulando a pilha de armazenamento de host subjacente em sistemas Linux ou AIX</block>
   <block id="4e5230cc046ad82de5ae1c42f1637ac0" category="list-text">Dá suporte aos protocolos NFS (Network File System) e SAN (Storage Area Network) em um sistema de storage que esteja executando o ONTAP.</block>
   <block id="0f26023ea65ffc1c3268c3e139f5c5fa" category="list-text">Para sistemas Linux, os bancos de dados Oracle em VMDK e LUNs RDM são suportados quando você implementa o plug-in SnapCenter para VMware vSphere e Registra o plug-in com o SnapCenter.</block>
@@ -1212,14 +1120,7 @@
   <block id="cfabe0d0cba6624b9b2e7f3035476fac" category="paragraph">Dispositivos nativos SAN, sistemas de arquivos e layouts LVM criados em dispositivos SAN são suportados.</block>
   <block id="57d3d56ffc8f4753281c212e5858ddc0" category="list-text">Automatiza operações de backup, restauração e clone com reconhecimento de aplicações para sistemas de arquivos UNIX em seu ambiente SnapCenter</block>
   <block id="d7fdaf85ee16b5bdacd134994a4bb218" category="section-title">Plug-in do SnapCenter para recursos de banco de dados SAP HANA</block>
-  <block id="1ade112f397a6c37ee3b78569cf208fe" category="paragraph">Automatiza o backup, a restauração e a clonagem com reconhecimento de aplicações de bancos de dados SAP HANA em seu ambiente SnapCenter.</block>
   <block id="b0e07179f36c91a15e47f4d7a80a4360" category="section-title">Recursos de plug-ins compatíveis com NetApp</block>
-  <block id="649904e9a32ebd4b1593438f64d1745b" category="list-text">Oferece suporte a outros plug-ins para gerenciar aplicativos ou bancos de dados que não são compatíveis com outros plug-ins do SnapCenter. Os plug-ins compatíveis com NetApp não são fornecidos como parte da instalação do SnapCenter.</block>
-  <block id="7f8b22ee024d485fad8d1c95beda80f7" category="list-text">Suporta a criação de cópias espelhadas de conjuntos de backup em outro volume e a execução de replicação de backup disco para disco.</block>
-  <block id="0bdb27719827039d79994d2a17575b2e" category="list-text">Suporta ambientes Windows e Linux. Em ambientes Windows, aplicativos personalizados por meio de plug-ins personalizados podem, opcionalmente, utilizar o plug-in SnapCenter para Microsoft Windows para fazer backups consistentes com o sistema de arquivos.</block>
-  <block id="e1694ebeb85fe94bccea1c7ce60bcf95" category="paragraph">Automatiza o backup, a restauração e a clonagem com reconhecimento de aplicações de bancos de dados IBM DB2 em seu ambiente SnapCenter.</block>
-  <block id="14a02484b22cd41372b79139584ea8df" category="paragraph">Automatiza o backup, a restauração e a clonagem de instâncias do PostgreSQL com reconhecimento de aplicações no seu ambiente SnapCenter.</block>
-  <block id="af671f4e28804df81a33c5ddbbc096d9" category="paragraph">Automatiza o backup, a restauração e a clonagem de instâncias do MySQL com reconhecimento de aplicações em seu ambiente SnapCenter.</block>
   <block id="3012455ba6e0ba02dfa333bdecc83c57" category="section-title">Repositório SnapCenter</block>
   <block id="cc1d85843af98a2ce08e58f1408e6364" category="paragraph">O repositório do SnapCenter, às vezes chamado de banco de dados NSM, armazena informações e metadados para cada operação do SnapCenter.</block>
   <block id="b795272c033653aa88e12f8f4fd442ca" category="paragraph">O banco de dados do repositório do servidor MySQL é instalado por padrão quando você instala o servidor SnapCenter. Se o servidor MySQL já estiver instalado e você estiver fazendo uma nova instalação do servidor SnapCenter, você deve desinstalar o servidor MySQL.</block>
@@ -1230,63 +1131,32 @@
   <block id="6957b567ff1defaf2eef0c1ffe991895" category="list-text">Informações de host e plug-in</block>
   <block id="208d10ac82cfe46116253733eb2517ca" category="list-text">Detalhes de função, usuário e permissão</block>
   <block id="60447d3b3bc038702ae4d3d05aeee01c" category="list-text">Informações de conexão do sistema de armazenamento</block>
-  <block id="34c24f1d15647adba6dcde96f1a84b95" category="summary">Você pode usar APIS REST para executar várias operações de gerenciamento do SnapCenter. As APIs REST são expostas por meio da página da Web do Swagger. Você pode acessar a página da Web do Swagger para exibir a documentação da API REST, bem como emitir manualmente uma chamada de API. Você pode usar APIS REST para ajudar a gerenciar seu servidor SnapCenter ou seu host do SnapCenter vSphere.</block>
-  <block id="c8e5654e4bfafe9239ad785c178eec35" category="doc">Automação da SnapCenter usando APIS REST</block>
-  <block id="4da05a98f7d43c6ecf97005050dd8b4c" category="cell">As APIs REST para...</block>
-  <block id="2c6812090ddb6f677005b672004a90f9" category="cell">Este hotel fica bem perto...</block>
-  <block id="d135836b52c7cbef5a21dc4d58946e36" category="paragraph">Https:// cliente SnapCenter_IP_address_or_name&gt;: Cliente SnapCenter_port&gt;/swagger/</block>
-  <block id="3390e3575b3e341afa2b7172ff5b33a7" category="paragraph">Plug-in do SnapCenter para VMware vSphere</block>
-  <block id="9b9a4a4434a1ec2dd5fcbed32b17f5af" category="paragraph">/&lt;OVA_IP_address_or_host_name&gt;:&lt;scv_plugin_port&gt;/api/swagger-ui.html</block>
   <block id="0c889d77d71512ceb7241bd0f6d6ca23" category="inline-link-macro">Visão geral das APIs REST</block>
-  <block id="c3e1b81c639b755bd5245222004fcec1" category="paragraph">Para obter informações sobre APIS REST do SnapCenter, consulte <block ref="e8336f36b6d511b2bbec5417287ec502" category="inline-link-macro-rx"></block></block>
   <block id="4ee2d383554981f4ea8eff4f35db6832" category="inline-link">Plug-in do SnapCenter para APIs REST do VMware vSphere</block>
   <block id="2d058bff360144951b6c9212e64bf5d8" category="paragraph">Para obter informações sobre o plug-in do SnapCenter para APIs REST do VMware vSphere, consulte<block ref="bf36dff0c9f063d6a54a8208136c7e68" category="inline-link-rx"></block></block>
   <block id="c89d1d1a076ae6db4420d478e9a43bd1" category="summary">As permissões de controle de acesso baseado em função (RBAC) e ONTAP do SnapCenter permitem que os administradores do SnapCenter criem funções e definam permissões de acesso. Esse acesso gerenciado centralmente capacita os administradores de aplicativos a trabalhar com segurança em ambientes delegados.</block>
-  <block id="00d2bcee9fb3434640337cf4287d3a2b" category="doc">Tipos de RBAC</block>
   <block id="a6434cb33fd5968114b46f8371c99b97" category="paragraph">As permissões de controle de acesso baseado em função (RBAC) e ONTAP do SnapCenter permitem que os administradores do SnapCenter delegem o controle de recursos do SnapCenter a diferentes usuários ou grupos de usuários. Esse acesso gerenciado centralmente capacita os administradores de aplicativos a trabalhar com segurança em ambientes delegados.</block>
-  <block id="273c5bbad09e27d34881f682e9e0d46c" category="paragraph">Você pode criar e modificar funções e adicionar acesso a recursos aos usuários a qualquer momento, mas quando você estiver configurando o SnapCenter pela primeira vez, você deve pelo menos adicionar usuários ou grupo do ative Directory a funções e, em seguida, adicionar acesso a recursos a esses usuários ou grupos.</block>
   <block id="e8a9ea3436295dbce3f5e848ea8c441a" category="admonition">Você não pode usar o SnapCenter para criar contas de usuário ou grupo. Você deve criar contas de usuário ou grupo no ative Directory do sistema operacional ou banco de dados.</block>
   <block id="8b4e9abf70f654cf29a1dd56b5572032" category="paragraph">O SnapCenter usa os seguintes tipos de controle de acesso baseado em função:</block>
   <block id="5e8182c0fb39e16fe0a96577565e2e28" category="list-text">SnapCenter RBAC</block>
-  <block id="96046ed03ab8386b9f9c70e18da61586" category="list-text">Plug-in RBAC do SnapCenter (para alguns plug-ins)</block>
   <block id="9624ca855be2906ad6628109f1d9e3d0" category="list-text">RBAC no nível da aplicação</block>
   <block id="67c73d0c05c627af68622cc01164ae15" category="list-text">Permissões da ONTAP</block>
-  <block id="cc3fc292512275828d3e52e16ae33c1e" category="section-title">Funções e permissões</block>
-  <block id="f70a88215685ec1ff4dbf90e7c369fe6" category="paragraph">O SnapCenter é fornecido com funções predefinidas com permissões já atribuídas. Você pode atribuir usuários ou grupos de usuários a essas funções. Você também pode criar novas funções e gerenciar permissões e usuários.</block>
-  <block id="b93d54dc630dde54201a9afda5c1eff3" category="paragraph">*Atribuindo permissões a usuários ou grupos*</block>
-  <block id="3613841bf46fd8a2faa877ef15b130cd" category="paragraph">Você pode atribuir permissões a usuários ou grupos para acessar objetos do SnapCenter, como hosts, conexões de storage e grupos de recursos. Não é possível alterar as permissões da função SnapCenterAdmin.</block>
   <block id="57dc1aab3659c78a4e7752db4d4e652d" category="paragraph">É possível atribuir permissões RBAC a usuários e grupos dentro da mesma floresta e a usuários pertencentes a diferentes florestas. Não é possível atribuir permissões RBAC a usuários pertencentes a grupos aninhados entre florestas.</block>
-  <block id="13101775b1dc653fb8e14885572bf910" category="admonition">Se você criar uma função personalizada, ela deverá conter todas as permissões da função de administrador do SnapCenter. Se você copiar apenas algumas das permissões, por exemplo, Host add ou Host remove, não será possível executar essas operações.</block>
   <block id="c75f7811d70d17dbcd88e9d03752cbed" category="section-title">Autenticação</block>
   <block id="f99af3f9d6fe830ae8bd2fc15f75f35f" category="paragraph">Os usuários são obrigados a fornecer autenticação durante o login, por meio da interface gráfica do usuário (GUI) ou usando cmdlets do PowerShell. Se os usuários forem membros de mais de uma função, depois de inserir credenciais de login, eles serão solicitados a especificar a função que desejam usar. Os usuários também são obrigados a fornecer autenticação para executar as APIs.</block>
   <block id="4621c32301e9db3796cade120966e4ac" category="paragraph">O SnapCenter usa credenciais para verificar se os usuários autorizados do SnapCenter também têm permissões no nível do aplicativo.</block>
-  <block id="6fe96fe83e4fe586b0886b2e5017d10d" category="paragraph">Por exemplo, se você quiser executar operações de Snapshot e proteção de dados em um ambiente SQL Server, você deve definir credenciais com as credenciais Windows ou SQL adequadas. O servidor SnapCenter autentica o conjunto de credenciais usando qualquer um dos métodos. Se você quiser executar operações de snapshot e proteção de dados em um ambiente de sistema de arquivos do Windows no storage ONTAP, a função de administrador do SnapCenter deve ter admin Privileges no host do Windows.</block>
   <block id="1247a4f73aec617351c15da7677f2470" category="paragraph">Da mesma forma, se você deseja executar operações de proteção de dados em um banco de dados Oracle e se a autenticação do sistema operacional (os) estiver desativada no host do banco de dados, você deve definir credenciais com o banco de dados Oracle ou as credenciais Oracle ASM. O servidor SnapCenter autentica as credenciais definidas usando um desses métodos, dependendo da operação.</block>
   <block id="880474ac5a13e7ace0b497d868bfcec8" category="section-title">Plug-in do SnapCenter para VMware vSphere RBAC</block>
-  <block id="924b38ecfddee0161d42ebb991f8e8a3" category="paragraph">Para obter informações, consulte<block ref="1ec180cad4f4e747c7ef776c635100ff" category="inline-link-rx"></block></block>
-  <block id="fee7e83316f093eca52deec4c8b672ce" category="paragraph">Você deve criar uma conta vsadmin com as permissões necessárias para acessar o sistema de armazenamento.</block>
-  <block id="f5e109b370464d84cabe080f73038355" category="inline-link-macro">Crie uma função de cluster do ONTAP com Privileges mínimo</block>
-  <block id="d54c750ad03a5ff346e128b4426ba522" category="paragraph">Para obter informações sobre como criar a conta e atribuir permissões, consulte <block ref="1115d0edf045ae6e6fdf6ee40ea4a85b" category="inline-link-macro-rx"></block></block>
   <block id="c30d59401403b986989fc4a149ff2aea" category="summary">A SnapCenter emprega recursos rígidos de segurança e autenticação para permitir que você mantenha seus dados seguros.</block>
-  <block id="c81d278ed6d59212379f4589585fc795" category="doc">Recursos de segurança</block>
   <block id="79333b6bf46efb54b1410de6b731a635" category="paragraph">O SnapCenter inclui os seguintes recursos de segurança:</block>
   <block id="7aa130f755e7e55f6623edf4c997caa6" category="list-text">Toda a comunicação com o SnapCenter usa HTTP sobre SSL (HTTPS).</block>
   <block id="96c2f121719642c9bb76de237a79a8f7" category="list-text">Todas as credenciais no SnapCenter são protegidas usando criptografia AES (Advanced Encryption Standard).</block>
-  <block id="f8f9feb00e019b3a4905536ed6898cbc" category="list-text">O SnapCenter usa algoritmos de segurança compatíveis com o padrão Federal de processamento de informações (FIPS).</block>
-  <block id="6e48ef9c3b9eee75beadb62ef46ee1fe" category="list-text">O SnapCenter suporta o uso dos certificados de CA autorizados fornecidos pelo cliente.</block>
-  <block id="e353c96a332f0cabee61ee0d1183ced5" category="list-text">O SnapCenter 4.1.1 ou posterior suporta TLS (Transport Layer Security) 1,2 para comunicação com o ONTAP. Você também pode usar o TLS 1,2 para comunicação entre clientes e servidores.</block>
-  <block id="35fdfe6dd04402c29d3fc6d0df727357" category="paragraph">A partir de 5,0, o SnapCenter suporta TLS (TLS) 1,3 para comunicação com o ONTAP.</block>
-  <block id="bf3e76e4f1322979745fbde954cda8f3" category="list-text">O SnapCenter suporta um determinado conjunto de pacotes de criptografia SSL para fornecer segurança em toda a comunicação de rede.</block>
-  <block id="5d06d972bc910c7d332d38f29622193f" category="inline-link">Como configurar o SSL Cipher Suite suportado</block>
-  <block id="f63adc493855850c393ed81600d0452d" category="paragraph">Para obter mais informações,<block ref="30d10745fe88e7ddd3a6030b89647570" category="inline-link-rx"></block>consulte .</block>
   <block id="40739afaa7fdf9957a38216f97ce0321" category="list-text">O SnapCenter é instalado no firewall da sua empresa para permitir o acesso ao servidor SnapCenter e para permitir a comunicação entre o servidor SnapCenter e os plug-ins.</block>
   <block id="60b7c3e24f63b13c2f4abe5f1a7def8e" category="list-text">O acesso à API e à operação do SnapCenter usa tokens criptografados com criptografia AES, que expiram após 24 horas.</block>
   <block id="52804460cb53f83bd632c8bb5678e86c" category="list-text">O SnapCenter é integrado ao Windows active Directory para login e controle de acesso baseado em função (RBAC) que regem as permissões de acesso.</block>
   <block id="d59048f21fd887ad520398ce677be586" category="inline-link">Saiba mais</block>
   <block id="a297bacde66e3d1853eb926b992016ec" category="list-text">O IPsec é compatível com o SnapCenter no ONTAP para máquinas host Windows e Linux.<block ref="52c5124591037410e72e18ed041cfca4" category="inline-link-rx"></block>.</block>
   <block id="cb5c82581641e1dabd92ad60a73474f3" category="list-text">Os cmdlets do SnapCenter PowerShell são protegidos por sessão.</block>
-  <block id="bc5a939b1a6add561b31c4e7e57a2ab2" category="list-text">Após um período padrão de 15 minutos de inatividade, o SnapCenter avisa que você será desconetado em 5 minutos. Após 20 minutos de inatividade, o SnapCenter faz o logout e você deve fazer login novamente. Você pode modificar o período de logout.</block>
-  <block id="5a9d252685a800ffeee18062aac9e777" category="list-text">O início de sessão está temporariamente desativado após 5 ou mais tentativas de início de sessão incorretas.</block>
   <block id="c23c7626b0637210ef5d62fd1d1df00f" category="list-text">Suporta autenticação de certificado CA entre o servidor SnapCenter e o ONTAP.<block ref="8dc6eaab1bf71e00e4e0bc0ca43579e6" category="inline-link-rx"></block>.</block>
   <block id="330847308f1658ea8a183b76b1e6b361" category="list-text">O verificador de integridade é adicionado ao servidor SnapCenter e aos plug-ins e valida todos os binários enviados durante novas operações de instalação e atualização.</block>
   <block id="80fb25677b8df85f97f35720d0f5755b" category="section-title">Visão geral do certificado CA</block>
@@ -1303,10 +1173,6 @@
   <block id="3d687b72d27aa3959c593b27cbc44d4c" category="paragraph">O MFA é aplicável apenas para login na IU do servidor SnapCenter. Os logins são autenticados por meio dos Serviços de Federação do ative Directory (AD FS) do IDP. Você pode configurar vários fatores de autenticação no AD FS. O SnapCenter é o provedor de serviços e você deve configurar o SnapCenter como uma parte confiável no AD FS. Para ativar o MFA no SnapCenter, você precisará dos metadados do AD FS.</block>
   <block id="12da929293795e5d446c469a5f49440f" category="inline-link-macro">Ativar a autenticação multifator</block>
   <block id="ead2412064891fbb9b123e509e3e73da" category="paragraph">Para obter informações sobre como ativar o MFA, <block ref="5ec6b0ec41fc91e8184fa478c63adb14" category="inline-link-macro-rx"></block>consulte .</block>
-  <block id="096047cf506c2b6d8aa479fb6c367de8" category="summary">O SnapCenter é fornecido com funções predefinidas, cada uma com um conjunto de permissões já ativadas. Ao configurar e administrar o controle de acesso baseado em função (RBAC), você pode usar essas funções predefinidas ou criar novas.</block>
-  <block id="a607c43df1ec34570cfd92c7f8f85068" category="doc">Funções e permissões do SnapCenter predefinidas</block>
-  <block id="3777cceb702f246ac78189bafd5dcb33" category="paragraph">O SnapCenter é fornecido com funções predefinidas, cada uma com um conjunto de permissões já ativadas. Ao configurar e administrar o controle de acesso baseado em funções (RBAC), você pode usar essas funções predefinidas ou criar novas.</block>
-  <block id="4fcfb9c7bdec59f8996c8446e7cbf70d" category="paragraph">O SnapCenter inclui as seguintes funções predefinidas:</block>
   <block id="907655eeb50553e9ffc10c9adb75bc3c" category="list-text">Função de administrador do SnapCenter</block>
   <block id="c3ab820456c9495a13e6c8d3bf203adb" category="list-text">Função de Administrador de cópia de Segurança e Clonagem de aplicações</block>
   <block id="9cbf4a13bbbfd716d85a344992a28d5c" category="list-text">Função Visualizador de cópia de Segurança e Clonagem</block>
@@ -1338,54 +1204,19 @@
   <block id="c3c73b7f9d382d2231b0aa3e8a26db67" category="paragraph">Monitor de trabalho</block>
   <block id="df44602e169cb1f9dbb6288c7e86985e" category="paragraph">A função Visualizador de cópia de Segurança e Clonagem tem uma vista só de leitura de todas as permissões. Essa função também tem permissões habilitadas para descoberta, geração de relatórios e acesso ao Dashboard.</block>
   <block id="969d7fda8acd2ab121789be3a975bbb4" category="paragraph">A função Administrador de infraestrutura tem permissões habilitadas para gerenciamento de host, gerenciamento de storage, provisionamento, grupos de recursos, relatórios de instalação remota e acesso ao Dashboard.</block>
-  <block id="2dccbe897666a5dff6976fa3fd6bab8f" category="summary">O controle de acesso baseado em função (RBAC) do SnapCenter permite criar funções e adicionar permissões a essas funções e, em seguida, atribuir usuários ou grupos de usuários às funções. Isso permite que os administradores do SnapCenter criem um ambiente gerenciado centralmente, enquanto os administradores de aplicativos podem gerenciar tarefas de proteção de dados. O SnapCenter é fornecido com algumas funções e permissões predefinidas.</block>
-  <block id="45538cf22616d249e70f0697a94497d7" category="doc">Permissões e funções do RBAC</block>
-  <block id="e2bd415c54b23599a45de668297fed62" category="paragraph">O controle de acesso baseado em função (RBAC) do SnapCenter permite criar funções e atribuir permissões a essas funções e, em seguida, atribuir usuários ou grupos de usuários às funções. Isso permite que os administradores do SnapCenter criem um ambiente gerenciado centralmente, enquanto os administradores de aplicativos podem gerenciar tarefas de proteção de dados. O SnapCenter é fornecido com algumas funções e permissões predefinidas.</block>
-  <block id="6f2b9123037415e1c4ee558b86867278" category="section-title">Funções do SnapCenter</block>
-  <block id="d254e8f4a31353bc72578aa530de88cc" category="paragraph">O SnapCenter é fornecido com as seguintes funções predefinidas. Você pode atribuir usuários e grupos a essas funções ou criar novas funções.</block>
-  <block id="d8b7af13624032633603f96aba18fc96" category="paragraph">Quando você atribui uma função a um usuário, somente os trabalhos relevantes a esse usuário são visíveis na página trabalhos, a menos que você tenha atribuído a função Administrador do SnapCenter.</block>
-  <block id="a0a7bcaf6bffd1d06d24902b4eaa4e6b" category="list-text">App Backup e Clone Admin</block>
-  <block id="e2b8ac1ef51f75fac2feb6479d64b808" category="list-text">Visualizador de cópias de segurança e clones</block>
-  <block id="311fcd5356ecfe4bcebbb4f1b21841ec" category="list-text">Administrador de infraestrutura</block>
-  <block id="a9af97dec932d202dfe3b1d4d3ca62c1" category="list-text">SnapCenterAdmin</block>
-  <block id="8cfd3baf68c2b27d02222abba8a6df4f" category="section-title">Plug-in do SnapCenter para funções do VMware vSphere</block>
-  <block id="a0c4d2521f313132bf09148b977e7639" category="paragraph">Para gerenciar a proteção de dados consistente com VM de VMs, VMDKs e armazenamentos de dados, as funções a seguir são criadas no vCenter pelo plug-in do SnapCenter para VMware vSphere:</block>
-  <block id="3d0f61a1174e21cbdd43433a0cdd1587" category="list-text">Administrador do SCV</block>
-  <block id="68296ccb11b96c0cb3577e08d79079a8" category="list-text">Vista SCV</block>
-  <block id="9e5d312df6041327157130535c90513a" category="list-text">Backup da VCR</block>
-  <block id="b64ee0fdf90244f79181f1afb007c08b" category="list-text">Restauração da VCR</block>
-  <block id="fab80f3b151fabee7b9febb22c2ebc54" category="list-text">Restauração do arquivo convidado SCV</block>
-  <block id="dfb30a67a3e8af9a1c9600e036a19621" category="inline-link">Tipos de plug-in RBAC para SnapCenter para usuários do VMware vSphere</block>
-  <block id="ba86853e186ca041d7868fc551063ec1" category="paragraph">Para obter mais informações, consulte<block ref="c23d4fa9cead9b259a7739cf1a6ef6f4" category="inline-link-rx"></block></block>
   <block id="8e9100a341414c9d65801258490fe489" category="cell">*Prática recomendada:* a NetApp recomenda que você crie uma função do ONTAP para o plug-in do SnapCenter para operações do VMware vSphere e atribua a ele todos os Privileges necessários.</block>
-  <block id="a63a6d2b630398075f4d0205b6f9b914" category="section-title">Permissões do SnapCenter</block>
-  <block id="0eafe3392f100f2ba4743cade6981657" category="paragraph">O SnapCenter fornece as seguintes permissões:</block>
-  <block id="6eec4ae86a04b574bb1038a2fd5b23b6" category="list-text">Provisionamento (apenas para banco de dados Microsoft SQL)</block>
-  <block id="11aacfaa0f44474b2e542372195d12cd" category="list-text">Restauração completa de volume (somente para plug-ins personalizados)</block>
-  <block id="3547f61f8a20979cfc8d704aee6d5a33" category="paragraph">Os plug-in Privileges são necessários do administrador para que não administradores realizem operações de descoberta de recursos.</block>
-  <block id="1c96f491085052805ab8d6703593928f" category="list-text">Instalação ou desinstalação do plug-in</block>
-  <block id="99b6b01da25c8cf6380bde15f9e4d603" category="admonition">Quando você ativa permissões de instalação de plug-in, você também deve modificar a permissão de host para habilitar leituras e atualizações.</block>
-  <block id="2968590fdb19353b9fdbc6088dd778eb" category="list-text">Montar (apenas para banco de dados Oracle)</block>
-  <block id="5a3f263989738cd612ecc94d6ff5f735" category="list-text">Desmontar (apenas para banco de dados Oracle)</block>
-  <block id="a90c9bf6b95fa2c04eefdb89d6650e4b" category="paragraph">A permissão Monitor de tarefas permite que membros de diferentes funções vejam as operações em todos os objetos aos quais são atribuídos.</block>
   <block id="979623b664e821ca043ae0d13a9b68a0" category="summary">As credenciais usam diferentes métodos de autenticação, dependendo do aplicativo ou do ambiente. As credenciais autenticam os usuários para que eles possam executar operações do SnapCenter. Você deve criar um conjunto de credenciais para a instalação de plug-ins e outro conjunto para operações de proteção de dados.</block>
   <block id="5b00a6bb860d50a1c997c998160e673c" category="doc">Métodos de autenticação para suas credenciais</block>
   <block id="7e68841acc918ef617f53709d7f28228" category="section-title">Autenticação do Windows</block>
-  <block id="0f36d3993a6d60e46e5c26d54d776dd1" category="paragraph">O método de autenticação do Windows é autenticado no ative Directory. Para autenticação do Windows, o ative Directory é configurado fora do SnapCenter. O SnapCenter se autentica sem configuração adicional. Você precisa de uma credencial do Windows para executar tarefas como adicionar hosts, instalar pacotes de plug-in e agendar tarefas.</block>
   <block id="bc2d28f910c765da924ad78256c051e1" category="section-title">Autenticação de domínio não confiável</block>
-  <block id="a97c366d473cbb838e8935380a7bb92a" category="paragraph">O SnapCenter permite a criação de credenciais do Windows usando usuários e grupos pertencentes aos domínios não confiáveis. Para que a autenticação seja bem-sucedida, você deve Registrar os domínios não confiáveis com o SnapCenter.</block>
   <block id="bb8eb3b80c0239ad7ade7645dade047d" category="section-title">Autenticação local do grupo de trabalho</block>
-  <block id="306887eeb66c54d8fd2019f5a2962ae1" category="paragraph">O SnapCenter permite a criação de credenciais do Windows com usuários e grupos de trabalho locais. A autenticação do Windows para usuários e grupos de grupos de trabalho locais não acontece no momento da criação de credenciais do Windows, mas é adiada até que o Registro do host e outras operações de host sejam executadas.</block>
   <block id="7a6b9f528bc1902543ad9e52dd1e0e97" category="section-title">Autenticação do SQL Server</block>
-  <block id="1c28f417e8a7853a7b7bebc1ce781fc9" category="paragraph">O método de autenticação SQL é autenticado em uma instância do SQL Server. Isso significa que uma instância do SQL Server deve ser descoberta no SnapCenter. Portanto, antes de adicionar uma credencial SQL, você deve adicionar um host, instalar pacotes de plug-in e atualizar recursos. Você precisa de autenticação do SQL Server para executar operações como agendamento no SQL Server ou descoberta de recursos.</block>
   <block id="792b22ec7e7b6af33ee2ac8f7d44fc46" category="section-title">Autenticação Linux</block>
   <block id="a20e97ac3a21b1a3407fa05957012066" category="paragraph">O método de autenticação Linux é autenticado em um host Linux. Você precisa de autenticação Linux durante a etapa inicial de adicionar o host Linux e instalar o pacote de plug-ins do SnapCenter remotamente a partir da GUI do SnapCenter.</block>
   <block id="f8e80fa5a782648eaa10b7f3166e60f9" category="section-title">Autenticação AIX</block>
   <block id="0c763285279df87b4985e37dea50cc3c" category="paragraph">O método de autenticação AIX é autenticado em um host AIX. Você precisa de autenticação AIX durante a etapa inicial de adicionar o host AIX e instalar o pacote de plug-ins do SnapCenter para AIX remotamente a partir da GUI do SnapCenter.</block>
   <block id="429b1ba72d34f9aecc0386609bb9499b" category="section-title">Autenticação de banco de dados Oracle</block>
-  <block id="4cb65150282e84629149d3a81428429b" category="paragraph">O método de autenticação de banco de dados Oracle é autenticado em um banco de dados Oracle. Você precisa de uma autenticação de banco de dados Oracle para executar operações no banco de dados Oracle se a autenticação do sistema operacional (os) estiver desativada no host do banco de dados. Portanto, antes de adicionar uma credencial de banco de dados Oracle, você deve criar um usuário Oracle no banco de dados Oracle com sysdba Privileges.</block>
   <block id="29f5a8e74a222b5510e8be032050b383" category="section-title">Autenticação Oracle ASM</block>
-  <block id="7438fbc643e853d8967415b743a61f55" category="paragraph">O método de autenticação Oracle ASM é autenticado em uma instância do Oracle Automatic Storage Management (ASM). Se for necessário acessar a instância do Oracle ASM e se a autenticação do sistema operacional (os) estiver desativada no host do banco de dados, você precisará de uma autenticação Oracle ASM. Portanto, antes de adicionar uma credencial Oracle ASM, você deve criar um usuário Oracle com sysasm Privileges na instância ASM.</block>
   <block id="e4f2c1a090559162f10c4470255c0329" category="section-title">Autenticação de catálogo RMAN</block>
   <block id="96ae1fb9380ea3c1b68bff5ff0805725" category="paragraph">O método de autenticação de catálogo RMAN é autenticado no banco de dados de catálogo do Oracle Recovery Manager (RMAN). Se você configurou um mecanismo de catálogo externo e registrou seu banco de dados no banco de dados de catálogo, você precisa adicionar autenticação de catálogo RMAN.</block>
   <block id="248724fdb43c06d73682eae495a17c67" category="summary">Pode utilizar o SnapCenter para configurar um LUN ligado a FC ou ligado a iSCSI. Você também pode usar o SnapCenter para conetar um LUN existente a um host do Windows.</block>
@@ -1668,7 +1499,6 @@
   <block id="c55c867b9e6458f61ad9c49c7535bfab" category="list-text">Uso ilimitado de armazenamento</block>
   <block id="c0919ecf5802c65bf773794b7af70540" category="admonition">Você não insere nenhuma informação de licença na GUI do SnapCenter para as licenças baseadas no controlador do SnapCenter.</block>
   <block id="17449a90a0d7161db56cba83fa4f2728" category="list-text">Bloqueado no número de série do controlador</block>
-  <block id="eb55a5732c8239cbf4f476df49cc20a3" category="paragraph">Para obter informações sobre as licenças necessárias, <block ref="6de8516502145d64739d69762f4898a1" category="inline-link-macro-rx"></block>consulte .</block>
   <block id="19a8e13fe92c770e7ed404e67e6bec99" category="section-title">Etapa 1: Verifique se a licença do SnapManager Suite está instalada</block>
   <block id="4675b365d16842b130752bb3fa27614d" category="paragraph">Você pode usar a GUI do SnapCenter para ver se uma licença do SnapManager Suite está instalada em sistemas de storage primário FAS, AFF ou ASA e identificar quais sistemas de storage podem exigir licenças do SnapManager Suite. As licenças do SnapManager Suite se aplicam somente a SVMs ou clusters do FAS, AFF e ASA em sistemas de storage primário.</block>
   <block id="6aa5717c99b34de9980debfbe3c6fa76" category="admonition">Se você já tiver uma licença do SnapManager Suite no controlador, o direito de licença baseado em controlador padrão da SnapCenter é fornecido automaticamente. Os nomes da licença SnapManagerSuite e da licença baseada no controlador padrão SnapCenter são usados de forma intercambiável, mas referem-se à mesma licença.</block>
@@ -2231,16 +2061,10 @@
   <block id="e229f2a31adf5bd88e8925c96feb81d2" category="list-text">Selecione *SnapCenter* na lista suspensa linha de produtos.</block>
   <block id="cf46417d06a0356fc053eba2626759a2" category="list-text">Selecione o fornecedor de faturação.</block>
   <block id="98d7dda5167a79acadd993f0ad819512" category="list-text">Insira o ID da instância do SnapCenter de 20 dígitos.</block>
-  <block id="061e7171f662c103e082fe0f01a9e8d7" category="summary">A imagem de fluxo de trabalho mostra as etapas para instalar e configurar o servidor SnapCenter.</block>
   <block id="706c1d4933d296d42d61b064f4e637ae" category="doc">Fluxo de trabalho de instalação</block>
-  <block id="1b6e4426f8c688c2d09195bf31d0242c" category="paragraph">O fluxo de trabalho mostra as diferentes tarefas necessárias para instalar e configurar o servidor SnapCenter.</block>
   <block id="354c84f19db927b615f7e75880c69840" category="image-alt">Instale o servidor SnapCenter</block>
-  <block id="e50267850b333a2a2c47f0cee7337818" category="summary">Você deve garantir que os requisitos de conexões e portas sejam atendidos antes de instalar os plug-ins do servidor SnapCenter e do aplicativo ou do banco de dados.</block>
-  <block id="9a0980e2d2a75eb076f41f7a4d439162" category="doc">Requisitos de conexão e porta</block>
   <block id="3b6aba921e77b08934dcdcdab274466d" category="list-text">Os aplicativos não podem compartilhar uma porta.</block>
-  <block id="1dee804df9499d6a4a35274c75d4dcd8" category="paragraph">Cada porta deve ser dedicada ao aplicativo apropriado.</block>
   <block id="7e00c7ad00b0df83cf2fbed1fd1008e7" category="list-text">Para portas personalizáveis, você pode selecionar uma porta personalizada durante a instalação se não quiser usar a porta padrão.</block>
-  <block id="8e29b075f2bff8bcc475b2cc6070d054" category="paragraph">Você pode alterar uma porta de plug-in após a instalação usando o assistente Modificar host.</block>
   <block id="708fc5a7e1a5192cf0675d9fa74655f7" category="list-text">Para portas fixas, você deve aceitar o número de porta padrão.</block>
   <block id="fd6d703cd1a0c15485615c97ae2fc355" category="list-text">Firewalls</block>
   <block id="718d9231009edb9654b9f6f52346a835" category="list-text">Firewalls, proxies ou outros dispositivos de rede não devem interferir nas conexões.</block>
@@ -2267,14 +2091,6 @@
   <block id="a26bff28c23606c7396b4619af8af1bd" category="paragraph">A porta é usada pela sal (camada de abstração de storage) para comunicação entre o host que executa o servidor SnapCenter e o SVM. Atualmente, a porta também é usada pelo sal em hosts plug-in do SnapCenter para Windows para comunicação entre o host do plug-in do SnapCenter e o SVM.</block>
   <block id="5afe34fece774db451a111901841c2f9" category="paragraph">Para um locatário único de contentor de banco de dados multitenant (MDC), o número da porta termina com 13; para não MDC, o número da porta termina com 15.</block>
   <block id="a344a2fc65197b27dcccc38ac1ef85a3" category="inline-link">Adicione hosts e instale pacotes plug-in em hosts remotos.</block>
-  <block id="0cfe29479bcdd52d04233cb07867b8dc" category="paragraph">Para modificar os detalhes da porta, <block ref="e76f469a4971f2c04dd83de4f8464750" category="inline-link-macro-rx"></block>consulte .</block>
-  <block id="318e9318f3e81f666ea14f7560451333" category="summary">O servidor SnapCenter pode ser instalado em sistemas que estejam em um domínio ou em um grupo de trabalho. O usuário usado para instalação deve ter Privileges de administrador na máquina no caso de grupo de trabalho e domínio.</block>
-  <block id="0322b41f8bf313240d64c3e6923b4ee4" category="doc">Requisitos de domínio e grupo de trabalho</block>
-  <block id="1c55be82b0d56e1433794bc0b704c38b" category="paragraph">Para instalar plug-ins do servidor SnapCenter e do SnapCenter em hosts Windows, você deve usar um dos seguintes:</block>
-  <block id="029293488c7c964b7b07705945beec24" category="list-text">*Domínio ative Directory*</block>
-  <block id="98bdcb7bfa964f22675d2c30ef65eac4" category="paragraph">Você deve usar um usuário de domínio com direitos de administrador local. O usuário do domínio deve ser membro do grupo Administrador local no host do Windows.</block>
-  <block id="d9ffb817b5603404073b96c1a0d7d574" category="list-text">*Grupos de trabalho*</block>
-  <block id="23a33f41bad6f33cfd0a34e05aac4424" category="paragraph">Você deve usar uma conta local que tenha direitos de administrador local.</block>
   <block id="b9bb47785399146845eaead624481439" category="paragraph">Embora as trusts de domínio, florestas de vários domínios e trusts de vários domínios sejam suportados, os domínios de floresta cruzada não são suportados. A documentação da Microsoft sobre domínios e trusts do ative Directory contém mais informações.</block>
   <block id="017007d9e00e31e53994cdd0aad0c593" category="admonition">Depois de instalar o servidor SnapCenter, você não deve alterar o domínio no qual o host SnapCenter está localizado. Se você remover o host do servidor SnapCenter do domínio em que estava quando o servidor SnapCenter foi instalado e tentar desinstalar o servidor SnapCenter, a operação de desinstalação falhará.</block>
   <block id="b6ac2f945924adc12a6cced3f4732d89" category="summary">O instalador do servidor SnapCenter permite os recursos e funções do Windows em seu host Windows durante a instalação. Isso pode ser de interesse para fins de solução de problemas e manutenção do sistema host.</block>
@@ -2336,18 +2152,9 @@
   <block id="9da496a6d2e4812b4deab34ab555bde8" category="paragraph">Se você estiver executando os cmdlets em um host de plug-in remoto, será necessário executar o cmdlet SnapCenter Open-SMConnection para abrir uma conexão com o servidor SnapCenter.</block>
   <block id="2d53ac4b2f7dd507d18382cf3cca3671" category="inline-link">Cmdlets SnapCenter quebrados quando o SnapDrive for Windows é desinstalado</block>
   <block id="25403061ef41cef7c0c9b5e298b66714" category="paragraph">Se os cmdlets do SnapCenter PowerShell estiverem quebrados devido à remoção do SnapDrive para Windows do servidor,<block ref="9ab458ce85939c44b152f89d9d3aa42d" category="inline-link-rx"></block> consulte .</block>
-  <block id="cf3152e36e70eecd5ed2d294f623eb90" category="summary">Se o seu host SnapCenter fizer parte de um ambiente FC/iSCSI, talvez seja necessário instalar software adicional no sistema para permitir o acesso ao storage ONTAP.</block>
   <block id="8e9816159074c93c5490453d542c7149" category="doc">Requisitos de host SAN</block>
-  <block id="f3409d8331123dc5c92af0a575ad2b93" category="paragraph">O SnapCenter não inclui Utilitários do anfitrião ou um DSM. Se o seu host SnapCenter fizer parte de um ambiente SAN, talvez seja necessário instalar e configurar o seguinte software:</block>
-  <block id="3e23b54348b2b8424e24a426570dc9f2" category="list-text">Utilitários do host</block>
-  <block id="9840712f59f8fddbb28db07687111d67" category="inline-link">Documentação dos utilitários do host</block>
-  <block id="4c93921f261c6d86d0f1751ee3c31c8b" category="paragraph">Os Utilitários de host são compatíveis com FC e iSCSI e permitem que você use o MPIO em seus servidores Windows. Para obter informações,<block ref="2c28b01db742df9b4a4a563d3579b81f" category="inline-link-rx"></block>consulte .</block>
-  <block id="5dff7a032f8938bf73ee717f1a1454a3" category="list-text">Microsoft DSM para Windows MPIO</block>
-  <block id="d9b1c7f8913eeeb886ef2341d60e90ac" category="paragraph">Este software funciona com drivers MPIO do Windows para gerenciar vários caminhos entre computadores host NetApp e Windows.</block>
-  <block id="4cf20118bcdbd7c25c5ded78e02d7bfe" category="paragraph">É necessário um DSM para configurações de alta disponibilidade.</block>
   <block id="d04afbb4d7f1781315d7bc4ec33607b1" category="inline-link">Como migrar do ONTAP DSM para o Microsoft DSM</block>
   <block id="ee3284f7f1fefd9961639a467c5b6dc1" category="admonition">Se estiver a utilizar o ONTAP DSM, deve migrar para o Microsoft DSM. Para obter mais informações,<block ref="4f5fd7a8056222d0373d84e9f0e66279" category="inline-link-rx"></block>consulte .</block>
-  <block id="5fd3d0b8e71c4f64cfbad31e3fde1863" category="summary">Antes de instalar o servidor SnapCenter, você deve estar familiarizado com os requisitos de espaço e dimensionamento. Você também deve aplicar as atualizações de sistema e segurança disponíveis.</block>
   <block id="18cd7192921dd5ac27a1a7c5ef795c20" category="doc">Requisitos de espaço e dimensionamento</block>
   <block id="6905661e5d7f8f3e6a4faffbbab0f627" category="cell">Requisitos de host do Windows</block>
   <block id="ace028fe1c5dc8fb39091440d89fd9fd" category="cell">Requisitos de host do Linux</block>
@@ -2370,38 +2177,20 @@
   <block id="4c6ec01f6ae03e08c146fe6865423a4b" category="list-text">PowerShell 7.4.2 ou posterior</block>
   <block id="149d1be25c7d76696b875863179ac66d" category="list-text">O nginx é um servidor web que pode ser usado como proxy reverso</block>
   <block id="6d4ed4face9b51c5caae12208e47fa1e" category="paragraph">PAM (Pluggable Authentication Modules) é uma ferramenta de segurança do sistema que permite que os administradores de sistema definam a política de autenticação sem ter que recompilar programas que fazem a autenticação.</block>
-  <block id="6d84e3718084e0db779da4ff8791a2f2" category="doc">Navegadores suportados</block>
-  <block id="e49b0f86241cddbd59f6488d104741df" category="list-text">Chrome versão 125 e posterior</block>
-  <block id="f5a551e6a3161ca6d9ee33d926d734d5" category="list-text">Microsoft Edge 110.0.1587.17 e posterior</block>
-  <block id="abac3270d109e89fa7d33d34cb7eace2" category="paragraph">Para obter as informações mais recentes sobre versões suportadas, consulte :<block ref="734369dbdcbe00444fc7be843d617a6c" category="inline-link-rx"></block>.</block>
   <block id="ba7cbf773bd0f0004c4d97fba5034cdb" category="summary">Você deve conhecer o sistema de storage suportado, as aplicações e os bancos de dados.</block>
   <block id="1e1ed4854c77f284f3e97b0843b6e570" category="doc">Sistemas e aplicações de storage compatíveis</block>
-  <block id="ed3518bf4a914f119b6bdecebdd5768f" category="paragraph">Você deve conhecer o sistema de storage compatível, as aplicações e os bancos de dados.</block>
-  <block id="16f0739cf9b014b8e0cab25818f1687c" category="list-text">O SnapCenter oferece suporte ao ONTAP 9.12.1 e posterior para proteger seus dados.</block>
-  <block id="dc39fb71951ab3bfb20cab9c1beb9446" category="paragraph">Se você estiver usando o Amazon FSX for NetApp ONTAP, verifique se os plug-ins de host do servidor SnapCenter são atualizados para 4,5 P1 ou posterior para executar operações de proteção de dados.</block>
   <block id="47217be9e2af813e09f7a7760c32e8ce" category="paragraph">É compatível com NVMe (non-volátil Memory Express) em Transport Control Protocol (TCP).</block>
   <block id="cc788b7e72b2a734dd0985bd1e0e9fe3" category="inline-link">Documentação do Amazon FSX para NetApp ONTAP</block>
   <block id="6ae4072dd3f83211384c8e5499a7935c" category="paragraph">Para obter informações sobre o Amazon FSX for NetApp ONTAP,<block ref="6acd76e3ffef3be13d939109e0593e26" category="inline-link-rx"></block> consulte .</block>
-  <block id="cf12f1baaed2b3c195374322d8d857bc" category="list-text">O SnapCenter oferece suporte à proteção de diferentes aplicativos e bancos de dados.</block>
-  <block id="bb3f099cca59ac36a7f16baec282b9bb" category="paragraph">Para obter informações detalhadas sobre os aplicativos e bancos de dados suportados,<block ref="734369dbdcbe00444fc7be843d617a6c" category="inline-link-rx"></block> consulte .</block>
-  <block id="4db35e04fa48549bd85b1a6d4d43fb09" category="list-text">O SnapCenter 4,9 P1 e posterior oferece suporte à proteção de workloads Oracle e Microsoft SQL em ambientes de data center definido por software (SDDC) da Amazon Web Services (AWS).</block>
-  <block id="38012dbc6542f17135111019d1839fa1" category="inline-link">Proteja workloads Oracle e MS SQL usando o NetApp SnapCenter em ambientes AWS SDDC</block>
-  <block id="50fc2fe54f751b9b7639d7a2f1fb2027" category="paragraph">Para obter mais informações,<block ref="4adac1bb1a663de205d28f66d3207227" category="inline-link-rx"></block>consulte .</block>
   <block id="2e2da9aed107a3761b9b4f5441c315fc" category="summary">Se você não tiver uma conta NetApp existente, siga estas etapas para se Registrar para acessar o software.</block>
   <block id="377990998ce406bfbee44e98450fd025" category="doc">Registe-se para aceder ao software SnapCenter</block>
-  <block id="78608f3b617d0c428781300817954b44" category="paragraph">Você pode acessar o software SnapCenter se você é novo no Amazon FSX for NetApp ONTAP ou Azure NetApp Files e não tem uma conta NetApp existente.</block>
   <block id="e50fd9dc4c667a815c84bcd3a7168b40" category="list-text">Você deve ter acesso ao ID de e-mail corporativo.</block>
   <block id="0cb6e917134ae559b3ef4b3baed9480e" category="list-text">Se você usa o Azure NetApp Files, você deve ter o ID de assinatura do Azure.</block>
   <block id="cfd2c643a4a15432f9a2199704e31d24" category="list-text">Se você estiver usando o Amazon FSX for NetApp ONTAP, você deve ter o ID do sistema de arquivos do seu sistema de arquivos FSX for ONTAP.</block>
-  <block id="49777513228d7eb9be448e253ab34ca8" category="paragraph">Seu Registro está sujeito a validações de informações e pode levar até um dia para confirmar e atualizar a nova conta do site de suporte da NetApp (NSS) para acesso "completo" a partir do acesso "convidado".</block>
   <block id="ed286db300c9ccf9f0237d03fa5b5bc6" category="list-text">Clique<block ref="c360b8828b39d6d5c468ab2d2a482fed" category="inline-link-rx"></block> para inscrição.</block>
-  <block id="ee27f5b78e3d0db03282b33f51c38b05" category="list-text">Insira seu ID de e-mail corporativo, preencha o captcha e aceite a política de privacidade do NetApp e clique em *Enviar*.</block>
   <block id="8a3b4461a4b8f6cbfef8b84a8e26feb8" category="list-text">Autentique o Registro inserindo a OTP enviada para seu ID de e-mail e clique em *continuar*.</block>
   <block id="acd8f954f7b47707b5f26b24fcd45599" category="list-text">Na página de conclusão do registo, introduza os seguintes detalhes para concluir o registo.</block>
   <block id="57a5b43a11c670c00e0f7c988d3a97ee" category="list-text">Selecione *Cliente NetApp / Usuário final*.</block>
-  <block id="2cf50b00d71460a922e1cda6e6162577" category="list-text">No campo DE NÚMERO DE SÉRIE, insira um dos seguintes itens:</block>
-  <block id="dcc7d576c10416161afac060906cb362" category="list-text">ID de subscrição do Azure se estiver a utilizar o Azure NetApp Files.</block>
-  <block id="b24319b943ce483afd8a9a4c21bdd5b3" category="list-text">ID do sistema de arquivos se você estiver usando o Amazon FSX for NetApp ONTAP.</block>
   <block id="d68015836335550c3105200d98230c16" category="admonition">Você pode levantar um ticket em<block ref="2298f47e4dad19a3156da7ce6116d9b1" category="inline-link-rx"></block> se você enfrentar qualquer problema durante o Registro ou para saber o status.</block>
   <block id="802b9025b1849bde319ecf1bd531a8b0" category="summary">Para configurar o controle de acesso baseado em função para usuários do SnapCenter, você pode adicionar usuários ou grupos e atribuir função. A função determina as opções que os usuários do SnapCenter podem acessar.</block>
   <block id="7c5e9452cf45e8b93c00a930bef68613" category="doc">Adicione um usuário ou grupo e atribua funções e ativos</block>
@@ -2588,7 +2377,6 @@
   <block id="84ff99bf5c73c6378a50d7beecb2ffc1" category="list-text">No campo conta personalizada, insira um nome de usuário de domínio ou conta de administrador de domínio com permissão de leitura do ative Directory.</block>
   <block id="18d0ad44a1e563aaf9f5871e32535a6c" category="list-text">Clique em OK.</block>
   <block id="c7a90b9aadc8df2947f8db84f32534a1" category="paragraph">A conta personalizada substitui a conta ApplicationPoolIdentity incorporada para o pool de aplicativos do SnapCenter.</block>
-  <block id="84319e08c219b24c0aea4c8ffe018f51" category="summary">Você deve configurar os certificados raiz ou intermediários para o SPL Trust-store.</block>
   <block id="e652c695959b284573e47a48717c7976" category="doc">Configure certificados raiz ou intermediários para o armazenamento de confiança SPL</block>
   <block id="0cfab792315db1ad2f463e132e69b4a6" category="paragraph">Você deve configurar os certificados raiz ou intermediários para o SPL Trust-store. Você deve adicionar o certificado de CA raiz e, em seguida, os certificados de CA intermediários.</block>
   <block id="905ef8ad10bb90ea340ba32bba988377" category="list-text">Navegue até a pasta que contém o keystore SPL:<block ref="0dc0b955539cf9119a9695bb3312c8cb" prefix=" " category="inline-code"></block>.</block>
@@ -2916,7 +2704,6 @@
   <block id="1962fbbcfa72e74639e8c071188af514" category="list-text">Você pode exibir o status do certificado para o servidor SnapCenter usando o cmdlet Get-SmCertificateSettings.</block>
   <block id="642d53c4397a8183a95764b5cea282e1" category="paragraph">As informações sobre os parâmetros que podem ser usados com o cmdlet e suas descrições podem ser obtidas executando _get-Help command_name_. Em alternativa, pode consultar a<block ref="bc822c4319e03a98720e4951c1009810" category="inline-link-rx"></block>.</block>
   <block id="1240073aadeb78a3e72b1cedfb5cec2f" category="list-text">Na página Configurações, navegue até *Configurações* &gt; *Configurações globais* &gt; *Configurações do certificado CA*.</block>
-  <block id="f58587d65108da4c76429348beba1493" category="summary">Você deve habilitar a autenticação baseada em certificado para o servidor SnapCenter e os hosts de plug-in do Windows.</block>
   <block id="ac91c641781bd7c7379113e123abc706" category="doc">Ativar autenticação baseada em certificado</block>
   <block id="2deb2b431122c2428813248c5cc7e3cf" category="paragraph">Para habilitar a autenticação baseada em certificado para o servidor SnapCenter e os hosts de plug-in do Windows, execute o cmdlet do PowerShell a seguir. Para os hosts de plug-in Linux, a autenticação baseada em certificado será ativada quando você ativar o SSL bidirecional.</block>
   <block id="012d451c2966c8058914f66afd3ff9be" category="list-text">Para ativar a autenticação baseada em certificado de cliente:</block>
@@ -2968,7 +2755,6 @@
   <block id="27683628aa53b46a33edc9e7fa65b5ac" category="paragraph">Selecione a opção *Sim, exporte a chave privada* e clique em *Avançar*.</block>
   <block id="c0a89231526b12e5fb8bcd772c0fd15b" category="paragraph">Ficheiro a exportar</block>
   <block id="eacd537cef2ec78c3157d3ba9332ecf9" category="paragraph">Especifique um nome de arquivo para o certificado exportado (você deve usar .pfx) e clique em *Next*.</block>
-  <block id="0e9123db0a5e31511722b6879134d611" category="paragraph">Os certificados são exportados no formato .pfx.</block>
   <block id="9772bdc36f54d8bb6dc779a222af547c" category="doc">Obtenha a impressão digital do certificado CA</block>
   <block id="463f3aea4c7a61c6bfaa026c1c1c490c" category="doc">Importar certificados CA</block>
   <block id="9e7f34933c1af065309071fd01a6cf3e" category="summary">Você deve importar o certificado CA para os hosts de plug-in UNIX.</block>
@@ -2979,8 +2765,6 @@
   <block id="cd6f5ef691756f2a57d26714b0ad1b43" category="list-text">Altere a senha do keystore:<block ref="5cc4cde4421282ffdf9f287ec3199d1f" prefix=" " category="inline-code"></block></block>
   <block id="1655ea4e2f205b3033fbe9b39f935c1f" category="list-text">Altere a senha para todos os aliases de entradas de chave privada no keystore para a mesma senha usada para o keystore:<block ref="0f214e413ff651807ab38f567542e4a7" prefix=" " category="inline-code"></block></block>
   <block id="924399f641b3ebc78e566f9306e9ea11" category="list-text">Atualize o mesmo para a chave SPL_KEYSTORE_PASS no<block ref="bffe39d676ca31b01c3709313bdb4068" prefix=" " category="inline-code"></block> arquivo.</block>
-  <block id="cfee889da941f2dce080477db87781ff" category="summary">Para usar o certificado de CA de servidor SnapCenter exportado, você deve importar o certificado relacionado para os hosts de plug-in do SnapCenter Windows</block>
-  <block id="79f05475f093d2d51a688c417ae60fbe" category="doc">Importar certificado de autoridade de certificação (CA) para os hosts de plug-in do Windows</block>
   <block id="670f279a24f028c7742ed1c370d5c72e" category="paragraph">Para usar o certificado de CA de servidor SnapCenter exportado, você deve importar o certificado relacionado para os hosts de plug-in do SnapCenter Windows usando o MMC (console de gerenciamento da Microsoft).</block>
   <block id="a3116b0cbdcd0490e1b76e0b508654c0" category="list-text">Clique com o botão direito na pasta "Pessoal" e selecione *todas as tarefas* &gt; *Importar* para iniciar o assistente de importação.</block>
   <block id="4337f2520c18528cac9f46239191f22b" category="paragraph">Localização da loja</block>
@@ -3007,7 +2791,6 @@
   <block id="541eb9f7e4046db89bc6e649fea3e51d" category="admonition">Se você clicar no botão *Cancelar*, a etapa que está sendo executada será concluída e, em seguida, iniciar a operação de reversão. O servidor SnapCenter será completamente removido do host.</block>
   <block id="0a72b5ed9e647b1bccffb29f78092df4" category="paragraph">No entanto, se você clicar em *Cancelar* quando as operações "SnapCenter Server site Restart" ou "Waiting for SnapCenter Server to start" estiverem sendo executadas, a instalação continuará sem cancelar a operação.</block>
   <block id="bf81ea5010d5d85942a2a57301afd2ac" category="paragraph">Os ficheiros de registo estão sempre listados (o mais antigo primeiro) na pasta %temp% do utilizador admin. Se você quiser redirecionar os locais de log, inicie a instalação do servidor SnapCenter a partir do prompt de comando executando:<block ref="bb9ef5e6e36fd7ac7262240cdaa0ca2a" prefix="" category="inline-code"></block></block>
-  <block id="27690795c4a480f678c940457451380d" category="paragraph">Se você é novo nos produtos NetApp e não tem uma conta NetApp existente, deve Registrar o produto para habilitar o suporte.</block>
   <block id="9a1e93115df18651562a9dbdedd4b61d" category="summary">O SnapCenter é compatível com controles de acesso baseados em função (RBAC). O administrador do SnapCenter atribui funções e recursos por meio do SnapCenter RBAC a um usuário no grupo de trabalho ou diretório ativo ou a grupos no diretório ativo. O usuário RBAC agora pode fazer login no SnapCenter com as funções atribuídas.</block>
   <block id="3ff2f50a0428ccd330fd2b2e2baa3b97" category="doc">Faça login no SnapCenter usando a autorização RBAC</block>
   <block id="adc5fe8b45ecd95856d19e35346df6c7" category="list-text">Você deve ativar o Serviço de ativação do processo do Windows (WAS) no Gerenciador do Windows Server.</block>
@@ -3403,8 +3186,6 @@
   <block id="cefcdf7a4638575f474bc5a3bda6c998" category="doc">Instale o SnapCenter na Máquina Virtual do Azure</block>
   <block id="4370482304eb1ca0418f2cd3fd63eb67" category="paragraph">Você pode baixar o software SnapCenter no site de suporte da NetApp e instalar o software na máquina virtual do Azure.</block>
   <block id="f514139bd8bb4cc318cbbff458dd2226" category="inline-link-macro">Prepare-se para instalar o servidor SnapCenter</block>
-  <block id="ce65cbdd1461bceb86d66ab0fad635e1" category="list-text">Certifique-se de que a máquina virtual do Azure Windows atenda aos requisitos de instalação do servidor SnapCenter. Para obter informações, <block ref="b3dec771f92c2fb9f455ad37ca093b8b" category="inline-link-macro-rx"></block>consulte .</block>
-  <block id="293e30fcf3b105ef9fbfa18277b1833a" category="list-text">Se você é novo no Azure NetApp Files e não tem uma conta NetApp existente, certifique-se de que se registrou para que você possa acessar o software SnapCenter.</block>
   <block id="70c594713d865f6147d93e740c40169b" category="list-text">Baixe o pacote de instalação do servidor SnapCenter em<block ref="ae591c0a5c1f7ed1b2805b45c211ae4c" category="inline-link-rx"></block>.</block>
   <block id="ba1d33ffe1922d93bdd900b985993172" category="paragraph">Depois de iniciar a instalação, todas as pré-verificações são executadas e, se os requisitos mínimos não forem atendidos, as mensagens de erro ou aviso apropriadas serão exibidas. Você pode ignorar as mensagens de aviso e prosseguir com a instalação; no entanto, os erros devem ser corrigidos.</block>
   <block id="944ed313a3d76953a4897da7159e4286" category="admonition">O caractere especial "%" não é suportado no caminho personalizado para o banco de dados do repositório. Se você incluir "%" no caminho, a instalação falhará.</block>
@@ -6271,7 +6052,6 @@
   <block id="11613abc39d8e8292f1f4cdb70891ead" category="list-text">Configure o banco de dados para definir os nós de cluster preferidos para o nó RAC que hospeda o banco de dados atualmente.</block>
   <block id="902cf12e6ae4c932d59179746fe738be" category="list-text">Execute as operações do SnapCenter.</block>
   <block id="141229b009a397273fc34bf2467990b8" category="list-text">Se você tiver relocado um banco de dados de um nó para outro nó e se a entrada do oratab no nó anterior não for excluída, exclua manualmente a entrada do oratab para evitar que o mesmo banco de dados seja exibido duas vezes.</block>
-  <block id="b6b2be55c51c8c3e0d58ffcc788b57d0" category="section-title">Para versões Oracle 12cR2 a 18c</block>
   <block id="138ac8a924ba70371a9fccc55eeffc50" category="paragraph">Os bancos de dados RAC são descobertos usando o comando srvctl config. Você deve ter as entradas do banco de dados no arquivo /etc/oratab.</block>
   <block id="bdc631ac0c61f623f88a03e50eb10d04" category="paragraph">Os bancos de dados autônomos são descobertos com base nas entradas no arquivo /etc/oratab e na saída do comando srvctl config.</block>
   <block id="065a682f6e2ff04149d8f73d3a4f075e" category="paragraph">A entrada de instância ASM não precisa estar no arquivo /etc/oratab.</block>
@@ -6481,7 +6261,6 @@
   <block id="8f414d86207e09d30548c998144cf26d" category="paragraph">Depois de concluir a configuração das credenciais, você pode querer atribuir a manutenção de credenciais a um usuário ou grupo de usuários na página *Usuário e Acesso*.</block>
   <block id="1cdecd7145db58cd1e143666aa2b41b4" category="section-title">Configurar credenciais para um banco de dados Oracle</block>
   <block id="e35a87504c653f801b6c01e104a25258" category="paragraph">Você deve configurar credenciais usadas para executar operações de proteção de dados em bancos de dados Oracle.</block>
-  <block id="eadb18c60a83020e1c3b265577ec71c0" category="paragraph">Você deve rever os diferentes métodos de autenticação suportados para o banco de dados Oracle. Para obter informações, <block ref="9af1d13688ebb402d1ab0353c830ceaa" category="inline-link-macro-rx"></block>consulte .</block>
   <block id="242cdc11ae22f217c93ae40e14e96194" category="paragraph">Se você configurar credenciais para grupos de recursos individuais e o nome de usuário não tiver Privileges de administrador completo, o nome de usuário deve ter, pelo menos, Privileges de grupo de recursos e backup.</block>
   <block id="7b13621f41f0146d0ffd2434af94438a" category="paragraph">Se você ativou a autenticação do banco de dados Oracle, um ícone de cadeado vermelho será exibido na exibição recursos. Você deve configurar credenciais de banco de dados para poder proteger o banco de dados ou adicioná-lo ao grupo de recursos para executar operações de proteção de dados.</block>
   <block id="9d84c90ce04a969ca09498823506ba1f" category="admonition">Se você especificar detalhes incorretos durante a criação de uma credencial, uma mensagem de erro será exibida. Você deve clicar em *Cancelar* e tentar novamente.</block>
@@ -7522,7 +7301,6 @@
   <block id="953acf14bebe77c11e648186f3957214" category="list-text">Você deve ter um usuário com permissões sysadmin no SQL Server.</block>
   <block id="d165009fc919b7c43f63036983c47ae0" category="paragraph">O plug-in do SnapCenter para Microsoft SQL Server usa o Microsoft VDI Framework, que requer acesso sysadmin.</block>
   <block id="9221af74572734362746f0af9104d884" category="inline-link">Artigo 2926557: As operações de backup e restauração do SQL Server VDI exigem o sysadmin Privileges</block>
-  <block id="c081ea6f4c7f13224651487050d87831" category="paragraph"><block ref="c081ea6f4c7f13224651487050d87831" category="inline-link-rx"></block></block>
   <block id="9c9a08a242e9f6311be9fa5bd945d582" category="list-text">Se o SnapManager for instalado, você deve ter parado ou desativado o serviço e as programações.</block>
   <block id="1931c747684bb6010ac638ae2be606b3" category="paragraph">Se você planeja importar tarefas de backup ou clone para o SnapCenter, não desinstale o SnapManager para o Microsoft SQL Server.</block>
   <block id="024ecfe0da835b1f362b5e64ec1408ab" category="list-text">O host deve ser resolvido para o nome de domínio totalmente qualificado (FQDN) do servidor.</block>
@@ -8218,7 +7996,6 @@
   <block id="5e552e263b3cac8a0ad4ef299469911f" category="paragraph">Além desses principais recursos, o plug-in para Windows oferece os seguintes benefícios:</block>
   <block id="aa3fb9fca5fdb4ad7f86964cd9fd89cc" category="list-text">Suporte ao fluxo de trabalho de backup, restauração e clone</block>
   <block id="4a3e39ebca9c4f0e9238b4f749f8eda1" category="list-text">Criação de cópias com uso eficiente de espaço de sistemas de arquivos de produção para teste ou extração de dados usando a tecnologia NetApp FlexClone</block>
-  <block id="096e71fc77d918a544bb07d1ea387d60" category="paragraph">Para obter informações sobre licenciamento do FlexClone, <block ref="6de8516502145d64739d69762f4898a1" category="inline-link-macro-rx"></block>consulte .</block>
   <block id="293ffa565c196a3a07f5a591b4fc1d00" category="list-text">Cmdlets do PowerShell para scripts de operações de backup, restauração e clone</block>
   <block id="714cad43018665a21e4e9f0075f71077" category="list-text">Suporte para backup de sistemas de arquivos e discos de máquina virtual (VMDKs)</block>
   <block id="ea43d587d8a6676a0f6fb181a8acea22" category="list-text">Suporte para iSCSI, Fibre Channel, FCoE, mapeamento de dispositivo bruto (RDM), mapeamento LUN assimétrico (ALM), VMDK sobre NFS e VMFS e FC virtual</block>
@@ -8651,8 +8428,6 @@
   <block id="d910ace3784fd02feb4782028439f90a" category="paragraph">Embora as informações possam ser estruturadas e transferidas entre um cliente e um servidor de serviços da Web de várias maneiras, a opção mais popular é JavaScript Object Notation (JSON).</block>
   <block id="f72772b4340265b949117f859607ce05" category="paragraph">JSON é um padrão da indústria para representar estruturas de dados simples em texto simples e é usado para transferir informações de estado descrevendo os recursos. A API REST do SnapCenter usa JSON para formatar os dados transportados no corpo de cada solicitação e resposta HTTP.</block>
   <block id="88fe5dc687615e8d7a6594570ed65df2" category="summary">Descreve como usar APIs REST para executar várias operações de gerenciamento do SnapCenter. As APIs REST são expostas por meio da página da Web do Swagger.</block>
-  <block id="b1cb2610ec57bfba865feaa69174b692" category="paragraph">As APIS REST podem ser usadas para executar várias operações de gerenciamento do SnapCenter. As APIs REST são expostas por meio da página da Web do Swagger.</block>
-  <block id="dcddc43fec5e5fa500cf485861b6ccfe" category="paragraph">Você pode acessar a página da Web do Swagger disponível em _ https:// SnapCenter_IP_address_or_name&gt;: SnapCenter_port&gt;/swagger/_ para exibir a documentação da API REST, bem como emitir manualmente uma chamada de API.</block>
   <block id="535a045ab09a3efb03cb36f59e57279c" category="paragraph">Os plug-ins compatíveis com APIs REST são:</block>
   <block id="989300043d75df1f584271de0f5b22cb" category="list-text">Plug-in para Microsoft SQL Server</block>
   <block id="cc7702d8b061fc4d88f25975ec6ae8c4" category="summary">Os recursos disponíveis por meio da API REST do SnapCenter são organizados em categorias, conforme exibido na página de documentação da API do SnapCenter.</block>
@@ -9175,8 +8950,6 @@
   <block id="be11c74c1dd7f307bb80183a90dc2067" category="sidebar">Comece agora</block>
   <block id="4b09ab22f471832d6728b6e5b9a09aa8" category="sidebar">Saiba mais sobre o SnapCenter</block>
   <block id="c70f316066c903485b01199c3d46cf0e" category="sidebar">Atualize os plug-ins do servidor SnapCenter e do SnapCenter</block>
-  <block id="085f5df3ea322139c5a71aed9fd908cd" category="sidebar">Licenças necessárias</block>
-  <block id="2be699659df3451ee9edbd78cb507a23" category="sidebar">Configurar portas</block>
   <block id="134a140044941809d4caf4bac0b38860" category="sidebar">Configure a alta disponibilidade usando o F5</block>
   <block id="044aa1b4f857dd75e47b8ffafe8440c0" category="sidebar">Recuperação de desastres do servidor SnapCenter</block>
   <block id="7c9d94dde393ed697967d78a92995d60" category="sidebar">Proteja bancos de dados Microsoft SQL Server</block>
@@ -9203,8 +8976,6 @@
   <block id="66bdd10c104f52b4f8519b652bc8e084" category="sidebar">Base de Conhecimento NetApp - SnapCenter</block>
   <block id="b3121ceac9c3b1c097a1f53db3eff2a7" category="sidebar">Gerencie o servidor SnapCenter e os plug-ins</block>
   <block id="fea84990764109b117844dae6e7232a7" category="sidebar">Visualização do painel</block>
-  <block id="0460583622f03a52d7693094d6fa2452" category="sidebar">Conceitos</block>
-  <block id="c16c43065a548034a76faadb18015c27" category="sidebar">Controles de acesso baseados em função do SnapCenter (RBAC)</block>
   <block id="e413eba49b15917b0c9dbf2620f3e66e" category="sidebar">Recuperação de desastres</block>
   <block id="ab5f4e39159ac71e7f3f1e7080905a20" category="sidebar">Instalação do servidor SnapCenter</block>
   <block id="bb8e9cdba9e13f92c0ca73c3ae3f6c05" category="sidebar">Conexões e credenciais da Máquina Virtual de armazenamento</block>
@@ -9216,10 +8987,6 @@
   <block id="871fc681c918eeb8bc97c43c286a51ca" category="sidebar">Configure e ative a comunicação SSL bidirecional no host Windows</block>
   <block id="b4a3c04aec1d573cc0ee1d415ca27eae" category="sidebar">Configure e habilite a comunicação SSL bidirecional no host Linux</block>
   <block id="3e918b1551870a1f28fd26d82364a6de" category="sidebar">Configurar autenticação baseada em certificado</block>
-  <block id="61341920d3259181ac6dce8912b43711" category="sidebar">Importar certificado CA para os plug-ins do host do Windows</block>
-  <block id="dc085c0453f245659c31e067671c65b0" category="sidebar">Importe o certificado CA para os plug-ins do host UNIX e configure certificados raiz ou intermediários para o armazenamento de confiança SPL</block>
-  <block id="78a044d413487b3c49b37567f8df9e4f" category="sidebar">Importar certificado CA para os plug-ins do host UNIX</block>
-  <block id="7fbe6e40125b7d1b2f5c5c05044e7526" category="sidebar">Ativar autenticação baseada em certificado</block>
   <block id="0095bd100c1750fd3bff002bda60502e" category="sidebar">Configure o ative Directory, LDAP e LDAPS</block>
   <block id="055367d73c719054881d2c3df6cfb418" category="sidebar">Configurar alta disponibilidade</block>
   <block id="66533c4e3134a6b220ad1336cd288c49" category="sidebar">Configurar controles de acesso baseados em função (RBAC)</block>
@@ -9363,7 +9130,6 @@
   <block id="2e21dec8487cb3a24c4bbf87da1dee50" category="paragraph">Os trabalhos obsoletos são criados a partir de interrupções no SnapCenter ou de atualizações inadequadas de trabalhos. A partir do lançamento do SnapCenter 6.0.1, é introduzido um cronograma predefinido para limpar esses trabalhos obsoletos que estão presos por mais de 72 horas. Você pode alterar a frequência de programação editando o parâmetro configurável *CleanUpStaleJobsIntervalHours*.</block>
   <block id="503fe1d0e01220df2c700af08ab0d45a" category="paragraph">Você pode ativar a limpeza sob demanda executando a programação de *Monitor* &gt; *horários* &gt; *SnapCenter_StaleJobCleanUp*.</block>
   <block id="4bc64b43c586cee88983f327d8a04770" category="list-text">Defina o valor do parâmetro _NetApp_SnapCenter_SnapManager.UI.dll.config_.</block>
-  <block id="f89f0ec412a77c24f996a08f409d1820" category="image-alt">recursos e políticas</block>
   <block id="34d41de6bbbd59c588068d1c2b2e073d" category="paragraph">Você também pode implantar o certificado CA para o plug-in SnapCenter para VMware vSphere. Para obter mais informações,<block ref="bdfc8d677279c2d2dc7a5041c41cc2d9" category="inline-link-rx"></block>consulte .</block>
   <block id="23162359b252c2000ad518a55793125e" category="summary">Configure a alta disponibilidade no SnapCenter usando F5, balanceamento de carga de rede ou Amazon Web Services</block>
   <block id="83e606e7229254f977fc3348f76ce3d4" category="doc">Configurar servidores SnapCenter para alta disponibilidade</block>
@@ -9506,22 +9272,11 @@
   <block id="a24cb0112e51902b6b3ed4606a7cd727" category="cell">6.0.1</block>
   <block id="db1c2c3cb6f2d1f2978caf1a4dce483c" category="sidebar">Proteja aplicativos usando plug-ins compatíveis com NetApp</block>
   <block id="e66b727df529163e059dccac755199b5" category="paragraph">A proteção de dados é compatível com bancos de dados Microsoft Exchange Server, Microsoft SQL Server, Oracle em Linux ou AIX, banco de dados SAP HANA, IBM DB2, PostgreSQL, MySQL e Windows Host em execução em sistemas ONTAP.</block>
-  <block id="4dee8d3c72d98ca6077f2c8d5e31691e" category="paragraph">A proteção de dados também é compatível com outros aplicativos e bancos de dados padrão ou personalizados, fornecendo uma estrutura para criar plug-ins do SnapCenter definidos pelo usuário. Isso permite a proteção de dados para outros aplicativos e bancos de dados a partir do mesmo painel único. Ao aproveitar essa estrutura, a NetApp lançou plug-ins do SnapCenter para MongoDB, Storage, MaxDB, Sybase ASE e ORASCPM. Além disso, você pode criar seu próprio plug-in usando o guia do desenvolvedor.</block>
-  <block id="93115fb35bbdfcd0d89a15e51ee29360" category="paragraph"><block ref="93115fb35bbdfcd0d89a15e51ee29360" category="inline-link-macro-rx"></block></block>
-  <block id="54e1870bb16fcbd1f89a2a9cb158c564" category="list-text">Plug-in do SnapCenter para MongoDB</block>
-  <block id="f17c3f092b22f18a18513007253feb63" category="list-text">Plug-in SnapCenter para ORASCPM (aplicações Oracle)</block>
-  <block id="25eb4bcdd1e7dc86b1ab79cf6353b8c4" category="list-text">Plug-in do SnapCenter para SAP ASE</block>
-  <block id="50abee4601abc8a9eaf9eda45fc890fe" category="list-text">Plug-in do SnapCenter para SAP MaxDB</block>
-  <block id="8ef14040961bb0da029f3fc304b6207a" category="list-text">Plug-in do SnapCenter para plug-in de storage</block>
   <block id="309dab896f56b3d37ea98a7bf810fbfa" category="paragraph">Host MongoDB</block>
-  <block id="d0dd1e46f3d2a9df5db113f5d4887fe1" category="paragraph">Plug-in para ORASCPM (aplicativos Oracle)</block>
   <block id="5cee7b6aa7ee8f8137a525779101e458" category="paragraph">Plug-in para SAP ASE</block>
   <block id="a1ed78eb846876547dbbead9faf94c49" category="paragraph">Host SAP</block>
-  <block id="5ecca3be7057bb09f73af5a604bacae8" category="paragraph">Plug-in para SAP MaxDB</block>
   <block id="5ebe126580d21ed8a7871727539c34a5" category="paragraph">Host SAP MaxDB</block>
-  <block id="c0a20598d510707e9ac421eb3a2e8d21" category="paragraph">Plug-in para plug-in de armazenamento</block>
   <block id="b2e15324e17e46f57b49f3c8abfda8fe" category="paragraph">Host de storage</block>
-  <block id="146084b70da6db6727813aa08668f9ab" category="paragraph">Plug-ins compatíveis com NetApp são MongoDB, ORASCPM (aplicações Oracle), SAP ASE, SAP MaxDB e plug-in de storage.</block>
   <block id="42eb8a85bcf7b15c7630f27394ab2de4" category="paragraph">Você deve usar a página SnapCenter Adicionar host para adicionar hosts e, em seguida, instalar os pacotes de plug-in. Os plug-ins são instalados automaticamente nos hosts remotos. Você pode adicionar um host e instalar os pacotes de plug-in para um host individual ou para um cluster.</block>
   <block id="d8c34ac95ee06b7ff704879a39ce5962" category="list-text">Para o host do Windows, você deve garantir que você selecione o plug-in do SnapCenter para Windows.</block>
   <block id="7e6bb0931a72759d39514aa924b420bc" category="list-text">AIX</block>
@@ -9676,9 +9431,6 @@
   <block id="7dd024354fe8487d857c0a0818270399" category="list-text">Clique <block ref="f790bf9188cee374d2bb1f3790c6a393" category="inline-image-macro-rx" type="image"></block>em e, em seguida, clique em *OK*.</block>
   <block id="781ffefd65873ffc476623160ecbe609" category="list-text">Selecione o clone e clique <block ref="f790bf9188cee374d2bb1f3790c6a393" category="inline-image-macro-rx" type="image"></block>em .</block>
   <block id="6e13f804ad8be111cf6ad70744afe388" category="list-text">Dados em sistemas primários e secundários do ONTAP ASA R2</block>
-  <block id="3c76eb0943bd609158e412bd2ccff2ae" category="paragraph">Para obter mais informações sobre comandos UNIX,<block ref="a6987fd1f481831496b6e000c63cd27d" category="inline-link-rx"></block>consulte .</block>
-  <block id="e0228d77ebd874250f86d035ed4533fb" category="paragraph">O SnapLock é uma solução de conformidade de alto desempenho para organizações que usam storage WORM (uma gravação, muitas leituras) para reter arquivos de forma não modificada para fins regulatórios e de governança. Para obter mais informações sobre o SnapLock,<block ref="1a4ea27499d0dd9854f827c9e87479f3" category="inline-link-rx"></block>consulte .</block>
-  <block id="a5232d3babd70554298f5577703c894e" category="paragraph">Bloquear instantâneos garante que eles não podem ser excluídos acidentalmente ou maliciosamente. O SnapCenter permite especificar o período de bloqueio para instantâneos primários e secundários.</block>
   <block id="651f8f48e0ff0ede39a3224558b4b516" category="paragraph">Em segundo lugar proteção</block>
   <block id="f9c655f2d65a07a71b2deab50b74ffae" category="paragraph">Você também pode configurar o balanceamento de carga de rede (NLB) para configurar o SnapCenter High Availability. Você deve configurar manualmente o NLB fora da instalação do SnapCenter para alta disponibilidade.</block>
   <block id="0a0bca773054c9a47b687411e5ff20e8" category="image-alt">Fluxo de trabalho de configuração F5</block>
@@ -9713,25 +9465,14 @@
   <block id="1f46b6eec6f3def165a94aea4fbd2de8" category="list-text"><block ref="d873942b6f54bbecd97eb915c6e95c45" prefix="" category="inline-code"></block></block>
   <block id="73c050ddeaec2b5e5a856c81666f8026" category="list-text">Clique <block ref="725f4bf2ffc300942027282d0182533f" category="inline-image-macro-rx" type="image"></block> no ícone e, em seguida, clique em *Ativar validação de certificado*.</block>
   <block id="920adb74812a2a6ff8228ec39336b73d" category="list-text">.NET Runtime 8.0.12 (e todos os patches 8,0.x subsequentes)</block>
-  <block id="6b63b2c9e9fc8565ca7f55eec1449221" category="summary">O SnapCenter 6,1 dá suporte a sistemas ASA R2 que criam uma experiência simplificada específica para as necessidades de clientes somente SAN.</block>
-  <block id="dc19adb3867a6ca8f2d35a62dfbd96bb" category="doc">Saiba mais sobre o suporte aos sistemas ASA R2 no SnapCenter</block>
-  <block id="1416963498f1d1667a15f42da20627af" category="paragraph">Os sistemas ASA R2 dão suporte a todos os protocolos SAN (iSCSI, FC e NVMe em TCP/IP) em uma única implantação de par de HA. Os protocolos SCSI (iSCSI e FC) usam uma arquitetura ativo-ativo simétrica para multipathing de modo que todos os caminhos entre os hosts e o storage estejam ativos/otimizados. Os protocolos iSCSI e NVMe/TCP dão suporte a caminhos diretos entre os hosts e o storage.</block>
   <block id="233125590fad11d81c05c1b0279c56f1" category="admonition">O SnapCenter suporta apenas o sistema de arquivos de máquina virtual (VMFS) VMware em sistemas ASA R2.</block>
-  <block id="8ba78ca0516a69b587aca58206efc01f" category="paragraph">Os sistemas ASA R2 introduzem o uso de unidades de storage com grupos de consistência:</block>
-  <block id="cbfbe4198cb19fb37eabe0aa86e2ffb7" category="list-text">Uma unidade de armazenamento disponibiliza espaço de armazenamento aos seus hosts SAN para operações de dados. Uma unidade de storage refere-se a um LUN para hosts SCSI ou a um namespace NVMe para hosts NVMe.</block>
-  <block id="298f9913142475c2f50f06e582b038a8" category="list-text">Um grupo de consistência é uma coleção de unidades de armazenamento que são gerenciadas como uma única unidade.</block>
-  <block id="bdf9fa44ea18e3651b8e2895550e6f7f" category="paragraph">Os sistemas ASA R2 usam unidades de storage e grupos de consistência para simplificar o gerenciamento de storage e a proteção de dados. Por exemplo, suponha que você tenha um banco de dados composto por 10 unidades de armazenamento em um grupo de consistência, e você precisa fazer backup de todo o banco de dados. Em vez de fazer backup de cada unidade de armazenamento individualmente, você pode proteger todo o banco de dados fazendo backup do grupo de consistência.</block>
   <block id="989977a18a476a92018e04dd60ec37c1" category="inline-link">Saiba mais sobre os sistemas ASA R2</block>
-  <block id="16606bd097711751ac955e1f9e2fdf2a" category="paragraph"><block ref="091d07e2c34db8f37554078364b07cbc" category="inline-link-rx"></block>.</block>
-  <block id="5e80eec7154c601a727d82c736e43d5a" category="section-title">O que é suportado no SnapCenter 6,1 para sistemas ASA R2</block>
-  <block id="703f6cb1f80801e89c413d10438b1a65" category="paragraph">O SnapCenter permite que você execute as seguintes operações em todos os aplicativos compatíveis com o SnapCenter se você estiver usando sistemas de storage ASA R2:</block>
   <block id="b3c78f6e772922673e6d35ae6df26cbd" category="list-text">Criação de backups primários de aplicativos através do VMDK</block>
   <block id="7e358fa759baa4f70a96f79cf29b4c61" category="list-text">Transferir instantâneos de grupo de consistência para o sistema de armazenamento secundário</block>
   <block id="e4cc11f5ac51267a510e423fca1a6266" category="list-text">Restaurar os backups e restaurar a partir de um local alternativo</block>
   <block id="eaf84a062a0d8e38f825a0f02f3d1272" category="list-text">Restauração no local a partir de storage primário e secundário com o VMware vMotion</block>
   <block id="74307ec7ea96b1aa508fc7b092900aec" category="list-text">Conecte e copie a restauração a partir de storage primário e secundário</block>
   <block id="9b0e5d4aa3544e7e2154f18fb865684a" category="list-text">Clonagem dos backups e clonagem para um local alternativo</block>
-  <block id="d9adcab280785205b6ba203ee246eb6b" category="section-title">O que não é suportado no SnapCenter 6,1 para sistemas ASA R2</block>
   <block id="a0f3e47cc5179a026d7b861797055f6d" category="list-text">Mapeamento de dispositivo bruto (RDM)</block>
   <block id="b47dab3c647bba9b7ad0a8fc0cde81dc" category="list-text">Volumes de aplicações para Oracle</block>
   <block id="7236f926bc1402ad0d847fd55a34001d" category="list-text">SAP HANA NDV</block>
@@ -9778,8 +9519,6 @@
   <block id="5444e411b400fd0c1d17ad74b8d82bff" category="paragraph">O NET Framework 8.0.12 é um dos nossos selecionados Jogos de Plataforma</block>
   <block id="8c16affd19f6d2610f039e0bf745fe04" category="list-text">.NET Framework 8.0.12 (e todos os patches 8,0.x subsequentes)</block>
   <block id="36ab4d2d051baac565e5a2261da2c98d" category="admonition">O núcleo ASP.NET precisa IIS_IUSRS para acessar o sistema de arquivos temporários no servidor SnapCenter no Windows.</block>
-  <block id="1bb71df56b7ae979d57d7cedfffe49f5" category="inline-link">Documentação do ASA r2</block>
-  <block id="5cbf1300bdf2b6a56588b252b251a998" category="paragraph">Para obter informações sobre os sistemas ASA R2,<block ref="d94cf7303df26cfd7838987d91518061" category="inline-link-rx"></block> consulte .</block>
   <block id="de14602aec2aa05e977975d7781f0163" category="paragraph">Para obter informações sobre a lista de permissões, <block ref="d791b2cd4a5fa29c456ec537e56c834d" category="inline-link-macro-rx"></block>consulte .</block>
   <block id="941e965dc43f6c446ee98bb1e90043c5" category="paragraph">Você deve configurar o sistema de armazenamento que dá acesso à SnapCenter ao armazenamento ONTAP, aos sistemas ASA R2 ou ao Amazon FSX for NetApp ONTAP para executar operações de proteção e provisionamento de dados.</block>
   <block id="fe6b24611189aae46c678d06ae54d930" category="inline-image-macro">ícone de problemas</block>
@@ -9963,7 +9702,6 @@
   <block id="77400fe4524142ac29310162939726cb" category="paragraph">Para obter detalhes sobre problemas conhecidos, limitações, problemas corrigidos e comandos novos e alterados, consulte o<block ref="5c68c6454568b27710c4196bb910da4f" category="inline-link-rx"></block>. Você deve entrar com sua conta do NetApp ou criar uma conta para acessar as Notas de versão.</block>
   <block id="d6eb82c324cab2f36e345863fad95090" category="cell">6,1</block>
   <block id="1e095c69621645fccc8f12cd7f35f6fc" category="inline-link-macro">Suporte para sistemas ASA R2</block>
-  <block id="cf1b0e66e5b65c6a3b32f92fdc6552c4" category="cell"><block ref="cf1b0e66e5b65c6a3b32f92fdc6552c4" category="inline-link-macro-rx"></block></block>
   <block id="cc753d144910e12701641281c8cb88ed" category="paragraph">O SnapCenter agora oferece suporte a sistemas ASA R2 que criam uma experiência simplificada específica para as necessidades de clientes somente SAN.</block>
   <block id="915d43127ff96a6e94b70e22873bdfb5" category="cell">Compatível com snapshot secundário à prova de violações</block>
   <block id="3725caead33410ce98d5a292b7c0cc95" category="paragraph">O SnapCenter permite especificar o período de bloqueio para instantâneos secundários.</block>
@@ -9977,8 +9715,6 @@
   <block id="a141599a0eec0e6d9aea907fc97ea039" category="list-text">Selecione *confiança de parte*.</block>
   <block id="458f1b484cf2f93e8e2f35b3f5a3b94a" category="list-text">Clique com o botão direito do Mouse na confiança de quem confia que foi criada para o SnapCenter e selecione *Excluir*.</block>
   <block id="c6cd54ad2b3bca5fe6357919d1ec62e7" category="list-text">Você deve instalar o Pacote de Hospedagem ASP.NET Core Runtime 8.0.12 (e todos os patches 8,0.x subsequentes) e o PowerShell 7.4.2 ou posterior.</block>
-  <block id="088d994d276e3b7e6090022acb48aaf7" category="list-text">O SnapCenter 6,1 é compatível com sistemas NetApp ASA R2 que executam o ONTAP 9.16.1.</block>
-  <block id="a1c01ec21d4b8df32fe29facff7e7688" category="paragraph">Os sistemas ASA R2 oferecem uma solução unificada de hardware e software para ambientes somente SAN criados em plataformas all-flash.</block>
   <block id="9044893459e9f46e1e17047570a05298" category="list-text">Comandos All-Access: Privileges mínimo necessário para o ONTAP 9.12.1 e posterior</block>
   <block id="a70835f5bcf15a6863468bb82abc19de" category="inline-link">Divida um volume FlexClone do volume pai</block>
   <block id="fc3cc01cd9612e6f3077d4a6505ead8a" category="list-text">Para obter informações sobre operações de divisão de volume do FlexClone, consulte,<block ref="5db08c189f8e967bc5a82064aa92c31e" category="inline-link-rx"></block>.</block>
@@ -10000,14 +9736,12 @@
   <block id="3718cae69e88fbef374d622befa883f6" category="paragraph">_&lt;add key="MinOntapVersionToUseREST" value="9.13.1" /&gt;_</block>
   <block id="4cfd86a863ba0d1e8735375105b45c40" category="list-text">Reinicie o serviço para o SmCore no servidor e o plug-in e o serviço SnapDrive na máquina plug-in.</block>
   <block id="b80a17415adfb59b3e776fff090809b3" category="list-text">Dados em sistemas primários ONTAP FAS, AFF ou ASA e replicados para sistemas secundários ONTAP FAS, AFF ou ASA</block>
-  <block id="cdd64112d524e2506ad9aaa5ea6bf0f8" category="paragraph">Se você estiver usando o plug-in SnapCenter VMware para proteção de dados consistente com VM, o vCenter Server fornecerá um nível adicional de RBAC. O plug-in SnapCenter VMware é compatível com o vCenter Server RBAC e o NetApp ONTAP RBAC.</block>
   <block id="7e3e9dbf627ec3409c614f9c9b2cb57e" category="paragraph">Necessário para FAS, AFF, ASA</block>
   <block id="82d07a027b5d595de4499a5069c4ccf5" category="paragraph">A licença padrão da SnapCenter é uma licença baseada em controlador e está incluída como parte do NetApp ONTAP One. Se você tiver a licença do SnapManager Suite, você também obtém o direito de licença padrão do SnapCenter. Se você quiser instalar o SnapCenter em uma base de avaliação com o storage FAS, AFF ou ASA, poderá obter uma licença de avaliação do NetApp ONTAP One entrando em Contato com o representante de vendas.</block>
   <block id="173cbb56fed3c8d1bffc40cfe1678533" category="inline-link">Licenças incluídas no NetApp ONTAP One</block>
   <block id="94875c624efb32d934c5cd2c0c78f2f0" category="paragraph">Para obter informações sobre as licenças incluídas no NetApp ONTAP One,<block ref="0ab66dfac600c25af9e742e0f8819421" category="inline-link-rx"></block> consulte .</block>
   <block id="8bf34d96b4ef3036d5fecf25c54f239f" category="list-text">Habilitado ao adicioná-lo diretamente à controladora de storage FAS, AFF ou ASA usando o Gerenciador de sistema do ONTAP ou a CLI do ONTAP.</block>
   <block id="f59cbb2508b7e0a4a75f1eddabac7e1e" category="paragraph">Se você estiver usando o armazenamento FAS, ASA ou AFF, poderá recuperar a licença baseada no controlador SnapCenter do site de suporte da NetApp antes de instalá-la usando a linha de comando ONTAP.</block>
-  <block id="ab396c0026ca30099e9b89003c80fcf5" category="list-text">O SnapCenter oferece suporte ao Amazon FSX for NetApp ONTAP para proteger seus dados.</block>
   <block id="9efdf202df78f9a33e298564c835e4ba" category="summary">Use os comandos de login de segurança para adicionar uma função RBAC do NetApp ONTAP quando seus sistemas de storage estiverem executando o Clustered NetApp ONTAP.</block>
   <block id="2ad5f6ef1c47048e237f2fafae87313a" category="doc">Adicione uma função NetApp ONTAP RBAC usando comandos de login de segurança</block>
   <block id="e1be0500812e131476a1a2d9b7429541" category="paragraph">Use os comandos de login de segurança para adicionar uma função RBAC do NetApp ONTAP quando seus sistemas de storage estiverem executando o Clustered ONTAP.</block>
@@ -10038,10 +9772,196 @@
   <block id="57cf9c4ee485623172a5c60cbee423a4" category="paragraph">Veja <block ref="96716f545c5cf1a209bf10c1a798ce38" category="inline-link-macro-rx"></block>o vídeo.</block>
   <block id="5c8b8bc332cb41802ffbe6c5cda258ab" category="paragraph">O layout de storage virtual VMDK, vVol e RDM é suportado.</block>
   <block id="e5385a9de21528bfedd644f4c0331eb1" category="summary">O software SnapCenter é uma plataforma simples, centralizada e dimensionável que fornece proteção de dados consistente com aplicações para aplicações, bancos de dados, sistemas de arquivos host e VMs em execução nos sistemas ONTAP em qualquer lugar na nuvem híbrida.</block>
-  <block id="0d391616b89aaac354c13202aaccb4ba" category="summary">O software SnapCenter pode ser usado em vários navegadores.</block>
   <block id="68578ccfcf5117ca8a9a2d7d884e320f" category="summary">A versão 6,1 do software SnapCenter inclui vários novos recursos e aprimoramentos.</block>
   <block id="600ede45d5c4a07242a73e3a5a885e15" category="doc">Novidades do software SnapCenter 6,1</block>
   <block id="8f13c7650e8ef95e186d64196ea879a5" category="sidebar">O software SnapCenter é uma plataforma simples, centralizada e dimensionável que fornece proteção de dados consistente com aplicações para aplicações, bancos de dados, sistemas de arquivos host e VMs em execução nos sistemas ONTAP em qualquer lugar na nuvem híbrida. Esta biblioteca de documentação inclui informações para a versão 6,1.</block>
   <block id="8127605cde4cee83a23b35f1207c7572" category="sidebar">Documentação do software SnapCenter</block>
   <block id="f3e84c2e19a0aa80c716ba1fc7f07e0e" category="sidebar">SnapCenter software 6,1 docs</block>
+  <block id="e76a4ae8df1bf6770838ce7c7d94e229" category="paragraph">Iniciar serviços de plug-in (aplicável apenas para plug-ins em execução no host Windows)</block>
+  <block id="8e6af76634121af640a2987aea883af4" category="doc">Métodos de autenticação para credenciais SnapCenter</block>
+  <block id="ab1717232c31936a0349a64fd823f3c9" category="paragraph">As credenciais usam diferentes métodos de autenticação, dependendo do aplicativo ou do ambiente. As credenciais autenticam os usuários para que eles possam executar operações do SnapCenter. Você deve criar um conjunto de credenciais para instalar plug-ins e outro para operações de proteção de dados.</block>
+  <block id="332132b30f6b1695774b7885a960105d" category="paragraph">O método de autenticação do Windows é autenticado no ative Directory. Para autenticação do Windows, o ative Directory é configurado fora do SnapCenter. O SnapCenter se autentica sem configuração adicional. Você precisa de uma credencial do Windows para adicionar hosts, instalar pacotes de plug-in e agendar trabalhos.</block>
+  <block id="9a4cd3aad9a70871101fd663c85d1d71" category="paragraph">O SnapCenter permite que usuários e grupos pertencentes a domínios não confiáveis criem credenciais do Windows. Para que a autenticação seja bem-sucedida, você deve Registrar os domínios não confiáveis com o SnapCenter.</block>
+  <block id="b68d50270cf0e2474b397b44deaf267d" category="paragraph">O SnapCenter permite a criação de credenciais do Windows com usuários e grupos de trabalho locais. A autenticação do Windows para usuários e grupos de grupos de trabalho locais não acontece durante a criação de credenciais do Windows, mas é adiada até que o Registro do host e outras operações de host sejam executadas.</block>
+  <block id="a3f29d90ef7d90576f8d4724aec5dc85" category="paragraph">O método de autenticação SQL é autenticado em uma instância do SQL Server. Isso significa que uma instância do SQL Server deve ser descoberta no SnapCenter. Portanto, antes de adicionar uma credencial SQL, você deve adicionar um host, instalar pacotes de plug-in e atualizar recursos. Você precisa de autenticação do SQL Server para executar operações como agendamento no SQL Server ou descoberta de recursos.</block>
+  <block id="c31f386b7623253bed18b3b396316c56" category="paragraph">O método de autenticação de banco de dados Oracle é autenticado em um banco de dados Oracle. Você precisa de uma autenticação de banco de dados Oracle para executar operações no banco de dados Oracle se a autenticação do sistema operacional (os) estiver desativada no host do banco de dados. Portanto, antes de adicionar uma credencial de banco de dados Oracle, você deve criar um usuário Oracle no banco de dados Oracle com sysdba Privileges.</block>
+  <block id="2d49dcc3cc52b6752109248eb78f4e8b" category="paragraph">O método de autenticação Oracle ASM é autenticado em uma instância do Oracle Automatic Storage Management (ASM). A autenticação Oracle ASM é necessária se você precisar acessar uma instância do Oracle ASM e a autenticação do SO estiver desativada no host do banco de dados. Antes de adicionar uma credencial Oracle ASM, crie um usuário Oracle com System Privileges na instância ASM.</block>
+  <block id="cf0f45dd2728a2f80261d3a1d3ac9a70" category="doc">Recuperação de desastres em SnapCenter</block>
+  <block id="3dac184866231f73f3f6d729eebda7e2" category="paragraph">O recurso de recuperação de desastres (DR) do SnapCenter permite que você se recupere de desastres como corrupção de recursos ou falhas do servidor. Ele ajuda a restaurar o repositório do SnapCenter, as programações do servidor, os componentes de configuração e o plug-in do SnapCenter para SQL Server e seu armazenamento.</block>
+  <block id="b5ebeb700e0cb28a3c3949a932087d44" category="paragraph">Esta seção explica os dois tipos de DR no SnapCenter:</block>
+  <block id="6f34294b285496e170150e3d452ca106" category="list-text">Para autenticação multifator (MFA), durante a recuperação de desastres do servidor SnapCenter, feche todas as guias do navegador e reabra um navegador para fazer login novamente. Isso apagará os cookies de sessão existentes ou ativos e atualizará os dados de configuração corretos.</block>
+  <block id="0e717d92a5e8d0fbab87c8a5d88e058c" category="list-text">A funcionalidade de recuperação de desastres do SnapCenter usa APIS REST para fazer backup do servidor SnapCenter. <block ref="6bd0ca01dc1606a35edfa9534e3c90d2" category="inline-link-macro-rx"></block>Consulte .</block>
+  <block id="a055353a77c1cee798189b9d8903cf39" category="list-text">O arquivo de configuração relacionado às configurações de auditoria não é feito backup no backup de DR e nem no servidor de DR após a operação de restauração. Deve repetir manualmente as definições do registo de auditoria.</block>
+  <block id="75bdf29c31e542a5d86d13400d5f330c" category="paragraph">O DR está disponível apenas para o plug-in SnapCenter para SQL Server. Se o plug-in estiver inativo, mude para outro host SQL e recupere os dados seguindo alguns passos. <block ref="47046db67c1574cb29142c431fb68f1f" category="inline-link-macro-rx"></block>Consulte .</block>
+  <block id="b9b4e7e7c212a02f71062cce983f3090" category="paragraph">O SnapCenter usa o ONTAP SnapMirror para replicar dados, que podem ser usados para a recuperação de desastres mantendo os dados sincronizados em um local secundário. Para iniciar o failover, interrompa a replicação do SnapMirror. Durante o fallback, inverta a sincronização para replicar dados do local de DR de volta para o local principal.</block>
+  <block id="985d6add229d867a38bb48ab0c683b16" category="doc">Conceitos-chave de proteção de dados</block>
+  <block id="9f17cd4f4a677b63092c05f1d5bebd30" category="paragraph">Antes de usar o SnapCenter, entenda os principais conceitos de backup, clonagem e restauração.</block>
+  <block id="0cfca0ceddc7ed71ea67017d3b77d83b" category="paragraph">Os recursos incluem bancos de dados, sistemas de arquivos do Windows ou compartilhamentos de arquivos copiados ou clonados com o SnapCenter. Dependendo do seu ambiente, os recursos também podem ser instâncias de banco de dados, grupos de disponibilidade do SQL Server, bancos de dados Oracle, bancos de dados RAC ou grupos de aplicativos personalizados.</block>
+  <block id="adf455f4107de358bfc26b5d6fa0e05e" category="paragraph">Um grupo de recursos é um conjunto de recursos em um host ou cluster, potencialmente de vários hosts e clusters. As operações realizadas em um grupo de recursos se aplicam a todos os seus recursos com base no cronograma especificado. É possível executar backups programados ou sob demanda para recursos ou grupos individuais.</block>
+  <block id="b6e81137e9b05514708cf01a81ab83f4" category="admonition">Se um host em um grupo de recursos compartilhados entrar no modo de manutenção, todas as operações agendadas para esse grupo serão suspensas em todos os hosts.</block>
+  <block id="de1dfd30e50e6d57c84769cfe485213c" category="paragraph">Use plug-ins relevantes para fazer backup de recursos específicos: Plug-ins de banco de dados para bancos de dados, plug-ins do sistema de arquivos para sistemas de arquivos e plug-in do SnapCenter para VMware vSphere para VMs e datastores.</block>
+  <block id="07d4cbe93b9471b12f3cc759018fcc69" category="paragraph">As políticas especificam a frequência do backup, a retenção de cópias, a replicação, os scripts e outras características das operações de proteção de dados.</block>
+  <block id="3442e9a505a814b26149f1489649dd35" category="paragraph">Uma ou mais políticas podem ser selecionadas ao criar um grupo de recursos ou ao executar um backup sob demanda.</block>
+  <block id="0fd34a644af383c4427ef0174f7d9e52" category="paragraph">Um grupo de recursos define o que precisa ser protegido e quando deve ser protegido em termos de dia e hora. Uma política descreve como a proteção será realizada. Por exemplo, se o backup de todos os bancos de dados ou sistemas de arquivos de um host for necessário, um grupo de recursos incluindo todos os bancos de dados ou sistemas de arquivos no host pode ser criado. Duas políticas poderiam então ser anexadas ao grupo de recursos: Uma política diária e uma política por hora.</block>
+  <block id="b2d60606565b82ac38737db31fb5c231" category="paragraph">Ao criar o grupo de recursos e anexar as políticas, é possível configurá-lo para executar um backup completo diário e outro agendamento para backups de log por hora.</block>
+  <block id="2a892c71883476d4d03f1a2da70edff5" category="paragraph">Prescripts e postscripts personalizados podem ser usados em operações de proteção de dados. Esses scripts permitem a automação antes ou depois do trabalho de proteção de dados. Por exemplo, um script pode notificar automaticamente falhas ou avisos de trabalhos de proteção de dados. Entender os requisitos para criar esses scripts é crucial antes de configurar prescripts e postscripts.</block>
+  <block id="cabf4726e6c942303fba4463d07fea49" category="section-title">Uso de prescripts e postscripts</block>
+  <block id="bd6f92591be5dd5a201a335d8781a379" category="paragraph">Prescripts e postscripts personalizados podem automatizar suas tarefas de proteção de dados antes ou depois do trabalho. Por exemplo, você pode adicionar um script para notificá-lo de falhas ou avisos de trabalhos. Antes de configurá-los, certifique-se de entender os requisitos para esses scripts.</block>
+  <block id="30601dcd3b5022760961ed1428a05400" category="paragraph">Todos os prescripts e pós-scripts executados como parte das operações do SnapCenter em sistemas de storage não virtualizados e virtualizados, são executados no host do plug-in.</block>
+  <block id="4472af35b609c9246e4bb55f728b01c4" category="paragraph">Os scripts são especificados nas políticas de backup. Quando um trabalho de backup é iniciado, a política associa automaticamente o script aos recursos que estão sendo copiados. Ao criar uma política de backup, você pode especificar os argumentos prescritor e postscript.</block>
+  <block id="fdc25f4e4e50282783f6d6bbd351fb7c" category="doc">Licenças exigidas pela SnapCenter</block>
+  <block id="ece5d50a5bb2d395e1da043ece57184c" category="paragraph">Licenças de protocolo</block>
+  <block id="e0067e0950b0060576d778dc781cc470" category="paragraph">O software SnapCenter é uma plataforma simples, centralizada e dimensionável que oferece proteção de dados consistente com aplicações para aplicações, bancos de dados, sistemas de arquivos host e VMs que operam nos sistemas ONTAP na nuvem híbrida.</block>
+  <block id="80c547faf272be2b228fc24b6cf865f5" category="paragraph">O SnapCenter inclui o servidor SnapCenter e plug-ins leves individuais. É possível automatizar a implantação de plug-in para hosts remotos de aplicações, agendar operações de backup, verificação e clone e monitorar todas as operações de proteção de dados.</block>
+  <block id="17166d817786a7b08901227773723cf1" category="paragraph">O SnapCenter pode ser instalado no local ou em uma nuvem pública para proteger os dados.</block>
+  <block id="be01a357ae2c9752875b5385c732b017" category="section-title">Principais recursos</block>
+  <block id="167ec2cbfb2138b492dfdc49a527d301" category="paragraph">O SnapCenter fornece os seguintes recursos principais:</block>
+  <block id="8cf888c772c03c3d648b58558da6e63e" category="list-text">Proteção de dados centralizada e consistente com aplicações de diferentes aplicações</block>
+  <block id="969aec922664277bd496cc9933e20159" category="paragraph">A proteção de dados também é compatível com outros aplicativos e bancos de dados padrão ou personalizados, fornecendo uma estrutura para criar plug-ins do SnapCenter definidos pelo usuário. Isso permite a proteção de dados para outros aplicativos e bancos de dados a partir do mesmo painel único. Ao aproveitar essa estrutura, a NetApp lançou plug-ins do SnapCenter para MongoDB, Storage, MaxDB, Sybase ASE e ORASCPM. Você também pode criar seu próprio plug-in usando o guia do desenvolvedor.</block>
+  <block id="fbe4c82f71e9d38697b35f4a20991f38" category="paragraph">O SnapCenter fornece uma GUI que é uma interface única e completa para gerenciar backups e clones de um recurso em qualquer destino da nuvem híbrida.</block>
+  <block id="7c3bb00618d034ac43cb570a8e2d7a19" category="paragraph">O SnapCenter fornece APIS REST para a maioria das funcionalidades para integração com qualquer software de orquestração e uso de cmdlets e interface de linha de comando do Windows PowerShell.</block>
+  <block id="14b689a9c9a340e9114e5ea589110eca" category="list-text">Painéis e relatórios de proteção de dados centralizados</block>
+  <block id="b869d32b0a220d5f6624202b4105ce29" category="list-text">Controle de acesso baseado em função (RBAC) para segurança e delegação</block>
+  <block id="1a9de30faa208ac1b8fbc2a9657f4a9f" category="list-text">Um banco de dados de repositório incorporado com alta disponibilidade para armazenar todos os metadados de backup</block>
+  <block id="f5395c9793af8a11b406ca7c1ac70da9" category="inline-link">Saiba mais</block>
+  <block id="0f45de2ede2fe6c32648866c22d6562e" category="list-text">SnapLock<block ref="5d492c0956f305803cd514ba32423952" category="inline-link-rx"></block></block>
+  <block id="462fdcf093443297c1f9338c2c3383e2" category="list-text">Espelhamento síncrono<block ref="95fe696371e9165fe75b9b2447e07b1a" category="inline-link-rx"></block></block>
+  <block id="befd5249dc22444101ff9cd8ae621549" category="section-title">Arquitetura e componentes do SnapCenter</block>
+  <block id="544e93f3cdb44bfd113d60fcd99e1eaa" category="paragraph">A plataforma SnapCenter é baseada em uma arquitetura de vários níveis que inclui um servidor de gerenciamento centralizado e um host de plug-in. O SnapCenter é compatível com data center multisite. O host do servidor SnapCenter e o host do plug-in podem estar em diferentes locais geográficos.</block>
+  <block id="5e8f0f670e38fbdf628b0883f946934f" category="image-alt">Figura que mostra a caixa de diálogo de entrada/saída ou que representa o conteúdo escrito</block>
+  <block id="92382cc3deb4906d36097ac6011e91bb" category="paragraph">O SnapCenter inclui o servidor SnapCenter, o pacote de plug-ins SnapCenter para Windows e o pacote de plug-ins SnapCenter para Linux. Cada pacote contém plug-ins para vários aplicativos e componentes de infraestrutura.</block>
+  <block id="c66f894c16e09b048b2a6915abe8e051" category="paragraph">O servidor SnapCenter suporta os sistemas operacionais Microsoft Windows e Linux (RHEL 8.x, RHEL 9.x, SLES 15 SP5). O servidor SnapCenter inclui um servidor da Web, uma interface de usuário centralizada baseada em HTML5, cmdlets do PowerShell, APIs REST e o repositório SnapCenter.</block>
+  <block id="ce6c9972b70ef717f80525892773fb98" category="paragraph">Plug-in do SnapCenter para Microsoft SQL Server</block>
+  <block id="090902918d90566c2208c883b316474e" category="paragraph">Pacote de plug-ins para Windows</block>
+  <block id="30bd0425244e251f32b5ba80431df5b9" category="paragraph">Plug-in SnapCenter para Windows</block>
+  <block id="ec9f7e79690ee4d6c7b5beecb81f7f90" category="paragraph">Plug-in do SnapCenter para Microsoft Exchange Server</block>
+  <block id="dc6fdb93f6fc82d76c618f5cffcdda49" category="paragraph">Plug-in SnapCentre para Oracle Database</block>
+  <block id="e0d42f42021f6f980a459c959bf80b60" category="paragraph">Pacote de plug-ins para Linux e pacote de plug-ins para AIX</block>
+  <block id="8ec3dce9728ccf15c37266b6c382c785" category="paragraph">Plug-in do SnapCenter para banco de dados SAP HANA</block>
+  <block id="aabe8e5d9d24c243240731f0310c18bb" category="paragraph">Pacote de plug-ins para Linux e pacote de plug-ins para Windows</block>
+  <block id="d28c7359652d719e6982acbdc3c49f95" category="paragraph">Plug-in para UNIX ou plug-in para Windows</block>
+  <block id="889c03fdc6c55696632723dd9c7bd2b3" category="paragraph">Para backups do sistema de arquivos, plug-in para Windows</block>
+  <block id="ce9bfd38dcbd5fc4c9c9c8f23dfe195b" category="paragraph">Plug-in SnapCenter para IBM DB2</block>
+  <block id="c6a2afa4c0921c400b8b7c2be39a338e" category="paragraph">Pacote de plug-ins para Linux e pacote de plug-ins para Windows</block>
+  <block id="8ab4d821b694c7a4a2ccc5b89c6bb24e" category="paragraph">Linux, AIX ou Windows</block>
+  <block id="c47ef1ee1183aeeb3a2c137b62eed975" category="paragraph">Plug-in SnapCenter para PostgreSQL</block>
+  <block id="5855a253f8af848b0ba81a5c964cea04" category="paragraph">Plug-in SnaoCenter para MySQL</block>
+  <block id="552bf01f8fdaa6b73862ba92a538da94" category="paragraph">MySQL host</block>
+  <block id="720501ef82b0031e24346603a9c2a306" category="paragraph">Plug-in do SnapCenter para MongoDB</block>
+  <block id="b2241e7d47ac40028a840c72f8b81ae4" category="paragraph">Plug-in SnapCenter para ORASCPM (aplicações Oracle)</block>
+  <block id="2a7612c7edf8d124cc1e83602349b429" category="paragraph">Plug-in do SnapCenter para SAP ASE</block>
+  <block id="0e7de338b19130a498349175e4a58590" category="paragraph">Plug-in SnapCenter para SAP MaxDB</block>
+  <block id="3fa99d68ba982a33659ca2379e3e8ff4" category="paragraph">Plug-in SnapCenter para plug-in de storage</block>
+  <block id="6750ae8e3ac97dc2f5fc26009449892d" category="paragraph">Pacote de plug-ins para Linux e pacote Plug-ins para Windows</block>
+  <block id="a3b8e6be3869d2fb101f596d05e3b4e7" category="paragraph">Se seu banco de dados ou sistema de arquivos estiver armazenado em VMs ou se você quiser proteger VMs e datastores, você deverá implantar o plug-in do SnapCenter para o dispositivo virtual VMware vSphere. Para obter informações,<block ref="856325c2376fb402b33d836e8e7311f1" category="inline-link-rx"></block> consulte .</block>
+  <block id="ebc4b17076689e818245c6a254bc3841" category="doc">Início rápido para o software SnapCenter</block>
+  <block id="fe3df7903e4787d992afd733b0e0aa92" category="paragraph">O guia de início rápido descreve as etapas básicas para instalar e configurar o software SnapCenter.</block>
+  <block id="06c2cea18679d64399783748fa367bdd" category="inline-image-macro">Um</block>
+  <block id="402bac2c36c251151708b793262ea603" category="paragraph-title"><block ref="58f667aaf05f87159670e12bd9bc076b" category="inline-image-macro-rx" type="image"></block> Prepare-se para instalar o servidor SnapCenter</block>
+  <block id="ccaf623a10419fb96611ebb1ee664404" category="paragraph">Você deve garantir que todos os requisitos para instalar o servidor SnapCenter sejam atendidos.</block>
+  <block id="45a8e7d72ed5741c81a69b02fc89799d" category="list-text"><block ref="45a8e7d72ed5741c81a69b02fc89799d" category="inline-link-macro-rx"></block></block>
+  <block id="1ddd3bb871aad74b7575a723d0c6be64" category="inline-link-macro">Registre-se para acessar o software SnapCenter</block>
+  <block id="cb262b2045ad3317af35b6f453e785d5" category="list-text"><block ref="cb262b2045ad3317af35b6f453e785d5" category="inline-link-macro-rx"></block></block>
+  <block id="8de1acc9454750672206c56cef8866d3" category="inline-link-macro">Ativar a autenticação multifator</block>
+  <block id="199b2bc46c1d1833571704803b84d1ad" category="list-text"><block ref="199b2bc46c1d1833571704803b84d1ad" category="inline-link-macro-rx"></block></block>
+  <block id="aada29daee1d64ed0fe907043855cb7e" category="inline-image-macro">Dois</block>
+  <block id="88968c4a8923b4d023b872e6a35e9c5b" category="paragraph-title"><block ref="54f425ce8d89f4ed6b8a546561af5d60" category="inline-image-macro-rx" type="image"></block> Instale o servidor SnapCenter</block>
+  <block id="bd1b75ca8df9d9c80deb3a11afd902f3" category="paragraph">O servidor SnapCenter pode ser instalado em hosts Windows ou Linux. Transfira o pacote de instalação do servidor SnapCenter a partir do<block ref="d4fdc92072f5257471f3139636068769" category="inline-link-rx"></block> e execute o instalador.</block>
+  <block id="4f16748b2ded8d3e071a53cbb037e227" category="inline-link-macro">Instale o servidor SnapCenter no Windows</block>
+  <block id="cee746bb3c7f1fa0dddcff35fcee1d92" category="list-text"><block ref="cee746bb3c7f1fa0dddcff35fcee1d92" category="inline-link-macro-rx"></block></block>
+  <block id="6805947c00a4ef03fa24b948ab46020b" category="inline-link-macro">Instale o servidor SnapCenter no Linux</block>
+  <block id="c2a2c3654a9c7be07b78f975ebacbca8" category="list-text"><block ref="c2a2c3654a9c7be07b78f975ebacbca8" category="inline-link-macro-rx"></block></block>
+  <block id="ca8a2087e5557e317599344687a57391" category="inline-image-macro">Três</block>
+  <block id="b94efd502e16a762b0456e301fb2f28a" category="paragraph-title"><block ref="05b2444faffd66d76e88602ea7dd353f" category="inline-image-macro-rx" type="image"></block> Configure o servidor SnapCenter</block>
+  <block id="d2933564184587b8ff29ab6074a5b71b" category="paragraph">Depois de instalar o servidor SnapCenter, você deve configurá-lo com base no seu ambiente.</block>
+  <block id="981b8fcee42e1e726a67a2b9a98ea6e9" category="inline-image-macro">Quatro</block>
+  <block id="b403958ae9e2a331375a980bf68e5df5" category="paragraph-title"><block ref="beadfa85a2fdca06b91edc1131c603e6" category="inline-image-macro-rx" type="image"></block> Instale o plug-in para a sua aplicação</block>
+  <block id="2a93ad603265d968a2e158a427c59611" category="paragraph">Certifique-se de que todos os requisitos para instalar o plug-in específico da aplicação são cumpridos com base na aplicação em utilização e, em seguida, prossiga com a instalação do respetivo plug-in.</block>
+  <block id="e5d9de39f7ca1ba2637e5640af3ae8aa" category="inline-image-macro">Cinco</block>
+  <block id="0c009e2dd71d00302c96ee23f56096a6" category="paragraph-title"><block ref="99e8b2f00e172bfcff96afdce69907bc" category="inline-image-macro-rx" type="image"></block> Proteja sua aplicação</block>
+  <block id="52a52f83f343872ccfdccea36d808fbe" category="paragraph">Depois de instalar com êxito o servidor SnapCenter e os plug-ins necessários, você pode iniciar a criação de backups de aplicativos. Esses backups podem ser utilizados posteriormente para fins de restauração e clonagem, quando necessário.</block>
+  <block id="f13285409ed0f9b4e02f4b32dde1d33b" category="doc">Controles de acesso baseados em função no SnapCenter</block>
+  <block id="c9828fe019b2727bf358cb0c2478e00e" category="paragraph">Você pode criar e modificar funções e adicionar acesso a recursos aos usuários a qualquer momento. No entanto, quando você estiver configurando o SnapCenter pela primeira vez, você deve, pelo menos, adicionar usuários ou grupo do ative Directory a funções e, em seguida, adicionar acesso a recursos a esses usuários ou grupos.</block>
+  <block id="d57877ec626f302c9e7b1e10875a9aba" category="section-title">Tipos de RBAC no SnapCenter</block>
+  <block id="de366de90ac02d57b616cbb9abcdf3bf" category="list-text">Plug-in do SnapCenter para VMware vSphere RBAC</block>
+  <block id="8592af0d51ce75785397c9766e688d3e" category="paragraph">O SnapCenter tem funções predefinidas e você pode atribuir usuários ou grupos de usuários a essas funções. As funções predefinidas são:</block>
+  <block id="007a5b05d417439d7f97ec008cdc5503" category="paragraph">Quando você atribui uma função a um usuário, somente as tarefas relevantes a esse usuário são visíveis na página tarefas, a menos que você tenha atribuído a função SnapCenterAdmin.</block>
+  <block id="9ca340103de1d28a94c059e44a33383f" category="paragraph">Você também pode criar novas funções e gerenciar permissões e usuários. Você pode atribuir permissões a usuários ou grupos para acessar objetos do SnapCenter, como hosts, conexões de storage e grupos de recursos.</block>
+  <block id="2f76e68b8e64dc2201f5063e384a8abe" category="admonition">Se você criar uma função personalizada, ela deverá conter todas as permissões da função SnapCenterAdmin. Se você copiar apenas algumas das permissões, por exemplo, Host add ou Host remove, não será possível executar essas operações.</block>
+  <block id="39c904af75907a4d55bdd66945c2263a" category="paragraph">Por exemplo, se você deseja executar operações de proteção de dados em um ambiente SQL Server, você deve definir credenciais com as credenciais Windows ou SQL adequadas. O servidor SnapCenter autentica o conjunto de credenciais usando qualquer um dos métodos. Se você deseja executar operações de proteção de dados em um ambiente de sistema de arquivos do Windows no storage ONTAP, a função de administração do SnapCenter deve ter admin Privileges no host do Windows.</block>
+  <block id="c8bff4b06f4bf572d4901653835a04c3" category="paragraph">Se você estiver usando o plug-in SnapCenter VMware para proteção de dados consistente com VM, o vCenter Server fornecerá um nível adicional de RBAC. O plug-in SnapCenter VMware é compatível com o vCenter Server RBAC e o ONTAP RBAC.<block ref="8ce4aadb919efeeb2d5eb9e4e24e0325" category="inline-link-rx"></block></block>
+  <block id="b04339a4190897882d5056f48b492577" category="paragraph">Você deve criar uma conta vsadmin com as permissões necessárias para acessar o sistema de armazenamento. <block ref="4788713879ad0dd4b6ac16aeef8f00b9" category="inline-link-macro-rx"></block></block>
+  <block id="936fc5cf40b66aba18242ea8b14d5c34" category="section-title">Permissões atribuídas às funções SnapCenter predefinidas</block>
+  <block id="01dad866320f752a70be4c8b1afc9d88" category="doc">Recursos de segurança no SnapCenter</block>
+  <block id="12071348264f48526f2f806ad19b4835" category="list-text">Suporta algoritmos de segurança compatíveis com o Federal Information Processing Standard (FIPS).</block>
+  <block id="3a48ab7f546a72a6ee0c8060f75927c0" category="list-text">Suporte ao uso dos certificados de CA autorizados fornecidos pelo cliente.</block>
+  <block id="27f567dfb8427bb0037d341482b12f09" category="list-text">Suporta TLS (Transport Layer Security) 1,3 para comunicação com o ONTAP. Você também pode usar o TLS 1,2 para comunicação entre clientes e servidores.</block>
+  <block id="3ce1eb9aebe91cad7fabbf2e550cfa60" category="list-text">Suporta um determinado conjunto de pacotes de criptografia SSL para fornecer segurança em toda a comunicação de rede.<block ref="9c98065afa06d1eaa28470ee9cd6c96f" category="inline-link-rx"></block>.</block>
+  <block id="42d303ef8c4a3d9a330607d3b5958466" category="list-text">Após um período padrão de 15 minutos de inatividade, o SnapCenter avisa que você será desconetado em 5 minutos.</block>
+  <block id="0b15b8125c1053376795e7f3bfeae237" category="paragraph">Após 20 minutos de inatividade, o SnapCenter faz o logout e você deve fazer login novamente. Você pode modificar o período de logout.</block>
+  <block id="7da90cddb5480d96752aa1b30507f09b" category="list-text">O início de sessão está temporariamente desativado após 5 tentativas de início de sessão incorretas.</block>
+  <block id="9ad0bbd2998ddda7d792f93838e9d052" category="doc">Sistemas e aplicações de storage com suporte da SnapCenter</block>
+  <block id="963672a9322a8954fd733963eabbb383" category="paragraph">Você deve conhecer os sistemas de storage, aplicações e bancos de dados compatíveis com o SnapCenter.</block>
+  <block id="edfe108640fece93c135374c05152399" category="section-title">Sistemas de storage compatíveis</block>
+  <block id="655128b143567b934dd54966cc45ec47" category="list-text">NetApp ONTAP 9.12.1 e posterior</block>
+  <block id="7450cfde7058dc5e1f7909d0280fd7ae" category="list-text">Azure NetApp Files</block>
+  <block id="4d82a1ec1af02725042c8c785564ee7a" category="list-text">Amazon FSX para NetApp ONTAP</block>
+  <block id="ababa124e254733f565e62afc357fc79" category="list-text">Sistemas NetApp ASA R2 que executam o NetApp ONTAP 9.16.1.</block>
+  <block id="c00f42dba6437d6e7cbff9b51cdc87bf" category="paragraph">Os sistemas ASA R2 oferecem uma solução unificada de hardware e software para ambientes somente SAN criados em plataformas all-flash.<block ref="b840388ca7e01a42ddc42d721bbbf472" category="inline-link-rx"></block>.</block>
+  <block id="8f01bf34bec2cec23a4702e931ee94b0" category="cell">Operações compatíveis</block>
+  <block id="ff887f516fdd30d87fb1832af91506bf" category="cell">Operações não suportadas</block>
+  <block id="0b4e0166878acdd36f882f2270445c06" category="section-title">Aplicativos e bancos de dados compatíveis</block>
+  <block id="29756d78461f8a62cb986dc97f47496b" category="paragraph">O SnapCenter oferece suporte à proteção de diferentes aplicativos e bancos de dados. Para obter informações detalhadas sobre os aplicativos e bancos de dados suportados,<block ref="734369dbdcbe00444fc7be843d617a6c" category="inline-link-rx"></block> consulte .</block>
+  <block id="ee0febdaba6d4c618d2cca84b2c49df1" category="paragraph">O SnapCenter é compatível com a proteção de workloads Oracle e Microsoft SQL em ambientes de data center definido por software (SDDC) da Amazon. <block ref="95513dc65edb533209d1910ac5e4b37d" category="inline-link-rx"></block>.</block>
+  <block id="b9c10c8dd3cdddca3cd9a96c6f110517" category="doc">Sincronização ativa do SnapMirror no SnapCenter</block>
+  <block id="24a4022d37c99455611842cdead9d299" category="paragraph">Para obter mais informações sobre a sincronização ativa do SnapMirror,<block ref="014166fe18ae8fdd05d96b765aaf21c5" category="inline-link-rx"></block>consulte .</block>
+  <block id="be1906d421c503872675257015162814" category="paragraph">Para a sincronização ativa do SnapMirror, verifique se você atendeu aos vários requisitos de configuração de hardware, software e sistema. Para obter informações, consulte<block ref="f9eb78fd44fa2b4062d85447a53a0e44" category="inline-link-rx"></block></block>
+  <block id="c21f0b8ddfa1a0c3f540d9f7f9853a8c" category="paragraph">Os casos de uso não suportados no SnapCenter:</block>
+  <block id="4731bbd129b744bb4de6c2bfb3545668" category="paragraph">Para obter informações sobre as licenças necessárias, <block ref="f2f17e3319d462842bb9ce771116876f" category="inline-link-macro-rx"></block>consulte .</block>
+  <block id="9132a583aa6472aaa469ce98d017a754" category="doc">Configurar autenticação baseada em certificado</block>
+  <block id="1d0dd70dc6038327e77a50594902c9dc" category="paragraph">A autenticação baseada em certificado aumenta a segurança verificando a identidade do servidor SnapCenter e dos hosts plug-in, garantindo uma comunicação segura e criptografada.</block>
+  <block id="1e48e790ba78617cea3099f8f0d4598e" category="section-title">Importar certificado CA para os hosts de plug-in do Windows</block>
+  <block id="ea6631af36531fb249cc88618a6978ea" category="paragraph">Você deve exportar os certificados SnapCenter no formato .pfx.</block>
+  <block id="023d1b804df7d0710ffe29cc9ce9d80f" category="summary">Se você não tiver uma conta NetApp existente, Registre o produto para habilitar o suporte.</block>
+  <block id="5ca072aff62bca1631417ef4fa54bfaa" category="doc">Registre o SnapCenter</block>
+  <block id="86c087f0cdd0a79ab333d23cce9a2d32" category="paragraph">Se você é novo nos produtos NetApp e não tem uma conta NetApp existente, Registre o SnapCenter para habilitar o suporte.</block>
+  <block id="382805b442c7bb416a43e2cc4b6476e1" category="paragraph">Você deve se Registrar para acessar o software SnapCenter se você é novo no Amazon FSX for NetApp ONTAP ou Azure NetApp Files e não tem uma conta NetApp existente.</block>
+  <block id="3145f1e64922b1e7aa13ae91fd55767c" category="paragraph">Seu Registro está sujeito a validações de informações e pode levar até um dia para confirmar e atualizar a nova conta do site de suporte da NetApp (NSS) para acesso *completo* a partir do acesso *convidado*.</block>
+  <block id="3919f1d37a3047e579fee89518f40c68" category="list-text">Insira seu ID de e-mail corporativo, preencha o captcha, aceite a política de privacidade do NetApp e clique em *Enviar*.</block>
+  <block id="b69e68fcac0063bd9ac7f87562d6528e" category="list-text">No campo NÚMERO DE SÉRIE, insira o ID de assinatura do Azure se você estiver usando o Azure NetApp Files ou o ID do sistema de arquivos se estiver usando o Amazon FSX for NetApp ONTAP.</block>
+  <block id="83791ddde0c4af2f7b21d5ee96506cec" category="summary">Você deve garantir que todos os requisitos sejam atendidos antes de instalar o servidor SnapCenter</block>
+  <block id="fd011e7caeb3512ed04ad362ad81fa0e" category="doc">Requisitos para instalar o servidor SnapCenter</block>
+  <block id="bcfb3d830593f37e45fba4f1527e7aa6" category="paragraph">Antes de instalar o servidor SnapCenter no Windows ou no host Linux, você deve analisar e garantir que todos os requisitos sejam atendidos para o seu ambiente.</block>
+  <block id="d83c436132017515ae6918c524790368" category="section-title">Requisitos de domínio e grupo de trabalho para host Windows</block>
+  <block id="9e84225c584900bc8d35a11f57f8b083" category="paragraph">O servidor SnapCenter pode ser instalado em um host Windows que esteja em um domínio ou em um grupo de trabalho.</block>
+  <block id="a53bcc8756731b6593e0b1cead8d996f" category="paragraph">O usuário que tem Privileges de administrador pode instalar o servidor SnapCenter.</block>
+  <block id="2fd5a4335368987b90f7f5ffb645bbb3" category="list-text">Domínio do ative Directory: Você deve usar um usuário de domínio com direitos de administrador local. O usuário do domínio deve ser membro do grupo Administrador local no host do Windows.</block>
+  <block id="dd275b0d30b14b1878f95a21f42a26ca" category="list-text">Grupos de trabalho: Você deve usar uma conta local que tenha direitos de administrador local.</block>
+  <block id="5e30a410889404787b2aaec04b10a2c9" category="paragraph">Você deve estar familiarizado com os requisitos de espaço e dimensionamento.</block>
+  <block id="5a3421b055d1a13ad558e34c0e7bd793" category="paragraph">O SnapCenter não inclui utilitários de host ou um DSM. Se o host SnapCenter fizer parte de um ambiente SAN (FC/iSCSI), talvez seja necessário instalar e configurar software adicional no host do servidor SnapCenter.</block>
+  <block id="cd63fc09bf51e2ee5875156c83792dd1" category="list-text">Utilitários de host: Os Utilitários de host são compatíveis com FC e iSCSI e permitem que você use MPIO em seus servidores Windows.<block ref="c736295fa6b28af543b339c8d8e66abb" category="inline-link-rx"></block>.</block>
+  <block id="21f4d8b437b7b811933c9446b73053ec" category="list-text">Microsoft DSM para Windows MPIO: Este software funciona com drivers MPIO Windows para gerenciar vários caminhos entre computadores host NetApp e Windows. É necessário um DSM para configurações de alta disponibilidade.</block>
+  <block id="e36cd0669ec87ccc7bece62dda2eac40" category="section-title">Requisitos do navegador</block>
+  <block id="734c14c2ba777e6023a3b9be38d159e9" category="paragraph">O software SnapCenter suporta Chrome 125 e posterior e Microsoft Edge 110.0.1587.17 e posterior.</block>
+  <block id="76841410d8f9a6881e0b96f150e9cedf" category="section-title">Requisitos portuários</block>
+  <block id="f85d55bd35768a15e027e4533ce29cd1" category="paragraph">O software SnapCenter requer portas diferentes para comunicação entre diferentes componentes.</block>
+  <block id="5b018baee7e77984b6b32cd018a33057" category="list-text">Certifique-se de que a máquina virtual do Azure Windows atenda aos requisitos de instalação do servidor SnapCenter. Para obter informações, <block ref="78872f43d32743fb04213d671d50d08d" category="inline-link-macro-rx"></block>consulte .</block>
+  <block id="445838770d270f244389a00a57aba7f2" category="list-text">Se você é novo no Azure NetApp Files e não tem uma conta NetApp existente, certifique-se de que se registrou para que você possa acessar o software SnapCenter. Para obter informações, <block ref="faaa3cb5db9dc06cccf8e98585e8e930" category="inline-link-macro-rx"></block>consulte .</block>
+  <block id="334226d3cfa4581cf30266ef27f8d444" category="list-text">Suporta servidores Exchange virtualizados em LUNs RDM quando você implementa o plug-in SnapCenter para VMware vSphere e Registra o plug-in com o SnapCenter.</block>
+  <block id="d606f67e2e785da61d4eec544382d173" category="section-title">Para versões do Oracle 12cR2 a 18c, 19C ou 21c</block>
+  <block id="6a02cc7ce0251bbc4d48ab0a5e120358" category="paragraph">Você deve rever os diferentes métodos de autenticação suportados para o banco de dados Oracle. Para obter informações, <block ref="7870051f24add37682324e1578aee75d" category="inline-link-macro-rx"></block>consulte .</block>
+  <block id="cb5d59c817a7392efa454c9c69508067" category="paragraph"><block ref="cb5d59c817a7392efa454c9c69508067" category="inline-link-rx"></block></block>
+  <block id="98f770b0af18ca763421bac22b4b6805" category="section-title">Caraterísticas</block>
+  <block id="d662aa2b841a0c131c86e10f89661f14" category="paragraph">Para obter informações sobre licenciamento do FlexClone, <block ref="d9f19820592fa27802c8f2a3fe0b8c47" category="inline-link-macro-rx"></block>consulte .</block>
+  <block id="073f586b61cc6ba33a4441cb7dadca15" category="cell"><block ref="073f586b61cc6ba33a4441cb7dadca15" category="inline-link-macro-rx"></block></block>
+  <block id="65fb80b8ce7463c7aa850f2e17da52d0" category="doc">Automação da SnapCenter com APIS REST</block>
+  <block id="37ab49d945ec327c023c1a2d1548e984" category="paragraph">Você pode usar APIS REST para executar várias operações de gerenciamento do SnapCenter. As APIs REST são expostas por meio da página da Web do Swagger. Você pode acessar a página da Web do Swagger disponível em _ https:// SnapCenter_IP_address_or_name&gt;: SnapCenter_port&gt;/swagger/_ para exibir a documentação da API REST, bem como emitir manualmente uma chamada de API.</block>
+  <block id="85f9a6c2aa9cc956fa3f074fecb9627d" category="sidebar">Saiba mais sobre o software SnapCenter</block>
+  <block id="d9711f26e0c211137ef6e2e9d2e826c0" category="sidebar">Segurança e autenticação</block>
+  <block id="01ab8fe0565c01eb93456b579d969d66" category="sidebar">Controles de acesso baseados em função</block>
+  <block id="0b9c6eef4e3d3a222eb04e910d252339" category="sidebar">Licenciamento</block>
+  <block id="c0b79db5f258f0c991a383cbdbf001dd" category="sidebar">Sincronização ativa do SnapMirror</block>
+  <block id="2eadd26d0e5aeb8538a0e0d8cf0e68bf" category="sidebar">Métodos de autenticação</block>
+  <block id="06ad314b340900d226b1196e1fe289e9" category="sidebar">Início rápido</block>
+  <block id="a9246bf3c3eb55a8aee642477b14a8f7" category="sidebar">Registre-se no site de suporte da NetApp</block>
 </blocks>

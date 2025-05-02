@@ -14,17 +14,13 @@ indexpage:
     - title: Notas de lançamento
       url: https://library.netapp.com/ecm/ecm_download_file/ECMLP3337665
     - title: Saiba mais sobre o SnapCenter
-      url: "/concept/concept_snapcenter_overview.html"
+      url: "/get-started/concept_snapcenter_overview.html"
+    - title: Início rápido para o software SnapCenter
+      url: "/get-started/quick-start-snapcenter.html"
     - title: Atualize os plug-ins do servidor SnapCenter e do SnapCenter
       url: "/upgrade/upgrade_workflow.html"
   - title: Instale o servidor SnapCenter
     links:
-    - title: Licenças necessárias
-      url: "/install/concept_snapcenter_licenses.html"
-    - title: Configurar portas
-      url: "/install/reference_connection_and_port_requirements.html"
-    - title: Registe-se para aceder ao software SnapCenter
-      url: "/install/register_enable_software_access.html"
     - title: Instale o servidor SnapCenter no host Windows
       url: "/install/task_install_the_snapcenter_server_using_the_install_wizard.html"
     - title: Instale o servidor SnapCenter no host Linux

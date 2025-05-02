@@ -35,7 +35,7 @@ Além desses principais recursos, o plug-in para Windows oferece os seguintes be
 * Delegação de funções centralizada e segurança compatível com RBAC
 * Criação de cópias com uso eficiente de espaço de sistemas de arquivos de produção para teste ou extração de dados usando a tecnologia NetApp FlexClone
 +
-Para obter informações sobre licenciamento do FlexClone, link:../install/concept_snapcenter_licenses.html["Licenças SnapCenter"^]consulte .
+Para obter informações sobre licenciamento do FlexClone, link:../get-started/concept_snapcenter_licenses.html["Licenças SnapCenter"^]consulte .
 
 * Capacidade de executar vários backups ao mesmo tempo em vários servidores
 * Cmdlets do PowerShell para scripts de operações de backup, restauração e clone
