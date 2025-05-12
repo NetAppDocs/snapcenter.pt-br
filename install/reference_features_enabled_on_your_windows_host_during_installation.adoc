@@ -111,6 +111,7 @@ Fila de mensagens
 NOTE: Certifique-se de que nenhum outro aplicativo use o serviço MSMQ que o SnapCenter cria e gerencia.
 
 * RabbitMQ
+* Erlang
 
 
 
