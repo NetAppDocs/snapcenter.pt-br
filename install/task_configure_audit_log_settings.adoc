@@ -17,8 +17,7 @@ Os logs de auditoria são protegidos por meio da geração de resumos assinados 
 
 Você deve ter feito login como a função "SnapCenterAdmin".
 
-*Sobre esta tarefa*
-
+.Sobre esta tarefa
 * Os alertas são enviados nos seguintes cenários:
 +
 ** O agendamento de verificação da integridade do log de auditoria ou o servidor Syslog está ativado ou desativado
@@ -40,8 +39,7 @@ As informações sobre os parâmetros que podem ser usados com o cmdlet e suas d
 
 
 
-*Passos*
-
+.Passos
 . Na página *Configurações*, navegue até *Configurações* > *Configurações globais* > *Configurações do log de auditoria*.
 . Na secção Registo de auditoria, introduza os detalhes.
 . Digite o diretório *Audit log* e o diretório de log de checksum* de auditoria

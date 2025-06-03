@@ -1,6 +1,6 @@
 ---
 section: install
-title: Instalação do servidor SnapCenter
+title: Instalar e configurar o SnapCenter Server
 entries:
 - title: Prepare-se para instalar o servidor SnapCenter
   entries:
@@ -28,10 +28,56 @@ entries:
     url: "/install/register-snapcenter-software.html"
   - title: Inicie sessão no SnapCenter
     url: "/install/task_log_in_to_snapcenter.html"
-  - title: Recursos ativados em seu host Windows durante a instalação
-    url: "/install/reference_features_enabled_on_your_windows_host_during_installation.html"
-  - title: Recursos ativados no host Linux durante a instalação
-    url: "/install/features_enabled_on_linux_host.html"
+- title: Configurar o SnapCenter Server
+  entries:
+  - title: Adicionar e provisionar o sistema de armazenamento
+    entries:
+    - title: Adicione sistemas de storage
+      url: "/install/task_add_storage_systems.html"
+    - title: Conexões e credenciais de storage
+      url: "/install/concept_svm_connections_and_credentials.html"
+    - title: Provisione storage em hosts do Windows
+      entries:
+      - title: Crie e gerencie grupos
+        url: "/install/concept_create_and_manage_igroups.html"
+      - title: Criar e gerenciar discos
+        url: "/install/task_create_and_manage_disks.html"
+      - title: Crie e gerencie compartilhamentos SMB
+        url: "/install/concept_create_and_manage_smb_shares.html"
+      - title: Recupere espaço no sistema de storage
+        url: "/install/task_reclaim_space_on_the_storage_system.html"
+      - title: Provisione o armazenamento usando cmdlets do PowerShell
+        url: "/install/reference_provision_storage_using_powershell_cmdlets.html"
+    - title: Provisione storage em ambientes VMware
+      url: "/install/concept_provision_storage_in_vmware_environments.html"
+  - title: Adicione licenças padrão baseadas em controladora SnapCenter
+    url: "/install/concept_snapcenter_standard_controller_based_licenses.html"
+  - title: Configurar alta disponibilidade
+    entries:
+    - title: Configurar servidores SnapCenter para alta disponibilidade
+      url: "/install/concept_configure_snapcenter_servers_for_high_availabiity_using_f5.html"
+    - title: Alta disponibilidade para o repositório SnapCenter MySQL
+      url: "/install/concept_high_availability_for_snapcenter_mysql_repository.html"
+  - title: Configurar controles de acesso baseados em função (RBAC)
+    entries:
+    - title: Crie uma função
+      url: "/install/task_create_a_role.html"
+    - title: Adicione uma função ONTAP RBAC usando comandos de login de segurança
+      url: "/install/task_add_an_rbac_role_using_security_login_commands.html"
+    - title: Criar funções do SVM com Privileges mínimo
+      url: "/install/create-svm-roles-minimum-privileges.html"
+    - title: Criar funções do SVM para sistemas ASA R2
+      url: "/install/create-svm-roles-asa-r2-resources.html"
+    - title: Criar funções de cluster do ONTAP com Privileges mínimo
+      url: "/install/task_create_an_ontap_cluster_role_with_minimum_privileges.html"
+    - title: Criar funções de cluster do ONTAP para sistemas ASA R2
+      url: "/install/create-cluster-roles-asa-r2-resources.html"
+    - title: Adicione um usuário ou grupo e atribua funções e ativos
+      url: "/install/task_add_a_user_or_group_and_assign_role_and_assets.html"
+  - title: Configurar as definições do registo de auditoria
+    url: "/install/task_configure_audit_log_settings.html"
+  - title: Configure conexões MySQL seguras com o servidor SnapCenter
+    url: "/install/concept_configure_secured_mysql_connections_with_snapcenter_server.html"
 - title: Configurar autenticação baseada em certificado
   url: "/install/configure_certificate_based_authentication.html"
 - title: Configurar o certificado CA para o host Windows
@@ -66,58 +112,8 @@ entries:
   entries:
   - title: Registre domínios não confiáveis do ative Directory
     url: "/install/task_register_untrusted_active_directory_domains.html"
-  - title: Configure o certificado de cliente CA para LDAPS
-    url: "/install/task_configure_CA_client_certificate_for_LDAPS.html"
-- title: Configurar alta disponibilidade
-  entries:
-  - title: Configurar servidores SnapCenter para alta disponibilidade
-    url: "/install/concept_configure_snapcenter_servers_for_high_availabiity_using_f5.html"
-  - title: Alta disponibilidade para o repositório SnapCenter MySQL
-    url: "/install/concept_high_availability_for_snapcenter_mysql_repository.html"
-- title: Configurar controles de acesso baseados em função (RBAC)
-  entries:
-  - title: Adicione um usuário ou grupo e atribua funções e ativos
-    url: "/install/task_add_a_user_or_group_and_assign_role_and_assets.html"
-  - title: Crie uma função
-    url: "/install/task_create_a_role.html"
-  - title: Adicione uma função ONTAP RBAC usando comandos de login de segurança
-    url: "/install/task_add_an_rbac_role_using_security_login_commands.html"
-  - title: Criar funções do SVM com Privileges mínimo
-    url: "/install/create-svm-roles-minimum-privileges.html"
-  - title: Criar funções do SVM para sistemas ASA R2
-    url: "/install/create-svm-roles-asa-r2-resources.html"
-  - title: Criar funções de cluster do ONTAP com Privileges mínimo
-    url: "/install/task_create_an_ontap_cluster_role_with_minimum_privileges.html"
-  - title: Criar funções de cluster do ONTAP para sistemas ASA R2
-    url: "/install/create-cluster-roles-asa-r2-resources.html"
   - title: Configure pools de aplicativos do IIS para habilitar permissões de leitura
       do ative Directory
     url: "/install/task_configure_iis_application_pools_to_enable_active_directory_read_permissions.html"
-- title: Configurar as definições do registo de auditoria
-  url: "/install/task_configure_audit_log_settings.html"
-- title: Adicione sistemas de storage
-  url: "/install/task_add_storage_systems.html"
-- title: Conexões e credenciais da Máquina Virtual de armazenamento
-  url: "/install/concept_svm_connections_and_credentials.html"
-- title: Adicione licenças padrão baseadas em controladora SnapCenter
-  url: "/install/concept_snapcenter_standard_controller_based_licenses.html"
-- title: Provisione seu sistema de storage
-  entries:
-  - title: Provisione storage em hosts do Windows
-    entries:
-    - title: Configurar armazenamento LUN
-      url: "/install/concept_configure_lun_storage.html"
-    - title: Crie e gerencie grupos
-      url: "/install/concept_create_and_manage_igroups.html"
-    - title: Criar e gerenciar discos
-      url: "/install/task_create_and_manage_disks.html"
-    - title: Crie e gerencie compartilhamentos SMB
-      url: "/install/concept_create_and_manage_smb_shares.html"
-    - title: Recupere espaço no sistema de storage
-      url: "/install/task_reclaim_space_on_the_storage_system.html"
-    - title: Provisione o armazenamento usando cmdlets do PowerShell
-      url: "/install/reference_provision_storage_using_powershell_cmdlets.html"
-  - title: Provisione storage em ambientes VMware
-    url: "/install/concept_provision_storage_in_vmware_environments.html"
-- title: Configure conexões MySQL seguras com o servidor SnapCenter
-  url: "/install/concept_configure_secured_mysql_connections_with_snapcenter_server.html"
+  - title: Configure o certificado de cliente CA para LDAPS
+    url: "/install/task_configure_CA_client_certificate_for_LDAPS.html"

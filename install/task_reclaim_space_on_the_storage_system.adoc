@@ -1,7 +1,7 @@
 ---
 permalink: install/task_reclaim_space_on_the_storage_system.html 
 sidebar: sidebar 
-keywords: space 
+keywords: space, storage system, reclaim 
 summary: Embora o NTFS rastreie o espaço disponível em um LUN quando os arquivos são excluídos ou modificados, ele não relata as novas informações para o sistema de armazenamento. Você pode executar o cmdlet PowerShell de recuperação de espaço no host Plug-in para Windows para garantir que os blocos recém-liberados sejam marcados como disponíveis no storage. 
 ---
 = Recupere espaço no sistema de storage

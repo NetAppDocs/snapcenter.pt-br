@@ -141,3 +141,13 @@ Parâmetros a serem passados para a instalação do servidor SnapCenter:
 
 
 
+
+
+
+== Recursos ativados no host Linux durante a instalação
+
+O SnapCenter Server instala os pacotes de software abaixo que podem ajudar na solução de problemas e na manutenção do sistema host.
+
+* Rabbitmq
+* Erlang
+

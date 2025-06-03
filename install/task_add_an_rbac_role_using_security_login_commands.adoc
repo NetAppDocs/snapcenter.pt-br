@@ -1,7 +1,7 @@
 ---
 permalink: install/task_add_an_rbac_role_using_security_login_commands.html 
 sidebar: sidebar 
-keywords: RBAC roles, add, NetApp ONTAP RBAC role 
+keywords: RBAC roles, add, NetApp ONTAP RBAC role, storage system 
 summary: Use os comandos de login de segurança para adicionar uma função RBAC do NetApp ONTAP quando seus sistemas de storage estiverem executando o Clustered NetApp ONTAP. 
 ---
 = Adicione uma função NetApp ONTAP RBAC usando comandos de login de segurança
@@ -14,30 +14,20 @@ summary: Use os comandos de login de segurança para adicionar uma função RBAC
 Use os comandos de login de segurança para adicionar uma função RBAC do NetApp ONTAP quando seus sistemas de storage estiverem executando o Clustered ONTAP.
 
 .Antes de começar
-* Antes de criar uma função RBAC do ONTAP para sistemas de storage que executam o Clustered ONTAP, é necessário identificar o seguinte:
-+
-** A tarefa (ou tarefas) que você deseja executar
-** O Privileges necessário para executar essas tarefas
-
-
-* A configuração de uma função RBAC exige que você execute as seguintes ações:
-+
-** Conceda Privileges aos comandos e/ou diretórios de comando.
+* Identifique a tarefa (ou tarefas) que você deseja executar e os privilégios necessários para executá-las.
+* Conceda Privileges aos comandos e/ou diretórios de comando.
 +
 Existem dois níveis de acesso para cada diretório de comando/comando: All-Access e somente leitura.
 
 +
 Você deve sempre atribuir primeiro o All-Access Privileges.
 
-** Atribua funções aos usuários.
-** Varie a configuração dependendo se os plug-ins do SnapCenter estão conetados ao IP do administrador de cluster para todo o cluster ou diretamente conetados a um SVM no cluster.
+* Atribua funções aos usuários.
+* Identifique sua configuração dependendo se seus plug-ins SnapCenter estão conectados ao IP do administrador do cluster para todo o cluster ou diretamente conectados a uma SVM dentro do cluster.
 
 
-
-
-*Sobre esta tarefa*
-
-Para simplificar a configuração dessas funções em sistemas de storage, você pode usar a ferramenta Criador de usuários do RBAC para NetApp ONTAP, publicada no Fórum de Comunidades do NetApp.
+.Sobre esta tarefa
+Para simplificar a configuração dessas funções em sistemas de armazenamento, você pode usar a ferramenta RBAC User Creator for NetApp ONTAP, publicada no Fórum de Comunidades da NetApp.
 
 Esta ferramenta lida automaticamente com a configuração correta do ONTAP Privileges. Por exemplo, a ferramenta Criador de Usuário RBAC para NetApp ONTAP adiciona automaticamente o Privileges na ordem correta para que o Privileges de Acesso total apareça primeiro. Se você adicionar primeiro o Privileges somente leitura e depois adicionar o Privileges All-Access, o ONTAP marca o Privileges All-Access como duplicatas e os ignora.
 
@@ -46,11 +36,7 @@ NOTE: Se você atualizar mais tarde o SnapCenter ou o ONTAP, execute novamente a
 
 Para obter mais informações sobre como configurar funções RBAC do ONTAP, consulte http://docs.netapp.com/ontap-9/topic/com.netapp.doc.pow-adm-auth-rbac/home.html["Guia de autenticação do administrador da ONTAP 9 e alimentação RBAC"^].
 
-
-NOTE: Para consistência, a documentação do SnapCenter refere-se às funções como usando o Privileges. A GUI do OnCommand System Manager usa o termo _attribute_ em vez de _Privilege_. Ao configurar funções RBAC do ONTAP, esses dois termos significam a mesma coisa.
-
-*Passos*
-
+.Passos
 . No sistema de armazenamento, crie uma nova função inserindo o seguinte comando:
 +
 `security login role create <role_name\> -cmddirname "command" -access all –vserver <svm_name\>`

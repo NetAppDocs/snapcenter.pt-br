@@ -11,7 +11,7 @@ summary: Se você não quiser usar a GUI do SnapCenter para executar tarefas de 
 
 
 [role="lead"]
-Se você não quiser usar a GUI do SnapCenter para executar tarefas de provisionamento de host e recuperação de espaço, você pode usar os cmdlets do PowerShell fornecidos pelo plug-in do SnapCenter para Microsoft Windows. Você pode usar cmdlets diretamente ou adicioná-los a scripts.
+Se não quiser usar a GUI do SnapCenter para executar tarefas de provisionamento de host e recuperação de espaço, você pode usar os cmdlets do PowerShell. Você pode usar cmdlets diretamente ou adicioná-los a scripts.
 
 Se você estiver executando os cmdlets em um host de plug-in remoto, será necessário executar o cmdlet SnapCenter Open-SMConnection para abrir uma conexão com o servidor SnapCenter.
 

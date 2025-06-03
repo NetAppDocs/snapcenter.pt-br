@@ -13,17 +13,16 @@ summary: Além de usar as funções existentes do SnapCenter, você pode criar s
 [role="lead"]
 Além de usar as funções existentes do SnapCenter, você pode criar suas próprias funções e personalizar as permissões.
 
-Você deve ter feito login como a função "SnapCenterAdmin".
+Para criar suas próprias funções, é necessário efetuar login como a função "SnapCenterAdmin".
 
-*Passos*
-
+.Passos
 . No painel de navegação esquerdo, clique em *Configurações*.
 . Na página Configurações, clique em *funções*.
 . Clique image:../media/add_icon_configure_database.gif["adicionar ícone no ecrã de configuração da base de dados"]em .
-. Na página Adicionar função, especifique um nome e uma descrição para a nova função.
+. Especifique um nome e uma descrição para a nova função.
 +
 
-NOTE: Você pode incluir apenas os seguintes carateres especiais em nomes de usuário e nomes de grupo: Espaço ( ), hífen (-), sublinhado (_) e dois pontos (:).
+NOTE: Somente os seguintes caracteres especiais podem ser usados em nomes de usuários e grupos: espaço ( ), hífen (-), sublinhado (_) e dois pontos (:).
 
 . Selecione *todos os membros desta função podem ver objetos de outros membros* para permitir que outros membros da função vejam recursos como volumes e hosts depois que eles atualizarem a lista de recursos.
 +

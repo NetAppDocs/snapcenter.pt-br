@@ -1,7 +1,7 @@
 ---
 permalink: install/task_install_the_snapcenter_server_using_the_install_wizard.html 
 sidebar: sidebar 
-keywords: install, snapcenter software, install wizard 
+keywords: install, snapcenter software, install wizard, features enabled 
 summary: Você pode executar o executável do instalador do servidor SnapCenter para instalar o servidor SnapCenter. 
 ---
 = Instale o servidor SnapCenter no host Windows
@@ -63,3 +63,127 @@ No entanto, se você clicar em *Cancelar* quando as operações "SnapCenter Serv
 Os ficheiros de registo estão sempre listados (o mais antigo primeiro) na pasta %temp% do utilizador admin. Se você quiser redirecionar os locais de log, inicie a instalação do servidor SnapCenter a partir do prompt de comando executando:``C:\installer_location\installer_name.exe /log"C:\"``
 
 
+
+
+
+== Recursos habilitados no host Windows durante a instalação
+
+O instalador do servidor SnapCenter permite os recursos e funções do Windows em seu host Windows durante a instalação. Elas podem ser interessantes para solução de problemas e manutenção do sistema host.
+
+|===
+| Categoria | Recurso 
+
+
+ a| 
+Servidor Web
+ a| 
+* Serviços de informações da Internet
+* Serviços Web mundiais
+* Recursos HTTP comuns
++
+** Documento padrão
+** Navegação de diretório
+** Erros HTTP
+** Redirecionamento HTTP
+** Conteúdo estático
+** Publicação WebDAV
+
+
+* Saúde e Diagnóstico
++
+** Registo personalizado
+** Registo HTTP
+** Ferramentas de registo
+** Monitorização de pedidos
+** Traçado
+
+
+* Recursos de desempenho
++
+** Compressão de conteúdo estático
+
+
+* Segurança
++
+** Segurança IP
+** Autenticação básica
+** Suporte centralizado a certificados SSL
+** Autenticação Mapeamento certificado Cliente
+** Autenticação de mapeamento de certificados do cliente IIS
+** Restrições de IP e domínio
+** Filtragem de solicitação
+** Autorização de URL
+** Autenticação do Windows
+
+
+* Recursos de desenvolvimento de aplicativos
++
+** Extensão .NET 4,5
+** Inicialização da aplicação
+** Pacote de Hospedagem ASP.NET Core Runtime 8.0.12 (e todos os patches 8,0.x subsequentes)
+** O lado do servidor inclui
+** Protocolo WebSocket
+
+
+* Ferramentas de gerenciamento
++
+** Console de gerenciamento do IIS
+
+
+
+
+
+
+ a| 
+Scripts e ferramentas de gerenciamento do IIS
+ a| 
+* Serviço de Gestão do IIS
+* Ferramentas de gerenciamento da Web
+
+
+
+
+ a| 
+O NET Framework 8.0.12 é um dos nossos selecionados Jogos de Plataforma
+ a| 
+* Pacote de Hospedagem ASP.NET Core Runtime 8.0.12 (e todos os patches 8,0.x subsequentes)
+* Windows Communication Foundation (WCF) HTTP Activation45
++
+** Ativação TCP
+** Ativação HTTP
+
+
+
+
+Para obter informações específicas de solução de problemas .NET, https://kb.netapp.com/Advice_and_Troubleshooting/Data_Protection_and_Security/SnapCenter/SnapCenter_upgrade_or_install_fails_with_%22This_KB_is_not_related_to_the_OS%22["A atualização ou instalação do SnapCenter falha para sistemas legados que não têm conetividade com a Internet"^] consulte .
+
+
+
+ a| 
+Fila de mensagens
+ a| 
+* Serviços de enfileiramento de mensagens
++
+
+NOTE: Certifique-se de que nenhum outro aplicativo use o serviço MSMQ que o SnapCenter cria e gerencia.
+
+* RabbitMQ
+* Erlang
+
+
+
+
+ a| 
+Serviço de ativação do processo do Windows
+ a| 
+* Modelo do processo
+
+
+
+
+ a| 
+APIs de configuração
+ a| 
+Tudo
+
+|===
