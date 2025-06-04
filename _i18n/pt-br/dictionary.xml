@@ -3607,7 +3607,6 @@
   <block id="c783d48d811b4aab13eb61840dc3ee7c" category="paragraph">Você deve definir o caminho Java na variável caminho ambiental da máquina host.</block>
   <block id="94a5e03dcafcb993f53258c83811415f" category="list-text">Configure o SnapMirror e o SnapVault, se quiser replicação de backup.</block>
   <block id="8b78d81fcf70311e0778d7ca1a1da748" category="list-text">Você deve ter instalado o Java 11 em seu host.</block>
-  <block id="3a6eb59ee064b09b020c1a87c5de4988" category="admonition">O IBM Java não é suportado.</block>
   <block id="ab4159cc3447ed2c57efc22073c9a591" category="list-text">Para Windows, o Plug-in Creator Service deve ser executado usando o usuário do Windows "'LocalSystem'", que é o comportamento padrão quando o Plug-in para IBM DB2 é instalado como administrador de domínio.</block>
   <block id="e4a8446fdfa57d72bb5925250cccc5b7" category="list-text">Ao instalar um plug-in em um host do Windows, se você especificar uma credencial que não está integrada ou se o usuário pertence a um usuário local do grupo de trabalho, será necessário desativar o UAC no host. O plug-in do SnapCenter para Microsoft Windows será implantado por padrão com o plug-in do IBM DB2 em hosts do Windows.</block>
   <block id="70557a0ca3b5f90edd18cfc0d99671ad" category="list-text">O servidor SnapCenter deve ter acesso ao 8145 ou à porta personalizada do plug-in para o host IBM DB2.</block>
@@ -4381,7 +4380,6 @@
   <block id="0b12a00876503fb1813afee6ad9b0a76" category="list-text">ORA_TEMP especifica o diretório para arquivos temporários.</block>
   <block id="e1ab4aa639aa539548c7d55759dc7004" category="list-text">Oracle_HOME especifica o diretório onde o software Oracle está instalado.</block>
   <block id="57808f9033b6670d0e1ff1ecc8197488" category="list-text">ARCHIVE_LOG_ONLY especifica se você deve fazer o backup dos logs do arquivo ou não.</block>
-  <block id="6d6058c414d1170875e11ce8a19484f0" category="list-text">O Oracle_backup_MODE especifica se deve executar o backup on-line ou off-line.</block>
   <block id="c4e433903376436b2e77e2cfdc6f5913" category="summary">Se um recurso de plug-ins com suporte do NetApp individual não fizer parte de qualquer grupo de recursos, você poderá fazer o backup do recurso na página recursos. Você pode fazer backup do recurso sob demanda ou, se o recurso tiver uma política anexada e uma programação configurada, os backups ocorrem automaticamente de acordo com a programação.</block>
   <block id="6ce5278b296a0a5a39af4a4d0cbd927c" category="doc">Fazer backup de recursos de plug-ins compatíveis com NetApp individuais</block>
   <block id="085ab917326888bb9fd0378b5efb84b9" category="list-text">Clique no recurso que você deseja fazer backup.</block>
@@ -9949,4 +9947,16 @@
   <block id="d39d360863f3fda3c5d615dc978e14ae" category="sidebar">Instale o servidor SnapCenter</block>
   <block id="3199d4d0758d0f4f53db9a8f36670c18" category="sidebar">Configurar o SnapCenter Server</block>
   <block id="4c975961e88401702aa6aac167300031" category="sidebar">Adicionar e provisionar o sistema de armazenamento</block>
+  <block id="81f9b64ab1987ed2d00f4d52a80ca52b" category="paragraph">Para obter as informações mais recentes sobre versões suportadas, consulte o<block ref="315018c067f16596ddc2e2de507c24d0" category="inline-link-rx"></block>.</block>
+  <block id="0885e9f12d8cb35b0f02655c34c87004" category="admonition">O IBM Java não é suportado em hosts Windows e Linux.</block>
+  <block id="48c9a1bf5de7bf57f1efa648f3bc8d17" category="inline-link">Baixe JAVA para Windows</block>
+  <block id="a4560fe71d10d98deabf55fdf50b90f0" category="paragraph"><block ref="a4560fe71d10d98deabf55fdf50b90f0" category="inline-link-rx"></block></block>
+  <block id="25827211b51e5a08cc74ddb2f845f386" category="inline-link">Baixe JAVA para Linux</block>
+  <block id="0632a773655c14c1b1e9ced88bc550ed" category="paragraph"><block ref="0632a773655c14c1b1e9ced88bc550ed" category="inline-link-rx"></block></block>
+  <block id="ffef625a5852f63e8c97e120b261e871" category="inline-link">Baixe JAVA para AIX</block>
+  <block id="1cf0cff6e7cd05dac4238e50abe74627" category="paragraph"><block ref="1cf0cff6e7cd05dac4238e50abe74627" category="inline-link-rx"></block></block>
+  <block id="67366bdaf9086e6015fe527a27beb845" category="inline-link">Baixe JAVA para todos os sistemas operacionais</block>
+  <block id="230f7d0fc162c3a559cd8b29556f41f4" category="paragraph"><block ref="230f7d0fc162c3a559cd8b29556f41f4" category="inline-link-rx"></block></block>
+  <block id="17103b09b3247a2b39032b11b995b325" category="list-text">ORACLE_BACKUPMODE especifica se o backup deve ser realizado online ou offline.</block>
+  <block id="849d9298ad9d6def4918273148b3d4bf" category="list-text">ORACLE_EXPORT_PARAMETERS especifica se você pode exportar variáveis de ambiente durante a execução de _bin/su_. O valor de ORACLE_EXPORT_PARAMETERS deve ser definido como *y*.</block>
 </blocks>

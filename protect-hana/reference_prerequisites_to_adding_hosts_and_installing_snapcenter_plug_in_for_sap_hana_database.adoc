@@ -16,7 +16,7 @@ Antes de adicionar um host e instalar os pacotes de plug-in, você deve completa
 * Você deve ter instalado o Java 11 em seu host.
 +
 
-NOTE: O IBM Java não é suportado.
+NOTE: O IBM Java não é suportado em hosts Windows e Linux.
 
 * Você deve ter instalado o terminal interativo do banco de dados SAP HANA (cliente HDBSQL) no host.
 * Para o Windows, o Plug-in Creator Service deve ser executado usando o usuário Windows "'LocalSystem'", que é o comportamento padrão quando o Plug-in para SAP HANA Database é instalado como administrador de domínio.
@@ -35,7 +35,7 @@ NOTE: O IBM Java não é suportado.
 * Você deve ter habilitado a conexão SSH baseada em senha para o usuário root ou não root.
 * Você deve ter instalado o Java 11 em seu host Windows.
 +
-http://www.java.com/en/download/manual.jsp["Downloads Java para todos os sistemas operacionais"]
+http://www.java.com/en/download/manual.jsp["Baixe JAVA para todos os sistemas operacionais"]
 
 +
 https://imt.netapp.com/matrix/imt.jsp?components=121074;&solution=1257&isHWU&src=IMT["Ferramenta de Matriz de interoperabilidade do NetApp"]
@@ -49,7 +49,7 @@ https://imt.netapp.com/matrix/imt.jsp?components=121074;&solution=1257&isHWU&src
 * Você deve ter habilitado a conexão SSH baseada em senha para o usuário root ou não root.
 * Você deve ter instalado o Java 11 em seu host Linux.
 +
-http://www.java.com/en/download/manual.jsp["Downloads Java para todos os sistemas operacionais"]
+http://www.java.com/en/download/manual.jsp["Baixe JAVA para todos os sistemas operacionais"]
 
 +
 https://imt.netapp.com/matrix/imt.jsp?components=121073;&solution=1257&isHWU&src=IMT["Ferramenta de Matriz de interoperabilidade do NetApp"]

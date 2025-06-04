@@ -197,5 +197,6 @@ Definições de recursos:
 * ORA_TEMP especifica o diretório para arquivos temporários.
 * Oracle_HOME especifica o diretório onde o software Oracle está instalado.
 * ARCHIVE_LOG_ONLY especifica se você deve fazer o backup dos logs do arquivo ou não.
-* O Oracle_backup_MODE especifica se deve executar o backup on-line ou off-line.
+* ORACLE_BACKUPMODE especifica se o backup deve ser realizado online ou offline.
+* ORACLE_EXPORT_PARAMETERS especifica se você pode exportar variáveis de ambiente durante a execução de _bin/su_. O valor de ORACLE_EXPORT_PARAMETERS deve ser definido como *y*.
 

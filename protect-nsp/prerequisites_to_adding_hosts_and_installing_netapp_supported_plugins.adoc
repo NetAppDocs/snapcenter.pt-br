@@ -17,6 +17,10 @@ Antes de adicionar um host e instalar os pacotes de plug-ins, você deve complet
 NOTE: Os aplicativos de armazenamento e Oracle são compatíveis com AIX.
 
 * Você deve ter instalado o Java 11 em seu host Linux, Windows ou AIX.
++
+
+NOTE: O IBM Java não é suportado em hosts Windows e Linux.
+
 * Ao instalar um plug-in em um host do Windows, se você especificar uma credencial que não está integrada ou se o usuário pertence a um usuário local do grupo de trabalho, será necessário desativar o UAC no host.
 * Os plug-ins compatíveis com o NetApp, como MongoDB, ORASCPM, aplicativos Oracle, SAP ASE, SAP MaxDB e plug-in de armazenamento, devem estar disponíveis no host do cliente de onde a operação de adição de host é executada.
 
@@ -34,6 +38,9 @@ Se estiver a utilizar iSCSI, o serviço iSCSI deverá estar em execução.
 * Você deve ter um usuário de domínio com Privileges de administrador local com permissões de login local no host remoto.
 * Se você gerenciar nós de cluster no SnapCenter, precisará ter um usuário com Privileges administrativo para todos os nós do cluster.
 * Você deve escolher manualmente o plug-in do SnapCenter para Microsoft Windows.
++
+http://www.java.com/en/download/manual.jsp["Baixe JAVA para Windows"]
+
 
 
 
@@ -49,7 +56,10 @@ NOTE: Os aplicativos de armazenamento e Oracle são compatíveis com AIX.
 Se você estiver usando o Windows Server 2019 ou o Windows Server 2016 para o host do servidor SnapCenter, você deve instalar o Java 11. A ferramenta de Matriz de interoperabilidade (IMT) contém as informações mais recentes sobre os requisitos.
 
 +
-http://www.java.com/en/download/manual.jsp["Downloads Java para todos os sistemas operacionais"]
+http://www.java.com/en/download/manual.jsp["Baixe JAVA para Linux"]
+
++
+https://developer.ibm.com/languages/java/semeru-runtimes/downloads/?license=IBM["Baixe JAVA para AIX"]
 
 +
 https://imt.netapp.com/matrix/imt.jsp?components=117018;&solution=1259&isHWU&src=IMT["Ferramenta de Matriz de interoperabilidade do NetApp"]
