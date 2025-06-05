@@ -9958,5 +9958,5 @@
   <block id="67366bdaf9086e6015fe527a27beb845" category="inline-link">Baixe JAVA para todos os sistemas operacionais</block>
   <block id="230f7d0fc162c3a559cd8b29556f41f4" category="paragraph"><block ref="230f7d0fc162c3a559cd8b29556f41f4" category="inline-link-rx"></block></block>
   <block id="17103b09b3247a2b39032b11b995b325" category="list-text">ORACLE_BACKUPMODE especifica se o backup deve ser realizado online ou offline.</block>
-  <block id="849d9298ad9d6def4918273148b3d4bf" category="list-text">ORACLE_EXPORT_PARAMETERS especifica se você pode exportar variáveis de ambiente durante a execução de _bin/su_. O valor de ORACLE_EXPORT_PARAMETERS deve ser definido como *y*.</block>
+  <block id="e787bc810fe0c9919da5538cad8cb1f1" category="list-text">ORACLE_EXPORT_PARAMETERS especifica se as variáveis de ambiente definidas acima devem ser reexportadas durante a execução de _/bin/su &lt;usuário executando sqlplus&gt; -c sqlplus /nolog &lt;cmd&gt;_. Isso normalmente ocorre quando o usuário que está executando o sqlplus não definiu todas as variáveis de ambiente necessárias para se conectar ao banco de dados usando _connect / as sysdba_.</block>
 </blocks>
