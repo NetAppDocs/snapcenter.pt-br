@@ -76,9 +76,6 @@ Os detalhes dos backups e clones são exibidos em um formato de tabela.
 
 NOTE: Não é possível renomear ou excluir backups que estão no sistema de armazenamento secundário.
 
-+
-Se você estiver usando plug-ins personalizados do SnapCenter, não será possível renomear os backups que estão no sistema de storage primário.
-
 . Se você quiser excluir um clone, selecione o clone da tabela e clique image:../media/delete_icon.gif["eliminar ícone"] para excluir o clone.
 
 

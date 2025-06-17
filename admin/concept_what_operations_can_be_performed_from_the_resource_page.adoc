@@ -16,13 +16,11 @@ Você pode descobrir recursos e executar operações de proteção de dados na p
 Na página recursos, você pode executar as seguintes tarefas:
 
 |===
-| Você pode executar essas tarefas... | Para Microsoft Exchange Server | Para Microsoft SQL Server | Para Microsoft Windows | Para o banco de dados Oracle | Para banco de dados SAP HANA | Para plug-ins personalizados 
+| Você pode executar essas tarefas... | Para Microsoft Exchange Server | Para Microsoft SQL Server | Para Microsoft Windows | Para o banco de dados Oracle | Para banco de dados SAP HANA 
 
 
  a| 
 Determine se os recursos estão disponíveis para backup
- a| 
-Sim
  a| 
 Sim
  a| 
@@ -48,15 +46,11 @@ Sim
 Sim
  a| 
 Sim
- a| 
-Sim
 
 
 
  a| 
 Restauração a partir de backups
- a| 
-Sim
  a| 
 Sim
  a| 
@@ -82,15 +76,11 @@ Sim
 Sim
  a| 
 Sim
- a| 
-Sim
 
 
 
  a| 
 Gerenciar backups
- a| 
-Sim
  a| 
 Sim
  a| 
@@ -116,15 +106,11 @@ Sim
 Sim
  a| 
 Sim
- a| 
-Sim
 
 
 
  a| 
 Gerenciar políticas
- a| 
-Sim
  a| 
 Sim
  a| 
@@ -150,8 +136,6 @@ Sim
 Sim
  a| 
 Sim
- a| 
-Sim
 
 
 
@@ -165,8 +149,6 @@ Não
 Não
  a| 
 Sim
- a| 
-Não
  a| 
 Não
 
@@ -184,15 +166,11 @@ Não
 Sim
  a| 
 Não
- a| 
-Não
 
 
 
  a| 
 Ver detalhes
- a| 
-Sim
  a| 
 Sim
  a| 

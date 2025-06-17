@@ -2,7 +2,7 @@
 permalink: protect-db2/configure-CA-certificate-for-ibm-db2-on-windows-host.html 
 sidebar: sidebar 
 keywords: SnapCenter 
-summary: Configure o certificado de CA para o serviço de plug-ins personalizados do SnapCenter no host do Windows 
+summary: Configure o certificado CA para o serviço de plug-ins IBM DB2 do SnapCenter no host Windows 
 ---
 = Configure o certificado CA para o serviço de plug-ins IBM DB2 do SnapCenter no host Windows
 :allow-uri-read: 
@@ -11,16 +11,16 @@ summary: Configure o certificado de CA para o serviço de plug-ins personalizado
 
 
 [role="lead"]
-Você deve gerenciar a senha do armazenamento de chaves de plug-ins personalizados e seu certificado, configurar o certificado de CA, configurar certificados raiz ou intermediários para o armazenamento de confiança de plug-ins personalizados e configurar o par de chaves assinadas de CA para armazenamento de confiança de plug-ins personalizados personalizados com o serviço de plug-ins personalizados SnapCenter para ativar o certificado digital instalado.
+Você deve gerenciar a senha do keystore do plug-in e seu certificado, configurar o certificado da CA, configurar certificados raiz ou intermediários para o trust-store do plug-in e configurar o par de chaves assinadas pela CA para o trust-store do plug-in com o serviço de plug-ins do SnapCenter para ativar o certificado digital instalado.
 
-Plug-ins personalizados usam o arquivo _keystore.jks_, que está localizado em _C: Arquivos de programas, NetApp, SnapCenter, SnapCenter Plug-in Creator, tanto como seu armazenamento de confiança e armazenamento de chaves.
+Os plug-ins usam o arquivo _keystore.jks_, que está localizado em _C:\Program Files\NetApp\SnapCenter\Snapcenter Plug-in Creator\etc_ como seu armazenamento confiável e armazenamento de chaves.
 
 
 
-== Gerenciar senha para armazenamento de chaves plug-in personalizado e alias do par de chaves assinadas CA em uso
+== Gerenciar senha para keystore de plug-in e alias do par de chaves assinadas pela CA em uso
 
 .Passos
-. Você pode recuperar a senha padrão do keystore do plug-in personalizado do arquivo de propriedade do agente do plug-in personalizado.
+. Você pode recuperar a senha padrão do keystore do plug-in a partir do arquivo de propriedades do agente do plug-in.
 +
 É o valor correspondente à chave _KEYSTORE_PASS_.
 
@@ -45,18 +45,18 @@ Atualize o mesmo para a chave KEYSTORE_PASS no arquivo _agent.properties_.
 . Reinicie o serviço depois de alterar a senha.
 +
 
-NOTE: A palavra-passe para o armazenamento de chaves plug-in personalizado e para todas as palavras-passe de alias associadas da chave privada deve ser a mesma.
+NOTE: A senha para o keystore do plug-in e para todas as senhas de alias associadas da chave privada deve ser a mesma.
 
 
 
 
 
-== Configure certificados raiz ou intermediários para armazenamento de confiança de plug-in personalizado
+== Configurar certificados raiz ou intermediários para plug-in trust-store
 
-Você deve configurar os certificados raiz ou intermediários sem a chave privada para armazenamento de confiança de plug-in personalizado.
+Você deve configurar os certificados raiz ou intermediários sem a chave privada para conectar o trust-store.
 
 .Passos
-. Navegue até a pasta que contém o armazenamento de chaves de plug-in personalizado _C: Arquivos de programas/NetApp/SnapCenter/SnapCenter Plug-in Creator/etc_
+. Navegue até a pasta que contém o keystore do plug-in _C:\Program Files\NetApp\SnapCenter\Snapcenter Plug-in Creator\etc_
 . Localize o arquivo 'keystore.jks'.
 . Liste os certificados adicionados no keystore:
 +
@@ -66,7 +66,7 @@ _keytool -list -v -keystore keystore.jks_
 +
 _Keytool -import -trustcacerts -alias myRootCA -file /root/USERTrustRSA_root.cer -keystore keystore.jks_
 
-. Reinicie o serviço depois de configurar os certificados raiz ou intermédios para o armazenamento de confiança de plug-in personalizado.
+. Reinicie o serviço após configurar os certificados raiz ou intermediários para conectar o trust-store.
 
 
 
@@ -74,12 +74,12 @@ NOTE: Você deve adicionar o certificado de CA raiz e, em seguida, os certificad
 
 
 
-== Configure o par de chaves assinadas da CA para o armazenamento de confiança de plug-in personalizado
+== Configurar o par de chaves assinadas pela CA para plug-in de armazenamento confiável
 
-Você deve configurar o par de chaves assinadas da CA para o armazenamento de confiança do plug-in personalizado.
+Você deve configurar o par de chaves assinadas pela CA para o trust-store do plug-in.
 
 .Passos
-. Navegue até a pasta que contém o armazenamento de chaves de plug-in personalizado _C: Arquivos de programas/NetApp/SnapCenter/SnapCenter Plug-in Creator/etc_
+. Navegue até a pasta que contém o keystore do plug-in _C:\Program Files\NetApp\SnapCenter\Snapcenter Plug-in Creator\etc_
 . Localize o arquivo _keystore.jks_.
 . Liste os certificados adicionados no keystore:
 +
@@ -96,7 +96,7 @@ _keytool -list -v -keystore keystore.jks_
 . Verifique se o keystore contém o alias correspondente ao novo certificado da CA, que foi adicionado ao keystore.
 . Altere a senha da chave privada adicionada para o certificado da CA para a senha do keystore.
 +
-A senha padrão do keystore do plug-in personalizado é o valor da chave KEYSTORE_PASS no arquivo agent.properties.
+A senha padrão do keystore do plug-in é o valor da chave KEYSTORE_PASS no arquivo agent.properties.
 
 +
 _Keytool -keypasswd -alias "alias_name_in_CA_cert" -keystore keystore.jks_
@@ -105,17 +105,17 @@ _Keytool -keypasswd -alias "alias_name_in_CA_cert" -keystore keystore.jks_
 +
 Atualize este valor com a chave SCC_CERTIFICATE_ALIAS.
 
-. Reinicie o serviço depois de configurar o par de chaves assinadas pela CA para o armazenamento de confiança de plug-in personalizado.
+. Reinicie o serviço após configurar o par de chaves assinadas pela CA para o plug-in trust-store.
 
 
 
 
-== Configurar a lista de revogação de certificados (CRL) para plug-ins personalizados do SnapCenter
+== Configurar a lista de revogação de certificados (CRL) para plug-ins SnapCenter
 
 .Sobre esta tarefa
 * Para transferir o ficheiro CRL mais recente para o certificado CA relacionado, https://kb.netapp.com/Advice_and_Troubleshooting/Data_Protection_and_Security/SnapCenter/How_to_update_certificate_revocation_list_file_in_SnapCenter_CA_Certificate["Como atualizar o arquivo de lista de revogação de certificados no certificado da CA do SnapCenter"]consulte .
-* Os plug-ins personalizados do SnapCenter pesquisarão os arquivos CRL em um diretório pré-configurado.
-* O diretório padrão para os arquivos CRL para os plug-ins personalizados do SnapCenter é _'C: Arquivos de programas/NetApp/SnapCenter/SnapCenter Plug-in Creator etc/crl'_.
+* Os plug-ins do SnapCenter procurarão os arquivos CRL em um diretório pré-configurado.
+* O diretório padrão para os arquivos CRL dos plug-ins do SnapCenter é _'C:\Arquivos de Programas\NetApp\SnapCenter\Snapcenter Plug-in Creator\ etc\crl'_.
 
 
 .Passos

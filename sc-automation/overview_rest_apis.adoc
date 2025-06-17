@@ -17,7 +17,6 @@ Os plug-ins compatíveis com APIs REST são:
 
 * Plug-in para Microsoft SQL Server
 * Plug-in para banco de dados SAP HANA
-* Plug-ins personalizados
 * Plug-in para Oracle Database
 
 

@@ -15,7 +15,7 @@ Você pode usar o SnapCenter para clonar o sistema de arquivos Unix usando o bac
 
 .Antes de começar
 * Você pode ignorar a atualização do arquivo fstab definindo o valor de _SKIP_FSTAB_UPDATE_ para *true* no arquivo _agent.properties_ localizado em _/opt/NetApp/SnapCenter/scc/etc_.
-* Você pode ter um nome de volume de clone estático e caminho de junção definindo o valor de _USE_CUSTOM_CLONE_VOLUME_NAME_FORMAT_ para *true* no arquivo _agent.properties_ localizado em _/opt/NetApp/SnapCenter/scc/etc_. Depois de atualizar o arquivo, você deve reiniciar o SnapCenter para o serviço de plug-in personalizado executando o comando: `/opt/NetApp/snapcenter/scc/bin/scc restart`.
+* Você pode ter um nome de volume de clone estático e caminho de junção definindo o valor de _USE_CUSTOM_CLONE_VOLUME_NAME_FORMAT_ para *true* no arquivo _agent.properties_ localizado em _/opt/NetApp/SnapCenter/scc/etc_. Após atualizar o arquivo, você deve reiniciar o serviço do criador do plug-in SnapCenter executando o comando:  `/opt/NetApp/snapcenter/scc/bin/scc restart` .
 +
 Exemplo: Sem esta propriedade o nome do volume do clone e o caminho de junção serão como <Source_volume_name>_Clone_<Timestamp>, mas agora será <Source_volume_name>_Clone_<Clone_Name>
 

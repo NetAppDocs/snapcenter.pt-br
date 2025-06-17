@@ -1,7 +1,7 @@
 ---
 permalink: protect-scsql/reference_host_requirements_to_install_snapcenter_plug_in_package_for_windows_sql.html 
 sidebar: sidebar 
-keywords: SAP HANA,Custom plug-ins 
+keywords: requirements, prerequisites, install, plug-in for Windows 
 summary: Antes de instalar o pacote de plug-ins do SnapCenter para Windows, você deve estar familiarizado com alguns requisitos básicos de espaço do sistema host e requisitos de dimensionamento. 
 ---
 = Requisitos de host para instalar o pacote de plug-ins do SnapCenter para Windows

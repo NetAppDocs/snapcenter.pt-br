@@ -18,11 +18,11 @@ Quando os plug-ins compatíveis com NetApp estão instalados, você pode usar a 
 
 NOTE: SnapCenterCLI não suporta comandos de plug-ins suportados pelo NetApp.
 
-O NetApp fornece o plug-in de storage para executar operações de proteção de dados do volume de dados no storage ONTAP usando a estrutura de plug-in personalizada incorporada ao SnapCenter.
+A NetApp fornece o plug-in de armazenamento para executar operações de proteção de dados do volume de dados no armazenamento ONTAP usando a estrutura de plug-in incorporada ao SnapCenter.
 
 Você pode instalar os plug-ins compatíveis com o NetApp na página Adicionar host.
 
 link:add_hosts_and_install_plug_in_packages_on_remote_hosts.html["Adicione hosts e instale pacotes plug-in em hosts remotos."^]
 
 
-NOTE: A política de suporte do SnapCenter cobrirá o suporte para a estrutura de plug-in personalizada do SnapCenter, mecanismo central e as APIs associadas. O suporte não cobrirá o código-fonte do plug-in e os scripts associados criados na estrutura de plug-in personalizada.
+NOTE: A política de suporte do SnapCenter abrangerá o suporte à estrutura do plug-in, ao mecanismo principal e às APIs associadas. O suporte não abrangerá o código-fonte do plug-in e os scripts associados criados na estrutura do plug-in.

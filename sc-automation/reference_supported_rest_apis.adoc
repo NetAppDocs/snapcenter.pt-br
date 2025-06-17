@@ -119,7 +119,6 @@ Você pode usar APIs para executar operações diferentes.
 * Restaurar um backup de banco de dados SQL
 * Restaurar um backup de banco de dados Oracle
 * restaure um backup de aplicativo personalizado
-* crie um recurso de plug-in personalizado
 * Criar um recurso do SAP HANA
 * proteja um recurso personalizado usando o plug-in para aplicativos personalizados
 * Proteja um recurso do Microsoft SQL Server usando o plug-in para Microsoft SQL Server
@@ -272,7 +271,6 @@ Você pode usar APIs para executar operações diferentes.
 * Configurar o banco de dados SAP HANA usando uma chave
 * Configure o banco de dados Oracle usando uma chave
 * restaure um backup de aplicativo personalizado usando uma chave
-* crie um recurso de plug-in personalizado
 * Criar um recurso do SAP HANA
 * Criar um recurso de volume de aplicativos Oracle
 * proteja um recurso personalizado usando o plug-in para aplicativos personalizados

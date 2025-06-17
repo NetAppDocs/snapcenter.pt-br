@@ -23,7 +23,7 @@ Um grupo de recursos é uma coleção de recursos em um host ou cluster. Uma ope
 NOTE: Ao fazer backup de um sistema de arquivos, o SnapCenter não faz backup de LUNs montados em um ponto de montagem de volume (VMP) no sistema de arquivos que está sendo feito backup.
 
 
-IMPORTANT: Se você estiver trabalhando em um contexto de sistema de arquivos do Windows, não faça backup de arquivos de banco de dados. Isso cria um backup inconsistente e uma possível perda de dados ao restaurar. Para proteger arquivos de banco de dados, você deve usar o plug-in SnapCenter apropriado para o banco de dados (por exemplo, plug-in SnapCenter para Microsoft SQL Server, plug-in SnapCenter para Microsoft Exchange Server ou um plug-in personalizado para arquivos de banco de dados).
+IMPORTANT: Se você estiver trabalhando em um contexto de sistema de arquivos do Windows, não faça backup de arquivos de banco de dados. Isso cria um backup inconsistente e uma possível perda de dados ao restaurar. Para proteger arquivos de banco de dados, você deve usar o plug-in SnapCenter apropriado para o banco de dados (por exemplo, SnapCenter Plug-in para Microsoft SQL Server ou SnapCenter Plug-in para Microsoft Exchange Server).
 
 .Passos
 . No painel de navegação esquerdo, clique em *Resources* e selecione o plug-in apropriado na lista.
