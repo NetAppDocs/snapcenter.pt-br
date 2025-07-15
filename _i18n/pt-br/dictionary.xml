@@ -8733,7 +8733,6 @@
   <block id="83e606e7229254f977fc3348f76ce3d4" category="doc">Configurar servidores SnapCenter para alta disponibilidade</block>
   <block id="3f885fa4441e45ab56f7266ba93b9290" category="paragraph">Para oferecer suporte a alta disponibilidade (HA) no SnapCenter executado no Windows ou no Linux, você pode instalar o balanceador de carga F5. O F5 permite que o servidor SnapCenter suporte configurações ativo-passivo em até dois hosts que estão no mesmo local. Para usar o balanceador de carga F5 no SnapCenter, você deve configurar os servidores SnapCenter e configurar o balanceador de carga F5.</block>
   <block id="08966309e9619d374846ea7cc8ead3ed" category="paragraph">Para ambientes de nuvem, você pode configurar a alta disponibilidade usando o Amazon Web Services (AWS) Elastic Load Balancing (ELB) e o balanceador de carga do Azure.</block>
-  <block id="026c74cf033fccdbeac6574d083691f5" category="paragraph">A imagem do fluxo de trabalho lista as etapas para configurar os servidores SnapCenter para alta disponibilidade usando o balanceador de carga F5. Para obter instruções detalhadas,<block ref="4d4c1b07c3f7cab3f346d17a2617da56" category="inline-link-rx"></block> consulte .</block>
   <block id="43279440aa73faeb0bd5bf72d7a0b48c" category="paragraph">Para obter mais informações,<block ref="bc822c4319e03a98720e4951c1009810" category="inline-link-rx"></block> consulte .</block>
   <block id="0f68b904e33d9ac04605aecc958bcf52" category="paragraph">Informações adicionais</block>
   <block id="5d8d9a5294b7f49c7e6eda95dc97aa5e" category="list-text">Na configuração do balanceador de carga (NLB ou F5), se você adicionar um host parcialmente resolvido pelo NLB ou host F5 e se o host SnapCenter não conseguir entrar em Contato com esse host, a página do host SnapCenter alternará entre hosts inativos e o estado em execução com frequência. Para resolver esse problema, você deve garantir que ambos os hosts do SnapCenter sejam capazes de resolver o host no NLB ou no host F5.</block>
@@ -8952,7 +8951,6 @@
   <block id="6e13f804ad8be111cf6ad70744afe388" category="list-text">Dados em sistemas primários e secundários do ONTAP ASA R2</block>
   <block id="651f8f48e0ff0ede39a3224558b4b516" category="paragraph">Em segundo lugar proteção</block>
   <block id="f9c655f2d65a07a71b2deab50b74ffae" category="paragraph">Você também pode configurar o balanceamento de carga de rede (NLB) para configurar o SnapCenter High Availability. Você deve configurar manualmente o NLB fora da instalação do SnapCenter para alta disponibilidade.</block>
-  <block id="0a0bca773054c9a47b687411e5ff20e8" category="image-alt">Fluxo de trabalho de configuração F5</block>
   <block id="27c157ca432e76f965ac30465e4a7d94" category="paragraph">Você pode configurar o balanceamento de carga de rede (NLB) para configurar o SnapCenter High Availability. Você deve configurar manualmente o NLB fora da instalação do SnapCenter para alta disponibilidade.</block>
   <block id="731ac89bec4a57f1e740c167b65c6f53" category="summary">Você deve criar funções de cluster do ONTAP para sistemas ASA R2 para que não seja necessário usar a função de administrador do ONTAP para executar operações no SnapCenter.</block>
   <block id="abdbfb1150ad2e22831c6bdbf7bac8d8" category="doc">Criar funções de cluster do ONTAP para sistemas ASA R2</block>
@@ -9559,4 +9557,6 @@
   <block id="a537fd276cd3fe8ae075cca47114fd6a" category="admonition">Se você estiver trabalhando em um contexto de sistema de arquivos do Windows, não faça backup de arquivos de banco de dados. Isso cria um backup inconsistente e uma possível perda de dados ao restaurar. Para proteger arquivos de banco de dados, você deve usar o plug-in SnapCenter apropriado para o banco de dados (por exemplo, SnapCenter Plug-in para Microsoft SQL Server ou SnapCenter Plug-in para Microsoft Exchange Server).</block>
   <block id="6fea498808c5d97bb251d0bdbc3943eb" category="sidebar">Configurar o certificado CA para o serviço SnapCenter Plug-ins no host Linux</block>
   <block id="5c1418af1ce8eeaeb3745b659e1fcfe8" category="sidebar">Configurar o certificado CA para o serviço SnapCenter Plug-ins no host Windows</block>
+  <block id="f890e4e7d1398542e6dfe99fa9cf5732" category="paragraph">Para obter instruções sobre como configurar os servidores SnapCenter para alta disponibilidade usando o balanceador de carga F5, consulte <block ref="4d4c1b07c3f7cab3f346d17a2617da56" category="inline-link-rx"></block> .</block>
+  <block id="78805a221a988e79ef3f42d7c5bfd418" category="paragraph">imagem</block>
 </blocks>
