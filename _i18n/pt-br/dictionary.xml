@@ -1004,14 +1004,10 @@
   <block id="e72e41b6444b5d653a8ae41192189e01" category="summary">Antes de usar o SnapCenter, é útil entender conceitos básicos relacionados às operações de backup, clonagem e restauração que você deseja executar. Você interage com recursos, grupos de recursos e políticas para diferentes operações.</block>
   <block id="9c124c0fc8c6cc2725dad57b45c85eb0" category="paragraph">A imagem a seguir ilustra a relação entre recursos, grupos de recursos e políticas para bancos de dados:</block>
   <block id="6309043436d4e7e5bad9a81c89ff15e4" category="doc">Visão geral do SnapCenter</block>
-  <block id="edaafea0543ae64ebb79a2ed2e7a055b" category="paragraph">O SnapCenter utiliza as tecnologias NetApp Snapshot, SnapRestore, FlexClone, SnapMirror e SnapVault para oferecer o seguinte:</block>
   <block id="6d02db19251dfec578c356202bfb1bdc" category="list-text">Backups rápidos, com uso eficiente de espaço, consistentes com aplicações e baseados em disco</block>
-  <block id="3f47ac8ce2ea087a29a167d91aa9f473" category="list-text">Restauração rápida e granular, e recuperação consistente com aplicações</block>
   <block id="730379f67cffd2b9f827972fda727e5c" category="list-text">Clonagem rápida e com uso eficiente de espaço</block>
-  <block id="ad5726653853fba2b5d98515c638da77" category="list-text">No local para proteger o seguinte:</block>
   <block id="7deab53ede49d0d1a58c65f2e25ff259" category="list-text">Dados em sistemas primários ONTAP Select</block>
   <block id="3f897d901d24f02777ff0994b7823d1a" category="list-text">Dados em sistemas primários e secundários ONTAP FAS, AFF ou ASA e protegidos no storage de objetos StorageGRID local</block>
-  <block id="bc549d53e5e7a7aeb8a41511751a99f2" category="list-text">No local em uma nuvem híbrida para proteger o seguinte:</block>
   <block id="f5c37d824040662f50cbb8a32d77182d" category="list-text">Dados em sistemas primários ONTAP FAS, AFF ou ASA e replicados para Cloud Volumes ONTAP</block>
   <block id="f7b38c62b0e74d318a255bc3094cf531" category="list-text">Dados em sistemas primários e secundários ONTAP FAS, AFF ou ASA e protegidos em storage de objetos e arquivamento na nuvem (usando integração de recuperação e backup do BlueXP )</block>
   <block id="ca5570a253e3c0a27562c65c06bb6125" category="list-text">Em uma nuvem pública para proteger o seguinte:</block>
@@ -1019,14 +1015,9 @@
   <block id="b380e442ff5c6e48e283af8b6f99806f" category="list-text">Dados que estão no Amazon FSX for ONTAP</block>
   <block id="97f2c8bf124398ba05bca9cc6fb869b1" category="list-text">Dados em Azure NetApp Files primário (Oracle, Microsoft SQL e SAP HANA)</block>
   <block id="1e06a8cc16bd3bc423f81e8ff56e4fc0" category="list-text">Backups baseados em políticas</block>
-  <block id="9939c592ab7bc8c3264f4ed7fde3bd18" category="paragraph">Os backups baseados em políticas utilizam a tecnologia NetApp Snapshot para criar backups rápidos, com uso eficiente de espaço, consistentes com aplicações e baseados em disco. Como opção, você pode automatizar a proteção desses backups para um storage secundário por meio de atualizações dos relacionamentos de proteção existentes.</block>
-  <block id="c6f23063f5e9e828f1d4a0d52255f07c" category="list-text">Backups para vários recursos</block>
-  <block id="050fe282bd8b711ba366c400655d1e2a" category="paragraph">É possível fazer backup de vários recursos (aplicações, bancos de dados ou sistemas de arquivos host) do mesmo tipo, ao mesmo tempo, usando grupos de recursos do SnapCenter.</block>
   <block id="6be8f3086a30e59e908d53eb620b51dd" category="list-text">Restauração e recuperação</block>
   <block id="b28420c602ed165d9f1cc771175a4c88" category="paragraph">O SnapCenter fornece restaurações granulares e rápidas de backups e recuperação baseada em tempo e consistente com aplicações. Você pode restaurar a partir de qualquer destino na nuvem híbrida.</block>
   <block id="217601d383b816e6a2548e57b5006f92" category="list-text">Clonagem</block>
-  <block id="e83cfee5e1167f2033d1e804f1841a96" category="paragraph">O SnapCenter fornece clonagem rápida, com uso eficiente de espaço e consistente com aplicações, o que possibilita o desenvolvimento acelerado de software. Você pode clonar em qualquer destino na nuvem híbrida.</block>
-  <block id="4f6da05ed76330876dac0fffae948e27" category="list-text">Interface gráfica do usuário (GUI) de gerenciamento de usuário único</block>
   <block id="c534b8c3e9d947f12540681e6b032d6e" category="list-text">APIs REST, cmdlets do Windows, comandos UNIX</block>
   <block id="34b88b9f409afc7274c8a769ee450883" category="inline-link">Guia de Referência de comandos do software SnapCenter</block>
   <block id="aa4473d6d9a217be25c4635b52860652" category="list-text">Instalação automática de plug-ins por push</block>
@@ -1049,7 +1040,6 @@
   <block id="3245d8514a844d08673af1fb25bec2f4" category="list-text">Plug-in SnapCenter para PostgreSQL</block>
   <block id="aa96d0986aa898ff8efdb0e691f15a6c" category="list-text">Plug-in SnapCenter para MySQL</block>
   <block id="2e41c2081a8838f41650e76a978d4057" category="list-text">Plug-in SnapCenter para banco de dados Oracle</block>
-  <block id="b62cae9c23cf035ec4b43fec7f0697d6" category="paragraph">O servidor SnapCenter e os plug-ins se comunicam com o agente host usando HTTPS. As informações sobre as operações do SnapCenter são armazenadas no repositório do SnapCenter.</block>
   <block id="a6d093f66e362f8852d5b0ce5d1adf5a" category="section-title">Plug-ins do SnapCenter</block>
   <block id="e1087bd8c9bab7e111508724bff61f97" category="paragraph">Cada plug-in do SnapCenter é compatível com ambientes, bancos de dados e aplicações específicos.</block>
   <block id="9a8bf4c46d108a9dadf51b9b7637621f" category="cell">Nome do plug-in</block>
@@ -1072,7 +1062,6 @@
   <block id="4abb41aae1dfe9c81afb3c3672df559c" category="paragraph">Linux ou Windows</block>
   <block id="7affc9aa382d06b530a170abd5ed58b0" category="paragraph">DB2 host</block>
   <block id="de2f98bb47449438a4cc0f3280943d06" category="paragraph">PostgreSQL host</block>
-  <block id="a364132418180f0b14b5eb7db8b87808" category="admonition">O plug-in do SnapCenter para VMware vSphere é compatível com operações de backup e restauração consistentes com VM e falhas para máquinas virtuais (VMs), armazenamentos de dados e discos de máquinas virtuais (VMDKs), além de oferecer suporte aos plug-ins específicos da aplicação SnapCenter para proteger operações de backup e restauração consistentes com aplicações para bancos de dados e sistemas de arquivos virtualizados.</block>
   <block id="8c3d0c00ea667e3e0723e5cdc6473a09" category="inline-link">Plug-in do SnapCenter para documentação do VMware vSphere</block>
   <block id="043833147a39840644f2ff01a835f90d" category="section-title">Plug-in do SnapCenter para recursos do Microsoft SQL Server</block>
   <block id="50e95eafa6faf8d2ee3f01921820b42b" category="list-text">Automatiza operações de backup, restauração e clone com reconhecimento de aplicações para bancos de dados Microsoft SQL Server em seu ambiente SnapCenter.</block>
@@ -1097,8 +1086,6 @@
   <block id="b0e07179f36c91a15e47f4d7a80a4360" category="section-title">Recursos de plug-ins compatíveis com NetApp</block>
   <block id="3012455ba6e0ba02dfa333bdecc83c57" category="section-title">Repositório SnapCenter</block>
   <block id="cc1d85843af98a2ce08e58f1408e6364" category="paragraph">O repositório do SnapCenter, às vezes chamado de banco de dados NSM, armazena informações e metadados para cada operação do SnapCenter.</block>
-  <block id="b795272c033653aa88e12f8f4fd442ca" category="paragraph">O banco de dados do repositório do servidor MySQL é instalado por padrão quando você instala o servidor SnapCenter. Se o servidor MySQL já estiver instalado e você estiver fazendo uma nova instalação do servidor SnapCenter, você deve desinstalar o servidor MySQL.</block>
-  <block id="15d048e327e80031abf5c8b2302df43b" category="paragraph">O SnapCenter suporta o MySQL Server 8.0.37 ou posterior como o banco de dados de repositório do SnapCenter. Se você estava usando uma versão anterior do servidor MySQL com uma versão anterior do SnapCenter, durante a atualização do SnapCenter, o servidor MySQL é atualizado para 8.0.37 ou posterior.</block>
   <block id="132ec4f136226945615e1d3845afb9d0" category="paragraph">O repositório do SnapCenter armazena as seguintes informações e metadados:</block>
   <block id="5a26534ccd7cfe885d29bb4751dbc4af" category="list-text">Metadados de backup, clone, restauração e verificação</block>
   <block id="9ceb046e6eba84331a9300ae7040cfa9" category="list-text">Informações sobre relatórios, trabalhos e eventos</block>
@@ -1462,11 +1449,8 @@
   <block id="b1c23ca4e9e67a158bfb24299743d88f" category="paragraph">A licença baseada no controlador tem as seguintes caraterísticas:</block>
   <block id="5300768d44eab29e62cfac966d22baea" category="list-text">Direito padrão da SnapCenter incluído na compra de pacote Premium ou Flash (não com o pacote básico)</block>
   <block id="c55c867b9e6458f61ad9c49c7535bfab" category="list-text">Uso ilimitado de armazenamento</block>
-  <block id="c0919ecf5802c65bf773794b7af70540" category="admonition">Você não insere nenhuma informação de licença na GUI do SnapCenter para as licenças baseadas no controlador do SnapCenter.</block>
   <block id="17449a90a0d7161db56cba83fa4f2728" category="list-text">Bloqueado no número de série do controlador</block>
   <block id="19a8e13fe92c770e7ed404e67e6bec99" category="section-title">Etapa 1: Verifique se a licença do SnapManager Suite está instalada</block>
-  <block id="4675b365d16842b130752bb3fa27614d" category="paragraph">Você pode usar a GUI do SnapCenter para ver se uma licença do SnapManager Suite está instalada em sistemas de storage primário FAS, AFF ou ASA e identificar quais sistemas de storage podem exigir licenças do SnapManager Suite. As licenças do SnapManager Suite se aplicam somente a SVMs ou clusters do FAS, AFF e ASA em sistemas de storage primário.</block>
-  <block id="6aa5717c99b34de9980debfbe3c6fa76" category="admonition">Se você já tiver uma licença do SnapManager Suite no controlador, o direito de licença baseado em controlador padrão da SnapCenter é fornecido automaticamente. Os nomes da licença SnapManagerSuite e da licença baseada no controlador padrão SnapCenter são usados de forma intercambiável, mas referem-se à mesma licença.</block>
   <block id="cc9c449ada243c7f7945df60c3bb511a" category="list-text">No painel de navegação esquerdo, selecione *Storage Systems*.</block>
   <block id="05f4bbedc7296e63af5610bfc33574b5" category="list-text">Na página sistemas de armazenamento, na lista suspensa *tipo*, selecione se deseja exibir todos os SVMs ou clusters que foram adicionados:</block>
   <block id="9ba45610f0250c3f3d93d968194d341c" category="list-text">Para visualizar todos os SVMs que foram adicionados, selecione *SVMs ONTAP*.</block>
@@ -1481,19 +1465,15 @@
   <block id="eba5bfa2c0dc8d9f24998cf70fa891a6" category="list-text">Não aplicável indica que uma licença do SnapManager Suite não é aplicável porque o controlador de armazenamento está no Amazon FSX para NetApp ONTAP, Cloud Volumes ONTAP, ONTAP Select ou plataformas de armazenamento secundário.</block>
   <block id="778623bf565f3d8f537019c7e81b0948" category="section-title">Passo 2: Identifique as licenças instaladas no controlador</block>
   <block id="3585befdeb665365a6ab248a97882128" category="paragraph">Você pode usar a linha de comando ONTAP para visualizar todas as licenças instaladas no seu controlador. Você deve ser um administrador de cluster no sistema FAS, AFF ou ASA.</block>
-  <block id="e7590fb47d0f1f083a0a8a323aa643a0" category="admonition">A licença baseada em controladora padrão do SnapCenter é exibida como licença SnapManagerSuite no controlador.</block>
   <block id="062174c6682cfbf4f3b6b5c1d6707824" category="list-text">Faça login no controlador NetApp usando a linha de comando ONTAP.</block>
-  <block id="9865599458fea2a88fc4f94d29ab5c4e" category="list-text">Digite o comando license show e, em seguida, exiba a saída para determinar se a licença SnapManagerSuite está instalada.</block>
   <block id="587b796170a9abac4701cd8aa1bb38cb" category="example-title">Exemplo de saída</block>
   <block id="5b12cbd18ef5bbd432e4411b45e422ad" category="paragraph">No exemplo, a licença SnapManagerSuite é instalada, portanto, nenhuma ação adicional de licenciamento SnapCenter é necessária.</block>
   <block id="09bfdac33144afac4f96f313740dc959" category="section-title">Passo 3: Recupere o número de série do controlador</block>
-  <block id="aad4d9def4b52672ae7f25a26b4f8fde" category="paragraph">Você precisa ter o número de série do controlador para recuperar o número de série da sua licença baseada no controlador. Você pode recuperar o número de série do controlador usando a linha de comando ONTAP. Você deve ser um administrador de cluster no sistema FAS, AFF ou ASA.</block>
   <block id="ed996e97427b9382e039c0a5dde5d493" category="list-text">Faça login no controlador usando a linha de comando ONTAP.</block>
   <block id="1220394f5402b4332338e11150062d91" category="list-text">Digite o comando system show -instance e, em seguida, revise a saída para localizar o número de série do controlador.</block>
   <block id="065b83de49a875bb4bd71dbe16fad428" category="list-text">Registe os números de série.</block>
   <block id="4fb6996a4b0fc33cbed31ac896875422" category="section-title">Passo 4: Recupere o número de série da licença baseada no controlador</block>
   <block id="26e6565b87611c0e2e61e424bbf253a8" category="list-text">Você deve ter credenciais de login válidas no site de suporte da NetApp.</block>
-  <block id="315713e21026e04eaaa2b9a3821e4c3d" category="paragraph">Se você não inserir credenciais válidas, nenhuma informação será retornada para sua pesquisa.</block>
   <block id="253fa4a7008b4934e4b20001065ef254" category="list-text">Você deve ter o número de série do controlador.</block>
   <block id="9d2169c1c2855b78a7aeaa4f42d27dc7" category="inline-link">Site de suporte da NetApp</block>
   <block id="9340114ddf8bf8ff75303afd847a3076" category="list-text">Inicie sessão no<block ref="1850de052c61829b534b07ba1a2ca402" category="inline-link-rx"></block>.</block>
@@ -1515,16 +1495,12 @@
   <block id="a138b0f06f247274d2e4ba8de6e7bf8d" category="list-text">Verifique se a licença SnapManagerSuite está instalada:</block>
   <block id="8822a9cc146d06e4ec77936054fb11ca" category="paragraph"><block ref="a28d3d0bcb86e95ea1d046dfacb69a1e" prefix="" category="inline-code"></block></block>
   <block id="392e651b70e91641288713738f526ce0" category="section-title">Passo 6: Remova a licença de teste</block>
-  <block id="f01f22cfc141e64ad20b64a9b3f2ac85" category="paragraph">Se você estiver usando uma licença padrão SnapCenter baseada em controlador e precisar remover a licença de avaliação baseada em capacidade (número de série que termina com "'50""), você deve usar os comandos MySQL para remover a licença de teste manualmente. A licença de teste não pode ser excluída usando a GUI do SnapCenter.</block>
   <block id="b69cd8afc7ba47f5300e7eb1864b6e2f" category="admonition">A remoção manual de uma licença de teste só é necessária se estiver a utilizar uma licença baseada em controlador padrão da SnapCenter.</block>
   <block id="68dae2573ac7874d6dd234af4fa4c752" category="list-text">No servidor SnapCenter, abra uma janela do PowerShell para redefinir a senha do MySQL.</block>
-  <block id="aa5c2438bb48bc6f9fc91294d9f5f2c1" category="list-text">Execute o cmdlet Open-SmConnection para iniciar uma sessão de conexão com o servidor SnapCenter para uma conta SnapCenterAdmin.</block>
   <block id="677b5668995b5d565b03294fb7b16727" category="list-text">Execute o Set-SmRepositoryPassword para redefinir a senha do MySQL.</block>
-  <block id="de07b96d6e0726ed58c0b7506fed6a37" category="paragraph">Para obter informações sobre os cmdlets,<block ref="60f235ced4554b230bb7034fc116cf25" category="inline-link-rx"></block> consulte .</block>
   <block id="bdc5e2c886d9f1d7c2db87ea0140c771" category="list-text">Abra o prompt de comando e execute mysql -u root -p para fazer login no MySQL.</block>
   <block id="4c6cef07724f31f81802bd1558b3066b" category="paragraph">O MySQL solicita a senha. Introduza as credenciais fornecidas durante a reposição da palavra-passe.</block>
   <block id="730761cf69bd21652f5f5b9dc5170f63" category="list-text">Remova a licença de teste do banco de dados:</block>
-  <block id="11ed0a0d13245c242749913d8aee1584" category="paragraph"><block ref="00e4488b078759955b869ee4c172156a" prefix="" category="inline-code"></block></block>
   <block id="e0b8c0081a448231b99fbbd92c77468c" category="summary">Antes de executar operações de proteção de dados, você deve configurar as conexões de armazenamento e adicionar as credenciais que o servidor SnapCenter e os plug-ins SnapCenter usarão.</block>
   <block id="1dd26f6fcf67127f078a9bb0e9318802" category="doc">Conexões e credenciais de storage</block>
   <block id="96da08df10311c05ab070820f34934cd" category="paragraph">As conexões de armazenamento dão aos plug-ins do servidor SnapCenter e do SnapCenter acesso ao armazenamento do ONTAP. A configuração dessas conexões também envolve a configuração de recursos do AutoSupport e do sistema de Gerenciamento de Eventos (EMS).</block>
@@ -2398,7 +2374,6 @@
   <block id="822239f41b07c86cff067dac38fab7f4" category="doc">Criar funções de cluster do ONTAP com Privileges mínimo</block>
   <block id="f0f84683ce75bc63984c13f94c8f8c3d" category="paragraph">Você deve criar uma função de cluster do ONTAP com Privileges mínimo para que você não precise usar a função de administrador do ONTAP para executar operações no SnapCenter. Você pode executar vários comandos de CLI do ONTAP para criar a função de cluster do ONTAP e atribuir Privileges mínimo.</block>
   <block id="5d34ca6ba489992e0959bb7d8068013f" category="paragraph"><block ref="d1683d4b4ec40f50e1dd2e99bed52f27" prefix="" category="inline-code"></block></block>
-  <block id="3b558f738f420e0cfe944e3e6cd3376a" category="paragraph"><block ref="579f833e539fe796410bf28fa13821a4" prefix="" category="inline-code"></block></block>
   <block id="e36c8512e3778b0a83d27f616b9ba1ff" category="paragraph"><block ref="ddc74c1b972d1817ec49e31cd8f40007" prefix="" category="inline-code"></block></block>
   <block id="d96a08e21a2a6f654ce7bfb34d9c3bf4" category="section-title">Comandos de CLI do ONTAP para criar funções de cluster e atribuir permissões</block>
   <block id="166504d6fb19fa3fcbbf622275eef589" category="paragraph">Há vários comandos de CLI do ONTAP que você deve executar para criar funções de cluster e atribuir permissões.</block>
@@ -9230,8 +9205,6 @@
   <block id="82d07a027b5d595de4499a5069c4ccf5" category="paragraph">A licença padrão da SnapCenter é uma licença baseada em controlador e está incluída como parte do NetApp ONTAP One. Se você tiver a licença do SnapManager Suite, você também obtém o direito de licença padrão do SnapCenter. Se você quiser instalar o SnapCenter em uma base de avaliação com o storage FAS, AFF ou ASA, poderá obter uma licença de avaliação do NetApp ONTAP One entrando em Contato com o representante de vendas.</block>
   <block id="173cbb56fed3c8d1bffc40cfe1678533" category="inline-link">Licenças incluídas no NetApp ONTAP One</block>
   <block id="94875c624efb32d934c5cd2c0c78f2f0" category="paragraph">Para obter informações sobre as licenças incluídas no NetApp ONTAP One,<block ref="0ab66dfac600c25af9e742e0f8819421" category="inline-link-rx"></block> consulte .</block>
-  <block id="8bf34d96b4ef3036d5fecf25c54f239f" category="list-text">Habilitado ao adicioná-lo diretamente à controladora de storage FAS, AFF ou ASA usando o Gerenciador de sistema do ONTAP ou a CLI do ONTAP.</block>
-  <block id="f59cbb2508b7e0a4a75f1eddabac7e1e" category="paragraph">Se você estiver usando o armazenamento FAS, ASA ou AFF, poderá recuperar a licença baseada no controlador SnapCenter do site de suporte da NetApp antes de instalá-la usando a linha de comando ONTAP.</block>
   <block id="9efdf202df78f9a33e298564c835e4ba" category="summary">Use os comandos de login de segurança para adicionar uma função RBAC do NetApp ONTAP quando seus sistemas de storage estiverem executando o Clustered NetApp ONTAP.</block>
   <block id="2ad5f6ef1c47048e237f2fafae87313a" category="doc">Adicione uma função NetApp ONTAP RBAC usando comandos de login de segurança</block>
   <block id="e1be0500812e131476a1a2d9b7429541" category="paragraph">Use os comandos de login de segurança para adicionar uma função RBAC do NetApp ONTAP quando seus sistemas de storage estiverem executando o Clustered ONTAP.</block>
@@ -9299,13 +9272,9 @@
   <block id="4472af35b609c9246e4bb55f728b01c4" category="paragraph">Os scripts são especificados nas políticas de backup. Quando um trabalho de backup é iniciado, a política associa automaticamente o script aos recursos que estão sendo copiados. Ao criar uma política de backup, você pode especificar os argumentos prescritor e postscript.</block>
   <block id="fdc25f4e4e50282783f6d6bbd351fb7c" category="doc">Licenças exigidas pela SnapCenter</block>
   <block id="ece5d50a5bb2d395e1da043ece57184c" category="paragraph">Licenças de protocolo</block>
-  <block id="e0067e0950b0060576d778dc781cc470" category="paragraph">O software SnapCenter é uma plataforma simples, centralizada e dimensionável que oferece proteção de dados consistente com aplicações para aplicações, bancos de dados, sistemas de arquivos host e VMs que operam nos sistemas ONTAP na nuvem híbrida.</block>
-  <block id="80c547faf272be2b228fc24b6cf865f5" category="paragraph">O SnapCenter inclui o servidor SnapCenter e plug-ins leves individuais. É possível automatizar a implantação de plug-in para hosts remotos de aplicações, agendar operações de backup, verificação e clone e monitorar todas as operações de proteção de dados.</block>
-  <block id="17166d817786a7b08901227773723cf1" category="paragraph">O SnapCenter pode ser instalado no local ou em uma nuvem pública para proteger os dados.</block>
   <block id="be01a357ae2c9752875b5385c732b017" category="section-title">Principais recursos</block>
   <block id="167ec2cbfb2138b492dfdc49a527d301" category="paragraph">O SnapCenter fornece os seguintes recursos principais:</block>
   <block id="8cf888c772c03c3d648b58558da6e63e" category="list-text">Proteção de dados centralizada e consistente com aplicações de diferentes aplicações</block>
-  <block id="fbe4c82f71e9d38697b35f4a20991f38" category="paragraph">O SnapCenter fornece uma GUI que é uma interface única e completa para gerenciar backups e clones de um recurso em qualquer destino da nuvem híbrida.</block>
   <block id="7c3bb00618d034ac43cb570a8e2d7a19" category="paragraph">O SnapCenter fornece APIS REST para a maioria das funcionalidades para integração com qualquer software de orquestração e uso de cmdlets e interface de linha de comando do Windows PowerShell.</block>
   <block id="14b689a9c9a340e9114e5ea589110eca" category="list-text">Painéis e relatórios de proteção de dados centralizados</block>
   <block id="b869d32b0a220d5f6624202b4105ce29" category="list-text">Controle de acesso baseado em função (RBAC) para segurança e delegação</block>
@@ -9314,7 +9283,6 @@
   <block id="0f45de2ede2fe6c32648866c22d6562e" category="list-text">SnapLock<block ref="5d492c0956f305803cd514ba32423952" category="inline-link-rx"></block></block>
   <block id="462fdcf093443297c1f9338c2c3383e2" category="list-text">Espelhamento síncrono<block ref="95fe696371e9165fe75b9b2447e07b1a" category="inline-link-rx"></block></block>
   <block id="befd5249dc22444101ff9cd8ae621549" category="section-title">Arquitetura e componentes do SnapCenter</block>
-  <block id="544e93f3cdb44bfd113d60fcd99e1eaa" category="paragraph">A plataforma SnapCenter é baseada em uma arquitetura de vários níveis que inclui um servidor de gerenciamento centralizado e um host de plug-in. O SnapCenter é compatível com data center multisite. O host do servidor SnapCenter e o host do plug-in podem estar em diferentes locais geográficos.</block>
   <block id="5e8f0f670e38fbdf628b0883f946934f" category="image-alt">Figura que mostra a caixa de diálogo de entrada/saída ou que representa o conteúdo escrito</block>
   <block id="92382cc3deb4906d36097ac6011e91bb" category="paragraph">O SnapCenter inclui o servidor SnapCenter, o pacote de plug-ins SnapCenter para Windows e o pacote de plug-ins SnapCenter para Linux. Cada pacote contém plug-ins para vários aplicativos e componentes de infraestrutura.</block>
   <block id="c66f894c16e09b048b2a6915abe8e051" category="paragraph">O servidor SnapCenter suporta os sistemas operacionais Microsoft Windows e Linux (RHEL 8.x, RHEL 9.x, SLES 15 SP5). O servidor SnapCenter inclui um servidor da Web, uma interface de usuário centralizada baseada em HTML5, cmdlets do PowerShell, APIs REST e o repositório SnapCenter.</block>
@@ -9339,7 +9307,6 @@
   <block id="0e7de338b19130a498349175e4a58590" category="paragraph">Plug-in SnapCenter para SAP MaxDB</block>
   <block id="3fa99d68ba982a33659ca2379e3e8ff4" category="paragraph">Plug-in SnapCenter para plug-in de storage</block>
   <block id="6750ae8e3ac97dc2f5fc26009449892d" category="paragraph">Pacote de plug-ins para Linux e pacote Plug-ins para Windows</block>
-  <block id="a3b8e6be3869d2fb101f596d05e3b4e7" category="paragraph">Se seu banco de dados ou sistema de arquivos estiver armazenado em VMs ou se você quiser proteger VMs e datastores, você deverá implantar o plug-in do SnapCenter para o dispositivo virtual VMware vSphere. Para obter informações,<block ref="856325c2376fb402b33d836e8e7311f1" category="inline-link-rx"></block> consulte .</block>
   <block id="ebc4b17076689e818245c6a254bc3841" category="doc">Início rápido para o software SnapCenter</block>
   <block id="fe3df7903e4787d992afd733b0e0aa92" category="paragraph">O guia de início rápido descreve as etapas básicas para instalar e configurar o software SnapCenter.</block>
   <block id="06c2cea18679d64399783748fa367bdd" category="inline-image-macro">Um</block>
@@ -9566,4 +9533,37 @@
   <block id="401632ff9d010db44abc6611b886a1fb" category="paragraph">*Melhores práticas:* Saia e faça login novamente ou abra um novo navegador para acessar a interface do usuário do SnapCenter .</block>
   <block id="2894135a685829401e009e2fb1bc8cfe" category="paragraph">Se o SnapCenter exibir o status do host do servidor como parado, aguarde um pouco e execute uma nova descoberta. Você também pode alterar o valor do parâmetro *HostRefreshInterval* (o valor padrão é 3600 segundos) para qualquer valor maior que 10 minutos.</block>
   <block id="91e42bb62d5ea6816d03c5a5de9ccfad" category="list-text">Se a atualização falhar, limpe a instalação com falha, reinstale a versão anterior do SnapCenter e restaure o banco de dados NSM para o estado em que estava antes.</block>
+  <block id="d39f4a97d8aa5892dc79d2b31c49cde5" category="paragraph">O SnapCenter software é uma plataforma simples, centralizada e escalável para proteção de dados consistente com aplicativos.  Ele protege aplicativos, bancos de dados, sistemas de arquivos host e VMs em sistemas ONTAP na Nuvem Híbrida.</block>
+  <block id="1161c9fd21b6d9ad537516dd735c8f85" category="paragraph">O SnapCenter usa as tecnologias NetApp Snapshot, SnapRestore, FlexClone, SnapMirror e SnapVault para fornecer:</block>
+  <block id="18da5f770adc321e5d554727bd238664" category="list-text">Restauração rápida e detalhada e recuperação consistente com o aplicativo</block>
+  <block id="82c18a70878cd373500ae86edaa8c132" category="paragraph">O SnapCenter inclui o SnapCenter Server e plug-ins leves.  Você pode automatizar a implantação de plug-ins em hosts de aplicativos remotos, agendar operações de backup, verificação e clonagem, além de monitorar operações de proteção de dados.</block>
+  <block id="1f0cb45d83b41c1ce41bc65a1f8d91ed" category="paragraph">Você pode instalar o SnapCenter no local ou em uma nuvem pública para proteger dados.</block>
+  <block id="d7a374ccd4f0b1d1e9e0798f4b1a8869" category="list-text">No local para proteger o seguinte:</block>
+  <block id="67387428a7e5d4e4205f94627d948f8a" category="list-text">No local em uma Nuvem Híbrida para proteger o seguinte:</block>
+  <block id="dfcd27a2398e2137fe772b14d150822c" category="paragraph">Os backups baseados em políticas aproveitam a tecnologia NetApp Snapshot para criar backups rápidos, com eficiência de espaço e consistentes com aplicativos, baseados em disco.  Você também pode configurar a proteção automática desses backups para armazenamento secundário atualizando os relacionamentos de proteção existentes.</block>
+  <block id="4f2fa2357cd0758124af2752680b0f38" category="list-text">Backups para vários recursos</block>
+  <block id="43b72483415c88320d60f1fc8a4b38b2" category="paragraph">Você pode fazer backup de vários recursos (aplicativos, bancos de dados ou sistemas de arquivos host) do mesmo tipo ao mesmo tempo usando grupos de recursos do SnapCenter .</block>
+  <block id="e048ab4f81e7759a39a859c1ae5a79c2" category="paragraph">O SnapCenter oferece clonagem rápida, com economia de espaço e consistente com o aplicativo.  Você pode clonar em qualquer destino na Nuvem Híbrida.</block>
+  <block id="1262f35a107c5968275c3edf3c56eb84" category="list-text">Interface gráfica de usuário de gerenciamento de usuário único</block>
+  <block id="752689013e2985d7b19018df00f3b7b8" category="paragraph">O SnapCenter fornece uma interface única para gerenciar backups e clones em qualquer destino de Nuvem Híbrida.</block>
+  <block id="3832908a72119ba8d0b1faf1588da9f2" category="paragraph">O SnapCenter usa um design em camadas com um servidor de gerenciamento central e hosts de plug-in.  Os hosts do servidor e do plug-in podem estar em locais diferentes.</block>
+  <block id="1d8ca39a8b19e487e6a5decec32baf83" category="paragraph">O SnapCenter armazena informações sobre suas operações no repositório SnapCenter .</block>
+  <block id="5fefa7f3d3b16845a72ae6dbd05daee8" category="paragraph">O SnapCenter Plug-in for VMware vSphere oferece suporte a operações de backup e restauração consistentes em caso de falhas e em VMs para máquinas virtuais (VMs), armazenamentos de dados e discos de máquina virtual (VMDKs).  Ele também oferece suporte a operações de backup e restauração consistentes com aplicativos para bancos de dados virtualizados e sistemas de arquivos.</block>
+  <block id="12ae0b4b790b9a1fadc5cd19958e7891" category="paragraph">Para proteger bancos de dados, sistemas de arquivos, VMs ou armazenamentos de dados em VMs, implante o SnapCenter Plug-in for VMware vSphere .  Para obter informações, consulte<block ref="856325c2376fb402b33d836e8e7311f1" category="inline-link-rx"></block> .</block>
+  <block id="e341c72410665bafc2c007eb116e98b1" category="paragraph">A instalação do SnapCenter Server instala o banco de dados do repositório do MySQL Server por padrão.  Se você já instalou o MySQL Server e deseja executar uma nova instalação do SnapCenter Server, desinstale o MySQL Server.</block>
+  <block id="90f6284c67326cc494a0d7c664bc0130" category="paragraph">O SnapCenter suporta o MySQL Server 8.0.37 ou posterior como banco de dados de repositório do SnapCenter .  Se você usar uma versão anterior do MySQL Server com uma versão anterior do SnapCenter, o processo de atualização do SnapCenter atualizará o MySQL Server para a versão 8.0.37 ou posterior.</block>
+  <block id="92abb015a8ee1a77855e690131dadbb4" category="list-text">Adicionado diretamente ao controlador de armazenamento FAS, AFF ou ASA usando o ONTAP System Manager ou o ONTAP CLI.</block>
+  <block id="7125e641e5662264883f8aaeea3e82d4" category="admonition">Não insira nenhuma informação de licença na interface do usuário do SnapCenter para as licenças baseadas no controlador SnapCenter .</block>
+  <block id="7a033f7dc254bbd0058e53fdcff1bb27" category="paragraph">Você pode usar a interface de usuário do SnapCenter para verificar se uma licença do SnapManager Suite está instalada nos sistemas de armazenamento primário FAS, AFF ou ASA e identificar quais sistemas precisam de licenças.  As licenças do SnapManager Suite se aplicam somente a SVMs FAS, AFF e ASA ou clusters em sistemas de armazenamento primário.</block>
+  <block id="d84b90a7e575831a7b9fd2b1f8321c73" category="admonition">Se você já tiver uma licença do SnapManager Suite no seu controlador, o SnapCenter fornecerá automaticamente o direito à licença baseada no controlador padrão.  Os nomes licença SnapManagerSuite e licença baseada em controlador SnapCenter Standard são usados ​​de forma intercambiável, mas se referem à mesma licença.</block>
+  <block id="d553d8a6fc62f3d8567f93ee39689025" category="admonition">O controlador exibe a licença baseada no controlador SnapCenter Standard como a licença SnapManagerSuite.</block>
+  <block id="f47d644cff3f38f3fe18cdfd3946f164" category="list-text">Digite o comando license show e visualize a saída para ver se a licença do SnapManagerSuite está instalada.</block>
+  <block id="5c1790e9b20f9160d116ea4a6d92c4bf" category="paragraph">Obtenha o número de série do controlador usando a linha de comando ONTAP .  Você deve ser um administrador de cluster no sistema FAS, AFF ou ASA para obter seu número de série de licença baseado em controlador.</block>
+  <block id="916aa221ab9dbad5bdf10318bc6645ae" category="paragraph">Se estiver usando armazenamento FAS, ASA ou AFF , você poderá recuperar a licença baseada no controlador SnapCenter no site de suporte da NetApp antes de instalá-lo usando a linha de comando ONTAP .</block>
+  <block id="086d25a4c755caee6d45473239c5de33" category="paragraph">Se você não inserir credenciais válidas, o sistema não retornará nenhuma informação para sua pesquisa.</block>
+  <block id="1e9427347d7c2da702bcda6ee8066e34" category="paragraph">Se você estiver usando uma licença SnapCenter Standard baseada em controlador e precisar remover a licença de teste baseada em capacidade (número de série terminando em "`50`"), use os comandos MySQL para remover a licença de teste manualmente.  A licença de teste não pode ser excluída usando a interface de usuário do SnapCenter .</block>
+  <block id="023ba4b197892a3704c54c4fa35189c5" category="list-text">Execute o cmdlet Open-SmConnection para estabelecer conexão com o SnapCenter Server para uma conta SnapCenterAdmin.</block>
+  <block id="0f6e39c02439e0ed8443edc2be967e14" category="paragraph">Para obter informações sobre os cmdlets, consulte<block ref="bc822c4319e03a98720e4951c1009810" category="inline-link-rx"></block> .</block>
+  <block id="87592b536cbfa9f8d915045e1c7873f1" category="paragraph"><block ref="2c04bf704e48a12576c63de2102c1c43" prefix="" category="inline-code"></block></block>
+  <block id="fa091713eff4575bdb9b210ff2415c9c" category="paragraph"><block ref="b883ee9ba55ef21bf483fd5986981580" prefix="" category="inline-code"></block></block>
 </blocks>
