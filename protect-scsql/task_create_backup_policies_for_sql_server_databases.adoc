@@ -213,48 +213,33 @@ Guarde as cópias de backup por um número específico de dias.
 +
 ... Para especificar o número de instantâneos a serem mantidos, selecione *cópias a serem mantidas*.
 ... Se o número de instantâneos exceder o número especificado, os instantâneos serão excluídos com as cópias mais antigas excluídas primeiro.
-
-
-
-
-
-
++
 
 IMPORTANT: Por padrão, o valor da contagem de retenção é definido como 2. Se você definir a contagem de retenção como 1, a operação de retenção pode falhar porque o primeiro snapshot é o snapshot de referência para a relação SnapVault até que um snapshot mais recente seja replicado para o destino.
 
++
 
 NOTE: O valor máximo de retenção é 1018. Os backups falharão se a retenção for definida para um valor maior do que o que a versão subjacente do NetApp ONTAP suporta.
+
+
+
+
+
+
 
 . Duração de tempo para manter instantâneos
 +
 .. Se você quiser especificar o número de dias para os quais deseja manter os snapshots antes de excluí-los, selecione *reter cópias para*.
 
 
-. Se você quiser especificar o período de bloqueio de cópia de snapshot principal, selecione *período de bloqueio de cópia de snapshot primário* e selecione dias, meses ou anos.
+. Selecione *Período de bloqueio de cópia de instantâneo* e especifique a duração em dias, meses ou anos.
 +
 O período de retenção do SnapLock deve ser inferior a 100 anos.
 
-. Se pretender especificar o período de bloqueio de cópia de instantâneo secundário, selecione *período de bloqueio de cópia de instantâneo secundário* e selecione dias, meses ou anos.
-+
-Este exemplo define a retenção de instantâneos de registo como 2:
-
-+
-.Mostrar exemplo
-[]
-====
-Set-SmPolicy -policyname 'newpol' -PolicyType 'Backup' -PluginPolicyType 'SCSQL' -sqlbackuptype 'FullBackupAndLogBackup' -RetentonSettings 2 [BackupType] [DADOS];ScheduleType 'Hourly';RetentyType 2 2
-
-====
-+
-https://kb.netapp.com/Advice_and_Troubleshooting/Data_Protection_and_Security/SnapCenter/SnapCenter_retains_Snapshot_copies_of_the_database["O SnapCenter retém cópias Snapshot do banco de dados"]
-
-. Selecione uma etiqueta Snapshot
-+
-Dependendo do rótulo de captura instantânea selecionado, o ONTAP aplica a política de retenção de snapshot secundária que corresponde ao rótulo.
-
+. Selecione uma etiqueta de política.
 +
 
-NOTE: Se você selecionou *Atualizar SnapMirror depois de criar uma cópia Snapshot local*, você pode especificar opcionalmente o rótulo de política secundária. No entanto, se você selecionou *Atualizar SnapVault depois de criar uma cópia Snapshot local*, especifique o rótulo de política secundária.
+NOTE: Você pode atribuir rótulos SnapMirror a snapshots primários para replicação remota, permitindo que os snapshots primários descarreguem a operação de replicação de snapshots do SnapCenter para sistemas secundários ONTAP .  Isso pode ser feito sem habilitar a opção SnapMirror ou SnapVault na página de política.
 
 
 
@@ -263,10 +248,6 @@ NOTE: Se você selecionou *Atualizar SnapMirror depois de criar uma cópia Snaps
 == Etapa 7: Configurar opções de replicação secundária
 
 . Na seção Selecionar opções de replicação secundária, selecione uma ou ambas as seguintes opções de replicação secundária:
-+
-
-NOTE: Você deve selecionar as opções de replicação secundária para *período de bloqueio de cópia snapshot secundário* para entrar em vigor.
-
 
 
 [role="tabbed-block"]

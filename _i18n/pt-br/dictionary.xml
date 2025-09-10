@@ -3945,14 +3945,11 @@
   <block id="58c4ab72512763368202ec9054d5b838" category="paragraph">Selecione *Snapshot based*.</block>
   <block id="b8d6ee3998ffd19868fb72c367024f19" category="list-text">Especifique o tipo de agendamento selecionando *on demand*, *Hourly*, *Daily*, *Weekly* ou *Monthly*.</block>
   <block id="cee00ab879a477aea09f4b1f404b14fc" category="paragraph">Mantenha um certo número de instantâneos</block>
-  <block id="b19465911649130b0ad9e7ed87b43f2f" category="paragraph">Selecione *Total de cópias Snapshot a manter* e especifique o número de capturas instantâneas que deseja manter.</block>
   <block id="7537e0d42ad63b5bae18964aee575640" category="paragraph">Se o número de instantâneos exceder o número especificado, os instantâneos serão excluídos com as cópias mais antigas excluídas primeiro.</block>
   <block id="a73c04130d1785278e42ce85b94c154d" category="admonition">Para backups baseados em cópias Snapshot, defina a contagem de retenção para 2 ou superior, se quiser habilitar a replicação do SnapVault. Se você definir a contagem de retenção como 1, a operação de retenção poderá falhar porque o primeiro snapshot é o snapshot de referência para a relação SnapVault até que um snapshot mais recente seja replicado para o destino.</block>
   <block id="c0ab35de65d78830f03751afe7a38d7b" category="admonition">Para replicação do sistema SAP HANA, recomenda-se adicionar todos os recursos do sistema SAP HANA a um grupo de recursos. Isso garante que o número certo de backups seja retido.</block>
   <block id="3d721f84f4ba496ced30bffcfa1591da" category="admonition">Para a replicação do sistema SAP HANA, o total de snapshots obtidos será igual ao conjunto de retenção para o grupo de recursos. A remoção do Snapshot mais antigo é baseada em qual nó o Snapshot mais antigo está localizado. Por exemplo, a retenção está definida como 7 para um grupo de recursos com SAP HANA System Replication primário e SAP HANA System Replication secundário. Você pode tirar um máximo de 7 snapshots de cada vez, incluindo SAP HANA System Replication Primary e SAP HANA System Replication secundário.</block>
   <block id="298d4bea409e146b0187ec130a39fb72" category="paragraph">Mantenha as capturas instantâneas por um determinado número de dias</block>
-  <block id="e736f4106d35f31cff1a51f091e56c06" category="paragraph">Selecione *manter cópias Snapshot para* e especifique o número de dias para os quais deseja manter as capturas instantâneas antes de excluí-las.</block>
-  <block id="86b78accb82bf0596de946657114e7dd" category="paragraph">Selecione período de bloqueio de cópias instantâneas e selecione dias, meses ou anos.</block>
   <block id="e7c020bcc5fc6c46eea0af3b48696115" category="paragraph">O período de retenção do SnapLock deve ser inferior a 100 anos.</block>
   <block id="53ef3d7584a54991b60fba81e93d201f" category="paragraph">*Atualizar SnapMirror depois de criar uma cópia Snapshot local*</block>
   <block id="1275946d22bd30ab4fa43a93760353bd" category="paragraph">Selecione este campo para criar cópias espelhadas dos conjuntos de backup em outro volume (replicação SnapMirror).</block>
@@ -4393,7 +4390,6 @@
   <block id="f29871ab419804e987d1bfb5f3274244" category="list-text">Especificar opções em uma política economiza tempo quando você deseja reutilizar a política para outro grupo de recursos.</block>
   <block id="42671d398be6103911a06f9936ab9855" category="admonition">Você pode especificar a programação (data de início, data de término e frequência) para a operação de backup enquanto cria um grupo de recursos. Isso permite que você crie grupos de recursos que compartilham a mesma política e frequência de backup, mas permite que você atribua diferentes programações de backup a cada política.</block>
   <block id="95dfd611f9419ea2abdea4d84377aeab" category="admonition">Você deve definir a contagem de retenção como 2 ou superior, se quiser habilitar a replicação do SnapVault. Se você definir a contagem de retenção como 1, a operação de retenção poderá falhar porque o primeiro snapshot é o snapshot de referência para a relação SnapVault até que um snapshot mais recente seja replicado para o destino.</block>
-  <block id="7cd1d77689881addd5facf23970563df" category="paragraph">Selecione período de bloqueio instantâneo e selecione dias, meses ou anos.</block>
   <block id="7630e21f8142849489483b7354d0643a" category="paragraph">Se a relação de proteção no ONTAP for do tipo espelho e Cofre e se você selecionar somente essa opção, instantâneo criado no primário não será transferido para o destino, mas será listado no destino. Se este instantâneo for selecionado no destino para executar uma operação de restauração, a seguinte mensagem de erro será exibida: Local secundário não está disponível para o backup abobadado/espelhado selecionado.</block>
   <block id="d2f577cb0769d7c31f2785dd590b9f27" category="paragraph">Para obter mais informações sobre o SnapLock Vault, consulte confirmar snapshots para WORM em um destino de cofre</block>
   <block id="4f2f5ecb6e9ddbc65d919530d4364ba6" category="admonition">Você deve configurar a política de retenção do SnapMirror no ONTAP para o storage secundário para evitar atingir o limite máximo de snapshots no storage secundário.</block>
@@ -5005,7 +5001,6 @@
   <block id="baf51638fcd69f7ad248b14cc9899660" category="inline-link-macro">Veja backups do Exchange na página topologia</block>
   <block id="d515aa4634219e7d2319e5e18234ff1a" category="paragraph">Atualize o SnapVault depois de criar um instantâneo local</block>
   <block id="74634d46f4094928b9a2dbffb638ae7f" category="paragraph">Selecione esta opção para executar a replicação de backup de disco para disco.</block>
-  <block id="58d70fc926069f010ab51ffa86e123d8" category="paragraph">Etiqueta de política secundária</block>
   <block id="e64e99351ad3ec8079ffd2d91fbd7f12" category="paragraph">Contagem de tentativas de erro</block>
   <block id="39007747bb71ef47183e492e75b22469" category="paragraph">Insira o número de tentativas de replicação que devem ocorrer antes que o processo pare.</block>
   <block id="8a24b0ef145ce6b12a15abff3b19d28f" category="list-text">Na página Script, insira o caminho e os argumentos do prescritor ou postscript que devem ser executados antes ou depois da operação de backup, respetivamente.</block>
@@ -6295,7 +6290,6 @@
   <block id="2c4f60cdfab4e71a27e2dfbd9362e411" category="summary">Antes de usar o SnapCenter para fazer backup dos recursos do banco de dados Oracle, você deve criar uma política de backup para o recurso ou para o grupo de recursos que deseja fazer backup. Uma política de backup é um conjunto de regras que regem como você gerencia, agenda e retém backups. Você também pode especificar as configurações de replicação, script e tipo de backup. A criação de uma política economiza tempo quando você deseja reutilizar a política em outro recurso ou grupo de recursos.</block>
   <block id="e457b5ee7ca69de08b3486e30ef1d570" category="list-text">Você precisa se preparar para a proteção de dados concluindo tarefas como instalar o SnapCenter, adicionar hosts, descobrir bancos de dados e criar conexões do sistema de storage.</block>
   <block id="37467ff0195d6765df22bdc34e035d04" category="list-text">Se você estiver replicando snapshots em um storage secundário de espelhamento ou cofre, o administrador do SnapCenter deverá ter atribuído as SVMs a você para os volumes de origem e destino.</block>
-  <block id="099321e862ba2170dc1c3e6b1f02ef72" category="paragraph">Para a versão ONTAP 9.12,1 e inferior, os clones criados a partir dos instantâneos do Vault do SnapLock como parte da restauração herdarão o tempo de expiração do SnapLock Vault. O administrador do storage deve limpar manualmente os clones após o tempo de expiração do SnapLock.</block>
   <block id="12a8a88fbbb12cf46de8ed3c3c9c4df5" category="list-text">Selecione *Oracle Database* na lista suspensa.</block>
   <block id="e290a9defe5f60a7f464d11afc89eb7f" category="list-text">Se pretender *criar uma cópia de segurança online*, selecione *cópia de segurança online*.</block>
   <block id="2970dd9d72c00fe91590d9b297f952f6" category="paragraph">Você deve especificar se deseja fazer backup de todos os arquivos de dados, arquivos de controle e arquivos de log de arquivamento, somente arquivos de dados e arquivos de controle ou somente arquivos de log de arquivamento.</block>
@@ -6318,7 +6312,6 @@
   <block id="57af7cc9669227d9ac6afec5db802561" category="paragraph">Selecione *Eliminar registos de arquivo de todos os destinos*.</block>
   <block id="be859d432cb8f72f5fb9b4c1622d56b1" category="paragraph">Elimine os registos de arquivo dos destinos de registo que fazem parte da cópia de segurança</block>
   <block id="3330083979ff2e07d7e4609ee2228f08" category="paragraph">Selecione *Eliminar registos de arquivo a partir dos destinos que fazem parte da cópia de segurança*.</block>
-  <block id="9696f79f02f1b72ee2751fa3ac8cee1b" category="admonition">Você pode reter backups de log de arquivamento somente se tiver selecionado os arquivos de log de arquivamento como parte do backup.</block>
   <block id="0eb8f2f819c8b84106d6c0414648f1c5" category="inline-link-macro">Veja os backups e clones do banco de dados Oracle na página topologia</block>
   <block id="ffb3ae9f69a62e97d1deccf8e6b8f1ff" category="paragraph">Você deve armazenar os prescripts e postscripts em _/var/opt/SnapCenter/spl/scripts_ ou em qualquer pasta dentro deste caminho. Por padrão, o caminho _/var/opt/SnapCenter/spl/scripts_ é preenchido. Se você criou qualquer pasta dentro desse caminho para armazenar os scripts, você deve especificar essas pastas no caminho.</block>
   <block id="1b4b1a8701700f9bb0245d7c920ebd16" category="paragraph">Você também pode especificar o valor de tempo limite do script. O valor padrão é de 60 segundos.</block>
@@ -7180,17 +7173,12 @@
   <block id="82c2224d099110596a9863d056598afe" category="paragraph">Guarde as cópias de backup por um número específico de dias.</block>
   <block id="9bbf41d74c8f89f293d3299ea7bebf83" category="list-text">Selecione a opção *manter backups de log aplicáveis aos últimos dias do &lt;number&gt; de backups completos* e especifique o número de dias para manter as cópias de backup de log.</block>
   <block id="0e549e42000cf1cd2bd13dc132e61448" category="paragraph">O período de retenção do SnapLock deve ser inferior a 100 anos.</block>
-  <block id="92ac5fc0212c94ee50e6dc85913caeec" category="example-title">Mostrar exemplo</block>
-  <block id="8047dd542f0833c625160d18deaef831" category="paragraph">Set-SmPolicy -policyname 'newpol' -PolicyType 'Backup' -PluginPolicyType 'SCSQL' -sqlbackuptype 'FullBackupAndLogBackup' -RetentonSettings 2 [BackupType] [DADOS];ScheduleType 'Hourly';RetentyType 2 2</block>
-  <block id="f2d35fb96ac070e63c88b1b43cf8c70b" category="inline-link">O SnapCenter retém cópias Snapshot do banco de dados</block>
-  <block id="96df6a4d32e4546cfd055ffa3e9a7097" category="paragraph"><block ref="96df6a4d32e4546cfd055ffa3e9a7097" category="inline-link-rx"></block></block>
   <block id="df5624cba097e4a1613f2162cfe02d72" category="open-title">Atualize o SnapMirror</block>
   <block id="4fbf861fa73d7c46a9d919de9dba7f88" category="paragraph">Atualize o SnapMirror depois de criar uma cópia Snapshot local.</block>
   <block id="b62913a5294dae473801568644e4e8a8" category="list-text">Selecione esta opção para criar cópias espelhadas de conjuntos de backup em outro volume (SnapMirror).</block>
   <block id="862e27b33388db0f7174e2affc68bbee" category="inline-link-macro">Veja os backups e clones do SQL Server na página topologia</block>
   <block id="721dcaba6ffe06898a1264f811fd7874" category="open-title">Atualize o SnapVault</block>
   <block id="aafae6ead4b01f0afa9e2d2dcfc5ecdd" category="paragraph">Atualize o SnapVault depois de criar uma cópia Snapshot.</block>
-  <block id="149450cb3a9e3ecae5eaba7a4573516f" category="paragraph">Dependendo do rótulo de captura instantânea selecionado, o ONTAP aplica a política de retenção de snapshot secundária que corresponde ao rótulo.</block>
   <block id="103ff4d651f40a22f8ac13b7d439054e" category="open-title">Contagem de tentativas de erro</block>
   <block id="1701175190dfd6dd06812a1b97af8f95" category="paragraph">Por exemplo, você pode executar um script para atualizar traps SNMP, automatizar alertas e enviar logs.</block>
   <block id="dccc8011e6f51f002aae83ff00479c7d" category="admonition">Você deve configurar a política de retenção SnapMirror no ONTAP para que o storage secundário não atinja o limite máximo de snapshots.</block>
@@ -9012,8 +9000,6 @@
   <block id="51c4ef6c91626ee6bcba80f0f3a8fd59" category="list-text">Na página Snapshot e replicação, execute as seguintes ações.</block>
   <block id="e70a56107961334e45231ff9d5f1bda8" category="list-text">Na seção Configurações de instantâneos, execute as seguintes ações:</block>
   <block id="d21b6c7742082098834aa7ac817fc423" category="paragraph">Selecione *reter cópias para* e especifique o número de dias para os quais deseja manter as capturas instantâneas antes de excluí-las.</block>
-  <block id="a37760bcf65acb1e666f7880b234b107" category="paragraph">Período de bloqueio da cópia Snapshot principal</block>
-  <block id="8c4df87df7072888db58abdf493c82ba" category="paragraph">Se desejar especificar o período de bloqueio de instantâneos para o primário, selecione período de bloqueio de cópias instantâneas e selecione dias, meses ou anos.</block>
   <block id="37f001fbef310181d8f4577b4c03a798" category="paragraph">Período de bloqueio secundário de instantâneos</block>
   <block id="2e37f31a39b30876eff1858ef3d01783" category="paragraph">Selecione *período de bloqueio de cópia instantânea secundária* e selecione dias, meses ou anos.</block>
   <block id="49d10f32e6045f6eb1e87608c6663036" category="list-text">Na seção Selecionar opções de replicação secundária, selecione uma ou ambas as seguintes opções de replicação secundária:</block>
@@ -9035,13 +9021,11 @@
   <block id="8945d91112d6305825278287a12463cf" category="list-text">Na página Snapshot e replicação, execute as seguintes etapas:</block>
   <block id="26c5fd73c2f414e21745bac4c9061520" category="list-text">Na página Snapshot e replicação, especifique as configurações de retenção para o tipo de backup e o tipo de agendamento selecionado na página tipo de backup:</block>
   <block id="eff059db75a3581eefbc224fcb754955" category="paragraph">Selecione *Copies to keep* e especifique o número de instantâneos que deseja manter.</block>
-  <block id="75653881b192c0f71e63eff99df780b0" category="paragraph">Período de bloqueio da cópia Snapshot secundária</block>
   <block id="ad6c4cefab999b5d3b0c637f45be0c1e" category="list-text">Para backups baseados em cópia Snapshot, na seção Selecionar opções de replicação secundária, selecione uma ou ambas as opções de replicação secundária a seguir:</block>
   <block id="c0cfc52080e2a067b98e24711aebb894" category="paragraph"><block ref="c0cfc52080e2a067b98e24711aebb894" category="inline-image-macro-rx" type="image"></block></block>
   <block id="90f9660dfd88af9a8e7316dbe773ef8d" category="list-text">Na seção Configurações personalizadas de backup, forneça quaisquer configurações específicas de backup que tenham que ser passadas para o formato de valor de chave do plug-in.</block>
   <block id="8ec0c5b593d331f0bf00c2469725e303" category="list-text">Na seção Configurações de instantâneos, especifique as configurações de retenção para o tipo de backup e o tipo de agendamento selecionado na página *tipo de backup*:</block>
   <block id="b794f07b4da865ba0ea5b2e45e40e2d7" category="list-text">Selecione uma etiqueta de política.</block>
-  <block id="d8321bde9335ee452a7c54b922588669" category="paragraph">Dependendo do rótulo de política selecionado, o ONTAP aplica a política de retenção de snapshot secundária que corresponde ao rótulo.</block>
   <block id="40760df99ad1881cc4099caa2853c64b" category="inline-link-macro">Veja backups e clones relacionados a recursos MySQL na página topologia</block>
   <block id="81a788b178a1784f4d3b3c98f0a5c0fd" category="paragraph"><block ref="6710edbd3b148f1744e483f97807e560" category="inline-link-macro-rx"></block>Consulte .</block>
   <block id="c708e7888448bf0b8b9020a354adbf4d" category="doc">Crie grupos de recursos e habilite a proteção secundária para recursos MySQL em sistemas ASA R2</block>
@@ -9068,7 +9052,6 @@
   <block id="5c72942e47dd59d535a0243e01b915c5" category="paragraph">Você pode pesquisar o grupo de recursos inserindo o nome do grupo de recursos na caixa de pesquisa ou clicando em *<block ref="ef7fd6a62d3d2e73b9eef702ebac01ef" category="inline-image-macro-rx" type="image"></block>* e, em seguida, selecionando a tag. Em seguida, pode clicar em<block ref="ef7fd6a62d3d2e73b9eef702ebac01ef" category="inline-image-macro-rx" type="image"></block>* * para fechar o painel do filtro.</block>
   <block id="75dd626c2900bf0ae903a1af9ff5bb4d" category="list-text">Na página tipo de backup e replicação, execute as seguintes etapas:</block>
   <block id="66e5ec1722ee55d19932c5bc96d7c5c3" category="list-text">Selecione a etiqueta Política.</block>
-  <block id="5a448dc3de839f6ccafc3c5c79832c90" category="admonition">Você deve selecionar as opções de replicação secundária para *período de bloqueio de cópia snapshot secundário* para entrar em vigor. A opção *período de bloqueio de cópia de instantâneo secundário* está disponível na página retenção.</block>
   <block id="41b7523d6eb2b3d6f06599d202b36bc2" category="paragraph">Período de bloqueio do instantâneo principal</block>
   <block id="bdb12321d80003b575f05b8f7554d39f" category="paragraph">Selecione *período de bloqueio de cópia de instantâneo primário* e selecione dias, meses ou anos.</block>
   <block id="a76a81f87730cc587fdae2f40fc9d18b" category="paragraph">Clique <block ref="ef7fd6a62d3d2e73b9eef702ebac01ef" category="inline-image-macro-rx" type="image"></block> e selecione o nome do host e o Exchange Server para filtrar os recursos. Em seguida, pode clicar <block ref="ef7fd6a62d3d2e73b9eef702ebac01ef" category="inline-image-macro-rx" type="image"></block> para fechar o painel de filtro.</block>
@@ -9105,8 +9088,6 @@
   <block id="1524074fad20a78ac464c12b7c0ab1be" category="paragraph"><block ref="1524074fad20a78ac464c12b7c0ab1be" category="inline-image-macro-rx" type="image"></block></block>
   <block id="5116143fc568cf90dd6d42f66fce7458" category="list-text">Na página Snapshot e replicação, execute as seguintes etapas:</block>
   <block id="eb1d9d00c6e807619cab9ea37bcf137a" category="list-text">Na seção Configurações de retenção de instantâneos de dados, especifique as configurações de retenção para o tipo de backup e o tipo de agendamento selecionado na página tipo de backup:</block>
-  <block id="a5f1bd1f3375b552f48386ca5d05e45a" category="paragraph">Se você quiser especificar o período de bloqueio de cópia de snapshot principal, selecione *período de bloqueio de cópia de snapshot primário* e selecione dias, meses ou anos.</block>
-  <block id="2c1e6867a6e3b711ba7c5a6b89167c44" category="paragraph">Se pretender especificar o período de bloqueio de cópia de instantâneo secundário, selecione *período de bloqueio de cópia de instantâneo secundário* e selecione dias, meses ou anos.</block>
   <block id="218bd996ffd443419d26b630b917d4da" category="list-text">Na seção Configurações de retenção de instantâneos do Registro de arquivamento, especifique as configurações de retenção para o tipo de backup e o tipo de agendamento selecionado na página tipo de backup:</block>
   <block id="17e51acfcdd274bfcfeb54ea63213736" category="list-text">Selecione a etiqueta da política.</block>
   <block id="e38051a0d9227426e5f8160402a78211" category="paragraph">As informações sobre os parâmetros que podem ser usados com o comando e suas descrições podem ser obtidas executando get-Help command_name. Em alternativa, pode também consultar o<block ref="a6987fd1f481831496b6e000c63cd27d" category="inline-link-rx"></block>.</block>
@@ -9138,7 +9119,6 @@
   <block id="955e59c39a685284fed2337a93e106ba" category="admonition">Por padrão, o valor da contagem de retenção é definido como 2. Se você definir a contagem de retenção como 1, a operação de retenção pode falhar porque o primeiro snapshot é o snapshot de referência para a relação SnapVault até que um snapshot mais recente seja replicado para o destino.</block>
   <block id="de89a185c7194c68782b531cfd26fd28" category="list-text">Duração de tempo para manter instantâneos</block>
   <block id="baf9bfd10581e4153f7ec33ae67cdfc2" category="list-text">Se você quiser especificar o número de dias para os quais deseja manter os snapshots antes de excluí-los, selecione *reter cópias para*.</block>
-  <block id="d2f6ae7e40615559468909d9d4717552" category="list-text">Selecione uma etiqueta Snapshot</block>
   <block id="6eeddb49abf2b478b28ef816bcc9d4b5" category="section-title">Etapa 7: Configurar opções de replicação secundária</block>
   <block id="81acf3e2ad702e58e6f17b488f420f60" category="paragraph"><block ref="a3a1de85b36025c39faacf264d5c19f2" category="inline-link-macro-rx"></block>Consulte .</block>
   <block id="ef37f84ddc9d52086dc669514422940b" category="section-title">Passo 8: Configurar definições de script</block>
@@ -9151,7 +9131,6 @@
   <block id="ea64a472e78bd4b210304f394bbe8e3a" category="list-text">Clique <block ref="ef7fd6a62d3d2e73b9eef702ebac01ef" category="inline-image-macro-rx" type="image"></block>em e selecione o nome do host e os sistemas de arquivos Unix para filtrar os recursos.</block>
   <block id="fe87c152ea8a027207bc606ca85f3c4c" category="list-text">Especifique as definições de cópia de segurança.</block>
   <block id="9cda14399e82414944fcea8fffd39485" category="list-text">Na página retenção, especifique as configurações de retenção para o tipo de backup e o tipo de agendamento selecionado na página Backup e replicação:</block>
-  <block id="5f455fba952d07764d32e75250b5ba52" category="paragraph">Se desejar especificar o período de bloqueio de instantâneos para o primário, selecione *período de bloqueio de cópia de instantâneo primário* e selecione dias, meses ou anos.</block>
   <block id="68cdec5e109e43073b7bf9bf31a79009" category="doc">Crie grupos de recursos e habilite a proteção secundária para sistemas de arquivos do Windows em sistemas ASA R2</block>
   <block id="6f939f8b76abcb6333b6300620a5e0f3" category="image-alt">fluxo de trabalho de backup</block>
   <block id="6af63e081593a62ed023786db3b2e4ee" category="paragraph">Se nenhuma política existente atender aos seus requisitos, você pode copiar uma política existente e modificá-la ou criar uma nova política clicando <block ref="7b8f66898e8dfce6b3b454cf0514c993" category="inline-image-macro-rx" type="image"></block> para iniciar o assistente de política. Se nenhuma política existente atender aos seus requisitos, você pode copiar uma política existente e modificá-la ou criar uma nova política clicando <block ref="7b8f66898e8dfce6b3b454cf0514c993" category="inline-image-macro-rx" type="image"></block> para iniciar o assistente de política.</block>
@@ -9221,7 +9200,6 @@
   <block id="bf1764b9ff5a6e7b28ab3b2166bff7a4" category="admonition">O NetApp ONTAP é compatível com a restauração no local a partir de um local secundário.</block>
   <block id="cdc0da196ab05c60eaebdca9a2459cd1" category="list-text">Para obter informações sobre operações de divisão de volume do FlexClone, consulte, <block ref="a740171a60876518d945f2e24ddd79f9" category="inline-link-rx"></block></block>
   <block id="dc4d7bf5602b12335597fd5350deab23" category="admonition">O valor máximo de retenção é 1018. Os backups falharão se a retenção for definida para um valor maior do que o que a versão subjacente do NetApp ONTAP suporta.</block>
-  <block id="ee96dd48de878c0191d0701d853dd514" category="paragraph">Este exemplo define a retenção de instantâneos de registo como 2:</block>
   <block id="ab6d9fe11358cebc1d2cc02fa1c47496" category="list-text">Certifique-se de ter criado o princípio de serviço no Azure.</block>
   <block id="6f346066b074941885d0989051206e4e" category="list-text">Certifique-se de que você tem o ID do locatário, o ID do cliente e a chave secreta associados ao responsável de serviço disponível com você.</block>
   <block id="db4af27eace345776f29f9a3dbb3b5ff" category="list-text">O ID do Locatário pode ser encontrado no Portal do Azure na página Visão geral do ID do Entra.</block>
@@ -9566,4 +9544,17 @@
   <block id="0f6e39c02439e0ed8443edc2be967e14" category="paragraph">Para obter informações sobre os cmdlets, consulte<block ref="bc822c4319e03a98720e4951c1009810" category="inline-link-rx"></block> .</block>
   <block id="87592b536cbfa9f8d915045e1c7873f1" category="paragraph"><block ref="2c04bf704e48a12576c63de2102c1c43" prefix="" category="inline-code"></block></block>
   <block id="fa091713eff4575bdb9b210ff2415c9c" category="paragraph"><block ref="b883ee9ba55ef21bf483fd5986981580" prefix="" category="inline-code"></block></block>
+  <block id="971b3c1d99a5aa6f2b187690d01d852c" category="paragraph">Período de bloqueio de cópia de instantâneo</block>
+  <block id="6b98a909e75e4d7d49461b7870f270bb" category="paragraph">Selecione *Período de bloqueio de cópia de instantâneo* e especifique dias, meses ou anos.</block>
+  <block id="7f9c21c186057efab059e539477e7cb8" category="list-text">Especifique o rótulo da política.</block>
+  <block id="2c5bee50fa6fe5f3871c65e5847d0382" category="paragraph">Você pode atribuir rótulos SnapMirror a snapshots primários para replicação remota, permitindo que os snapshots primários descarreguem a operação de replicação de snapshots do SnapCenter para sistemas secundários ONTAP .  Isso pode ser feito sem habilitar a opção SnapMirror ou SnapVault na página de política.</block>
+  <block id="4dd3845fa1427b8270fec6409779e3ce" category="paragraph">Se o número de Snapshots exceder o número especificado, os Snapshots mais antigos serão excluídos primeiro.</block>
+  <block id="9f4dc04b028094d2b50c905cb66cb584" category="admonition">O valor máximo de retenção é 1018.  Os backups falharão se a retenção for definida como um valor maior do que o suportado pela versão do ONTAP .</block>
+  <block id="1df9ce8f8ee70d4668259711a2f20cd1" category="paragraph">Selecione *Período de bloqueio de cópia de instantâneo* e especifique dias, meses ou anos.</block>
+  <block id="83c353dab613896fa690239dff46e104" category="admonition">O valor máximo de retenção é 1018.  Os backups falharão se a retenção for definida como um valor maior do que o suportado pela versão do ONTAP .</block>
+  <block id="3300240ffba2f4633a53323d37d6b7e1" category="paragraph">+ Especificar um período de bloqueio de Snapshot impede a exclusão dos Snapshots até que o período de retenção expire.  Isso pode levar à retenção de um número maior de Snapshots do que a contagem especificada na política.</block>
+  <block id="dca9965d6a6b336628078d10c70a83d6" category="paragraph">+ Para o ONTAP 9.12.1 e versões anteriores, os clones criados a partir dos Snapshots do SnapLock Vault como parte da restauração herdarão o tempo de expiração do SnapLock Vault.  O administrador de armazenamento deve limpar manualmente os clones após o tempo de expiração do SnapLock .</block>
+  <block id="bd4112ff24244ca0e669eb1f5a3bae9b" category="paragraph">Selecione o *Período de bloqueio de cópia de instantâneo* e especifique a duração em dias, meses ou anos.</block>
+  <block id="4b0801e52b058b04e3451f31a90447e6" category="list-text">Selecione *Período de bloqueio de cópia de instantâneo* e especifique a duração em dias, meses ou anos.</block>
+  <block id="5c2f59b69b9e772c86d6723464bda765" category="paragraph">Selecione Período de bloqueio do instantâneo e especifique a duração em dias, meses ou anos.</block>
 </blocks>
