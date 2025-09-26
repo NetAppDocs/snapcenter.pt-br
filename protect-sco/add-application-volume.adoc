@@ -26,9 +26,15 @@ NOTE: Os volumes de aplicações são compatíveis apenas com conexões diretas 
 ** No campo Nome do host , digite o nome do host.
 
 
-. Na página espaço físico do armazenamento, insira o nome do sistema de armazenamento, selecione um ou volumes e especifique os LUNs ou Qtrees associados.
+. Na página Storage Footprint, execute as seguintes ações:
 +
-Você pode adicionar vários sistemas de storage.
+** Selecione o tipo de armazenamento.
+** Digite o nome do sistema de armazenamento.
+** Selecione as unidades de armazenamento.
++
+Você pode adicionar várias unidades de armazenamento.
+
+
 
 . Revise o resumo e clique em *Finish*.
 . Na página recursos, selecione *volume do aplicativo* na lista *Exibir* para exibir todos os volumes de aplicativos adicionados.
@@ -60,5 +66,5 @@ Se necessário, o SnapCenter permite anular a operação de eliminação.
 
 . No painel de navegação esquerdo, clique em *Resources* e selecione o plug-in Oracle Database na lista.
 . Na página recursos, selecione *volume do aplicativo* na lista *Exibir*.
-. Clique image:../media/delete_icon.gif["eliminar ícone"]em ELETE icon] para modificar os valores.
+. Cliqueimage:../media/delete_icon.gif["eliminar ícone"] para excluir o volume do aplicativo.
 

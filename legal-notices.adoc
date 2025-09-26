@@ -47,4 +47,4 @@ link:https://www.netapp.com/company/legal/privacy-policy/["https://www.netapp.co
 
 Os arquivos de aviso fornecem informações sobre direitos autorais de terceiros e licenças usadas no software NetApp.
 
-https://library.netapp.com/ecm/ecm_download_file/ECMLP3337668["Aviso para SnapCenter 6,1"^]
+https://library.netapp.com/ecm/ecm_download_file/ECMLP3359468["Aviso para SnapCenter 6.2"^]

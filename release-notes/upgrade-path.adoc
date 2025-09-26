@@ -11,20 +11,17 @@ summary: Os caminhos de atualização suportados pelo SnapCenter.
 
 
 [role="lead"]
-O caminho de atualização ajuda você a entender a partir de quais versões anteriores do SnapCenter você pode atualizar para as versões mais recentes do SnapCenter e quais versões dos plug-ins são suportadas.
+O caminho de atualização mostra quais versões do SnapCenter você pode atualizar e quais versões de plug-in são suportadas.
+
+
+NOTE: Se você atualizar o SnapCenter Server para 6.2, atualize também os plug-ins para 6.2.
 
 |===
 | Se você estiver na versão do servidor SnapCenter... | Você pode atualizar diretamente o servidor SnapCenter para... | Versões de plug-in suportadas 
 
 
-.3+| 5,0 | 6,0  a| 
-* 5,0
+.3+| 6,0 | 6.0.1  a| 
 * 6,0
-
-
-
-
-| 6.0.1  a| 
 * 6.0.1
 
 
@@ -36,24 +33,28 @@ O caminho de atualização ajuda você a entender a partir de quais versões ant
 
 
 
-.2+| 6,0  a| 
-6.0.1
+| 6,2  a| 
+* 6,2
+
+
+
+
+.2+| 6.0.1  a| 
+6,1
  a| 
-* 6,0
-* 6.0.1
-
-
-
-
-| 6,1  a| 
 * 6,1
 
 
 
 
-| 6.0.1 | 6,1  a| 
-* 6.0.1
-* 6,1
+| 6,2  a| 
+* 6,2
+
+
+
+
+| 6,1 | 6,2  a| 
+* 6,2
 
 
 |===

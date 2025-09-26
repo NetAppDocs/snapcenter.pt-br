@@ -4,7 +4,7 @@ title: Notas de lançamento
 entries:
 - title: Notas de versão
   url: "/release-notes/release-notes.html"
-- title: Novidades do SnapCenter 6,1
+- title: Novidades no SnapCenter 6.2
   url: "/release-notes/what's-new-in-snapcenter61.html"
 - title: Caminhos de atualização compatíveis para o SnapCenter
   url: "/release-notes/upgrade-path.html"

@@ -11,7 +11,7 @@ summary: Você deve criar funções SVM se você configurar SVMs em sistemas ASA
 
 
 [role="lead"]
-Há vários comandos de CLI do ONTAP que você precisa executar para criar uma função para um novo usuário SVM nos sistemas ASA R2. Essa função é necessária se você configurar SVMs em sistemas ASA R2 para usar com o SnapCenter e não quiser usar a função vsadmin.
+Há vários comandos ONTAP CLI que você deve executar para criar uma função para um novo usuário SVM em sistemas ASA r2.  Essa função é necessária se você configurar SVMs em sistemas ASA r2 para usar com o SnapCenter e não quiser usar a função vsadmin.
 
 *Passos*
 

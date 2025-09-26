@@ -11,26 +11,34 @@ summary: Você deve conhecer o sistema de storage suportado, as aplicações e o
 
 
 [role="lead"]
-Os sistemas de armazenamento ASA r2 são suportados a partir do SnapCenter 6.1.  https://docs.netapp.com/us-en/asa-r2/get-started/learn-about.html["Saiba mais sobre os sistemas ASA R2"]
+Os sistemas de armazenamento ASA r2 são suportados a partir do SnapCenter 6.1. https://docs.netapp.com/us-en/asa-r2/get-started/learn-about.html["Saiba mais sobre os sistemas ASA R2"^] .
 
-O SnapCenter utiliza APIs REST para executar todas as operações em sistemas ASA r2, que não oferecem suporte a ZAPIs.
+O SnapCenter oferece suporte à proteção primária e secundária de aplicativos executados em sistemas físicos e em sistemas de arquivos de máquina virtual (VMFS).  O SnapCenter usa APIs REST para todas as operações em sistemas ASA r2.  Os sistemas ASA r2 não suportam ZAPIs.
 
 *Operações suportadas pelo SnapCenter para sistemas ASA r2*
 
-* Criação de backups primários de aplicativos através do VMDK
-* Transferir instantâneos de grupo de consistência para o sistema de armazenamento secundário
-* Restaurando os backups dos sistemas de armazenamento primário e secundário para o host original ou para o host alternativo
+* Criação de backups primários de aplicativos
+* Movendo snapshots de grupos de consistência hierárquica para o sistema de armazenamento secundário
+* Restaurar backups de sistemas de armazenamento primário e secundário para o host original ou alternativo
 +
 ** Restauração no local de sistemas de armazenamento primário e secundário usando VMware vMotion
 ** Conecte e copie e restaure dos sistemas de armazenamento primário e secundário
 
 
 * Clonar os backups para o host original ou para o host alternativo
+* Mapeamento de dispositivo bruto (RDM)
+* Proteção de volumes de aplicativos para Oracle
+* Proteção do SAP HANA NDV
+* LockVault
+* Provisionamento secundário do diretório de log do host do plug-in SQL
 
 
-O SnapCenter pode descobrir ou criar grupos de consistência ONTAP. Ele também pode provisionar e inicializar relacionamentos SnapMirror com o cluster de destino para proteção secundária.
+O SnapCenter descobre ou cria grupos de consistência ONTAP .  Ele configura relacionamentos SnapMirror no cluster de destino para proteção secundária. https://docs.netapp.com/us-en/ontap/consistency-groups["Saiba mais sobre grupos de consistência ONTAP"^] .
 
-Para obter informações sobre como habilitar a proteção secundária em sistemas ASA r2 para seu aplicativo, consulte:
+
+NOTE: Após atualizar para o SnapCenter 6.2 (servidor e plug-ins) e o ONTAP 9.17.1, o SnapCenter altera grupos de consistência simples para grupos de consistência hierárquicos durante o primeiro backup agendado.
+
+Para saber como habilitar a proteção secundária em sistemas ASA r2 para seu aplicativo, consulte:
 
 * https://docs.netapp.com/us-en/snapcenter/protect-scsql/create-resource-groups-secondary-protection-for-asa-r2-mssql-resources.html["Habilitar proteção secundária para recursos do Microsoft SQL Server"]
 * https://docs.netapp.com/us-en/snapcenter/protect-hana/create-resource-groups-secondary-protection-for-asa-r2-hana-resources.html["Habilitar proteção secundária para recursos do SAP HANA"]
@@ -44,15 +52,15 @@ Para obter informações sobre como habilitar a proteção secundária em sistem
 
 *Operações não suportadas pelo SnapCenter para sistemas ASA r2*
 
-* Mapeamento de dispositivo bruto (RDM)
-* Volumes de aplicações para Oracle
-* SAP HANA NDV
-* LockVault
 * Snapshots à prova de violações
 * Volumes FlexGroup
-* Grupo de consistência hierárquica
 * Migração de sistemas de armazenamento ASA, AFF ou FAS para sistemas de armazenamento ASA r2
-* Proteção de bancos de dados que possuem uma mistura de recursos ASA, AFF ou FAS e recursos ASA r2
+* Proteção de bancos de dados com uma combinação de recursos ASA, AFF ou FAS e recursos ASA r2
 * Renomeação de snapshots
-* Provisionamento secundário do diretório de log do host do plug-in SQL
+* Provisionamento de recursos do Windows
+* Proteção secundária se houver failover de sincronização ativa do SnapMirror
+* Protocolo de memória expressa não volátil (NVMe) se a sincronização ativa do SnapMirror estiver habilitada
+* Proteção de aplicativos em execução no AIX
+* Atualização técnica
+* Recuperação de desastres de recursos do Microsoft SQL
 

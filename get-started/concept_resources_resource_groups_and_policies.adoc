@@ -46,6 +46,12 @@ Prescripts e postscripts personalizados podem ser usados em operações de prote
 
 
 
+== Grupo de consistência (GC)
+
+Um grupo de consistência é uma coleção de volumes gerenciados como uma única unidade.  Os CGs são sincronizados para consistência de dados em unidades de armazenamento e volumes.  No ONTAP, eles fornecem gerenciamento fácil e uma garantia de proteção para uma carga de trabalho de aplicativo abrangendo vários volumes. Saiba mais sobre link:https://docs.netapp.com/us-en/ontap/consistency-groups["grupos de consistência"^] .
+
+
+
 == Uso de prescripts e postscripts
 
 Prescripts e postscripts personalizados podem automatizar suas tarefas de proteção de dados antes ou depois do trabalho. Por exemplo, você pode adicionar um script para notificá-lo de falhas ou avisos de trabalhos. Antes de configurá-los, certifique-se de entender os requisitos para esses scripts.

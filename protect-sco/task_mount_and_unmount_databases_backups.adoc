@@ -79,7 +79,7 @@ Se você estiver montando o backup de um banco de dados ASM, o caminho de montag
 `./sccli Get-Smbackup-BackupNamebackup_name`
 
 +
-As informações sobre os parâmetros que podem ser usados com o comando e suas descrições podem ser obtidas executando Get-Help _command_name_. Em alternativa, pode também consultar o https://library.netapp.com/ecm/ecm_download_file/ECMLP3337666["Guia de Referência de comandos do software SnapCenter"^].
+As informações sobre os parâmetros que podem ser usados com o comando e suas descrições podem ser obtidas executando Get-Help _command_name_.  Alternativamente, você também pode consultar o https://library.netapp.com/ecm/ecm_download_file/ECMLP3359469["Guia de Referência de comandos do software SnapCenter"^] .
 
 
 
