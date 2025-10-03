@@ -9568,7 +9568,6 @@
   <block id="652468e7a8f47c94c0dfc2bbbe3f6788" category="inline-link-macro">Novidades no SnapCenter 6.2</block>
   <block id="d5d7d6e218fb8deef9aa758f16f3e053" category="paragraph">Para obter uma lista completa de novos recursos e aprimoramentos, consulte <block ref="ba56a05032a421946bbeef30dde12674" category="inline-link-macro-rx"></block> .</block>
   <block id="24443d9133830b434ac05072f0c9653a" category="inline-link">Notas de versão do software SnapCenter 6.2</block>
-  <block id="34319768640d09bbc428643b51adb5af" category="paragraph">Para obter detalhes sobre problemas conhecidos, limitações, problemas corrigidos e comandos novos e alterados, consulte o<block ref="b5242c8747d109e2a469b208226df65c" category="inline-link-rx"></block> . Você deve entrar com sua conta NetApp ou criar uma conta para acessar as Notas de Versão.</block>
   <block id="320bd16b81d8a6a0a077d7308db7683d" category="paragraph">O caminho de atualização mostra quais versões do SnapCenter você pode atualizar e quais versões de plug-in são suportadas.</block>
   <block id="f734f899336791933d28373bca69a72f" category="admonition">Se você atualizar o SnapCenter Server para 6.2, atualize também os plug-ins para 6.2.</block>
   <block id="7a22247de8db3271f3bf8573be10e986" category="cell">6,2</block>
@@ -9581,4 +9580,5 @@
   <block id="24f24d3f1f893e4176aff86940b1f7bd" category="paragraph">Para saber como atualizar o SnapCenter Plug-in for VMware vSphere, consulte<block ref="9fa07c2f7a59d2185d48077e327b705e" category="inline-link-rx"></block> .</block>
   <block id="97e76bbffdf8f08342d1c5a741af4b2a" category="sidebar">O SnapCenter software é uma plataforma simples, centralizada e escalável que fornece proteção de dados consistente para aplicativos, bancos de dados, sistemas de arquivos host e VMs em execução em sistemas ONTAP em qualquer lugar na Nuvem Híbrida.  Esta biblioteca de documentação inclui informações para a versão 6.2.</block>
   <block id="1e0eab11641f75c3ff495410ce40bf66" category="sidebar">Documentação do SnapCenter software 6.2</block>
+  <block id="9968307e35346723a7def9d1da87a203" category="paragraph">Para obter detalhes sobre problemas conhecidos, limitações, problemas corrigidos e comandos novos e alterados, consulte o<block ref="bedfbb0cb9ae5977029e72ca67318671" category="inline-link-rx"></block> . Você deve entrar com sua conta NetApp ou criar uma conta para acessar as Notas de Versão.</block>
 </blocks>
