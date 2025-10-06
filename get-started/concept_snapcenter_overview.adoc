@@ -35,7 +35,7 @@ Você pode instalar o SnapCenter no local ou em uma nuvem pública para proteger
 * No local em uma Nuvem Híbrida para proteger o seguinte:
 +
 ** Dados em sistemas primários ONTAP FAS, AFF ou ASA e replicados para Cloud Volumes ONTAP
-** Dados em sistemas primários e secundários ONTAP FAS, AFF ou ASA e protegidos em storage de objetos e arquivamento na nuvem (usando integração de recuperação e backup do BlueXP )
+** Dados que estão em sistemas primários e secundários ONTAP FAS, AFF ou ASA e protegidos para armazenamento de objetos e arquivos na nuvem usando integração de backup e recuperação do NetApp
 
 
 * Em uma nuvem pública para proteger o seguinte:
