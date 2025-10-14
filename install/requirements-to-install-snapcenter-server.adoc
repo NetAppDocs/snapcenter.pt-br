@@ -168,7 +168,7 @@ A tabela a seguir lista as diferentes portas e seus valores padrão.
 
 
  a| 
-Porta SnapCenter
+Porta da web do SnapCenter
  a| 
 8146
  a| 

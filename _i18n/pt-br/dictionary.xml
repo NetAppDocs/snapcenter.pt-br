@@ -1992,7 +1992,6 @@
   <block id="718d9231009edb9654b9f6f52346a835" category="list-text">Firewalls, proxies ou outros dispositivos de rede não devem interferir nas conexões.</block>
   <block id="eceb61ca100437ca326b49341fc1f909" category="list-text">Se você especificar uma porta personalizada ao instalar o SnapCenter, adicione uma regra de firewall no host do plug-in para essa porta para o Loader de plug-ins do SnapCenter.</block>
   <block id="29e256a27c9d420cee02c5cda005de01" category="paragraph">A tabela a seguir lista as diferentes portas e seus valores padrão.</block>
-  <block id="ed00b70cc595a411eff2cc42510a291f" category="paragraph">Porta SnapCenter</block>
   <block id="18622e175ff22b2375f9cbc2314b3285" category="paragraph">Porta de comunicação SnapCenter SMCore</block>
   <block id="a22e3c4898555ed30acf91192f3c301a" category="paragraph">Porta de serviço do Agendador</block>
   <block id="0703d446ecd330b75f76dab17472df37" category="paragraph">Esta porta é usada para orquestrar os fluxos de trabalho do agendador do SnapCenter para todos os plug-ins gerenciados dentro do host do servidor SnapCenter de maneira centralizada.</block>
@@ -9585,4 +9584,5 @@
   <block id="995c8f79a8e07fbd8d519e45d03d6004" category="paragraph">O NetApp Console, criado com base na base aprimorada e reestruturada do BlueXP , fornece gerenciamento centralizado do armazenamento NetApp e do NetApp Data Services em ambientes locais e na nuvem em nível empresarial, fornecendo insights em tempo real, fluxos de trabalho mais rápidos e administração simplificada, de forma altamente segura e compatível.</block>
   <block id="2ef9d641d45afe99b74ad6f9a9f797ad" category="inline-link-macro">Notas de versão do NetApp Console</block>
   <block id="1e3eeac5409758903bc21870184a640a" category="paragraph">Para obter detalhes sobre o que mudou, consulte o<block ref="06d876b9fcdfcba8772d93beac1ca38b" category="inline-link-macro-rx"></block> .</block>
+  <block id="e6f36a956625505e0a3733e3e0073fa0" category="paragraph">Porta da web do SnapCenter</block>
 </blocks>
