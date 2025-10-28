@@ -9585,4 +9585,5 @@
   <block id="2ef9d641d45afe99b74ad6f9a9f797ad" category="inline-link-macro">Notas de versão do NetApp Console</block>
   <block id="1e3eeac5409758903bc21870184a640a" category="paragraph">Para obter detalhes sobre o que mudou, consulte o<block ref="06d876b9fcdfcba8772d93beac1ca38b" category="inline-link-macro-rx"></block> .</block>
   <block id="e6f36a956625505e0a3733e3e0073fa0" category="paragraph">Porta da web do SnapCenter</block>
+  <block id="da994c44eacde8f5cafe8883779cb695" category="sidebar">Relatórios técnicos do SnapCenter</block>
 </blocks>
