@@ -99,7 +99,7 @@ NOTE: Certifique-se de ter instalado apenas a edição certificada DO Java 11 no
 Se você atualizou O JAVA para a versão mais recente, você deve garantir que a opção JAVA_HOME localizada em /var/opt/SnapCenter/spl/etc/spl.properties esteja definida para a versão JAVA correta e o caminho correto.
 
 |===
-Para obter as informações mais recentes sobre versões suportadas, consulte o https://imt.netapp.com/matrix/imt.jsp?components=121073;&solution=1257&isHWU&src=IMT["Ferramenta de Matriz de interoperabilidade do NetApp"^].
+Para obter as informações mais recentes sobre as versões suportadas, consulte o https://imt.netapp.com/imt/imt.jsp?components=180320;180338;&solution=1257&isHWU&src=IMT["Ferramenta de Matriz de interoperabilidade do NetApp"] .
 
 
 
@@ -227,7 +227,7 @@ Java 11 IBM Java
 Se você atualizou O JAVA para a versão mais recente, você deve garantir que a opção JAVA_HOME localizada em /var/opt/SnapCenter/spl/etc/spl.properties esteja definida para a versão JAVA correta e o caminho correto.
 
 |===
-Para obter as informações mais recentes sobre versões suportadas, consulte o https://imt.netapp.com/matrix/imt.jsp?components=121073;&solution=1257&isHWU&src=IMT["Ferramenta de Matriz de interoperabilidade do NetApp"^].
+Para obter as informações mais recentes sobre as versões suportadas, consulte o https://imt.netapp.com/imt/imt.jsp?components=180320;180338;&solution=1257&isHWU&src=IMT["Ferramenta de Matriz de interoperabilidade do NetApp"] .
 
 
 

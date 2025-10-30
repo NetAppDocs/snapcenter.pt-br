@@ -56,8 +56,3 @@ Se você atualizou O JAVA para a versão mais recente, você deve garantir que a
 
 |===
 Para obter as informações mais recentes sobre versões suportadas, consulte a. https://imt.netapp.com/matrix/imt.jsp?components=121073;&solution=1257&isHWU&src=IMT["Ferramenta de Matriz de interoperabilidade do NetApp"]
-
-[]
-====
-
-====

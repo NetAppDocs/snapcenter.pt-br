@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: SnapCenter Plug-in for Microsoft Exchange Server 
 summary: O SnapCenter suporta uma ampla variedade de tipos de armazenamento em máquinas físicas e máquinas virtuais. Você deve verificar se há suporte disponível para o seu tipo de armazenamento antes de instalar o pacote para o seu host. 
 ---
-= Tipos de armazenamento suportados pelo plug-in SnapCenter para Microsoft Windows e para Microsoft Exchange Server
+= Tipos de armazenamento suportados pelo plug-in SnapCenter para Microsoft Exchange Server
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
@@ -13,7 +13,7 @@ summary: O SnapCenter suporta uma ampla variedade de tipos de armazenamento em m
 [role="lead"]
 O SnapCenter suporta uma ampla variedade de tipos de armazenamento em máquinas físicas e máquinas virtuais. Você deve verificar se há suporte disponível para o seu tipo de armazenamento antes de instalar o pacote para o seu host.
 
-O suporte para provisionamento e proteção de dados do SnapCenter está disponível no Windows Server. Para obter as informações mais recentes sobre versões suportadas, consulte a https://imt.netapp.com/matrix/imt.jsp?components=121031;&solution=1259&isHWU&src=IMT[] [ferramenta de Matriz de interoperabilidade NetApp].
+O suporte ao provisionamento e à proteção de dados do SnapCenter está disponível no Windows Server. Para obter as informações mais recentes sobre as versões suportadas, consulte o https://imt.netapp.com/imt/imt.jsp?components=180321;180339;180327;&solution=1257&isHWU&src=IMT["Ferramenta de Matriz de interoperabilidade do NetApp"^] .
 
 |===
 | Máquina | Tipo de armazenamento | Provisione usando | Notas de suporte 

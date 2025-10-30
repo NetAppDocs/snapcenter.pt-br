@@ -13,7 +13,7 @@ summary: O SnapCenter suporta uma ampla variedade de tipos de armazenamento em m
 [role="lead"]
 O SnapCenter suporta uma ampla variedade de tipos de armazenamento em máquinas físicas e máquinas virtuais. Você deve verificar se há suporte disponível para o seu tipo de armazenamento antes de instalar o pacote para o seu host.
 
-O suporte para provisionamento e proteção de dados do SnapCenter está disponível no Windows Server. Para obter as informações mais recentes sobre versões suportadas, consulte o https://imt.netapp.com/matrix/imt.jsp?components=121074;&solution=1257&isHWU&src=IMT["Ferramenta de Matriz de interoperabilidade do NetApp"^].
+O suporte ao provisionamento e à proteção de dados do SnapCenter está disponível no Windows Server. Para obter as informações mais recentes sobre as versões compatíveis, consulte o https://imt.netapp.com/imt/imt.jsp?components=180321;180339;&solution=1257&isHWU&src=IMT["Ferramenta de Matriz de interoperabilidade do NetApp"^].
 
 |===
 | Máquina | Tipo de armazenamento | Provisione usando | Notas de suporte 

@@ -144,7 +144,6 @@
   <block id="aab338915e32b60e92c8de3a23aa5c5d" category="paragraph">Sistemas operacionais</block>
   <block id="bb79f96acbff544ded541446c9c7c894" category="paragraph">Microsoft Windows</block>
   <block id="9ed4a475dd3705157a9fed8811f63ce2" category="inline-link">Ferramenta de Matriz de interoperabilidade do NetApp</block>
-  <block id="3fd57bbce38ee807b2553fd56f562c3a" category="paragraph">Para obter as informações mais recentes sobre versões suportadas, consulte o<block ref="734369dbdcbe00444fc7be843d617a6c" category="inline-link-rx"></block>.</block>
   <block id="97d747ad5d4878c60364b9ba961fd5a4" category="paragraph">RAM mínima para o plug-in SnapCenter no host</block>
   <block id="0d642755e7f12f7563e3db33bd0c39cb" category="paragraph">1 GB</block>
   <block id="94ca5bd1fc6971f402b85442105f093f" category="paragraph">Espaço mínimo de instalação e log para o plug-in SnapCenter no host</block>
@@ -163,7 +162,6 @@
   <block id="eb75aeb3b4b2b9734ba3e52f5483f0b2" category="inline-link">Documentação do ONTAP</block>
   <block id="85f4322e48905f6a2043ad68d659cc9b" category="paragraph">O SnapCenter oferece suporte ao gerenciamento de relacionamentos SnapMirror flexíveis de versão. Para obter detalhes sobre relacionamentos SnapMirror flexíveis de versão e como configurá-los, consulte<block ref="8f4b16b80a7cbb7edba7f6aa6efedcf1" category="inline-link-rx"></block>.</block>
   <block id="a418089089559a000c49aa3b9a686667" category="paragraph">O SnapCenter suporta uma ampla variedade de tipos de armazenamento em máquinas físicas e máquinas virtuais. Você deve verificar se há suporte disponível para o seu tipo de armazenamento antes de instalar o pacote para o seu host.</block>
-  <block id="4f76be6e3e78147f069df76d367c9608" category="paragraph">O suporte para provisionamento e proteção de dados do SnapCenter está disponível no Windows Server. Para obter as informações mais recentes sobre versões suportadas, consulte o <block ref="1b8aeeaa3467913188c00052ded68716" category="inline-link-rx"></block>.</block>
   <block id="47c954121886a5e5aaca7eece461b56f" category="cell">Máquina</block>
   <block id="f0cb6783b152b19ceab16227ca3976a2" category="cell">Tipo de armazenamento</block>
   <block id="2bfe08a4f62392e52d13ca1c380c81d4" category="cell">Provisione usando</block>
@@ -1350,7 +1348,6 @@
   <block id="f1a7b77dc434e17fd514506c2a6cd80c" category="list-text">LUNs RDM</block>
   <block id="daa9730f0908f333879829d0ff58fd7a" category="paragraph">Suporte para um máximo de 56 LUNs RDM com quatro controladores LSI Logic SCSI para RDMS normais ou 42 LUNs RDM com três controladores LSI Logic SCSI em um plug-in box-to-box VMware VM MSCS para configuração Windows</block>
   <block id="257e035b7b2d20fe54a290ea90cfbda5" category="paragraph">Suporta o controlador SCSI paravirtual VMware. Os discos 256 podem ser suportados em discos RDM.</block>
-  <block id="e688fd8ff964975e518ba6e9fff48630" category="paragraph">Para obter as informações mais recentes sobre versões suportadas,<block ref="64fc8efacd4fa13b8c1907c1db527b3d" category="inline-link-rx"></block> consulte .</block>
   <block id="899fb38056bfa55fefa31d639ef3150e" category="section-title">Limitações relacionadas ao servidor VMware ESXi</block>
   <block id="58e3ee800c9ab06146240fd2ed8a77e4" category="list-text">A instalação do plug-in para Windows em um cluster da Microsoft em máquinas virtuais usando credenciais ESXi não é suportada.</block>
   <block id="c48b48a89f105c0bc451692ba3bc8f90" category="paragraph">Você deve usar suas credenciais do vCenter ao instalar o plug-in para Windows em máquinas virtuais em cluster.</block>
@@ -2076,10 +2073,8 @@
   <block id="6905661e5d7f8f3e6a4faffbbab0f627" category="cell">Requisitos de host do Windows</block>
   <block id="ace028fe1c5dc8fb39091440d89fd9fd" category="cell">Requisitos de host do Linux</block>
   <block id="3dbe205a1db3f8f677f2e971edc8976d" category="paragraph">Apenas as versões em inglês, alemão, japonês e chinês simplificado dos sistemas operacionais são suportadas.</block>
-  <block id="580a1e1b3bc67640f27785bacfdba10c" category="paragraph">Para obter as informações mais recentes sobre versões suportadas, <block ref="fd691abce396db29ca9081f79eea36a4" category="inline-link-rx"></block>consulte .</block>
   <block id="e7074f744b12e993cbdc6c77ee980b3e" category="list-text">Red Hat Enterprise Linux (RHEL) 8 e 9</block>
   <block id="447430d602cceb081264e037425cd96e" category="list-text">SUSE Linux Enterprise Server (SLES) 15</block>
-  <block id="f773b518874c315e0079bcc43b41dafb" category="paragraph">Para obter as informações mais recentes sobre versões suportadas, <block ref="7e664c06fb213184870ee71fe5278749" category="inline-link-rx"></block>consulte .</block>
   <block id="44e5a606cb3fbfaed79ce8eb853ed886" category="paragraph">Contagem mínima de CPU</block>
   <block id="39d305d656d2efca941f50ce8253a426" category="paragraph">4 núcleos</block>
   <block id="a88605ea0ad2e6919ae06fa5bb9e26d2" category="paragraph">RAM mínima</block>
@@ -3463,12 +3458,10 @@
   <block id="43574ab73a6cbc674506ff003387dcb1" category="paragraph">Sistemas operacionais</block>
   <block id="c73bbd3786350b0a8d3577d82afdf489" category="list-text">Red Hat Enterprise Linux</block>
   <block id="a51e41e4cd7b03dd48ce2e65ed3e1736" category="list-text">SUSE Linux Enterprise Server (SLES)</block>
-  <block id="5ff7954c3f2b829e25e83d1cec41fd90" category="paragraph">Para obter as informações mais recentes sobre versões suportadas, consulte o<block ref="bf4b590a983f5498451b0eaa24cb5904" category="inline-link-rx"></block>.</block>
   <block id="083ad21990802d20fc5fdefdb7255565" category="paragraph">2 GB</block>
   <block id="1ec72ff98c807b748e55dd0ff1dbf757" category="admonition">Deve alocar espaço em disco suficiente e monitorizar o consumo de armazenamento pela pasta de registos. O espaço de registo necessário varia consoante o número de entidades a proteger e a frequência das operações de proteçãoão de dados. Se não houver espaço em disco suficiente, os logs não serão criados para as operações executadas recentemente.</block>
   <block id="bac8e3a852c936b4db89afd35d4d962a" category="paragraph">Se você atualizou O JAVA para a versão mais recente, você deve garantir que a opção JAVA_HOME localizada em /var/opt/SnapCenter/spl/etc/spl.properties esteja definida para a versão JAVA correta e o caminho correto.</block>
   <block id="05fc12ecf449ac264abfd66ddab37332" category="doc">Requisitos de host para instalar o pacote de plug-ins do SnapCenter para Windows</block>
-  <block id="0a2ff1c0a6b2aee7bcd66cc2b6860aee" category="paragraph">Para obter as informações mais recentes sobre versões suportadas, consulte o<block ref="fe8a65f917aada6df3764fc6c6209a28" category="inline-link-rx"></block>.</block>
   <block id="b64ce6798f05dcb19198fdb563d3be2c" category="summary">O SnapCenter gerencia o gerenciamento de backups de log e dados nos níveis do sistema de storage e do sistema de arquivos e no catálogo de backup do IBM DB2.</block>
   <block id="352752e5faea0777db6f96a1ad413289" category="doc">Como o SnapCenter gerencia o gerenciamento de backups de dados</block>
   <block id="d9840bbd3f7656be5e34aea4c361bc70" category="paragraph">O SnapCenter gerencia o gerenciamento de backups de dados nos níveis do sistema de storage e do sistema de arquivos.</block>
@@ -3500,8 +3493,6 @@
   <block id="0e0f1583471590647c687f9a7a173ca8" category="paragraph">Você deve instalar o plug-in do SnapCenter para o banco de dados IBM DB2 usando a interface de usuário (UI) do SnapCenter. Se o seu ambiente não permitir a instalação remota do plug-in a partir da IU do SnapCenter, você pode instalar o plug-in para o banco de dados IBM DB2 no modo console ou no modo silencioso usando a interface de linha de comando (CLI).</block>
   <block id="d7949b068ae873299278455425370ddb" category="list-text">Você deve instalar o Plug-in para IBM DB2 Database em cada host Linux onde reside o cliente IBM DB2.</block>
   <block id="b5751708c7b39e8fe1c58734b6b11e21" category="list-text">O host Linux no qual você está instalando o plug-in do SnapCenter para o banco de dados IBM DB2 deve atender aos requisitos de software, banco de dados e sistema operacional dependentes.</block>
-  <block id="9e8c841a17bd4c0ec7d85ab94b954bca" category="paragraph">A ferramenta de Matriz de interoperabilidade (IMT) contém as informações mais recentes sobre as configurações suportadas.</block>
-  <block id="752a11b4b210ea35436698a7cd80caea" category="paragraph"><block ref="e7d7a2115bf371d0f0089011e31cda38" category="inline-link-rx"></block></block>
   <block id="063c4fd9e5154b06d0098e0ae96b107f" category="list-text">O plug-in do SnapCenter para o banco de dados IBM DB2 faz parte do pacote de plug-ins do SnapCenter para Linux. Antes de instalar o pacote de plug-ins do SnapCenter para Linux, você já deve ter instalado o SnapCenter em um host do Windows.</block>
   <block id="d78ead0428ea94146c43decd8b22d80e" category="paragraph">Se os parâmetros não forem mencionados, o SnapCenter é instalado com valores padrão.</block>
   <block id="752c215644fc87e536ecbffe5105eff4" category="list-text">Copie o pacote de plug-ins do SnapCenter para o arquivo de instalação do Linux (SnapCenter_linux_host_plugin.bin) do repositório C:/NetApp/SnapCenter para o host onde você deseja instalar o plug-in para o IBM DB2.</block>
@@ -3781,8 +3772,6 @@
   <block id="0e79390d9d157c53cbc0f30c423c081c" category="list-text">Para o host Linux, as chaves HDB Secure User Store são acessadas como usuário HDBSQL os.</block>
   <block id="0f2988f218fcef3499e2c75fddafd96e" category="list-text">O servidor SnapCenter deve ter acesso ao 8145 ou à porta personalizada do plug-in para o host de banco de dados SAP HANA.</block>
   <block id="19651d78354411794cd21f4636d9840b" category="list-text">Ao instalar o plug-in para banco de dados SAP HANA em um host Windows, o plug-in do SnapCenter para Microsoft Windows é instalado automaticamente.</block>
-  <block id="f2a30e95b118ce2c4e84d94437f4a891" category="paragraph"><block ref="441e536b7611a093a15728d219a7454c" category="inline-link-rx"></block></block>
-  <block id="ae40aaa559a1bbbe76fec5e022433b75" category="paragraph"><block ref="351286a887d0b0d2fc33bf3b0aea6c46" category="inline-link-rx"></block></block>
   <block id="f551df54591f7eef7409f694b7b0cc08" category="list-text">Para bancos de dados SAP HANA que estão sendo executados em um host Linux, ao instalar o plug-in para banco de dados SAP HANA, o plug-in do SnapCenter para UNIX é instalado automaticamente.</block>
   <block id="478593976233dfc3e57256f78404f939" category="summary">O SnapCenter oferece suporte a uma ampla variedade de tipos de armazenamento em máquinas físicas e máquinas virtuais (VMs). Você deve verificar o suporte para seu tipo de storage antes de instalar o plug-in SnapCenter para banco de dados SAP HANA.</block>
   <block id="0b42d90235dd8ef6ec97a9268c77b113" category="doc">Tipos de storage compatíveis com o plug-in SnapCenter para banco de dados SAP HANA</block>
@@ -3996,7 +3985,6 @@
   <block id="d444fb67779b9c8a26850d1ce6c0e031" category="paragraph">Você deve instalar o plug-in do SnapCenter para banco de dados SAP HANA usando a interface de usuário (UI) do SnapCenter. Se o seu ambiente não permitir a instalação remota do plug-in a partir da IU do SnapCenter, você pode instalar o plug-in para banco de dados SAP HANA no modo console ou no modo silencioso usando a interface de linha de comando (CLI).</block>
   <block id="c20d8d729a2cb1909e6c92aa4b0635a1" category="list-text">Você deve instalar o Plug-in para o banco de dados SAP HANA em cada host Linux onde reside o cliente HDBSQL.</block>
   <block id="9638dcdc640dbf6662834e293cbc12b3" category="list-text">O host Linux no qual você está instalando o plug-in do SnapCenter para banco de dados SAP HANA deve atender aos requisitos de software, banco de dados e sistema operacional dependentes.</block>
-  <block id="9739b5dca00527fc095cb7d7328ae9a7" category="paragraph"><block ref="4ff8a1baebd27154daa6b321538c5ed7" category="inline-link-rx"></block></block>
   <block id="33a8f9c4fe2c0cd8ae505b8d4831fe28" category="list-text">O plug-in do SnapCenter para banco de dados SAP HANA faz parte do pacote de plug-ins do SnapCenter para Linux. Antes de instalar o pacote de plug-ins do SnapCenter para Linux, você já deve ter instalado o SnapCenter em um host do Windows.</block>
   <block id="14121664b691a3085947fb503ee4883e" category="list-text">Copie o pacote de plug-ins do SnapCenter para o arquivo de instalação do Linux (SnapCenter_linux_host_plugin.bin) do repositório C:/NetApp/SnapCenter para o host onde você deseja instalar o plug-in para o banco de dados SAP HANA.</block>
   <block id="b3f72639442ac8dbec9806a234d5e8db" category="list-text">Edite o arquivo /&lt;installation directory&gt;/NetApp/SnapCenter/scc/etc/SC_SMS_Services.properties e, em seguida, adicione o parâmetro PLUGINS_ENABLED: HANA:3,0.</block>
@@ -4140,7 +4128,6 @@
   <block id="c87cba25b2305f30e155207937c8f66d" category="paragraph">Você deve instalar o plug-in do SnapCenter para banco de dados MySQL usando a interface de usuário do SnapCenter (UI). Se o seu ambiente não permitir a instalação remota do plug-in a partir da IU do SnapCenter, você pode instalar o plug-in para banco de dados MySQL no modo console ou no modo silencioso usando a interface de linha de comando (CLI).</block>
   <block id="26c50e997cd1004dfddb691c210664b8" category="list-text">Você deve instalar o Plug-in para MySQL Database em cada um dos hosts Linux onde a instância MySQL deve ser protegida.</block>
   <block id="82d238092047c82b06215cb1895f1a26" category="list-text">O host Linux no qual você está instalando o plug-in SnapCenter para banco de dados MySQL deve atender aos requisitos de software, banco de dados e sistema operacional dependentes.</block>
-  <block id="56a209ac4190647592f4f2269ba15e4b" category="paragraph"><block ref="c8cd869b77fffd17e64627cb1aa57436" category="inline-link-rx"></block></block>
   <block id="fe94fccbcb9375b4a534371c022b48e8" category="list-text">O plug-in do SnapCenter para banco de dados MySQL faz parte do pacote de plug-ins do SnapCenter para Linux. Antes de instalar o pacote de plug-ins do SnapCenter para Linux, você já deve ter instalado o SnapCenter em um host do Windows.</block>
   <block id="4f5ed8dd6824b1dc0edc8a6acfb68c18" category="list-text">Copie o pacote de plug-ins do SnapCenter para o arquivo de instalação do Linux (SnapCenter_linux_host_plugin.bin) de C:/NetApp/SnapCenter para o host onde você deseja instalar o plug-in para o MySQL.</block>
   <block id="291741795c551419dd060b50695288f1" category="list-text">Edite o arquivo /&lt;installation directory&gt;/NetApp/SnapCenter/scc/etc/SC_SMS_Services.properties e, em seguida, adicione o parâmetro PLUGINS_ENABLED: MySQL:3,0.</block>
@@ -4161,7 +4148,6 @@
   <block id="8bf0cd91395067e991bd0d07c2ea8663" category="list-text">O servidor SnapCenter deve ter acesso ao 8145 ou à porta personalizada do plug-in para host MySQL.</block>
   <block id="b28abaa511d9b446609dfc244e8c4032" category="list-text">Para o MySQL 5,7, binlog deve ser especificado no arquivo mysql config (my.cnf ou mysql-server.cnf).</block>
   <block id="0a0c8849659ce9e3159e34406f7b691e" category="list-text">Ao instalar o plug-in para MySQL em um host Windows, o plug-in SnapCenter para Microsoft Windows é instalado automaticamente.</block>
-  <block id="15819c8f1b3ff9ce9e18a6765617b72f" category="paragraph"><block ref="370c38cf447e1e69e1ad058e85ef81da" category="inline-link-rx"></block></block>
   <block id="4e2c731cfc406e009dd7705e2f1b9a70" category="list-text">Para bancos de dados MySQL que estão sendo executados em um host Linux, ao instalar o plug-in para MySQL, o plug-in SnapCenter para UNIX é instalado automaticamente.</block>
   <block id="d08ecc47ff5fa041f6e7d4e346ccc284" category="list-text">_C: /ProgramData/NetApp/SnapCenter/Repositório de pacotes/sc_unix_plugins_checksum.txt _ se o servidor SnapCenter estiver instalado no host do Windows.</block>
   <block id="fdd8302a17106d7ed409290aad614ac8" category="list-text">_/opt/NetApp/SnapCenter/SnapManagerWeb/Repository/sc_unix_plugins_checksum.txt _ se o servidor SnapCenter estiver instalado no host Linux.</block>
@@ -4462,8 +4448,6 @@
   <block id="0db377921f4ce762c62526131097968f" category="section-title">Geral</block>
   <block id="3c8f1b708d97734299340f633acf1b28" category="paragraph">Se estiver a utilizar iSCSI, o serviço iSCSI deverá estar em execução.</block>
   <block id="dbef26874057ae0be535fee20766f8cb" category="list-text">Se você gerenciar nós de cluster no SnapCenter, precisará ter um usuário com Privileges administrativo para todos os nós do cluster.</block>
-  <block id="1bd7b03e9e6f0b21298c8109c8f483ce" category="paragraph">Se você estiver usando o Windows Server 2019 ou o Windows Server 2016 para o host do servidor SnapCenter, você deve instalar o Java 11. A ferramenta de Matriz de interoperabilidade (IMT) contém as informações mais recentes sobre os requisitos.</block>
-  <block id="4bb4114cf33351f203faec5f1e34960e" category="paragraph"><block ref="11d2d1b194d6948e42dc38dca8202191" category="inline-link-rx"></block></block>
   <block id="8cab0b64f941cd66c63c70f6dcc91d69" category="list-text">Você deve configurar o sudo Privileges para que o usuário não-root forneça acesso a vários caminhos. Adicione as seguintes linhas ao arquivo /etc/sudoers usando o utilitário visudo Linux.</block>
   <block id="2cae85768532ad729badbc9d82df69b0" category="admonition">Certifique-se de que está a utilizar o sudo versão 1.8.7 ou posterior.</block>
   <block id="15672c6e3417ee4aa0cd7381b560f34d" category="summary">Você pode usar o SnapCenter para restaurar recursos. Os recursos das operações de restauração dependem do plug-in que você usa.</block>
@@ -4599,7 +4583,6 @@
   <block id="360969888563f64a10e14a7c2831be7e" category="paragraph">Você deve instalar o SnapCenter Plug-in para cluster PostgreSQL usando a interface de usuário (UI) do SnapCenter. Se o seu ambiente não permitir a instalação remota do plug-in a partir da IU do SnapCenter, você pode instalar o plug-in para cluster PostgreSQL no modo console ou no modo silencioso usando a interface de linha de comando (CLI).</block>
   <block id="c67dc71417ef4d2ac0f937851196e711" category="list-text">Você deve instalar o cluster Plug-in para PostgreSQL em cada um dos hosts Linux onde o cliente PostgreSQL reside.</block>
   <block id="687b7126282349e79fa45fc333d935e6" category="list-text">O host Linux no qual você está instalando o SnapCenter Plug-in para PostgreSQL deve atender aos requisitos de software, cluster e sistema operacional dependentes.</block>
-  <block id="26c29286acbcac90c9ca148d0edc6829" category="paragraph"><block ref="f4c726cc6a480d91bc287e4e17640f59" category="inline-link-rx"></block></block>
   <block id="7b9da1ee22e014911cf5179d73090d4c" category="list-text">O cluster do SnapCenter Plug-in para PostgreSQL faz parte do pacote de plug-ins do SnapCenter para Linux. Antes de instalar o pacote de plug-ins do SnapCenter para Linux, você já deve ter instalado o SnapCenter em um host do Windows.</block>
   <block id="543762017dadbe73b692a4eff249fa0c" category="list-text">Copie o pacote de plug-ins do SnapCenter SnapCenter para o arquivo de instalação do Linux (SnapCenter_linux_host_plugin.bin) do NetApp para o host onde você deseja instalar o plug-in para o PostgreSQL.</block>
   <block id="cde7c333d3be5e9e37747361428800fc" category="list-text">Edite o arquivo /&lt;installation directory&gt;/NetApp/SnapCenter/scc/etc/SC_SMS_Services.properties e, em seguida, adicione o parâmetro PLUGINS_ENABLED: PostgreSQL:3,0.</block>
@@ -4784,7 +4767,6 @@
   <block id="c37b0bdb3c7a24db287508745921aed4" category="paragraph">O fluxo de trabalho a seguir mostra a sequência na qual você deve executar as operações de restauração de banco de dados do Exchange:</block>
   <block id="0f6ded3f852082112b8e6d16a0668d83" category="paragraph">Você também pode usar cmdlets do PowerShell manualmente ou em scripts para executar operações de backup e restauração. Para obter informações detalhadas sobre cmdlets do PowerShell, use a ajuda do cmdlet SnapCenter ou<block ref="bc822c4319e03a98720e4951c1009810" category="inline-link-rx"></block> consulte .</block>
   <block id="4ca48d63db1547d2aa6b271f22219b7b" category="doc">Tipos de armazenamento suportados pelo plug-in SnapCenter para Microsoft Windows e para Microsoft Exchange Server</block>
-  <block id="cbf06340cf7e3ebe82b098559b7d3b1d" category="paragraph">O suporte para provisionamento e proteção de dados do SnapCenter está disponível no Windows Server. Para obter as informações mais recentes sobre versões suportadas, consulte a<block ref="ac8016761c99410cb5502fc617daf49f" category="inline-link-rx"></block> [ferramenta de Matriz de interoperabilidade NetApp].</block>
   <block id="ea29cdcae37307c1c67337a9e8dca9ea" category="paragraph">Apenas compatibilidade física</block>
   <block id="442b64d998d026e5e41a7f2456755c85" category="summary">Você pode usar a página SnapCenterAdd Host para adicionar hosts do Windows. O plug-in para Exchange é instalado automaticamente no host especificado. Este é o método recomendado para instalar plug-ins. Você pode adicionar um host e instalar um plug-in para um host individual ou para um cluster.</block>
   <block id="9e2a1394549af2f704da56dffdafcdf3" category="paragraph">Você pode usar a página Adicionar host do SnapCenter para adicionar hosts do Windows. O plug-in para Exchange é instalado automaticamente no host especificado. Este é o método recomendado para instalar plug-ins. Você pode adicionar um host e instalar um plug-in para um host individual ou para um cluster.</block>
@@ -5406,7 +5388,6 @@
   <block id="06efaedb12cf6d7a7aa6bcea7d53a166" category="paragraph">O SnapCenter não suporta Data ONTAP operando no modo 7D. Você pode usar a ferramenta de transição de 7 modos para migrar dados e configurações que são armazenados em um sistema executando o Data ONTAP operando no modo 7 para um sistema ONTAP.</block>
   <block id="91048ee9b28431a0b8417fc6aca22a53" category="section-title">Configurações suportadas para importação de dados</block>
   <block id="b136948fc75470b29a82776a9d289413" category="paragraph">Antes de importar dados do SnapManager 3,4.x para Oracle e SnapManager 3,4.x para SAP para SnapCenter, você deve estar ciente das configurações que são suportadas com o plug-in SnapCenter para banco de dados Oracle.</block>
-  <block id="dd51beca21dafbea1327c8a54048049f" category="paragraph">As configurações compatíveis com o plug-in SnapCenter para banco de dados Oracle estão listadas na<block ref="f921a84bb94ef2f856de2002022c7838" category="inline-link-rx"></block>.</block>
   <block id="c11806b444e73d136144652a83923eba" category="section-title">O que é importado para o SnapCenter</block>
   <block id="d80d91babef4edbe3aa5ac78f57b8cbc" category="paragraph">Você pode importar perfis, programações e operações realizadas usando os perfis.</block>
   <block id="e3fde9f3aff3294492c93c044790a79f" category="cell">Da SnapManager para Oracle e SnapManager para SAP</block>
@@ -5536,8 +5517,6 @@
   <block id="ba09c94fed381b580a726fc94531b160" category="list-text">Se você tiver bancos de dados Oracle no LVM em sistemas operacionais Oracle Linux ou RHEL, instale a versão mais recente do Logical volume Management (LVM).</block>
   <block id="8770246977269a639c8c2818412dc3ac" category="list-text">Se você estiver usando o SnapManager para Oracle e quiser migrar para o plug-in do SnapCenter para o banco de dados Oracle, é possível migrar os perfis para políticas e grupos de recursos do SnapCenter usando o comando sccli SC-Migrate.</block>
   <block id="4c893189fecc8b6e5c41ae931ffd7f89" category="list-text">Configure o SnapMirror e o SnapVault no ONTAP, se você quiser replicação de backup</block>
-  <block id="918d32b75f0ab883abba3a8dc0c3ae8d" category="inline-link">Ferramenta de Matriz de interoperabilidade</block>
-  <block id="ea7066cba2f5864f04733d3067090883" category="list-text"><block ref="24657c22d8d7f925e015eed9a43e11c5" category="inline-link-rx"></block></block>
   <block id="50295902d444d01e41805e9bc1b0598e" category="list-text"><block ref="50295902d444d01e41805e9bc1b0598e" category="inline-link-rx"></block></block>
   <block id="a909d5db254f7262bb93275a07812330" category="inline-link">Falha na operação de proteção de dados em um ambiente não multipath no RHEL 7 e posterior</block>
   <block id="637e979b90ef1f6ab2dd922a7436fbec" category="list-text"><block ref="637e979b90ef1f6ab2dd922a7436fbec" category="inline-link-rx"></block></block>
@@ -5800,7 +5779,6 @@
   <block id="c6a05503c268c70227420c852ced4926" category="admonition">O mapeamento UUID no arquivo /etc/fstab não é suportado pelo SnapCenter.</block>
   <block id="8be45a76eb810a7022d2e3f4f9917085" category="section-title">Requisitos de Host Linux</block>
   <block id="c2d742e2aecdede3243c86015a588b10" category="admonition">Se você estiver usando o banco de dados Oracle no LVM em sistemas operacionais Oracle Linux ou Red Hat Enterprise Linux 6,6 ou 7,0, instale a versão mais recente do Logical volume Manager (LVM).</block>
-  <block id="93c316672b17211820e2eaed5f45f68f" category="paragraph">Para obter as informações mais recentes sobre versões suportadas, consulte o<block ref="b02065f5fe9f591a1587fb1e13c5796e" category="inline-link-rx"></block>.</block>
   <block id="6347721d31864738b0e7a03f5553e69b" category="section-title">Requisitos de anfitrião do AIX</block>
   <block id="fed30036a3caffc826b4e66f434f67ea" category="paragraph">Você deve garantir que o host atenda aos requisitos antes de instalar o pacote de plug-ins do SnapCenter para AIX.</block>
   <block id="cddfaa01c32e2362546c78364751248b" category="admonition">O plug-in do SnapCenter para UNIX, que faz parte do pacote de plug-ins do SnapCenter para AIX, não suporta grupos de volume simultâneos.</block>
@@ -5916,7 +5894,6 @@
   <block id="db92e82cf9323a4bf5e79b2df0216f85" category="admonition">NFS no AIX e no sistema de arquivos não é suportado.</block>
   <block id="e2b3d28069205cc6f75b17751511da77" category="list-text">Sistema de arquivos Journaled aprimorado (JFS2)</block>
   <block id="41732556fe47d0ec2b02e18e88410f6b" category="paragraph">Suporta log in-line em sistemas de arquivos SAN e layout LVM.</block>
-  <block id="b394be29329a30bfde3ff6670085b4f8" category="paragraph">O<block ref="df4d48b0823cb16de0f94c0dcd83ea6f" category="inline-link-rx"></block> contém as informações mais recentes sobre as versões suportadas.</block>
   <block id="4a33fcf6d48bb7f648ebc49217cba162" category="summary">O fluxo de trabalho de restauração inclui Planejamento, execução das operações de restauração e monitoramento das operações.</block>
   <block id="92c488cfa68af6221db7fffbf4243861" category="image-alt">all_plug-ins_restore_workflow</block>
   <block id="510a95fea4bba025da5889c50cbbd219" category="summary">Opções de retenção de backup.</block>
@@ -5938,7 +5915,6 @@
   <block id="750b10574c7c5ac05afa7817be89a63e" category="list-text">Controlador de filtro Oracle ASM (ASMFD)</block>
   <block id="da02aa1448f6bd34e97b4d20a7b5bdcf" category="paragraph">As operações de migração PDB e clonagem PDB não são suportadas.</block>
   <block id="0483f292b9712b967df26187e876eb45" category="list-text">Oracle Flex ASM</block>
-  <block id="54634901ea136d581a907da437231faa" category="paragraph">Para obter as informações mais recentes sobre versões Oracle suportadas, consulte o<block ref="f921a84bb94ef2f856de2002022c7838" category="inline-link-rx"></block>.</block>
   <block id="b582624c3324580312612262c6a8d723" category="summary">Você pode usar a página Adicionar host do SnapCenter para adicionar hosts e, em seguida, instalar o pacote de plug-ins do SnapCenter para Linux ou o pacote de plug-ins do SnapCenter para AIX. Os plug-ins são instalados automaticamente nos hosts remotos.</block>
   <block id="a0add3d71703f4be5dded397d57c6c2e" category="doc">Adicione hosts e instale o pacote Plug-ins para Linux ou AIX usando GUI</block>
   <block id="360de859ba00b96b2d06b95d1cf75618" category="paragraph">Você pode adicionar um host e instalar pacotes de plug-in para um host individual ou para um cluster. Se você estiver instalando o plug-in em um cluster (Oracle RAC), o plug-in será instalado em todos os nós do cluster. Para Oracle RAC One Node, você deve instalar o plug-in em nós ativos e passivos.</block>
@@ -6850,10 +6826,6 @@
   <block id="999e40363ae36d8696166b52a3c23152" category="paragraph">O fluxo de trabalho a seguir mostra a sequência na qual você deve executar as operações de clonagem:</block>
   <block id="70124670f70878681ab7bb78e2860796" category="image-alt">Diagrama do fluxo de trabalho do clone</block>
   <block id="3eee6ccd820abf187846b44912303266" category="inline-link-macro">Clone de um backup de banco de dados do SQL Server</block>
-  <block id="a121a292ca8a39c5591cdcc69d0f0ff8" category="paragraph"><block ref="a121a292ca8a39c5591cdcc69d0f0ff8" category="inline-link-macro-rx"></block></block>
-  <block id="b5fb765366530fd4f75c7c5c651544bd" category="paragraph"><block ref="b5fb765366530fd4f75c7c5c651544bd" category="inline-link-macro-rx"></block></block>
-  <block id="68f8e37f5b3d7c3c6c34a481b33a736f" category="inline-link-macro">A operação de clone pode falhar ou levar mais tempo para ser concluída com o valor padrão TCP_TIMEOUT</block>
-  <block id="5f2b3d8994098e5cded686a40b8bb7c9" category="paragraph"><block ref="5f2b3d8994098e5cded686a40b8bb7c9" category="inline-link-macro-rx"></block></block>
   <block id="e120fc76fd23e12235b495bc6454901a" category="doc">ONTAP Privileges mínimo necessário para plug-in SQL</block>
   <block id="f9769cb6db4dd2d01611ef4c2e69e554" category="doc">Preparar sistemas de storage para replicação SnapMirror e SnapVault para plug-in para SQL Server</block>
   <block id="f9ba38b961aca7823da15b938828b64f" category="doc">Pré-requisitos para adicionar hosts e instalar o plug-in do SnapCenter para Microsoft SQL Server</block>
@@ -7032,8 +7004,6 @@
   <block id="5891deda92209d1d45144775b7d5c20d" category="admonition">Você não deve renomear a tarefa de backup criada no Windows Scheduler ou no SQL Server Agent.</block>
   <block id="1ca9ef3a64115b9b5155a63404740914" category="paragraph">Um grupo de recursos implícito é criado. Pode ver isto selecionando o respetivo utilizador ou grupo na página Acesso ao Utilizador. O tipo de grupo de recursos implícito é "recurso".</block>
   <block id="50e1edb21a598f492619b01f99e77a4f" category="paragraph"><block ref="50e1edb21a598f492619b01f99e77a4f" category="inline-link-macro-rx"></block></block>
-  <block id="db9c751c1327ee48b470f3140421daf6" category="inline-link">Operações de backup falha com erro de conexão MySQL devido ao atraso no TCP_TIMEOUT</block>
-  <block id="0cd607c6c3ab41f1a5532b188171495c" category="paragraph"><block ref="0cd607c6c3ab41f1a5532b188171495c" category="inline-link-rx"></block></block>
   <block id="c473dc65af16d92c688e88cffad5b825" category="inline-link">A cópia de segurança falha com o erro do programador do Windows</block>
   <block id="ee70f525f7b0b70b3e7de9d8f872cbe4" category="paragraph"><block ref="ee70f525f7b0b70b3e7de9d8f872cbe4" category="inline-link-rx"></block></block>
   <block id="393997bd3b722d52ae03ce598aa5cfec" category="paragraph"><block ref="393997bd3b722d52ae03ce598aa5cfec" category="inline-link-rx"></block></block>
@@ -7085,7 +7055,6 @@
   <block id="cd580f0c35d4c37236f3153c15452b6f" category="paragraph">O tempo limite padrão do script é de 60 segundos.</block>
   <block id="4b70ba28cecacc0b972de64bf00eafac" category="paragraph">Para EMS, pode consultar<block ref="6a6cc2b71a11174970b94b5318ade705" category="inline-link-rx"></block></block>
   <block id="b8ceb1eaf0d60af03679989562024d6b" category="paragraph">Depois que o clone é criado, você nunca deve renomeá-lo.</block>
-  <block id="f7e7f0dd9d36aec3d609775de2dbbd0b" category="paragraph"><block ref="f7e7f0dd9d36aec3d609775de2dbbd0b" category="inline-link-rx"></block></block>
   <block id="1e9ab426973a56020f8d1db85cb07f06" category="inline-link">O clone do banco de dados de instância do cluster de failover falha</block>
   <block id="2df5362c7aa8c12a0dd2f1b211cdf61d" category="paragraph"><block ref="2df5362c7aa8c12a0dd2f1b211cdf61d" category="inline-link-rx"></block></block>
   <block id="d46bdc3a4fe241badafb83ade1e31452" category="summary">Você pode configurar credenciais para executar tarefas de proteção de dados em recursos individuais do SQL Server para cada usuário.</block>
@@ -9285,7 +9254,6 @@
   <block id="7450cfde7058dc5e1f7909d0280fd7ae" category="list-text">Azure NetApp Files</block>
   <block id="4d82a1ec1af02725042c8c785564ee7a" category="list-text">Amazon FSX para NetApp ONTAP</block>
   <block id="0b4e0166878acdd36f882f2270445c06" category="section-title">Aplicativos e bancos de dados compatíveis</block>
-  <block id="29756d78461f8a62cb986dc97f47496b" category="paragraph">O SnapCenter oferece suporte à proteção de diferentes aplicativos e bancos de dados. Para obter informações detalhadas sobre os aplicativos e bancos de dados suportados,<block ref="734369dbdcbe00444fc7be843d617a6c" category="inline-link-rx"></block> consulte .</block>
   <block id="ee0febdaba6d4c618d2cca84b2c49df1" category="paragraph">O SnapCenter é compatível com a proteção de workloads Oracle e Microsoft SQL em ambientes de data center definido por software (SDDC) da Amazon. <block ref="95513dc65edb533209d1910ac5e4b37d" category="inline-link-rx"></block>.</block>
   <block id="b9c10c8dd3cdddca3cd9a96c6f110517" category="doc">Sincronização ativa do SnapMirror no SnapCenter</block>
   <block id="24a4022d37c99455611842cdead9d299" category="paragraph">Para obter mais informações sobre a sincronização ativa do SnapMirror,<block ref="014166fe18ae8fdd05d96b765aaf21c5" category="inline-link-rx"></block>consulte .</block>
@@ -9353,7 +9321,6 @@
   <block id="d39d360863f3fda3c5d615dc978e14ae" category="sidebar">Instale o servidor SnapCenter</block>
   <block id="3199d4d0758d0f4f53db9a8f36670c18" category="sidebar">Configurar o SnapCenter Server</block>
   <block id="4c975961e88401702aa6aac167300031" category="sidebar">Adicionar e provisionar o sistema de armazenamento</block>
-  <block id="81f9b64ab1987ed2d00f4d52a80ca52b" category="paragraph">Para obter as informações mais recentes sobre versões suportadas, consulte o<block ref="315018c067f16596ddc2e2de507c24d0" category="inline-link-rx"></block>.</block>
   <block id="0885e9f12d8cb35b0f02655c34c87004" category="admonition">O IBM Java não é suportado em hosts Windows e Linux.</block>
   <block id="48c9a1bf5de7bf57f1efa648f3bc8d17" category="inline-link">Baixe JAVA para Windows</block>
   <block id="a4560fe71d10d98deabf55fdf50b90f0" category="paragraph"><block ref="a4560fe71d10d98deabf55fdf50b90f0" category="inline-link-rx"></block></block>
@@ -9586,4 +9553,25 @@
   <block id="1e3eeac5409758903bc21870184a640a" category="paragraph">Para obter detalhes sobre o que mudou, consulte o<block ref="06d876b9fcdfcba8772d93beac1ca38b" category="inline-link-macro-rx"></block> .</block>
   <block id="e6f36a956625505e0a3733e3e0073fa0" category="paragraph">Porta da web do SnapCenter</block>
   <block id="da994c44eacde8f5cafe8883779cb695" category="sidebar">Relatórios técnicos do SnapCenter</block>
+  <block id="a5ae087d92fe3db87c6e8de8e579868c" category="paragraph">Para obter as informações mais recentes sobre as versões compatíveis, consulte<block ref="845d98cf9e1414112b381d552d9c8014" category="inline-link-rx"></block>.</block>
+  <block id="96210757b8412d030188fecde28ceb9d" category="paragraph">O suporte ao provisionamento e à proteção de dados do SnapCenter está disponível no Windows Server. Para obter as informações mais recentes sobre as versões compatíveis, consulte o <block ref="6c9a8409bf98d8a8939e1ebaf2e43454" category="inline-link-rx"></block>.</block>
+  <block id="cf12f1baaed2b3c195374322d8d857bc" category="paragraph">O SnapCenter oferece suporte à proteção de diferentes aplicativos e bancos de dados.</block>
+  <block id="02ad1debcdf6904dd2ade67597e4c26e" category="paragraph">Para obter as informações mais recentes sobre as versões compatíveis, consulte <block ref="0bd5b4c33632bb634c82faaae99e0602" category="inline-link-rx"></block>.</block>
+  <block id="73f538f8783386e78b66d9443bb98bd0" category="paragraph">Para obter as informações mais recentes sobre as versões compatíveis, consulte <block ref="9ba7ed904923f6110f4eb8cece054441" category="inline-link-rx"></block>.</block>
+  <block id="891f174b4f7f5c2ac6b414ca9ea01713" category="paragraph">Para obter as informações mais recentes sobre as versões suportadas, consulte o<block ref="00e02cae149cc9de4aea278bb76f630e" category="inline-link-rx"></block> .</block>
+  <block id="2a38b23cace66a1ff7fcaae540c065e1" category="paragraph">+ Para obter as informações mais recentes sobre as versões compatíveis, consulte o<block ref="6191699ded4b56fe00b3328a9193fb3c" category="inline-link-rx"></block>.</block>
+  <block id="c9dd6bad4c7d561872f2e2d498a990bf" category="inline-link">Ferramenta de Matriz de Interoperabilidade (IMT)</block>
+  <block id="298397a9c073629495179c7913e1c3ce" category="paragraph">O<block ref="af6eb6bb2f15f565365a0be0579b55eb" category="inline-link-rx"></block> Contém as informações mais recentes sobre as configurações suportadas.</block>
+  <block id="c09f9355ffec7a4ebce82be71a8c243f" category="paragraph">O<block ref="fb864633e8f65af932ce118a1d181b8d" category="inline-link-rx"></block> Contém as informações mais recentes sobre as configurações suportadas.</block>
+  <block id="d289bbfe1554f83d213d5958a481c248" category="paragraph">Para obter as informações mais recentes sobre as versões compatíveis, consulte a documentação.<block ref="00e02cae149cc9de4aea278bb76f630e" category="inline-link-rx"></block>.</block>
+  <block id="0be174a8508a59f21b484245da1e1605" category="paragraph">Para obter as informações mais recentes sobre as versões suportadas, consulte o<block ref="845d98cf9e1414112b381d552d9c8014" category="inline-link-rx"></block> .</block>
+  <block id="57c12b0c6639b8884c79259831fa9f28" category="paragraph">O<block ref="45ef37a4bb1edb251808bfcdb0b9e22c" category="inline-link-rx"></block> Contém as informações mais recentes sobre as configurações suportadas.</block>
+  <block id="f101abf86e878a2ecb48d889221777be" category="paragraph">Se estiver usando o Windows Server 2019 ou o Windows Server 2016 para o host do SnapCenter Server, você deverá instalar o Java 11.</block>
+  <block id="a0d1f8ac2dd9261f6193237061098514" category="paragraph">O<block ref="b6383984df7f2080eb1163b0aa6a5917" category="inline-link-rx"></block> Contém as informações mais recentes sobre as configurações suportadas.</block>
+  <block id="6fc7bf078a50f1c4ddd79c0229afe3ff" category="doc">Tipos de armazenamento suportados pelo plug-in SnapCenter para Microsoft Exchange Server</block>
+  <block id="08fed5985d86e1f1278601d57e1bff6b" category="paragraph">O suporte ao provisionamento e à proteção de dados do SnapCenter está disponível no Windows Server. Para obter as informações mais recentes sobre as versões suportadas, consulte o<block ref="bf4b37302d584cabdf50327923359db4" category="inline-link-rx"></block> .</block>
+  <block id="a9ac2dfd2f149cd6721af54e0c2be71a" category="paragraph">As configurações suportadas pelo plug-in SnapCenter para Oracle Database estão listadas em<block ref="58ad8fcd3a707b69946dbf79718bb07e" category="inline-link-rx"></block>.</block>
+  <block id="3c5c3e6bd14b3e4e352c8002cf589e92" category="paragraph">Para obter as informações mais recentes sobre as versões do Oracle compatíveis, consulte o<block ref="a89f191aac75a149b4bd1d52674271e1" category="inline-link-rx"></block>.</block>
+  <block id="376e524c167313cb5049a67eee645bf3" category="paragraph">Você também pode usar cmdlets do PowerShell manualmente ou em scripts para executar operações de backup, restauração, recuperação, verificação e clonagem. Para obter informações detalhadas sobre os cmdlets do PowerShell, use a ajuda do cmdlet SnapCenter ou consulte o seguinte:<block ref="b1f5996558dd020cdfc2747708228767" category="inline-link-rx"></block>.</block>
+  <block id="de59c74d77a24fb63e10ea5992296495" category="paragraph">Para obter as informações mais recentes sobre as versões suportadas, consulte o<block ref="80c012152b8b3575d1f77200bc55e9c0" category="inline-link-rx"></block> .</block>
 </blocks>

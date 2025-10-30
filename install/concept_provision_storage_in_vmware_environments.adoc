@@ -31,8 +31,6 @@ Suporta o controlador SCSI paravirtual VMware. Os discos 256 podem ser suportado
 
 
 
-Para obter as informações mais recentes sobre versões suportadas, https://imt.netapp.com/matrix/imt.jsp?components=121034;&solution=1517&isHWU&src=IMT["Ferramenta de Matriz de interoperabilidade do NetApp"^] consulte .
-
 
 
 === Limitações relacionadas ao servidor VMware ESXi

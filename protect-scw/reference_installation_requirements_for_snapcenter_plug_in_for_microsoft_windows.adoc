@@ -39,7 +39,7 @@ Sistemas operacionais
  a| 
 Microsoft Windows
 
-Para obter as informações mais recentes sobre versões suportadas, consulte o https://imt.netapp.com/matrix/imt.jsp?components=121074;&solution=1257&isHWU&src=IMT["Ferramenta de Matriz de interoperabilidade do NetApp"^].
+Para obter as informações mais recentes sobre as versões suportadas, consulte o https://imt.netapp.com/imt/imt.jsp?components=180332;134509;180321;180339;&solution=1257&isHWU&src=IMT["Ferramenta de Matriz de interoperabilidade do NetApp"^] .
 
 Se você estiver em uma configuração de cluster do Windows, também deverá instalar e configurar o Gerenciamento Remoto do Windows (WinRM).
 
@@ -68,8 +68,6 @@ Pacotes de software necessários
 * Pacote de Hospedagem ASP.NET Core Runtime 8.0.12 (e todos os patches 8,0.x subsequentes)
 * PowerShell Core 7.4.2
 
-
-Para obter as informações mais recentes sobre versões suportadas, consulte o https://imt.netapp.com/matrix/imt.jsp?components=121074;&solution=1257&isHWU&src=IMT["Ferramenta de Matriz de interoperabilidade do NetApp"^].
 
 Para obter informações específicas de solução de problemas .NET, consulte https://kb.netapp.com/mgmt/SnapCenter/SnapCenter_upgrade_or_install_fails_with_This_KB_is_not_related_to_the_OS["A atualização ou instalação do SnapCenter falha para sistemas legados que não têm conetividade com a Internet."]
 

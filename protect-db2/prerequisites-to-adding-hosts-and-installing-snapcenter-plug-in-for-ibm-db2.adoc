@@ -34,9 +34,6 @@ NOTE: O IBM Java não é suportado em hosts Windows e Linux.
 +
 http://www.java.com/en/download/manual.jsp["Baixe JAVA para Windows"]
 
-+
-https://imt.netapp.com/matrix/imt.jsp?components=121066;&solution=1259&isHWU&src=IMT["Ferramenta de Matriz de interoperabilidade do NetApp"]
-
 
 
 
@@ -50,9 +47,6 @@ http://www.java.com/en/download/manual.jsp["Baixe JAVA para Linux"]
 
 +
 https://developer.ibm.com/languages/java/semeru-runtimes/downloads/?license=IBM["Baixe JAVA para AIX"]
-
-+
-https://imt.netapp.com/matrix/imt.jsp?components=121066;&solution=1259&isHWU&src=IMT["Ferramenta de Matriz de interoperabilidade do NetApp"]
 
 * Para bancos de dados IBM DB2 que estão sendo executados em um host Linux, ao instalar o plug-in para IBM DB2, o plug-in SnapCenter para UNIX é instalado automaticamente.
 * Você deve ter *bash* como o shell padrão para instalação do plug-in.

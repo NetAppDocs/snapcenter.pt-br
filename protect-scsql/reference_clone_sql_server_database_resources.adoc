@@ -19,12 +19,4 @@ O fluxo de trabalho a seguir mostra a sequência na qual você deve executar as 
 
 image::../media/scsql_clone_workflow.gif[Diagrama do fluxo de trabalho do clone]
 
-Você também pode usar cmdlets do PowerShell manualmente ou em scripts para executar operações de backup, restauração, recuperação, verificação e clone. Para obter informações detalhadas sobre cmdlets do PowerShell, use a ajuda do cmdlet SnapCenter ou consulte o. https://docs.netapp.com/us-en/snapcenter-cmdlets/index.html["Guia de referência de cmdlet do software SnapCenter"]
-
-*Encontre mais informações*
-
-link:task_clone_from_a_sql_server_database_backup.html["Clone de um backup de banco de dados do SQL Server"]
-
-link:task_perform_clone_lifecycle_management.html["Execute o ciclo de vida do clone"]
-
-link:https://kb.netapp.com/Advice_and_Troubleshooting/Data_Protection_and_Security/SnapCenter/Clone_operation_might_fail_or_take_longer_time_to_complete_with_default_TCP_TIMEOUT_value["A operação de clone pode falhar ou levar mais tempo para ser concluída com o valor padrão TCP_TIMEOUT"]
+Você também pode usar cmdlets do PowerShell manualmente ou em scripts para executar operações de backup, restauração, recuperação, verificação e clonagem. Para obter informações detalhadas sobre os cmdlets do PowerShell, use a ajuda do cmdlet SnapCenter ou consulte o seguinte: https://docs.netapp.com/us-en/snapcenter-cmdlets/index.html["Guia de referência de cmdlet do software SnapCenter"].

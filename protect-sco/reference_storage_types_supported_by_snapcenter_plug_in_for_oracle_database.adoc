@@ -87,4 +87,3 @@ Suporta log in-line em sistemas de arquivos SAN e layout LVM.
 
 
 |===
-O https://imt.netapp.com/matrix/imt.jsp?components=121071;&solution=1259&isHWU&src=IMT["Ferramenta de Matriz de interoperabilidade do NetApp"] contém as informações mais recentes sobre as versões suportadas.
