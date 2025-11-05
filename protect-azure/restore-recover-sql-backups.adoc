@@ -11,14 +11,15 @@ summary: Você pode usar o SnapCenter para restaurar e recuperar dados de um ou 
 
 
 [role="lead"]
-Você pode usar o SnapCenter para restaurar bancos de dados do SQL Server com backup. Restauração de banco de dados é um processo multifásico que copia todos os dados e páginas de log de um backup especificado do SQL Server para um banco de dados especificado.
+Você pode usar o SnapCenter para restaurar bancos de dados do SQL Server.  Restaurar um banco de dados é um processo multifásico que copia todos os dados e páginas de log de um backup específico do SQL Server para um banco de dados específico.
 
-.Sobre esta tarefa
-Você deve garantir que a instância de destino para restauração esteja configurada com um usuário de diretório ativo que pertence ao domínio de diretório ADactive SMB e tenha permissões para definir as permissões de arquivo adequadamente. Você deve configurar as credenciais no SnapCenter no nível da instância.
+.Antes de começar
+* Configure a instância de destino com um usuário do Active Directory que pertença ao domínio SMB ADactive Directory e tenha permissões para definir as permissões de arquivo adequadamente.
+* Configure as credenciais no nível da instância do SnapCenter .
+* Se o banco de dados SQL existir em um compartilhamento CIFS, a conta RunAS e a conta de serviço SQL (conta de domínio) do host do plug-in precisam fazer parte do conjunto de permissões. `BUILTIN\Administrators` grupo do servidor CIFS no ONTAP.
+* As configurações SMB não suportam autenticação SQL para a instância de destino.  Configure a instância de destino no SnapCenter com um usuário do Active Directory que tenha as permissões necessárias.
+* Se a conta de serviço do plug-in SnapCenter não for um usuário do Active Directory, certifique-se de que um usuário com controle total sobre os volumes de origem esteja disponível ao restaurar para um host alternativo.
 
-A autenticação SQL para instância de destino não será suportada para configurações SMB. A instância de destino deve ser configurada no SnapCenter com o usuário do diretório ativo com as permissões necessárias.
-
-Se a conta de serviço de serviços de plug-in do SnapCenter não for um usuário de diretório ativo e, ao executar a restauração para um host alternativo, o usuário que tiver o controle total sobre os volumes de origem será necessário para que ele possa ser representado e executar a operação necessária.
 
 .Passos
 . No painel de navegação esquerdo, clique em *Resources* e selecione o plug-in apropriado na lista.
@@ -28,8 +29,8 @@ Se a conta de serviço de serviços de plug-in do SnapCenter não for um usuári
 . Selecione a cópia de segurança na tabela e, em seguida, clique no image:../media/restore_icon.gif["ícone de restauro"] ícone.
 . Na página Restaurar escopo, selecione uma das seguintes opções:
 +
-.. Selecione *Restaurar o banco de dados para o mesmo host onde o backup foi criado* se você quiser restaurar o banco de dados para o mesmo servidor SQL onde os backups são feitos.
-.. Selecione *Restaurar o banco de dados para um host alternativo* se você quiser que o banco de dados seja restaurado para um servidor SQL diferente no mesmo ou em um host diferente onde os backups são feitos.
+.. Selecione *Restaurar o banco de dados para o mesmo host onde o backup foi criado* para restaurar o banco de dados para o mesmo servidor SQL.
+.. Selecione *Restaurar o banco de dados em um host alternativo* se desejar restaurar o banco de dados em um servidor SQL diferente, no mesmo host ou em outro host onde os backups são realizados.
 
 
 . Na página âmbito de recuperação, selecione uma das seguintes opções:

@@ -168,6 +168,7 @@ As seguintes operações de restauração e recuperação não são suportadas:
 * Restauração e recuperação de espaços de tablespaces do banco de dados de contentor raiz (CDB)
 * Restauração de espaços de tablespaces temporários e espaços de tablespaces temporários associados a PDBs
 * Restauração e recuperação de espaços de tablespaces de vários PDBs simultaneamente
+* Restauração de arquivos temporários, pois o plug-in para Oracle não faz backup de arquivos temporários.
 * Restauração de backups de log
 * Restauração de backups para um local diferente
 * Restauração de arquivos de log refazer em qualquer configuração que não seja os bancos de dados de espera do Data Guard ou do ative Data Guard

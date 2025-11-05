@@ -84,9 +84,6 @@ Pacotes de software necessários
 * Pacote de Hospedagem ASP.NET Core Runtime 8.0.12 (e todos os patches 8,0.x subsequentes)
 * PowerShell Core 7.4.2
 * Java 11 Oracle Java e OpenJDK
-+
-Java 11 o Java e o OpenJDK são necessários apenas para SAP HANA, IBM DB2, PostgreSQL, MySQL, plug-ins compatíveis com NetApp e outros aplicativos personalizados que podem ser instalados no host do Windows.
-
 
 
 Para obter informações específicas de solução de problemas .NET, consulte https://kb.netapp.com/mgmt/SnapCenter/SnapCenter_upgrade_or_install_fails_with_This_KB_is_not_related_to_the_OS["A atualização ou instalação do SnapCenter falha para sistemas legados que não têm conetividade com a Internet."]
@@ -169,9 +166,6 @@ Pacotes de software necessários
 * Pacote de Hospedagem ASP.NET Core Runtime 8.0.12 (e todos os patches 8,0.x subsequentes)
 * PowerShell Core 7.4.2
 * Java 11 Oracle Java e OpenJDK
-+
-Java 11 o Java e o OpenJDK são necessários apenas para SAP HANA, IBM DB2, PostgreSQL, MySQL, plug-ins compatíveis com NetApp e outros aplicativos personalizados que podem ser instalados no host do Windows.
-
 
 
 Para obter informações específicas de solução de problemas .NET, consulte https://kb.netapp.com/mgmt/SnapCenter/SnapCenter_upgrade_or_install_fails_with_This_KB_is_not_related_to_the_OS["A atualização ou instalação do SnapCenter falha para sistemas legados que não têm conetividade com a Internet."]
