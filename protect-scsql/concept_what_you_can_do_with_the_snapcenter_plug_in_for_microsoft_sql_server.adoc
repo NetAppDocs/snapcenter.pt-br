@@ -37,6 +37,3 @@ A verificação do banco de dados do sistema do SQL Server não é suportada. O 
 * Programe operações de backup e operações de clone
 * Monitore operações de backup, operações de restauração e operações de clone
 
-
-
-NOTE: O Plug-in para SQL Server não suporta backup e recuperação de bancos de dados SQL Server em compartilhamentos SMB.

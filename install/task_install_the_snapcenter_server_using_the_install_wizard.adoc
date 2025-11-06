@@ -160,24 +160,9 @@ Para obter informações específicas de solução de problemas .NET, https://kb
 
 
  a| 
-Fila de mensagens
- a| 
-* Serviços de enfileiramento de mensagens
-+
-
-NOTE: Certifique-se de que nenhum outro aplicativo use o serviço MSMQ que o SnapCenter cria e gerencia.
-
-* RabbitMQ
-* Erlang
-
-
-
-
- a| 
 Serviço de ativação do processo do Windows
  a| 
-* Modelo do processo
-
+Modelo do processo
 
 
 
