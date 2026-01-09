@@ -1063,7 +1063,6 @@
   <block id="043833147a39840644f2ff01a835f90d" category="section-title">Plug-in do SnapCenter para recursos do Microsoft SQL Server</block>
   <block id="50e95eafa6faf8d2ee3f01921820b42b" category="list-text">Automatiza operações de backup, restauração e clone com reconhecimento de aplicações para bancos de dados Microsoft SQL Server em seu ambiente SnapCenter.</block>
   <block id="e40237d2b53363bc373f8134071d1be1" category="list-text">Suporta bancos de dados Microsoft SQL Server em VMDK e LUNs de mapeamento de dispositivo bruto (RDM) quando você implementa o plug-in SnapCenter para VMware vSphere e Registra o plug-in com o SnapCenter</block>
-  <block id="a7e3ff2bca34971756f1600032ff8b61" category="list-text">É compatível apenas com o provisionamento de compartilhamentos SMB. Não é fornecido suporte para fazer backup de bancos de dados SQL Server em compartilhamentos SMB.</block>
   <block id="6bff10ef4d0d0d6d7ed28de9adc0169d" category="list-text">Suporta a importação de backups do SnapManager para Microsoft SQL Server para SnapCenter.</block>
   <block id="1b789581aeaa48640561ebae3b263a76" category="list-text">Habilita a proteção de dados com reconhecimento de aplicativos para outros plug-ins que estão sendo executados em hosts do Windows em seu ambiente SnapCenter</block>
   <block id="d764b7be86ece9a7b21fa445a8e1493c" category="list-text">Automatiza operações de backup, restauração e clone com reconhecimento de aplicações para sistemas de arquivos da Microsoft em seu ambiente SnapCenter</block>
@@ -2053,10 +2052,6 @@
   <block id="cb6ddd90b08469e2479460ec34538fe2" category="list-text">Ativação HTTP</block>
   <block id="9756c6d75626032c8da05d425c1d0ca9" category="inline-link">A atualização ou instalação do SnapCenter falha para sistemas legados que não têm conetividade com a Internet</block>
   <block id="462fbac4d281be78bedf063a9dbd9f61" category="paragraph">Para obter informações específicas de solução de problemas .NET,<block ref="b173f6267e94bec8cf82a1d95b991ed7" category="inline-link-rx"></block> consulte .</block>
-  <block id="c3dbd8c35d4829310dd57365a749f10f" category="paragraph">Fila de mensagens</block>
-  <block id="9c7750973d73f078f45c6bfd80cbfc85" category="list-text">Serviços de enfileiramento de mensagens</block>
-  <block id="be0efd214f0b56cf8372d18ec1837f53" category="admonition">Certifique-se de que nenhum outro aplicativo use o serviço MSMQ que o SnapCenter cria e gerencia.</block>
-  <block id="7eaa993723e57b3bfc99923c196e2e17" category="list-text">RabbitMQ</block>
   <block id="a8e1305e0c86caf1fec261807b3362ef" category="paragraph">Serviço de ativação do processo do Windows</block>
   <block id="494ecde4fb6ee77e99799902ed23cd14" category="list-text">Modelo do processo</block>
   <block id="293616622aeda675821b42e39b4d4e7b" category="paragraph">APIs de configuração</block>
@@ -6798,7 +6793,6 @@
   <block id="c48d82f0b1e5949ce3d34dc8ac74b4b5" category="paragraph">A verificação do banco de dados do sistema do SQL Server não é suportada. O SnapCenter clones os bancos de dados para executar a operação de verificação. O SnapCenter não pode clonar bancos de dados do sistema do SQL Server e, portanto, a verificação desses bancos de dados não é suportada.</block>
   <block id="c27ceb4a4892c429a975a62841762540" category="list-text">Programe operações de backup e operações de clone</block>
   <block id="aa71cd3a5a90a32aafb3072b19a68b09" category="list-text">Monitore operações de backup, operações de restauração e operações de clone</block>
-  <block id="c343d8ab7af87f16e58b8e8040d7813a" category="admonition">O Plug-in para SQL Server não suporta backup e recuperação de bancos de dados SQL Server em compartilhamentos SMB.</block>
   <block id="9b0be6917dcf31005f3dc2e8b09de8b9" category="summary">Embora o SnapCenter possa verificar os backups imediatamente após a criação, isso pode aumentar significativamente o tempo necessário para concluir a tarefa de backup e usar muitos recursos. Portanto, é quase sempre melhor agendar a verificação em um trabalho separado para um momento posterior. Por exemplo, se você fizer backup de um banco de dados às 5:00 horas por dia, poderá agendar a verificação para ocorrer uma hora depois às 6:00 horas</block>
   <block id="3886123ab212d4db926aac7f7fc924c0" category="doc">Quando agendar trabalhos de verificação</block>
   <block id="697bc0ecd4b925fb05263cb0e73eb0c1" category="paragraph">Pelo mesmo motivo, geralmente não é necessário executar a verificação de backup toda vez que você executar um backup. Realizar a verificação em intervalos regulares, mas menos frequentes, geralmente é suficiente para garantir a integridade do backup. Um único trabalho de verificação pode verificar vários backups ao mesmo tempo.</block>
@@ -9581,4 +9575,6 @@
   <block id="9ece03be74b25dcc59b19ce7d0ef2dfb" category="list-text">Faça backup de todos os arquivos de configuração do SnapCenter modificados (como SnapDriveService.exe.config, SMCoreServiceHost.exe.config, etc.) no host do servidor SnapCenter ou no host do plug-in.</block>
   <block id="def9934ca3f718accf65ee67850cf9eb" category="list-text">Se a coluna Status geral exibir "Atualização disponível" para um dos hosts de plug-in, clique no nome do host de plug-in e execute o seguinte procedimento:</block>
   <block id="25c5cc506d7be2c3d358fc8fd23f0e8f" category="admonition">Se você não selecionar *Ignorar verificações prévias*, o SnapCenter verificará se o host do plug-in atende aos requisitos.  Caso os requisitos não sejam atendidos, mensagens de erro ou aviso serão exibidas.  Se o erro estiver relacionado ao espaço em disco ou à RAM, você pode atualizar o arquivo web.config localizado em _C:\Program Files\ NetApp\ SnapCenter WebApp_ ou os arquivos de configuração do PowerShell localizados em _C:\Windows\System32\WindowsPowerShell\v1.0\Modules\ SnapCenter\_ para modificar os valores padrão. Se o erro estiver relacionado aos parâmetros restantes, você deverá corrigir o problema e validar os requisitos novamente.</block>
+  <block id="ef99553115dfc1718a9b51a970da1ae9" category="paragraph">Especifica a extensão do arquivo de log de arquivamento.</block>
+  <block id="7f051ce525ea23f09ed6b21ec49fa590" category="paragraph">Por exemplo, se o arquivo de log arquivado for log_backup_0_1.log, especifique .log como a extensão do arquivo.</block>
 </blocks>

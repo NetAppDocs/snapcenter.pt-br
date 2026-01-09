@@ -128,9 +128,9 @@ ARCHIVE_LOG_EXT
  a| 
 extensão_ficheiro
  a| 
-Especifica o comprimento da extensão do arquivo de log do arquivo.
+Especifica a extensão do arquivo de log de arquivamento.
 
-Por exemplo, se o log de arquivo for log_backup_0_0_0_0,161518551942 9 e se o valor file_extension for 5, a extensão do log manterá 5 dígitos, que é 16151.
+Por exemplo, se o arquivo de log arquivado for log_backup_0_1.log, especifique .log como a extensão do arquivo.
 
 
 
