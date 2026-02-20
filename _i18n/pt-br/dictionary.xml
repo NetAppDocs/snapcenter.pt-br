@@ -1394,7 +1394,6 @@
   <block id="b88dbedd8fcea13adf629d85780a25e4" category="list-text">O plug-in para Windows não suporta MPIO em máquinas virtuais em um cluster da Microsoft.</block>
   <block id="5010ac065b072d3a5a66d4913af22358" category="section-title">Crie um LUN FC RDM compartilhado</block>
   <block id="10680a7aa79949d8b454b29a782cc64a" category="paragraph">Antes de usar LUNs FC RDM para compartilhar o storage entre nós em um cluster da Microsoft, primeiro você deve criar o disco de quorum compartilhado e o disco de storage compartilhado e adicioná-los a ambas as máquinas virtuais no cluster.</block>
-  <block id="cbdb6828febec04786f22df9a1ccc748" category="inline-link">Cluster de máquinas virtuais em hosts físicos</block>
   <block id="c939b5dd7dddc4f1908d7f58a2ab351d" category="summary">O SnapCenter requer várias licenças para habilitar operações de proteção de dados. O tipo de licenças do SnapCenter que você instala depende do ambiente de storage e dos recursos que deseja usar.</block>
   <block id="07cdb1cc7dcc527060e65d98659cb1d4" category="doc">Licenças SnapCenter</block>
   <block id="03d6fc6f0007d8c1e15a56f0a4522686" category="paragraph">O SnapCenter requer várias licenças para habilitar a proteção de dados de aplicativos, bancos de dados, sistemas de arquivos e máquinas virtuais. O tipo de licenças do SnapCenter que você instala depende do ambiente de storage e dos recursos que deseja usar.</block>
@@ -9065,7 +9064,6 @@
   <block id="9792c7ba1a8a833a1c75e11c4a7b46c3" category="list-text">Se você quiser atualizar vários hosts, selecione todos os hosts, clique <block ref="725f4bf2ffc300942027282d0182533f" category="inline-image-macro-rx" type="image"></block>em e clique em *Upgrade* &gt; *OK*.</block>
   <block id="fc8e535c7339f77157a0f93f32cb1f80" category="list-text">Os workflows de montagem e catálogo do Oracle e SAP HANA não são compatíveis com backups de storage de objetos, mas são compatíveis com snapshots.</block>
   <block id="2128757ca4207f5d5000cd4894d8c58f" category="list-text">Os clones do Oracle PDB não são compatíveis com backups de storage de objetos, mas são compatíveis com snapshots.</block>
-  <block id="6eec14240810faadbd60c3ec98b543e7" category="paragraph">O disco compartilhado não é criado usando o plug-in para Windows. Você deve criar e adicionar o LUN compartilhado a cada máquina virtual no cluster. Para obter informações,<block ref="0564b16166a6e24aa234d21e5bcdc18a" category="inline-link-rx"></block>consulte .</block>
   <block id="744d48cfa6032e04d109166f7ff6aeaf" category="paragraph">Para obter informações sobre solução de problemas,<block ref="361c774ee5cb22be42ef8ea152ed45ad" category="inline-link-rx"></block> consulte .</block>
   <block id="a141599a0eec0e6d9aea907fc97ea039" category="list-text">Selecione *confiança de parte*.</block>
   <block id="458f1b484cf2f93e8e2f35b3f5a3b94a" category="list-text">Clique com o botão direito do Mouse na confiança de quem confia que foi criada para o SnapCenter e selecione *Excluir*.</block>
@@ -9577,4 +9575,8 @@
   <block id="25c5cc506d7be2c3d358fc8fd23f0e8f" category="admonition">Se você não selecionar *Ignorar verificações prévias*, o SnapCenter verificará se o host do plug-in atende aos requisitos.  Caso os requisitos não sejam atendidos, mensagens de erro ou aviso serão exibidas.  Se o erro estiver relacionado ao espaço em disco ou à RAM, você pode atualizar o arquivo web.config localizado em _C:\Program Files\ NetApp\ SnapCenter WebApp_ ou os arquivos de configuração do PowerShell localizados em _C:\Windows\System32\WindowsPowerShell\v1.0\Modules\ SnapCenter\_ para modificar os valores padrão. Se o erro estiver relacionado aos parâmetros restantes, você deverá corrigir o problema e validar os requisitos novamente.</block>
   <block id="ef99553115dfc1718a9b51a970da1ae9" category="paragraph">Especifica a extensão do arquivo de log de arquivamento.</block>
   <block id="7f051ce525ea23f09ed6b21ec49fa590" category="paragraph">Por exemplo, se o arquivo de log arquivado for log_backup_0_1.log, especifique .log como a extensão do arquivo.</block>
+  <block id="1e70ac4737c2e839c6fd901789e3bafb" category="paragraph">O disco compartilhado não é criado usando o Plug-in for Windows. Você deve criar e, em seguida, adicionar o LUN compartilhado a cada máquina virtual no cluster.</block>
+  <block id="ae0aa1a81eb18e69d5fc662eaee0efd5" category="inline-link-macro">Documentação técnica Broadcom</block>
+  <block id="35108ed715245e1479e838ca41d91463" category="paragraph">Consulte <block ref="fba62a4233b1f0aa3ff3e46f7f59037b" category="inline-link-macro-rx"></block> e pesquise a documentação sobre clustering de máquinas virtuais em hosts físicos e criação de LUN compartilhado FC RDM para clusters Microsoft.</block>
+  <block id="82b9e59bccf9587b5e339fa8a0f02dd5" category="list-text">Os controladores NVMe são compatíveis apenas com datastores NVMe.</block>
 </blocks>

@@ -47,6 +47,7 @@ Para obter informações sobre licenciamento do FlexClone, link:../get-started/c
 ** Workflows de backup, restauração, clone e verificação no layout VMDK criado no NVMe em TCP/IP.
 ** Suporta a versão 1,3 do firmware NVMe a partir da atualização 2 do ESX 8,0 e requer a versão 21 do hardware virtual.
 ** O WSFC (Cluster de failover do Windows Server) não é compatível com aplicativos em VMDK em NVMe em TCP/IP.
+** Os controladores NVMe são compatíveis apenas com datastores NVMe.
 
 
 * É compatível com a sincronização ativa do SnapMirror (lançada inicialmente como SnapMirror Business Continuity [SM-BC]), que permite que os serviços empresariais continuem operando mesmo em caso de falha completa do local, oferecendo suporte para failover transparente de aplicações usando uma cópia secundária. Nem a intervenção manual nem o script adicional são necessários para acionar um failover com a sincronização ativa do SnapMirror.
