@@ -25,7 +25,7 @@ A deteção manual não é suportada para as seguintes configurações:
 
 .Passos
 . No painel de navegação à esquerda, selecione *Resources* e, em seguida, selecione o plug-in SnapCenter para IBM DB2 na lista suspensa.
-. Na página recursos, clique em *Adicionar recurso IBM DB2*.
+. Na página Resources, selecione *Add IBM DB2 Resource*.
 . Na página fornecer detalhes do recurso, execute as seguintes ações:
 +
 |===
@@ -61,21 +61,28 @@ Especifique o nome da instância, que é o pai do banco de dados.
 
 
  a| 
+Caminhos de montagem
+ a| 
+Insira os caminhos de montagem onde o recurso está montado. Isso só se aplica a hosts Windows.
+
+
+
+ a| 
 Credenciais
  a| 
 Selecione as credenciais ou adicione informações para a credencial.
 
-Isso é opcional.
+Este campo é opcional.
 
 |===
 . Na página fornecer espaço físico de armazenamento, selecione um tipo de armazenamento e escolha um ou mais volumes, LUNs e qtrees e clique em *Salvar*.
 +
 Opcional: Você pode clicar noimage:../media/add_policy_from_resourcegroup.gif["adicionar grupo de recursos do formulário de política"] ícone * para adicionar mais volumes, LUNs e qtrees de outros sistemas de armazenamento.
 
-. Opcional: Na página Configurações de recursos, para recursos no host do Windows, insira pares de valor de chave personalizados para o plug-in IBM DB2
+. Opcional: Na página Configurações de Recursos, para recursos em hosts Linux onde o SnapCenter Plug-in para IBM Db2 está instalado, insira pares de chave-valor personalizados para o plug-in IBM Db2. Pares de chave-valor personalizados não são suportados para bancos de dados IBM Db2 registrados como um plug-in centralizado do Windows.
 . Revise o resumo e clique em *Finish*.
 +
-Os bancos de dados são exibidos juntamente com informações como o nome do host, grupos e políticas de recursos associados e status geral
+Os bancos de dados são exibidos juntamente com informações como o nome do host, grupos de recursos e políticas associados e o status geral.
 
 
 

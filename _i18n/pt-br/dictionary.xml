@@ -3200,7 +3200,6 @@
   <block id="8d8222bc5c37db0562c84d9175b85db9" category="paragraph">A deteção manual não é suportada para as seguintes configurações:</block>
   <block id="238f9ee47b0694879bca4ad15ab7cfe7" category="list-text">Layouts RDM e VMDK</block>
   <block id="0e74c3e0dd316d16d24798ac1b0249ef" category="list-text">No painel de navegação à esquerda, selecione *Resources* e, em seguida, selecione o plug-in SnapCenter para IBM DB2 na lista suspensa.</block>
-  <block id="6425c50f54d17cde35a57532dc8e8d08" category="list-text">Na página recursos, clique em *Adicionar recurso IBM DB2*.</block>
   <block id="75795411fa0821e8da73e95200ff81ad" category="paragraph">Especifique o nome do banco de dados.</block>
   <block id="1c07f24dbaeb847f4662960d2691d528" category="paragraph">Nome do host</block>
   <block id="ce7a42c0c120b0e761b1d9b2851def5b" category="paragraph">Insira o nome do host.</block>
@@ -3210,7 +3209,6 @@
   <block id="5efe9e6fa4156b39ced69425eba7fb49" category="paragraph">Selecione as credenciais ou adicione informações para a credencial.</block>
   <block id="deec2d29ae112d513d1bbd8cb6f3a23c" category="paragraph">Isso é opcional.</block>
   <block id="4e4f9229f5def86d57e9acaf8014a093" category="list-text">Na página fornecer espaço físico de armazenamento, selecione um tipo de armazenamento e escolha um ou mais volumes, LUNs e qtrees e clique em *Salvar*.</block>
-  <block id="bdf0204433b7ea9c415d7d723d74d2ef" category="list-text">Opcional: Na página Configurações de recursos, para recursos no host do Windows, insira pares de valor de chave personalizados para o plug-in IBM DB2</block>
   <block id="da0726c01021262f418bf88a38a3c39d" category="paragraph">Os bancos de dados são exibidos juntamente com informações como o nome do host, grupos e políticas de recursos associados e status geral</block>
   <block id="3f1fe53287c04e073da002e39b799896" category="paragraph">Se você quiser fornecer aos usuários acesso a recursos, você deve atribuir os recursos aos usuários. Isso permite que os usuários executem as ações para as quais eles têm permissões nos ativos que são atribuídos a eles.</block>
   <block id="65029b82973fe89d2af9288d26c3e30b" category="paragraph"><block ref="65029b82973fe89d2af9288d26c3e30b" category="inline-link-macro-rx"></block></block>
@@ -9579,4 +9577,21 @@
   <block id="ae0aa1a81eb18e69d5fc662eaee0efd5" category="inline-link-macro">Documentação técnica Broadcom</block>
   <block id="35108ed715245e1479e838ca41d91463" category="paragraph">Consulte <block ref="fba62a4233b1f0aa3ff3e46f7f59037b" category="inline-link-macro-rx"></block> e pesquise a documentação sobre clustering de máquinas virtuais em hosts físicos e criação de LUN compartilhado FC RDM para clusters Microsoft.</block>
   <block id="82b9e59bccf9587b5e339fa8a0f02dd5" category="list-text">Os controladores NVMe são compatíveis apenas com datastores NVMe.</block>
+  <block id="cc05f18551b367465c63e80895a59c04" category="list-text">Na página Resources, selecione *Add IBM DB2 Resource*.</block>
+  <block id="89cb4324d3c17b7b0eaa5b7eb935edd8" category="paragraph">Caminhos de montagem</block>
+  <block id="cc1a25d74bb64939e2163e074e092923" category="paragraph">Insira os caminhos de montagem onde o recurso está montado. Isso só se aplica a hosts Windows.</block>
+  <block id="30deb25c4a7c59e8200ce96d5e23156f" category="paragraph">Este campo é opcional.</block>
+  <block id="d353032aed6d3d3117bcf87b841c7809" category="list-text">Opcional: Na página Configurações de Recursos, para recursos em hosts Linux onde o SnapCenter Plug-in para IBM Db2 está instalado, insira pares de chave-valor personalizados para o plug-in IBM Db2. Pares de chave-valor personalizados não são suportados para bancos de dados IBM Db2 registrados como um plug-in centralizado do Windows.</block>
+  <block id="a56c9defea42601d21f4c5106fa4712f" category="paragraph">Os bancos de dados são exibidos juntamente com informações como o nome do host, grupos de recursos e políticas associados e o status geral.</block>
+  <block id="aeab626a715ace67f9b44eba97173286" category="list-text">Para ONTAP 9.12.1 e versões anteriores, os clones criados a partir dos snapshots SnapLock Vault como parte da restauração herdarão o tempo de expiração do SnapLock Vault. Os administradores de armazenamento devem limpar manualmente os clones após o tempo de expiração do SnapLock Vault.</block>
+  <block id="988351bdb1f1d7ecd10610f11fe7bd42" category="list-text">Na página Resources, selecione *New Resource Group*.</block>
+  <block id="5c97cba64ecb09baf4d77b8f9af3d46f" category="paragraph">Use formato de nome personalizado para Snapshot</block>
+  <block id="5ff5fcae197a653580a534917740d7f8" category="list-text">Selecione a seta *Scripts* e insira os comandos pré e pós para as operações de quiesce, snapshot e unquiesce. Você também pode inserir os comandos pré a serem executados antes de sair em caso de falha.</block>
+  <block id="d3436e2d89e59038914374a22cc8c673" category="list-text">Selecione a seta *Configurações personalizadas* e insira os pares de chave-valor personalizados necessários para todas as operações de proteção de dados usando este recurso.</block>
+  <block id="98f1c90d5d623746b2adfec471311f76" category="list-text">Selecione a seta *Snapshot Copy Tool* para escolher a ferramenta para criar snapshots:</block>
+  <block id="7658971f73ec7751e63de7b917ad3277" category="paragraph">Para inserir o comando a ser executado no host para criar snapshots.</block>
+  <block id="375a1cee000ea12f25f7ea0aa40c92d2" category="paragraph"><block ref="375a1cee000ea12f25f7ea0aa40c92d2" category="inline-link-macro-rx"></block></block>
+  <block id="3edc812c3aede1bb8931ed56901c3d63" category="list-text">Você deve ter o Java 11 instalado em seus hosts Linux ou AIX.</block>
+  <block id="67444cdbc60594b36af73fd32a491c3e" category="paragraph"><block ref="67444cdbc60594b36af73fd32a491c3e" category="inline-link-macro-rx"></block></block>
+  <block id="947890351727a5bfefd25ab911655064" category="paragraph"><block ref="947890351727a5bfefd25ab911655064" category="inline-link-macro-rx"></block></block>
 </blocks>
