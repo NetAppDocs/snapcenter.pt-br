@@ -15,14 +15,14 @@ Um grupo de recursos é o contentor ao qual você deve adicionar recursos que de
 
 .Sobre esta tarefa
 * Para criar backups de replicação do sistema SAP HANA, recomenda-se adicionar todos os recursos do sistema SAP HANA a um grupo de recursos. Isso garante um backup contínuo durante o modo de recuperação de falhas.
-* Para a versão ONTAP 9.12,1 e inferior, os clones criados a partir dos instantâneos do Vault do SnapLock como parte da restauração herdarão o tempo de expiração do SnapLock Vault. O administrador do storage deve limpar manualmente os clones após o tempo de expiração do SnapLock.
+* Para ONTAP 9.12.1 e versões anteriores, os clones criados a partir dos snapshots do SnapLock Vault como parte da restauração herdam o tempo de expiração do SnapLock Vault. O administrador de storage deve limpar manualmente os clones após o tempo de expiração do SnapLock Vault.
 * A adição de novos bancos de dados sem a sincronização ativa do SnapMirror a um grupo de recursos existente que contenha recursos com a sincronização ativa do SnapMirror não é suportada.
 * A adição de novos bancos de dados a um grupo de recursos existente no modo failover da sincronização ativa do SnapMirror não é suportada. Você pode adicionar recursos ao grupo de recursos apenas no estado regular ou de failback.
 
 
 .Passos
-. No painel de navegação esquerdo, clique em *Resources* e selecione o plug-in apropriado na lista.
-. Na página recursos, clique em *novo Grupo de recursos*.
+. No painel de navegação esquerdo, selecione *Resources* e, em seguida, selecione o plug-in apropriado na lista.
+. Na página Resources, selecione *New Resource Group*.
 . Na página Nome, execute as seguintes ações:
 +
 |===
@@ -49,21 +49,21 @@ Por exemplo, se você adicionar HR como uma tag a vários grupos de recursos, po
 
 
  a| 
-Use o formato de nome personalizado para cópia Snapshot
+Use um formato de nome personalizado para snapshots.
  a| 
-Marque essa caixa de seleção e insira um formato de nome personalizado que você deseja usar para o nome da captura Instantânea.
+Marque essa caixa de seleção e insira um formato de nome personalizado que você deseja usar para o nome do snapshot.
 
-Por exemplo, customtext_resource group_policy_hostname ou resource group_hostname. Por padrão, um carimbo de data/hora é anexado ao nome do instantâneo.
+Por exemplo, customtext_resourcegroup_policy_hostname ou resource group_hostname. Por padrão, um carimbo de data/hora é anexado ao nome do snapshot.
 
 |===
 . Na página recursos, selecione um nome de host na lista suspensa *Host* e o tipo de recurso na lista suspensa *Resource Type*.
 +
 Isso ajuda a filtrar informações na tela.
 
-. Selecione os recursos na seção *recursos disponíveis* e clique na seta para a direita para movê-los para a seção *recursos selecionados*.
+. Selecione os recursos na seção *recursos disponíveis* e, em seguida, selecione a seta para a direita para movê-los para a seção *recursos selecionados*.
 . Na página Configurações do aplicativo, faça o seguinte:
 +
-.. Clique na seta *backups* para definir opções adicionais de backup:
+.. Selecione a seta *backups* para definir opções adicionais de backup:
 +
 Ative o backup do grupo de consistência e execute as seguintes tarefas:
 
@@ -73,9 +73,9 @@ Ative o backup do grupo de consistência e execute as seguintes tarefas:
 
 
  a| 
-Tenha tempo para esperar que a operação de snapshot do grupo de consistência seja concluída
+Tenha tempo para esperar que a operação de snapshot do Grupo de consistência seja concluída
  a| 
-Selecione *urgente*, *Médio* ou *relaxado* para especificar o tempo de espera para que a operação Snapshot seja concluída.
+Selecione *urgente*, *Médio* ou *relaxado* para especificar o tempo de espera para que a operação de snapshot seja concluída.
 
 Urgente: 5 segundos, Médio: 7 segundos e relaxado: 20 segundos.
 
@@ -90,8 +90,8 @@ Selecione esta opção para evitar forçar um ponto de consistência WAFL.
 +
 image:../media/application_settings.gif["definições da aplicação"]
 
-.. Clique na seta *Scripts* e insira os comandos pre e POST para operações quiesce, Snapshot e unquiesce. Também pode introduzir os pré comandos a serem executados antes de sair em caso de falha.
-.. Clique na seta *Custom Configurations* (Configurações personalizadas) e insira os pares de valor de chave personalizados necessários para todas as operações de proteção de dados usando esse recurso.
+.. Selecione a seta *Scripts* e insira os comandos pré e pós para as operações de quiesce, snapshot e unquiesce. Você também pode inserir os comandos pré a serem executados antes de sair em caso de falha.
+.. Selecione a seta *Configurações personalizadas* e insira os pares de chave-valor personalizados necessários para todas as operações de proteção de dados usando este recurso.
 +
 |===
 | Parâmetro | Definição | Descrição 
@@ -111,9 +111,9 @@ ARCHIVE_LOG_RETENÇÃO
  a| 
 number_of_days
  a| 
-Especifica o número de dias em que os logs de arquivo são mantidos.
+Especifica o número de dias que os registros de arquivamento são retidos.
 
-Esta definição tem de ser igual ou superior a NTAP_SNAPSHOT_ RETENÇÕES.
+Essa configuração deve ser igual ou superior a NTAP_SNAPSHOT_RETENTIONS.
 
 
 
@@ -122,7 +122,7 @@ ARCHIVE_LOG_DIR
  a| 
 change_info_directory/logs
  a| 
-Especifica o caminho para o diretório que contém os logs do arquivo.
+Especifica o caminho para o diretório que contém os archive logs.
 
 
 
@@ -131,34 +131,34 @@ ARCHIVE_LOG_EXT
  a| 
 extensão_ficheiro
  a| 
-Especifica o comprimento da extensão do arquivo de log do arquivo.
+Especifica uma expressão regular que corresponde às extensões dos nomes dos arquivos de log.
 
-Por exemplo, se o log de arquivo for log_backup_0_0_0_0,161518551942 9 e se o valor file_extension for 5, a extensão do log manterá 5 dígitos, que é 16151.
+Para arquivos de log que terminam com um número de dígitos, use uma expressão regular, como  `[0-9+]` ou (a partir da versão 6.0)  `\d+` (qualquer comprimento de dígitos de pelo menos um caractere) como valor para o parâmetro, que representa qualquer número de sequência de log no SAP HANA.
 
 
 
  a| 
-ARCH ARCHIVE_LOG_RECURSIVE_SE
+ARCHIVE_LOG_RECURSIVE_SEARCH
  a| 
 (Y/N)
  a| 
-Permite o gerenciamento de logs de arquivo dentro de subdiretórios.
+Permite o gerenciamento de logs de arquivamento em subdiretórios.
 
-Você deve usar este parâmetro se os logs do arquivo estiverem localizados em subdiretórios.
+Você deve usar este parâmetro se os logs de arquivamento estiverem localizados em subdiretórios.
 
 |===
 +
 
-NOTE: Os pares de valor de chave personalizados são compatíveis com sistemas plug-in SAP HANA Linux e não são compatíveis com banco de dados SAP HANA registrado como um plug-in centralizado do Windows.
+NOTE: Pares de chave-valor personalizados são suportados para o SnapCenter Plug-in para SAP HANA Database em sistemas Linux, mas não para SAP HANA databases registrados com o SnapCenter Plug-in para Microsoft Windows.
 
-.. Clique na seta *Snapshot Copy Tool* para selecionar a ferramenta para criar instantâneos:
+.. Selecione a seta *Snapshot Copy Tool* para escolher a ferramenta para criar snapshots:
 +
 |===
 | Se você quiser... | Então... 
 
 
  a| 
-SnapCenter para usar o plug-in para Windows e colocar o sistema de arquivos em um estado consistente antes de criar um instantâneo. Para recursos do Linux, essa opção não é aplicável.
+SnapCenter para usar o plug-in para Windows e colocar o sistema de arquivos em um estado consistente antes de criar um snapshot. Para recursos do Linux, essa opção não é aplicável.
  a| 
 Selecione *SnapCenter com consistência do sistema de arquivos*.
 
@@ -167,16 +167,16 @@ Esta opção não é aplicável ao plug-in SnapCenter para banco de dados SAP HA
 
 
  a| 
-SnapCenter para criar um instantâneo no nível de storage
+SnapCenter para criar um instantâneo de nível de storage
  a| 
 Selecione *SnapCenter sem consistência do sistema de arquivos*.
 
 
 
  a| 
-Para inserir o comando a ser executado no host para criar cópias Snapshot.
+Para inserir o comando a ser executado no host para criar cópias snapshot.
  a| 
-Selecione *Other* e digite o comando a ser executado no host para criar uma captura Instantânea.
+Selecione *Other* e, em seguida, digite o comando a ser executado no host para criar um snapshot.
 
 |===
 
@@ -186,13 +186,13 @@ Selecione *Other* e digite o comando a ser executado no host para criar uma capt
 .. Selecione uma ou mais políticas na lista suspensa.
 +
 
-NOTE: Você também pode criar uma política clicando em *image:../media/add_policy_from_resourcegroup.gif["adicionar grupo de recursos do formulário de política"]*.
+NOTE: Você também pode criar uma política selecionando *image:../media/add_policy_from_resourcegroup.gif["adicionar grupo de recursos do formulário de política"]*.
 
 +
 As políticas são listadas na seção Configurar programações para políticas selecionadas.
 
-.. Na coluna Configurar agendas, clique em *image:../media/add_policy_from_resourcegroup.gif["adicionar grupo de recursos do formulário de política"]* para a política que deseja configurar.
-.. Na caixa de diálogo Adicionar agendas para política _policy_name_, configure a programação e clique em *OK*.
+.. Na coluna Configurar Agendamentos, selecione *image:../media/add_policy_from_resourcegroup.gif["adicionar grupo de recursos do formulário de política"]* para a política que deseja configurar.
+.. Na caixa de diálogo Adicionar agendas para política _policy_name_, configure a programação e selecione *OK*.
 +
 Onde, policy_name é o nome da política selecionada.
 
@@ -208,5 +208,5 @@ As agendas de backup de terceiros não são suportadas quando sobrepõem-se às 
 +
 Você também deve especificar os endereços de e-mail do remetente e do destinatário e o assunto do e-mail. O servidor SMTP deve ser configurado em *Configurações* > *Configurações globais*.
 
-. Revise o resumo e clique em *Finish*.
+. Revise o resumo e selecione *Finish*.
 

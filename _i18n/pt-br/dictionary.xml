@@ -619,7 +619,6 @@
   <block id="120ccafdaf964af639f60c4ed26eaafb" category="list-text">Na lista de domínios, selecione o domínio que deseja cancelar o Registro.</block>
   <block id="b36ee7ff89fbb252e1b22b5a6cce9b0f" category="summary">As informações relacionadas a várias operações realizadas a partir do SnapCenter são armazenadas no repositório de banco de dados do servidor SnapCenter. Você deve criar backups do repositório para proteger o servidor SnapCenter contra perda de dados.</block>
   <block id="7d0bb889cb0b99adea9fd13298f9dc65" category="doc">Gerenciar o repositório do servidor SnapCenter</block>
-  <block id="a1e91e17ee1b5e24f7c7302a0064632f" category="paragraph">O repositório do servidor SnapCenter às vezes é chamado de banco de dados NSM.</block>
   <block id="fe7cd80bae6be2bcc96ab226eb99c50a" category="section-title">Pré-requisitos para proteger o repositório SnapCenter</block>
   <block id="01ef52f0d7aff8362a33649ac3782a4e" category="paragraph">Seu ambiente deve atender a certos pré-requisitos para proteger o repositório SnapCenter.</block>
   <block id="56cd02514fc7e3e9a291f682b7b4152f" category="list-text">Gerenciamento de conexões de máquina virtual de storage (SVM)</block>
@@ -630,22 +629,12 @@
   <block id="f59018181ccb88a6778559b6b5c4473e" category="list-text">Provisionamento de iSCSI LUN ou VMDK</block>
   <block id="4ab874225134090fa4c4cfdc80864dd6" category="paragraph">Para configuração de alta disponibilidade (HA), você pode provisionar um iSCSI LUN ou um VMDK em um dos servidores SnapCenter.</block>
   <block id="236f3838bf3097da34ea64631cb10786" category="section-title">Faça backup do repositório do SnapCenter</block>
-  <block id="7597d52eb0c956005115012b9fa9bd26" category="paragraph">Fazer backup do repositório do servidor SnapCenter ajuda a protegê-lo da perda de dados. Você pode fazer backup do repositório executando o cmdlet _Protect-SmRepository_.</block>
-  <block id="df8c6c6a4cbe864804d25a19c138d1e4" category="paragraph">O cmdlet _Protect-SmRepository_ realiza as seguintes tarefas:</block>
   <block id="a50ee732cf2b94825d6f396603785b14" category="list-text">Cria um grupo de recursos e uma política</block>
   <block id="bcd34fe0c0a8a4c0ceaad81a07d9c1a3" category="list-text">Cria uma agenda de backup para o repositório SnapCenter</block>
   <block id="31ce9f1bb2cc71cb2dc10cfb787f6377" category="list-text">Inicie o PowerShell.</block>
   <block id="6bc166d97ec030b1433b97435bed0c57" category="list-text">No host do servidor SnapCenter, estabeleça uma sessão usando o cmdlet _Open-SmConnection_ e insira suas credenciais.</block>
-  <block id="304b4f669a8de7a8bc81003b9b4662ac" category="list-text">Faça backup do repositório usando o cmdlet _Protect-SmRepository_ e os parâmetros necessários.</block>
   <block id="619a478ddd75b061c06fe4b486fd257d" category="section-title">Veja os backups do repositório SnapCenter</block>
-  <block id="3914a7caf7bf09997c2fc2fbe52d8be9" category="paragraph">Você pode exibir uma lista de backups do repositório de banco de dados do servidor SnapCenter executando o cmdlet _Get-SmRepositoryBackups_.</block>
-  <block id="cf09cb1daef76e19292bdba03e3b0854" category="paragraph">Os backups do repositório são criados de acordo com a programação especificada no cmdlet _Protect-SmRepository_.</block>
-  <block id="82e30b4352734f6dc42efb531c81acab" category="list-text">No prompt de comando, insira o cmdlet a seguir e forneça credenciais para se conetar ao servidor SnapCenter: _Open-SMConnection_</block>
-  <block id="1052207e87a7abc9637c274fe1512058" category="list-text">Liste todos os backups de bancos de dados SnapCenter disponíveis usando o cmdlet _Get-SmRepositoryBackups_.</block>
   <block id="1f3fde786df2928c4db966c705ec8ba1" category="section-title">Restaure o repositório de banco de dados do SnapCenter</block>
-  <block id="8efce21441fffae32eaf2ee4fec1a9b8" category="paragraph">Você pode restaurar o repositório SnapCenter executando o cmdlet _Restore-SmRepositoryBackup_.</block>
-  <block id="09a6d5e712449f112a3dcd2169dac55a" category="paragraph">Quando você estiver restaurando o repositório do SnapCenter, outras operações do SnapCenter que estão sendo executadas serão impactadas porque durante a operação de restauração o banco de dados do repositório não está acessível.</block>
-  <block id="f65a265b9c1e948edcb4b8b5bd492a18" category="list-text">Restaure o backup do repositório usando o cmdlet _Restore-SmRepositoryBackup_.</block>
   <block id="ec9dad1ea2b1a5314f82d20d3bf23f49" category="paragraph">O cmdlet a seguir restaura o repositório de banco de dados MySQL do SnapCenter a partir dos backups existentes no iSCSI LUN ou VMDK:</block>
   <block id="ba26ffcdcd99a1aea9b86f7be319ba8b" category="admonition">O backup que foi usado para executar a operação de restauração do repositório não será listado quando os backups do repositório forem recuperados após a execução da operação de restauração.</block>
   <block id="071788d560dec04e39684f7e9734f7f8" category="section-title">Migrar o repositório SnapCenter</block>
@@ -664,8 +653,6 @@
   <block id="b8b2c5727e9add44321ab3714400d246" category="section-title">Redefina a senha do repositório do SnapCenter</block>
   <block id="faa0310fc3df6f9869f6dc9e0bb9d44d" category="paragraph">A senha do banco de dados do repositório do servidor MySQL é gerada automaticamente durante a instalação do servidor SnapCenter a partir do SnapCenter 4,2. Essa senha gerada automaticamente não é conhecida pelo usuário do SnapCenter em nenhum momento. Se você quiser acessar o banco de dados do repositório, você deve redefinir a senha.</block>
   <block id="b34c04c23047012dce89ab9b0f667d6f" category="paragraph">Você deve ter o Privileges do administrador do SnapCenter para redefinir a senha.</block>
-  <block id="2bc36d79452c84a7d4dcf76ddbbd79db" category="list-text">No prompt de comando, digite o seguinte comando e, em seguida, forneça as credenciais para se conetar ao servidor SnapCenter: _Open-SMConnection_</block>
-  <block id="f14f9ddeff8bba25b45edf7c8f27a7f1" category="list-text">Redefinir a senha do repositório: _Set-SmRepositoryPassword_</block>
   <block id="e340c193c1f0abe76ae4f936229af71d" category="paragraph">O seguinte comando redefine a senha do repositório:</block>
   <block id="3f9bf2baa07e90009d9f81aa948defd7" category="summary">Depois de adicionar o sistema de armazenamento, você pode modificar a configuração e as conexões do sistema de armazenamento ou excluir o sistema de armazenamento.</block>
   <block id="eb47178020d0a5d2852ff2a43d2991e3" category="doc">Gerencie o sistema de storage</block>
@@ -3937,14 +3924,10 @@
   <block id="a80de19c7ac4a47cce6bab9b73dda51b" category="list-text">A adição de novos bancos de dados a um grupo de recursos existente no modo failover da sincronização ativa do SnapMirror não é suportada. Você pode adicionar recursos ao grupo de recursos apenas no estado regular ou de failback.</block>
   <block id="65086066849df85532ada3ce3b32fabb" category="paragraph">Por exemplo, customtext_resource group_policy_hostname ou resource group_hostname. Por padrão, um carimbo de data/hora é anexado ao nome do instantâneo.</block>
   <block id="a99f0aeaf38081c20a7370fb0f80e5fb" category="paragraph">Tenha tempo para esperar que a operação de snapshot do grupo de consistência seja concluída</block>
-  <block id="513e9e5c9242c20cd3a0e1af2c91141c" category="paragraph">Selecione *urgente*, *Médio* ou *relaxado* para especificar o tempo de espera para que a operação Snapshot seja concluída.</block>
-  <block id="7753c7b112c057fc94bcaa18ecc0f343" category="list-text">Clique na seta *Scripts* e insira os comandos pre e POST para operações quiesce, Snapshot e unquiesce. Também pode introduzir os pré comandos a serem executados antes de sair em caso de falha.</block>
-  <block id="0d1c37a6cf22ce8a58bdf0cb6bb40c68" category="admonition">Os pares de valor de chave personalizados são compatíveis com sistemas plug-in SAP HANA Linux e não são compatíveis com banco de dados SAP HANA registrado como um plug-in centralizado do Windows.</block>
   <block id="c9127adbadee36ca206638ad1cccd8ad" category="list-text">Clique na seta *Snapshot Copy Tool* para selecionar a ferramenta para criar instantâneos:</block>
   <block id="b74a1dd6c2da66e7e33c0f14344382d7" category="paragraph">SnapCenter para usar o plug-in para Windows e colocar o sistema de arquivos em um estado consistente antes de criar um instantâneo. Para recursos do Linux, essa opção não é aplicável.</block>
   <block id="62559cf2803ff56106a84e128591c337" category="paragraph">Esta opção não é aplicável ao plug-in SnapCenter para banco de dados SAP HANA.</block>
   <block id="45e5304bd8ba98d8e58920d13f8503a9" category="paragraph">SnapCenter para criar um instantâneo no nível de storage</block>
-  <block id="086beaa9afd2391b7d5204a8db47791c" category="paragraph">Para inserir o comando a ser executado no host para criar cópias Snapshot.</block>
   <block id="94687babf968f2e9f2633c4704893c9e" category="paragraph">Selecione *Other* e digite o comando a ser executado no host para criar uma captura Instantânea.</block>
   <block id="e905ed4042dd0ec46ff540a7c45c6f31" category="doc">Definir uma estratégia de backup para bancos de dados SAP HANA</block>
   <block id="f73eb370f8bbfa82c1bb4c40f02b65ce" category="list-text">Decida se você deseja criar uma política baseada em cópia Snapshot para fazer backup de snapshots consistentes com aplicações do banco de dados.</block>
@@ -9116,7 +9099,6 @@
   <block id="57cf9c4ee485623172a5c60cbee423a4" category="paragraph">Veja <block ref="96716f545c5cf1a209bf10c1a798ce38" category="inline-link-macro-rx"></block>o vídeo.</block>
   <block id="5c8b8bc332cb41802ffbe6c5cda258ab" category="paragraph">O layout de storage virtual VMDK, vVol e RDM é suportado.</block>
   <block id="e5385a9de21528bfedd644f4c0331eb1" category="summary">O software SnapCenter é uma plataforma simples, centralizada e dimensionável que fornece proteção de dados consistente com aplicações para aplicações, bancos de dados, sistemas de arquivos host e VMs em execução nos sistemas ONTAP em qualquer lugar na nuvem híbrida.</block>
-  <block id="68578ccfcf5117ca8a9a2d7d884e320f" category="summary">A versão 6,1 do software SnapCenter inclui vários novos recursos e aprimoramentos.</block>
   <block id="8127605cde4cee83a23b35f1207c7572" category="sidebar">Documentação do software SnapCenter</block>
   <block id="e76a4ae8df1bf6770838ce7c7d94e229" category="paragraph">Iniciar serviços de plug-in (aplicável apenas para plug-ins em execução no host Windows)</block>
   <block id="8e6af76634121af640a2987aea883af4" category="doc">Métodos de autenticação para credenciais SnapCenter</block>
@@ -9506,13 +9488,11 @@
   <block id="67998d9af35dea74903e9cdb371f7e7a" category="paragraph">Alternativamente, você também pode consultar o<block ref="4a5b4acb82a31b5d3a197c5ec1468fe8" category="inline-link-rx"></block> ou<block ref="bc822c4319e03a98720e4951c1009810" category="inline-link-rx"></block> .</block>
   <block id="e2affc8ad90cb942103d56d82396b5f7" category="paragraph">Saiba mais sobre os novos e aprimorados recursos disponíveis no SnapCenter 6.2.</block>
   <block id="652468e7a8f47c94c0dfc2bbbe3f6788" category="inline-link-macro">Novidades no SnapCenter 6.2</block>
-  <block id="d5d7d6e218fb8deef9aa758f16f3e053" category="paragraph">Para obter uma lista completa de novos recursos e aprimoramentos, consulte <block ref="ba56a05032a421946bbeef30dde12674" category="inline-link-macro-rx"></block> .</block>
   <block id="24443d9133830b434ac05072f0c9653a" category="inline-link">Notas de versão do software SnapCenter 6.2</block>
   <block id="320bd16b81d8a6a0a077d7308db7683d" category="paragraph">O caminho de atualização mostra quais versões do SnapCenter você pode atualizar e quais versões de plug-in são suportadas.</block>
   <block id="f734f899336791933d28373bca69a72f" category="admonition">Se você atualizar o SnapCenter Server para 6.2, atualize também os plug-ins para 6.2.</block>
   <block id="7a22247de8db3271f3bf8573be10e986" category="cell">6,2</block>
   <block id="cb2f94cd974dcdf68577ffd66816a900" category="doc">Novidades no SnapCenter software 6.2</block>
-  <block id="02a7a1f2d7c2b92647dd96da7bf06024" category="paragraph">A versão 6.2 do SnapCenter software inclui o seguinte novo recurso.</block>
   <block id="efd8ec518c3271e168cebeb4a21d4fc3" category="paragraph">O SnapCenter 6.2 (servidor e plug-ins), juntamente com o ONTAP 9.17.1, oferece suporte à proteção primária e secundária de aplicativos executados em sistemas físicos (Linux e Windows) e em sistemas de arquivos de máquinas virtuais (VMFS), utilizando grupos de consistência hierárquicos.</block>
   <block id="669e7e163e3b320fc474c04f2cd99bdc" category="paragraph">Após a atualização para o SnapCenter 6.2 e o ONTAP 9.17.1, o SnapCenter altera grupos de consistência simples para grupos de consistência hierárquicos durante o primeiro backup agendado.</block>
   <block id="9e1557573461036ce114499c0c41ed6f" category="paragraph">O fluxo de trabalho lista as tarefas que você deve concluir para atualizar o SnapCenter Server e os pacotes de plug-in.</block>
@@ -9594,4 +9574,40 @@
   <block id="3edc812c3aede1bb8931ed56901c3d63" category="list-text">Você deve ter o Java 11 instalado em seus hosts Linux ou AIX.</block>
   <block id="67444cdbc60594b36af73fd32a491c3e" category="paragraph"><block ref="67444cdbc60594b36af73fd32a491c3e" category="inline-link-macro-rx"></block></block>
   <block id="947890351727a5bfefd25ab911655064" category="paragraph"><block ref="947890351727a5bfefd25ab911655064" category="inline-link-macro-rx"></block></block>
+  <block id="4eecf71620cb916df975db3d622e9c30" category="paragraph">O repositório do SnapCenter Server às vezes é chamado de banco de dados NSM. Consulte a <block ref="bc822c4319e03a98720e4951c1009810" category="inline-link-rx"></block> para obter detalhes sobre todos os cmdlets disponíveis.</block>
+  <block id="e9087f4d1c2c90b2c0e70f14ce029f2b" category="paragraph">Fazer backup do repositório do SnapCenter ajuda a protegê-lo contra perda de dados. Você pode fazer backup do repositório executando o <block ref="f89bc12c0d2d413f64b24c351b6b566d" prefix=" " category="inline-code"></block> cmdlet.</block>
+  <block id="7de02e43c7e5e44fea6db42bf98f4e4f" category="paragraph">O<block ref="f89bc12c0d2d413f64b24c351b6b566d" prefix=" " category="inline-code"></block> cmdlet realiza as seguintes tarefas:</block>
+  <block id="7c6f43e53987a1cba407a45574b6e131" category="list-text">No host do SnapCenter Server, estabeleça uma sessão usando o <block ref="5127bb5818426c9a226f86808b688df6" prefix=" " category="inline-code"></block> cmdlet e insira suas credenciais.</block>
+  <block id="2313913b76aff94d8503163d4f267e85" category="list-text">Faça backup do repositório usando o<block ref="f89bc12c0d2d413f64b24c351b6b566d" prefix=" " category="inline-code"></block> cmdlet que aceita os seguintes parâmetros obrigatórios:</block>
+  <block id="a78522bed1f819174f25cef96c0c0ff3" category="list-text"><block ref="cf11ed5faa9031625d5872a33b51369d" prefix="" category="inline-code"></block>: Especifica o nome do host do servidor onde o repositório do SnapCenter está localizado.</block>
+  <block id="f72b4d51cc947b4944fe5bff106a159e" category="list-text"><block ref="6c15defbbb5591f238f00aae21da8102" prefix="" category="inline-code"></block>: Especifica o caminho do sistema de arquivos no sistema de storage da NetApp onde os backups do repositório estão armazenados.</block>
+  <block id="45cfbc93f52bddc8332cbb3821a79fcd" category="list-text"><block ref="3e6a04e315cffe1935944c6e148259e3" prefix="" category="inline-code"></block>: Define o cronograma para o backup do repositório. Normalmente, é definido como uma hashtable.</block>
+  <block id="ea93be765766b1b0340a46ec9fa44007" category="list-text"><block ref="17c9a3d0386d0c9388f23f0e1746b442" prefix="" category="inline-code"></block>: Especifica o número de backups do repositório a serem mantidos. Quando o número de backups excede esse limite, o backup mais antigo é excluído.</block>
+  <block id="fbb43b857700ed367835ec83901639b4" category="inline-link">SnapCenter Software Guia de Referência de Cmdlet - Get-SmRepositoryBackups</block>
+  <block id="bc38773382be3f74dc73755cd9827105" category="paragraph">Você pode exibir uma lista de backups do repositório do banco de dados do SnapCenter Server executando o<block ref="8f3ee45ff6a4d15cb1535fbb2104cbe3" prefix=" " category="inline-code"></block> cmdlet. Consulte o<block ref="c67bf538930b4faf23ee321b029e47b4" category="inline-link-rx"></block> para obter detalhes.</block>
+  <block id="fe977c7845ac3fb77271396a2eccec70" category="paragraph">Os backups do repositório são criados de acordo com a programação especificada no <block ref="f89bc12c0d2d413f64b24c351b6b566d" prefix=" " category="inline-code"></block> cmdlet.</block>
+  <block id="c55d0155b4fd52f1558139d035379b17" category="list-text">Na linha de comando, digite o <block ref="5127bb5818426c9a226f86808b688df6" prefix=" " category="inline-code"></block> cmdlet e forneça as credenciais para se conectar ao SnapCenter Server.</block>
+  <block id="1d8ed305cde1786adbe54ceb761583b1" category="list-text">Liste todos os backups de banco de dados SnapCenter disponíveis usando o <block ref="8f3ee45ff6a4d15cb1535fbb2104cbe3" prefix=" " category="inline-code"></block> cmdlet.</block>
+  <block id="f815b5ceaf8636c8128f6fdfe485fca0" category="paragraph">Você pode restaurar o repositório do SnapCenter executando o<block ref="8ae865811cf35c74eae23a4044145d22" prefix=" " category="inline-code"></block> cmdlet.</block>
+  <block id="358aee23266781e25636c5c68e9d029f" category="paragraph">Ao restaurar o repositório do SnapCenter, outras operações do SnapCenter em execução são afetadas, pois durante a operação de restauração o banco de dados do repositório fica inacessível.</block>
+  <block id="ade1166053736f73c976329f5201c8e3" category="list-text">Restaure o backup do repositório usando o <block ref="8ae865811cf35c74eae23a4044145d22" prefix=" " category="inline-code"></block> cmdlet.</block>
+  <block id="493b7d8df398bc120f9f428c564acc5c" category="list-text">Redefina a senha do repositório usando o <block ref="e276a5794a7efafc0fd13b7cc2d4468c" prefix=" " category="inline-code"></block> cmdlet.</block>
+  <block id="151857987a4ca8ab0b6b4ae84218e0ef" category="paragraph">Você pode obter as informações sobre os parâmetros que você pode usar com o cmdlet e suas descrições executando o <block ref="b306feeed6ddda97d08ef1f2a0ba62d9" prefix=" " category="inline-code"></block> comando. Como alternativa, você pode consultar o <block ref="bc822c4319e03a98720e4951c1009810" category="inline-link-rx"></block>.</block>
+  <block id="f6290ecec0b6032b705450a72b783056" category="list-text">Para ONTAP 9.12.1 e versões anteriores, os clones criados a partir dos snapshots do SnapLock Vault como parte da restauração herdam o tempo de expiração do SnapLock Vault. O administrador de storage deve limpar manualmente os clones após o tempo de expiração do SnapLock Vault.</block>
+  <block id="5e0169811e6298c75af680faf7eb3898" category="paragraph">Use um formato de nome personalizado para snapshots.</block>
+  <block id="32aa9c674cdcdd67bbedcd5786e9c89c" category="paragraph">Por exemplo, customtext_resourcegroup_policy_hostname ou resource group_hostname. Por padrão, um carimbo de data/hora é anexado ao nome do snapshot.</block>
+  <block id="71c597cb94a0c26a5fa6146e850d4c89" category="paragraph">Especifica o número de dias que os registros de arquivamento são retidos.</block>
+  <block id="25b35304e237e166d7ff315d9ad4ba4d" category="paragraph">Essa configuração deve ser igual ou superior a NTAP_SNAPSHOT_RETENTIONS.</block>
+  <block id="7e4961425800a99500e244a5e02bc700" category="paragraph">Especifica o caminho para o diretório que contém os archive logs.</block>
+  <block id="244579f440504a33f1468b477f530b72" category="paragraph">Especifica uma expressão regular que corresponde às extensões dos nomes dos arquivos de log.</block>
+  <block id="2168489b9f8e6334897f26a5329667ab" category="paragraph">Para arquivos de log que terminam com um número de dígitos, use uma expressão regular, como <block ref="ececa0327fd65b97690ab7756b7b6c18" prefix=" " category="inline-code"></block> ou (a partir da versão 6.0) <block ref="217c2028762e7dcdedd3dce416220593" prefix=" " category="inline-code"></block> (qualquer comprimento de dígitos de pelo menos um caractere) como valor para o parâmetro, que representa qualquer número de sequência de log no SAP HANA.</block>
+  <block id="488081ea3d4e639bcf2be8f71cd46132" category="paragraph">ARCHIVE_LOG_RECURSIVE_SEARCH</block>
+  <block id="85bbfdb76a2b2ed0fd1b0da7a4fb3785" category="paragraph">Permite o gerenciamento de logs de arquivamento em subdiretórios.</block>
+  <block id="4c6d3857eae63796ee3d5f67011e194f" category="paragraph">Você deve usar este parâmetro se os logs de arquivamento estiverem localizados em subdiretórios.</block>
+  <block id="5223ed0f09a7ed8f79cb34ee678642b2" category="admonition">Pares de chave-valor personalizados são suportados para o SnapCenter Plug-in para SAP HANA Database em sistemas Linux, mas não para SAP HANA databases registrados com o SnapCenter Plug-in para Microsoft Windows.</block>
+  <block id="fef844efd5d5274641ab5a8e530ced87" category="admonition">Você também pode criar uma política selecionando *<block ref="7b8f66898e8dfce6b3b454cf0514c993" category="inline-image-macro-rx" type="image"></block>*.</block>
+  <block id="d3562ace999b51c49c22ce4c580579b0" category="list-text">Na coluna Configurar Agendamentos, selecione *<block ref="7b8f66898e8dfce6b3b454cf0514c993" category="inline-image-macro-rx" type="image"></block>* para a política que deseja configurar.</block>
+  <block id="8d3b5ad5b9f27b4f9781e490487c376e" category="paragraph">Para obter uma lista completa de novos recursos e melhorias, consulte <block ref="333326639e0f94ceb693906a79235ec5" category="inline-link-macro-rx"></block>.</block>
+  <block id="2f1352033f9cdf5dbec684bea0d87ee5" category="summary">A versão 6.2 do SnapCenter software inclui diversos novos recursos e melhorias.</block>
+  <block id="f4090871da1ea3c21c90ff0a2bfe77db" category="paragraph">A versão 6.2 do SnapCenter software inclui o seguinte recurso expandido.</block>
 </blocks>
