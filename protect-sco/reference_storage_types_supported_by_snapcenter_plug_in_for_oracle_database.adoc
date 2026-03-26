@@ -58,6 +58,21 @@ O armazenamento de dados da VVol só pode ser provisionado com as Ferramentas do
 
 
 
+
+
+ a| 
+Outros hipervisores
+ a| 
+O Linux executado em hipervisores KVM, Xen, Hyper-V e hyperscaler é suportado quando o sistema operacional convidado tem acesso TCP/IP direto aos recursos de storage ONTAP, utilizando os seguintes métodos:
+
+* LUNs ligados ao iSCSI
+* Volumes conectados a NFS
+* NVMe/TCP
+
+
+
+NOTE: Datastores e apresentações de dispositivos brutos não são suportados fora do VMware.
+
 |===
 
 
