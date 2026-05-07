@@ -11,8 +11,10 @@ summary: Fornece informações importantes sobre esta versão do servidor SnapCe
 
 
 [role="lead"]
-Saiba mais sobre os novos e aprimorados recursos disponíveis no SnapCenter 6.2.
+Conheça os novos e aprimorados recursos disponíveis no SnapCenter 6.2 e 6.2.1.
 
-Para obter uma lista completa de novos recursos e melhorias, consulte link:what's-new-in-snapcenter62.html["Novidades no SnapCenter 6.2"].
+Para obter uma lista completa dos novos recursos e melhorias, consulte link:what's-new-in-snapcenter621.html["O que há de novo no SnapCenter 6.2.1"].
 
-Para obter detalhes sobre problemas conhecidos, limitações, problemas corrigidos e comandos novos e alterados, consulte o https://library.netapp.com/ecm/ecm_download_file/ECMLP3359467["Notas de versão do software SnapCenter 6.2"^] . Você deve entrar com sua conta NetApp ou criar uma conta para acessar as Notas de Versão.
+Para obter uma lista completa dos novos recursos e melhorias, consulte link:what's-new-in-snapcenter62.html["Novidades no SnapCenter 6.2"].
+
+Para obter detalhes sobre problemas conhecidos, limitações, problemas corrigidos e comandos novos e alterados, consulte as  https://library.netapp.com/ecm/ecm_download_file/ECMLP3359467["SnapCenter Software 6.2.1 Notas de lançamento"^]. Você precisa fazer login com sua NetApp conta ou criar uma conta para acessar as Notas de Versão.

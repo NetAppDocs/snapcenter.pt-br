@@ -75,6 +75,8 @@ entries:
   - title: Crie grupos de recursos e habilite a proteção secundária para recursos
       Oracle em sistemas ASA R2
     url: "/protect-sco/create-resource-groups-secondary-protection-for-asa-r2-oracle-resources.html"
+  - title: Ative snapshots de grupo de consistência no nível do grupo de recursos
+    url: "/protect-sco/enable-consistency-group-snapshots-resource-group-level.html"
   - title: Faça backup dos recursos Oracle
     url: "/protect-sco/task_back_up_oracle_resources.html"
   - title: Fazer backup de grupos de recursos

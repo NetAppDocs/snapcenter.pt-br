@@ -36,7 +36,7 @@ O SnapCenter oferece suporte à proteção primária e secundária de aplicativo
 O SnapCenter descobre ou cria grupos de consistência ONTAP .  Ele configura relacionamentos SnapMirror no cluster de destino para proteção secundária. https://docs.netapp.com/us-en/ontap/consistency-groups["Saiba mais sobre grupos de consistência ONTAP"^] .
 
 
-NOTE: Após atualizar para o SnapCenter 6.2 (servidor e plug-ins) e o ONTAP 9.17.1, o SnapCenter altera grupos de consistência simples para grupos de consistência hierárquicos durante o primeiro backup agendado.
+NOTE: Após você atualizar para SnapCenter 6.2.1 (servidor e plug-ins) e ONTAP 9.17.1, SnapCenter altera grupos de consistência plana para grupos de consistência hierárquica durante o primeiro backup agendado.
 
 Para saber como habilitar a proteção secundária em sistemas ASA r2 para seu aplicativo, consulte:
 

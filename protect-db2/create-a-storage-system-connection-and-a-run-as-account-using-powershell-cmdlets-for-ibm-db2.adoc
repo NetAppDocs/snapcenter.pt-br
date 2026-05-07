@@ -27,7 +27,7 @@ O SnapCenter não é compatível com vários sistemas de storage com o mesmo nom
 
 
 .Passos
-. Clique em *SnapCenterPS* para iniciar o PowerShell Core.
+. Selecione *SnapCenterPS* para iniciar o PowerShell.
 . Crie uma nova conexão com o sistema de armazenamento usando o cmdlet Add-SmStorageConnection.
 +
 [listing]

@@ -1,0 +1,28 @@
+---
+permalink: protect-sco/enable-consistency-group-snapshots-resource-group-level.html 
+sidebar: sidebar 
+keywords: consistency group, enable, create, resource group level 
+summary: Um grupo de recursos é um contentor onde você adiciona recursos que deseja fazer backup e proteger. Um grupo de recursos permite fazer backup de todos os dados associados a um determinado aplicativo simultaneamente. 
+---
+= Ative snapshots de grupo de consistência no nível do grupo de recursos
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Por padrão, o SnapCenter plug-in para Oracle Database cria snapshots de grupo de consistência no nível do grupo de discos do Automatic Storage Management (ASM) ou do grupo de volumes do Logical Volume Management (LVM). Como prática recomendada, bancos de dados dentro de um mesmo grupo de recursos não devem compartilhar volumes ONTAP entre grupos de discos ASM ou grupos de volumes LVM.
+
+No entanto, se os grupos de discos ASM ou os grupos de volumes LVM compartilharem volumes ONTAP subjacentes, o snapshot do grupo de consistência poderá falhar devido a conflitos de snapshots duplicados. Nesses casos, SnapCenter recorre automaticamente a snapshots em nível de volume.
+
+.Sobre esta tarefa
+Em cenários onde os volumes são compartilhados entre grupos de discos ASM ou grupos de volumes LVM, o SnapCenter oferece suporte à habilitação de snapshots de grupo de consistência no nível do grupo de recursos. Isso garante que todos os grupos de discos ASM ou grupos de volumes LVM associados aos bancos de dados dentro do grupo de recursos sejam capturados em um único snapshot de grupo de consistência. As etapas a seguir descrevem como usar esse recurso.
+
+.Passos
+. Acesse o seguinte arquivo de configuração no SnapCenter server:
++
+`C:\Program Files\NetApp\SMCore\SMCoreServiceHost.dll.config`.
+
+. Localize o  `isCgSnapshotForRg`parâmetro e altere seu valor de *false* para *true*.
+. Reinicie o  `SMCoreService` serviço para que a alteração entre em vigor.
+

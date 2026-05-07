@@ -16,7 +16,7 @@ Antes de adicionar um host e instalar os pacotes de plug-ins, você deve complet
 
 NOTE: Os aplicativos de armazenamento e Oracle são compatíveis com AIX.
 
-* Você deve ter instalado o Java 11 em seu host Linux, Windows ou AIX.
+* Você precisa ter o Java 17 instalado em seu host Linux, Windows ou AIX.
 +
 
 NOTE: O IBM Java não é suportado em hosts Windows e Linux.
@@ -39,7 +39,7 @@ Se estiver a utilizar iSCSI, o serviço iSCSI deverá estar em execução.
 * Se você gerenciar nós de cluster no SnapCenter, precisará ter um usuário com Privileges administrativo para todos os nós do cluster.
 * Você deve escolher manualmente o plug-in do SnapCenter para Microsoft Windows.
 +
-http://www.java.com/en/download/manual.jsp["Baixe JAVA para Windows"]
+link:https://www.oracle.com/java/technologies/downloads/#java17["Baixe o Java para Windows"]
 
 
 
@@ -51,15 +51,15 @@ http://www.java.com/en/download/manual.jsp["Baixe JAVA para Windows"]
 NOTE: Os aplicativos de armazenamento e Oracle são compatíveis com AIX.
 
 * Você deve ter habilitado a conexão SSH baseada em senha para o usuário root ou não root.
-* Você deve ter instalado o Java 11 em seu host Linux.
+* Você precisa ter o Java 17 instalado em seu host Linux.
 +
-Se estiver usando o Windows Server 2019 ou o Windows Server 2016 para o host do SnapCenter Server, você deverá instalar o Java 11.
+Se você estiver usando Windows Server 2019 ou Windows Server 2016 para o host do servidor SnapCenter, será necessário instalar o Java 17.
 
 +
-http://www.java.com/en/download/manual.jsp["Baixe JAVA para Linux"]
+link:https://www.oracle.com/java/technologies/downloads/#java17["Baixe o Java para Linux"]
 
 +
-https://developer.ibm.com/languages/java/semeru-runtimes/downloads/?license=IBM["Baixe JAVA para AIX"]
+https://developer.ibm.com/languages/java/semeru-runtimes/downloads/?license=IBM["Baixe o Java para AIX"]
 
 * Você deve configurar o sudo Privileges para que o usuário não-root forneça acesso a vários caminhos. Adicione as seguintes linhas ao arquivo /etc/sudoers usando o utilitário visudo Linux.
 +
@@ -140,9 +140,9 @@ NOTE: Deve alocar espaço em disco suficiente e monitorizar o consumo de armazen
  a| 
 Pacotes de software necessários
  a| 
-Java 11 IBM Java
+Java 17 IBM Java
 
-Se você atualizou O JAVA para a versão mais recente, você deve garantir que a opção JAVA_HOME localizada em /var/opt/SnapCenter/spl/etc/spl.properties esteja definida para a versão JAVA correta e o caminho correto.
+Se você atualizou o Java para a versão mais recente, certifique-se de que a opção JAVA_HOME localizada em /var/opt/snapcenter/spl/etc/spl.properties esteja definida com a versão correta do Java e o caminho correto.
 
 |===
 
