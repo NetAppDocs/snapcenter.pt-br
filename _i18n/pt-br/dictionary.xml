@@ -362,7 +362,6 @@
   <block id="6d2bf94f38d1fdf840fe9b231866899c" category="inline-link">Visão geral da implantação</block>
   <block id="95d04783b89b5d5f8a4c905e6a139950" category="paragraph">Para obter informações sobre como implantar,<block ref="09fdd78e4c4f2997a9baa6b6e4423d52" category="inline-link-rx"></block> consulte .</block>
   <block id="c9abc3786b4bb68c9d780c7e265731ff" category="inline-link">Criar ou importar certificado SSL</block>
-  <block id="77e6d176ef9b9d439f75a9636390005d" category="paragraph">Para configurar o certificado CA com o plug-in SnapCenter para VMware vSphere,<block ref="1b5e247395791063ff5d33fa4a1ba4ec" category="inline-link-rx"></block> consulte .</block>
   <block id="3228309100966454e78a162d4ba9bd75" category="section-title">Configure o arquivo CRL</block>
   <block id="456dce50d13fcf7c2c4881e39c114254" category="paragraph">O plug-in do SnapCenter para VMware vSphere procura os arquivos CRL em um diretório pré-configurado. O diretório padrão dos arquivos CRL para o plug-in do SnapCenter para VMware vSphere é _/opt/NetApp/config/crl_.</block>
   <block id="2794927004b00b8d766ca3deca4c7096" category="paragraph">Você pode monitorar o progresso de diferentes operações de backup usando a página SnapCenterJobs. Você pode querer verificar o progresso para determinar quando ele está concluído ou se há um problema.</block>
@@ -2588,9 +2587,7 @@
   <block id="ac91c641781bd7c7379113e123abc706" category="doc">Ativar autenticação baseada em certificado</block>
   <block id="2deb2b431122c2428813248c5cc7e3cf" category="paragraph">Para habilitar a autenticação baseada em certificado para o servidor SnapCenter e os hosts de plug-in do Windows, execute o cmdlet do PowerShell a seguir. Para os hosts de plug-in Linux, a autenticação baseada em certificado será ativada quando você ativar o SSL bidirecional.</block>
   <block id="012d451c2966c8058914f66afd3ff9be" category="list-text">Para ativar a autenticação baseada em certificado de cliente:</block>
-  <block id="c7414a7d4890863a34509bebe1bd9225" category="paragraph"><block ref="a578dd94961bb2b0ce287d29a112740b" prefix="" category="inline-code"></block><block ref="e685e5103f8306754d61ec1a0da15686" prefix=" " category="inline-code"></block><block ref="a71cdd4660400fab236be52b25300411" prefix=" " category="inline-code"></block></block>
   <block id="8b5db05d124326542535790d2a1a0411" category="list-text">Para desativar a autenticação baseada em certificado de cliente:</block>
-  <block id="b5cfca9930b60b6f87f38ad0e8d31765" category="paragraph"><block ref="ee29fb805334372351c3e459eaf40ac3" prefix="" category="inline-code"></block><block ref="e685e5103f8306754d61ec1a0da15686" prefix=" " category="inline-code"></block><block ref="b1b73520f4b4ea4d2583cc59029bbe0d" prefix=" " category="inline-code"></block></block>
   <block id="ea57705c00c3f1344bb41c72a946f63e" category="summary">Você pode habilitar a comunicação SSL bidirecional para proteger a comunicação mútua entre o servidor SnapCenter no host Windows e os plug-ins usando comandos do PowerShell.</block>
   <block id="fb1f4d52b01df105765d83ddca95f1be" category="doc">Ative a comunicação SSL bidirecional no host Windows</block>
   <block id="e087a1e7d63b58aa401ef5206b4045df" category="paragraph">Execute os comandos para todos os plug-ins e o agente SMCore primeiro e depois para o servidor.</block>
@@ -9229,7 +9226,6 @@
   <block id="334226d3cfa4581cf30266ef27f8d444" category="list-text">Suporta servidores Exchange virtualizados em LUNs RDM quando você implementa o plug-in SnapCenter para VMware vSphere e Registra o plug-in com o SnapCenter.</block>
   <block id="d606f67e2e785da61d4eec544382d173" category="section-title">Para versões do Oracle 12cR2 a 18c, 19C ou 21c</block>
   <block id="6a02cc7ce0251bbc4d48ab0a5e120358" category="paragraph">Você deve rever os diferentes métodos de autenticação suportados para o banco de dados Oracle. Para obter informações, <block ref="7870051f24add37682324e1578aee75d" category="inline-link-macro-rx"></block>consulte .</block>
-  <block id="cb5d59c817a7392efa454c9c69508067" category="paragraph"><block ref="cb5d59c817a7392efa454c9c69508067" category="inline-link-rx"></block></block>
   <block id="98f770b0af18ca763421bac22b4b6805" category="section-title">Caraterísticas</block>
   <block id="d662aa2b841a0c131c86e10f89661f14" category="paragraph">Para obter informações sobre licenciamento do FlexClone, <block ref="d9f19820592fa27802c8f2a3fe0b8c47" category="inline-link-macro-rx"></block>consulte .</block>
   <block id="073f586b61cc6ba33a4441cb7dadca15" category="cell"><block ref="073f586b61cc6ba33a4441cb7dadca15" category="inline-link-macro-rx"></block></block>
@@ -9641,4 +9637,8 @@
   <block id="f0de22be0ad3dd3c1e51ed207f0e298e" category="paragraph">A versão 6.2.1 do SnapCenter software não apresenta novos recursos ou melhorias. Inclui apenas correções de bugs conhecidos e atualizações das versões qualificadas para o SnapCenter Server e plug-ins. Consulte a <block ref="f297672c4e3c5441ce384d3bd8457e0c" category="inline-link-macro-rx"></block> para obter mais detalhes.</block>
   <block id="8ca913d8030ab27ecf31b8863c908b83" category="list-text">Certifique-se de que PowerShell 7.4.13 esteja instalada no host do plug-in do Windows.</block>
   <block id="1a0f97251fd1801dcc25004385c56be0" category="list-text">Certifique-se de que o Java 17 (Oracle Java e OpenJDK) esteja instalado nos hosts de plug-in Windows e Linux.</block>
+  <block id="92f7e9adcc0061bde4c2abd78f00e01e" category="paragraph">Para configurar o certificado CA com o SnapCenter Plug-in for VMware vSphere, consulte <block ref="e0ef04da7ad7ee6e29cb49ed5497582e" category="inline-link-rx"></block>.</block>
+  <block id="0ff275ffe02e672fcd7c5215c9cbcfb6" category="paragraph"><block ref="a578dd94961bb2b0ce287d29a112740b" prefix="" category="inline-code"></block><block ref="e685e5103f8306754d61ec1a0da15686" prefix=" " category="inline-code"></block><block ref="0897acf49c7c1ea9f76efe59187aa046" prefix=" " category="inline-code"></block></block>
+  <block id="11428fc511268a2c63fa0e7ebcb2530d" category="paragraph"><block ref="ee29fb805334372351c3e459eaf40ac3" prefix="" category="inline-code"></block><block ref="e685e5103f8306754d61ec1a0da15686" prefix=" " category="inline-code"></block><block ref="0897acf49c7c1ea9f76efe59187aa046" prefix=" " category="inline-code"></block></block>
+  <block id="2af0fc8c21c11cf5ed04e0063f53931e" category="paragraph"><block ref="2af0fc8c21c11cf5ed04e0063f53931e" category="inline-link-rx"></block></block>
 </blocks>

@@ -21,11 +21,11 @@ Para habilitar a autenticação baseada em certificado para o servidor SnapCente
 
 * Para ativar a autenticação baseada em certificado de cliente:
 +
-`Set-SmConfigSettings -Agent –configSettings @{"EnableClientCertificateAuthentication"="true"}` `-HostName`<<hostname>>
+`Set-SmConfigSettings -Agent –configSettings @{"EnableClientCertificateAuthentication"="true"}` `-HostName` `hostname`
 
 * Para desativar a autenticação baseada em certificado de cliente:
 +
-`Set-SmConfigSettings -Agent –configSettings @{"EnableClientCertificateAuthentication"="false"}` `-HostName` `<<hostname>>``
+`Set-SmConfigSettings -Agent –configSettings @{"EnableClientCertificateAuthentication"="false"}` `-HostName` `hostname`
 
 
 
