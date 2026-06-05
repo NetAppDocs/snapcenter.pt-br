@@ -46,7 +46,7 @@ NOTE: Deve alocar espaço em disco suficiente e monitorizar o consumo de armazen
  a| 
 Pacotes de software necessários
  a| 
-* Pacote de Hospedagem ASP.NET Core Runtime 8.0.12 (e todos os patches 8,0.x subsequentes)
+* ASP.NET Core Runtime 8.0.24 (e todos os patches 8.0.x subsequentes) Hosting Bundle
 * PowerShell 7.4.13
 
 

@@ -63,12 +63,12 @@ NOTE: Os recursos são listados na seção recursos disponíveis somente se o re
 *** Selecione *sistema de arquivos consistente* se você quiser garantir que os dados em cache dos sistemas de arquivos sejam limpos antes de criar o backup e nenhuma operação de entrada ou saída seja permitida no sistema de arquivos durante a criação do backup.
 +
 
-NOTE: Para o sistema de arquivos consistente, instantâneos de grupo de consistência serão feitos para LUNs envolvidos no grupo volume.
+NOTE: Para consistente com falhas do sistema de arquivos, são criados snapshots do grupo de consistência para os LUNs envolvidos no grupo de volumes.
 
 *** Selecione *Crash consistente* se quiser garantir que os dados em cache dos sistemas de arquivos sejam limpos antes de criar o backup.
 +
 
-NOTE: Se você adicionou diferentes sistemas de arquivos no grupo de recursos, todos os volumes de diferentes sistemas de arquivos no grupo de recursos serão colocados em um grupo de consistência.
+NOTE: Se você adicionou diferentes sistemas de arquivos ao grupo de recursos, todos os volumes de diferentes sistemas de arquivos no grupo de recursos são colocados em um grupo de consistência. Para backups consistente com falhas, um snapshot do grupo de consistência é criado por padrão, mesmo que haja apenas um sistema de arquivos ou volume.
 
 
 

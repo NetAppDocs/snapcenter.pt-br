@@ -46,9 +46,9 @@ NOTE: Deve alocar espaço em disco suficiente e monitorizar o consumo de armazen
  a| 
 Pacotes de software necessários
  a| 
-* Pacote de Hospedagem ASP.NET Core Runtime 8.0.12 (e todos os patches 8,0.x subsequentes)
+* ASP.NET Core Runtime 8.0.24 (e todos os patches 8.0.x subsequentes) Hosting Bundle
 * PowerShell 7.4.13
-* Java 17 (Oracle Java e OpenJDK)
+* Java 17 (Oracle Java ou OpenJDK), Java 11 (para SnapCenter 6.2 somente)
 
 
 Para obter informações específicas de solução de problemas .NET, consulte https://kb.netapp.com/mgmt/SnapCenter/SnapCenter_upgrade_or_install_fails_with_This_KB_is_not_related_to_the_OS["A atualização ou instalação do SnapCenter falha para sistemas legados que não têm conetividade com a Internet."]

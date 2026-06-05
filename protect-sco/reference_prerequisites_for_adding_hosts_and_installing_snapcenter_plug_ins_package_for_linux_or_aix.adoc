@@ -23,13 +23,13 @@ O plug-in do SnapCenter para banco de dados Oracle pode ser instalado por um usu
 O pacote de plug-ins do SnapCenter para AIX resolve automaticamente o link simbólico no nível do arquivo, mas não os links simbólicos no nível do diretório para obter o caminho absoluto JAVA_HOME.
 
 * Crie credenciais com o modo de autenticação como Linux ou AIX para o usuário de instalação.
-* Você precisa ter o Java 17 instalado em seu host Linux ou AIX.
+* Você precisa ter instalado Java 17, Java 11 (para SnapCenter 6.2 somente) em seu host Linux ou AIX.
 +
 ** Java da Oracle e OpenJDK são suportados para Linux.
 ** IBM Java para AIX. Você pode fazer o download em  https://developer.ibm.com/languages/java/semeru-runtimes/downloads/?version=17&os=AIX["IBM Semeru runtimes Downloads"^].
 +
 
-NOTE: Certifique-se de ter instalado apenas a edição certificada do Java 17 no host Linux.
+NOTE: Certifique-se de ter instalado apenas a edição certificada do Java 17, Java 11 (para SnapCenter 6.2 somente) no host Linux.
 
 
 
@@ -91,10 +91,10 @@ NOTE: Deve alocar espaço em disco suficiente e monitorizar o consumo de armazen
  a| 
 Pacotes de software necessários
  a| 
-Java 17 (Oracle ou OpenJDK)
+Java 17 (Oracle ou OpenJDK), Java 11 (para SnapCenter 6.2 somente)
 
 
-NOTE: Certifique-se de ter instalado apenas a edição certificada do Java 17 no host Linux.
+NOTE: Certifique-se de ter instalado apenas a edição certificada do Java 17, Java 11 (para SnapCenter 6.2 somente) no host Linux.
 
 Se você atualizou o Java para a versão mais recente, certifique-se de que a opção JAVA_HOME localizada em /var/opt/snapcenter/spl/etc/spl.properties esteja definida com a versão correta do Java e o caminho correto.
 
@@ -219,7 +219,7 @@ NOTE: Deve alocar espaço em disco suficiente e monitorizar o consumo de armazen
  a| 
 Pacotes de software necessários
  a| 
-Java 17 IBM Java
+IBM Java 17, IBM Java 11 (para SnapCenter 6.2 somente)
 
 Se você atualizou o Java para a versão mais recente, certifique-se de que a opção JAVA_HOME localizada em /var/opt/snapcenter/spl/etc/spl.properties esteja definida com a versão correta do Java e o caminho correto.
 
