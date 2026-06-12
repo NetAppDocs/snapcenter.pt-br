@@ -13,7 +13,8 @@ summary: Antes de adicionar um host e instalar os pacotes de plug-in, você deve
 [role="lead"]
 Antes de adicionar um host e instalar os pacotes de plug-in, você deve completar todos os requisitos. O plug-in do SnapCenter para banco de dados SAP HANA está disponível em ambientes Windows e Linux.
 
-* Você deve ter o Java 17 ou o Java 11 (para SnapCenter 6.2 apenas) instalados no seu host.
+* Você deve ter instalado o Java 17 (Oracle Java ou OpenJDK) para SnapCenter 6.2.1 ou posterior ou
+* Java 11 para SnapCenter 6.2 e anteriores no seu host.
 +
 
 NOTE: O IBM Java não é suportado em hosts Windows e Linux.
@@ -33,7 +34,8 @@ NOTE: O IBM Java não é suportado em hosts Windows e Linux.
 * Você deve ter um usuário de domínio com Privileges de administrador local com permissões de login local no host remoto.
 * Ao instalar o plug-in para banco de dados SAP HANA em um host Windows, o plug-in do SnapCenter para Microsoft Windows é instalado automaticamente.
 * Você deve ter habilitado a conexão SSH baseada em senha para o usuário root ou não root.
-* Você deve ter o Java 17, o Java 11 (para SnapCenter 6.2 apenas) instalados no seu host Windows.
+* Você deve ter instalado o Java 17 (Oracle Java ou OpenJDK) para SnapCenter 6.2.1 ou posterior ou
+* Java 11 para SnapCenter 6.2 e anteriores no seu host Windows.
 +
 link:https://www.oracle.com/java/technologies/downloads/#java17["Baixe o Java para todos os sistemas operacionais"]
 
@@ -44,7 +46,8 @@ link:https://www.oracle.com/java/technologies/downloads/#java17["Baixe o Java pa
 == Hosts Linux
 
 * Você deve ter habilitado a conexão SSH baseada em senha para o usuário root ou não root.
-* Você deve ter o Java 17 ou o Java 11 (para SnapCenter 6.2 apenas) instalados em seu host Linux.
+* Você deve ter instalado o Java 17 (Oracle Java ou OpenJDK) para SnapCenter 6.2.1 ou posterior ou
+* Java 11 para SnapCenter 6.2 e anteriores no seu host Linux.
 +
 link:https://www.oracle.com/java/technologies/downloads/#java17["Baixe o Java para todos os sistemas operacionais"]
 

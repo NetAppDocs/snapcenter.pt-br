@@ -129,7 +129,7 @@ NOTE: O gMSA será usado como uma conta de serviço de logon apenas para o servi
 |===
 . Clique em *Enviar*.
 +
-Se você não selecionou a caixa de seleção *Ignorar verificações prévias*, o host é validado para verificar se atende aos requisitos para a instalação do plug-in. O espaço de disco, a RAM, a versão do PowerShell, a versão do .NET, a localização (para plug-ins do Windows) e o Java 17, Java 11 (para SnapCenter 6.2 somente) para plug-ins do Windows e Linux são validados em relação aos requisitos mínimos. Se os requisitos mínimos não forem atendidos, mensagens de erro ou aviso apropriadas serão exibidas.
+Se você não selecionou a caixa de seleção *Ignorar verificações prévias*, o host é validado para verificar se atende aos requisitos para instalar o plug-in. O espaço de disco, a RAM, a versão do PowerShell, a versão do .NET, a localização (para plug-ins do Windows) e o Java 17 (para SnapCenter 6.2.1 e posterior) ou o Java 11 (para SnapCenter 6.2 e anterior) para plug-ins do Windows e do Linux são validados em relação aos requisitos mínimos. Se os requisitos mínimos não forem atendidos, mensagens de erro ou aviso apropriadas serão exibidas.
 
 +
 Se o erro estiver relacionado ao espaço em disco ou à RAM, você pode atualizar o arquivo web.config localizado no NetApp SnapCenter para modificar os valores padrão. Se o erro estiver relacionado a outros parâmetros, você deve corrigir o problema.

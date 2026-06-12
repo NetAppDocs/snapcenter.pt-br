@@ -16,7 +16,8 @@ Antes de adicionar um host e instalar os pacotes de plug-ins, você deve complet
 
 NOTE: Os aplicativos de armazenamento e Oracle são compatíveis com AIX.
 
-* Você deve ter o Java 17 ou o Java 11 (para SnapCenter 6.2 apenas) instalado em seu host Linux, Windows ou AIX.
+* Você deve ter instalado o Java 17 (Oracle Java ou OpenJDK) para SnapCenter 6.2.1 ou posterior ou
+* Java 11 para SnapCenter 6.2 e anteriores em seu host Linux, Windows ou AIX.
 +
 
 NOTE: O IBM Java não é suportado em hosts Windows e Linux.
@@ -51,9 +52,10 @@ link:https://www.oracle.com/java/technologies/downloads/#java17["Baixe o Java pa
 NOTE: Os aplicativos de armazenamento e Oracle são compatíveis com AIX.
 
 * Você deve ter habilitado a conexão SSH baseada em senha para o usuário root ou não root.
-* Você deve ter o Java 17 ou o Java 11 (para SnapCenter 6.2 apenas) instalados em seu host Linux.
+* Você deve ter instalado o Java 17 (Oracle Java ou OpenJDK) para SnapCenter 6.2.1 ou posterior ou
+* Java 11 para SnapCenter 6.2 e anteriores no seu host Linux.
 +
-Se você estiver usando Windows Server 2019 ou Windows Server 2016 para o host do servidor SnapCenter, será necessário instalar o Java 17, Java 11 (para SnapCenter 6.2 apenas).
+Se você estiver usando Windows Server 2019 ou Windows Server 2016 para o host do servidor SnapCenter, será necessário instalar o Java 17 (Oracle Java ou OpenJDK) para SnapCenter 6.2.1 e posteriores ou o Java 11 para SnapCenter 6.2 e anteriores.
 
 +
 link:https://www.oracle.com/java/technologies/downloads/#java17["Baixe o Java para Linux"]
@@ -140,7 +142,9 @@ NOTE: Deve alocar espaço em disco suficiente e monitorizar o consumo de armazen
  a| 
 Pacotes de software necessários
  a| 
-Java 17, Java 11 (para SnapCenter 6.2 somente), IBM Java
+* Java 17 para SnapCenter 6.2.1 e posterior, IBM Java ou
+* Java 11 para SnapCenter 6.2 e versões anteriores, IBM Java
+
 
 Se você atualizou o Java para a versão mais recente, certifique-se de que a opção JAVA_HOME localizada em /var/opt/snapcenter/spl/etc/spl.properties esteja definida com a versão correta do Java e o caminho correto.
 
