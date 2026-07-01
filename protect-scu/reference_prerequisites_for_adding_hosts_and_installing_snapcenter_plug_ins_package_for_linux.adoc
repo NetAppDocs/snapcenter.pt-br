@@ -23,8 +23,7 @@ NOTE: A chave RSA é o único formato de chave SSH compatível para SnapCenter. 
 O plug-in do SnapCenter para sistemas de arquivos Unix pode ser instalado por um usuário não-root. No entanto, você deve configurar o sudo Privileges para que o usuário não-root instale e inicie o processo de plug-in. Depois de instalar o plug-in, os processos serão executados como um usuário não-root eficaz.
 
 * Crie credenciais com o modo de autenticação como Linux para o usuário de instalação.
-* Você precisa ter instalado o Java 17 para SnapCenter 6.2.1 ou posterior ou
-* Java 11 para SnapCenter 6.2 e anteriores no seu host Linux.
+* Você precisa ter instalado Java 17 para SnapCenter 6.2.1 e posteriores ou Java 11 para SnapCenter 6.2 e anteriores em seu host Linux.
 +
 
 NOTE: Certifique-se de ter instalado apenas a edição certificada do Java 17 para SnapCenter 6.2.1 e posteriores ou do Java 11 para SnapCenter 6.2 e anteriores no host Linux.
@@ -75,8 +74,7 @@ NOTE: Deve alocar espaço em disco suficiente e monitorizar o consumo de armazen
  a| 
 Pacotes de software necessários
  a| 
-* Java 17 (Oracle Java ou OpenJDK) para SnapCenter 6.2.1 e posterior ou
-* Java 11 para SnapCenter 6.2 e versões anteriores
+* Java 17 (Oracle Java, OpenJDK ou SAP JDK) para SnapCenter 6.2.1 e posteriores ou Java 11 para SnapCenter 6.2 e anteriores
 
 
 
