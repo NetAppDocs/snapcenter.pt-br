@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: release notes, snapcenter 
 summary: Fornece informações importantes sobre esta versão do servidor SnapCenter e os pacotes plug-in do SnapCenter, incluindo problemas corrigidos, problemas conhecidos, precauções e limitações. 
 ---
-= Notas de lançamento
+= Notas de lançamento para SnapCenter
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

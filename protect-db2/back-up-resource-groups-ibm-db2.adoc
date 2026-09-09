@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: SnapCenter Plug-in for IBM Db2 
 summary: Um grupo de recursos é uma coleção de recursos em um host. Uma operação de backup no grupo de recursos é executada em todos os recursos definidos no grupo de recursos. 
 ---
-= Fazer backup de grupos de recursos
+= Faça backup dos grupos de recursos do IBM Db2 no SnapCenter
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

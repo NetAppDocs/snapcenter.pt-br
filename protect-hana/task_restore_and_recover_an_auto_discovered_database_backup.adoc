@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: SnapCenter Plug-in for SAP HANA Database 
 summary: Você pode usar o SnapCenter para restaurar e recuperar dados de um ou mais backups. 
 ---
-= Restaure e recupere um backup de banco de dados descoberto automaticamente
+= Restaurar e recuperar um backup de banco de dados autodetectado no SnapCenter
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

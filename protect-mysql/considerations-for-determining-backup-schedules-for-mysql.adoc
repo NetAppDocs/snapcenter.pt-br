@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: SnapCenter Plug-in for MySQL 
 summary: 'O fator mais crítico na determinação de um agendamento de backup é a taxa de alteração do recurso. Você pode fazer backup de um recurso muito usado a cada hora, enquanto você pode fazer backup de um recurso raramente usado uma vez por dia. Outros fatores incluem a importância do recurso para sua organização, seu contrato de nível de serviço (SLA) e seu objetivo de ponto de recuperação (RPO).' 
 ---
-= Considerações para determinar agendas de backup para MySQL
+= Fatores de agendamento de backup para bancos de dados MySQL em SnapCenter
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

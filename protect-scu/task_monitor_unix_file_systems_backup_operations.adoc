@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: SnapCenter Server, monitor, backup, activity pane, data protection 
 summary: Pode monitorizar o progresso de diferentes operações de cópia de segurança utilizando a página trabalhos do SnapCenter. Você pode querer verificar o progresso para determinar quando ele está concluído ou se há um problema. 
 ---
-= Monitorar backup de sistemas de arquivos Unix
+= Monitore as operações de backup de sistemas de arquivos UNIX no SnapCenter
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
@@ -15,6 +15,7 @@ Saiba como monitorar o progresso das operações de backup e operações de prot
 
 
 
+[[monitor-unix-file-systems-backup-operations]]
 == Monitorar operações de backup de sistemas de arquivos Unix
 
 Você pode monitorar o progresso de diferentes operações de backup usando a página SnapCenterJobs. Você pode querer verificar o progresso para determinar quando ele está concluído ou se há um problema.
@@ -55,6 +56,7 @@ O botão *View logs* exibe os logs detalhados para a operação selecionada.
 
 
 
+[[monitor-data-protection-operations-in-the-activity-pane]]
 == Monitore operações de proteção de dados no painel atividade
 
 O painel atividade exibe as cinco operações mais recentes executadas. O painel atividade também é exibido quando a operação foi iniciada e o status da operação.

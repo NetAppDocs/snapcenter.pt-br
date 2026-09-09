@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: Manage resources 
 summary: Além de gerenciar hosts em domínios confiáveis do ative Directory, o SnapCenter também gerencia hosts em vários domínios não confiáveis do AD. Os domínios do AD não confiáveis devem ser registrados no servidor SnapCenter. O SnapCenter oferece suporte a usuários e grupos de vários domínios do AD não confiáveis. 
 ---
-= Gerencie recursos de domínios não confiáveis
+= Gerencie os recursos do SnapCenter em domínios não confiáveis
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
@@ -19,6 +19,7 @@ Os grupos do ative Directory (AD) que pertencem a domínios não registrados no 
 
 
 
+[[modify-untrusted-domains]]
 == Modifique domínios não confiáveis
 
 Você pode modificar um domínio não confiável quando quiser atualizar os endereços IP do controlador de domínio ou o nome de domínio totalmente qualificado (FQDN).
@@ -58,6 +59,7 @@ Se o domínio FQDN não for resolvível, especifique um ou mais endereços IP do
 
 
 
+[[unregister-untrusted-active-directory-domains]]
 == Anular o registo de domínios não fidedignos do ative Directory
 
 Você pode cancelar o Registro de um domínio do ative Directory não confiável se não quiser usar os ativos associados a esse domínio.

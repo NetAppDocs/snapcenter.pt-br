@@ -49,6 +49,7 @@ O botão *View logs* exibe os logs detalhados para a operação selecionada.
 
 
 
+[[monitor-data-protection-operations-on-sql-resources-in-the-activity-pane]]
 == Monitore operações de proteção de dados em recursos SQL no painel atividade
 
 O painel atividade exibe as cinco operações mais recentes executadas. O painel atividade também é exibido quando a operação foi iniciada e o status da operação.

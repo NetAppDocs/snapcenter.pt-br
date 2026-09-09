@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: SnapCenter Plug-in for MySQL 
 summary: O fluxo de trabalho do clone inclui a execução da operação de clone e o monitoramento da operação. 
 ---
-= Fluxo de trabalho clone
+= Fluxo de trabalho de clonagem de backup do MySQL
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

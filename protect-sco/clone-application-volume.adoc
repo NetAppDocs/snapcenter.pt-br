@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: application volume, clone, split a clone 
 summary: Você pode usar o SnapCenter para clonar os backups de volume de aplicações, dividir o clone e excluir o clone. 
 ---
-= Clone o backup de volume de aplicativo
+= Clonar backups de volumes de aplicativos no SnapCenter
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
@@ -62,6 +62,7 @@ NOTE: Para notificação por e-mail, você deve ter especificado os detalhes do 
 
 
 
+[[split-an-application-volume-clone]]
 == Dividir um clone de volume de aplicativo
 
 Você pode usar o SnapCenter para dividir um recurso clonado do recurso pai. O clone que é dividido torna-se independente do recurso pai.
@@ -77,6 +78,7 @@ Você pode usar o SnapCenter para dividir um recurso clonado do recurso pai. O c
 
 
 
+[[delete-an-application-volume-clone]]
 == Excluir um clone de volume de aplicativo
 
 Você pode excluir clones se você achar que eles não são mais necessários. Não é possível excluir clones que atuam como fonte para outros clones.

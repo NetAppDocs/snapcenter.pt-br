@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: backups 
 summary: Você pode usar o cmdlet Remove-SmBackup para limpar a contagem de backup para backups secundários que não têm snapshots. Talvez você queira usar esse cmdlet quando o Total de snapshots exibido na topologia Gerenciar cópias não corresponder à configuração de retenção do Snapshot de storage secundário. 
 ---
-= Limpe a contagem de backup secundária usando cmdlets do PowerShell
+= Limpe as contagens de backups secundários usando o SnapCenter e os cmdlets do PowerShell
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

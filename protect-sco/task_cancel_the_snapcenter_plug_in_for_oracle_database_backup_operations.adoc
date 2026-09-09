@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords:  
 summary: Você pode cancelar as operações de backup em execução, na fila ou não responsivas. 
 ---
-= Cancelar operações de backup de bancos de dados Oracle
+= Cancelar operações de backup do banco de dados Oracle no SnapCenter
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

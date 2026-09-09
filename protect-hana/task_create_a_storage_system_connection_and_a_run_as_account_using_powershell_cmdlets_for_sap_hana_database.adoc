@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: SnapCenter Plug-in for SAP HANA Database 
 summary: 'Você deve criar uma conexão de máquina virtual de storage (SVM) e uma credencial antes de usar cmdlets do PowerShell para fazer backup, restaurar ou clonar bancos de dados SAP HANA.' 
 ---
-= Crie uma conexão de sistema de armazenamento e uma credencial usando cmdlets do PowerShell para banco de dados SAP HANA
+= Crie uma conexão com o sistema de storage e uma credencial usando SnapCenter PowerShell cmdlets para bancos de dados SAP HANA
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

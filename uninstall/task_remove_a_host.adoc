@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: uninstall, remove, remove host 
 summary: Quando o servidor SnapCenter remove um host, ele primeiro remove o backup, clones, tarefas de clone, grupos de recursos e recursos listados para esse host na página recursos do SnapCenter e, em seguida, desinstala os pacotes de plug-in no host. 
 ---
-= Remova um host
+= Remova um host do SnapCenter
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

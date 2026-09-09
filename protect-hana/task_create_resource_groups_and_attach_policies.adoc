@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: resource groups, attach policies, snapcenter 
 summary: Um grupo de recursos é o contentor ao qual você deve adicionar recursos que deseja fazer backup e proteger. Um grupo de recursos permite fazer backup de todos os dados associados a um determinado aplicativo simultaneamente. Um grupo de recursos é necessário para qualquer trabalho de proteção de dados. Você também deve anexar uma ou mais políticas ao grupo de recursos para definir o tipo de tarefa de proteção de dados que deseja executar. 
 ---
-= Crie grupos de recursos e anexe políticas
+= Crie grupos de recursos e associe políticas para o SnapCenter bancos de dados SAP HANA
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

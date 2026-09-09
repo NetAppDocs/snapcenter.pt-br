@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: application volume, overview, backup, non-data volumes 
 summary: Os volumes de aplicativos são o armazenamento onde as informações relacionadas ao banco de dados Oracle são armazenadas. 
 ---
-= O que são volumes de aplicações
+= Saiba mais sobre volumes de aplicativos no SnapCenter Plug-in para Oracle Database
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

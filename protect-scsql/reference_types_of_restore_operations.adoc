@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: SnapCenter Plug-in for SQL Server 
 summary: Você pode usar o SnapCenter para executar diferentes tipos de operações de restauração em recursos do SQL Server. 
 ---
-= Tipos de operações de restauração
+= Tipos de operação de restauração do SQL Server no SnapCenter
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
@@ -28,6 +28,7 @@ NOTE: O SnapCenter não é compatível com SnapRestore baseado em volume.
 
 
 
+[[restore-up-to-the-minute]]
 == Restaure até o minuto
 
 Em uma operação de restauração atualizada (selecionada por padrão), os bancos de dados são recuperados até o ponto de falha. O SnapCenter realiza isso executando a seguinte sequência:
@@ -48,12 +49,14 @@ Se você não precisar manter a capacidade de restauração atualizada para todo
 
 
 
+[[example-of-an-up-to-the-minute-restore-operation]]
 == Exemplo de uma operação de restauração atualizada
 
 Suponha que você execute o backup do SQL Server todos os dias ao meio-dia, e na quarta-feira às 4:00 horas você precisa restaurar a partir de um backup. Por algum motivo, o backup do meio-dia de quarta-feira falhou a verificação, então você decide restaurar a partir do backup do meio-dia de terça-feira. Depois disso, se o backup for restaurado, todos os logs de transação são movidos para a frente e aplicados aos bancos de dados restaurados, começando com aqueles que não foram confirmados quando você criou o backup de terça-feira e continuando através do último log de transação escrito na quarta-feira às 4:00 horas (se os logs de transação foram copiados).
 
 
 
+[[restore-to-a-previous-point-in-time]]
 == Restaurar para um ponto anterior no tempo
 
 Em uma operação de restauração pontual, os bancos de dados são restaurados apenas para um tempo específico do passado. Uma operação de restauração pontual ocorre nas seguintes situações de restauração:
@@ -75,6 +78,7 @@ Se você aplicar backups de log de transações, você também pode especificar 
 
 
 
+[[example-of-a-point-in-time-restore-operation]]
 == Exemplo de uma operação de restauração pontual
 
 Suponha que você faça backups completos do banco de dados uma vez à meia-noite e um backup de log de transações a cada hora. O banco de dados falha às 9:45 da manhã, mas você ainda faz backup dos logs de transação do banco de dados com falha. Você pode escolher entre esses cenários de restauração pontual:

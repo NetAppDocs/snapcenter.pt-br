@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: EMS data collection 
 summary: 'Você pode agendar e gerenciar a coleta de dados do sistema de Gerenciamento de Eventos (EMS) usando cmdlets do PowerShell. A coleta de dados do EMS envolve a coleta de detalhes sobre o servidor SnapCenter, os pacotes plug-in do SnapCenter instalados, os hosts e informações semelhantes e, em seguida, enviá-lo para uma máquina virtual de armazenamento ONTAP especificada.' 
 ---
-= Gerir a recolha de dados EMS
+= Gerencie a coleta de dados EMS no SnapCenter
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
@@ -18,6 +18,7 @@ NOTE: A utilização da CPU do sistema é elevada quando a tarefa de recolha de 
 
 
 
+[[stop-ems-data-collection]]
 == Parar a recolha de dados EMS
 
 A coleta de dados EMS é ativada por padrão e é executada a cada sete dias após a data de instalação. Você pode desativar a coleta de dados a qualquer momento usando o cmdlet _Disable-SmDataCollectionEMS_ do PowerShell.
@@ -29,6 +30,7 @@ A coleta de dados EMS é ativada por padrão e é executada a cada sete dias ap�
 
 
 
+[[start-ems-data-collection]]
 == Inicie a recolha de dados EMS
 
 A coleta de dados do EMS é ativada por padrão e está programada para ser executada a cada sete dias a partir da data de instalação. Se você a tiver desativado, você poderá iniciar a coleta de dados EMS novamente usando o cmdlet _enable-SmDataCollectionEMS_.
@@ -42,6 +44,7 @@ A permissão NetApp ONTAP event Generate-AutoSupport-log foi concedida ao usuár
 
 
 
+[[change-ems-data-collection-schedule-and-target-svm]]
 == Alterar o cronograma de coleta de dados do EMS e o SVM de destino
 
 Você pode usar cmdlets do PowerShell para alterar o cronograma de coleta de dados do EMS ou a máquina virtual de armazenamento de destino (SVM).
@@ -54,6 +57,7 @@ Você pode usar cmdlets do PowerShell para alterar o cronograma de coleta de dad
 
 
 
+[[monitor-ems-data-collection-status]]
 == Monitorize o estado da recolha de dados EMS
 
 Você pode monitorar o status da sua coleta de dados EMS usando vários cmdlets do PowerShell. Você pode obter informações sobre a programação, o destino da máquina virtual de storage (SVM) e o status.

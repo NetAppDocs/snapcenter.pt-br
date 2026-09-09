@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: SnapCenter Plug-in for IBM Db2 
 summary: O fluxo de trabalho de restauração e recuperação inclui Planejamento, execução das operações de restauração e monitoramento das operações. 
 ---
-= Restaure o fluxo de trabalho
+= SnapCenter Plug-in para fluxo de trabalho de restauração do IBM Db2
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

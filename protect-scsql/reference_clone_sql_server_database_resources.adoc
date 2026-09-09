@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: Clone workflow 
 summary: É necessário executar várias tarefas usando o servidor SnapCenter antes de clonar os recursos do banco de dados a partir de um backup. Clonagem de banco de dados é o processo de criação de uma cópia pontual de um banco de dados de produção ou de seu conjunto de backup. Você pode clonar bancos de dados para testar a funcionalidade que precisa ser implementada usando a estrutura e o conteúdo atuais do banco de dados durante os ciclos de desenvolvimento de aplicativos, para usar as ferramentas de extração e manipulação de dados ao preencher data warehouses ou para recuperar dados que foram excluídos ou alterados erroneamente. 
 ---
-= Fluxo de trabalho clone
+= Fluxo de trabalho de clonagem para o SnapCenter Plug-in for Microsoft SQL Server
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

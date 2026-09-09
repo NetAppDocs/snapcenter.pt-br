@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: prerequisites, iSCSI, Oracle path, host requirement for Linux, sudo privileges, non-root user, host requirements for AIX, credentials, authenticate, domain administrator, local administrator, workgroup, sudo, root user 
 summary: Antes de adicionar um host e instalar os pacotes de plug-ins, você deve completar todos os requisitos. 
 ---
-= Pré-requisitos para adicionar hosts e instalar o pacote Plug-ins para Linux ou AIX
+= Pré-requisitos para adicionar hosts e instalar o SnapCenter Plug-ins Package para Linux ou AIX
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
@@ -49,6 +49,7 @@ NOTE: O mapeamento UUID no arquivo /etc/fstab não é suportado pelo SnapCenter.
 
 
 
+[[linux-host-requirements]]
 == Requisitos de Host Linux
 
 Você deve garantir que o host atenda aos requisitos antes de instalar o pacote de plug-ins do SnapCenter para Linux.
@@ -104,6 +105,7 @@ Para obter as informações mais recentes sobre as versões suportadas, consulte
 
 
 
+[[configure-sudo-privileges-for-non-root-users-for-linux-host]]
 === Configure sudo Privileges para usuários não-root para host Linux
 
 O SnapCenter 2,0 e versões posteriores permitem que um usuário não root instale o pacote de plug-ins do SnapCenter para Linux e inicie o processo de plug-in. Os processos de plug-in serão executados como um usuário não-root eficaz. Você deve configurar o sudo Privileges para que o usuário não-root forneça acesso a vários caminhos.
@@ -182,6 +184,7 @@ IMPORTANT: O exemplo deve ser usado apenas como referência para criar seus pró
 
 
 
+[[aix-host-requirements]]
 == Requisitos de anfitrião do AIX
 
 Você deve garantir que o host atenda aos requisitos antes de instalar o pacote de plug-ins do SnapCenter para AIX.
@@ -230,6 +233,7 @@ Para obter as informações mais recentes sobre as versões suportadas, consulte
 
 
 
+[[configure-sudo-privileges-for-non-root-users-for-aix-host]]
 === Configure sudo Privileges para usuários não-root para host AIX
 
 O SnapCenter 4,4 e posterior permite que um usuário não root instale o pacote de plug-ins do SnapCenter para AIX e inicie o processo de plug-in. Os processos de plug-in serão executados como um usuário não-root eficaz. Você deve configurar o sudo Privileges para que o usuário não-root forneça acesso a vários caminhos.
@@ -307,6 +311,7 @@ IMPORTANT: O exemplo deve ser usado apenas como referência para criar seus pró
 
 
 
+[[set-up-credentials]]
 == Configurar credenciais
 
 O SnapCenter usa credenciais para autenticar usuários para operações do SnapCenter. Você deve criar credenciais para instalar o pacote plug-in em hosts Linux ou AIX.
@@ -380,6 +385,7 @@ Depois de concluir a configuração das credenciais, você pode querer atribuir 
 
 
 
+[[configure-credentials-for-an-oracle-database]]
 == Configurar credenciais para um banco de dados Oracle
 
 Você deve configurar credenciais usadas para executar operações de proteção de dados em bancos de dados Oracle.

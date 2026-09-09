@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: snapcenter, azure, azure storage account, subscription ID, azure credential, azure netapp account 
 summary: Configure a conta de armazenamento do Azure no SnapCenter. 
 ---
-= Configure a conta de armazenamento do Azure
+= Configure a conta de armazenamento do Azure no SnapCenter
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

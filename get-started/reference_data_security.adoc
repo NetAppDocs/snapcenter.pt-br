@@ -37,6 +37,7 @@ Após 20 minutos de inatividade, o SnapCenter faz o logout e você deve fazer lo
 
 
 
+[[ca-certificate-overview]]
 == Visão geral do certificado CA
 
 O instalador do servidor SnapCenter permite o suporte centralizado de certificados SSL durante a instalação. Para melhorar a comunicação segura entre o servidor e o plug-in, o SnapCenter suporta o uso dos certificados de CA autorizados fornecidos pelo cliente.
@@ -47,18 +48,21 @@ Você também pode implantar o certificado CA para o plug-in SnapCenter para VMw
 
 
 
+[[two-way-ssl-communication]]
 == Comunicação SSL bidirecional
 
 A comunicação SSL bidirecional protege a comunicação mútua entre o servidor SnapCenter e os plug-ins.
 
 
 
+[[certificate-based-authentication-overview]]
 == Visão geral da autenticação baseada em certificados
 
 A autenticação baseada em certificado verifica a autenticidade dos respetivos usuários que tentam acessar o host do plug-in do SnapCenter. O usuário deve exportar o certificado do servidor SnapCenter sem chave privada e importá-lo no armazenamento confiável do host do plug-in. A autenticação baseada em certificado só funciona se o recurso SSL bidirecional estiver ativado.
 
 
 
+[[multi-factor-authentication-mfa]]
 == Autenticação multifator (MFA)
 
 O MFA usa um provedor de identidade (IDP) de terceiros por meio da Security Assertion Markup Language (SAML) para gerenciar sessões de usuários. Esta funcionalidade melhora a segurança de autenticação, tendo a opção de utilizar vários fatores, como TOTP, biometria, notificações push, etc., juntamente com o nome de utilizador e palavra-passe existentes. Além disso, ele permite que o cliente use seus próprios provedores de identidade de usuário para obter login de usuário unificado (SSO) em todo o portfólio.

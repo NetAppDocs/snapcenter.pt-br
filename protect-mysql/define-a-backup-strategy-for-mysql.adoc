@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: SnapCenter Plug-in for MySQL 
 summary: 'Definir uma estratégia de backup antes de criar seus trabalhos de backup ajuda a ter os backups necessários para restaurar ou clonar seus recursos com êxito. Seu contrato de nível de serviço (SLA), objetivo de tempo de recuperação (rto) e objetivo de ponto de recuperação (RPO) determinam em grande parte sua estratégia de backup.' 
 ---
-= Defina uma estratégia de backup para MySQL
+= Defina uma estratégia de backup para o MySQL com SnapCenter
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: create policies, Oracle, backup policies 
 summary: Crie uma política de backup para o grupo de recursos ou recursos que você deseja fazer backup. 
 ---
-= Criar políticas de backup para bancos de dados Oracle
+= Crie políticas de backup para bancos de dados Oracle no SnapCenter
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

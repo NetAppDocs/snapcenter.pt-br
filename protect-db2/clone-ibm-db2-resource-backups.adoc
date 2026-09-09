@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: SnapCenter Plug-in for IBM Db2 
 summary: O fluxo de trabalho do clone inclui a execução da operação de clone e o monitoramento da operação. 
 ---
-= Fluxo de trabalho clone
+= Fluxo de trabalho de clonagem do IBM Db2 em SnapCenter
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

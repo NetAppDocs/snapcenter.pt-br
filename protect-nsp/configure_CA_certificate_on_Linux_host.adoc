@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: SnapCenter 
 summary: Configure o certificado CA para o serviço de plug-ins compatíveis com NetApp no host Linux 
 ---
-= Configure o certificado CA para o serviço de plug-ins compatíveis com NetApp no host Linux
+= Configure um certificado CA em um host Linux para os SnapCenter plug-ins
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
@@ -17,6 +17,7 @@ Os plug-ins usam o arquivo 'keystore.jks', que está localizado em _/opt/NetApp/
 
 
 
+[[manage-password-for-plug-in-keystore-and-alias-of-the-ca-signed-key-pair-in-use]]
 == Gerenciar senha para keystore de plug-in e alias do par de chaves assinadas pela CA em uso
 
 .Passos
@@ -41,6 +42,7 @@ NOTE: A senha para o keystore do plug-in e para todas as senhas de alias associa
 
 
 
+[[configure-root-or-intermediate-certificates-to-plug-in-trust-store]]
 == Configurar certificados raiz ou intermediários para plug-in trust-store
 
 Você deve configurar os certificados raiz ou intermediários sem a chave privada para conectar o trust-store.
@@ -63,6 +65,7 @@ NOTE: Você deve adicionar o certificado de CA raiz e, em seguida, os certificad
 
 
 
+[[configure-ca-signed-key-pair-to-plug-in-trust-store]]
 == Configurar o par de chaves assinadas pela CA para plug-in de armazenamento confiável
 
 Você deve configurar o par de chaves assinadas pela CA para o trust-store do plug-in.
@@ -101,6 +104,7 @@ Atualize este valor com a chave SCC_CERTIFICATE_ALIAS.
 
 
 
+[[configure-certificate-revocation-list-crl-for-plug-ins]]
 == Configurar a lista de revogação de certificados (CRL) para plug-ins
 
 .Sobre esta tarefa

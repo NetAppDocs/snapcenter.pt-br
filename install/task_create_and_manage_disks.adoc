@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: disks, create, manage, clustered disks, view 
 summary: O host do Windows vê LUNs no seu sistema de armazenamento como discos virtuais. Pode utilizar o SnapCenter para criar e configurar um LUN ligado a FC ou ligado a iSCSI. 
 ---
-= Criar e gerenciar discos
+= Crie e gerencie discos no SnapCenter
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
@@ -23,6 +23,7 @@ NOTE: O SnapCenter não suporta renomear um disco. Se um disco gerenciado pelo S
 
 
 
+[[view-the-disks-on-a-host]]
 == Exibir os discos em um host
 
 Você pode exibir os discos em cada host do Windows que você gerencia com o SnapCenter.
@@ -39,6 +40,7 @@ Os discos são listados.
 
 
 
+[[view-clustered-disks]]
 == Exibir discos em cluster
 
 É possível exibir discos em cluster no cluster que você gerencia com o SnapCenter. Os discos em cluster são exibidos somente quando você seleciona o cluster na lista suspensa hosts.
@@ -55,6 +57,7 @@ Os discos são listados.
 
 
 
+[[establish-an-iscsi-session]]
 == Estabeleça uma sessão iSCSI
 
 Se estiver a utilizar iSCSI para ligar a um LUN, tem de estabelecer uma sessão iSCSI antes de criar o LUN para ativar a comunicação.
@@ -129,6 +132,7 @@ O SnapCenter estabelece a sessão iSCSI.
 
 
 
+[[create-fc-connected-or-iscsi-connected-luns-or-disks]]
 == Crie LUNs ou discos conectados a FC ou iSCSI
 
 O host do Windows vê os LUNs no seu sistema de armazenamento como discos virtuais. Pode utilizar o SnapCenter para criar e configurar um LUN ligado a FC ou ligado a iSCSI.
@@ -359,6 +363,7 @@ O SnapCenter cria o LUN e o coneta à unidade especificada ou ao caminho da unid
 
 
 
+[[resize-a-disk]]
 == Redimensione um disco
 
 Você pode aumentar ou diminuir o tamanho de um disco conforme as necessidades do sistema de storage mudam.
@@ -398,6 +403,7 @@ O SnapCenter redimensiona o disco.
 
 
 
+[[connect-a-disk]]
 == Conete um disco
 
 Você pode usar o assistente conetar disco para conetar um LUN existente a um host ou para reconetar um LUN que foi desconetado.
@@ -580,6 +586,7 @@ O SnapCenter coneta o LUN à unidade especificada ou ao caminho da unidade no ho
 
 
 
+[[disconnect-a-disk]]
 == Desconete um disco
 
 Você pode desconetar um LUN de um host sem afetar o conteúdo do LUN, com uma exceção: Se você desconetar um clone antes que ele tenha sido dividido, você perderá o conteúdo do clone.
@@ -613,6 +620,7 @@ O SnapCenter desliga o disco.
 
 
 
+[[delete-a-disk]]
 == Eliminar um disco
 
 Você pode excluir um disco quando não precisar mais dele. Depois de eliminar um disco, não pode anular a sua eliminação.

@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: refresh clone, clone 
 summary: 'Você pode atualizar o clone executando o comando "Refresh-SmClone". Esse comando cria um backup do banco de dados, exclui o clone existente e cria um clone com o mesmo nome.' 
 ---
-= Atualize um clone
+= Atualize um clone para bancos de dados Oracle no SnapCenter
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

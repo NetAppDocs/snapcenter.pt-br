@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: Delete clones 
 summary: Você pode excluir clones se você achar que eles não são mais necessários. 
 ---
-= Excluir clones
+= Excluir clones do SnapCenter
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

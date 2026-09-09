@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: SnapCenter Plug-in for Exchange Server 
 summary: Antes de executar qualquer operação de proteção de dados, como operações de backup, clone ou restauração, você precisa definir sua estratégia e configurar o ambiente. Você também pode configurar o servidor SnapCenter para usar a tecnologia SnapMirror e SnapVault. 
 ---
-= Preparar-se para a proteção de dados
+= Pré-requisitos de proteção de dados para o SnapCenter Plug-in do Microsoft Exchange Server
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
@@ -21,6 +21,7 @@ link:https://docs.netapp.com/us-en/ontap-automation/getting_started_with_the_res
 
 
 
+[[prerequisites-for-using-the-snapcenter-plug-in-for-microsoft-exchange-server]]
 == Pré-requisitos para usar o plug-in SnapCenter para Microsoft Exchange Server
 
 Antes de usar o plug-in para Exchange, o administrador do SnapCenter deve instalar e configurar o servidor SnapCenter e executar as tarefas de pré-requisito.
@@ -49,6 +50,7 @@ https://docs.netapp.com/us-en/sc-plugin-vmware-vsphere/["Plug-in do SnapCenter p
 
 
 
+[[how-resources-resource-groups-and-policies-are-used-for-protecting-exchange-server]]
 == Como recursos, grupos de recursos e políticas são usados para proteger o Exchange Server
 
 Antes de usar o SnapCenter, é útil entender os conceitos básicos relacionados às operações de backup, restauração e semente que você deseja executar. Você interage com recursos, grupos de recursos e políticas para diferentes operações.

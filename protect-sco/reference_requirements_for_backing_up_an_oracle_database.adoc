@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: requirements, prerequisites 
 summary: Antes de fazer backup de um banco de dados Oracle, você deve garantir que os pré-requisitos sejam concluídos. 
 ---
-= Requisitos para fazer backup de um banco de dados Oracle
+= Requisitos para fazer backup de um banco de dados Oracle com o SnapCenter
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

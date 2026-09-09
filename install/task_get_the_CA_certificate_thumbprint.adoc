@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: SnapCenter, certificate thumbprint 
 summary: Uma impressão digital de certificado é uma cadeia hexadecimal que identifica um certificado. Uma impressão digital é calculada a partir do conteúdo do certificado usando um algoritmo de impressão digital. 
 ---
-= Obtenha a impressão digital do certificado CA
+= Obtenha a impressão digital do certificado da CA em SnapCenter
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

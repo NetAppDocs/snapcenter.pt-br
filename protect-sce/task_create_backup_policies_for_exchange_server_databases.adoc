@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: SnapCenter plug-in for Exchange Server 
 summary: Você pode criar uma política de backup para os recursos do Exchange ou para os grupos de recursos antes de usar o SnapCenter para fazer backup dos recursos do Microsoft Exchange Server ou criar uma política de backup no momento em que criar um grupo de recursos ou fazer backup de um único recurso. 
 ---
-= Criar políticas de backup para bancos de dados do Exchange Server
+= Crie políticas de backup para bancos de dados do Exchange Server no SnapCenter
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

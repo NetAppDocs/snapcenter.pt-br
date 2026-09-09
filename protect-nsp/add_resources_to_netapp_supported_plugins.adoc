@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: NetApp supported plug-in, resources, NetApp supported plug-ins, MongoDB, ORASCPM, Oracle Applications, SAP ASE, SAP MaxDB, Storage plug-in 
 summary: Você deve adicionar os recursos que deseja fazer backup ou clonar. Dependendo do seu ambiente, os recursos podem ser instâncias de banco de dados ou coleções que você deseja fazer backup ou clonar. 
 ---
-= Adicione recursos aos plug-ins compatíveis com NetApp
+= Adicione recursos aos plug-ins compatíveis com a NetApp para o SnapCenter
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
@@ -101,12 +101,14 @@ Depois de adicionar os recursos, você pode modificar os detalhes do recurso. Se
 
 
 
+[[parameters-to-configure-the-resource]]
 == Parâmetros para configurar o recurso
 
 Se você estiver adicionando os plug-ins manualmente, poderá usar os seguintes parâmetros para configurar o recurso na página Configurações de recursos.
 
 
 
+[[plug-in-for-mongodb]]
 === Plug-in para MongoDB
 
 Definições de recursos:
@@ -130,6 +132,7 @@ Você deve fornecer os seguintes parâmetros precisam ser fornecidos n arquivo M
 
 
 
+[[plug-in-for-maxdb]]
 === Plug-in para MaxDB
 
 Definições de recursos:
@@ -163,6 +166,7 @@ Se o parâmetro MAXDB_BACKUP_TEMPLATES estiver definido, você também deve defi
 
 
 
+[[plug-in-for-sap-ase]]
 === Plug-in para SAP ASE
 
 Definições de recursos:
@@ -187,6 +191,7 @@ Você deve especificar cada banco de dados que requer um despejo de transação.
 
 
 
+[[plug-in-for-oracle-applications-orascpm]]
 === Plug-in para aplicativos Oracle (ORASCPM)
 
 Definições de recursos:

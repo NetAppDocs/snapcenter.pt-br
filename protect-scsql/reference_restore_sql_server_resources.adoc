@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: Restore workflow 
 summary: Você pode usar o SnapCenter para restaurar bancos de dados SQL Server restaurando os dados de um ou mais backups para o seu sistema de arquivos ativo e, em seguida, recuperando o banco de dados. Você também pode restaurar bancos de dados que estão em grupos de disponibilidade e, em seguida, adicionar os bancos de dados restaurados ao Grupo de disponibilidade. Antes de restaurar um banco de dados do SQL Server, você deve executar várias tarefas preparatórias. 
 ---
-= Restaure o fluxo de trabalho
+= Fluxo de trabalho de restauração para o SnapCenter Plug-in for Microsoft SQL Server
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

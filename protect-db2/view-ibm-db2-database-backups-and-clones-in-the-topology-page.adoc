@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: SnapCenter Plug-in for IBM Db2 
 summary: Ao se preparar para fazer backup ou clonar um recurso, talvez seja útil exibir uma representação gráfica de todos os backups e clones no storage primário e secundário. 
 ---
-= Veja os backups e clones do IBM DB2 na página topologia
+= Visualize os backups e clones do IBM Db2 na página Topologia do SnapCenter
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

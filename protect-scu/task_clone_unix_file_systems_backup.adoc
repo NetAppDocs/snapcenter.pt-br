@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: alternate host, clone, Unix file systems, file systems 
 summary: Você pode usar o SnapCenter para clonar um banco de dados de sistemas de arquivos Unix usando o backup do sistema de arquivos. 
 ---
-= Clone backup do sistema de arquivos Unix
+= Clonar um backup de sistema de arquivos UNIX com SnapCenter
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

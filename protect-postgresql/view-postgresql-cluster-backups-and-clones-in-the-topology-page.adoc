@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: SnapCenter Plug-in for postgresql 
 summary: Ao se preparar para fazer backup ou clonar um recurso, talvez seja útil exibir uma representação gráfica de todos os backups e clones no storage primário e secundário. 
 ---
-= Veja backups e clones do PostgreSQL na página topologia
+= Veja os backups e clones do PostgreSQL na página de Topologia do SnapCenter
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

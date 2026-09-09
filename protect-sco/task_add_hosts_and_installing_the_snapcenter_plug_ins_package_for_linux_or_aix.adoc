@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: credentials, install plug-in, Linux, AIX, GUI, add host, monitor 
 summary: Você pode usar a página Adicionar host do SnapCenter para adicionar hosts e, em seguida, instalar o pacote de plug-ins do SnapCenter para Linux ou o pacote de plug-ins do SnapCenter para AIX. Os plug-ins são instalados automaticamente nos hosts remotos. 
 ---
-= Adicione hosts e instale o pacote Plug-ins para Linux ou AIX usando GUI
+= Adicione hosts e instale o pacote de plug-ins do SnapCenter para Linux ou AIX
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
@@ -162,6 +162,7 @@ Todos os bancos de dados no host são automaticamente descobertos e exibidos na 
 
 
 
+[[monitor-installation-status]]
 == Monitorar o status da instalação
 
 Pode monitorizar o progresso da instalação do pacote de plug-ins do SnapCenter utilizando a página trabalhos. Você pode querer verificar o andamento da instalação para determinar quando ela está concluída ou se há um problema.

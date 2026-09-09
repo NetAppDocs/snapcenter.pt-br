@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: svm role, privileges 
 summary: Você deve criar funções SVM se você configurar SVMs no ONTAP para usar com o SanpCenter e não quiser usar a função vsadmin. 
 ---
-= Criar funções do SVM com Privileges mínimo
+= Crie funções SVM com privilégios mínimos em SnapCenter
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
@@ -35,6 +35,7 @@ NOTE: Você deve repetir este comando para cada permissão.
 
 
 
+[[ontap-cli-commands-for-creating-svm-roles-and-assigning-permissions]]
 == Comandos CLI do ONTAP para criar funções SVM e atribuir permissões
 
 Existem vários comandos de CLI do ONTAP que você deve executar para criar funções SVM e atribuir permissões.

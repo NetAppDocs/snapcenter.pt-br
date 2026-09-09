@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: SnapCenter Plug-in for Exchange Server 
 summary: O plug-in do SnapCenter para Microsoft Exchange Server é um componente do lado do host do software NetAppSnapCenter que permite o gerenciamento da proteção de dados com reconhecimento de aplicações dos bancos de dados do Exchange. O plug-in para Exchange automatiza o backup e a restauração de bancos de dados do Exchange em seu ambiente SnapCenter. 
 ---
-= Visão geral do plug-in do SnapCenter para Microsoft Exchange Server
+= Saiba mais sobre o SnapCenter plug-in para o Microsoft Exchange Server
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

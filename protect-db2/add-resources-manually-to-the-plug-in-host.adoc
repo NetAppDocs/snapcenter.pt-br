@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: SnapCenter Plug-in for IBM Db2 
 summary: A deteção automática não é suportada para determinadas instâncias do DB2. Você deve adicionar esses recursos manualmente. 
 ---
-= Adicione recursos manualmente ao host do plug-in
+= Adicione manualmente os recursos do IBM Db2 ao host do plug-in SnapCenter
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

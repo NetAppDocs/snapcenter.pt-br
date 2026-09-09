@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: PDB, pluggable database, restore, CDB, PITR, point-in-time recovery, RMAN 
 summary: 'Você pode restaurar e recuperar um banco de dados conetável (PDB) que tenha sido corrompido ou descartado sem afetar as outras PDBs no banco de dados de contentores (CDB). O SnapCenter usa o RMAN para executar a recuperação pontual do PDB.' 
 ---
-= Restaurar e recuperar banco de dados conetável usando recuperação pontual
+= Restaurar um banco de dados plugável usando recuperação de ponto no tempo no SnapCenter
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

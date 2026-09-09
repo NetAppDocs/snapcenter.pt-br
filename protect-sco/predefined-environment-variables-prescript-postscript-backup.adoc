@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: environment variable, predefined, prescript, postscript, backup, policy 
 summary: O SnapCenter permite-lhe utilizar as variáveis de ambiente predefinidas quando executa o prescritor e o postscript ao criar políticas de cópia de segurança. 
 ---
-= Variáveis de ambiente predefinidas para prescrição específica de backup e postscript
+= SnapCenter variáveis de ambiente prescript e postscript para backup
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
@@ -17,6 +17,7 @@ O SnapCenter predefine os valores dos parâmetros que serão diretamente acessí
 
 
 
+[[supported-predefined-environment-variables-for-creating-backup-policy]]
 == Variáveis de ambiente predefinidas suportadas para a criação de política de backup
 
 * *SC_JOB_ID* especifica a ID da tarefa da operação.
@@ -232,6 +233,7 @@ Exemplos: Etiqueta horária, diária, semanal, mensal ou personalizada.
 
 
 
+[[supported-delimiters]]
 == Delimitadores suportados
 
 * *:* é usado para separar o nome do SVM e o nome do volume

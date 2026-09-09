@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: install, snapcenter software, install, linux host 
 summary: Você pode instalar o servidor SnapCenter no host Linux. 
 ---
-= Instale o servidor SnapCenter no host Linux
+= Instale o SnapCenter Server em um host Linux
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
@@ -144,6 +144,7 @@ Parâmetros a serem passados para a instalação do servidor SnapCenter:
 
 
 
+[[features-enabled-on-linux-host-during-installation]]
 == Recursos ativados no host Linux durante a instalação
 
 O SnapCenter Server instala os pacotes de software abaixo que podem ajudar na solução de problemas e na manutenção do sistema host.

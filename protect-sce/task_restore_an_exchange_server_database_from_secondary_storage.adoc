@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: SnapCenter plug-in for Exchange Server 
 summary: 'Você pode restaurar um banco de dados do Exchange Server de backup do armazenamento secundário (espelho ou cofre).' 
 ---
-= Restaure um banco de dados do Exchange Server a partir do armazenamento secundário
+= Restaurar um banco de dados do Exchange a partir de storage secundário em SnapCenter
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: backing up 
 summary: Se um recurso não estiver em um grupo de recursos, você poderá fazer backup do recurso sob demanda na página recursos. 
 ---
-= Faça backup de um único recurso sob demanda para sistemas de arquivos do Windows
+= Faça backup de um recurso de sistema de arquivos do Windows sob demanda no SnapCenter
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

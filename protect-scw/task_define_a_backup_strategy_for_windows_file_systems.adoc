@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: backup strategy 
 summary: 'A definição de uma estratégia de backup antes de criar seus backups fornece os backups de que você precisa para restaurar ou clonar com sucesso seus sistemas de arquivos. Seu contrato de nível de serviço (SLA), objetivo de tempo de recuperação (rto) e objetivo do ponto de restauração (RPO) determinam em grande parte a sua estratégia de backup.' 
 ---
-= Definir uma estratégia de backup para sistemas de arquivos do Windows
+= Estratégia de backup para sistemas de arquivos Windows em SnapCenter
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
@@ -17,6 +17,7 @@ Um SLA define o nível de serviço esperado e aborda muitos problemas relacionad
 
 
 
+[[backup-schedules-for-windows-file-systems]]
 == Agendas de backup para sistemas de arquivos do Windows
 
 A frequência de backup é especificada em políticas; uma programação de backup é especificada na configuração do grupo de recursos. O fator mais crítico na determinação de uma frequência ou programação de backup é a taxa de alteração do recurso e a importância dos dados. Você pode fazer backup de um recurso muito usado a cada hora, enquanto você pode fazer backup de um recurso raramente usado uma vez por dia. Outros fatores incluem a importância do recurso para a sua organização, seu Contrato de nível de Serviço (SLA) e seu objetivo de ponto de recuperação (RPO).
@@ -39,12 +40,14 @@ As agendas de backup (exatamente quando os backups devem ser executados) fazem p
 
 
 
+[[number-of-backups-needed-for-windows-file-systems]]
 == Número de backups necessários para sistemas de arquivos do Windows
 
 Os fatores que determinam o número de backups de que você precisa incluem o tamanho do sistema de arquivos do Windows, o número de volumes usados, a taxa de alteração do sistema de arquivos e seu Contrato de nível de Serviço (SLA).
 
 
 
+[[backup-naming-convention-for-windows-file-systems]]
 == Convenção de nomenclatura de backup para sistemas de arquivos do Windows
 
 Os backups do sistema de arquivos do Windows usam a convenção de nomenclatura Snapshot padrão. A convenção de nomenclatura de backup padrão adiciona um carimbo de data/hora aos nomes de Snapshot que ajuda a identificar quando as cópias foram criadas.
@@ -68,6 +71,7 @@ Ao criar um backup, você também pode adicionar uma tag descritiva para ajudar 
 
 
 
+[[backup-retention-options]]
 == Opções de retenção de backup
 
 Você pode escolher o número de dias para os quais reter cópias de backup ou especificar o número de cópias de backup que deseja reter, até um máximo de ONTAP de 255 cópias. Por exemplo, sua organização pode exigir que você retenha 10 dias de cópias de backup ou 130 cópias de backup.

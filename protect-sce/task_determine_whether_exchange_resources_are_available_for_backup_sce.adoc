@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: credentials 
 summary: Os recursos são os bancos de dados, os grupos de disponibilidade do banco de dados do Exchange que são mantidos pelos plug-ins instalados. Você pode adicionar esses recursos a grupos de recursos para que você possa executar tarefas de proteção de dados, mas primeiro você deve identificar quais recursos você tem disponíveis. A determinação dos recursos disponíveis também verifica se a instalação do plug-in foi concluída com êxito. 
 ---
-= Determine se os recursos do Exchange estão disponíveis para backup
+= Determine se os recursos do Exchange estão disponíveis para backup em SnapCenter
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

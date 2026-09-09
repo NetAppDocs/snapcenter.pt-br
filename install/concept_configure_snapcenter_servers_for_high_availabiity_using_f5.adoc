@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: F5, netwoek load balancer, NLB, high availability, elastic load balancing, ELB, Azure load balancing, Amazon Web Services, AWS 
 summary: Configure a alta disponibilidade no SnapCenter usando F5, balanceamento de carga de rede ou Amazon Web Services 
 ---
-= Configurar servidores SnapCenter para alta disponibilidade
+= Configure os servidores SnapCenter para alta disponibilidade
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

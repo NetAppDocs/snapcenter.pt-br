@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: Requirements 
 summary: Antes de restaurar um banco de dados SQL Server a partir de um plug-in do SnapCenter para backup do Microsoft SQL Server, você deve garantir que vários requisitos sejam atendidos. 
 ---
-= Requisitos para restaurar um banco de dados
+= Requisitos para restaurar um banco de dados SQL Server com SnapCenter
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

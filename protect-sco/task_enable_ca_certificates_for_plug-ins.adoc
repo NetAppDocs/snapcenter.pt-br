@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: SnapCenter, enable ca certificate, ca certificate 
 summary: Você deve configurar os certificados de CA e implantar os certificados de CA no host de plug-in Oracle. 
 ---
-= Ative certificados de CA para plug-ins
+= Habilitar certificados CA para plug-ins em SnapCenter
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

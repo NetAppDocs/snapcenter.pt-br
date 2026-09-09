@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: oracle databases discover 
 summary: Como o SnapCenter descobre bancos de dados Oracle. 
 ---
-= Como catalogar backups com o Oracle Recovery Manager
+= Como o SnapCenter cataloga backups usando o Oracle RMAN
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
@@ -21,12 +21,14 @@ Se você quiser catalogar backups de um banco de dados RAC, verifique se nenhum 
 
 
 
+[[external-catalog-database]]
 == Banco de dados de catálogo externo
 
 Por padrão, o arquivo de controle de banco de dados de destino é usado para catalogação. Se você quiser adicionar um banco de dados de catálogo externo, você pode configurá-lo especificando o nome do substrato de rede transparente (TNS) e credencial do catálogo externo usando o assistente Configurações de banco de dados da interface gráfica do usuário (GUI) do SnapCenter. Você também pode configurar o banco de dados de catálogo externo da CLI executando o comando Configure-SmOracleDatabase com as opções -OracleRmanCatalogCredentialName e -OracleRmanCatalogTnsName.
 
 
 
+[[rman-command]]
 == Comando RMAN
 
 Se você ativou a opção catalogação ao criar uma política de backup Oracle a partir da GUI do SnapCenter, os backups serão catalogados usando o Oracle RMAN como parte da operação de backup. Você também pode executar a catalogação diferida de backups executando o `Catalog-SmBackupWithOracleRMAN` comando.
@@ -35,6 +37,7 @@ Depois de catalogar os backups, você pode executar o `Get-SmBackupDetails` coma
 
 
 
+[[naming-format]]
 == Formato de nomenclatura
 
 Se o nome do grupo de discos ASM for maior ou igual a 16 carateres, a partir do SnapCenter 3,0, o formato de nomenclatura usado para o backup é SC_HASHCODEofDISKGROUP_DBSID_BACKUPID. No entanto, se o nome do grupo de discos for inferior a 16 carateres, o formato de nomenclatura usado para o backup é DISKGROUPNAME_DBSID_BACKUPID, que é o mesmo formato usado no SnapCenter 2,0.
@@ -43,6 +46,7 @@ O HASHCODEofDISKGROUP é um número gerado automaticamente (2 a 10 dígitos) exc
 
 
 
+[[crosscheck-operations]]
 == Operações de verificação cruzada
 
 Você pode executar verificações cruzadas para atualizar informações do repositório RMAN desatualizadas sobre backups cujos Registros do repositório não correspondem ao seu status físico. Por exemplo, se um usuário remover logs arquivados do disco com um comando do sistema operacional, o arquivo de controle ainda indica que os logs estão no disco, quando na verdade eles não estão.
@@ -53,6 +57,7 @@ A operação de verificação cruzada permite-lhe atualizar o ficheiro de contro
 
 
 
+[[remove-catalog-information]]
 == Remova as informações do catálogo
 
 Você pode remover as informações do catálogo executando o comando Uncatalog-SmBackupWithOracleRMAN. Não é possível remover as informações do catálogo usando a GUI do SnapCenter. No entanto, as informações de um backup catalogado são removidas ao excluir o backup ou ao excluir o grupo de retenção e recursos associado ao backup catalogado.

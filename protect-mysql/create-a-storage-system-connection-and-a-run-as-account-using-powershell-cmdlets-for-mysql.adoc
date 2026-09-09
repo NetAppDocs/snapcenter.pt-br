@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: SnapCenter Plug-in for MySQL 
 summary: 'Você deve criar uma conexão de máquina virtual de armazenamento (SVM) e uma credencial antes de usar cmdlets do PowerShell para fazer backup, restaurar ou clonar bancos de dados MySQL.' 
 ---
-= Crie uma conexão de sistema de armazenamento e uma credencial usando cmdlets do PowerShell para MySQL
+= Crie uma conexão de sistema de storage e uma credencial usando SnapCenter PowerShell cmdlets para MySQL
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

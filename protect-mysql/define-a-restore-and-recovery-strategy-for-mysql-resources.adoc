@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: restore and recovery strategy, MySQL resources, snapcenter 
 summary: Você deve definir uma estratégia antes de restaurar e recuperar seu banco de dados para que você possa executar operações de restauração e recuperação com sucesso. 
 ---
-= Defina uma estratégia de restauração e recuperação para recursos MySQL
+= Defina uma estratégia de restauração e recuperação para recursos do MySQL com SnapCenter
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

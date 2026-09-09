@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: SnapCenter 
 summary: Você deve garantir que o host atenda aos requisitos antes de instalar o pacote de plug-ins do SnapCenter para Linux. 
 ---
-= Requisitos de host para instalar o pacote de plug-ins do SnapCenter para Linux e AIX
+= Requisitos do host para o SnapCenter Plug-ins Package para Linux e AIX
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

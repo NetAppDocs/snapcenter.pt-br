@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: SnapCenter Plug-in for SAP HANA Databases 
 summary: 'O SnapCenter oferece suporte a tipos de restauração baseados em volume SnapRestore (VBSR), SnapRestore de arquivo único e tipos de restauração de conexão e cópia para bancos de dados SAP HANA descobertos automaticamente.' 
 ---
-= Tipos de operações de restauração para bancos de dados SAP HANA descobertos automaticamente
+= Operações de restauração para bancos de dados SAP HANA detectados automaticamente no SnapCenter
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
@@ -15,6 +15,7 @@ O SnapCenter é compatível com SnapRestore baseado em volume (VBSR), SnapRestor
 
 
 
+[[volume-based-snaprestore-vbsr-is-performed-in-nfs-environments-for-the-following-scenarios]]
 == O SnapRestore baseado em volume (VBSR) é executado em ambientes NFS para os seguintes cenários:
 
 * Quando o backup selecionado para restauração é feito em versões anteriores ao SnapCenter 4,3, e somente se a opção **recurso completo estiver selecionada
@@ -23,6 +24,7 @@ O SnapCenter é compatível com SnapRestore baseado em volume (VBSR), SnapRestor
 
 
 
+[[single-file-snaprestore-is-performed-in-nfs-environments-for-the-following-scenarios]]
 == O SnapRestore de arquivo único é executado em ambientes NFS para os seguintes cenários:
 
 * Quando o backup selecionado para restauração é feito no SnapCenter 4,3, e se apenas a opção *recurso completo* estiver selecionada
@@ -32,6 +34,7 @@ O SnapCenter é compatível com SnapRestore baseado em volume (VBSR), SnapRestor
 
 
 
+[[single-file-snaprestore-is-performed-in-san-environments-for-the-following-scenarios]]
 == O SnapRestore de Arquivo único é executado em ambientes SAN para os seguintes cenários:
 
 * Quando os backups são feitos em versões anteriores ao SnapCenter 4,3 e somente se a opção *recurso completo* estiver selecionada
@@ -41,6 +44,7 @@ O SnapCenter é compatível com SnapRestore baseado em volume (VBSR), SnapRestor
 
 
 
+[[connect-and-copy-based-restore-is-performed-in-san-environments-for-the-following-scenario]]
 == A restauração baseada em conexão e cópia é realizada em ambientes SAN para o seguinte cenário:
 
 * Para o MDC, quando o backup selecionado para restauração é feito no SnapCenter 4,3 e a opção *Banco de dados do locatário* é selecionada

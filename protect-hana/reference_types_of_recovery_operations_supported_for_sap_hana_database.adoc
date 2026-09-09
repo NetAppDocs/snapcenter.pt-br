@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: recovery operations 
 summary: O SnapCenter permite que você execute diferentes tipos de operações de recuperação para bancos de dados SAP HANA. 
 ---
-= Tipos de operações de recuperação compatíveis com bancos de dados SAP HANA
+= Tipos de operações de recuperação para bancos de dados SAP HANA em SnapCenter
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

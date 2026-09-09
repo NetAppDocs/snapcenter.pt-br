@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: SnapCenter, import, import ca certificate, mmc, microsoft management console 
 summary: 'Você deve importar os certificados de CA para o servidor SnapCenter e os plug-ins de host do Windows usando o MMC (console de gerenciamento da Microsoft).' 
 ---
-= Importar certificados CA
+= Importar certificados CA para SnapCenter
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

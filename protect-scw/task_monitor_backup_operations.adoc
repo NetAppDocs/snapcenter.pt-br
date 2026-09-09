@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: SnapCenter Plug-in for Exchange Server 
 summary: Você pode monitorar o progresso de diferentes operações de backup usando a página SnapCenterJobs. Você pode querer verificar o progresso para determinar quando ele está concluído ou se há um problema. 
 ---
-= Monitorar operações de backup
+= Monitore as operações de backup no SnapCenter
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
@@ -49,6 +49,7 @@ O botão *View logs* exibe os logs detalhados para a operação selecionada.
 
 
 
+[[monitor-operations-in-the-activity-pane]]
 == Monitorar operações no painel atividade
 
 O painel atividade exibe as cinco operações mais recentes executadas. O painel atividade também é exibido quando a operação foi iniciada e o status da operação.

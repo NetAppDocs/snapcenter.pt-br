@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: clone, pluggable database, PDB 
 summary: 'Você pode clonar um banco de dados plugável (PDB) para um CDB diferente ou mesmo destino no mesmo host ou host alternativo. Você também pode recuperar o PDB clonado para uma SCN ou data e hora desejadas.' 
 ---
-= Clone um banco de dados conetável
+= Clonar um banco de dados plugável do Oracle com o SnapCenter
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

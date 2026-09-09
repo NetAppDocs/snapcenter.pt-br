@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: security,two-way ssl,configure two-way ssl, linux host 
 summary: Você deve configurar a comunicação SSL bidirecional para proteger a comunicação mútua entre o servidor SnapCenter no host Linux e os plug-ins. 
 ---
-= Configurar comunicação SSL bidirecional no host Linux
+= Configure a comunicação SSL bidirecional em um host Linux do SnapCenter
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

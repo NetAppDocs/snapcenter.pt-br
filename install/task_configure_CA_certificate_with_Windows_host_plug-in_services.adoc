@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: SnapCenter, ca certificate, activate, digital certificate 
 summary: Você deve configurar o certificado CA com os serviços de plug-in host do Windows para ativar o certificado digital instalado. 
 ---
-= Configure o certificado CA com os serviços de plug-in do host do Windows
+= Configurar certificado de CA com os serviços de plug-in do host Windows do SnapCenter
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

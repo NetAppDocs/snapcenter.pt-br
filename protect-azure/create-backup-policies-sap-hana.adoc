@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: create policies, SAP HANA, backup policies 
 summary: Crie uma política de backup para o grupo de recursos ou recursos que você deseja fazer backup. 
 ---
-= Criar políticas de backup para bancos de dados SAP HANA
+= Crie políticas de backup para bancos de dados SAP HANA no SnapCenter
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

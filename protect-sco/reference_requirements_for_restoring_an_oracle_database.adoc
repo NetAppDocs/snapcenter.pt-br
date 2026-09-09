@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords:  
 summary: Antes de restaurar um banco de dados Oracle, você deve garantir que os pré-requisitos sejam concluídos. 
 ---
-= Requisitos para restaurar um banco de dados Oracle
+= Requisitos do SnapCenter para restaurar um banco de dados Oracle
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

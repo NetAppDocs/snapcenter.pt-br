@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: NetApp supported plug-ins 
 summary: Você pode usar os plug-ins compatíveis com NetApp para operações de proteção de dados. 
 ---
-= O que você pode fazer com os plug-ins compatíveis com o NetApp
+= Saiba mais sobre os plug-ins compatíveis da NetApp no SnapCenter
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

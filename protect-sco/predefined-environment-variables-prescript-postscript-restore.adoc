@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: environment variable, predefined, prescript, postscript, restore 
 summary: O SnapCenter permite-lhe utilizar as variáveis de ambiente predefinidas quando executa o prescritor e o postscript enquanto restaura uma base de dados. 
 ---
-= Variáveis de ambiente predefinidas para restaurar prescrição específica e postscript
+= SnapCenter variáveis de ambiente prescript e postscript para restauração
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

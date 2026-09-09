@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: SMBR, Single Mailbox recovery, Exchange database 
 summary: 'O software Single Mailbox Recovery (SMBR) permite restaurar e recuperar e-mails ou caixa de correio em vez do banco de dados completo do Exchange.' 
 ---
-= Recuperação granular de e-mails e caixa de correio
+= Recuperação granular de e-mails e da caixa de correio para o SnapCenter plug-in do Microsoft Exchange Server
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

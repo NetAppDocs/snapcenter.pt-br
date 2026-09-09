@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: SnapCenter Plug-in for IBM Db2 
 summary: Fazer backup de um banco de dados inclui estabelecer uma conexão com o servidor SnapCenter, adicionar recursos, adicionar uma política, criar um grupo de recursos de backup e fazer backup. 
 ---
-= Faça backup de bancos de dados DB2
+= Faça backup de bancos de dados IBM Db2 com SnapCenter
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

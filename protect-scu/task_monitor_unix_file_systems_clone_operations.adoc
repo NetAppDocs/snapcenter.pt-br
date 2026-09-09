@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: clone, monitor, unix file systems 
 summary: Você pode monitorar o andamento das operações de clone do SnapCenter usando a página tarefas. Você pode querer verificar o progresso de uma operação para determinar quando ela está concluída ou se há um problema. 
 ---
-= Monitorar operações de clones de sistemas de arquivos Unix
+= Monitorar operações de clonagem de sistemas de arquivos UNIX em SnapCenter
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

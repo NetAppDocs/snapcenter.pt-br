@@ -15,6 +15,7 @@ Fornece um conjunto condensado de instruções de instalação para o plug-in Sn
 
 
 
+[[step-1-set-up-run-as-credentials-to-install-the-plug-in-for-microsoft-sql-server]]
 == Passo 1: Configurar Executar como credenciais para instalar o plug-in para Microsoft SQL Server
 
 . No painel esquerdo, clique em *Definições > credenciais > novo*.
@@ -29,6 +30,7 @@ Para um formato de nome de usuário de administrador local integrado, use _<user
 
 
 
+[[step-2-add-a-host-and-install-the-plug-in-for-microsoft-sql-server]]
 == Passo 2: Adicione um host e instale o plug-in para Microsoft SQL Server
 
 . No painel esquerdo da GUI do SnapCenter, clique em *hosts > Managed hosts > Add*.

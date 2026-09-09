@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: monitor, NetApp supported plug-in 
 summary: Pode monitorizar o progresso da instalação do pacote de plug-ins do SnapCenter utilizando a página trabalhos. Você pode querer verificar o andamento da instalação para determinar quando ela está concluída ou se há um problema. 
 ---
-= Monitore o status da instalação de plug-ins compatíveis com o NetApp
+= Monitore o status da instalação dos plug-ins compatíveis da NetApp no SnapCenter
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

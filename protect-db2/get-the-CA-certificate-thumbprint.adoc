@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: SnapCenter 
 summary: Obtenha a impressão digital do certificado CA. 
 ---
-= Obtenha a impressão digital do certificado CA
+= Obtenha a impressão digital do certificado da CA para SnapCenter
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

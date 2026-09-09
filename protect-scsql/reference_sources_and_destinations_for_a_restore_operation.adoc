@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: restore operation 
 summary: É possível restaurar um banco de dados SQL Server a partir de uma cópia de backup em um storage primário ou secundário. Você também pode restaurar o banco de dados para diferentes destinos, além de sua localização original, permitindo que você escolha o destino que atende aos seus requisitos. 
 ---
-= Fontes e destinos para uma operação de restauração
+= Origens e destinos para operações de restauração do SQL Server em SnapCenter
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
@@ -15,12 +15,14 @@ summary: É possível restaurar um banco de dados SQL Server a partir de uma có
 
 
 
+[[sources-for-a-restore-operation]]
 == Fontes para uma operação de restauração
 
 É possível restaurar bancos de dados do storage primário ou secundário.
 
 
 
+[[destinations-for-a-restore-operation]]
 == Destinos para uma operação de restauração
 
 Você pode restaurar bancos de dados para vários destinos:

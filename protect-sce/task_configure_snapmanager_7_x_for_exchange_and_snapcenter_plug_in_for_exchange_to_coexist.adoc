@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: SnapCenter plug-in for Exchange Server 
 summary: Para ativar o plug-in do SnapCenter para Microsoft Exchange Server para coexistir com o SnapManager para Microsoft Exchange Server, é necessário instalar o plug-in do SnapCenter para Microsoft Exchange Server no mesmo servidor Exchange no qual o SnapManager para Microsoft Exchange está instalado, desativar as programações do SnapManager para Exchange e configurar novas programações e backups usando o plug-in do SnapCenter para Microsoft Exchange Server. 
 ---
-= Configure o SnapManager 7.x para Exchange e SnapCenter para coexistir
+= Configure o SnapManager para Exchange para coexistir com o SnapCenter
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

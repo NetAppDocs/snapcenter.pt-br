@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: SnapCenter Plug-in for SAP HANA Database 
 summary: 'O fator mais crítico na determinação de um agendamento de backup é a taxa de alteração do recurso. Você pode fazer backup de um recurso muito usado a cada hora, enquanto você pode fazer backup de um recurso raramente usado uma vez por dia. Outros fatores incluem a importância do recurso para sua organização, seu contrato de nível de serviço (SLA) e seu objetivo de ponto de recuperação (RPO).' 
 ---
-= Considerações para determinar programações de backup para banco de dados SAP HANA
+= Fatores de agendamento de backup para bancos de dados SAP HANA no SnapCenter
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

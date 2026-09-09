@@ -19,6 +19,7 @@ Nesse caso, os LUNs podem incluir discos VMware RDM e LUNs iSCSI de conexão dir
 
 
 
+[[lun-and-vmdk-requirements]]
 == Requisitos de LUN e VMDK
 
 Opcionalmente, você pode usar LUNs ou VMDKs dedicados para obter performance e gerenciamento ideais para os seguintes bancos de dados:
@@ -36,6 +37,7 @@ Para o diretório de log, você deve criar um LUN ou VMDK separado para que haja
 
 
 
+[[lun-and-vmdk-sample-layouts]]
 == Layouts de amostra de LUN e VMDK
 
 O gráfico a seguir mostra como você pode configurar o layout de armazenamento para bancos de dados grandes em LUNs:

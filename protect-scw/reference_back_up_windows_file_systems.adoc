@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: SnapCenter 
 summary: Ao instalar o plug-in do SnapCenter para Microsoft Windows em seu ambiente, você pode usar o SnapCenter para fazer backup de sistemas de arquivos do Windows. Você pode fazer backup de um único sistema de arquivos ou de um grupo de recursos que contenha vários sistemas de arquivos. Você pode fazer backup sob demanda ou de acordo com um cronograma de proteção definido. 
 ---
-= Faça backup dos sistemas de arquivos do Windows
+= Backups do sistema de arquivos do Windows com SnapCenter
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

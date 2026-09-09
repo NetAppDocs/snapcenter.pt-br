@@ -17,6 +17,7 @@ As seções a seguir descrevem o processo que o SnapCenter usa para descobrir di
 
 
 
+[[for-oracle-versions-11g-to-12cr1]]
 == Para versões Oracle 11__g__ a 12__c__R1
 
 .Base de dados RAC
@@ -45,6 +46,7 @@ Você deve executar as seguintes etapas se o banco de dados for realocado:
 
 
 
+[[for-oracle-versions-12cr2-to-18c-19c-or-21c]]
 == Para versões do Oracle 12cR2 a 18c, 19C ou 21c
 
 .Base de dados RAC

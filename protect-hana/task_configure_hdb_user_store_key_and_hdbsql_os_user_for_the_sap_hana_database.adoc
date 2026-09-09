@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: HDB User Store Key, HDBSQL OS User, SAP HANA database 
 summary: Você deve configurar a chave do armazenamento de usuário HDB e o usuário do sistema operacional HDBSQL para executar operações de proteção de dados em bancos de dados SAP HANA. 
 ---
-= Configure a chave do armazenamento de usuários HDB e o usuário do sistema operacional HDBSQL para o banco de dados SAP HANA
+= Configure a chave de armazenamento de usuários HDB e o usuário do sistema operacional HDBSQL para SnapCenter SAP HANA databases
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

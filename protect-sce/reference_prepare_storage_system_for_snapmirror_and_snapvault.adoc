@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: requirements 
 summary: Você pode usar um plug-in do SnapCenter com a tecnologia ONTAP SnapMirror para criar cópias espelhadas de conjuntos de backup em outro volume e com a tecnologia ONTAP SnapVault para executar replicação de backup disco a disco para conformidade com os padrões e outros fins relacionados à governança. Antes de executar essas tarefas, você deve configurar uma relação de proteção de dados entre os volumes de origem e destino e inicializar a relação. 
 ---
-= Preparar sistemas de storage para replicação SnapMirror e SnapVault
+= Requisitos de replicação do SnapMirror e do SnapVault no SnapCenter
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

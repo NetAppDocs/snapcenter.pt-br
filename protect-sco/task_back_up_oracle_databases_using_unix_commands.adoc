@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: backup, cli, commands 
 summary: O fluxo de trabalho de backup inclui Planejamento, identificação dos recursos para backup, criação de políticas de backup, criação de grupos de recursos e inclusão de políticas, criação de backups e monitoramento das operações. 
 ---
-= Faça backup de bancos de dados Oracle usando comandos UNIX
+= Faça backup de bancos de dados Oracle usando comandos UNIX em SnapCenter
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

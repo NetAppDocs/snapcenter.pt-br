@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: RBAC, add user, add group, assign role, assign assets 
 summary: Para configurar o controle de acesso baseado em função para usuários do SnapCenter, você pode adicionar usuários ou grupos e atribuir função. A função determina as opções que os usuários do SnapCenter podem acessar. 
 ---
-= Adicione um usuário ou grupo e atribua funções e ativos
+= Adicione um usuário ou grupo e atribua uma função e ativos em SnapCenter
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

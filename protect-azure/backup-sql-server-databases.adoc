@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: SnapCenter Plug-in for SQL Server Database, back up, databases, Azure NetApp Files 
 summary: Faça backup do recurso da página recursos. 
 ---
-= Faça backup de bancos de dados do SQL Server em execução no Azure NetApp Files
+= Faça backup de bancos de dados do Microsoft SQL Server no Azure NetApp Files com o SnapCenter
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

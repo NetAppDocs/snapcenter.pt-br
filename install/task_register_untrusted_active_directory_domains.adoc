@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: Active Directory 
 summary: Você deve Registrar o ative Directory com o servidor SnapCenter para gerenciar hosts, usuários e grupos de vários domínios não confiáveis do ative Directory. 
 ---
-= Registre domínios não confiáveis do ative Directory
+= Registre domínios não confiáveis do Active Directory com o SnapCenter
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

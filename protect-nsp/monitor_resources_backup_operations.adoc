@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: SnapCenter Server, NetApp supported plug-in 
 summary: Pode monitorizar o progresso de diferentes operações de cópia de segurança utilizando a página trabalhos do SnapCenter. Você pode querer verificar o progresso para determinar quando ele está concluído ou se há um problema. 
 ---
-= Monitorar as operações de backup de recursos de plug-in compatíveis com NetApp
+= Monitore as operações de backup para os recursos de plug-in compatíveis com a NetApp no SnapCenter
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: Manage backups 
 summary: Você pode renomear e excluir backups. Você também pode excluir vários backups simultaneamente. 
 ---
-= Gerenciar backups
+= Gerencie backups em SnapCenter
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
@@ -15,6 +15,7 @@ Você pode renomear e excluir backups. Você também pode excluir vários backup
 
 
 
+[[rename-backups]]
 == Renomear backups
 
 Você pode renomear backups se quiser fornecer um nome melhor para melhorar a capacidade de pesquisa.
@@ -40,6 +41,7 @@ Se você catalogou os backups de bancos de dados Oracle usando o Oracle Recovery
 
 
 
+[[delete-backups]]
 == Eliminar cópias de segurança
 
 Você pode excluir backups se não precisar mais do backup para outras operações de proteção de dados.
@@ -79,6 +81,7 @@ NOTE: Se você tiver alguns backups de banco de dados obsoletos no SnapCenter qu
 
 
 
+[[remove-protection]]
 == Remova a proteção
 
 Remover proteção exclui todos os backups e descompacta todas as políticas. Antes de remover a proteção, você deve garantir que os backups não estejam montados e que nenhum clone esteja associado ao backup.

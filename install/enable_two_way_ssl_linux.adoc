@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: security,enable two-way ssL, windows host, one-way ssl 
 summary: Você pode habilitar a comunicação SSL para proteger a comunicação mútua entre o servidor SnapCenter no host Linux e os plug-ins usando comandos do PowerShell. 
 ---
-= Ative a comunicação SSL no host Linux
+= Habilite a comunicação SSL bidirecional em um host Linux do SnapCenter
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

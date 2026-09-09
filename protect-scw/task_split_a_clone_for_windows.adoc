@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: split clone 
 summary: Você pode usar o SnapCenter para dividir um recurso clonado do recurso pai. O clone que é dividido torna-se independente do recurso pai. 
 ---
-= Divida um clone
+= Divida um clone usando o SnapCenter Plug-in para Microsoft Windows
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

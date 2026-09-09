@@ -92,6 +92,7 @@ A partir da versão 6,0, um atalho para o SnapCenter PowerShell é criado na ár
 
 
 
+[[log-in-to-snapcenter-using-multi-factor-authentication-mfa]]
 == Faça login no SnapCenter usando autenticação multifator (MFA)
 
 O servidor SnapCenter suporta MFA para conta de domínio, que faz parte do diretório ativo.
@@ -125,6 +126,7 @@ A conta de usuário deve existir no ative Directory (AD)
 
 
 
+[[modify-the-snapcenter-default-gui-session-timeout]]
 == Modifique o tempo limite padrão da sessão da GUI do SnapCenter
 
 Você pode modificar o período de tempo limite da sessão da GUI do SnapCenter para torná-lo menor ou maior que o período de tempo limite padrão de 20 minutos.
@@ -140,6 +142,7 @@ Como um recurso de segurança, após um período padrão de 15 minutos de inativ
 
 
 
+[[secure-the-snapcenter-web-server-by-disabling-ssl-3-0]]
 == Proteja o servidor web SnapCenter desativando o SSL 3,0
 
 Para fins de segurança, você deve desativar o protocolo SSL (Secure Socket Layer) 3,0 no Microsoft IIS se ele estiver ativado no servidor da Web SnapCenter.

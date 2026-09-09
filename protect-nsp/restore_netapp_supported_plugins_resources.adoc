@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords:  
 summary: O fluxo de trabalho de restauração e recuperação inclui Planejamento, execução das operações de restauração e monitoramento das operações. 
 ---
-= Restaure os recursos de plug-in compatíveis com o NetApp
+= NetApp plug-ins compatíveis restauram o fluxo de trabalho em SnapCenter
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

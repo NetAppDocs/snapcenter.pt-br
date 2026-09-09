@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: dashboard, snapcenter 
 summary: Você pode solicitar relatórios sobre tarefas de backup, restauração e clone na página Painel de controle. Isso é útil se você quiser identificar o número total de trabalhos bem-sucedidos ou com falha em seu ambiente SnapCenter. 
 ---
-= Solicitar relatórios de status dos trabalhos a partir do painel de controle
+= Solicite relatórios de status de tarefas no painel do SnapCenter
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

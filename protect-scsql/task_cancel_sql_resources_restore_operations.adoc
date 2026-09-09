@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: cancel, restore 
 summary: Você pode cancelar trabalhos de restauração que estão na fila. 
 ---
-= Cancelar operações de restauração de recursos SQL
+= Cancelar operações de restauração para recursos SQL em SnapCenter
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

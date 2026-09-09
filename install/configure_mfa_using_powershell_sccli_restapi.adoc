@@ -15,6 +15,7 @@ Você pode configurar o MFA no servidor SnapCenter usando PowerShell, SCCLI e AP
 
 
 
+[[snapcenter-mfa-cli-authentication]]
 == Autenticação de CLI de MFA do SnapCenter
 
 No PowerShell e SCCLI, o cmdlet existente (Open-SmConnection) é estendido com mais um campo chamado "AccessToken" para usar o token do portador para autenticar o usuário.
@@ -25,12 +26,14 @@ Depois que o cmdlet acima é executado, uma sessão é criada para que o respeti
 
 
 
+[[snapcenter-mfa-rest-api-authentication]]
 == Autenticação da API REST do SnapCenter MFA
 
 Use token de portador no formato <access token>_ no cliente API REST (como Postman ou swagger) e mencione o usuário RoleName no cabeçalho para obter uma resposta bem-sucedida do SnapCenter.
 
 
 
+[[mfa-rest-api-workflow]]
 == Fluxo de trabalho da API REST MFA
 
 Quando o MFA é configurado com o AD FS, você deve autenticar usando um token de acesso (portador) para acessar o aplicativo SnapCenter por qualquer API REST.
@@ -78,6 +81,7 @@ Se a autenticação for bem-sucedida, o SnapCenter retornará o resultado caso c
 
 
 
+[[enable-or-disable-snapcenter-mfa-functionality-for-rest-api-cli-and-gui]]
 == Ative ou desative a funcionalidade SnapCenter MFA para API REST, CLI e GUI
 
 *GUI*

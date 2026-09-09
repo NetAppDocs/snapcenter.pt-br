@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: SnapCenter Server 
 summary: Pode monitorizar o progresso de diferentes operações de cópia de segurança utilizando a página trabalhos do SnapCenter. Você pode querer verificar o progresso para determinar quando ele está concluído ou se há um problema. 
 ---
-= Monitorar operações de backup do IBM DB2
+= Monitore as operações de backup do IBM Db2 no SnapCenter
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
@@ -49,6 +49,7 @@ O botão *View logs* exibe os logs detalhados para a operação selecionada.
 
 
 
+[[monitor-data-protection-operations-on-ibm-db2-databases-in-the-activity-pane]]
 == Monitore operações de proteção de dados em bancos de dados IBM DB2 no painel atividade
 
 O painel atividade exibe as cinco operações mais recentes executadas. O painel atividade também é exibido quando a operação foi iniciada e o status da operação.

@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: resource groups, attach policies, snapcenter, Oracle, backup polices, schedule 
 summary: Um grupo de recursos é o contentor ao qual você deve adicionar recursos que deseja fazer backup e proteger. 
 ---
-= Crie grupos de recursos e anexe políticas de backup Oracle
+= Crie grupos de recursos e anexe políticas de backup do Oracle em SnapCenter
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

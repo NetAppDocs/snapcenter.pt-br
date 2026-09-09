@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: Backup schedules 
 summary: 'A frequência de backup (tipo de agendamento) é especificada em políticas; uma programação de backup é especificada na configuração do grupo de recursos.' 
 ---
-= Agendamentos de backup para Plug-in para servidor SQL
+= Agendamentos de backup para o SnapCenter Plug-in for SQL Server
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

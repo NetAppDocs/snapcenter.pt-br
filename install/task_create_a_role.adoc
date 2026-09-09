@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: role, create, permission 
 summary: Além de usar as funções existentes do SnapCenter, você pode criar suas próprias funções e personalizar as permissões. 
 ---
-= Crie uma função
+= Crie uma função no SnapCenter
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

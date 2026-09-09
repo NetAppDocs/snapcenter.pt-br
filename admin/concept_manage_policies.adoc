@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: Manage policies 
 summary: Você pode separar políticas de um grupo de recursos ou recursos, modificar, excluir, exibir e copiar. 
 ---
-= Gerenciar políticas
+= Gerencie políticas no SnapCenter
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
@@ -15,6 +15,7 @@ Você pode separar políticas de um grupo de recursos ou recursos, modificar, ex
 
 
 
+[[modify-policies]]
 == Modificar políticas
 
 Você pode modificar as opções de replicação, as configurações de retenção de instantâneos, a contagem de tentativas de erro ou as informações de scripts enquanto uma política é anexada a um recurso ou grupo de recursos. Você pode modificar o tipo de programação (frequência) somente depois de desanexar uma política.
@@ -59,6 +60,7 @@ Por exemplo, se uma política especificar backups por hora e você quiser alter�
 
 
 
+[[detach-policies]]
 == Desanexe políticas
 
 Você pode separar políticas de um recurso ou grupo de recursos sempre que não desejar que essas políticas governem a proteção de dados para os recursos. Você deve desanexar uma política antes de excluí-la ou antes de modificar o tipo de agendamento.
@@ -74,6 +76,7 @@ Você pode separar políticas de um recurso ou grupo de recursos sempre que não
 
 
 
+[[delete-policies]]
 == Eliminar políticas
 
 Se você não precisar mais de políticas, talvez queira excluí-las.

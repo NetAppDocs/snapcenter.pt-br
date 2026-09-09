@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: audit, log, configure 
 summary: Você pode configurar para Registrar os eventos de segurança das plataformas de software e de todo o software em execução nessas plataformas. 
 ---
-= Configurar as definições do registo de auditoria
+= Configure as configurações do log de auditoria no SnapCenter
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: Credentials 
 summary: Antes de usar plug-ins compatíveis com o SnapCenter NetApp, o administrador do SnapCenter deve instalar e configurar o servidor SnapCenter e executar as tarefas de pré-requisito. 
 ---
-= Pré-requisitos para usar os plug-ins suportados pelo NetApp
+= Pré-requisitos para usar os plug-ins compatíveis com a NetApp com o SnapCenter
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: SnapCenter Plug-in for Microsoft Exchange Server 
 summary: Você pode usar o SnapCenter para restaurar bancos de dados do Exchange restaurando um ou mais backups no seu sistema de arquivos ativo. 
 ---
-= Restaure o fluxo de trabalho
+= Fluxo de trabalho de restauração do banco de dados Exchange no SnapCenter
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

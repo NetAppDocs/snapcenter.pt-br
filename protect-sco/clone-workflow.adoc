@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: clone operation, clone, workflow 
 summary: O fluxo de trabalho do clone inclui Planejamento, execução da operação do clone e monitoramento da operação. 
 ---
-= Fluxo de trabalho clone
+= SnapCenter fluxo de trabalho de clonagem para bancos de dados Oracle
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

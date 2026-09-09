@@ -20,6 +20,7 @@ NOTE: O SnapCenter não cria contas de usuários ou grupos.  Crie contas de usu�
 
 
 
+[[types-of-rbac-in-snapcenter]]
 == Tipos de RBAC no SnapCenter
 
 O SnapCenter oferece suporte aos seguintes tipos de controle de acesso baseado em função:
@@ -32,6 +33,7 @@ O SnapCenter oferece suporte aos seguintes tipos de controle de acesso baseado e
 
 
 
+[[snapcenter-rbac]]
 === SnapCenter RBAC
 
 O SnapCenter tem funções predefinidas e você pode atribuir usuários ou grupos a essas funções.
@@ -55,6 +57,7 @@ Os usuários devem se autenticar ao efetuar login por meio da interface do usuá
 
 
 
+[[application-level-rbac]]
 === RBAC no nível da aplicação
 
 O SnapCenter usa credenciais para verificar se os usuários autorizados do SnapCenter também têm permissões no nível do aplicativo.
@@ -65,6 +68,7 @@ Da mesma forma, se você quiser executar operações de proteção de dados em u
 
 
 
+[[snapcenter-plug-in-for-vmware-vsphere-rbac]]
 === Plug-in do SnapCenter para VMware vSphere RBAC
 
 Se você estiver usando o plug-in SnapCenter VMware para proteção de dados consistente com VM, o vCenter Server fornecerá um nível adicional de RBAC. O plug-in SnapCenter VMware é compatível com o vCenter Server RBAC e o ONTAP RBAC. https://docs.netapp.com/us-en/sc-plugin-vmware-vsphere/scpivs44_types_of_rbac_for_snapcenter_users.html["Saiba mais"^]
@@ -73,12 +77,14 @@ OBSERVAÇÃO: a NetApp recomenda que você crie uma função ONTAP para as opera
 
 
 
+[[ontap-permissions]]
 === Permissões da ONTAP
 
 Você deve criar uma conta vsadmin com as permissões necessárias para acessar o sistema de armazenamento.link:../install/task_add_a_user_or_group_and_assign_role_and_assets.html["Saiba mais"]
 
 
 
+[[permissions-assigned-to-the-pre-defined-snapcenter-roles]]
 == Permissões atribuídas às funções SnapCenter predefinidas
 
 Ao adicionar um usuário a uma função, atribua a permissão StorageConnection para habilitar a comunicação da máquina virtual de armazenamento (SVM) ou atribua uma SVM ao usuário para conceder permissão para usar a SVM.  A permissão Conexão de armazenamento permite que os usuários criem conexões SVM.
@@ -87,12 +93,14 @@ Por exemplo, um administrador do SnapCenter pode criar conexões SVM e atribuí-
 
 
 
+[[snapcenter-admin-role]]
 === Função de administrador do SnapCenter
 
 A função de administrador do SnapCenter tem todas as permissões ativadas. Não é possível modificar as permissões para esta função. Você pode adicionar usuários e grupos à função ou removê-los.
 
 
 
+[[app-backup-and-clone-admin-role]]
 === Função de Administrador de cópia de Segurança e Clonagem de aplicações
 
 A função App Backup and Clone Admin tem as permissões necessárias para executar ações administrativas para backups de aplicativos e tarefas relacionadas a clones. Essa função não tem permissões para gerenciamento de host, provisionamento, gerenciamento de conexão de storage ou instalação remota.
@@ -371,6 +379,7 @@ Não aplicável
 |===
 
 
+[[backup-and-clone-viewer-role]]
 === Função Visualizador de cópia de Segurança e Clonagem
 
 A função Visualizador de Backup e Clone tem a visualização somente leitura de todas as permissões.  Essa função também tem permissões habilitadas para descoberta, relatórios e acesso ao Painel.
@@ -650,6 +659,7 @@ Não aplicável
 |===
 
 
+[[infrastructure-admin-role]]
 === Função de administrador de infraestrutura
 
 A função Administrador de infraestrutura tem permissões habilitadas para gerenciamento de host, gerenciamento de storage, provisionamento, grupos de recursos, relatórios de instalação remota e acesso ao Dashboard.

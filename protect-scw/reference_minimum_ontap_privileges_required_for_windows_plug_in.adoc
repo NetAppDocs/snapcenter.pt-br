@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: Minimum ONTAP privileges 
 summary: Os ONTAP Privileges mínimos necessários variam de acordo com os plug-ins do SnapCenter que você está usando para proteção de dados. 
 ---
-= ONTAP Privileges mínimo necessário para o plug-in do Windows
+= Privilégios mínimos do ONTAP exigidos pelo plug-in SnapCenter para Microsoft Windows
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: SnapCenter reports 
 summary: O SnapCenter fornece uma variedade de opções de relatórios que permitem monitorar e gerenciar a integridade do sistema e o sucesso da operação. 
 ---
-= Visão geral dos recursos de relatórios do SnapCenter
+= Saiba mais sobre os recursos de geração de relatórios do SnapCenter
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
@@ -55,6 +55,7 @@ Qualquer outro usuário que não o Administrador poderá ver ou modificar a prog
 |===
 
 
+[[access-reports]]
 == Acesse relatórios
 
 Você pode usar o Painel do SnapCenter para obter uma visão geral rápida da integridade do seu sistema. No Dashboard, você pode detalhar mais detalhes. Alternativamente, você pode acessar os relatórios detalhados diretamente.
@@ -67,6 +68,7 @@ Você pode acessar relatórios por um dos seguintes métodos:
 
 
 
+[[filter-your-report]]
 == Filtre seu relatório
 
 Você pode querer filtrar os dados do relatório de acordo com uma variedade de parâmetros, dependendo do nível de detalhes e do período de tempo das informações necessárias.
@@ -91,6 +93,7 @@ Você pode querer filtrar os dados do relatório de acordo com uma variedade de 
 
 
 
+[[export-or-print-reports]]
 == Exportar ou imprimir relatórios
 
 Exportar relatórios do SnapCenter permite que você visualize o relatório em uma variedade de formatos alternativos. Também pode imprimir relatórios.
@@ -110,6 +113,7 @@ Exportar relatórios do SnapCenter permite que você visualize o relatório em u
 
 
 
+[[set-the-smtp-server-for-email-notifications]]
 == Defina o servidor SMTP para notificações por e-mail
 
 Você pode especificar o servidor SMTP a ser usado para enviar relatórios de tarefas de proteção de dados para você ou para outras pessoas. Você também pode enviar um e-mail de teste para verificar a configuração. As configurações são aplicadas globalmente para qualquer trabalho do SnapCenter para o qual você configure a notificação por e-mail.
@@ -126,6 +130,7 @@ Esta opção configura o servidor SMTP para enviar todos os relatórios de taref
 
 
 
+[[configure-the-option-to-email-reports]]
 == Configure a opção para enviar relatórios por e-mail
 
 Se você quiser que atualizações regulares de tarefas de proteção de dados do SnapCenter sejam enviadas para você ou para outras pessoas para que você possa monitorar o status dessas atualizações, você pode configurar a opção para enviar por e-mail os relatórios do SnapCenter quando estiver criando um grupo de recursos.

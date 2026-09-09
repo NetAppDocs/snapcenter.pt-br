@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: snapmirror, snapvault, storage system, replication 
 summary: Você pode usar um plug-in SnapCenter com as tecnologias ONTAP SnapMirror e SnapVault 
 ---
-= Preparar sistemas de storage para replicação SnapMirror e SnapVault para MySQL
+= Prepare os sistemas de storage para a replicação SnapMirror e SnapVault dos dados MySQL
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

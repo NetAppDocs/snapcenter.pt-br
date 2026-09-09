@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: clone, NetApp supported plug-ins 
 summary: O fluxo de trabalho do clone inclui a execução da operação de clone e o monitoramento da operação. 
 ---
-= Clone NetApp compatível com backups de recursos de plug-ins
+= Fluxo de trabalho de clonagem do SnapCenter para backups de recursos de plug-ins compatíveis com a NetApp
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

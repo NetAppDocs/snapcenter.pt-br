@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: Provision storage, snapcenter 
 summary: Se você não quiser usar a GUI do SnapCenter para executar tarefas de provisionamento de host e recuperação de espaço, você pode usar os cmdlets do PowerShell fornecidos pelo plug-in do SnapCenter para Microsoft Windows. Você pode usar cmdlets diretamente ou adicioná-los a scripts. 
 ---
-= Provisione o armazenamento usando cmdlets do PowerShell
+= SnapCenter PowerShell cmdlets para provisionamento de storage
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: backup types, restore methods, connect-and-copy restore, full restore, partial restore, in-place restore, recovery type, limitations 
 summary: Você deve definir uma estratégia antes de restaurar e recuperar seu banco de dados para que você possa executar operações de restauração e recuperação com sucesso. 
 ---
-= Definir uma estratégia de restauração e recuperação para bancos de dados Oracle
+= Aprenda sobre estratégias de restauração e recuperação para bancos de dados Oracle em SnapCenter
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
@@ -15,6 +15,7 @@ Você deve definir uma estratégia antes de restaurar e recuperar seu banco de d
 
 
 
+[[types-of-backups-supported-for-restore-and-recovery-operations]]
 == Tipos de backups suportados para operações de restauração e recuperação
 
 O SnapCenter dá suporte à restauração e recuperação de diferentes tipos de backups de bancos de dados Oracle.
@@ -39,6 +40,7 @@ NOTE: Não é possível executar a recuperação de bancos de dados em espera do
 
 
 
+[[types-of-restore-methods-supported-for-oracle-databases]]
 == Tipos de métodos de restauração suportados para bancos de dados Oracle
 
 O SnapCenter é compatível com conexão e cópia ou restauração no local para bancos de dados Oracle. Durante uma operação de restauração, o SnapCenter determina o método de restauração apropriado para que o sistema de arquivos seja usado para restauração sem perda de dados.
@@ -48,6 +50,7 @@ NOTE: O SnapCenter não é compatível com SnapRestore baseado em volume.
 
 
 
+[[connect-and-copy-restore]]
 === Restauração de conexão e cópia
 
 Se o layout do banco de dados for diferente do backup ou se houver novos arquivos após a criação do backup, a restauração de conexão e cópia será executada. No método de restauração de conexão e cópia, as seguintes tarefas são executadas:
@@ -76,6 +79,7 @@ Mesmo que você tenha ativado com força a restauração no local, o SnapCenter 
 
 
 
+[[in-place-restore]]
 === Restauração no local
 
 Se o layout do banco de dados for semelhante ao backup e não tiver sofrido nenhuma alteração de configuração na pilha de armazenamento e banco de dados, a restauração no local é realizada, em que a restauração do arquivo ou LUN é realizada no ONTAP. O SnapCenter suporta apenas o SFSR (Single File SnapRestore) como parte do método de restauração no local.
@@ -110,6 +114,7 @@ Em ambientes SAN, o SnapCenter remove dispositivos de todos os nós de mesmo ní
 
 
 
+[[types-of-restore-operations-supported-for-oracle-databases]]
 == Tipos de operações de restauração compatíveis com bancos de dados Oracle
 
 O SnapCenter permite executar diferentes tipos de operações de restauração para bancos de dados Oracle.
@@ -118,6 +123,7 @@ Antes de restaurar o banco de dados, os backups são validados para identificar 
 
 
 
+[[full-restore]]
 === Restauração completa
 
 * Restaura apenas os arquivos de dados
@@ -128,6 +134,7 @@ Antes de restaurar o banco de dados, os backups são validados para identificar 
 
 
 
+[[partial-restore]]
 === Restauração parcial
 
 * Restaura apenas os espaços de tabela selecionados
@@ -137,6 +144,7 @@ Antes de restaurar o banco de dados, os backups são validados para identificar 
 
 
 
+[[types-of-recovery-operations-supported-for-oracle-databases]]
 == Tipos de operações de recuperação compatíveis com bancos de dados Oracle
 
 O SnapCenter permite executar diferentes tipos de operações de recuperação para bancos de dados Oracle.
@@ -157,6 +165,7 @@ NOTE: O plug-in para banco de dados Oracle não suporta recuperação se você t
 
 
 
+[[limitations-related-to-restore-and-recovery-of-oracle-databases]]
 == Limitações relacionadas à restauração e recuperação de bancos de dados Oracle
 
 Antes de executar operações de restauração e recuperação, você precisa estar ciente das limitações.
@@ -186,6 +195,7 @@ Isso pode ser evitado executando qualquer uma das seguintes ações:
 
 
 
+[[limitations-related-to-point-in-time-recovery-of-tablespaces]]
 == Limitações relacionadas à recuperação ponto-em-tempo de tablespaces
 
 * A recuperação pontual (PITR) do SISTEMA, SYSAUX e DESFAZER espaços DE tablespaces não é suportada
@@ -212,18 +222,21 @@ Exemplos desses tipos de objetos são PL/SQL, classes Java, programas de chamada
 
 
 
+[[sources-and-destinations-for-restoring-oracle-databases]]
 == Fontes e destinos para restaurar bancos de dados Oracle
 
 É possível restaurar um banco de dados Oracle a partir de uma cópia de backup no storage primário ou no storage secundário. Você só pode restaurar bancos de dados para o mesmo local na mesma instância de banco de dados. No entanto, na configuração do Real Application Cluster (RAC), você pode restaurar bancos de dados para outros nós.
 
 
 
+[[sources-for-restore-operations]]
 === Fontes para operações de restauração
 
 É possível restaurar bancos de dados a partir de um backup no storage primário ou no storage secundário. Se você quiser restaurar a partir de um backup no storage secundário em uma configuração de vários espelhos, você pode selecionar o espelho de armazenamento secundário como a origem.
 
 
 
+[[destinations-for-restore-operations]]
 === Destinos para operações de restauração
 
 Você só pode restaurar bancos de dados para o mesmo local na mesma instância de banco de dados.

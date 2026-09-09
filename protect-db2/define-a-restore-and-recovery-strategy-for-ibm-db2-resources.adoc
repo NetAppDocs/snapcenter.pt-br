@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: restore and recovery strategy, IBM Db2 resources, snapcenter 
 summary: Você deve definir uma estratégia antes de restaurar e recuperar seu banco de dados para que você possa executar operações de restauração e recuperação com sucesso. 
 ---
-= Definir uma estratégia de restauração e recuperação para recursos do IBM DB2
+= Defina uma estratégia de restauração e recuperação para recursos do IBM Db2 em SnapCenter
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

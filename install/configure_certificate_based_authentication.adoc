@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: exporting certificates, enable certificate-based authentication, certificate-based authentication, configure CA signed key pair, configure root, configure intermediate certificates, security,authentication, export CA certificates 
 summary: Exportar certificados SnapCenter. 
 ---
-= Configurar autenticação baseada em certificado
+= Configure a autenticação baseada em certificado para SnapCenter
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
@@ -15,6 +15,7 @@ A autenticação baseada em certificado aumenta a segurança verificando a ident
 
 
 
+[[enable-certificate-based-authentication]]
 == Ativar autenticação baseada em certificado
 
 Para habilitar a autenticação baseada em certificado para o servidor SnapCenter e os hosts de plug-in do Windows, execute o cmdlet do PowerShell a seguir. Para os hosts de plug-in Linux, a autenticação baseada em certificado será ativada quando você ativar o SSL bidirecional.
@@ -31,6 +32,7 @@ Para habilitar a autenticação baseada em certificado para o servidor SnapCente
 
 
 
+[[export-certificate-authority-ca-certificates-from-snapcenter-server]]
 == Exportar certificados de autoridade de certificação (CA) do servidor SnapCenter
 
 Você deve exportar os certificados de CA do servidor SnapCenter para os hosts de plug-in usando o MMC (console de gerenciamento da Microsoft).
@@ -84,6 +86,7 @@ NOTE: A autenticação baseada em certificado não é suportada para configuraç
 
 
 
+[[import-ca-certificate-to-the-windows-plug-in-hosts]]
 == Importar certificado CA para os hosts de plug-in do Windows
 
 Para usar o certificado de CA de servidor SnapCenter exportado, você deve importar o certificado relacionado para os hosts de plug-in do SnapCenter Windows usando o MMC (console de gerenciamento da Microsoft).
@@ -131,6 +134,7 @@ Revise o resumo e clique em *Finish* para iniciar a importação.
 |===
 
 
+[[import-ca-certificate-to-the-unix-plug-in-hosts]]
 == Importar certificado CA para os hosts de plug-in UNIX
 
 Você deve importar o certificado CA para os hosts de plug-in UNIX.
@@ -154,6 +158,7 @@ Você deve importar o certificado CA para os hosts de plug-in UNIX.
 
 
 
+[[configure-root-or-intermediate-certificates-to-spl-trust-store]]
 === Configure certificados raiz ou intermediários para o armazenamento de confiança SPL
 
 Você deve configurar os certificados raiz ou intermediários para o SPL Trust-store. Você deve adicionar o certificado de CA raiz e, em seguida, os certificados de CA intermediários.
@@ -171,6 +176,7 @@ Você deve configurar os certificados raiz ou intermediários para o SPL Trust-s
 
 
 
+[[configure-ca-signed-key-pair-to-spl-trust-store]]
 === Configure o par de chaves assinadas da CA para o armazenamento de confiança SPL
 
 Você deve configurar o par de chaves assinadas da CA para o armazenamento de confiança SPL.
@@ -201,6 +207,7 @@ A senha padrão do keystore SPL é o valor da chave SPL_KEYSTORE_PASS no `spl.pr
 
 
 
+[[export-snapcenter-certificates]]
 == Exportar certificados SnapCenter
 
 Você deve exportar os certificados SnapCenter no formato .pfx.

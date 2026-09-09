@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: SAP HANA databases 
 summary: Antes de usar o SnapCenter, é útil entender conceitos básicos relacionados às operações de backup, clonagem e restauração que você deseja executar. Você interage com recursos, grupos de recursos e políticas para diferentes operações. 
 ---
-= Como os recursos, grupos de recursos e políticas são usados para proteger bancos de dados do SAP HANA
+= Como os recursos, grupos de recursos e políticas protegem os bancos de dados SAP HANA no SnapCenter
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

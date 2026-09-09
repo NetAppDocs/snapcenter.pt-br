@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: SMB shares 
 summary: 'Para configurar um compartilhamento SMB3 em uma máquina virtual de armazenamento (SVM), você pode usar a interface de usuário do SnapCenter ou cmdlets do PowerShell.' 
 ---
-= Crie e gerencie compartilhamentos SMB
+= Crie e gerencie compartilhamentos SMB em SnapCenter
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
@@ -25,6 +25,7 @@ TIP: Se você se sentir confortável fazendo isso, você pode criar seus própri
 
 
 
+[[create-an-smb-share]]
 == Crie um compartilhamento SMB
 
 Você pode usar a página compartilhamentos do SnapCenter para criar um compartilhamento SMB3 em uma máquina virtual de storage (SVM).
@@ -84,6 +85,7 @@ O SnapCenter cria o compartilhamento SMB na SVM.
 
 
 
+[[delete-an-smb-share]]
 == Excluir um compartilhamento SMB
 
 Você pode excluir um compartilhamento SMB quando não precisar mais dele.

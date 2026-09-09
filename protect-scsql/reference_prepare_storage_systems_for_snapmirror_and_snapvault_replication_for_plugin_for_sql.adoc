@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: snapmirror, snapvault, storage system, replication 
 summary: Você pode usar um plug-in SnapCenter com as tecnologias ONTAP SnapMirror e SnapVault 
 ---
-= Preparar sistemas de storage para replicação SnapMirror e SnapVault para plug-in para SQL Server
+= SnapMirror e SnapVault replicação com SnapCenter Plug-in para Microsoft SQL Server
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

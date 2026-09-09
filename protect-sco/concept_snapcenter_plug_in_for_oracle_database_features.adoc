@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: plug-in for Oracle features 
 summary: O plug-in para banco de dados Oracle se integra ao banco de dados Oracle no host Linux ou AIX e com tecnologias NetApp no sistema de armazenamento. 
 ---
-= Recursos do Plug-in para banco de dados Oracle
+= Funcionalidades do SnapCenter Plug-in para banco de dados Oracle
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

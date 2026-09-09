@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: SnapCenter plug-in for Exchange Server 
 summary: Se um banco de dados não fizer parte de qualquer grupo de recursos, você poderá fazer backup do banco de dados ou do grupo de disponibilidade do banco de dados na página recursos. 
 ---
-= Faça backup de bancos de dados do Exchange
+= Faça backup de bancos de dados do Exchange com SnapCenter
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

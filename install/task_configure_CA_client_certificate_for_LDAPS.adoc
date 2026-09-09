@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: CA client certificate, LDAPS 
 summary: Você deve configurar o certificado de cliente CA para LDAPS no servidor SnapCenter quando o LDAPS do ative Directory do Windows estiver configurado com os certificados de CA. 
 ---
-= Configure o certificado de cliente CA para LDAPS
+= Configure o certificado de cliente CA para LDAPS em SnapCenter
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

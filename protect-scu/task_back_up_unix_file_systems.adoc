@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: backup, Unix file system, policy, schedule, resources 
 summary: Se um recurso não fizer parte de qualquer grupo de recursos, você poderá fazer backup do recurso na página recursos. 
 ---
-= Faça backup de sistemas de arquivos Unix
+= Faça backup de sistemas de arquivos UNIX com SnapCenter
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

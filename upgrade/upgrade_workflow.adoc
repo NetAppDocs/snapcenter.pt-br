@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: upgrade, snapcenter server, plug-ins, workflow, upgrade path 
 summary: Descreve como atualizar o servidor SnapCenter e os plug-ins e quais são os caminhos de atualização suportados 
 ---
-= Atualizar fluxo de trabalho
+= SnapCenter Fluxo de trabalho de atualização do servidor
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
@@ -19,6 +19,7 @@ image::../media/upgrade_workflow.gif[atualizar fluxo de trabalho]
 
 
 
+[[supported-upgrade-paths]]
 == Caminhos de atualização suportados
 
 Esta seção mostra quais versões do SnapCenter você pode atualizar e quais versões de plug-in são suportadas.

@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: ONTAP privileges 
 summary: Os ONTAP Privileges mínimos necessários variam de acordo com os plug-ins do SnapCenter que você está usando para proteção de dados. 
 ---
-= Mínimo de ONTAP Privileges necessário para plug-in para Oracle
+= Privilégios mínimos do ONTAP exigidos pelo plug-in do SnapCenter para o banco de dados Oracle
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

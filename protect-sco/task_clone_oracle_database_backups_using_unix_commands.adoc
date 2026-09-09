@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: clone, CLI, commands 
 summary: O fluxo de trabalho do clone inclui Planejamento, execução da operação do clone e monitoramento da operação. 
 ---
-= Clonar backups de bancos de dados Oracle usando comandos UNIX
+= Clonar backups de banco de dados Oracle usando comandos UNIX em SnapCenter
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

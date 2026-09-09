@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: oracle databases discover 
 summary: Opções de retenção de backup. 
 ---
-= Opções de retenção de backup
+= Opções de retenção de backup no SnapCenter
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

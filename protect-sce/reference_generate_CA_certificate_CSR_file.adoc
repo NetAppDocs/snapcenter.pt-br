@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: SnapCenter 
 summary: 'Você pode gerar uma solicitação de assinatura de certificado (CSR) e importar o certificado.' 
 ---
-= Gerar arquivo CSR do certificado CA
+= Gere um arquivo CSR de certificado de CA para o SnapCenter Plug-in do Microsoft Exchange Server
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

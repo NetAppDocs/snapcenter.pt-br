@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords:  
 summary: Antes de clonar um banco de dados Oracle, você deve garantir que os pré-requisitos sejam concluídos. 
 ---
-= Requisitos para clonar um banco de dados Oracle
+= Requisitos para clonagem de um banco de dados Oracle com SnapCenter
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

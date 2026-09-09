@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: cancel, restore 
 summary: Você pode cancelar trabalhos de restauração que estão na fila. 
 ---
-= Cancelar operações de restauração de banco de dados Oracle
+= Cancelar operações de restauração do banco de dados Oracle em SnapCenter
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

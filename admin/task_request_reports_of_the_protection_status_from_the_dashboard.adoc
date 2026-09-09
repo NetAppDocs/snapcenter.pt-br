@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: dashboard 
 summary: Você pode solicitar detalhes de proteção para recursos gerenciados por plug-ins específicos usando o Dashboard. 
 ---
-= Solicite relatórios sobre o status da proteção a partir do painel de controle
+= Solicite relatórios de status de proteção no painel do SnapCenter
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

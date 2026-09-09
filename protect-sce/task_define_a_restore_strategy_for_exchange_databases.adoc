@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: SnapCenter plug-in for Exchange Server 
 summary: Definir uma estratégia de restauração para o Exchange Server permite restaurar seu banco de dados com sucesso. 
 ---
-= Defina uma estratégia de restauração para bancos de dados do Exchange
+= Defina uma estratégia de restauração para bancos de dados do Exchange em SnapCenter
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
@@ -15,6 +15,7 @@ Definir uma estratégia de restauração para o Exchange Server permite restaura
 
 
 
+[[sources-for-a-restore-operation-in-exchange-server]]
 == Fontes para uma operação de restauração no Exchange Server
 
 Você pode restaurar um banco de dados do Exchange Server a partir de uma cópia de backup no armazenamento primário.
@@ -23,6 +24,7 @@ Você pode restaurar um banco de dados do Exchange Server a partir de uma cópia
 
 
 
+[[types-of-restore-operations-supported-for-exchange-server]]
 == Tipos de operações de restauração compatíveis com o Exchange Server
 
 Você pode usar o SnapCenter para executar diferentes tipos de operações de restauração em recursos do Exchange.
@@ -33,6 +35,7 @@ Você pode usar o SnapCenter para executar diferentes tipos de operações de re
 
 
 
+[[restore-up-to-the-minute]]
 === Restaure até o minuto
 
 Em uma operação de restauração atualizada, os bancos de dados são recuperados até o ponto de falha. O SnapCenter realiza isso executando a seguinte sequência:
@@ -64,6 +67,7 @@ Se você não precisar manter a capacidade de restauração atualizada para todo
 
 
 
+[[restore-to-a-previous-point-in-time]]
 === Restaurar para um ponto anterior no tempo
 
 Em uma operação de restauração pontual, os bancos de dados são restaurados apenas para um tempo específico do passado. Uma operação de restauração pontual ocorre nas seguintes situações de restauração:

@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: restore, recover, CLI 
 summary: O fluxo de trabalho de restauração e recuperação inclui o Planejamento, a execução das operações de restauração e recuperação e o monitoramento das operações. 
 ---
-= Restaure e recupere bancos de dados Oracle usando comandos UNIX
+= Restaurar e recuperar bancos de dados Oracle usando comandos UNIX em SnapCenter
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

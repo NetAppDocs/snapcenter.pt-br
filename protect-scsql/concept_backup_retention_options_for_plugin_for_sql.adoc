@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: Backup retention options 
 summary: Você pode escolher o número de dias para os quais reter cópias de backup ou especificar o número de cópias de backup que deseja reter, até um máximo de ONTAP de 255 cópias. Por exemplo, sua organização pode exigir que você retenha 10 dias de cópias de backup ou 130 cópias de backup. 
 ---
-= Opções de retenção de backup para Plug-in para SQL Server
+= Opções de retenção de backup para o SnapCenter Plug-in for SQL Server
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

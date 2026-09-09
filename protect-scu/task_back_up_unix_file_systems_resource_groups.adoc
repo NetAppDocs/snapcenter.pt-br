@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: backup, resource group 
 summary: Uma operação de backup no grupo de recursos é executada em todos os recursos definidos no grupo de recursos. 
 ---
-= Fazer backup de grupos de recursos de sistemas de arquivos Unix
+= Faça backup de grupos de recursos de sistemas de arquivos UNIX do SnapCenter
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

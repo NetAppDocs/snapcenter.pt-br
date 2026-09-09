@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: modify RBAC, role, users, groups 
 summary: O SnapCenter permite modificar funções, usuários e grupos. 
 ---
-= Gerenciar RBAC
+= Gerencie o RBAC no SnapCenter
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
@@ -15,6 +15,7 @@ O SnapCenter permite modificar funções, usuários e grupos.
 
 
 
+[[modify-a-role]]
 == Modificar uma função
 
 É possível modificar uma função SnapCenter para remover usuários ou grupos e alterar as permissões associadas à função. É especialmente útil modificar funções quando você deseja alterar ou eliminar as permissões usadas por uma função inteira.
@@ -44,6 +45,7 @@ NOTE: Quando essa opção está ativada, a atribuição de acesso aos usuários 
 
 
 
+[[modify-users-and-groups]]
 == Modificar usuários e grupos
 
 Você pode modificar usuários ou grupos do SnapCenter para alterar suas funções e ativos.

@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: dashboard 
 summary: 'No painel de navegação esquerdo do SnapCenter, você pode exibir vários painéis ou telas do Painel, juntamente com os detalhes do sistema associados. O número de visores disponíveis no Painel de instrumentos é fixo e não pode ser alterado. O conteúdo fornecido em cada exibição depende do controle de acesso baseado em função (RBAC).' 
 ---
-= Como visualizar informações no painel de instrumentos
+= Veja as informações no painel de controle do SnapCenter
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: SnapCenter Plug-in for Microsoft SQL Server 
 summary: 'Embora o SnapCenter possa verificar os backups imediatamente após a criação, isso pode aumentar significativamente o tempo necessário para concluir a tarefa de backup e usar muitos recursos. Portanto, é quase sempre melhor agendar a verificação em um trabalho separado para um momento posterior. Por exemplo, se você fizer backup de um banco de dados às 5:00 horas por dia, poderá agendar a verificação para ocorrer uma hora depois às 6:00 horas' 
 ---
-= Quando agendar trabalhos de verificação
+= Quando agendar tarefas de verificação no SnapCenter
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

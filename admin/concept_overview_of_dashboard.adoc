@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: dashboard 
 summary: 'A partir do painel de navegação esquerdo do SnapCenter, o Painel dá uma primeira olhada na integridade do seu sistema, incluindo atividades recentes de trabalho, alertas, resumo de proteção, eficiência de armazenamento e uso, status de trabalhos do SnapCenter (backup, clonagem, restauração), status de configuração para hosts autônomos e de cluster do Windows, número de máquinas virtuais de armazenamento (SVMs) gerenciadas pelo SnapCenter e capacidade de licença.' 
 ---
-= Visão geral do painel de instrumentos
+= Saiba mais sobre o painel de controle do SnapCenter
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
@@ -19,6 +19,7 @@ Em muitos casos, você pode ver mais informações sobre um display passando o M
 
 
 
+[[recent-job-activities]]
 == Atividades de trabalho recentes
 
 O mosaico atividades de trabalho recentes exibe a atividade de trabalho mais recente de qualquer tarefa de backup, restauração e clonagem a que você tenha acesso. Os trabalhos neste visor têm um dos seguintes estados: Concluído, Aviso, Falha, execução, fila e cancelado.
@@ -29,6 +30,7 @@ Clique em *See All* (Ver tudo) para ver um histórico de todos os trabalhos do S
 
 
 
+[[alerts]]
 == Alertas
 
 O bloco Alertas exibe os mais recentes alertas críticos e de aviso não resolvidos para os hosts e o servidor SnapCenter.
@@ -39,6 +41,7 @@ Clicar em um alerta específico redireciona você para a página Alertas para ob
 
 
 
+[[latest-protection-summary]]
 == Resumo de proteção mais recente
 
 O último bloco Resumo de proteção fornece o status de proteção para todas as entidades às quais você tem acesso. Por padrão, o visor é definido para fornecer o status de todos os plug-ins. As informações de status são fornecidas para recursos com backup no storage primário como snapshots e para storage secundário usando as tecnologias SnapMirror e SnapVault. A disponibilidade das informações de status de proteção para storage secundário é baseada no tipo de plug-in selecionado.
@@ -98,6 +101,7 @@ NOTE: Se você estiver usando o servidor SnapCenter 4,2 e uma versão anterior d
 
 
 
+[[jobs]]
 == Trabalhos
 
 O bloco tarefas fornece um resumo das tarefas de backup, restauração e clone às quais você tem acesso. Você pode personalizar o período de tempo para qualquer relatório usando o menu suspenso. As opções de período de tempo são fixadas nas últimas 24 horas, nos últimos 7 dias e nos últimos 30 dias. O relatório padrão mostra os trabalhos de proteção de dados executados durante os últimos 7 dias.
@@ -137,6 +141,7 @@ Contagem de trabalhos que estão em execução no momento.
 |===
 
 
+[[storage]]
 == Armazenamento
 
 O bloco armazenamento exibe o armazenamento primário e secundário consumido por tarefas de proteção durante um período de 90 dias, mostra graficamente as tendências de consumo e calcula as economias de armazenamento primário. As informações de armazenamento são atualizadas uma vez a cada 24 horas às 12 da manhã
@@ -152,6 +157,7 @@ NOTE: Se você usar o servidor SnapCenter 4,2 e uma versão anterior do plug-in 
 
 
 
+[[configuration]]
 == Configuração
 
 O bloco Configuração fornece informações de status consolidadas para todos os hosts de cluster autônomos ativos e do Windows que o SnapCenter está gerenciando e aos quais você tem acesso. Isso inclui as informações de status do plug-in associadas a esses hosts.

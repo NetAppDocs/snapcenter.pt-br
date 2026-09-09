@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: delete, PDB, clone PDB 
 summary: 'Você pode excluir o clone de um banco de dados plugável (PDB) se você não precisar mais.' 
 ---
-= Excluir clone de um banco de dados conetável
+= Excluir um clone de um banco de dados plugável em SnapCenter
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

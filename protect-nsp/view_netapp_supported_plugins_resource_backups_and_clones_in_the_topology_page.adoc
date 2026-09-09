@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: view NetApp supported plug-in resource 
 summary: Ao se preparar para fazer backup ou clonar um recurso, talvez seja útil exibir uma representação gráfica de todos os backups e clones no storage primário e secundário. Na página topologia, você pode ver todos os backups e clones disponíveis para o grupo de recursos ou recursos selecionado. Você pode visualizar os detalhes desses backups e clones e, em seguida, selecioná-los para executar operações de proteção de dados. 
 ---
-= Veja os backups e clones relacionados a recursos de plug-ins compatíveis com o NetApp na página topologia
+= Veja os backups e clones de recursos de plug-in compatíveis da NetApp no SnapCenter
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

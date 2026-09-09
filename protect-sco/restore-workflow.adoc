@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: restore, workflow 
 summary: O fluxo de trabalho de restauração inclui Planejamento, execução das operações de restauração e monitoramento das operações. 
 ---
-= Restaure o fluxo de trabalho
+= Fluxo de trabalho de restauração de banco de dados Oracle no SnapCenter
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

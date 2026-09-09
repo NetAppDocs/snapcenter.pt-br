@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: oracle databases discover 
 summary: Como o SnapCenter descobre bancos de dados Oracle. 
 ---
-= Nós preferenciais na configuração RAC
+= Como o SnapCenter usa nós preferenciais em uma configuração RAC
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
@@ -26,12 +26,14 @@ O node3 não será usado para backup porque não está na lista de nós preferen
 
 
 
+[[flex-asm-setup]]
 == Configuração do Flex ASM
 
 Em uma configuração do Flex ASM, os Leaf Nodes não serão listados como nós preferenciais se a cardinalidade for menor que os nós numéricos no cluster RAC. Se houver alguma alteração nas funções de nó de cluster do Flex ASM, você deverá descobrir manualmente para que os nós preferidos sejam atualizados.
 
 
 
+[[required-database-state]]
 == Estado da base de dados necessário
 
 As instâncias do banco de dados RAC nos nós preferenciais devem estar no estado necessário para que o backup seja concluído com êxito:

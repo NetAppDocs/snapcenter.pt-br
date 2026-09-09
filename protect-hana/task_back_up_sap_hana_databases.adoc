@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: SnapCenter Plug-in for SAP HANA Database 
 summary: Se um recurso ainda não fizer parte de qualquer grupo de recursos, você poderá fazer backup do recurso na página recursos. 
 ---
-= Fazer backup de bancos de dados do SAP HANA
+= Faça backup de bancos de dados SAP HANA com o SnapCenter
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

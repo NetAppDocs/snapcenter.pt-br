@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: SnapCenter Plug-in for PostgreSQL 
 summary: Antes de usar o SnapCenter para fazer backup dos recursos do cluster PostgreSQL, você deve criar uma política de backup para o grupo de recursos ou recursos que deseja fazer backup. Uma política de backup é um conjunto de regras que regem como você gerencia, agenda e retém backups. 
 ---
-= Crie políticas de backup para PostgreSQL
+= Crie o plug-in do SnapCenter para políticas de backup do PostgreSQL
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

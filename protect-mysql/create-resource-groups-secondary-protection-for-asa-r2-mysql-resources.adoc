@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: asa r2, secondary protection, consistency group, primary consistency group, secondary consistency group 
 summary: Um grupo de recursos é um contentor onde você adiciona recursos que deseja fazer backup e proteger. Um grupo de recursos permite fazer backup de todos os dados associados a um determinado aplicativo simultaneamente. 
 ---
-= Crie grupos de recursos e habilite a proteção secundária para recursos MySQL em sistemas ASA R2
+= Crie grupos de recursos e habilite a proteção secundária para recursos MySQL em sistemas ASA r2 no SnapCenter
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

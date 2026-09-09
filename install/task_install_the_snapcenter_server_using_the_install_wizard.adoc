@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: install, snapcenter software, install wizard, features enabled 
 summary: Você pode executar o executável do instalador do servidor SnapCenter para instalar o servidor SnapCenter. 
 ---
-= Instale o servidor SnapCenter no host Windows
+= Instale o SnapCenter Server em um host Windows
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
@@ -66,6 +66,7 @@ Os ficheiros de registo estão sempre listados (o mais antigo primeiro) na pasta
 
 
 
+[[features-enabled-on-windows-host-during-installation]]
 == Recursos habilitados no host Windows durante a instalação
 
 O instalador do servidor SnapCenter permite os recursos e funções do Windows em seu host Windows durante a instalação. Elas podem ser interessantes para solução de problemas e manutenção do sistema host.

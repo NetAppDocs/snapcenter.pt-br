@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: SnapCenter 
 summary: Você deve definir uma estratégia antes de executar operações de restauração com êxito usando o SnapCenter. Existem dois tipos de estratégias de restauração para recursos do IBM DB2 adicionados manualmente. Não é possível recuperar recursos do IBM DB2 adicionados manualmente. 
 ---
-= Tipos de estratégias de restauração suportadas para recursos IBM DB2 adicionados manualmente
+= Estratégias de restauração para recursos IBM Db2 adicionados manualmente no SnapCenter
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
@@ -18,6 +18,7 @@ NOTE: Não é possível recuperar recursos do IBM DB2 adicionados manualmente.
 
 
 
+[[complete-resource-restore]]
 == Restauração completa de recursos
 
 * Restaura todos os volumes, qtrees e LUNs de um recurso

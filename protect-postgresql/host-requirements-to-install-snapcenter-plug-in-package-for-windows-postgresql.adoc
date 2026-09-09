@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: postgresql 
 summary: Antes de instalar o pacote de plug-ins do SnapCenter para Windows, você deve estar familiarizado com alguns requisitos básicos de espaço do sistema host e requisitos de dimensionamento. 
 ---
-= Requisitos de host para instalar o pacote de plug-ins do SnapCenter para Windows
+= SnapCenter Plug-in para requisitos do host Windows do PostgreSQL
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

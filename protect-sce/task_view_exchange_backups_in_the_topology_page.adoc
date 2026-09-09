@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: SnapCenter plug-in for Exchange Server 
 summary: Quando você estiver se preparando para fazer backup de um recurso, talvez seja útil exibir uma representação gráfica de todos os backups nos armazenamentos primário e secundário. 
 ---
-= Veja backups do Exchange na página topologia
+= Veja os backups do Exchange na página de Topologia do SnapCenter
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

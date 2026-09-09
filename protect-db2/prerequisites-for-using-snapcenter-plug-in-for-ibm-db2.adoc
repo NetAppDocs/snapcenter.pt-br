@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: Credentials,SnapCenter Plug-in for IBM Db2 
 summary: Antes de usar o plug-in do SnapCenter para IBM DB2, o administrador do SnapCenter deve instalar e configurar o servidor SnapCenter e executar as tarefas de pré-requisito. 
 ---
-= Pré-requisitos para usar o plug-in SnapCenter para IBM DB2
+= Pré-requisitos para usar o SnapCenter Plug-in para IBM Db2
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

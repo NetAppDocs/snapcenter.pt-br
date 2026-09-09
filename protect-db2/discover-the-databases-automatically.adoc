@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: credentials 
 summary: Os recursos são bancos de dados IBM DB2 no host Linux gerenciados pelo SnapCenter. Você pode adicionar esses recursos a grupos de recursos para executar operações de proteção de dados depois de descobrir os bancos de dados do IBM DB2 disponíveis. 
 ---
-= Descubra os bancos de dados automaticamente
+= Descubra automaticamente bancos de dados IBM Db2 com o SnapCenter
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

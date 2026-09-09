@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: SnapCenter Plug-in for MySQL 
 summary: A descoberta automática não é suportada para determinadas instâncias do MySQL. Você deve adicionar esses recursos manualmente. 
 ---
-= Adicione recursos manualmente ao host do plug-in
+= Adicione manualmente os recursos do MySQL ao host do plug-in
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

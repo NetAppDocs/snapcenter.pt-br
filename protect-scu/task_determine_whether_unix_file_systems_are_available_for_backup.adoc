@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: SnapCenter Plug-in for UNIX file systems, discovery,file systems, UNIX, Unix file systems 
 summary: Depois de instalar o plug-in para sistemas de arquivos Unix, os sistemas de arquivos no host são automaticamente descobertos e exibidos na página recursos. 
 ---
-= Descubra os sistemas de arquivos UNIX disponíveis para backup
+= Descubra os sistemas de arquivos UNIX disponíveis para backup em SnapCenter
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

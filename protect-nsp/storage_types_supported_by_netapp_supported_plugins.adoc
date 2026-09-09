@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: NetApp supported plug-ins 
 summary: O SnapCenter oferece suporte a uma ampla variedade de tipos de armazenamento em máquinas físicas e virtuais. Você deve verificar o suporte para seu tipo de storage antes de instalar os plug-ins compatíveis com NetApp. 
 ---
-= Tipos de storage compatíveis com plug-ins compatíveis com NetApp
+= Tipos de armazenamento suportados pelos plug-ins compatíveis da NetApp no SnapCenter
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

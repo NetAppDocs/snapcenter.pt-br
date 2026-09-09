@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: SnapCenter Plug-in for IBM Db2 
 summary: 'Você pode criar um backup de um recurso (banco de dados) ou grupo de recursos. O fluxo de trabalho de backup inclui Planejamento, identificação de bancos de dados para backup, gerenciamento de políticas de backup, criação de grupos de recursos e inclusão de políticas, criação de backups e monitoramento das operações.' 
 ---
-= Faça backup dos recursos do IBM DB2
+= Fluxo de trabalho de backup do IBM Db2 em SnapCenter
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

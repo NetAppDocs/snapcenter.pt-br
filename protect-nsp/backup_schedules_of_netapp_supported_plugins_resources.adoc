@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: NetApp supported plug-in 
 summary: O fator mais crítico na determinação de um agendamento de backup é a taxa de alteração do recurso. Quanto mais você fizer backup de seus recursos, menos Registros de arquivamento que o SnapCenter precisa usar para restaurar, o que pode resultar em operações de restauração mais rápidas. 
 ---
-= Programações de backup de recursos de plug-in compatíveis com NetApp
+= Agendamentos de backup do SnapCenter para recursos de plug-ins compatíveis com a NetApp
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

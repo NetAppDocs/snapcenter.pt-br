@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: SnapCenter Plug-in for PostgreSQL 
 summary: Os recursos são clusters e instâncias do PostgreSQL no host Linux que são gerenciados pelo SnapCenter. Depois de instalar o plug-in do SnapCenter para PostgreSQL, os clusters do PostgreSQL nesse host do Linux são automaticamente descobertos e exibidos na página recursos. 
 ---
-= Descoberta automática de recursos no host Linux
+= Descoberta automática dos recursos PostgreSQL do SnapCenter em hosts Linux
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: backup 
 summary: Se um recurso ainda não fizer parte de qualquer grupo de recursos, você poderá fazer backup do recurso na página recursos. 
 ---
-= Faça backup de recursos SQL
+= Faça backup dos recursos do SQL em SnapCenter
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

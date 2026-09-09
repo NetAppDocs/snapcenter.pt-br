@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: SnapCenter overview 
 summary: O software SnapCenter é uma plataforma simples, centralizada e dimensionável que fornece proteção de dados consistente com aplicações para aplicações, bancos de dados, sistemas de arquivos host e VMs em execução nos sistemas ONTAP em qualquer lugar na nuvem híbrida. 
 ---
-= Visão geral do SnapCenter
+= Saiba mais sobre o software SnapCenter
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
@@ -49,6 +49,7 @@ Você pode instalar o SnapCenter no local ou em uma nuvem pública para proteger
 
 
 
+[[key-features]]
 == Principais recursos
 
 O SnapCenter fornece os seguintes recursos principais:
@@ -94,6 +95,7 @@ O SnapCenter fornece APIS REST para a maioria das funcionalidades para integraç
 
 
 
+[[snapcenter-architecture-and-components]]
 == Arquitetura e componentes do SnapCenter
 
 O SnapCenter usa um design em camadas com um servidor de gerenciamento central e hosts de plug-in.  Os hosts do servidor e do plug-in podem estar em locais diferentes.
@@ -104,6 +106,7 @@ O SnapCenter inclui o servidor SnapCenter, o pacote de plug-ins SnapCenter para 
 
 
 
+[[snapcenter-server]]
 === Servidor SnapCenter
 
 O servidor SnapCenter suporta os sistemas operacionais Microsoft Windows e Linux (RHEL 8.x, RHEL 9.x, SLES 15 SP5). O servidor SnapCenter inclui um servidor da Web, uma interface de usuário centralizada baseada em HTML5, cmdlets do PowerShell, APIs REST e o repositório SnapCenter.
@@ -112,6 +115,7 @@ O SnapCenter armazena informações sobre suas operações no repositório SnapC
 
 
 
+[[snapcenter-plug-ins]]
 === Plug-ins do SnapCenter
 
 Cada plug-in do SnapCenter é compatível com ambientes, bancos de dados e aplicações específicos.
@@ -293,6 +297,7 @@ Para proteger bancos de dados, sistemas de arquivos, VMs ou armazenamentos de da
 
 
 
+[[snapcenter-repository]]
 === Repositório SnapCenter
 
 O repositório do SnapCenter, às vezes chamado de banco de dados NSM, armazena informações e metadados para cada operação do SnapCenter.

@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: create policies, NetApp supported plug-in 
 summary: Antes de usar o SnapCenter para fazer backup de recursos específicos de plug-in compatíveis com o NetApp, você deve criar uma política de backup para o recurso ou grupo de recursos que deseja fazer backup. 
 ---
-= Criar políticas para recursos de plug-in compatíveis com o NetApp
+= Crie políticas do SnapCenter para recursos de plug-in compatíveis com a NetApp
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

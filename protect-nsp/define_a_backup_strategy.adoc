@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: backup strategy 
 summary: 'Definir uma estratégia de backup antes de criar seus trabalhos de backup garante que você tenha os backups necessários para restaurar ou clonar seus recursos com êxito. Seu contrato de nível de serviço (SLA), objetivo de tempo de recuperação (rto) e objetivo de ponto de recuperação (RPO) determinam em grande parte sua estratégia de backup.' 
 ---
-= Defina uma estratégia de backup
+= Defina uma estratégia de backup do SnapCenter
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

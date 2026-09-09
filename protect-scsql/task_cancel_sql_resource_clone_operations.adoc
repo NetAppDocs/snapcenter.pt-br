@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: clone, cancel 
 summary: Você pode cancelar as operações de clone que estão na fila. 
 ---
-= Cancelar operações de clone de recursos SQL
+= Cancelar operações de clonagem de recursos SQL em SnapCenter
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

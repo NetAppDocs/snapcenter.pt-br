@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: Multiple databases 
 summary: 'Você pode colocar todos os bancos de dados no mesmo volume, porque a política de backup tem uma opção para definir o máximo de bancos de dados por backup (o valor padrão é 100).' 
 ---
-= Vários bancos de dados no mesmo volume
+= Vários bancos de dados no mesmo volume no SnapCenter
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

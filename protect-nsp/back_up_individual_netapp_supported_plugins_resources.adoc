@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: backup, NetApp supported plug-ins, NetApp supported plug-ins, MongoDB, ORASCPM, Oracle Applications, SAP ASE, SAP MaxDB, Storage plug-in 
 summary: Se um recurso de plug-ins com suporte do NetApp individual não fizer parte de qualquer grupo de recursos, você poderá fazer o backup do recurso na página recursos. Você pode fazer backup do recurso sob demanda ou, se o recurso tiver uma política anexada e uma programação configurada, os backups ocorrem automaticamente de acordo com a programação. 
 ---
-= Fazer backup de recursos de plug-ins compatíveis com NetApp individuais
+= Faça backup dos recursos individuais dos plug-ins compatíveis com a NetApp no SnapCenter
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

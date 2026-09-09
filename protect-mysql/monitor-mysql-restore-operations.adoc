@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: SnapCenter Server 
 summary: Pode monitorizar o progresso de diferentes operações de restauro do SnapCenter utilizando a página trabalhos. Você pode querer verificar o progresso de uma operação para determinar quando ela está concluída ou se há um problema. 
 ---
-= Monitorar operações de restauração do MySQL
+= Monitore operações de restauração do MySQL no SnapCenter
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

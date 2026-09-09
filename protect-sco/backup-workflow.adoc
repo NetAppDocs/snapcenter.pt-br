@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: backup, workflow 
 summary: 'Você pode criar um backup de um recurso (banco de dados) ou grupo de recursos.' 
 ---
-= Visão geral do procedimento de backup
+= SnapCenter fluxo de trabalho de backup para bancos de dados Oracle
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

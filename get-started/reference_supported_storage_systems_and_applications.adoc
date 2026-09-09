@@ -15,6 +15,7 @@ Você deve conhecer os sistemas de storage, aplicações e bancos de dados compa
 
 
 
+[[supported-storage-systems]]
 == Sistemas de storage compatíveis
 
 * NetApp ONTAP 9.12.1 e posterior
@@ -34,6 +35,7 @@ Você deve usar o ONTAP 9.17.1 se estiver usando o SnapCenter Server 6.2 e os pl
 
 
 
+[[supported-applications-and-databases]]
 == Aplicativos e bancos de dados compatíveis
 
 O SnapCenter oferece suporte à proteção de diferentes aplicativos e bancos de dados.

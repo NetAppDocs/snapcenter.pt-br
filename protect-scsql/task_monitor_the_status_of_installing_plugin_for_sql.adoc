@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: monitor, snapcenter 
 summary: Pode monitorizar o progresso da instalação do pacote de plug-ins do SnapCenter utilizando a página trabalhos. Você pode querer verificar o andamento da instalação para determinar quando ela está concluída ou se há um problema. 
 ---
-= Monitore o status da instalação do Plug-in para SQL Server
+= Monitore o status de instalação do plug-in do SnapCenter para SQL Server
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

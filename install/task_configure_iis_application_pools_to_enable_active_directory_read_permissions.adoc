@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: IIS application pool, active directory, enable 
 summary: 'Você pode configurar os Serviços de informações da Internet (IIS) em seu servidor Windows para criar uma conta de pool de aplicativos personalizada quando precisar ativar as permissões de leitura do ative Directory para o SnapCenter.' 
 ---
-= Configure pools de aplicativos do IIS para habilitar permissões de leitura do ative Directory
+= Configure os pools de aplicativos do IIS para o Active Directory em SnapCenter
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

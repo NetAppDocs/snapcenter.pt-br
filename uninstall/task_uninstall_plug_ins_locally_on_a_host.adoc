@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: uninstall, uninstall plug-in locally, uninstall plug-in from a host 
 summary: Você pode desinstalar os plug-ins do SnapCenter localmente em um host se não conseguir acessar o host do servidor SnapCenter. 
 ---
-= Desinstale os plug-ins localmente em um host
+= Desinstale os plug-ins do SnapCenter localmente em um host
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
