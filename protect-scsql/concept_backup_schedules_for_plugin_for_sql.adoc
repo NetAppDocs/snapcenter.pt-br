@@ -2,7 +2,7 @@
 permalink: protect-scsql/concept_backup_schedules_for_plugin_for_sql.html 
 sidebar: sidebar 
 keywords: Backup schedules 
-summary: 'A frequência de backup (tipo de agendamento) é especificada em políticas; uma programação de backup é especificada na configuração do grupo de recursos.' 
+summary: 'A frequência de backup (tipo de agendamento) é especificada nas políticas, e um agendamento de backup é especificado na configuração do grupo de recursos.' 
 ---
 = Agendamentos de backup para o SnapCenter Plug-in for SQL Server
 :allow-uri-read: 

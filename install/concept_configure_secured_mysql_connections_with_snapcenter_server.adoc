@@ -2,7 +2,7 @@
 permalink: install/concept_configure_secured_mysql_connections_with_snapcenter_server.html 
 sidebar: sidebar 
 keywords: Secure Sockets Layer, secure MYSQL connections, standalone configuration, HA configuration, SSL 
-summary: 'Você pode gerar certificados SSL (Secure Sockets Layer) e arquivos de chave se quiser proteger a comunicação entre o servidor SnapCenter e o servidor MySQL em configurações autônomas ou configurações de balanceamento de carga de rede (NLB).' 
+summary: 'Você pode gerar certificados SSL (Secure Sockets Layer) e arquivos de chave se quiser proteger a comunicação entre o servidor SnapCenter e o servidor MySQL em configurações autônomas ou configurações NLB (Network Load Balancing).' 
 ---
 = Configure conexões MySQL seguras com o servidor SnapCenter
 :allow-uri-read: 

@@ -2,7 +2,7 @@
 permalink: protect-scsql/concept_type_of_backups_supported.html 
 sidebar: sidebar 
 keywords: Type of backups 
-summary: Fazer backup de bancos de dados do sistema e do usuário do SQL Server usando o SnapCenter requer que você escolha o tipo de recurso, como bancos de dados, instâncias do SQL Server e grupos de disponibilidade. A tecnologia Snapshot é utilizada para criar cópias on-line e somente leitura dos volumes nos quais os recursos residem. 
+summary: 'O backup de bancos de dados do sistema e do usuário do SQL Server usando o SnapCenter exige que você escolha o tipo de recurso, como bancos de dados, instâncias do SQL Server e grupos de disponibilidade (AG). A tecnologia Snapshot é utilizada para criar cópias on-line e somente leitura dos volumes nos quais os recursos residem.' 
 ---
 = Tipos de backups suportados pelo SnapCenter
 :allow-uri-read: 

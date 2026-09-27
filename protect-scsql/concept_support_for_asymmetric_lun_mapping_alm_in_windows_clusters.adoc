@@ -2,7 +2,7 @@
 permalink: protect-scsql/concept_support_for_asymmetric_lun_mapping_alm_in_windows_clusters.html 
 sidebar: sidebar 
 keywords: ALM 
-summary: 'O plug-in do SnapCenter para Microsoft SQL Server suporta a descoberta no SQL Server 2012 e posterior, configurações de mapeamento assimétrico de LUN (ALM) para alta disponibilidade e grupos de disponibilidade para recuperação de desastres. Ao descobrir recursos, o SnapCenter descobre bancos de dados em hosts locais e em hosts remotos em configurações ALM.' 
+summary: 'O plug-in do SnapCenter para Microsoft SQL Server suporta a descoberta no SQL Server 2012 e posterior, configurações de mapeamento LUN assimétrico (ALM) para alta disponibilidade e grupos de disponibilidade para recuperação de desastres. Ao descobrir recursos, o SnapCenter descobre bancos de dados em hosts locais e em hosts remotos em configurações ALM.' 
 ---
 = SnapCenter suporte para mapeamento assimétrico de LUN em clusters Windows
 :allow-uri-read: 

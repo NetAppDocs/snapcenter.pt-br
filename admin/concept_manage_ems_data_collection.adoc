@@ -2,7 +2,7 @@
 permalink: admin/concept_manage_ems_data_collection.html 
 sidebar: sidebar 
 keywords: EMS data collection 
-summary: 'Você pode agendar e gerenciar a coleta de dados do sistema de Gerenciamento de Eventos (EMS) usando cmdlets do PowerShell. A coleta de dados do EMS envolve a coleta de detalhes sobre o servidor SnapCenter, os pacotes plug-in do SnapCenter instalados, os hosts e informações semelhantes e, em seguida, enviá-lo para uma máquina virtual de armazenamento ONTAP especificada.' 
+summary: 'Você pode agendar e gerenciar a coleta de dados do sistema de Gerenciamento de Eventos (EMS) usando cmdlets do PowerShell. A coleta de dados do EMS envolve a coleta de detalhes sobre o servidor SnapCenter, os pacotes plug-in do SnapCenter instalados, os hosts e informações semelhantes e, em seguida, enviá-los para uma máquina virtual de armazenamento (SVM) ONTAP especificada.' 
 ---
 = Gerencie a coleta de dados EMS no SnapCenter
 :allow-uri-read: 

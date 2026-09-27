@@ -2,7 +2,7 @@
 permalink: protect-scsql/task_define_a_backup_strategy_for_sql_server_resources.html 
 sidebar: sidebar 
 keywords: backup strategy 
-summary: 'Definir uma estratégia de backup antes de criar seus trabalhos de backup ajuda a garantir que você tenha os backups necessários para restaurar ou clonar seus bancos de dados com êxito. Seu Contrato de nível de Serviço (SLA), objetivo de tempo de recuperação (rto) e objetivo de ponto de recuperação (RPO) determinam em grande parte sua estratégia de backup.' 
+summary: 'Definir uma estratégia de backup antes de criar seus trabalhos de backup ajuda a garantir que você tenha os backups necessários para restaurar ou clonar seus bancos de dados com êxito. Seu Contrato de nível de serviço (SLA), objetivo de tempo de recuperação (rto) e objetivo do ponto de restauração (RPO) determinam em grande parte a sua estratégia de backup.' 
 ---
 = Estratégia de backup para recursos do SQL Server em SnapCenter
 :allow-uri-read: 

@@ -2,7 +2,7 @@
 permalink: protect-hana/task_define_a_backup_strategy_for_sap_hana_databases.html 
 sidebar: sidebar 
 keywords: SnapCenter Plug-in for SAP HANA Database 
-summary: 'Definir uma estratégia de backup antes de criar seus trabalhos de backup ajuda a ter os backups necessários para restaurar ou clonar seus recursos com êxito. Seu contrato de nível de serviço (SLA), objetivo de tempo de recuperação (rto) e objetivo de ponto de recuperação (RPO) determinam em grande parte sua estratégia de backup.' 
+summary: 'Definir uma estratégia de backup antes de criar seus trabalhos de backup ajuda a ter os backups necessários para restaurar ou clonar seus recursos com êxito. Seu contrato de nível de serviço (SLA), objetivo de tempo de recuperação (rto) e objetivo do ponto de restauração (RPO) determinam em grande parte a sua estratégia de backup.' 
 ---
 = Defina uma estratégia de backup para bancos de dados SAP HANA em SnapCenter
 :allow-uri-read: 

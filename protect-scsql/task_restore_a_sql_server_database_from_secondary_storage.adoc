@@ -2,7 +2,7 @@
 permalink: protect-scsql/task_restore_a_sql_server_database_from_secondary_storage.html 
 sidebar: sidebar 
 keywords: restore operation 
-summary: 'Você pode restaurar os bancos de dados SQL Server de backup dos LUNs físicos (RDM, iSCSI ou FCP) em um sistema de armazenamento secundário. O recurso Restaurar é um processo multifásico que copia todos os dados e as páginas de log de um backup especificado do SQL Server residente no sistema de storage secundário para um banco de dados especificado.' 
+summary: 'É possível restaurar os bancos de dados SQL Server com backup dos LUNs físicos (RDM, iSCSI ou FCP) em um sistema de storage secundário. O recurso Restaurar é um processo multifásico que copia todos os dados e as páginas de log de um backup especificado do SQL Server residente no sistema de storage secundário para um banco de dados especificado.' 
 ---
 = Restaurar um banco de dados SQL Server a partir de storage secundário no SnapCenter
 :allow-uri-read: 
