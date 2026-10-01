@@ -76,12 +76,18 @@ NOTE: Deve alocar espaço em disco suficiente e monitorizar o consumo de armazen
 Pacotes de software necessários
  a| 
 * Java 17 (Oracle Java, OpenJDK ou SAP JDK) para SnapCenter 6.2.1 e posteriores ou Java 11 para SnapCenter 6.2 e anteriores
-
-
++
 
 NOTE: Certifique-se de ter instalado apenas a edição certificada do Java 17 para SnapCenter 6.2.1 e posteriores ou do Java 11 para SnapCenter 6.2 e anteriores no host Linux.
 
++
 Se você atualizou o Java para a versão mais recente, certifique-se de que a opção JAVA_HOME localizada em /var/opt/snapcenter/spl/etc/spl.properties esteja definida com a versão correta do Java e o caminho correto.
+
++
+
+NOTE: Usuários não root precisam ter permissões de execução para executar o Java.
+
+
 
 |===
 Para obter as informações mais recentes sobre as versões compatíveis, consulte o https://imt.netapp.com/imt/imt.jsp?components=180320;180338;&solution=1257&isHWU&src=IMT["Ferramenta de Matriz de interoperabilidade do NetApp"^].

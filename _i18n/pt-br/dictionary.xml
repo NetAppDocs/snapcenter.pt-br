@@ -3351,7 +3351,6 @@
   <block id="7ae0ad473e0b444f584e63e025e0d4e0" category="doc">Descubra os bancos de dados automaticamente</block>
   <block id="1613db1c8ee565787325feb95428e9ea" category="paragraph">Os recursos são bancos de dados IBM DB2 no host Linux gerenciados pelo SnapCenter. Você pode adicionar os recursos a grupos de recursos para executar operações de proteção de dados depois de descobrir os bancos de dados do IBM DB2 disponíveis.</block>
   <block id="c39495ad9bcb958b9080a36f441abbbe" category="list-text">Você já deve ter concluído tarefas como instalar o servidor SnapCenter, adicionar hosts e configurar as conexões do sistema de armazenamento.</block>
-  <block id="97a161d2a9a0ce59a5128905c924a379" category="list-text">O plug-in do SnapCenter para IBM DB2 não oferece suporte à descoberta automática dos recursos residentes em ambientes virtuais RDM/VMDK. Você deve fornecer as informações de storage para ambientes virtuais e adicionar os bancos de dados manualmente.</block>
   <block id="2fc619a3874b3d7ee66dc2b056c19d58" category="list-text">Depois de instalar o plug-in, todos os bancos de dados nesse host Linux são automaticamente descobertos e exibidos na página recursos.</block>
   <block id="1c38e2d02d815dacbf8f55fddf8a55ef" category="list-text">Somente bancos de dados são auto-descobertos.</block>
   <block id="a9d0e12f10920c999cb78960286bd82a" category="paragraph">Os recursos descobertos automaticamente não podem ser modificados ou excluídos.</block>
@@ -10009,4 +10008,13 @@
   <block id="829690f9bb273b74b9b78d6c6f633563" category="summary">A frequência de backup (tipo de agendamento) é especificada nas políticas, e um agendamento de backup é especificado na configuração do grupo de recursos.</block>
   <block id="7961a2a642f2ef14bcc3560c4533978b" category="summary">Para reduzir o impacto no desempenho da tarefa de backup, agende a verificação do backup em uma tarefa separada para um momento posterior, em vez de imediatamente após a criação do backup.</block>
   <block id="2faaeb23f72a64bdbb16cfe932406ce8" category="summary">Você pode clonar um backup de sistema de arquivos do storage primário ou do storage secundário. Você também pode escolher o destino que atende aos seus requisitos, seja o local original do backup ou um destino diferente no mesmo host ou em um host diferente. O destino deve estar no mesmo volume que o backup de origem do clone.</block>
+  <block id="f7182d7a35e19e73172617deaca2e396" category="admonition">A conta que executa o Java deve ter permissão para executar o Java.</block>
+  <block id="baf777b8ad8fec11ce73312d60c6beec" category="paragraph">+ NOTA: usuários sem privilégios de root devem ter permissões de execução para executar o Java.</block>
+  <block id="af4f76638af48843fe26083b8647819a" category="admonition">Usuários não root precisam ter permissões de execução para executar o Java.</block>
+  <block id="28476e82f924742dee48ae4d44d52558" category="inline-xref">Recursos residentes em ambientes virtuais RDM/VMDK</block>
+  <block id="211bef1be936b825b44ea7171f22e760" category="list-text">O plug-in do SnapCenter para IBM Db2 não oferece suporte à descoberta automática dos recursos residentes em ambientes virtuais RDM/VMDK. Você deve fornecer as informações de armazenamento para ambientes virtuais ao adicionar os bancos de dados manualmente. Consulte <block ref="40c107052fc48aa77e5bdccb7af86d58" category="inline-xref-macro-rx"></block> para obter detalhes.</block>
+  <block id="288d3dea029b52699e9d4a669729d1f7" category="paragraph">Os recursos residentes em ambientes virtuais RDM/VMDK não podem ser descobertos automaticamente. Você deve desativar a descoberta automática e adicionar a instância manualmente para o plug-in do SnapCenter para IBM Db2, da seguinte forma:</block>
+  <block id="8f3b4f1a702849c5530b3620426cca19" category="inline-link-macro">Faça backup de bancos de dados IBM Db2, cmdlets do PowerShell</block>
+  <block id="17a05e9785500431b7cdd6242282c8ed" category="paragraph">Consulte <block ref="636d9603a663670ca77c87610aa537ee" category="inline-link-macro-rx"></block> para obter mais informações.</block>
+  <block id="b9bcbcd68d11ccb28e0b885b2d2877cf" category="admonition">O IBM Java não é compatível com hosts Windows e Linux.</block>
 </blocks>

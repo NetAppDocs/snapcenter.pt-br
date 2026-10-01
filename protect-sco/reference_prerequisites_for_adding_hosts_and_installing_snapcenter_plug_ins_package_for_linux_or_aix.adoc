@@ -25,6 +25,10 @@ O pacote de plug-ins do SnapCenter para AIX resolve automaticamente o link simb�
 * Crie credenciais com o modo de autenticação como Linux ou AIX para o usuário de instalação.
 * Você precisa ter instalado Java 17 (para SnapCenter 6.2.1 e posteriores) ou Java 11 (para SnapCenter 6.2 e anteriores) em seu host Linux ou AIX.
 +
+
+NOTE: Usuários não root precisam ter permissões de execução para executar o Java.
+
++
 ** Java da Oracle, OpenJDK ou SAP JDK é compatível com Linux.
 ** IBM Java para AIX. Você pode fazer o download em  https://developer.ibm.com/languages/java/semeru-runtimes/downloads/?version=17&os=AIX["IBM Semeru runtimes Downloads"^].
 +
@@ -224,6 +228,10 @@ NOTE: Deve alocar espaço em disco suficiente e monitorizar o consumo de armazen
 Pacotes de software necessários
  a| 
 * IBM Java 17 para SnapCenter 6.2.1 e versões posteriores ou IBM Java 11 para SnapCenter 6.2 e versões anteriores
++
+
+NOTE: Usuários não root precisam ter permissões de execução para executar o Java.
+
 
 
 Se você atualizou o Java para a versão mais recente, certifique-se de que a opção JAVA_HOME localizada em /var/opt/snapcenter/spl/etc/spl.properties esteja definida com a versão correta do Java e o caminho correto.

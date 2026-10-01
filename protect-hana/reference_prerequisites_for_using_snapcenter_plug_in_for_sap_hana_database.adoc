@@ -18,6 +18,10 @@ Antes de usar o plug-in do SnapCenter para banco de dados SAP HANA, o administra
 * Configure o ambiente SnapCenter adicionando conexões do sistema de storage e criando credenciais, se aplicável.
 * Instale o Java 17 (Oracle Java, OpenJDK ou SAP JDK) para SnapCenter 6.2.1 e posteriores ou o Java 11 para SnapCenter 6.2 e anteriores em seu host Linux ou Windows.
 +
+
+NOTE: Usuários não root precisam ter permissões de execução para executar o Java.
+
++
 Você deve definir o caminho Java na variável caminho ambiental da máquina host.
 
 * Configure o SnapMirror e o SnapVault, se quiser replicação de backup.

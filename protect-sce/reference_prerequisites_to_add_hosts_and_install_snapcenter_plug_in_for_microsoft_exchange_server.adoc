@@ -85,6 +85,10 @@ Pacotes de software necessários
 * Pacote de hospedagem do ASP.NET Core Runtime 10.0.7 (ou posterior)
 * PowerShell 7.6.1 (ou posterior)
 * Java 17 (Oracle Java, OpenJDK ou SAP JDK) ou Java 11 para SnapCenter 6.2 ou anterior
++
+
+NOTE: A conta que executa o Java deve ter permissão para executar o Java.
+
 
 
 Consulte a link:https://library.netapp.com/ecm/ecm_download_file/ECMLP3359467["SnapCenter software Notas de lançamento"^] para obter as versões qualificadas mais recentes do ASP.NET Core e do PowerShell para sua versão específica do SnapCenter.

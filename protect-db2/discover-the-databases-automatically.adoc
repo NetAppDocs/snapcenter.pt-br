@@ -15,7 +15,7 @@ Os recursos são bancos de dados IBM DB2 no host Linux gerenciados pelo SnapCent
 
 .Antes de começar
 * Você já deve ter concluído tarefas como instalar o servidor SnapCenter, adicionar hosts e configurar as conexões do sistema de armazenamento.
-* O plug-in do SnapCenter para IBM DB2 não oferece suporte à descoberta automática dos recursos residentes em ambientes virtuais RDM/VMDK. Você deve fornecer as informações de storage para ambientes virtuais e adicionar os bancos de dados manualmente.
+* O plug-in do SnapCenter para IBM Db2 não oferece suporte à descoberta automática dos recursos residentes em ambientes virtuais RDM/VMDK. Você deve fornecer as informações de armazenamento para ambientes virtuais ao adicionar os bancos de dados manualmente. Consulte <<resources_rdm_vmdk_virtual_environments,Recursos residentes em ambientes virtuais RDM/VMDK>> para obter detalhes.
 
 
 .Sobre esta tarefa
@@ -45,3 +45,16 @@ Os recursos são exibidos juntamente com informações como tipo de recurso, nom
 
 
 IMPORTANT: Você deve atualizar os recursos se os bancos de dados forem renomeados fora do SnapCenter.
+
+[[resources_rdm_vmdk_virtual_environments]]
+.Recursos residentes em ambientes virtuais RDM/VMDK
+Os recursos residentes em ambientes virtuais RDM/VMDK não podem ser descobertos automaticamente. Você deve desativar a descoberta automática e adicionar a instância manualmente para o plug-in do SnapCenter para IBM Db2, da seguinte forma:
+
+[listing]
+----
+Set-SmConfigSettings -Agent -Hostname <HOST_NAME> -configSettings @{"DISABLE_AUTO_DISCOVERY"="true"}
+
+PS C:\> Add-SmResource -HostName 10.32.212.13 -PluginCode DB2 -ResourceType Instance -ResourceName db2inst1 -StorageFootPrint
+(@{"VolumeName"="windb201_data01";"LUNName"="windb201_data01";"StorageSystem"="windb2svm"})
+----
+Consulte link:back-up-db2-databases.html["Faça backup de bancos de dados IBM Db2, cmdlets do PowerShell"] para obter mais informações.

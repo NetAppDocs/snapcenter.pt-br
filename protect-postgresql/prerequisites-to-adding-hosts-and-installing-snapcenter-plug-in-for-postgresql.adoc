@@ -47,6 +47,10 @@ link:https://www.oracle.com/java/technologies/downloads/#java17["Baixe o Java pa
 +
 link:https://www.oracle.com/java/technologies/downloads/#java17["Baixe o Java para todos os sistemas operacionais"]
 
++
+
+NOTE: Usuários não root precisam ter permissões de execução para executar o Java.
+
 * Para clusters PostgreSQL que estão sendo executados em um host Linux, ao instalar o plug-in para PostgreSQL, o plug-in SnapCenter para UNIX é instalado automaticamente.
 * Você deve ter *bash* como o shell padrão para instalação do plug-in.
 
