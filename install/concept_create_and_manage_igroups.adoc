@@ -13,6 +13,13 @@ summary: 'Você cria grupos de iniciadores (grupos de iniciadores) para especifi
 [role="lead"]
 Você cria grupos de iniciadores (grupos de iniciadores) para especificar quais hosts podem acessar um determinado LUN no sistema de armazenamento. Você pode usar o SnapCenter para criar, renomear, modificar ou excluir um grupo em um host do Windows.
 
+[NOTE]
+====
+* O SnapCenter cria automaticamente um igroup se ele ainda não existir ao executar operações de restauração ou clonagem de LUN. O igroup é criado com o seguinte formato de nome: `snapcenter_<id>_igroup`
+* O SnapCenter não exclui um igroup criado como parte de uma operação de exclusão de clone. Ele é mantido para futuras operações de clonagem ou restauração.
+
+
+====
 
 
 [[create-an-igroup]]
